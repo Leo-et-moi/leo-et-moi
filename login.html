@@ -145,7 +145,11 @@ async function ensureUserDoc(user){
   }
 }
 
-function goHome(){ window.location.href = 'index.html'; }
+function goHome(){
+  let dest = 'index.html';
+  try { const r = sessionStorage.getItem('lem_return'); if (r) { sessionStorage.removeItem('lem_return'); dest = r; } } catch(e){}
+  window.location.href = dest;
+}
 
 // If already signed in, offer to continue (don't auto-redirect, so a shared device can switch users)
 onAuthStateChanged(auth, (user) => {
