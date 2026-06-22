@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Mon vocabulaire — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F0E8; --dark:#1B2845; --navyMid:#2C4A7C; --coral:#E8503A;
+  --gold:#D4920A; --ltGold:#FDF3D8; --ltBlue:#E8F0FA; --ltGreen:#E3F5EC;
+  --green:#1E7B45; --text:#1A2733; --slate:#4A6580; --divider:#D8DFE8;
+  --card:#EDE8DF; --white:#FFFFFF; --nav-h:64px;
+}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.7;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);
+  -webkit-text-size-adjust:100%;}
+
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:0 16px;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;
+  padding:8px;min-width:44px;min-height:44px;display:flex;align-items:center;
+  justify-content:center;border-radius:50%;}
+.icon-btn:active{background:rgba(255,255,255,0.1);}
+
+.main{max-width:600px;margin:0 auto;padding:18px 14px 8px;}
+
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;
+  color:var(--navyMid);text-decoration:none;min-height:44px;}
+
+.speak-btn{background:none;border:2px solid var(--divider);border-radius:20px;
+  padding:4px 10px;font-size:13px;color:var(--slate);cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;min-height:32px;
+  font-family:Arial,sans-serif;transition:background 0.15s,color 0.15s;}
+.speak-btn:active,.speak-btn.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
+
+.page-title{font-size:24px;font-weight:bold;color:var(--dark);margin:6px 0 4px;}
+.page-sub{font-size:14px;color:var(--slate);margin-bottom:16px;line-height:1.5;}
+
+.count-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;}
+.count-label{font-size:11px;font-weight:bold;color:var(--navyMid);text-transform:uppercase;letter-spacing:0.5px;}
+
+.vocab-card{background:var(--white);border-radius:14px;padding:14px 16px;
+  margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:5px solid var(--navyMid);}
+.vocab-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.vocab-fr{font-size:18px;font-weight:bold;color:var(--dark);}
+.vocab-en{font-size:14px;color:var(--slate);}
+.vocab-ctx{font-size:13px;color:var(--text);background:var(--ltBlue);
+  border-radius:6px;padding:6px 10px;margin-top:8px;line-height:1.5;}
+.vocab-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.remove-btn{background:none;border:2px solid var(--divider);border-radius:20px;
+  width:36px;height:36px;color:var(--slate);cursor:pointer;font-size:16px;font-weight:bold;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.remove-btn:active{background:#fceaea;border-color:#C0392B;color:#C0392B;}
+
+.listen-all{display:inline-flex;align-items:center;gap:6px;background:var(--navyMid);
+  color:#fff;border:none;border-radius:20px;padding:8px 14px;font-size:14px;font-weight:bold;
+  font-family:Arial,sans-serif;cursor:pointer;min-height:40px;}
+.listen-all:active{background:#1A3060;}
+
+/* EMPTY STATE */
+.empty{background:var(--white);border-radius:14px;padding:24px 20px;text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);border-top:4px solid var(--coral);}
+.empty-icon{font-size:40px;margin-bottom:10px;}
+.empty-title{font-size:18px;font-weight:bold;color:var(--dark);margin-bottom:8px;}
+.empty-text{font-size:15px;color:var(--slate);line-height:1.6;}
+.empty-text .plus-demo{display:inline-block;background:var(--ltGreen);color:var(--green);
+  font-weight:bold;border-radius:8px;padding:1px 8px;}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);
+  background:var(--dark);border-top:3px solid var(--coral);
+  display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;
+  min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}
+.nav-label{font-size:11px;font-weight:bold;letter-spacing:0.3px;}
+
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <a class="site-name" href="../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons">
+    <button class="icon-btn" onclick="speakPage()" title="Lire la page">&#128266;</button>
+    <button class="icon-btn" title="Notifications">&#128276;</button>
+  </div>
+</header>
+
+<main class="main">
+
+<a class="back-link" href="index.html">&#8592; R&eacute;f&eacute;rence</a>
+<div class="page-title">&#128218; Mon vocabulaire</div>
+<div class="page-sub">Les mots que tu choisis de garder. Tu les ajoutes en appuyant sur &laquo;&nbsp;&#43; Ajouter&nbsp;&raquo; dans tes le&ccedil;ons.</div>
+
+<div class="count-row" id="countRow" style="display:none;">
+  <span class="count-label" id="countLabel">0 mot</span>
+  <button class="listen-all" onclick="speakAll()">&#128266; Tout &eacute;couter</button>
+</div>
+
+<div id="vocabList"></div>
+
+</main>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="../index.html">
+    <span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span>
+  </a>
+  <a class="nav-item" href="../french/index.html">
+    <span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span>
+  </a>
+  <a class="nav-item active" href="index.html">
+    <span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span>
+  </a>
+  <a class="nav-item" href="../index.html#progress">
+    <span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span>
+  </a>
+</nav>
+
+<script>
+function speak(text,lang='fr-FR'){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang=lang; u.rate=0.88; u.pitch=1;
+  window.speechSynthesis.speak(u);
+}
+function speakPage(){ speak('Mon vocabulaire. Les mots que tu choisis de garder.','fr-FR'); }
+
+// ── PERSONAL VOCAB STORE (localStorage key: myVocab) ─────────
+function getVocab(){
+  try{ return JSON.parse(localStorage.getItem('myVocab')||'[]'); }
+  catch(e){ return []; }
+}
+function saveVocab(arr){ localStorage.setItem('myVocab', JSON.stringify(arr)); }
+
+function removeWord(i){
+  const v=getVocab();
+  v.splice(i,1);
+  saveVocab(v);
+  render();
+}
+
+function speakAll(){
+  const v=getVocab();
+  if(!v.length)return;
+  speak(v.map(w=>w.fr+'. '+(w.ctx||'')).join(' ... '),'fr-FR');
+}
+
+function render(){
+  const v=getVocab();
+  const list=document.getElementById('vocabList');
+  const countRow=document.getElementById('countRow');
+  list.innerHTML='';
+
+  if(!v.length){
+    countRow.style.display='none';
+    const e=document.createElement('div');
+    e.className='empty';
+    e.innerHTML='<div class="empty-icon">&#128218;</div>'+
+      '<div class="empty-title">Ta liste est vide pour l&rsquo;instant</div>'+
+      '<div class="empty-text">Quand tu vois un mot que tu veux retenir, appuie sur '+
+      '<span class="plus-demo">&#43; Ajouter</span> &agrave; c&ocirc;t&eacute; du mot. '+
+      'Il viendra se ranger ici, rien qu&rsquo;&agrave; toi.</div>';
+    list.appendChild(e);
+    return;
+  }
+
+  countRow.style.display='flex';
+  document.getElementById('countLabel').textContent=v.length+' mot'+(v.length>1?'s':'');
+
+  v.forEach((w,i)=>{
+    const card=document.createElement('div');
+    card.className='vocab-card';
+
+    const row=document.createElement('div');
+    row.className='vocab-row';
+
+    const left=document.createElement('div');
+    const fr=document.createElement('div'); fr.className='vocab-fr'; fr.textContent=w.fr;
+    const en=document.createElement('div'); en.className='vocab-en'; en.textContent=w.en||'';
+    left.appendChild(fr); left.appendChild(en);
+
+    const actions=document.createElement('div');
+    actions.className='vocab-actions';
+    const sp=document.createElement('button');
+    sp.className='speak-btn'; sp.innerHTML='&#128266;';
+    sp.addEventListener('click',()=>speak(w.fr+'. '+(w.ctx||''),'fr-FR'));
+    const rm=document.createElement('button');
+    rm.className='remove-btn'; rm.innerHTML='&times;'; rm.title='Retirer ce mot';
+    rm.addEventListener('click',()=>removeWord(i));
+    actions.appendChild(sp); actions.appendChild(rm);
+
+    row.appendChild(left); row.appendChild(actions);
+    card.appendChild(row);
+
+    if(w.ctx){
+      const ctx=document.createElement('div');
+      ctx.className='vocab-ctx'; ctx.textContent=w.ctx;
+      card.appendChild(ctx);
+    }
+    list.appendChild(card);
+  });
+}
+
+render();
+</script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

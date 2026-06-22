@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Français — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F0E8; --dark:#1B2845; --navyMid:#2C4A7C; --coral:#E8503A;
+  --gold:#D4920A; --ltGold:#FDF3D8; --ltBlue:#E8F0FA; --ltGreen:#E3F5EC;
+  --green:#1E7B45; --text:#1A2733; --slate:#4A6580; --divider:#D8DFE8;
+  --card:#EDE8DF; --white:#FFFFFF; --nav-h:64px;
+  --a1:#C0392B; --a2:#E07B39; --b1:#D4920A; --b2:#7CB82F; --c1:#27AE60; --c2:#1A5C38;
+}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.7;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);
+  -webkit-text-size-adjust:100%;}
+
+/* TOP BAR */
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:0 16px;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;
+  padding:8px;min-width:44px;min-height:44px;display:flex;align-items:center;
+  justify-content:center;border-radius:50%;}
+.icon-btn:active{background:rgba(255,255,255,0.1);}
+
+/* MAIN */
+.main{max-width:600px;margin:0 auto;padding:18px 14px 8px;}
+
+/* SECTION LABEL */
+.sec-label{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;
+  letter-spacing:1px;margin:22px 0 10px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
+
+/* SPEAK BUTTON */
+.speak-btn{background:none;border:2px solid var(--divider);border-radius:20px;
+  padding:4px 10px;font-size:13px;color:var(--slate);cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;min-height:32px;
+  font-family:Arial,sans-serif;transition:background 0.15s,color 0.15s;}
+.speak-btn:active,.speak-btn.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
+
+/* HEADER BLOCK (same style as home greeting) */
+.greeting-block{background:var(--dark);border-radius:16px;padding:20px 18px 16px;
+  margin-bottom:16px;position:relative;overflow:hidden;}
+.greeting-block::before{content:'';position:absolute;top:0;left:0;width:5px;
+  height:100%;background:var(--coral);border-radius:16px 0 0 16px;}
+.greeting-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.greeting-name{font-size:24px;font-weight:bold;color:#fff;margin-bottom:2px;}
+.greeting-date{font-size:13px;color:#9DC8E8;}
+
+/* CEFR PERSONAL PROGRESS BAR (identical to home) */
+.cefr-bar-card{background:var(--white);border-radius:14px;padding:16px 18px;
+  margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.cefr-bar-title{display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:10px;}
+.cefr-bar-label{font-size:14px;font-weight:bold;color:var(--dark);}
+.cefr-bar-level{font-size:13px;color:var(--coral);font-weight:bold;}
+.cefr-segs{display:flex;gap:4px;margin-bottom:8px;}
+.cefr-seg{flex:1;height:14px;border-radius:4px;background:var(--divider);
+  position:relative;transition:background 0.3s;}
+.cefr-seg.done{opacity:1;}
+.cefr-seg.current{box-shadow:0 0 0 3px rgba(232,80,58,0.4);}
+.cefr-seg.locked{opacity:0.3;}
+.cefr-seg-labels{display:flex;gap:4px;}
+.cefr-seg-lbl{flex:1;text-align:center;font-size:11px;font-weight:bold;color:var(--slate);}
+.cefr-seg-lbl.active{color:var(--coral);}
+.cefr-note{font-size:13px;color:var(--slate);margin-top:8px;}
+
+/* CONTINUE CARD (identical to home) */
+.continue-card{background:var(--white);border-radius:14px;padding:18px;
+  margin-bottom:16px;border-left:5px solid var(--coral);
+  box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+.continue-label{font-size:11px;font-weight:bold;color:var(--coral);
+  text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.continue-title{font-size:20px;font-weight:bold;color:var(--dark);margin-bottom:3px;}
+.continue-sub{font-size:13px;color:var(--slate);margin-bottom:12px;}
+.prog-wrap{background:var(--divider);border-radius:8px;height:10px;
+  overflow:hidden;margin-bottom:5px;}
+.prog-fill{height:100%;background:var(--coral);border-radius:8px;transition:width 0.4s;}
+.prog-text{font-size:12px;color:var(--slate);margin-bottom:14px;}
+.cta-btn{display:block;width:100%;background:var(--coral);color:#fff;border:none;
+  border-radius:10px;padding:14px;font-family:Arial,sans-serif;font-size:18px;
+  font-weight:bold;text-align:center;cursor:pointer;text-decoration:none;
+  min-height:52px;transition:background 0.15s;}
+.cta-btn:active{background:#C94030;}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);
+  background:var(--dark);border-top:3px solid var(--coral);
+  display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;
+  min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}
+.nav-label{font-size:11px;font-weight:bold;letter-spacing:0.3px;}
+
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+  <a class="site-name" href="../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons">
+    <button class="icon-btn" onclick="speakPage()" title="Lire la page">&#128266;</button>
+    <button class="icon-btn" title="Notifications">&#128276;</button>
+  </div>
+</header>
+
+<main class="main">
+
+<!-- HEADER -->
+<div class="greeting-block">
+  <div class="greeting-row">
+    <div>
+      <div class="greeting-name">&#127467;&#127479; Le fran&ccedil;ais</div>
+      <div class="greeting-date">Ton parcours, du niveau A1 au niveau C2</div>
+    </div>
+    <button class="speak-btn" style="border-color:rgba(255,255,255,0.25);color:#9DC8E8;flex-shrink:0;margin-top:4px;" onclick="speak('Le fran&ccedil;ais. Ton parcours, du niveau A1 au niveau C2.','fr-FR')">&#128266; &Eacute;couter</button>
+  </div>
+</div>
+
+<!-- CEFR PERSONAL PROGRESS BAR (same component as home) -->
+<div class="cefr-bar-card">
+  <div class="cefr-bar-title">
+    <span class="cefr-bar-label">Mon niveau CECRL</span>
+    <span class="cefr-bar-level" id="cefrCurrentLabel">A1 &mdash; D&eacute;butant</span>
+  </div>
+  <div class="cefr-segs">
+    <button class="cefr-seg current" style="background:var(--a1);border:none;cursor:pointer;" onclick="cefrBarTab('a1',this)" title="A1 — en cours"></button>
+    <button class="cefr-seg locked" style="background:var(--a2);border:none;cursor:pointer;" onclick="cefrBarTab('a2',this)" title="A2 — verrouill&eacute;"></button>
+    <button class="cefr-seg locked" style="background:var(--b1);border:none;cursor:pointer;" onclick="cefrBarTab('b1',this)" title="B1 — verrouill&eacute;"></button>
+    <button class="cefr-seg locked" style="background:var(--b2);border:none;cursor:pointer;" onclick="cefrBarTab('b2',this)" title="B2 — verrouill&eacute;"></button>
+    <button class="cefr-seg locked" style="background:var(--c1);border:none;cursor:pointer;" onclick="cefrBarTab('c1',this)" title="C1 — verrouill&eacute;"></button>
+    <button class="cefr-seg locked" style="background:var(--c2);border:none;cursor:pointer;" onclick="cefrBarTab('c2',this)" title="C2 — verrouill&eacute;"></button>
+  </div>
+  <div class="cefr-seg-labels">
+    <div class="cefr-seg-lbl active">A1</div>
+    <div class="cefr-seg-lbl">A2</div>
+    <div class="cefr-seg-lbl">B1</div>
+    <div class="cefr-seg-lbl">B2</div>
+    <div class="cefr-seg-lbl">C1</div>
+    <div class="cefr-seg-lbl">C2</div>
+  </div>
+  <div class="cefr-note">2 le&ccedil;ons compl&eacute;t&eacute;es &mdash; tu progresses bien&nbsp;! &nbsp;&#9660; Clique sur un niveau pour en savoir plus.</div>
+
+  <!-- Inline level detail panel (hidden by default) -->
+  <div id="cefrDetail" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--divider);">
+    <div id="cefrDetailInner"></div>
+  </div>
+</div>
+
+<!-- CONTINUE LEARNING (same component as home) -->
+<div class="sec-label">&#9654; Continuer</div>
+<div class="continue-card">
+  <div class="continue-label">Niveau A1 &mdash; en cours</div>
+  <div class="continue-title">Le&ccedil;ons A1</div>
+  <div class="continue-sub">A1 &nbsp;&#183;&nbsp; D&eacute;butant</div>
+  <div class="prog-text">2 le&ccedil;ons compl&eacute;t&eacute;es jusqu&rsquo;ici</div>
+  <a class="cta-btn" href="a1/index.html">Voir les le&ccedil;ons A1 &#8594;</a>
+</div>
+
+<!-- OFFICIAL GRID LINK -->
+<a href="https://www.coe.int/en/web/common-european-framework-reference-languages/table-1-cefr-3.3-common-reference-levels-global-scale"
+   target="_blank" rel="noopener"
+   style="display:block;text-align:center;font-size:13px;color:var(--navyMid);font-weight:bold;text-decoration:none;margin:6px 0 4px;min-height:44px;line-height:44px;">
+  &#127760; Voir la grille CECRL officielle (coe.int)
+</a>
+
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav">
+  <a class="nav-item" href="../index.html">
+    <span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span>
+  </a>
+  <a class="nav-item active" href="index.html">
+    <span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span>
+  </a>
+  <a class="nav-item" href="../reference/conjugaison.html">
+    <span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span>
+  </a>
+  <a class="nav-item" href="../index.html#progress">
+    <span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span>
+  </a>
+</nav>
+
+<script>
+// ── WEB SPEECH API ───────────────────────────────────────────
+function speak(text,lang='fr-FR'){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang=lang; u.rate=0.88; u.pitch=1;
+  window.speechSynthesis.speak(u);
+}
+function speakPage(){
+  speak('Le français. Ton parcours, du niveau A1 au niveau C2. Niveau actuel : A1, débutant. Deux leçons sur douze complétées.','fr-FR');
+}
+
+// ── CEFR BAR (inline detail) — same data/behaviour as home ───
+const CEFR_DATA={
+  a1:{color:'var(--a1)',badge:'A1',tier:'Utilisateur élémentaire',
+    fr:'Peut comprendre et utiliser des expressions familières du quotidien.',
+    en:'Can understand and use familiar everyday expressions and basic phrases.',
+    status:'current',statusTxt:'En cours — 2 leçons complétées',href:'a1/index.html',
+    speak:'Niveau A1. Utilisateur élémentaire. Peut comprendre et utiliser des expressions familières du quotidien.'},
+  a2:{color:'var(--a2)',badge:'A2',tier:'Utilisateur élémentaire +',
+    fr:'Peut comprendre des phrases sur des domaines immédiats (famille, achats, travail).',
+    en:'Can understand sentences relating to immediate relevance (family, shopping, work).',
+    status:'locked',statusTxt:'🔒 Disponible après A1',
+    speak:'Niveau A2. Disponible après le niveau A1.'},
+  b1:{color:'var(--b1)',badge:'B1',tier:'Utilisateur indépendant',
+    fr:'Peut se débrouiller dans la plupart des situations en voyage.',
+    en:'Can deal with most situations likely to arise whilst travelling in a French-speaking area.',
+    status:'locked',statusTxt:'🔒 Disponible après A2',
+    speak:'Niveau B1. Utilisateur indépendant. Disponible après le niveau A2.'},
+  b2:{color:'var(--b2)',badge:'B2',tier:'Utilisateur indépendant +',
+    fr:'Peut interagir avec aisance avec des locuteurs natifs.',
+    en:'Can interact with a degree of fluency with native speakers without strain.',
+    status:'locked',statusTxt:'🔒 Disponible après B1',
+    speak:'Niveau B2. Disponible après le niveau B1.'},
+  c1:{color:'var(--c1)',badge:'C1',tier:'Utilisateur expérimenté',
+    fr:'Peut s’exprimer spontanément et couramment sans chercher ses mots.',
+    en:'Can express ideas fluently and spontaneously without much obvious searching for expressions.',
+    status:'locked',statusTxt:'🔒 Disponible après B2',
+    speak:'Niveau C1. Utilisateur expérimenté. Disponible après le niveau B2.'},
+  c2:{color:'var(--c2)',badge:'C2',tier:'Maîtrise',
+    fr:'Peut comprendre et s’exprimer avec une précision quasi-native.',
+    en:'Can understand with ease virtually everything heard or read. Near-native proficiency.',
+    status:'locked',statusTxt:'🔒 L’objectif final !',
+    speak:'Niveau C2. Maîtrise. L’objectif final.'},
+};
+let _cefrOpen=null;
+function cefrBarTab(id,btn){
+  const detail=document.getElementById('cefrDetail');
+  const inner=document.getElementById('cefrDetailInner');
+  if(_cefrOpen===id){
+    detail.style.display='none';
+    _cefrOpen=null;
+    document.querySelectorAll('.cefr-seg').forEach(s=>s.style.outline='');
+    return;
+  }
+  _cefrOpen=id;
+  document.querySelectorAll('.cefr-seg').forEach(s=>s.style.outline='');
+  btn.style.outline='3px solid var(--coral)';
+  btn.style.outlineOffset='2px';
+  const d=CEFR_DATA[id];
+  const dotClass=d.status==='current'?'current':'';
+  const COE='https://www.coe.int/en/web/common-european-framework-reference-languages/table-1-cefr-3.3-common-reference-levels-global-scale';
+  const lessonBtn = d.href
+    ? '<a class="cta-btn" href="'+d.href+'" style="margin-top:12px;">Voir les leçons '+d.badge+' &#8594;</a>'
+    : '';
+  inner.innerHTML=
+    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">'+
+      '<span style="background:'+d.color+';color:#fff;font-size:15px;font-weight:bold;padding:4px 14px;border-radius:10px;">'+d.badge+'</span>'+
+      '<span style="font-size:12px;color:var(--slate);font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;">'+d.tier+'</span>'+
+    '</div>'+
+    '<div style="font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:4px;line-height:1.5;">'+d.fr+'</div>'+
+    '<div style="font-size:14px;color:var(--slate);line-height:1.5;margin-bottom:10px;">'+d.en+'</div>'+
+    '<div style="display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid var(--divider);">'+
+      '<div style="width:10px;height:10px;border-radius:50%;background:'+(dotClass==='current'?'var(--coral)':'var(--divider)')+';flex-shrink:0;"></div>'+
+      '<span style="font-size:13px;color:var(--slate);flex:1;">'+d.statusTxt+'</span>'+
+      '<button class="speak-btn" onclick="speak(\''+d.speak+'\',\'fr-FR\')">&#128266;</button>'+
+    '</div>'+
+    lessonBtn+
+    '<a href="'+COE+'" target="_blank" style="font-size:13px;color:var(--navyMid);font-weight:bold;margin-top:12px;display:inline-block;text-decoration:none;">&#127760; Voir la grille CECRL officielle (coe.int)</a>';
+  detail.style.display='block';
+}
+</script>
+<script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>
