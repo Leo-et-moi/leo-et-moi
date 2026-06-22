@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercices – Le verbe ÊTRE (A1)</title>
+<style>
+/* ── DYSLEXIA-FRIENDLY DESIGN ────────────────────────────────────────
+   Font: Arial only | Background: warm cream #F5F0E8 | Text: #1A2733
+   Min 18px | Bold emphasis only (no italics, no underline)
+   Left-aligned | Large click targets | Click-only (zero typing)
+──────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:   #F5F0E8;
+  --card:    #EDE8DF;
+  --dark:    #1B2845;
+  --navyMid: #2C4A7C;
+  --coral:   #E8503A;
+  --gold:    #D4920A;
+  --ltGold:  #FDF3D8;
+  --ltBlue:  #E8F0FA;
+  --ltCoral: #FCEAE6;
+  --ltGreen: #E3F5EC;
+  --green:   #1E7B45;
+  --red:     #C0392B;
+  --text:    #1A2733;
+  --slate:   #4A6580;
+  --divider: #D8DFE8;
+  --white:   #FFFFFF;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--dark);
+  color: #fff;
+  padding: 0;
+  border-bottom: 4px solid var(--coral);
+}
+.site-header-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 28px;
+}
+.site-header .lesson-tag {
+  display: inline-block;
+  background: var(--coral);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+.site-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.site-header .subtitle {
+  font-size: 18px;
+  color: #9DC8E8;
+  font-weight: normal;
+}
+.progress-bar-wrap {
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  height: 8px;
+  margin-top: 18px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--coral);
+  border-radius: 8px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+.progress-label {
+  font-size: 14px;
+  color: #9DC8E8;
+  margin-top: 6px;
+}
+
+/* ── MAIN CONTENT ── */
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 28px 60px;
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 40px 0 20px;
+}
+.section-header:first-child { margin-top: 0; }
+.section-num {
+  width: 40px; height: 40px;
+  background: var(--coral);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--dark);
+}
+.section-sub {
+  font-size: 16px;
+  color: var(--slate);
+  margin-top: 2px;
+}
+
+/* ── INSTRUCTION BOX ── */
+.instruction {
+  background: var(--ltGold);
+  border-left: 5px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+.instruction strong { color: var(--dark); }
+
+/* ── QUESTION CARD ── */
+.q-card {
+  background: var(--white);
+  border: 1.5px solid var(--divider);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border-left: 5px solid var(--navyMid);
+  transition: border-color 0.2s;
+}
+.q-card.answered-correct { border-left-color: var(--green); background: var(--ltGreen); }
+.q-card.answered-wrong { border-left-color: var(--red); background: #fdf0ee; }
+
+.q-number {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.q-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.q-translation {
+  font-size: 15px;
+  color: var(--slate);
+  margin-bottom: 18px;
+}
+
+/* ── CHOICE BUTTONS ── */
+.choices {
+  display: grid;
+  gap: 10px;
+}
+.choices.cols-2 { grid-template-columns: 1fr 1fr; }
+.choices.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.choice-btn {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark);
+  background: var(--ltBlue);
+  border: 2px solid var(--divider);
+  border-radius: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  min-height: 52px;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  line-height: 1.3;
+}
+.choice-btn:hover:not(:disabled) {
+  background: #D5E8FA;
+  border-color: var(--navyMid);
+  transform: translateY(-1px);
+}
+.choice-btn:active:not(:disabled) { transform: translateY(0); }
+.choice-btn.correct {
+  background: var(--ltGreen);
+  border-color: var(--green);
+  color: var(--green);
+}
+.choice-btn.wrong {
+  background: #fceaea;
+  border-color: var(--red);
+  color: var(--red);
+}
+.choice-btn:disabled { cursor: default; }
+
+/* True / False — large buttons */
+.choices.tf {
+  grid-template-columns: 1fr 1fr;
+}
+.tf-btn {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 18px 24px;
+  min-height: 60px;
+  border: 2px solid;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.tf-btn.vrai  { background: var(--ltBlue);  border-color: var(--navyMid); color: var(--navyMid); }
+.tf-btn.faux  { background: var(--ltCoral); border-color: var(--coral);  color: var(--coral); }
+.tf-btn:hover:not(:disabled) { opacity: 0.85; transform: translateY(-1px); }
+.tf-btn:disabled { cursor: default; }
+.tf-btn.correct { background: var(--ltGreen); border-color: var(--green); color: var(--green); }
+.tf-btn.wrong   { background: #fceaea; border-color: var(--red); color: var(--red); }
+
+/* ── FEEDBACK ── */
+.feedback {
+  margin-top: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.feedback.correct { color: var(--green); }
+.feedback.wrong   { color: var(--red); }
+.feedback-icon { font-size: 22px; }
+
+/* ── AUDIO BLOCK ── */
+.audio-block {
+  background: var(--dark);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.play-btn {
+  font-family: Arial, sans-serif;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.play-btn:hover { background: #C94030; }
+.play-btn:active { background: #B0362A; }
+.audio-label {
+  color: #9DC8E8;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+.audio-hint {
+  color: #6A8FAF;
+  font-size: 14px;
+}
+.instr-row { display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.instr-row > div { flex: 1; min-width: 200px; }
+.play-btn.instr-play { background: var(--gold); color: var(--dark); font-size: 15px; padding: 10px 18px; min-height: 42px; flex-shrink: 0; }
+.play-btn.instr-play:hover { background: #B87A08; color: #fff; }
+
+/* ── SECTION SCORE ── */
+.section-score {
+  background: var(--ltBlue);
+  border: 2px solid var(--navyMid);
+  border-radius: 10px;
+  padding: 16px 22px;
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark);
+  display: none;
+}
+.section-score.visible { display: block; }
+
+/* ── FINAL SCORE ── */
+.final-score-section {
+  display: none;
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--dark);
+  border-radius: 14px;
+  margin-top: 48px;
+  color: #fff;
+}
+.final-score-section.visible { display: block; }
+.final-score-num { font-size: 72px; font-weight: bold; color: var(--coral); line-height: 1; }
+.final-score-label { font-size: 22px; color: #9DC8E8; margin-top: 8px; }
+.final-score-message { font-size: 20px; color: #fff; margin-top: 20px; }
+.retry-btn {
+  font-family: Arial, sans-serif;
+  margin-top: 28px;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.retry-btn:hover { background: #C94030; }
+
+/* ── SCRIPT SECTION (teacher) ── */
+.script-section {
+  margin-top: 60px;
+  border-top: 3px solid var(--divider);
+  padding-top: 32px;
+}
+.script-header {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.script-note {
+  font-size: 15px;
+  color: var(--slate);
+  margin-bottom: 24px;
+}
+.script-item {
+  background: var(--card);
+  border-left: 4px solid var(--coral);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.script-item .script-id {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--coral);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.script-item .script-text {
+  font-size: 17px;
+  color: var(--dark);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.script-item .script-en {
+  font-size: 15px;
+  color: var(--slate);
+}
+
+@media (max-width: 600px) {
+  .choices.cols-4 { grid-template-columns: 1fr 1fr; }
+  .site-header h1 { font-size: 26px; }
+  body { font-size: 17px; }
+}
+
+/* Site integration: back link + bottom nav (added) */
+body{padding-bottom:84px;}
+.lm-back{display:inline-flex;align-items:center;gap:6px;margin:16px 0 4px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:var(--dark);border-top:3px solid var(--coral);display:flex;align-items:center;z-index:100;}
+.bottom-nav .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:64px;-webkit-tap-highlight-color:transparent;}
+.bottom-nav .nav-item.active{color:var(--coral);}
+.bottom-nav .nav-icon{font-size:22px;line-height:1;}
+.bottom-nav .nav-label{font-size:11px;font-weight:bold;letter-spacing:0.3px;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="lesson-tag">Leçon 1  •  A1  •  Exercices</div>
+    <h1>Le verbe ÊTRE</h1>
+    <p class="subtitle">Self-study exercises — click-only, no writing required</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+    <div class="progress-label" id="progressLabel">0 of 24 questions answered</div>
+  </div>
+</header>
+
+<main class="main">
+<a class="lm-back" href="../index.html">&#8592; Toutes les le&ccedil;ons A1</a>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 1 — ÉCOUTE ET CHOISIS  (Listen and Choose)
+══════════════════════════════════════════════════════════ -->
+<div class="section-header">
+  <div class="section-num">1</div>
+  <div>
+    <div class="section-title">Écoute et choisis  —  Listen and Choose</div>
+    <div class="section-sub">Click the correct form of ÊTRE for each sentence you hear. (10 questions)</div>
+  </div>
+</div>
+
+<div class="instruction">
+  <div class="instr-row">
+    <button class="play-btn instr-play" onclick="playAudio('etre_instr1.mp3',this)">&#9654; Play Instructions</button>
+    <div><strong>How to use:</strong> Click Play to hear the sentence, then click the correct form of ÊTRE. You can replay as many times as you like.</div>
+  </div>
+</div>
+
+<!-- Q1 -->
+<div class="q-card" id="q1">
+  <div class="q-number">Question 1 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_01.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 1</div>
+      <div class="audio-hint">Je ___ américain.</div>
+    </div>
+  </div>
+  <div class="q-text">Je ___ américain.</div>
+  <div class="q-translation">I am American.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'suis','q1')">suis</button>
+    <button class="choice-btn" onclick="answer(this,'est','q1')">est</button>
+    <button class="choice-btn" onclick="answer(this,'sont','q1')">sont</button>
+    <button class="choice-btn" onclick="answer(this,'es','q1')">es</button>
+  </div>
+  <div class="feedback" id="fb-q1"></div>
+</div>
+
+<!-- Q2 -->
+<div class="q-card" id="q2">
+  <div class="q-number">Question 2 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_02.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 2</div>
+      <div class="audio-hint">Tu ___ de l'Oregon ?</div>
+    </div>
+  </div>
+  <div class="q-text">Tu ___ de l'Oregon ?</div>
+  <div class="q-translation">Are you from Oregon?</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'suis','q2')">suis</button>
+    <button class="choice-btn" onclick="answer(this,'es','q2')">es</button>
+    <button class="choice-btn" onclick="answer(this,'est','q2')">est</button>
+    <button class="choice-btn" onclick="answer(this,'êtes','q2')">êtes</button>
+  </div>
+  <div class="feedback" id="fb-q2"></div>
+</div>
+
+<!-- Q3 -->
+<div class="q-card" id="q3">
+  <div class="q-number">Question 3 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_03.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 3</div>
+      <div class="audio-hint">Il ___ étudiant.</div>
+    </div>
+  </div>
+  <div class="q-text">Il ___ étudiant.</div>
+  <div class="q-translation">He is a student.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'es','q3')">es</button>
+    <button class="choice-btn" onclick="answer(this,'suis','q3')">suis</button>
+    <button class="choice-btn" onclick="answer(this,'est','q3')">est</button>
+    <button class="choice-btn" onclick="answer(this,'sommes','q3')">sommes</button>
+  </div>
+  <div class="feedback" id="fb-q3"></div>
+</div>
+
+<!-- Q4 -->
+<div class="q-card" id="q4">
+  <div class="q-number">Question 4 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_04.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 4</div>
+      <div class="audio-hint">Nous ___ amis.</div>
+    </div>
+  </div>
+  <div class="q-text">Nous ___ amis.</div>
+  <div class="q-translation">We are friends.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'sommes','q4')">sommes</button>
+    <button class="choice-btn" onclick="answer(this,'sont','q4')">sont</button>
+    <button class="choice-btn" onclick="answer(this,'est','q4')">est</button>
+    <button class="choice-btn" onclick="answer(this,'êtes','q4')">êtes</button>
+  </div>
+  <div class="feedback" id="fb-q4"></div>
+</div>
+
+<!-- Q5 -->
+<div class="q-card" id="q5">
+  <div class="q-number">Question 5 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_05.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 5</div>
+      <div class="audio-hint">Vous ___ professeur ?</div>
+    </div>
+  </div>
+  <div class="q-text">Vous ___ professeur ?</div>
+  <div class="q-translation">Are you a teacher?</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'est','q5')">est</button>
+    <button class="choice-btn" onclick="answer(this,'êtes','q5')">êtes</button>
+    <button class="choice-btn" onclick="answer(this,'es','q5')">es</button>
+    <button class="choice-btn" onclick="answer(this,'sommes','q5')">sommes</button>
+  </div>
+  <div class="feedback" id="fb-q5"></div>
+</div>
+
+<!-- Q6 -->
+<div class="q-card" id="q6">
+  <div class="q-number">Question 6 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_06.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 6</div>
+      <div class="audio-hint">Elle ___ française.</div>
+    </div>
+  </div>
+  <div class="q-text">Elle ___ française.</div>
+  <div class="q-translation">She is French.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'es','q6')">es</button>
+    <button class="choice-btn" onclick="answer(this,'sont','q6')">sont</button>
+    <button class="choice-btn" onclick="answer(this,'est','q6')">est</button>
+    <button class="choice-btn" onclick="answer(this,'suis','q6')">suis</button>
+  </div>
+  <div class="feedback" id="fb-q6"></div>
+</div>
+
+<!-- Q7 -->
+<div class="q-card" id="q7">
+  <div class="q-number">Question 7 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_07.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 7</div>
+      <div class="audio-hint">Ils ___ brésiliens.</div>
+    </div>
+  </div>
+  <div class="q-text">Ils ___ brésiliens.</div>
+  <div class="q-translation">They are Brazilian.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'est','q7')">est</button>
+    <button class="choice-btn" onclick="answer(this,'sommes','q7')">sommes</button>
+    <button class="choice-btn" onclick="answer(this,'sont','q7')">sont</button>
+    <button class="choice-btn" onclick="answer(this,'êtes','q7')">êtes</button>
+  </div>
+  <div class="feedback" id="fb-q7"></div>
+</div>
+
+<!-- Q8 -->
+<div class="q-card" id="q8">
+  <div class="q-number">Question 8 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_08.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 8</div>
+      <div class="audio-hint">On ___ en classe.</div>
+    </div>
+  </div>
+  <div class="q-text">On ___ en classe.</div>
+  <div class="q-translation">We are in class.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'suis','q8')">suis</button>
+    <button class="choice-btn" onclick="answer(this,'est','q8')">est</button>
+    <button class="choice-btn" onclick="answer(this,'sont','q8')">sont</button>
+    <button class="choice-btn" onclick="answer(this,'sommes','q8')">sommes</button>
+  </div>
+  <div class="feedback" id="fb-q8"></div>
+</div>
+
+<!-- Q9 -->
+<div class="q-card" id="q9">
+  <div class="q-number">Question 9 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_09.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 9</div>
+      <div class="audio-hint">Je ne ___ pas fatigué.</div>
+    </div>
+  </div>
+  <div class="q-text">Je ne ___ pas fatigué.</div>
+  <div class="q-translation">I am not tired.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'est','q9')">est</button>
+    <button class="choice-btn" onclick="answer(this,'suis','q9')">suis</button>
+    <button class="choice-btn" onclick="answer(this,'es','q9')">es</button>
+    <button class="choice-btn" onclick="answer(this,'sont','q9')">sont</button>
+  </div>
+  <div class="feedback" id="fb-q9"></div>
+</div>
+
+<!-- Q10 -->
+<div class="q-card" id="q10">
+  <div class="q-number">Question 10 of 10</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_10.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording 10</div>
+      <div class="audio-hint">Elles ___ japonaises.</div>
+    </div>
+  </div>
+  <div class="q-text">Elles ___ japonaises.</div>
+  <div class="q-translation">They are Japanese.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'sont','q10')">sont</button>
+    <button class="choice-btn" onclick="answer(this,'est','q10')">est</button>
+    <button class="choice-btn" onclick="answer(this,'êtes','q10')">êtes</button>
+    <button class="choice-btn" onclick="answer(this,'sommes','q10')">sommes</button>
+  </div>
+  <div class="feedback" id="fb-q10"></div>
+</div>
+
+<div class="section-score" id="score-s1"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 2 — VRAI OU FAUX  (True or False)
+══════════════════════════════════════════════════════════ -->
+<div class="section-header">
+  <div class="section-num">2</div>
+  <div>
+    <div class="section-title">Vrai ou Faux  —  True or False</div>
+    <div class="section-sub">Listen to the statement, then decide if it is correct. (8 questions)</div>
+  </div>
+</div>
+
+<div class="instruction">
+  <div class="instr-row">
+    <button class="play-btn instr-play" onclick="playAudio('etre_instr2.mp3',this)">&#9654; Play Instructions</button>
+    <div><strong>How to use:</strong> Listen to the sentence. Click <strong>VRAI</strong> if it is grammatically correct, <strong>FAUX</strong> if there is an error.</div>
+  </div>
+</div>
+
+<!-- TF1 -->
+<div class="q-card" id="tf1">
+  <div class="q-number">Question 1 of 8</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tf1.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording TF-1</div>
+    </div>
+  </div>
+  <div class="q-text">"Je est américain."</div>
+  <div class="q-translation">Correct or incorrect sentence?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'FAUX','tf1')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'FAUX','tf1','faux')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf1"></div>
+</div>
+
+<!-- TF2 -->
+<div class="q-card" id="tf2">
+  <div class="q-number">Question 2 of 8</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tf2.mp3', this)">&#9654; Play</button>
+    <div><div class="audio-label">Recording TF-2</div></div>
+  </div>
+  <div class="q-text">"Tu es de Portland."</div>
+  <div class="q-translation">Correct or incorrect sentence?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf2','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf2')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf2"></div>
+</div>
+
+<!-- TF3 -->
+<div class="q-card" id="tf3">
+  <div class="q-number">Question 3 of 8</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tf3.mp3', this)">&#9654; Play</button>
+    <div><div class="audio-label">Recording TF-3</div></div>
+  </div>
+  <div class="q-text">"Ils sont espagnols."</div>
+  <div class="q-translation">Correct or incorrect sentence?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf3','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf3')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf3"></div>
+</div>
+
+<!-- TF4 -->
+<div class="q-card" id="tf4">
+  <div class="q-number">Question 4 of 8</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tf4.mp3', this)">&#9654; Play</button>
+    <div><div class="audio-label">Recording TF-4</div></div>
+  </div>
+  <div class="q-text">"Elle suis étudiante."</div>
+  <div class="q-translation">Correct or incorrect sentence?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'FAUX','tf4')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'FAUX','tf4','faux')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf4"></div>
+</div>
+
+<!-- TF5 -->
+<div class="q-card" id="tf5">
+  <div class="q-number">Question 5 of 8</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tf5.mp3', this)">&#9654; Play</button>
+    <div><div class="audio-label">Recording TF-5</div></div>
+  </div>
+  <div class="q-text">"Nous sommes américains."</div>
+  <div class="q-translation">Correct or incorrect sentence?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf5','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf5')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf5"></div>
+</div>
+
+<!-- TF6 -->
+<div class="q-card" id="tf6">
+  <div class="q-number">Question 6 of 8</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tf6.mp3', this)">&#9654; Play</button>
+    <div><div class="audio-label">Recording TF-6</div></div>
+  </div>
+  <div class="q-text">"Il n'est pas de Paris."</div>
+  <div class="q-translation">Correct or incorrect sentence?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf6','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf6')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf6"></div>
+</div>
+
+<!-- TF7 -->
+<div class="q-card" id="tf7">
+  <div class="q-number">Question 7 of 8</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tf7.mp3', this)">&#9654; Play</button>
+    <div><div class="audio-label">Recording TF-7</div></div>
+  </div>
+  <div class="q-text">"Vous est professeur ?"</div>
+  <div class="q-translation">Correct or incorrect sentence?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'FAUX','tf7')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'FAUX','tf7','faux')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf7"></div>
+</div>
+
+<!-- TF8 -->
+<div class="q-card" id="tf8">
+  <div class="q-number">Question 8 of 8</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tf8.mp3', this)">&#9654; Play</button>
+    <div><div class="audio-label">Recording TF-8</div></div>
+  </div>
+  <div class="q-text">"Je ne suis pas fatiguée."</div>
+  <div class="q-translation">Correct or incorrect sentence?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf8','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf8')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf8"></div>
+</div>
+
+<div class="section-score" id="score-s2"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 3 — ÉCOUTE ET SELECTIONNE  (Translation Match)
+══════════════════════════════════════════════════════════ -->
+<div class="section-header">
+  <div class="section-num">3</div>
+  <div>
+    <div class="section-title">Écoute et sélectionne  —  Find the Translation</div>
+    <div class="section-sub">Listen and click the correct English meaning. (6 questions)</div>
+  </div>
+</div>
+
+<div class="instruction">
+  <div class="instr-row">
+    <button class="play-btn instr-play" onclick="playAudio('etre_instr3.mp3',this)">&#9654; Play Instructions</button>
+    <div><strong>How to use:</strong> Listen to the French sentence, then click the correct English translation.</div>
+  </div>
+</div>
+
+<!-- TR1 -->
+<div class="q-card" id="tr1">
+  <div class="q-number">Question 1 of 6</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tr1.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording TR-1</div>
+      <div class="audio-hint">Je suis de l'Oregon.</div>
+    </div>
+  </div>
+  <div class="q-text">Je suis de l'Oregon.</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr1')">A. I am tired.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr1')">B. I am from Oregon.</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr1')">C. We are from Oregon.</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr1')">D. You are from Oregon.</button>
+  </div>
+  <div class="feedback" id="fb-tr1"></div>
+</div>
+
+<!-- TR2 -->
+<div class="q-card" id="tr2">
+  <div class="q-number">Question 2 of 6</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tr2.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording TR-2</div>
+      <div class="audio-hint">Vous êtes français ?</div>
+    </div>
+  </div>
+  <div class="q-text">Vous êtes français ?</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr2')">A. Are you tired?</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr2')">B. Are you a student?</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr2')">C. Are you French?</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr2')">D. Is he French?</button>
+  </div>
+  <div class="feedback" id="fb-tr2"></div>
+</div>
+
+<!-- TR3 -->
+<div class="q-card" id="tr3">
+  <div class="q-number">Question 3 of 6</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tr3.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording TR-3</div>
+      <div class="audio-hint">Elle n'est pas étudiante.</div>
+    </div>
+  </div>
+  <div class="q-text">Elle n'est pas étudiante.</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr3')">A. She is a student.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr3')">B. He is not a student.</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr3')">C. She is not a student.</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr3')">D. They are not students.</button>
+  </div>
+  <div class="feedback" id="fb-tr3"></div>
+</div>
+
+<!-- TR4 -->
+<div class="q-card" id="tr4">
+  <div class="q-number">Question 4 of 6</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tr4.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording TR-4</div>
+      <div class="audio-hint">Ils sont brésiliens et espagnols.</div>
+    </div>
+  </div>
+  <div class="q-text">Ils sont brésiliens et espagnols.</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr4')">A. They are Brazilian and Spanish.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr4')">B. We are Brazilian and Spanish.</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr4')">C. She is Brazilian and Spanish.</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr4')">D. He is Brazilian and Spanish.</button>
+  </div>
+  <div class="feedback" id="fb-tr4"></div>
+</div>
+
+<!-- TR5 -->
+<div class="q-card" id="tr5">
+  <div class="q-number">Question 5 of 6</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tr5.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording TR-5</div>
+      <div class="audio-hint">On est en classe.</div>
+    </div>
+  </div>
+  <div class="q-text">On est en classe.</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr5')">A. He is in class.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr5')">B. We are in class.</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr5')">C. They are in class.</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr5')">D. You are in class.</button>
+  </div>
+  <div class="feedback" id="fb-tr5"></div>
+</div>
+
+<!-- TR6 -->
+<div class="q-card" id="tr6">
+  <div class="q-number">Question 6 of 6</div>
+  <div class="audio-block">
+    <button class="play-btn" onclick="playAudio('etre_tr6.mp3', this)">&#9654; Play</button>
+    <div>
+      <div class="audio-label">Recording TR-6</div>
+      <div class="audio-hint">Est-ce que tu es fatigué ?</div>
+    </div>
+  </div>
+  <div class="q-text">Est-ce que tu es fatigué ?</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr6')">A. You are tired.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr6')">B. Are you hungry?</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr6')">C. Are you tired?</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr6')">D. Is he tired?</button>
+  </div>
+  <div class="feedback" id="fb-tr6"></div>
+</div>
+
+<div class="section-score" id="score-s3"></div>
+
+<!-- FINAL SCORE -->
+<div class="final-score-section" id="finalScore">
+  <div class="final-score-num" id="finalNum">0/24</div>
+  <div class="final-score-label">Total score</div>
+  <div class="final-score-message" id="finalMsg"></div>
+  <button class="retry-btn" onclick="location.reload()">Try again</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     TEACHER RECORDING SCRIPT
+══════════════════════════════════════════════════════════ -->
+<div class="script-section">
+  <div class="script-header">Recording Script  —  Pour l'enseignant</div>
+  <div class="script-note">
+    Record each sentence as a clear, natural-speed audio clip. Save files in an <strong>audio/</strong> folder
+    next to this HTML file. For each sentence: say it naturally, then pause, then repeat it once.
+    Suggest recording in a quiet room. MP3 format recommended.
+  </div>
+
+  <div class="script-item"><div class="script-id">etre_instr1.mp3  —  Section 1 instructions</div><div class="script-text">Click Play to hear the sentence, then click the correct form of ÊTRE. You can replay as many times as you like.</div><div class="script-en">[Read slowly and clearly in English]</div></div>
+  <div class="script-item"><div class="script-id">etre_instr2.mp3  —  Section 2 instructions</div><div class="script-text">Listen to the sentence. Click VRAI if it is grammatically correct, FAUX if there is an error.</div><div class="script-en">[Read slowly and clearly in English]</div></div>
+  <div class="script-item"><div class="script-id">etre_instr3.mp3  —  Section 3 instructions</div><div class="script-text">Listen to the French sentence, then click the correct English translation.</div><div class="script-en">[Read slowly and clearly in English]</div></div>
+
+  <div class="script-item"><div class="script-id">etre_01.mp3</div>
+    <div class="script-text">Je suis américain.</div><div class="script-en">I am American.</div></div>
+  <div class="script-item"><div class="script-id">etre_02.mp3</div>
+    <div class="script-text">Tu es de l'Oregon ?</div><div class="script-en">Are you from Oregon?</div></div>
+  <div class="script-item"><div class="script-id">etre_03.mp3</div>
+    <div class="script-text">Il est étudiant.</div><div class="script-en">He is a student.</div></div>
+  <div class="script-item"><div class="script-id">etre_04.mp3</div>
+    <div class="script-text">Nous sommes amis.</div><div class="script-en">We are friends.</div></div>
+  <div class="script-item"><div class="script-id">etre_05.mp3</div>
+    <div class="script-text">Vous êtes professeur ?</div><div class="script-en">Are you a teacher?</div></div>
+  <div class="script-item"><div class="script-id">etre_06.mp3</div>
+    <div class="script-text">Elle est française.</div><div class="script-en">She is French.</div></div>
+  <div class="script-item"><div class="script-id">etre_07.mp3</div>
+    <div class="script-text">Ils sont brésiliens.</div><div class="script-en">They are Brazilian.</div></div>
+  <div class="script-item"><div class="script-id">etre_08.mp3</div>
+    <div class="script-text">On est en classe.</div><div class="script-en">We are in class.</div></div>
+  <div class="script-item"><div class="script-id">etre_09.mp3</div>
+    <div class="script-text">Je ne suis pas fatigué.</div><div class="script-en">I am not tired.</div></div>
+  <div class="script-item"><div class="script-id">etre_10.mp3</div>
+    <div class="script-text">Elles sont japonaises.</div><div class="script-en">They are Japanese.</div></div>
+
+  <div class="script-item"><div class="script-id">etre_tf1.mp3</div>
+    <div class="script-text">Je est américain.</div><div class="script-en">[INCORRECT — correct form is: Je SUIS américain.]</div></div>
+  <div class="script-item"><div class="script-id">etre_tf2.mp3</div>
+    <div class="script-text">Tu es de Portland.</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">etre_tf3.mp3</div>
+    <div class="script-text">Ils sont espagnols.</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">etre_tf4.mp3</div>
+    <div class="script-text">Elle suis étudiante.</div><div class="script-en">[INCORRECT — correct form is: Elle EST étudiante.]</div></div>
+  <div class="script-item"><div class="script-id">etre_tf5.mp3</div>
+    <div class="script-text">Nous sommes américains.</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">etre_tf6.mp3</div>
+    <div class="script-text">Il n'est pas de Paris.</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">etre_tf7.mp3</div>
+    <div class="script-text">Vous est professeur ?</div><div class="script-en">[INCORRECT — correct form is: Vous ÊTES professeur ?]</div></div>
+  <div class="script-item"><div class="script-id">etre_tf8.mp3</div>
+    <div class="script-text">Je ne suis pas fatiguée.</div><div class="script-en">[CORRECT sentence]</div></div>
+
+  <div class="script-item"><div class="script-id">etre_tr1.mp3</div>
+    <div class="script-text">Je suis de l'Oregon.</div><div class="script-en">I am from Oregon.</div></div>
+  <div class="script-item"><div class="script-id">etre_tr2.mp3</div>
+    <div class="script-text">Vous êtes français ?</div><div class="script-en">Are you French?</div></div>
+  <div class="script-item"><div class="script-id">etre_tr3.mp3</div>
+    <div class="script-text">Elle n'est pas étudiante.</div><div class="script-en">She is not a student.</div></div>
+  <div class="script-item"><div class="script-id">etre_tr4.mp3</div>
+    <div class="script-text">Ils sont brésiliens et espagnols.</div><div class="script-en">They are Brazilian and Spanish.</div></div>
+  <div class="script-item"><div class="script-id">etre_tr5.mp3</div>
+    <div class="script-text">On est en classe.</div><div class="script-en">We are in class.</div></div>
+  <div class="script-item"><div class="script-id">etre_tr6.mp3</div>
+    <div class="script-text">Est-ce que tu es fatigué ?</div><div class="script-en">Are you tired?</div></div>
+</div>
+
+</main>
+
+<script>
+// ── ANSWER KEYS ────────────────────────────────────────────────────────
+const KEYS = {
+  q1:'suis', q2:'es', q3:'est', q4:'sommes', q5:'êtes',
+  q6:'est',  q7:'sont', q8:'est', q9:'suis', q10:'sont',
+  tf1:'FAUX', tf2:'VRAI', tf3:'VRAI', tf4:'FAUX', tf5:'VRAI', tf6:'VRAI', tf7:'FAUX', tf8:'VRAI',
+  tr1:'B', tr2:'C', tr3:'C', tr4:'A', tr5:'B', tr6:'C',
+};
+
+const EXPLANATIONS = {
+  q1:'Je → SUIS', q2:'Tu → ES', q3:'Il → EST', q4:'Nous → SOMMES', q5:'Vous → ÊTES',
+  q6:'Elle → EST', q7:'Ils → SONT', q8:'On → EST', q9:'Je → SUIS', q10:'Elles → SONT',
+  tf1:'FAUX — "Je EST" is wrong. Correct: Je SUIS.', tf2:'VRAI — Tu es is correct.',
+  tf3:'VRAI — Ils sont is correct.', tf4:'FAUX — "Elle SUIS" is wrong. Correct: Elle EST.',
+  tf5:'VRAI — Nous sommes is correct.', tf6:'VRAI — Il n\'est pas is correct.',
+  tf7:'FAUX — "Vous EST" is wrong. Correct: Vous ÊTES.', tf8:'VRAI — Je ne suis pas is correct.',
+  tr1:'B — Je suis de l\'Oregon = I am from Oregon.',
+  tr2:'C — Vous êtes français ? = Are you French?',
+  tr3:'C — Elle n\'est pas étudiante = She is not a student.',
+  tr4:'A — Ils sont brésiliens et espagnols = They are Brazilian and Spanish.',
+  tr5:'B — On est en classe = We are in class (on = we in spoken French).',
+  tr6:'C — Est-ce que tu es fatigué ? = Are you tired?',
+};
+
+const S1 = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
+const S2 = ['tf1','tf2','tf3','tf4','tf5','tf6','tf7','tf8'];
+const S3 = ['tr1','tr2','tr3','tr4','tr5','tr6'];
+const ALL = [...S1, ...S2, ...S3];
+const scores = {};
+let answered = 0;
+
+function updateProgress() {
+  try{ localStorage.setItem('lastPractice_etre', Date.now()); }catch(e){}
+  const pct = Math.round((answered / ALL.length) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = answered + ' of ' + ALL.length + ' questions answered';
+  checkSectionScores();
+  if (answered === ALL.length) showFinal();
+}
+
+function checkSectionScores() {
+  const sections = [{ids:S1, el:'score-s1', label:'Section 1'},{ids:S2, el:'score-s2', label:'Section 2'},{ids:S3, el:'score-s3', label:'Section 3'}];
+  sections.forEach(sec => {
+    if (sec.ids.every(id => scores[id] !== undefined)) {
+      const pts = sec.ids.filter(id => scores[id]).length;
+      const el = document.getElementById(sec.el);
+      el.textContent = sec.label + ' score: ' + pts + ' / ' + sec.ids.length;
+      el.classList.add('visible');
+    }
+  });
+}
+
+function showFinal() {
+  const total = ALL.filter(id => scores[id]).length;
+  const pct = Math.round((total / ALL.length) * 100);
+  document.getElementById('finalNum').textContent = total + ' / ' + ALL.length;
+  let msg = '';
+  if (pct >= 90) msg = 'Excellent ! You have mastered ÊTRE. Keep going!';
+  else if (pct >= 75) msg = 'Très bien ! Great work. Review the ones you missed and try again.';
+  else if (pct >= 50) msg = 'Pas mal ! Good effort. Review the lesson slides and try again.';
+  else msg = 'Keep practicing! Review the ÊTRE lesson slides and try again.';
+  document.getElementById('finalMsg').textContent = msg;
+  document.getElementById('finalScore').classList.add('visible');
+  window.scrollTo({ top: document.getElementById('finalScore').offsetTop - 40, behavior: 'smooth' });
+}
+
+// Multiple-choice answer (Section 1 and 3)
+function answer(btn, chosen, qid) {
+  if (scores[qid] !== undefined) return;
+  const correct = KEYS[qid];
+  const isRight = chosen === correct;
+  scores[qid] = isRight;
+  answered++;
+  const card = document.getElementById(qid);
+  card.querySelectorAll('.choice-btn').forEach(b => {
+    b.disabled = true;
+    const val = b.getAttribute('onclick').match(/'([^']+)','[^']+'\)/)[1];
+    if (val === correct) b.classList.add('correct');
+  });
+  if (!isRight) btn.classList.add('wrong');
+  card.classList.add(isRight ? 'answered-correct' : 'answered-wrong');
+  const fb = document.getElementById('fb-' + qid);
+  if (isRight) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = '<span class="feedback-icon">&#10003;</span> Correct!  ' + EXPLANATIONS[qid];
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = '<span class="feedback-icon">&#10007;</span> Not quite.  ' + EXPLANATIONS[qid];
+  }
+  updateProgress();
+}
+
+// True/False (Section 2) — trickier signature because VRAI/FAUX buttons both call tf()
+// The 'clicked' param is either 'vrai' or 'faux' (which button was pressed)
+// We compare to KEYS[qid] which is either 'VRAI' or 'FAUX'
+function tf(btn, correctAnswer, qid, clicked) {
+  if (scores[qid] !== undefined) return;
+  const isRight = clicked ? (clicked.toUpperCase() === correctAnswer) : false;
+  scores[qid] = isRight;
+  answered++;
+  const card = document.getElementById(qid);
+  card.querySelectorAll('.tf-btn').forEach(b => { b.disabled = true; });
+  btn.classList.add(isRight ? 'correct' : 'wrong');
+  card.classList.add(isRight ? 'answered-correct' : 'answered-wrong');
+  const fb = document.getElementById('fb-' + qid);
+  if (isRight) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = '<span class="feedback-icon">&#10003;</span> Correct!  ' + EXPLANATIONS[qid];
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = '<span class="feedback-icon">&#10007;</span> Not quite.  ' + EXPLANATIONS[qid];
+  }
+  updateProgress();
+}
+
+// Audio playback — play/pause toggle, one track at a time
+let _audio = null, _btn = null;
+function playAudio(src, btn) {
+  const PLAY = '&#9654; Play', PAUSE = '&#9646;&#9646; Pause', INSTR_PLAY = '&#9654; Play Instructions';
+  const isInstr = btn.classList.contains('instr-play');
+  // Same button, currently playing → pause
+  if (_btn === btn && _audio && !_audio.paused) {
+    _audio.pause();
+    btn.innerHTML = isInstr ? INSTR_PLAY : PLAY;
+    return;
+  }
+  // Same button, paused mid-playback → resume
+  if (_btn === btn && _audio && _audio.paused && _audio.currentTime > 0) {
+    _audio.play().catch(() => {});
+    btn.innerHTML = PAUSE;
+    return;
+  }
+  // Different button → stop current, reset its label
+  if (_audio) {
+    _audio.pause();
+    _audio.currentTime = 0;
+    if (_btn) {
+      const wasInstr = _btn.classList.contains('instr-play');
+      _btn.innerHTML = wasInstr ? INSTR_PLAY : PLAY;
+    }
+  }
+  // Start new audio
+  const audio = new Audio(src);
+  _audio = audio; _btn = btn;
+  audio.onended = () => {
+    btn.innerHTML = isInstr ? INSTR_PLAY : PLAY;
+    if (_btn === btn) { _audio = null; _btn = null; }
+  };
+  audio.onerror = () => {
+    btn.innerHTML = 'No audio yet';
+    setTimeout(() => { btn.innerHTML = isInstr ? INSTR_PLAY : PLAY; }, 2000);
+    if (_btn === btn) { _audio = null; _btn = null; }
+  };
+  audio.play().then(() => {
+    btn.innerHTML = PAUSE;
+  }).catch(() => {
+    btn.innerHTML = 'No audio yet';
+    setTimeout(() => { btn.innerHTML = isInstr ? INSTR_PLAY : PLAY; }, 2000);
+    if (_btn === btn) { _audio = null; _btn = null; }
+  });
+}
+</script>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercices – Le verbe AVOIR (A1)</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream:   #F5F0E8;
+  --card:    #EDE8DF;
+  --dark:    #1B2845;
+  --navyMid: #2C4A7C;
+  --coral:   #E8503A;
+  --gold:    #D4920A;
+  --ltGold:  #FDF3D8;
+  --ltBlue:  #E8F0FA;
+  --ltCoral: #FCEAE6;
+  --ltGreen: #E3F5EC;
+  --green:   #1E7B45;
+  --red:     #C0392B;
+  --text:    #1A2733;
+  --slate:   #4A6580;
+  --divider: #D8DFE8;
+  --white:   #FFFFFF;
+}
+body { font-family: Arial, sans-serif; background: var(--cream); color: var(--text); font-size: 18px; line-height: 1.6; min-height: 100vh; }
+.site-header { background: var(--dark); color: #fff; border-bottom: 4px solid var(--coral); }
+.site-header-inner { max-width: 860px; margin: 0 auto; padding: 24px 28px; }
+.site-header .lesson-tag { display: inline-block; background: var(--coral); color: #fff; font-size: 13px; font-weight: bold; padding: 3px 12px; border-radius: 20px; margin-bottom: 10px; }
+.site-header h1 { font-size: 36px; font-weight: bold; color: #fff; margin-bottom: 4px; }
+.site-header .subtitle { font-size: 18px; color: #9DC8E8; }
+.progress-bar-wrap { background: rgba(255,255,255,0.15); border-radius: 8px; height: 8px; margin-top: 18px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: var(--coral); border-radius: 8px; transition: width 0.4s ease; width: 0%; }
+.progress-label { font-size: 14px; color: #9DC8E8; margin-top: 6px; }
+.main { max-width: 860px; margin: 0 auto; padding: 32px 28px 60px; }
+.section-header { display: flex; align-items: center; gap: 14px; margin: 40px 0 20px; }
+.section-header:first-child { margin-top: 0; }
+.section-num { width: 40px; height: 40px; background: var(--coral); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; flex-shrink: 0; }
+.section-title { font-size: 22px; font-weight: bold; color: var(--dark); }
+.section-sub { font-size: 16px; color: var(--slate); margin-top: 2px; }
+.instruction { background: var(--ltGold); border-left: 5px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 18px; font-size: 17px; color: var(--text); margin-bottom: 24px; }
+.instruction strong { color: var(--dark); }
+.q-card { background: var(--white); border: 1.5px solid var(--divider); border-radius: 10px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); border-left: 5px solid var(--navyMid); }
+.q-card.answered-correct { border-left-color: var(--green); background: var(--ltGreen); }
+.q-card.answered-wrong { border-left-color: var(--red); background: #fdf0ee; }
+.q-number { font-size: 13px; font-weight: bold; color: var(--slate); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.q-text { font-size: 20px; font-weight: bold; color: var(--dark); margin-bottom: 6px; line-height: 1.4; }
+.q-translation { font-size: 15px; color: var(--slate); margin-bottom: 18px; }
+.choices { display: grid; gap: 10px; }
+.choices.cols-2 { grid-template-columns: 1fr 1fr; }
+.choices.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.choice-btn { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; color: var(--dark); background: var(--ltBlue); border: 2px solid var(--divider); border-radius: 8px; padding: 14px 16px; cursor: pointer; text-align: left; min-height: 52px; transition: background 0.15s, border-color 0.15s, transform 0.1s; line-height: 1.3; }
+.choice-btn:hover:not(:disabled) { background: #D5E8FA; border-color: var(--navyMid); transform: translateY(-1px); }
+.choice-btn.correct { background: var(--ltGreen); border-color: var(--green); color: var(--green); }
+.choice-btn.wrong { background: #fceaea; border-color: var(--red); color: var(--red); }
+.choice-btn:disabled { cursor: default; }
+.choices.tf { grid-template-columns: 1fr 1fr; }
+.tf-btn { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; border-radius: 10px; padding: 18px 24px; min-height: 60px; border: 2px solid; cursor: pointer; transition: opacity 0.15s, transform 0.1s; }
+.tf-btn.vrai { background: var(--ltBlue); border-color: var(--navyMid); color: var(--navyMid); }
+.tf-btn.faux { background: var(--ltCoral); border-color: var(--coral); color: var(--coral); }
+.tf-btn:hover:not(:disabled) { opacity: 0.85; transform: translateY(-1px); }
+.tf-btn:disabled { cursor: default; }
+.tf-btn.correct { background: var(--ltGreen); border-color: var(--green); color: var(--green); }
+.tf-btn.wrong { background: #fceaea; border-color: var(--red); color: var(--red); }
+.feedback { margin-top: 12px; font-size: 17px; font-weight: bold; min-height: 26px; display: flex; align-items: center; gap: 8px; }
+.feedback.correct { color: var(--green); }
+.feedback.wrong { color: var(--red); }
+.feedback-icon { font-size: 22px; }
+.audio-block { background: var(--dark); border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.play-btn { font-family: Arial, sans-serif; background: var(--coral); color: #fff; border: none; border-radius: 8px; padding: 12px 22px; font-size: 17px; font-weight: bold; cursor: pointer; min-height: 48px; display: flex; align-items: center; gap: 8px; transition: background 0.15s; white-space: nowrap; }
+.play-btn:hover { background: #C94030; }
+.audio-label { color: #9DC8E8; font-size: 15px; font-weight: bold; }
+.audio-hint { color: #6A8FAF; font-size: 14px; }
+.instr-row { display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.instr-row > div { flex: 1; min-width: 200px; }
+.play-btn.instr-play { background: var(--gold); color: var(--dark); font-size: 15px; padding: 10px 18px; min-height: 42px; flex-shrink: 0; }
+.play-btn.instr-play:hover { background: #B87A08; color: #fff; }
+.section-score { background: var(--ltBlue); border: 2px solid var(--navyMid); border-radius: 10px; padding: 16px 22px; margin-top: 24px; font-size: 18px; font-weight: bold; color: var(--dark); display: none; }
+.section-score.visible { display: block; }
+.final-score-section { display: none; text-align: center; padding: 40px 24px; background: var(--dark); border-radius: 14px; margin-top: 48px; color: #fff; }
+.final-score-section.visible { display: block; }
+.final-score-num { font-size: 72px; font-weight: bold; color: var(--coral); line-height: 1; }
+.final-score-label { font-size: 22px; color: #9DC8E8; margin-top: 8px; }
+.final-score-message { font-size: 20px; color: #fff; margin-top: 20px; }
+.retry-btn { font-family: Arial, sans-serif; margin-top: 28px; background: var(--coral); color: #fff; border: none; border-radius: 10px; padding: 16px 40px; font-size: 20px; font-weight: bold; cursor: pointer; }
+.retry-btn:hover { background: #C94030; }
+.script-section { margin-top: 60px; border-top: 3px solid var(--divider); padding-top: 32px; }
+.script-header { font-size: 22px; font-weight: bold; color: var(--dark); margin-bottom: 6px; }
+.script-note { font-size: 15px; color: var(--slate); margin-bottom: 24px; }
+.script-item { background: var(--card); border-left: 4px solid var(--coral); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 14px; }
+.script-item .script-id { font-size: 13px; font-weight: bold; color: var(--coral); text-transform: uppercase; margin-bottom: 4px; }
+.script-item .script-text { font-size: 17px; color: var(--dark); font-weight: bold; margin-bottom: 4px; }
+.script-item .script-en { font-size: 15px; color: var(--slate); }
+@media (max-width: 600px) { .choices.cols-4 { grid-template-columns: 1fr 1fr; } .site-header h1 { font-size: 26px; } body { font-size: 17px; } }
+
+/* Site integration: back link + bottom nav (added) */
+body{padding-bottom:84px;}
+.lm-back{display:inline-flex;align-items:center;gap:6px;margin:16px 0 4px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:var(--dark);border-top:3px solid var(--coral);display:flex;align-items:center;z-index:100;}
+.bottom-nav .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:64px;-webkit-tap-highlight-color:transparent;}
+.bottom-nav .nav-item.active{color:var(--coral);}
+.bottom-nav .nav-icon{font-size:22px;line-height:1;}
+.bottom-nav .nav-label{font-size:11px;font-weight:bold;letter-spacing:0.3px;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="lesson-tag">Leçon 2  •  A1  •  Exercices</div>
+    <h1>Le verbe AVOIR</h1>
+    <p class="subtitle">Self-study exercises — click-only, no writing required</p>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 24 questions answered</div>
+  </div>
+</header>
+
+<main class="main">
+<a class="lm-back" href="../index.html">&#8592; Toutes les le&ccedil;ons A1</a>
+
+<!-- SECTION 1 -->
+<div class="section-header">
+  <div class="section-num">1</div>
+  <div>
+    <div class="section-title">Écoute et choisis  —  Listen and Choose</div>
+    <div class="section-sub">Click the correct form of AVOIR for each sentence you hear. (10 questions)</div>
+  </div>
+</div>
+<div class="instruction">
+  <div class="instr-row">
+    <button class="play-btn instr-play" onclick="playAudio('avoir_instr1.mp3',this)">&#9654; Play Instructions</button>
+    <div><strong>How to use:</strong> Click Play to hear the sentence, then click the correct form of AVOIR. Replay as many times as you like.</div>
+  </div>
+</div>
+
+<div class="q-card" id="q1">
+  <div class="q-number">Question 1 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_01.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 1</div><div class="audio-hint">J'___ 17 ans.</div></div></div>
+  <div class="q-text">J'___ 17 ans.</div><div class="q-translation">I am 17 years old.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'ai','q1')">ai</button>
+    <button class="choice-btn" onclick="answer(this,'as','q1')">as</button>
+    <button class="choice-btn" onclick="answer(this,'a','q1')">a</button>
+    <button class="choice-btn" onclick="answer(this,'avons','q1')">avons</button>
+  </div>
+  <div class="feedback" id="fb-q1"></div>
+</div>
+
+<div class="q-card" id="q2">
+  <div class="q-number">Question 2 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_02.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 2</div><div class="audio-hint">Tu ___ un frère ?</div></div></div>
+  <div class="q-text">Tu ___ un frère ?</div><div class="q-translation">Do you have a brother?</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'ai','q2')">ai</button>
+    <button class="choice-btn" onclick="answer(this,'as','q2')">as</button>
+    <button class="choice-btn" onclick="answer(this,'a','q2')">a</button>
+    <button class="choice-btn" onclick="answer(this,'ont','q2')">ont</button>
+  </div>
+  <div class="feedback" id="fb-q2"></div>
+</div>
+
+<div class="q-card" id="q3">
+  <div class="q-number">Question 3 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_03.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 3</div><div class="audio-hint">Il ___ un vélo.</div></div></div>
+  <div class="q-text">Il ___ un vélo.</div><div class="q-translation">He has a bike.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'ai','q3')">ai</button>
+    <button class="choice-btn" onclick="answer(this,'avez','q3')">avez</button>
+    <button class="choice-btn" onclick="answer(this,'a','q3')">a</button>
+    <button class="choice-btn" onclick="answer(this,'avons','q3')">avons</button>
+  </div>
+  <div class="feedback" id="fb-q3"></div>
+</div>
+
+<div class="q-card" id="q4">
+  <div class="q-number">Question 4 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_04.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 4</div><div class="audio-hint">Nous ___ un chien.</div></div></div>
+  <div class="q-text">Nous ___ un chien.</div><div class="q-translation">We have a dog.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'ont','q4')">ont</button>
+    <button class="choice-btn" onclick="answer(this,'avez','q4')">avez</button>
+    <button class="choice-btn" onclick="answer(this,'avons','q4')">avons</button>
+    <button class="choice-btn" onclick="answer(this,'a','q4')">a</button>
+  </div>
+  <div class="feedback" id="fb-q4"></div>
+</div>
+
+<div class="q-card" id="q5">
+  <div class="q-number">Question 5 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_05.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 5</div><div class="audio-hint">Vous ___ quel âge ?</div></div></div>
+  <div class="q-text">Vous ___ quel âge ?</div><div class="q-translation">How old are you?</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'as','q5')">as</button>
+    <button class="choice-btn" onclick="answer(this,'avez','q5')">avez</button>
+    <button class="choice-btn" onclick="answer(this,'avons','q5')">avons</button>
+    <button class="choice-btn" onclick="answer(this,'ont','q5')">ont</button>
+  </div>
+  <div class="feedback" id="fb-q5"></div>
+</div>
+
+<div class="q-card" id="q6">
+  <div class="q-number">Question 6 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_06.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 6</div><div class="audio-hint">Elle ___ faim.</div></div></div>
+  <div class="q-text">Elle ___ faim.</div><div class="q-translation">She is hungry.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'ai','q6')">ai</button>
+    <button class="choice-btn" onclick="answer(this,'as','q6')">as</button>
+    <button class="choice-btn" onclick="answer(this,'a','q6')">a</button>
+    <button class="choice-btn" onclick="answer(this,'ont','q6')">ont</button>
+  </div>
+  <div class="feedback" id="fb-q6"></div>
+</div>
+
+<div class="q-card" id="q7">
+  <div class="q-number">Question 7 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_07.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 7</div><div class="audio-hint">Ils ___ 20 ans.</div></div></div>
+  <div class="q-text">Ils ___ 20 ans.</div><div class="q-translation">They are 20 years old.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'a','q7')">a</button>
+    <button class="choice-btn" onclick="answer(this,'avons','q7')">avons</button>
+    <button class="choice-btn" onclick="answer(this,'ont','q7')">ont</button>
+    <button class="choice-btn" onclick="answer(this,'avez','q7')">avez</button>
+  </div>
+  <div class="feedback" id="fb-q7"></div>
+</div>
+
+<div class="q-card" id="q8">
+  <div class="q-number">Question 8 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_08.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 8</div><div class="audio-hint">On ___ soif.</div></div></div>
+  <div class="q-text">On ___ soif.</div><div class="q-translation">We are thirsty.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'avons','q8')">avons</button>
+    <button class="choice-btn" onclick="answer(this,'ai','q8')">ai</button>
+    <button class="choice-btn" onclick="answer(this,'a','q8')">a</button>
+    <button class="choice-btn" onclick="answer(this,'ont','q8')">ont</button>
+  </div>
+  <div class="feedback" id="fb-q8"></div>
+</div>
+
+<div class="q-card" id="q9">
+  <div class="q-number">Question 9 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_09.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 9</div><div class="audio-hint">Je n'___ pas de voiture.</div></div></div>
+  <div class="q-text">Je n'___ pas de voiture.</div><div class="q-translation">I don't have a car.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'ai','q9')">ai</button>
+    <button class="choice-btn" onclick="answer(this,'as','q9')">as</button>
+    <button class="choice-btn" onclick="answer(this,'a','q9')">a</button>
+    <button class="choice-btn" onclick="answer(this,'avons','q9')">avons</button>
+  </div>
+  <div class="feedback" id="fb-q9"></div>
+</div>
+
+<div class="q-card" id="q10">
+  <div class="q-number">Question 10 of 10</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_10.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording 10</div><div class="audio-hint">Elles ___ peur.</div></div></div>
+  <div class="q-text">Elles ___ peur.</div><div class="q-translation">They are scared.</div>
+  <div class="choices cols-4">
+    <button class="choice-btn" onclick="answer(this,'a','q10')">a</button>
+    <button class="choice-btn" onclick="answer(this,'avez','q10')">avez</button>
+    <button class="choice-btn" onclick="answer(this,'ont','q10')">ont</button>
+    <button class="choice-btn" onclick="answer(this,'avons','q10')">avons</button>
+  </div>
+  <div class="feedback" id="fb-q10"></div>
+</div>
+
+<div class="section-score" id="score-s1"></div>
+
+<!-- SECTION 2 — VRAI OU FAUX -->
+<div class="section-header">
+  <div class="section-num">2</div>
+  <div>
+    <div class="section-title">Vrai ou Faux  —  True or False</div>
+    <div class="section-sub">Listen to the statement, then decide if it is grammatically correct. (8 questions)</div>
+  </div>
+</div>
+<div class="instruction">
+  <div class="instr-row">
+    <button class="play-btn instr-play" onclick="playAudio('avoir_instr2.mp3',this)">&#9654; Play Instructions</button>
+    <div><strong>How to use:</strong> Listen to the sentence. Click <strong>VRAI</strong> if it is correct, <strong>FAUX</strong> if there is an error.</div>
+  </div>
+</div>
+
+<div class="q-card" id="tf1">
+  <div class="q-number">Question 1 of 8</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tf1.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TF-1</div></div></div>
+  <div class="q-text">"J'ai 17 ans."</div><div class="q-translation">Correct or incorrect?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf1','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf1')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf1"></div>
+</div>
+
+<div class="q-card" id="tf2">
+  <div class="q-number">Question 2 of 8</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tf2.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TF-2</div></div></div>
+  <div class="q-text">"Tu as faim."</div><div class="q-translation">Correct or incorrect?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf2','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf2')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf2"></div>
+</div>
+
+<div class="q-card" id="tf3">
+  <div class="q-number">Question 3 of 8</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tf3.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TF-3</div></div></div>
+  <div class="q-text">"Il avons un chien."</div><div class="q-translation">Correct or incorrect?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'FAUX','tf3')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'FAUX','tf3','faux')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf3"></div>
+</div>
+
+<div class="q-card" id="tf4">
+  <div class="q-number">Question 4 of 8</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tf4.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TF-4</div></div></div>
+  <div class="q-text">"Nous avons cours demain."</div><div class="q-translation">Correct or incorrect?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf4','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf4')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf4"></div>
+</div>
+
+<div class="q-card" id="tf5">
+  <div class="q-number">Question 5 of 8</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tf5.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TF-5</div></div></div>
+  <div class="q-text">"Vous avez de la chance !"</div><div class="q-translation">Correct or incorrect?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf5','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf5')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf5"></div>
+</div>
+
+<div class="q-card" id="tf6">
+  <div class="q-number">Question 6 of 8</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tf6.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TF-6</div></div></div>
+  <div class="q-text">"Ils ont ai soif."</div><div class="q-translation">Correct or incorrect?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'FAUX','tf6')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'FAUX','tf6','faux')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf6"></div>
+</div>
+
+<div class="q-card" id="tf7">
+  <div class="q-number">Question 7 of 8</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tf7.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TF-7</div></div></div>
+  <div class="q-text">"Je n'ai pas de frère."</div><div class="q-translation">Correct or incorrect?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'VRAI','tf7','vrai')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'VRAI','tf7')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf7"></div>
+</div>
+
+<div class="q-card" id="tf8">
+  <div class="q-number">Question 8 of 8</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tf8.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TF-8</div></div></div>
+  <div class="q-text">"Elle ont 16 ans."</div><div class="q-translation">Correct or incorrect?</div>
+  <div class="choices tf">
+    <button class="tf-btn vrai" onclick="tf(this,'FAUX','tf8')">VRAI — Correct</button>
+    <button class="tf-btn faux" onclick="tf(this,'FAUX','tf8','faux')">FAUX — Incorrect</button>
+  </div>
+  <div class="feedback" id="fb-tf8"></div>
+</div>
+
+<div class="section-score" id="score-s2"></div>
+
+<!-- SECTION 3 — TRANSLATION MATCH -->
+<div class="section-header">
+  <div class="section-num">3</div>
+  <div>
+    <div class="section-title">Écoute et sélectionne  —  Find the Translation</div>
+    <div class="section-sub">Listen and click the correct English meaning. (6 questions)</div>
+  </div>
+</div>
+<div class="instruction">
+  <div class="instr-row">
+    <button class="play-btn instr-play" onclick="playAudio('avoir_instr3.mp3',this)">&#9654; Play Instructions</button>
+    <div><strong>How to use:</strong> Listen to the French sentence, then click the correct English translation.</div>
+  </div>
+</div>
+
+<div class="q-card" id="tr1">
+  <div class="q-number">Question 1 of 6</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tr1.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TR-1</div><div class="audio-hint">J'ai faim.</div></div></div>
+  <div class="q-text">J'ai faim.</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr1')">A. I am cold.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr1')">B. I am hungry.</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr1')">C. I am thirsty.</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr1')">D. I am scared.</button>
+  </div>
+  <div class="feedback" id="fb-tr1"></div>
+</div>
+
+<div class="q-card" id="tr2">
+  <div class="q-number">Question 2 of 6</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tr2.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TR-2</div><div class="audio-hint">Elle a 15 ans.</div></div></div>
+  <div class="q-text">Elle a 15 ans.</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr2')">A. She has a dog.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr2')">B. She is 15 years old.</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr2')">C. He is 15 years old.</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr2')">D. She has 15 friends.</button>
+  </div>
+  <div class="feedback" id="fb-tr2"></div>
+</div>
+
+<div class="q-card" id="tr3">
+  <div class="q-number">Question 3 of 6</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tr3.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TR-3</div><div class="audio-hint">Nous n'avons pas de voiture.</div></div></div>
+  <div class="q-text">Nous n'avons pas de voiture.</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr3')">A. We have a car.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr3')">B. They don't have a car.</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr3')">C. We don't have a car.</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr3')">D. I don't have a car.</button>
+  </div>
+  <div class="feedback" id="fb-tr3"></div>
+</div>
+
+<div class="q-card" id="tr4">
+  <div class="q-number">Question 4 of 6</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tr4.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TR-4</div><div class="audio-hint">Tu as soif ?</div></div></div>
+  <div class="q-text">Tu as soif ?</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr4')">A. Are you hungry?</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr4')">B. Are you cold?</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr4')">C. Are you thirsty?</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr4')">D. Are you tired?</button>
+  </div>
+  <div class="feedback" id="fb-tr4"></div>
+</div>
+
+<div class="q-card" id="tr5">
+  <div class="q-number">Question 5 of 6</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tr5.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TR-5</div><div class="audio-hint">Ils ont un appartement.</div></div></div>
+  <div class="q-text">Ils ont un appartement.</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr5')">A. They have a car.</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr5')">B. They have an apartment.</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr5')">C. She has an apartment.</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr5')">D. We have an apartment.</button>
+  </div>
+  <div class="feedback" id="fb-tr5"></div>
+</div>
+
+<div class="q-card" id="tr6">
+  <div class="q-number">Question 6 of 6</div>
+  <div class="audio-block"><button class="play-btn" onclick="playAudio('avoir_tr6.mp3',this)">&#9654; Play</button><div><div class="audio-label">Recording TR-6</div><div class="audio-hint">On a de la pizza !</div></div></div>
+  <div class="q-text">On a de la pizza !</div>
+  <div class="choices cols-2">
+    <button class="choice-btn" onclick="answer(this,'A','tr6')">A. I have pizza!</button>
+    <button class="choice-btn" onclick="answer(this,'B','tr6')">B. You have pizza!</button>
+    <button class="choice-btn" onclick="answer(this,'C','tr6')">C. We have pizza!</button>
+    <button class="choice-btn" onclick="answer(this,'D','tr6')">D. They have pizza!</button>
+  </div>
+  <div class="feedback" id="fb-tr6"></div>
+</div>
+
+<div class="section-score" id="score-s3"></div>
+
+<div class="final-score-section" id="finalScore">
+  <div class="final-score-num" id="finalNum">0/24</div>
+  <div class="final-score-label">Total score</div>
+  <div class="final-score-message" id="finalMsg"></div>
+  <button class="retry-btn" onclick="location.reload()">Try again</button>
+</div>
+
+<!-- RECORDING SCRIPT -->
+<div class="script-section">
+  <div class="script-header">Recording Script  —  Pour l'enseignant</div>
+  <div class="script-note">Record each sentence as a clear MP3, save in an <strong>audio/</strong> folder next to this HTML file. Say each sentence naturally, pause, repeat once.</div>
+
+  <div class="script-item"><div class="script-id">avoir_instr1.mp3  —  Section 1 instructions</div><div class="script-text">Click Play to hear the sentence, then click the correct form of AVOIR. You can replay as many times as you like.</div><div class="script-en">[Read slowly and clearly in English]</div></div>
+  <div class="script-item"><div class="script-id">avoir_instr2.mp3  —  Section 2 instructions</div><div class="script-text">Listen to the sentence. Click VRAI if it is correct, FAUX if there is an error.</div><div class="script-en">[Read slowly and clearly in English]</div></div>
+  <div class="script-item"><div class="script-id">avoir_instr3.mp3  —  Section 3 instructions</div><div class="script-text">Listen to the French sentence, then click the correct English translation.</div><div class="script-en">[Read slowly and clearly in English]</div></div>
+
+  <div class="script-item"><div class="script-id">avoir_01.mp3</div><div class="script-text">J'ai 17 ans.</div><div class="script-en">I am 17 years old.</div></div>
+  <div class="script-item"><div class="script-id">avoir_02.mp3</div><div class="script-text">Tu as un frère ?</div><div class="script-en">Do you have a brother?</div></div>
+  <div class="script-item"><div class="script-id">avoir_03.mp3</div><div class="script-text">Il a un vélo.</div><div class="script-en">He has a bike.</div></div>
+  <div class="script-item"><div class="script-id">avoir_04.mp3</div><div class="script-text">Nous avons un chien.</div><div class="script-en">We have a dog.</div></div>
+  <div class="script-item"><div class="script-id">avoir_05.mp3</div><div class="script-text">Vous avez quel âge ?</div><div class="script-en">How old are you?</div></div>
+  <div class="script-item"><div class="script-id">avoir_06.mp3</div><div class="script-text">Elle a faim.</div><div class="script-en">She is hungry.</div></div>
+  <div class="script-item"><div class="script-id">avoir_07.mp3</div><div class="script-text">Ils ont 20 ans.</div><div class="script-en">They are 20 years old.</div></div>
+  <div class="script-item"><div class="script-id">avoir_08.mp3</div><div class="script-text">On a soif.</div><div class="script-en">We are thirsty.</div></div>
+  <div class="script-item"><div class="script-id">avoir_09.mp3</div><div class="script-text">Je n'ai pas de voiture.</div><div class="script-en">I don't have a car.</div></div>
+  <div class="script-item"><div class="script-id">avoir_10.mp3</div><div class="script-text">Elles ont peur.</div><div class="script-en">They are scared.</div></div>
+
+  <div class="script-item"><div class="script-id">avoir_tf1.mp3</div><div class="script-text">J'ai 17 ans.</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">avoir_tf2.mp3</div><div class="script-text">Tu as faim.</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">avoir_tf3.mp3</div><div class="script-text">Il avons un chien.</div><div class="script-en">[INCORRECT — correct form: Il A un chien.]</div></div>
+  <div class="script-item"><div class="script-id">avoir_tf4.mp3</div><div class="script-text">Nous avons cours demain.</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">avoir_tf5.mp3</div><div class="script-text">Vous avez de la chance !</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">avoir_tf6.mp3</div><div class="script-text">Ils ont ai soif.</div><div class="script-en">[INCORRECT — correct form: Ils ONT soif.]</div></div>
+  <div class="script-item"><div class="script-id">avoir_tf7.mp3</div><div class="script-text">Je n'ai pas de frère.</div><div class="script-en">[CORRECT sentence]</div></div>
+  <div class="script-item"><div class="script-id">avoir_tf8.mp3</div><div class="script-text">Elle ont 16 ans.</div><div class="script-en">[INCORRECT — correct form: Elle A 16 ans.]</div></div>
+
+  <div class="script-item"><div class="script-id">avoir_tr1.mp3</div><div class="script-text">J'ai faim.</div><div class="script-en">I am hungry.</div></div>
+  <div class="script-item"><div class="script-id">avoir_tr2.mp3</div><div class="script-text">Elle a 15 ans.</div><div class="script-en">She is 15 years old.</div></div>
+  <div class="script-item"><div class="script-id">avoir_tr3.mp3</div><div class="script-text">Nous n'avons pas de voiture.</div><div class="script-en">We don't have a car.</div></div>
+  <div class="script-item"><div class="script-id">avoir_tr4.mp3</div><div class="script-text">Tu as soif ?</div><div class="script-en">Are you thirsty?</div></div>
+  <div class="script-item"><div class="script-id">avoir_tr5.mp3</div><div class="script-text">Ils ont un appartement.</div><div class="script-en">They have an apartment.</div></div>
+  <div class="script-item"><div class="script-id">avoir_tr6.mp3</div><div class="script-text">On a de la pizza !</div><div class="script-en">We have pizza!</div></div>
+</div>
+
+</main>
+
+<script>
+const KEYS = {
+  q1:'ai', q2:'as', q3:'a', q4:'avons', q5:'avez',
+  q6:'a',  q7:'ont', q8:'a', q9:'ai', q10:'ont',
+  tf1:'VRAI', tf2:'VRAI', tf3:'FAUX', tf4:'VRAI', tf5:'VRAI', tf6:'FAUX', tf7:'VRAI', tf8:'FAUX',
+  tr1:'B', tr2:'B', tr3:'C', tr4:'C', tr5:'B', tr6:'C',
+};
+const EXPLANATIONS = {
+  q1:'J\'→ AI (elision: je + ai = j\'ai)', q2:'Tu → AS', q3:'Il → A', q4:'Nous → AVONS', q5:'Vous → AVEZ',
+  q6:'Elle → A', q7:'Ils → ONT', q8:'On → A', q9:'Je n\' → AI pas', q10:'Elles → ONT',
+  tf1:'VRAI — J\'ai 17 ans is correct (AVOIR = age in French).',
+  tf2:'VRAI — Tu as faim is correct (avoir faim = to be hungry).',
+  tf3:'FAUX — "Il AVONS" is wrong. Correct: Il A un chien.',
+  tf4:'VRAI — Nous avons cours demain is correct.',
+  tf5:'VRAI — Vous avez de la chance is correct.',
+  tf6:'FAUX — "Ils ont AI soif" is wrong. Correct: Ils ONT soif.',
+  tf7:'VRAI — Je n\'ai pas de frère is correct.',
+  tf8:'FAUX — "Elle ONT 16 ans" is wrong. Correct: Elle A 16 ans.',
+  tr1:'B — J\'ai faim = I am hungry (avoir faim = to be hungry).',
+  tr2:'B — Elle a 15 ans = She is 15 years old (AVOIR + age).',
+  tr3:'C — Nous n\'avons pas de voiture = We don\'t have a car.',
+  tr4:'C — Tu as soif ? = Are you thirsty? (avoir soif = to be thirsty).',
+  tr5:'B — Ils ont un appartement = They have an apartment.',
+  tr6:'C — On a de la pizza = We have pizza (on = we in spoken French).',
+};
+const S1=['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
+const S2=['tf1','tf2','tf3','tf4','tf5','tf6','tf7','tf8'];
+const S3=['tr1','tr2','tr3','tr4','tr5','tr6'];
+const ALL=[...S1,...S2,...S3];
+const scores={};
+let answered=0;
+
+function updateProgress(){
+  try{ localStorage.setItem('lastPractice_avoir', Date.now()); }catch(e){}
+  const pct=Math.round((answered/ALL.length)*100);
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressLabel').textContent=answered+' of '+ALL.length+' questions answered';
+  checkSectionScores();
+  if(answered===ALL.length)showFinal();
+}
+function checkSectionScores(){
+  [{ids:S1,el:'score-s1',label:'Section 1'},{ids:S2,el:'score-s2',label:'Section 2'},{ids:S3,el:'score-s3',label:'Section 3'}].forEach(sec=>{
+    if(sec.ids.every(id=>scores[id]!==undefined)){
+      const pts=sec.ids.filter(id=>scores[id]).length;
+      const el=document.getElementById(sec.el);
+      el.textContent=sec.label+' score: '+pts+' / '+sec.ids.length;
+      el.classList.add('visible');
+    }
+  });
+}
+function showFinal(){
+  const total=ALL.filter(id=>scores[id]).length;
+  const pct=Math.round((total/ALL.length)*100);
+  document.getElementById('finalNum').textContent=total+' / '+ALL.length;
+  let msg='';
+  if(pct>=90)msg='Excellent ! You have mastered AVOIR. Congratulations!';
+  else if(pct>=75)msg='Très bien ! Great work. Review the ones you missed and try again.';
+  else if(pct>=50)msg='Pas mal ! Good effort. Review the lesson slides and try again.';
+  else msg='Keep practicing! Review the AVOIR lesson slides and try again.';
+  document.getElementById('finalMsg').textContent=msg;
+  document.getElementById('finalScore').classList.add('visible');
+  window.scrollTo({top:document.getElementById('finalScore').offsetTop-40,behavior:'smooth'});
+}
+function answer(btn,chosen,qid){
+  if(scores[qid]!==undefined)return;
+  const correct=KEYS[qid];
+  const isRight=chosen===correct;
+  scores[qid]=isRight; answered++;
+  const card=document.getElementById(qid);
+  card.querySelectorAll('.choice-btn').forEach(b=>{
+    b.disabled=true;
+    const val=b.getAttribute('onclick').match(/'([^']+)','[^']+'\)/)[1];
+    if(val===correct)b.classList.add('correct');
+  });
+  if(!isRight)btn.classList.add('wrong');
+  card.classList.add(isRight?'answered-correct':'answered-wrong');
+  const fb=document.getElementById('fb-'+qid);
+  if(isRight){fb.className='feedback correct';fb.innerHTML='<span class="feedback-icon">&#10003;</span> Correct!  '+EXPLANATIONS[qid];}
+  else{fb.className='feedback wrong';fb.innerHTML='<span class="feedback-icon">&#10007;</span> Not quite.  '+EXPLANATIONS[qid];}
+  updateProgress();
+}
+function tf(btn,correctAnswer,qid,clicked){
+  if(scores[qid]!==undefined)return;
+  const isRight=clicked?(clicked.toUpperCase()===correctAnswer):false;
+  scores[qid]=isRight; answered++;
+  const card=document.getElementById(qid);
+  card.querySelectorAll('.tf-btn').forEach(b=>{b.disabled=true;});
+  btn.classList.add(isRight?'correct':'wrong');
+  card.classList.add(isRight?'answered-correct':'answered-wrong');
+  const fb=document.getElementById('fb-'+qid);
+  if(isRight){fb.className='feedback correct';fb.innerHTML='<span class="feedback-icon">&#10003;</span> Correct!  '+EXPLANATIONS[qid];}
+  else{fb.className='feedback wrong';fb.innerHTML='<span class="feedback-icon">&#10007;</span> Not quite.  '+EXPLANATIONS[qid];}
+  updateProgress();
+}
+let _audio=null, _btn=null;
+function playAudio(src,btn){
+  const PLAY='&#9654; Play', PAUSE='&#9646;&#9646; Pause', INSTR_PLAY='&#9654; Play Instructions';
+  const isInstr=btn.classList.contains('instr-play');
+  // Same button, currently playing → pause
+  if(_btn===btn && _audio && !_audio.paused){
+    _audio.pause();
+    btn.innerHTML=isInstr?INSTR_PLAY:PLAY;
+    return;
+  }
+  // Same button, paused mid-playback → resume
+  if(_btn===btn && _audio && _audio.paused && _audio.currentTime>0){
+    _audio.play().catch(()=>{});
+    btn.innerHTML=PAUSE;
+    return;
+  }
+  // Different button → stop current, reset its label
+  if(_audio){
+    _audio.pause();
+    _audio.currentTime=0;
+    if(_btn){
+      const wasInstr=_btn.classList.contains('instr-play');
+      _btn.innerHTML=wasInstr?INSTR_PLAY:PLAY;
+    }
+  }
+  // Start new audio
+  const audio=new Audio(src);
+  _audio=audio; _btn=btn;
+  audio.onended=()=>{
+    btn.innerHTML=isInstr?INSTR_PLAY:PLAY;
+    if(_btn===btn){_audio=null;_btn=null;}
+  };
+  audio.onerror=()=>{
+    btn.innerHTML='No audio yet';
+    setTimeout(()=>{btn.innerHTML=isInstr?INSTR_PLAY:PLAY;},2000);
+    if(_btn===btn){_audio=null;_btn=null;}
+  };
+  audio.play().then(()=>{
+    btn.innerHTML=PAUSE;
+  }).catch(()=>{
+    btn.innerHTML='No audio yet';
+    setTimeout(()=>{btn.innerHTML=isInstr?INSTR_PLAY:PLAY;},2000);
+    if(_btn===btn){_audio=null;_btn=null;}
+  });
+}
+</script>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+</body>
+</html>

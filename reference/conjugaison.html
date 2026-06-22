@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Conjugaison — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F0E8; --dark:#1B2845; --navyMid:#2C4A7C; --coral:#E8503A;
+  --gold:#D4920A; --ltGold:#FDF3D8; --ltBlue:#E8F0FA; --ltGreen:#E3F5EC;
+  --green:#1E7B45; --text:#1A2733; --slate:#4A6580; --divider:#D8DFE8;
+  --card:#EDE8DF; --white:#FFFFFF; --nav-h:64px;
+}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.7;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);
+  -webkit-text-size-adjust:100%;}
+
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:0 16px;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;
+  padding:8px;min-width:44px;min-height:44px;display:flex;align-items:center;
+  justify-content:center;border-radius:50%;}
+.icon-btn:active{background:rgba(255,255,255,0.1);}
+
+.main{max-width:600px;margin:0 auto;padding:18px 14px 8px;}
+
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;
+  color:var(--navyMid);text-decoration:none;min-height:44px;}
+
+.speak-btn{background:none;border:2px solid var(--divider);border-radius:20px;
+  padding:4px 10px;font-size:13px;color:var(--slate);cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;min-height:32px;
+  font-family:Arial,sans-serif;transition:background 0.15s,color 0.15s;}
+.speak-btn:active,.speak-btn.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
+
+.page-title{font-size:24px;font-weight:bold;color:var(--dark);margin:6px 0 4px;}
+.page-sub{font-size:14px;color:var(--slate);margin-bottom:18px;line-height:1.5;}
+
+/* VERB CARD */
+.verb-card{background:var(--white);border-radius:14px;padding:16px 18px;
+  margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-top:4px solid var(--coral);}
+.verb-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;}
+.verb-name{font-size:22px;font-weight:bold;color:var(--dark);}
+.verb-en{font-size:14px;color:var(--slate);margin-bottom:12px;}
+.verb-tense{font-size:11px;font-weight:bold;color:var(--coral);text-transform:uppercase;
+  letter-spacing:0.5px;margin-bottom:10px;}
+.conj-row{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 12px;border-radius:10px;margin-bottom:6px;background:var(--ltBlue);}
+.conj-left{font-size:18px;color:var(--dark);}
+.conj-pron{color:var(--slate);}
+.conj-form{font-weight:bold;}
+.conj-row .speak-btn{flex-shrink:0;}
+
+/* EXTERNAL CTA */
+.ext-card{background:var(--ltGold);border-left:5px solid var(--gold);
+  border-radius:0 14px 14px 0;padding:16px 18px;margin-bottom:16px;}
+.ext-title{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.ext-desc{font-size:14px;color:var(--slate);margin-bottom:12px;line-height:1.5;}
+.ext-btn{display:block;width:100%;background:var(--gold);color:#fff;border:none;
+  border-radius:10px;padding:14px;font-family:Arial,sans-serif;font-size:17px;
+  font-weight:bold;text-align:center;cursor:pointer;text-decoration:none;
+  min-height:52px;}
+.ext-btn:active{filter:brightness(0.95);}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);
+  background:var(--dark);border-top:3px solid var(--coral);
+  display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;
+  min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}
+.nav-label{font-size:11px;font-weight:bold;letter-spacing:0.3px;}
+
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <a class="site-name" href="../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons">
+    <button class="icon-btn" onclick="speakPage()" title="Lire la page">&#128266;</button>
+    <button class="icon-btn" title="Notifications">&#128276;</button>
+  </div>
+</header>
+
+<main class="main">
+
+<a class="back-link" href="index.html">&#8592; R&eacute;f&eacute;rence</a>
+<div class="page-title">&#128221; Conjugaison</div>
+<div class="page-sub">Les deux verbes les plus utiles d&rsquo;abord. Appuie sur &#128266; pour &eacute;couter.</div>
+
+<!-- ÊTRE -->
+<div class="verb-card">
+  <div class="verb-top">
+    <div class="verb-name">&Ecirc;tre</div>
+    <button class="speak-btn" onclick="speak('Le verbe être. Je suis. Tu es. Il est. Elle est. Nous sommes. Vous êtes. Ils sont. Elles sont.','fr-FR')">&#128266; Tout &eacute;couter</button>
+  </div>
+  <div class="verb-en">to be</div>
+  <div class="verb-tense">Pr&eacute;sent</div>
+
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">je</span> <span class="conj-form">suis</span></span><button class="speak-btn" onclick="speak('je suis','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">tu</span> <span class="conj-form">es</span></span><button class="speak-btn" onclick="speak('tu es','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">il / elle</span> <span class="conj-form">est</span></span><button class="speak-btn" onclick="speak('il est, elle est','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">nous</span> <span class="conj-form">sommes</span></span><button class="speak-btn" onclick="speak('nous sommes','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">vous</span> <span class="conj-form">&ecirc;tes</span></span><button class="speak-btn" onclick="speak('vous êtes','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">ils / elles</span> <span class="conj-form">sont</span></span><button class="speak-btn" onclick="speak('ils sont, elles sont','fr-FR')">&#128266;</button></div>
+</div>
+
+<!-- AVOIR -->
+<div class="verb-card">
+  <div class="verb-top">
+    <div class="verb-name">Avoir</div>
+    <button class="speak-btn" onclick="speak('Le verbe avoir. J\'ai. Tu as. Il a. Elle a. Nous avons. Vous avez. Ils ont. Elles ont.','fr-FR')">&#128266; Tout &eacute;couter</button>
+  </div>
+  <div class="verb-en">to have</div>
+  <div class="verb-tense">Pr&eacute;sent</div>
+
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">j&rsquo;</span><span class="conj-form">ai</span></span><button class="speak-btn" onclick="speak('j\'ai','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">tu</span> <span class="conj-form">as</span></span><button class="speak-btn" onclick="speak('tu as','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">il / elle</span> <span class="conj-form">a</span></span><button class="speak-btn" onclick="speak('il a, elle a','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">nous</span> <span class="conj-form">avons</span></span><button class="speak-btn" onclick="speak('nous avons','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">vous</span> <span class="conj-form">avez</span></span><button class="speak-btn" onclick="speak('vous avez','fr-FR')">&#128266;</button></div>
+  <div class="conj-row"><span class="conj-left"><span class="conj-pron">ils / elles</span> <span class="conj-form">ont</span></span><button class="speak-btn" onclick="speak('ils ont, elles ont','fr-FR')">&#128266;</button></div>
+</div>
+
+<!-- EXTERNAL CONJUGATOR -->
+<div class="ext-card">
+  <div class="ext-title">&#127760; Besoin d&rsquo;un autre verbe&nbsp;?</div>
+  <div class="ext-desc">Ouvre le conjugueur Lingolia pour conjuguer n&rsquo;importe quel verbe, &agrave; tous les temps (site externe, en anglais).</div>
+  <a class="ext-btn" href="https://francais.lingolia.com/en/grammar/conjugator" target="_blank" rel="noopener">Ouvrir le conjugueur Lingolia &#8599;</a>
+</div>
+
+</main>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="../index.html">
+    <span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span>
+  </a>
+  <a class="nav-item" href="../french/index.html">
+    <span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span>
+  </a>
+  <a class="nav-item active" href="index.html">
+    <span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span>
+  </a>
+  <a class="nav-item" href="../index.html#progress">
+    <span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span>
+  </a>
+</nav>
+
+<script>
+function speak(text,lang='fr-FR'){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang=lang; u.rate=0.88; u.pitch=1;
+  window.speechSynthesis.speak(u);
+}
+function speakPage(){
+  speak('Conjugaison. Le verbe être et le verbe avoir au présent.','fr-FR');
+}
+</script>
+</body>
+</html>

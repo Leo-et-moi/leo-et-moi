@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Référence — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F0E8; --dark:#1B2845; --navyMid:#2C4A7C; --coral:#E8503A;
+  --gold:#D4920A; --ltGold:#FDF3D8; --ltBlue:#E8F0FA; --ltGreen:#E3F5EC;
+  --green:#1E7B45; --text:#1A2733; --slate:#4A6580; --divider:#D8DFE8;
+  --card:#EDE8DF; --white:#FFFFFF; --nav-h:64px;
+}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.7;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);
+  -webkit-text-size-adjust:100%;}
+
+/* TOP BAR */
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:0 16px;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;
+  padding:8px;min-width:44px;min-height:44px;display:flex;align-items:center;
+  justify-content:center;border-radius:50%;}
+.icon-btn:active{background:rgba(255,255,255,0.1);}
+
+/* MAIN */
+.main{max-width:600px;margin:0 auto;padding:18px 14px 8px;}
+
+/* SPEAK BUTTON */
+.speak-btn{background:none;border:2px solid var(--divider);border-radius:20px;
+  padding:4px 10px;font-size:13px;color:var(--slate);cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;min-height:32px;
+  font-family:Arial,sans-serif;transition:background 0.15s,color 0.15s;}
+.speak-btn:active,.speak-btn.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
+
+/* HEADER BLOCK */
+.greeting-block{background:var(--dark);border-radius:16px;padding:20px 18px;
+  margin-bottom:16px;position:relative;overflow:hidden;}
+.greeting-block::before{content:'';position:absolute;top:0;left:0;width:5px;
+  height:100%;background:var(--coral);border-radius:16px 0 0 16px;}
+.greeting-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.greeting-name{font-size:24px;font-weight:bold;color:#fff;margin-bottom:2px;}
+.greeting-date{font-size:13px;color:#9DC8E8;}
+
+/* REFERENCE BUTTONS */
+.ref-card{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text);
+  background:var(--white);border-radius:14px;padding:18px;margin-bottom:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.07);border-left:6px solid var(--coral);
+  transition:transform 0.12s;}
+.ref-card:active{transform:scale(0.99);}
+.ref-icon{font-size:34px;flex-shrink:0;width:50px;text-align:center;}
+.ref-body{flex:1;min-width:0;}
+.ref-name{font-size:20px;font-weight:bold;color:var(--dark);margin-bottom:2px;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.ref-desc{font-size:14px;color:var(--slate);line-height:1.5;}
+.ref-ext{font-size:12px;font-weight:bold;color:var(--gold);}
+.ref-arrow{font-size:22px;color:var(--coral);font-weight:bold;flex-shrink:0;}
+.ref-speak-row{display:flex;justify-content:flex-end;margin-top:6px;}
+
+.intro-note{font-size:14px;color:var(--slate);text-align:center;margin:4px 6px 18px;line-height:1.5;}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);
+  background:var(--dark);border-top:3px solid var(--coral);
+  display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;
+  min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}
+.nav-label{font-size:11px;font-weight:bold;letter-spacing:0.3px;}
+
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+  <a class="site-name" href="../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons">
+    <button class="icon-btn" onclick="speakPage()" title="Lire la page">&#128266;</button>
+    <button class="icon-btn" title="Notifications">&#128276;</button>
+  </div>
+</header>
+
+<main class="main">
+
+<!-- HEADER -->
+<div class="greeting-block">
+  <div class="greeting-row">
+    <div>
+      <div class="greeting-name">&#128216; R&eacute;f&eacute;rence</div>
+      <div class="greeting-date">Tes outils&nbsp;: conjugaison, vocabulaire, dictionnaire</div>
+    </div>
+    <button class="speak-btn" style="border-color:rgba(255,255,255,0.25);color:#9DC8E8;flex-shrink:0;margin-top:4px;" onclick="speak('R&eacute;f&eacute;rence. Tes outils : conjugaison, vocabulaire, dictionnaire.','fr-FR')">&#128266; &Eacute;couter</button>
+  </div>
+</div>
+
+<p class="intro-note">Trois outils pour t&rsquo;aider quand tu en as besoin. Clique sur celui que tu veux ouvrir.</p>
+
+<!-- CONJUGAISON -->
+<a class="ref-card" href="conjugaison.html">
+  <div class="ref-icon">&#128221;</div>
+  <div class="ref-body">
+    <div class="ref-name">Conjugaison</div>
+    <div class="ref-desc">Les verbes &ecirc;tre et avoir, et un lien pour conjuguer tous les verbes.</div>
+  </div>
+  <span class="ref-arrow">&#8594;</span>
+</a>
+
+<!-- MON VOCABULAIRE -->
+<a class="ref-card" href="vocabulaire.html">
+  <div class="ref-icon">&#128218;</div>
+  <div class="ref-body">
+    <div class="ref-name">Mon vocabulaire</div>
+    <div class="ref-desc">Les mots que tu choisis de garder, rien qu&rsquo;&agrave; toi.</div>
+  </div>
+  <span class="ref-arrow">&#8594;</span>
+</a>
+
+<!-- DICTIONNAIRE (external) -->
+<a class="ref-card" href="https://www.larousse.com/en/dictionaries/french-english" target="_blank" rel="noopener" style="border-left-color:var(--gold);">
+  <div class="ref-icon">&#128270;</div>
+  <div class="ref-body">
+    <div class="ref-name">Dictionnaire <span class="ref-ext">&#127760; site externe</span></div>
+    <div class="ref-desc">Cherche un mot fran&ccedil;ais&ndash;anglais sur Larousse (avec le son).</div>
+  </div>
+  <span class="ref-arrow">&#8599;</span>
+</a>
+
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav">
+  <a class="nav-item" href="../index.html">
+    <span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span>
+  </a>
+  <a class="nav-item" href="../french/index.html">
+    <span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span>
+  </a>
+  <a class="nav-item active" href="index.html">
+    <span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span>
+  </a>
+  <a class="nav-item" href="../index.html#progress">
+    <span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span>
+  </a>
+</nav>
+
+<script>
+function speak(text,lang='fr-FR'){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang=lang; u.rate=0.88; u.pitch=1;
+  window.speechSynthesis.speak(u);
+}
+function speakPage(){
+  speak('Référence. Trois outils : conjugaison, mon vocabulaire, et dictionnaire.','fr-FR');
+}
+</script>
+</body>
+</html>

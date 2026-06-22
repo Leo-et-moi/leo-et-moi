@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Connexion — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F0E8; --dark:#1B2845; --navyMid:#2C4A7C; --coral:#E8503A;
+  --gold:#D4920A; --ltBlue:#E8F0FA; --ltGreen:#E3F5EC; --green:#1E7B45;
+  --text:#1A2733; --slate:#4A6580; --divider:#D8DFE8; --white:#FFFFFF;
+}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.6;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:24px 16px;
+  -webkit-text-size-adjust:100%;}
+
+.brand{font-size:28px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.brand span{color:var(--coral);}
+.tagline{font-size:15px;color:var(--slate);margin-bottom:24px;text-align:center;}
+
+.card{background:var(--white);border-radius:16px;padding:24px 22px;width:100%;
+  max-width:380px;box-shadow:0 4px 16px rgba(0,0,0,0.08);border-top:5px solid var(--coral);}
+.card-title{font-size:20px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.card-sub{font-size:14px;color:var(--slate);margin-bottom:20px;}
+
+.btn-google{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:var(--white);color:var(--dark);border:2px solid var(--divider);border-radius:12px;
+  padding:14px;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;cursor:pointer;
+  min-height:54px;transition:background 0.15s;}
+.btn-google:active{background:var(--ltBlue);}
+.g-logo{width:22px;height:22px;flex-shrink:0;}
+
+.divider{display:flex;align-items:center;gap:10px;margin:18px 0;color:var(--slate);font-size:13px;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--divider);}
+
+.field-label{font-size:14px;font-weight:bold;color:var(--dark);margin-bottom:6px;display:block;}
+.field{width:100%;font-family:Arial,sans-serif;font-size:17px;color:var(--text);
+  background:var(--cream);border:2px solid var(--divider);border-radius:10px;
+  padding:13px 12px;margin-bottom:14px;min-height:50px;}
+.field:focus{outline:none;border-color:var(--navyMid);}
+
+.btn-primary{display:block;width:100%;background:var(--coral);color:#fff;border:none;
+  border-radius:12px;padding:14px;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;
+  text-align:center;cursor:pointer;min-height:54px;transition:background 0.15s;}
+.btn-primary:active{background:#C94030;}
+
+.msg{font-size:14px;border-radius:10px;padding:11px 13px;margin-top:14px;display:none;line-height:1.5;}
+.msg.error{background:#fceaea;color:#C0392B;display:block;}
+.msg.info{background:var(--ltBlue);color:var(--navyMid);display:block;}
+.msg.ok{background:var(--ltGreen);color:var(--green);display:block;}
+
+.foot-note{font-size:13px;color:var(--slate);text-align:center;margin-top:18px;line-height:1.5;}
+.signed-row{display:none;align-items:center;justify-content:space-between;gap:8px;
+  background:var(--ltGreen);border-radius:10px;padding:12px;margin-bottom:16px;}
+.signed-row.show{display:flex;}
+.link-btn{background:none;border:none;color:var(--navyMid);font-weight:bold;font-size:14px;
+  cursor:pointer;font-family:Arial,sans-serif;text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<div class="brand">Leo<span>-et-</span>moi</div>
+<div class="tagline">Connecte-toi pour retrouver tes progrès</div>
+
+<div class="card">
+
+  <!-- Already signed in -->
+  <div class="signed-row" id="signedRow">
+    <span id="signedTxt" style="font-size:14px;color:var(--green);font-weight:bold;"></span>
+    <a class="btn-primary" id="continueBtn" href="index.html" style="width:auto;padding:8px 16px;min-height:40px;font-size:14px;">Continuer &#8594;</a>
+  </div>
+
+  <div class="card-title">Connexion</div>
+  <div class="card-sub">Choisis comment te connecter.</div>
+
+  <!-- Google (click-only) -->
+  <button class="btn-google" id="googleBtn">
+    <svg class="g-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.3 35 24 35c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 5.1 29.3 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.2-.1-2.3-.4-3.5z"/>
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 5.1 29.3 3 24 3 16 3 9.1 7.6 6.3 14.7z"/>
+      <path fill="#4CAF50" d="M24 45c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.9 26.7 37 24 37c-5.3 0-9.7-2.6-11.3-7l-6.5 5C9 40.3 15.9 45 24 45z"/>
+      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.6l6.2 5.2C41.5 36.6 45 31 45 24c0-1.2-.1-2.3-.4-3.5z"/>
+    </svg>
+    Se connecter avec Google
+  </button>
+
+  <div class="divider">ou avec un e-mail</div>
+
+  <!-- Email / password (for students without Google) -->
+  <form id="emailForm">
+    <label class="field-label" for="email">Adresse e-mail</label>
+    <input class="field" type="email" id="email" autocomplete="username" placeholder="exemple@email.com" required>
+    <label class="field-label" for="password">Mot de passe</label>
+    <input class="field" type="password" id="password" autocomplete="current-password" placeholder="Ton mot de passe" required>
+    <button class="btn-primary" type="submit">Se connecter</button>
+  </form>
+
+  <div class="msg" id="msg"></div>
+
+  <div class="foot-note">
+    Tu n&rsquo;as pas encore de compte&nbsp;? Demande &agrave; ton professeur de t&rsquo;en cr&eacute;er un.
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
+         onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC9ZF5NapFmCImXttk8S22OjWoGCx2Ztqk",
+  authDomain: "leo-et-moi.firebaseapp.com",
+  projectId: "leo-et-moi",
+  storageBucket: "leo-et-moi.firebasestorage.app",
+  messagingSenderId: "293051167258",
+  appId: "1:293051167258:web:08d192bd132de2b89ad7a3"
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db   = getFirestore(app);
+
+const msg = document.getElementById('msg');
+function show(kind, text){ msg.className = 'msg ' + kind; msg.textContent = text; }
+function clearMsg(){ msg.className = 'msg'; msg.textContent = ''; }
+
+// Create the student's record on first sign-in (matches Firestore rules: role must be 'student')
+async function ensureUserDoc(user){
+  const ref = doc(db, 'users', user.uid);
+  const snap = await getDoc(ref);
+  if (!snap.exists()){
+    await setDoc(ref, {
+      displayName: user.displayName || '',
+      email: user.email || '',
+      role: 'student',
+      level: 'a1',
+      createdAt: serverTimestamp()
+    });
+  }
+}
+
+function goHome(){ window.location.href = 'index.html'; }
+
+// If already signed in, offer to continue (don't auto-redirect, so a shared device can switch users)
+onAuthStateChanged(auth, (user) => {
+  const row = document.getElementById('signedRow');
+  if (user){
+    document.getElementById('signedTxt').textContent =
+      'Connecté : ' + (user.displayName || user.email);
+    row.classList.add('show');
+  } else {
+    row.classList.remove('show');
+  }
+});
+
+// Google sign-in (click-only)
+document.getElementById('googleBtn').addEventListener('click', async () => {
+  clearMsg();
+  try{
+    const res = await signInWithPopup(auth, new GoogleAuthProvider());
+    await ensureUserDoc(res.user);
+    show('ok', 'Bienvenue, ' + (res.user.displayName || '') + ' ! Redirection…');
+    goHome();
+  }catch(e){
+    show('error', friendly(e));
+  }
+});
+
+// Email / password sign-in
+document.getElementById('emailForm').addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  clearMsg();
+  const email = document.getElementById('email').value.trim();
+  const pw    = document.getElementById('password').value;
+  try{
+    const res = await signInWithEmailAndPassword(auth, email, pw);
+    await ensureUserDoc(res.user);
+    show('ok', 'Connexion réussie ! Redirection…');
+    goHome();
+  }catch(e){
+    show('error', friendly(e));
+  }
+});
+
+function friendly(e){
+  const c = (e && e.code) || '';
+  if (c.includes('popup-closed') || c.includes('cancelled')) return 'Connexion annulée. Réessaie quand tu veux.';
+  if (c.includes('wrong-password') || c.includes('invalid-credential')) return 'E-mail ou mot de passe incorrect.';
+  if (c.includes('user-not-found')) return 'Aucun compte avec cet e-mail. Demande à ton professeur.';
+  if (c.includes('invalid-email')) return 'Cette adresse e-mail n’est pas valide.';
+  if (c.includes('too-many-requests')) return 'Trop d’essais. Attends un moment puis réessaie.';
+  if (c.includes('network')) return 'Problème de connexion internet. Vérifie ta connexion.';
+  if (c.includes('unauthorized-domain')) return 'Ce site n’est pas encore autorisé pour la connexion (à déployer sur l’hébergement).';
+  return 'Une erreur est survenue. Réessaie. (' + (c || 'inconnue') + ')';
+}
+</script>
+</body>
+</html>
