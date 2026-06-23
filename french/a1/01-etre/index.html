@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Le verbe Être — Le&ccedil;on — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#D4920A;
+  --text:#1A2733;--slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--nav-h:64px;--a1:#C0392B;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;
+  min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:0 16px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.main{max-width:680px;margin:0 auto;padding:18px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;
+  color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lesson-tag{display:inline-block;background:var(--a1);color:#fff;font-size:13px;font-weight:bold;
+  padding:3px 12px;border-radius:20px;margin-bottom:8px;}
+.lesson-title{font-size:26px;font-weight:bold;color:var(--dark);margin-bottom:2px;}
+.lesson-sub{font-size:14px;color:var(--slate);margin-bottom:16px;}
+.slide-img{width:100%;display:block;border-radius:12px;border:1px solid var(--divider);
+  box-shadow:0 2px 10px rgba(0,0,0,0.12);background:#fff;}
+.viewer-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;}
+.nav-btn{flex:1;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:14px;
+  font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:52px;}
+.nav-btn:disabled{background:var(--divider);color:var(--slate);cursor:default;}
+.nav-btn:active:not(:disabled){background:#1A3060;}
+.counter{font-size:15px;font-weight:bold;color:var(--dark);min-width:70px;text-align:center;}
+.cta-btn{display:block;width:100%;background:var(--coral);color:#fff;border:none;border-radius:12px;
+  padding:16px;font-family:Arial,sans-serif;font-size:19px;font-weight:bold;text-align:center;
+  cursor:pointer;text-decoration:none;min-height:56px;margin-top:8px;}
+.cta-btn:active{background:#C94030;}
+.hint{font-size:13px;color:var(--slate);text-align:center;margin-top:14px;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);
+  border-top:3px solid var(--coral);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}
+.nav-label{font-size:11px;font-weight:bold;letter-spacing:0.3px;}
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="../index.html">&#8592; Toutes les le&ccedil;ons A1</a>
+  <div class="lesson-tag">Le&ccedil;on 1 &bull; A1</div>
+  <div class="lesson-title">Le verbe Être</div>
+  <div class="lesson-sub">to be &bull; Regarde la le&ccedil;on, puis fais les exercices.</div>
+
+  <img id="slideImg" class="slide-img" src="slides/slide-01.png" alt="Diapositive 1">
+  <div class="viewer-controls">
+    <button id="prevBtn" class="nav-btn" disabled>&#8592; Pr&eacute;c&eacute;dent</button>
+    <span id="counter" class="counter">1 / 17</span>
+    <button id="nextBtn" class="nav-btn">Suivant &#8594;</button>
+  </div>
+
+  <a class="cta-btn" href="exercices.html">Faire les exercices &#8594;</a>
+  <div class="hint">Utilise <strong>Pr&eacute;c&eacute;dent</strong> et <strong>Suivant</strong> pour avancer dans la le&ccedil;on.</div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+(function(){
+  var TOTAL=17,n=1;
+  var img=document.getElementById('slideImg'),
+      prev=document.getElementById('prevBtn'),
+      next=document.getElementById('nextBtn'),
+      cnt=document.getElementById('counter');
+  function pad(x){return (x<10?'0':'')+x;}
+  function show(){
+    img.src='slides/slide-'+pad(n)+'.png';
+    img.alt='Diapositive '+n;
+    cnt.textContent=n+' / '+TOTAL;
+    prev.disabled=(n===1);
+    next.disabled=(n===TOTAL);
+  }
+  prev.addEventListener('click',function(){ if(n>1){n--;show();} });
+  next.addEventListener('click',function(){ if(n<TOTAL){n++;show();} });
+})();
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body>
+</html>
