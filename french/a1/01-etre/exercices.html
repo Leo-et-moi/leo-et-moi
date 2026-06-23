@@ -402,6 +402,7 @@ body{padding-bottom:84px;}
 .bottom-nav .nav-item.active{color:var(--coral);}
 .bottom-nav .nav-icon{font-size:22px;line-height:1;}
 .bottom-nav .nav-label{font-size:11px;font-weight:bold;letter-spacing:0.3px;}
+.script-section{display:none;}
 </style>
 </head>
 <body>
@@ -1188,5 +1189,18 @@ function playAudio(src, btn) {
   <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
 </nav>
 <script type="module" src="../../../js/auth-guard.js"></script>
+<script>
+// Teacher recording script: hidden for students, shown only when the signed-in user is a teacher.
+document.addEventListener('lem-auth-ready', function(){
+  if (window.LEM && window.LEM.getUser){
+    window.LEM.getUser().then(function(u){
+      if (u && u.role === 'teacher'){
+        var el = document.querySelector('.script-section');
+        if (el) el.style.display = 'block';
+      }
+    }).catch(function(){});
+  }
+});
+</script>
 </body>
 </html>
