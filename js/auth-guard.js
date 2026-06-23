@@ -1,8 +1,7 @@
-// auth-guard.js — Phase 2: require login on every page, inject sign-out,
-// and expose Firebase (window.LEM) + a 'lem-auth-ready' event for progress sync.
+// auth-guard.js — Phase 2: require login, inject sign-out, expose Firebase + progress helpers.
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC9ZF5NapFmCImXttk8S22OjWoGCx2Ztqk",
@@ -17,11 +16,39 @@ const app  = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db   = getFirestore(app);
 
-// Site root = the folder above /js/ — works at any page depth and on GitHub Pages.
 const ROOT  = new URL('../', import.meta.url).href;
 const LOGIN = ROOT + 'login.html';
 
-window.LEM = { app, auth, db, ROOT, user: null };
+let _readyUser = null;
+const _readyCbs = [];
+
+const LEM = {
+  app, auth, db, ROOT, user: null,
+  onReady(cb){ if (_readyUser) cb(_readyUser); else _readyCbs.push(cb); },
+  _userRef(){ return doc(db, 'users', auth.currentUser.uid); },
+  async getVocab(){
+    const s = await getDoc(this._userRef());
+    return (s.exists() && s.data().vocab) || [];
+  },
+  async addVocab(word){
+    const ref = this._userRef();
+    const s = await getDoc(ref);
+    const v = (s.exists() && s.data().vocab) || [];
+    if (v.some(x => x.fr === word.fr)) return false;
+    v.push(word);
+    await setDoc(ref, { vocab: v }, { merge: true });
+    return true;
+  },
+  async removeVocab(fr){
+    const ref = this._userRef();
+    const s = await getDoc(ref);
+    let v = (s.exists() && s.data().vocab) || [];
+    v = v.filter(x => x.fr !== fr);
+    await setDoc(ref, { vocab: v }, { merge: true });
+    return v;
+  }
+};
+window.LEM = LEM;
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
@@ -29,8 +56,10 @@ onAuthStateChanged(auth, (user) => {
     location.replace(LOGIN);
     return;
   }
-  window.LEM.user = user;
+  LEM.user = user;
+  _readyUser = user;
   injectSignOut(user);
+  _readyCbs.forEach(cb => { try { cb(user); } catch (e) {} });
   document.dispatchEvent(new CustomEvent('lem-auth-ready', { detail: { user } }));
 });
 
@@ -41,10 +70,7 @@ function injectSignOut(user) {
   btn.id = 'lemSignOut';
   btn.title = 'Se déconnecter (' + who + ')';
   btn.textContent = '🚪';
-  btn.addEventListener('click', async () => {
-    await signOut(auth);
-    location.replace(LOGIN);
-  });
+  btn.addEventListener('click', async () => { await signOut(auth); location.replace(LOGIN); });
   const host = document.querySelector('.top-bar .top-icons');
   if (host) {
     btn.className = 'icon-btn';

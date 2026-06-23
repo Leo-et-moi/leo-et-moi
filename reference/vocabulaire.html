@@ -136,32 +136,26 @@ function speak(text,lang='fr-FR'){
 }
 function speakPage(){ speak('Mon vocabulaire. Les mots que tu choisis de garder.','fr-FR'); }
 
-// ── PERSONAL VOCAB STORE (localStorage key: myVocab) ─────────
-function getVocab(){
-  try{ return JSON.parse(localStorage.getItem('myVocab')||'[]'); }
-  catch(e){ return []; }
-}
-function saveVocab(arr){ localStorage.setItem('myVocab', JSON.stringify(arr)); }
+// ── PERSONAL VOCAB (Firestore via window.LEM) ───────────────
+let _vocab = [];
 
-function removeWord(i){
-  const v=getVocab();
-  v.splice(i,1);
-  saveVocab(v);
+async function loadAndRender(){
+  try { _vocab = await window.LEM.getVocab(); } catch(e){ _vocab = []; }
   render();
 }
-
-function speakAll(){
-  const v=getVocab();
-  if(!v.length)return;
-  speak(v.map(w=>w.fr+'. '+(w.ctx||'')).join(' ... '),'fr-FR');
+async function removeWord(fr){
+  try { _vocab = await window.LEM.removeVocab(fr); } catch(e){}
+  render();
 }
-
+function speakAll(){
+  if(!_vocab.length) return;
+  speak(_vocab.map(function(w){return w.fr+'. '+(w.ctx||'');}).join(' ... '),'fr-FR');
+}
 function render(){
-  const v=getVocab();
+  const v=_vocab;
   const list=document.getElementById('vocabList');
   const countRow=document.getElementById('countRow');
   list.innerHTML='';
-
   if(!v.length){
     countRow.style.display='none';
     const e=document.createElement('div');
@@ -174,45 +168,31 @@ function render(){
     list.appendChild(e);
     return;
   }
-
   countRow.style.display='flex';
   document.getElementById('countLabel').textContent=v.length+' mot'+(v.length>1?'s':'');
-
-  v.forEach((w,i)=>{
-    const card=document.createElement('div');
-    card.className='vocab-card';
-
-    const row=document.createElement('div');
-    row.className='vocab-row';
-
+  v.forEach(function(w){
+    const card=document.createElement('div'); card.className='vocab-card';
+    const row=document.createElement('div'); row.className='vocab-row';
     const left=document.createElement('div');
     const fr=document.createElement('div'); fr.className='vocab-fr'; fr.textContent=w.fr;
     const en=document.createElement('div'); en.className='vocab-en'; en.textContent=w.en||'';
     left.appendChild(fr); left.appendChild(en);
-
-    const actions=document.createElement('div');
-    actions.className='vocab-actions';
-    const sp=document.createElement('button');
-    sp.className='speak-btn'; sp.innerHTML='&#128266;';
-    sp.addEventListener('click',()=>speak(w.fr+'. '+(w.ctx||''),'fr-FR'));
-    const rm=document.createElement('button');
-    rm.className='remove-btn'; rm.innerHTML='&times;'; rm.title='Retirer ce mot';
-    rm.addEventListener('click',()=>removeWord(i));
+    const actions=document.createElement('div'); actions.className='vocab-actions';
+    const sp=document.createElement('button'); sp.className='speak-btn'; sp.innerHTML='&#128266;';
+    sp.addEventListener('click',function(){ speak(w.fr+'. '+(w.ctx||''),'fr-FR'); });
+    const rm=document.createElement('button'); rm.className='remove-btn'; rm.innerHTML='&times;'; rm.title='Retirer ce mot';
+    rm.addEventListener('click',function(){ removeWord(w.fr); });
     actions.appendChild(sp); actions.appendChild(rm);
-
     row.appendChild(left); row.appendChild(actions);
     card.appendChild(row);
-
-    if(w.ctx){
-      const ctx=document.createElement('div');
-      ctx.className='vocab-ctx'; ctx.textContent=w.ctx;
-      card.appendChild(ctx);
-    }
+    if(w.ctx){ const ctx=document.createElement('div'); ctx.className='vocab-ctx'; ctx.textContent=w.ctx; card.appendChild(ctx); }
     list.appendChild(card);
   });
 }
 
-render();
+// Load once login is confirmed (auth-guard fires this)
+document.addEventListener('lem-auth-ready', loadAndRender);
+if (window.LEM && window.LEM.user) loadAndRender();
 </script>
 <script type="module" src="../js/auth-guard.js"></script>
 </body>

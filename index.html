@@ -517,15 +517,7 @@ function speakVocab(){
   ].join(' ... '),'fr-FR');
 }
 
-// PERSONAL VOCAB : click-only "Ajouter" buttons
-function addVocab(word){
-  let v;
-  try{ v=JSON.parse(localStorage.getItem('myVocab')||'[]'); }catch(e){ v=[]; }
-  if(v.some(w=>w.fr===word.fr)) return false;
-  v.push(word);
-  localStorage.setItem('myVocab', JSON.stringify(v));
-  return true;
-}
+// PERSONAL VOCAB : click-only "Ajouter" buttons (saved to Firestore via window.LEM)
 (function(){
   document.querySelectorAll('.vocab-item').forEach(function(item){
     var frEl=item.querySelector('.vocab-fr');
@@ -539,10 +531,11 @@ function addVocab(word){
     btn.className='add-vocab';
     btn.innerHTML='+ Ajouter à mon vocabulaire';
     btn.addEventListener('click',function(){
-      var ok=addVocab({fr:fr,en:en,ctx:ctx});
-      btn.classList.add('added');
-      btn.innerHTML=(ok?'✓ Ajouté':'✓ Déjà')+' à mon vocabulaire';
+      if(!window.LEM){ btn.innerHTML='⚠ Connecte-toi'; return; }
       btn.disabled=true;
+      Promise.resolve(window.LEM.addVocab({fr:fr,en:en,ctx:ctx}))
+        .then(function(ok){ btn.classList.add('added'); btn.innerHTML=(ok?'✓ Ajouté':'✓ Déjà')+' à mon vocabulaire'; })
+        .catch(function(){ btn.disabled=false; btn.innerHTML='⚠ Réessaie'; });
     });
     item.appendChild(btn);
   });
