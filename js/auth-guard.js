@@ -26,10 +26,12 @@ const LEM = {
   app, auth, db, ROOT, user: null,
   onReady(cb){ if (_readyUser) cb(_readyUser); else _readyCbs.push(cb); },
   _userRef(){ return doc(db, 'users', auth.currentUser.uid); },
-  async getVocab(){
-    const s = await getDoc(this._userRef());
-    return (s.exists() && s.data().vocab) || [];
-  },
+  _lessonRef(id){ return doc(db, 'progress', auth.currentUser.uid, 'lessons', id); },
+  async getUser(){ const s = await getDoc(this._userRef()); return s.exists() ? s.data() : {}; },
+  async saveUser(partial){ await setDoc(this._userRef(), partial, { merge: true }); },
+  async getLesson(id){ const s = await getDoc(this._lessonRef(id)); return s.exists() ? s.data() : null; },
+  async setLesson(id, partial){ await setDoc(this._lessonRef(id), partial, { merge: true }); },
+  async getVocab(){ const s = await getDoc(this._userRef()); return (s.exists() && s.data().vocab) || []; },
   async addVocab(word){
     const ref = this._userRef();
     const s = await getDoc(ref);
@@ -72,10 +74,8 @@ function injectSignOut(user) {
   btn.textContent = '🚪';
   btn.addEventListener('click', async () => { await signOut(auth); location.replace(LOGIN); });
   const host = document.querySelector('.top-bar .top-icons');
-  if (host) {
-    btn.className = 'icon-btn';
-    host.appendChild(btn);
-  } else {
+  if (host) { btn.className = 'icon-btn'; host.appendChild(btn); }
+  else {
     btn.style.cssText = 'position:fixed;top:8px;right:8px;z-index:9999;background:#1B2845;'
       + 'color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;'
       + 'cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.25);';
