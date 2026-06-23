@@ -476,17 +476,21 @@ const now=new Date();
 document.getElementById('todayDate').textContent=
   DAYS[now.getDay()]+' '+now.getDate()+' '+MONTHS[now.getMonth()]+' '+now.getFullYear();
 
-// ── STREAK ───────────────────────────────────────────────────
-(function(){
+// ── STREAK (Firestore via window.LEM) ───────────────────────
+function lemStreak(){
   const today=now.toDateString();
-  const last=localStorage.getItem('lastVisit');
-  let s=parseInt(localStorage.getItem('streak')||'0');
-  if(last){const d=Math.floor((now-new Date(last))/86400000);
-    if(d===1)s++;else if(d>1)s=1;}
-  else s=1;
-  if(last!==today){localStorage.setItem('streak',s);localStorage.setItem('lastVisit',today);}
-  document.getElementById('streakCount').textContent=s;
-})();
+  window.LEM.getUser().then(function(u){
+    const last=u.lastVisit||null;
+    let s=parseInt(u.streak||'0',10)||0;
+    if(last){ const d=Math.floor((now-new Date(last))/86400000); if(d===1)s++; else if(d>1)s=1; }
+    else s=1;
+    if(s<1)s=1;
+    document.getElementById('streakCount').textContent=s;
+    if(last!==today){ window.LEM.saveUser({streak:s,lastVisit:today}); }
+  }).catch(function(){});
+}
+document.addEventListener('lem-auth-ready', lemStreak);
+if(window.LEM && window.LEM.user) lemStreak();
 
 // ── WEB SPEECH API ───────────────────────────────────────────
 let currentUtt=null;
@@ -517,15 +521,7 @@ function speakVocab(){
   ].join(' ... '),'fr-FR');
 }
 
-// PERSONAL VOCAB : click-only "Ajouter" buttons
-function addVocab(word){
-  let v;
-  try{ v=JSON.parse(localStorage.getItem('myVocab')||'[]'); }catch(e){ v=[]; }
-  if(v.some(w=>w.fr===word.fr)) return false;
-  v.push(word);
-  localStorage.setItem('myVocab', JSON.stringify(v));
-  return true;
-}
+// PERSONAL VOCAB : click-only "Ajouter" buttons (saved to Firestore via window.LEM)
 (function(){
   document.querySelectorAll('.vocab-item').forEach(function(item){
     var frEl=item.querySelector('.vocab-fr');
@@ -539,10 +535,11 @@ function addVocab(word){
     btn.className='add-vocab';
     btn.innerHTML='+ Ajouter à mon vocabulaire';
     btn.addEventListener('click',function(){
-      var ok=addVocab({fr:fr,en:en,ctx:ctx});
-      btn.classList.add('added');
-      btn.innerHTML=(ok?'✓ Ajouté':'✓ Déjà')+' à mon vocabulaire';
+      if(!window.LEM){ btn.innerHTML='⚠ Connecte-toi'; return; }
       btn.disabled=true;
+      Promise.resolve(window.LEM.addVocab({fr:fr,en:en,ctx:ctx}))
+        .then(function(ok){ btn.classList.add('added'); btn.innerHTML=(ok?'✓ Ajouté':'✓ Déjà')+' à mon vocabulaire'; })
+        .catch(function(){ btn.disabled=false; btn.innerHTML='⚠ Réessaie'; });
     });
     item.appendChild(btn);
   });
@@ -591,27 +588,29 @@ const WARMUPS=[
   });
 })();
 
-// ── SPACED REPETITION ────────────────────────────────────────
-(function(){
+// ── SPACED REPETITION (Firestore via window.LEM) ────────────
+function lemSpaced(){
   const lessons=[
-    {key:'etre',label:'Le verbe \u00catre',href:'french/a1/01-etre/exercices.html'},
-    {key:'avoir',label:'Le verbe Avoir',href:'french/a1/02-avoir/exercices.html'},
+    {key:'etre',label:'Le verbe Être',href:'french/a1/01-etre/exercices.html'},
+    {key:'avoir',label:'Le verbe Avoir',href:'french/a1/02-avoir/exercices.html'}
   ];
-  for(const l of lessons){
-    const last=localStorage.getItem('lastPractice_'+l.key);
-    if(!last)continue;
-    const days=Math.floor((Date.now()-parseInt(last))/86400000);
-    if(days>=3){
-      document.getElementById('spacedTitle').textContent=
-        'R\u00e9vision\u00a0: '+l.label;
-      document.getElementById('spacedSub').textContent=
-        days+' jour'+(days>1?'s':'')+' sans pratique \u2014 ta m\u00e9moire en a besoin\u00a0!';
-      document.getElementById('spacedLink').href=l.href;
-      document.getElementById('spacedCard').classList.add('visible');
-      break;
+  (async function(){
+    for(const l of lessons){
+      let d=null; try{ d=await window.LEM.getLesson(l.key); }catch(e){}
+      if(!d||!d.lastPracticed) continue;
+      const days=Math.floor((Date.now()-Number(d.lastPracticed))/86400000);
+      if(days>=3){
+        document.getElementById('spacedTitle').textContent='Révision : '+l.label;
+        document.getElementById('spacedSub').textContent=days+' jour'+(days>1?'s':'')+' sans pratique — ta mémoire en a besoin !';
+        document.getElementById('spacedLink').href=l.href;
+        document.getElementById('spacedCard').classList.add('visible');
+        break;
+      }
     }
-  }
-})();
+  })();
+}
+document.addEventListener('lem-auth-ready', lemSpaced);
+if(window.LEM && window.LEM.user) lemSpaced();
 
 // ── CEFR BAR (inline detail) ─────────────────────────────────
 const CEFR_DATA={

@@ -180,18 +180,23 @@ function speak(text,lang='fr-FR'){
 }
 function speakPage(){ speak('Niveau A1, débutant. Mes leçons : le verbe être, et le verbe avoir.','fr-FR'); }
 
-// Practice status from localStorage (set by the exercise pages)
-(function(){
+// Practice status from Firestore (set by the exercise pages)
+function lemGridStatus(){
   document.querySelectorAll('[data-status]').forEach(function(el){
     var key=el.getAttribute('data-status');
-    var last=localStorage.getItem('lastPractice_'+key);
-    if(!last){ el.textContent='À commencer'; return; }
-    var days=Math.floor((Date.now()-parseInt(last))/86400000);
-    el.classList.add('done');
-    el.textContent = days<=0 ? '✓ Pratiqué aujourd’hui'
-                  : '✓ Pratiqué il y a '+days+' jour'+(days>1?'s':'');
+    (async function(){
+      var d=null; try{ d=await window.LEM.getLesson(key); }catch(e){}
+      if(!d||!d.lastPracticed){ el.textContent='À commencer'; return; }
+      var days=Math.floor((Date.now()-Number(d.lastPracticed))/86400000);
+      el.classList.add('done');
+      var t = days<=0 ? '✓ Pratiqué aujourd’hui' : '✓ Pratiqué il y a '+days+' jour'+(days>1?'s':'');
+      if(typeof d.score==='number' && typeof d.total==='number'){ t += ' · '+d.score+'/'+d.total; }
+      el.textContent=t;
+    })();
   });
-})();
+}
+document.addEventListener('lem-auth-ready', lemGridStatus);
+if(window.LEM && window.LEM.user) lemGridStatus();
 </script>
 <script type="module" src="../../js/auth-guard.js"></script>
 </body>
