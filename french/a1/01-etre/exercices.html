@@ -1050,7 +1050,7 @@ const scores = {};
 let answered = 0;
 
 function updateProgress() {
-  try{ localStorage.setItem('lastPractice_etre', Date.now()); }catch(e){}
+  if(window.LEM && !window._lemMarked){ window._lemMarked=true; window.LEM.setLesson('etre',{lastPracticed:Date.now()}); }
   const pct = Math.round((answered / ALL.length) * 100);
   document.getElementById('progressBar').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = answered + ' of ' + ALL.length + ' questions answered';
@@ -1081,6 +1081,7 @@ function showFinal() {
   else msg = 'Keep practicing! Review the ÊTRE lesson slides and try again.';
   document.getElementById('finalMsg').textContent = msg;
   document.getElementById('finalScore').classList.add('visible');
+  if(window.LEM){ window.LEM.setLesson('etre',{score:ALL.filter(function(id){return scores[id];}).length,total:ALL.length,completed:true,lastPracticed:Date.now()}); }
   window.scrollTo({ top: document.getElementById('finalScore').offsetTop - 40, behavior: 'smooth' });
 }
 
