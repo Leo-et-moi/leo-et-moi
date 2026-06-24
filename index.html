@@ -491,6 +491,20 @@ function lemStreak(){
 document.addEventListener('lem-auth-ready', lemStreak);
 if(window.LEM && window.LEM.user) lemStreak();
 
+// ── GREETING NAME (from the logged-in student) ──────────────
+function lemGreet(){
+  if(!window.LEM) return;
+  window.LEM.getUser().then(function(u){
+    var au = window.LEM.user || {};
+    var full = (u && u.displayName) || au.displayName || '';
+    var name = full ? full.trim().split(/\s+/)[0] : ((au.email||'').split('@')[0] || '');
+    var el = document.getElementById('greetMsg');
+    if(el) el.textContent = name ? ('Bonjour, '+name+'\u00a0!') : 'Bonjour\u00a0!';
+  }).catch(function(){});
+}
+document.addEventListener('lem-auth-ready', lemGreet);
+if(window.LEM && window.LEM.user) lemGreet();
+
 // ── WEB SPEECH API ───────────────────────────────────────────
 let currentUtt=null;
 function speak(text,lang='fr-FR'){
