@@ -240,7 +240,6 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 <header class="top-bar">
   <div class="site-name">Leo<span>-et-</span>moi</div>
   <div class="top-icons">
-    <button class="icon-btn" onclick="speakPage()" title="Lire la page">&#128266;</button>
     <button class="icon-btn" title="Notifications">&#128276;</button>
   </div>
 </header>
@@ -254,7 +253,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
       <div class="greeting-name" id="greetMsg">Bonjour, L&eacute;o&nbsp;!</div>
       <div class="greeting-date" id="todayDate"></div>
     </div>
-    <button class="speak-btn" onclick="speak(document.getElementById('greetMsg').textContent+'. '+document.getElementById('todayDate').textContent,'fr-FR')" style="flex-shrink:0;margin-top:4px;">&#128266; &Eacute;couter</button>
+    <button class="speak-btn" onclick="playClip('bonjour.mp3',this)" style="flex-shrink:0;margin-top:4px;">&#128266; &Eacute;couter</button>
   </div>
   <div class="streak-row">
     <div class="streak-badge">&#128293; <span id="streakCount">0</span> jour(s)</div>
@@ -295,9 +294,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 </div>
 
 <!-- DAILY WARM-UP -->
-<div class="sec-label">&#9889; &Eacute;chauffement du jour</div>
+<div class="sec-label">&#9889; &Eacute;chauffement de la semaine</div>
 <div class="warmup-card">
-  <div class="warmup-tag">2 minutes &mdash; Question du jour</div>
+  <div class="warmup-tag">Question de la semaine</div>
   <div class="warmup-q" id="wuQ"></div>
   <div class="warmup-timer-row">
     <button class="speak-btn" id="wuSpeakBtn" onclick="speakWarmup()">&#128266; &Eacute;couter</button>
@@ -342,7 +341,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 <div class="phrase-card">
   <div class="phrase-top">
     <span class="phrase-tag">Semaine du 16 juin</span>
-    <button class="speak-btn" onclick="speak('J\'ai faim ! Il est midi et j\'ai faim. On mange ?','fr-FR')">&#128266; &Eacute;couter</button>
+    <button class="speak-btn" onclick="playClip('phrase_semaine.mp3',this)">&#128266; &Eacute;couter</button>
   </div>
   <div class="phrase-fr">&laquo;&nbsp;J&rsquo;ai faim&nbsp;!&nbsp;&raquo;</div>
   <div class="phrase-en">&ldquo;I&rsquo;m hungry!&rdquo;</div>
@@ -357,7 +356,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 <div class="vocab-card">
   <div class="vocab-tag">
     <span class="vocab-tag-label">5 expressions avec AVOIR</span>
-    <button class="speak-btn" onclick="speakVocab()">&#128266; Tout &eacute;couter</button>
+    <button class="speak-btn" onclick="playSeq(['vocab_1_faim.mp3','vocab_2_soif.mp3','vocab_3_peur.mp3','vocab_4_besoin.mp3','vocab_5_chance.mp3'])">&#128266; Tout &eacute;couter</button>
   </div>
 
   <div class="vocab-item">
@@ -365,7 +364,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
       <span class="vocab-fr">avoir faim</span>
       <div style="display:flex;align-items:center;gap:8px;">
         <span class="vocab-en">to be hungry</span>
-        <button class="speak-btn" onclick="speak('avoir faim. J\'ai faim apr&egrave;s l\'entra&icirc;nement.','fr-FR')">&#128266;</button>
+        <button class="speak-btn" onclick="playClip('vocab_1_faim.mp3',this)">&#128266;</button>
       </div>
     </div>
     <div class="vocab-ctx">&#8220;J&rsquo;ai faim apr&egrave;s l&rsquo;entra&icirc;nement.&#8221; &mdash; I&rsquo;m hungry after practice.</div>
@@ -376,7 +375,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
       <span class="vocab-fr">avoir soif</span>
       <div style="display:flex;align-items:center;gap:8px;">
         <span class="vocab-en">to be thirsty</span>
-        <button class="speak-btn" onclick="speak('avoir soif. Tu as soif apr&egrave;s la randonn&eacute;e ?','fr-FR')">&#128266;</button>
+        <button class="speak-btn" onclick="playClip('vocab_2_soif.mp3',this)">&#128266;</button>
       </div>
     </div>
     <div class="vocab-ctx">&#8220;Tu as soif apr&egrave;s la randonn&eacute;e&nbsp;?&#8221; &mdash; Are you thirsty after the hike?</div>
@@ -387,7 +386,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
       <span class="vocab-fr">avoir peur</span>
       <div style="display:flex;align-items:center;gap:8px;">
         <span class="vocab-en">to be scared</span>
-        <button class="speak-btn" onclick="speak('avoir peur. Il a peur des ours dans la for&ecirc;t.','fr-FR')">&#128266;</button>
+        <button class="speak-btn" onclick="playClip('vocab_3_peur.mp3',this)">&#128266;</button>
       </div>
     </div>
     <div class="vocab-ctx">&#8220;Il a peur des ours dans la for&ecirc;t.&#8221; &mdash; He&rsquo;s scared of bears in the forest.</div>
@@ -398,7 +397,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
       <span class="vocab-fr">avoir besoin de</span>
       <div style="display:flex;align-items:center;gap:8px;">
         <span class="vocab-en">to need</span>
-        <button class="speak-btn" onclick="speak('avoir besoin de. J\'ai besoin de mon t&eacute;l&eacute;phone.','fr-FR')">&#128266;</button>
+        <button class="speak-btn" onclick="playClip('vocab_4_besoin.mp3',this)">&#128266;</button>
       </div>
     </div>
     <div class="vocab-ctx">&#8220;J&rsquo;ai besoin de mon t&eacute;l&eacute;phone.&#8221; &mdash; I need my phone.</div>
@@ -409,7 +408,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
       <span class="vocab-fr">avoir de la chance</span>
       <div style="display:flex;align-items:center;gap:8px;">
         <span class="vocab-en">to be lucky</span>
-        <button class="speak-btn" onclick="speak('avoir de la chance. On a de la chance, il ne pleut pas&nbsp;!','fr-FR')">&#128266;</button>
+        <button class="speak-btn" onclick="playClip('vocab_5_chance.mp3',this)">&#128266;</button>
       </div>
     </div>
     <div class="vocab-ctx">&#8220;On a de la chance, il ne pleut pas&nbsp;!&#8221; &mdash; We&rsquo;re lucky, it&rsquo;s not raining!</div>
@@ -422,7 +421,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <div class="anatomy-tag">Comprendre les mots, pas juste les m&eacute;moriser</div>
   <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
     <div class="anatomy-word">rapidement</div>
-    <button class="speak-btn" style="border-color:rgba(255,255,255,0.2);color:#9DC8E8;" onclick="speak('rapidement. rapide plus ment. Rapidement.','fr-FR')">&#128266;</button>
+    <button class="speak-btn" style="border-color:rgba(255,255,255,0.2);color:#9DC8E8;" onclick="playClip('anatomie_rapidement.mp3',this)">&#128266;</button>
   </div>
   <div class="anatomy-parts">
     <span class="anatomy-part root">rapide</span>
@@ -529,14 +528,26 @@ function speak(text,lang='fr-FR'){
   currentUtt=u;
   window.speechSynthesis.speak(u);
 }
+// ── RECORDED AUDIO (your voice; no synthetic) ──────────────
+var _clip=null,_clipBtn=null;
+function playClip(file,btn){
+  try{ if(_clip) _clip.pause(); }catch(e){}
+  if(_clipBtn) _clipBtn.classList.remove('speaking');
+  _clip=new Audio('french/audio/'+file); _clipBtn=btn||null;
+  if(_clipBtn) _clipBtn.classList.add('speaking');
+  _clip.onended=_clip.onerror=function(){ if(_clipBtn) _clipBtn.classList.remove('speaking'); };
+  _clip.play().catch(function(){ if(_clipBtn) _clipBtn.classList.remove('speaking'); });
+}
+function playSeq(files){
+  var i=0;(function nx(){ if(i>=files.length)return; var a=new Audio('french/audio/'+files[i]); i++; a.onended=nx; a.onerror=nx; a.play().catch(nx); })();
+}
 function speakPage(){
   const greeting=document.getElementById('greetMsg').textContent;
   const phrase="Phrase de la semaine. J'ai faim. I'm hungry.";
   speak(greeting+'. '+phrase,'fr-FR');
 }
 function speakWarmup(){
-  const q=document.getElementById('wuQ').textContent;
-  speak(q,'fr-FR');
+  playClip('warmup_'+((window._wuIndex||0)+1)+'.mp3', document.getElementById('wuSpeakBtn'));
 }
 function speakVocab(){
   speak([
@@ -585,7 +596,9 @@ const WARMUPS=[
 ];
 (function(){
   const dy=Math.floor((now-new Date(now.getFullYear(),0,0))/86400000);
-  const w=WARMUPS[dy%WARMUPS.length];
+  const wk=Math.floor(dy/7);
+  window._wuIndex=wk%WARMUPS.length;
+  const w=WARMUPS[window._wuIndex];
   document.getElementById('wuQ').textContent=w.q;
   const grid=document.getElementById('wuOpts');
   w.opts.forEach((o,i)=>{
@@ -700,7 +713,7 @@ function cefrBarTab(id,btn){
     '<div style="display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid var(--divider);">'+
       '<div style="width:10px;height:10px;border-radius:50%;background:'+(dotClass==='current'?'var(--coral)':'var(--divider)')+';flex-shrink:0;"></div>'+
       '<span style="font-size:13px;color:var(--slate);flex:1;">'+d.statusTxt+'</span>'+
-      '<button class="speak-btn" onclick="speak(\''+d.speak+'\',\'fr-FR\')">&#128266;</button>'+
+      '<button class="speak-btn" onclick="playClip(\'cefr_'+id+'.mp3\',this)">&#128266;</button>'+
     '</div>'+
     '<a href="'+COE+'" target="_blank" style="font-size:13px;color:var(--navyMid);font-weight:bold;margin-top:12px;display:inline-block;text-decoration:none;">&#127760; Voir la grille CECRL officielle (coe.int)</a>';
   detail.style.display='block';
@@ -726,7 +739,7 @@ function togglePomodoro(){
         disp.textContent='00:00';
         btn.textContent='\u25b6 D\u00e9marrer la minuterie';
         pomSecs=25*60;
-        speak('Bien jou\u00e9\u00a0! Ta session de vingt-cinq minutes est termin\u00e9e. Prends une pause de cinq minutes.','fr-FR');
+        playClip('pomodoro_fin.mp3');
         alert('\ud83c\udf89 Bien jou\u00e9\u00a0! 25 minutes compl\u00e9t\u00e9es. Prends une pause de 5 minutes\u00a0!');
       }
     },1000);
