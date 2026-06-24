@@ -54,7 +54,6 @@ window.LEM = LEM;
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    try { sessionStorage.setItem('lem_return', location.href); } catch (e) {}
     location.replace(LOGIN);
     return;
   }
