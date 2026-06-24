@@ -286,7 +286,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
     <div class="cefr-seg-lbl">C1</div>
     <div class="cefr-seg-lbl">C2</div>
   </div>
-  <div class="cefr-note">2 le&ccedil;ons compl&eacute;t&eacute;es &mdash; tu progresses bien&nbsp;! &nbsp;&#9660; Clique sur un niveau pour en savoir plus.</div>
+  <div class="cefr-note"><span id="cefrDone">2 le&ccedil;ons compl&eacute;t&eacute;es</span> &mdash; continue comme &ccedil;a&nbsp;! &nbsp;&#9660; Clique sur un niveau pour en savoir plus.</div>
 
   <!-- Inline level detail panel (hidden by default) -->
   <div id="cefrDetail" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--divider);">
@@ -440,11 +440,11 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
     <div class="french-icon">&#127467;&#127479;</div>
     <div>
       <div class="french-name">Fran&ccedil;ais</div>
-      <div class="french-meta">Niveau actuel : A1 &nbsp;&#183;&nbsp; 2 le&ccedil;ons</div>
+      <div class="french-meta">Niveau actuel : A1 &nbsp;&#183;&nbsp; <span id="frCount">2 le&ccedil;ons</span></div>
     </div>
   </div>
   <div class="mini-prog-wrap"><div class="mini-prog-fill" style="width:17%"></div></div>
-  <div class="mini-prog-text">2 le&ccedil;ons A1 compl&eacute;t&eacute;es</div>
+  <div class="mini-prog-text" id="frMini">2 le&ccedil;ons A1 compl&eacute;t&eacute;es</div>
 </a>
 
 
@@ -504,6 +504,20 @@ function lemGreet(){
 }
 document.addEventListener('lem-auth-ready', lemGreet);
 if(window.LEM && window.LEM.user) lemGreet();
+
+// ── COMPLETED-LESSON COUNT (real, from Firestore) ───────────
+function lemCounts(){
+  if(!window.LEM) return;
+  Promise.all([window.LEM.getLesson('etre'), window.LEM.getLesson('avoir')]).then(function(rs){
+    var done = rs.filter(function(d){ return d && d.completed; }).length;
+    var w = done<=1 ? 'le\u00e7on compl\u00e9t\u00e9e' : 'le\u00e7ons compl\u00e9t\u00e9es';
+    var a=document.getElementById('cefrDone'); if(a) a.textContent = done+' '+w;
+    var b=document.getElementById('frCount'); if(b) b.textContent = done+' '+(done<=1?'le\u00e7on':'le\u00e7ons');
+    var c=document.getElementById('frMini');  if(c) c.textContent = done+' '+w+' en A1';
+  }).catch(function(){});
+}
+document.addEventListener('lem-auth-ready', lemCounts);
+if(window.LEM && window.LEM.user) lemCounts();
 
 // ── WEB SPEECH API ───────────────────────────────────────────
 let currentUtt=null;
