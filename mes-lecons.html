@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Mes leçons — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--text:#1A2733;
+  --slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;
+  min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:0 16px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.main{max-width:600px;margin:0 auto;padding:18px 14px 8px;}
+.greeting-block{background:var(--dark);border-radius:16px;padding:20px 18px;margin-bottom:8px;position:relative;overflow:hidden;}
+.greeting-block::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:var(--coral);border-radius:16px 0 0 16px;}
+.greeting-name{font-size:24px;font-weight:bold;color:#fff;margin-bottom:2px;}
+.greeting-date{font-size:13px;color:#9DC8E8;}
+.intro-note{font-size:14px;color:var(--slate);margin:14px 4px 18px;line-height:1.5;}
+.lvl-card{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);
+  background:var(--white);border-radius:14px;padding:16px;margin-bottom:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:6px solid var(--divider);}
+.lvl-card.locked{opacity:0.55;background:var(--card);}
+.lvl-badge{width:50px;height:50px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;font-size:18px;font-weight:bold;color:#fff;}
+.lvl-info{flex:1;min-width:0;}
+.lvl-name{font-size:18px;font-weight:bold;color:var(--dark);}
+.lvl-status{font-size:13px;font-weight:bold;color:var(--slate);}
+.lvl-status.current{color:var(--coral);}
+.lvl-arrow{font-size:20px;font-weight:bold;flex-shrink:0;color:var(--coral);}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);
+  border-top:3px solid var(--coral);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <div class="greeting-block">
+    <div class="greeting-name">&#128218; Mes le&ccedil;ons</div>
+    <div class="greeting-date" id="levelLine">Ton niveau&hellip;</div>
+  </div>
+  <p class="intro-note">Tu peux ouvrir ton niveau actuel et revoir les niveaux que tu as d&eacute;j&agrave; termin&eacute;s. Les niveaux plus avanc&eacute;s s&rsquo;ouvriront quand ton professeur les d&eacute;bloquera.</p>
+  <div id="levels"></div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="mes-lecons.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+var LEVELS=[
+ {id:'a1',name:'Débutant',color:'#C0392B',href:'french/a1/index.html'},
+ {id:'a2',name:'Élémentaire',color:'#E07B39',href:null},
+ {id:'b1',name:'Intermédiaire',color:'#D4920A',href:null},
+ {id:'b2',name:'Intermédiaire +',color:'#7CB82F',href:null},
+ {id:'c1',name:'Avancé',color:'#27AE60',href:'french/c1/index.html'},
+ {id:'c2',name:'Maîtrise',color:'#1A5C38',href:null}
+];
+var ORDER=['a1','a2','b1','b2','c1','c2'];
+
+function render(level,role){
+  level=(level||'a1').toLowerCase();
+  var ci=ORDER.indexOf(level); if(ci<0) ci=0;
+  if(role==='teacher') ci=ORDER.length-1;
+  document.getElementById('levelLine').textContent='Ton niveau actuel : '+LEVELS[ci].id.toUpperCase()+' — '+LEVELS[ci].name;
+  var wrap=document.getElementById('levels'); wrap.innerHTML='';
+  LEVELS.forEach(function(L,i){
+    var unlocked = i<=ci;
+    var isCurrent = i===ci;
+    var hasContent = !!L.href;
+    var el;
+    if(unlocked && hasContent){
+      el=document.createElement('a'); el.className='lvl-card'; el.href=L.href; el.style.borderLeftColor=L.color;
+    } else {
+      el=document.createElement('div'); el.className='lvl-card'+(unlocked?'':' locked'); if(unlocked) el.style.borderLeftColor=L.color;
+    }
+    var badge='<div class="lvl-badge" style="background:'+(unlocked?L.color:'#9aa6b3')+';">'+L.id.toUpperCase()+'</div>';
+    var status;
+    if(!unlocked) status='<span class="lvl-status">&#128274; Disponible plus tard</span>';
+    else if(!hasContent) status='<span class="lvl-status">Leçons bientôt disponibles</span>';
+    else if(isCurrent) status='<span class="lvl-status current">&#9654; Niveau actuel — ouvrir</span>';
+    else status='<span class="lvl-status">&#10003; Terminé — revoir</span>';
+    var arrow=(unlocked&&hasContent)?'<span class="lvl-arrow">&#8594;</span>':'';
+    el.innerHTML=badge+'<div class="lvl-info"><div class="lvl-name">'+L.name+'</div>'+status+'</div>'+arrow;
+    wrap.appendChild(el);
+  });
+}
+function load(){
+  if(window.LEM && window.LEM.getUser){
+    window.LEM.getUser().then(function(u){ render((u&&u.level)||'a1', u&&u.role); }).catch(function(){ render('a1'); });
+  } else { render('a1'); }
+}
+document.addEventListener('lem-auth-ready', load);
+if(window.LEM && window.LEM.user) load();
+render('a1');
+</script>
+<script type="module" src="js/auth-guard.js"></script>
+</body>
+</html>

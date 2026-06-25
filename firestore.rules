@@ -1,0 +1,57 @@
+rules_version = '2';
+
+// Firestore security rules for leo-et-moi
+// Model:
+//   users/{uid}                          -> one record per person (name, email, role, level)
+//   progress/{uid}/lessons/{lessonId}    -> a student's progress, one doc per lesson
+//   lessons/{lessonId}                   -> shared lesson metadata (read-only for students)
+//
+// Principles:
+//   - A student can read/write ONLY their own user record and progress.
+//   - A teacher (role == 'teacher') can read everyone (for the dashboard).
+//   - A student cannot promote themselves to 'teacher'.
+//   - Nothing is publicly readable; sign-in is always required.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helpers ──────────────────────────────────────────────
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+    function isTeacher() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'teacher';
+    }
+
+    // ── USERS ────────────────────────────────────────────────
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isTeacher();
+      // A user may create their own record, but only as a 'student'.
+      allow create: if isOwner(uid) && request.resource.data.role == 'student';
+      // Owner may update their own record but cannot change role to 'teacher'.
+      // Teachers may update anyone.
+      allow update: if (isOwner(uid)
+                       && request.resource.data.role == 'student'
+                       && request.resource.data.level == resource.data.level)
+                    || isTeacher();
+      allow delete: if isTeacher();
+    }
+
+    // ── PROGRESS (per student) ───────────────────────────────
+    match /progress/{uid}/lessons/{lessonId} {
+      allow read: if isOwner(uid) || isTeacher();
+      allow write: if isOwner(uid);
+    }
+
+    // ── LESSONS (shared metadata) ────────────────────────────
+    match /lessons/{lessonId} {
+      allow read: if signedIn();
+      allow write: if isTeacher();
+    }
+  }
+}
