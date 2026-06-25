@@ -263,6 +263,8 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 
 <a class="cta-btn" href="mes-lecons.html" style="margin-bottom:16px;font-size:20px;">&#128218; Toutes mes le&ccedil;ons &#8594;</a>
 
+<a id="teacherLink" class="cta-btn" href="tableau-prof.html" style="display:none;margin-bottom:16px;font-size:18px;background:#2C4A7C;">&#128202; Tableau de bord (prof) &#8594;</a>
+
 <!-- CEFR PERSONAL PROGRESS BAR -->
 <div class="cefr-bar-card">
   <div class="cefr-bar-title">
@@ -499,6 +501,7 @@ function lemGreet(){
     var name = full ? full.trim().split(/\s+/)[0] : ((au.email||'').split('@')[0] || '');
     var el = document.getElementById('greetMsg');
     if(el) el.textContent = name ? ('Bonjour, '+name+'\u00a0!') : 'Bonjour\u00a0!';
+    if(u && u.role==='teacher'){ var tl=document.getElementById('teacherLink'); if(tl) tl.style.display='block'; }
   }).catch(function(){});
 }
 document.addEventListener('lem-auth-ready', lemGreet);
