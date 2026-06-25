@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>C1 — Francine Gosselin — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#D4920A;
+  --ltBlue:#E8F0FA;--ltGreen:#E3F5EC;--green:#1E7B45;--red:#C0392B;--text:#1A2733;
+  --slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--nav-h:64px;--c1:#27AE60;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;
+  min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--c1);padding:0 16px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.main{max-width:680px;margin:0 auto;padding:18px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;
+  color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--c1);color:#fff;font-size:13px;font-weight:bold;
+  padding:3px 12px;border-radius:20px;margin-bottom:8px;}
+.page-title{font-size:24px;font-weight:bold;color:var(--dark);margin-bottom:2px;}
+.page-sub{font-size:14px;color:var(--slate);margin-bottom:18px;line-height:1.5;}
+.sec-label{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;
+  letter-spacing:1px;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
+.flash{background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  border-top:5px solid var(--c1);padding:26px 22px;min-height:200px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none;}
+.flash-side{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;
+  color:var(--c1);margin-bottom:12px;}
+.flash-side.reponse{color:var(--coral);}
+.flash-text{font-size:21px;font-weight:bold;color:var(--dark);line-height:1.4;}
+.flash-hint{font-size:13px;color:var(--slate);margin-top:16px;}
+.deck-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;}
+.nav-btn{flex:1;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:14px;
+  font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:52px;}
+.nav-btn:disabled{background:var(--divider);color:var(--slate);cursor:default;}
+.nav-btn:active:not(:disabled){background:#1A3060;}
+.counter{font-size:15px;font-weight:bold;color:var(--dark);min-width:70px;text-align:center;}
+.flip-btn{display:block;width:100%;background:var(--c1);color:#fff;border:none;border-radius:10px;
+  padding:13px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:50px;}
+.flip-btn:active{filter:brightness(0.95);}
+.q-card{background:var(--white);border-radius:12px;border:1.5px solid var(--divider);
+  border-left:5px solid var(--navyMid);padding:18px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+.q-card.ok{border-left-color:var(--green);background:var(--ltGreen);}
+.q-card.ko{border-left-color:var(--red);background:#fdf0ee;}
+.q-num{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.q-text{font-size:18px;font-weight:bold;color:var(--dark);margin-bottom:14px;line-height:1.4;}
+.choice{display:block;width:100%;text-align:left;font-family:Arial,sans-serif;font-size:16px;
+  font-weight:bold;color:var(--dark);background:var(--ltBlue);border:2px solid var(--divider);
+  border-radius:10px;padding:13px 14px;margin-bottom:9px;cursor:pointer;min-height:50px;line-height:1.35;}
+.choice:active:not(:disabled){background:#D5E8FA;}
+.choice.correct{background:var(--ltGreen);border-color:var(--green);color:var(--green);}
+.choice.wrong{background:#fceaea;border-color:var(--red);color:var(--red);}
+.choice:disabled{cursor:default;}
+.q-fb{font-size:15px;font-weight:bold;margin-top:10px;display:none;line-height:1.5;}
+.q-fb.show{display:block;}
+.q-fb.ok{color:var(--green);}
+.q-fb.ko{color:var(--red);}
+.final{display:none;text-align:center;padding:30px 22px;background:var(--dark);border-radius:14px;margin-top:20px;color:#fff;}
+.final.show{display:block;}
+.final-num{font-size:56px;font-weight:bold;color:var(--c1);line-height:1;}
+.final-msg{font-size:17px;color:#fff;margin-top:14px;}
+.retry-btn{margin-top:20px;background:var(--coral);color:#fff;border:none;border-radius:10px;
+  padding:14px 32px;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);
+  border-top:3px solid var(--c1);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="../../../index.html">&#8592; Accueil</a>
+  <div class="lvl-tag">C1 &bull; Compr&eacute;hension orale</div>
+  <div class="page-title">L&rsquo;entretien de Francine Gosselin</div>
+  <div class="page-sub">D&rsquo;abord, r&eacute;vise avec les cartes. Ensuite, teste-toi avec le quiz.</div>
+
+  <div class="sec-label">&#128218; Cartes &mdash; r&eacute;vision</div>
+  <div class="flash" id="flash" onclick="flip()">
+    <div class="flash-side" id="flashSide">Question</div>
+    <div class="flash-text" id="flashText">&hellip;</div>
+    <div class="flash-hint" id="flashHint">Touche la carte pour voir la r&eacute;ponse</div>
+  </div>
+  <button class="flip-btn" onclick="flip()">&#128260; Retourner la carte</button>
+  <div class="deck-controls">
+    <button id="fPrev" class="nav-btn">&#8592; Pr&eacute;c&eacute;dent</button>
+    <span id="fCount" class="counter">1 / 36</span>
+    <button id="fNext" class="nav-btn">Suivant &#8594;</button>
+  </div>
+
+  <div class="sec-label">&#9989; Quiz &mdash; 10 questions</div>
+  <div id="quiz"></div>
+  <div class="final" id="final">
+    <div class="final-num" id="finalNum">0 / 10</div>
+    <div class="final-msg" id="finalMsg"></div>
+    <button class="retry-btn" onclick="location.reload()">Recommencer</button>
+  </div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item" href="../../a1/index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+
+<script>
+var FLASH=[
+ {q:"Quel est le nom complet de la femme qui s'exprime dans l'enregistrement ?",a:"Francine Gosselin"},
+ {q:"Quel âge a Francine Gosselin au moment de l'entretien ?",a:"59 ans"},
+ {q:"Dans quelle ville Francine Gosselin réside-t-elle ?",a:"Mirabel"},
+ {q:"Quelle est la situation professionnelle actuelle de Francine ?",a:"Elle est en arrêt de travail."},
+ {q:"Pour quelle raison médicale Francine doit-elle passer des tests ?",a:"Un problème de dos"},
+ {q:"Quelle est l'intention de Francine concernant sa fin de carrière ?",a:"Elle prévoit prendre sa retraite plutôt que de retourner au travail."},
+ {q:"De combien d'enfants se compose la famille d'origine de Francine ?",a:"Six enfants"},
+ {q:"Quelle est la répartition par sexe des frères et sœurs de Francine ?",a:"Quatre filles et deux gars"},
+ {q:"Quel est le rang de naissance de Francine au sein de sa fratrie ?",a:"La quatrième"},
+ {q:"Quel âge a la sœur la plus âgée de Francine ?",a:"68 ans"},
+ {q:"Quel âge a le frère aîné de Francine ?",a:"67 ans"},
+ {q:"Quel âge a le frère qui précède immédiatement Francine ?",a:"61 ans"},
+ {q:"À quel âge Francine s'apprête-t-elle à arriver bientôt ?",a:"60 ans"},
+ {q:"Quels sont les âges des deux sœurs plus jeunes que Francine ?",a:"55 ans et 54 ans"},
+ {q:"Quel est le titre professionnel actuel de Francine Gosselin ?",a:"Thérapeute en réadaptation physique"},
+ {q:"Quel diplôme collégial (DEC) Francine a-t-elle obtenu initialement ?",a:"Un DEC en techniques de loisir"},
+ {q:"Pendant combien d'années Francine a-t-elle travaillé dans le domaine des loisirs ?",a:"Huit ans et demi"},
+ {q:"Quelle expression Francine utilise-t-elle pour décrire son ancien travail en loisirs ?",a:"Faire le clown"},
+ {q:"Pourquoi Francine est-elle retournée aux études en réadaptation ?",a:"Elle s'était tannée de travailler en loisirs."},
+ {q:"Que désigne l'acronyme CHSLD, où Francine a travaillé ?",a:"Centre d'hébergement et de soins de longue durée"},
+ {q:"Quel était le dernier lieu d'exercice de Francine avant son arrêt ?",a:"En CLSC, à domicile"},
+ {q:"Que signifie l'acronyme québécois CLSC ?",a:"Centre local de services communautaires"},
+ {q:"Quel type de réadaptation post-opératoire Francine effectuait-elle à domicile ?",a:"La réadaptation post-prothèse de hanche et de genou"},
+ {q:"Comment Francine se définit-elle sur le plan de son tempérament ?",a:"Une personne hyperactive"},
+ {q:"Quelle activité physique Francine pratique-t-elle beaucoup malgré son mal de dos ?",a:"La marche"},
+ {q:"Quels sont les deux sports d'hiver mentionnés par Francine ?",a:"Le patin et la raquette"},
+ {q:"Quel sport d'été Francine pratique-t-elle modérément ?",a:"Le vélo"},
+ {q:"Quelle est l'attitude actuelle de Francine envers les sports extrêmes ?",a:"Elle n'en fait plus beaucoup et se dit plutôt calme."},
+ {q:"Quel type de véhicule motorisé Francine conduit-elle occasionnellement ?",a:"La moto"},
+ {q:"Jusqu'où Francine a-t-elle voyagé au sein de la province de Québec ?",a:"Partout, du nord au sud et de l'est à l'ouest."},
+ {q:"Combien de fois Francine a-t-elle visité l'Ouest américain ?",a:"Cinq fois"},
+ {q:"Quel moyen de transport Francine a-t-elle privilégié pour l'Ouest américain ?",a:"Le véhicule (par la route)"},
+ {q:"Combien de fois Francine s'est-elle rendue dans l'Ouest canadien ?",a:"Trois fois"},
+ {q:"Citez un pays d'Europe que Francine a déjà visité.",a:"La France (ou le Portugal)"},
+ {q:"Quel pays d'Asie Francine a-t-elle visité ?",a:"La Chine"},
+ {q:"Quelle est la destination prévue pour le prochain voyage de Francine ?",a:"L'Espagne"}
+];
+var idx=0, showingBack=false;
+function renderCard(){
+  var c=FLASH[idx];
+  var side=document.getElementById('flashSide');
+  side.textContent = showingBack ? 'Réponse' : 'Question';
+  side.className = 'flash-side' + (showingBack?' reponse':'');
+  document.getElementById('flashText').textContent = showingBack ? c.a : c.q;
+  document.getElementById('flashHint').style.display = showingBack ? 'none' : 'block';
+  document.getElementById('fCount').textContent = (idx+1)+' / '+FLASH.length;
+  document.getElementById('fPrev').disabled = (idx===0);
+  document.getElementById('fNext').disabled = (idx===FLASH.length-1);
+}
+function flip(){ showingBack=!showingBack; renderCard(); }
+document.getElementById('fPrev').addEventListener('click',function(e){e.stopPropagation(); if(idx>0){idx--;showingBack=false;renderCard();}});
+document.getElementById('fNext').addEventListener('click',function(e){e.stopPropagation(); if(idx<FLASH.length-1){idx++;showingBack=false;renderCard();}});
+renderCard();
+
+var QUIZ=[
+ {q:"Quel âge a Francine Gosselin et dans quelle ville habite-t-elle ?",o:["68 ans et elle vit à Québec.","60 ans et elle vit à Montréal.","55 ans et elle vit à Mirabel.","59 ans et elle vit à Mirabel."],c:3,e:"Elle mentionne avoir presque atteint une nouvelle décennie et vivre dans une municipalité des Laurentides."},
+ {q:"Quelle est la raison principale de l'arrêt de travail actuel de Francine ?",o:["Une chirurgie planifiée de la hanche.","Un problème de dos nécessitant des tests.","Une blessure causée par un sport extrême.","Un épuisement professionnel (burnout)."],c:1,e:"Cela concerne une partie du corps souvent sollicitée lors de la manipulation de patients en réadaptation."},
+ {q:"Dans sa famille de six enfants, quel est le rang de naissance de Francine ?",o:["Quatrième.","Deuxième.","Sixième.","Troisième."],c:0,e:"Elle arrive juste après le deuxième garçon de la famille."},
+ {q:"Quel diplôme d'études collégiales (DEC) Francine a-t-elle obtenu avant de se réorienter ?",o:["Éducation spécialisée.","Soins infirmiers.","Techniques de loisirs.","Tourisme et voyages."],c:2,e:"Elle utilise l'expression « faire le clown » pour décrire cette première étape."},
+ {q:"Comment Francine s'est-elle rendue dans l'Ouest américain lors de ses cinq voyages ?",o:["En train.","En motocyclette.","En véhicule.","En avion."],c:2,e:"Elle privilégie le transport routier pour explorer le continent d'est en ouest."},
+ {q:"Quels sont les futurs projets de voyage de Francine pour l'année en cours ?",o:["L'Italie, la Grèce et l'Égypte.","La France, le Portugal et la Chine.","L'Espagne, le Maroc et Israël.","L'Ouest canadien et les États-Unis."],c:2,e:"Ses projets incluent une ville spécifique nommée Tel-Aviv."},
+ {q:"Dans quel type de structure Francine travaillait-elle en dernier lieu avant son arrêt ?",o:["Dans un centre de réadaptation privé.","Dans un hôpital de soins aigus.","En CLSC, pour des soins à domicile.","Dans une clinique de médecine sportive."],c:2,e:"Il s'agit d'un acronyme québécois désignant un centre local offrant des services à la communauté."},
+ {q:"Quelle est la spécialité clinique de Francine en réadaptation physique ?",o:["La réadaptation pédiatrique.","Le traitement des blessures sportives extrêmes.","Le traitement des traumatismes crâniens.","La réadaptation post-prothèse de hanche et de genou."],c:3,e:"Son travail aide les gens à remarcher après le remplacement d'une articulation majeure."},
+ {q:"Pendant combien de temps Francine a-t-elle travaillé dans le domaine des loisirs ?",o:["5 ans.","10 ans.","8 ans et demi.","12 ans."],c:2,e:"La réponse se situe entre huit et neuf ans."},
+ {q:"Malgré son problème de dos, quelles activités physiques Francine pratique-t-elle encore ?",o:["Le parachutisme et l'escalade.","Le hockey et le ski alpin.","La natation de compétition et le tennis.","La marche, un peu de vélo et de la moto."],c:3,e:"Elle privilégie des mouvements fluides et des déplacements motorisés ou pédestres moins brusques."}
+];
+var LETTERS=['A','B','C','D'];
+var answered=0, score=0;
+(function(){
+  var wrap=document.getElementById('quiz');
+  QUIZ.forEach(function(item,qi){
+    var card=document.createElement('div'); card.className='q-card'; card.id='q'+qi;
+    var num=document.createElement('div'); num.className='q-num'; num.textContent='Question '+(qi+1)+' / '+QUIZ.length;
+    var qt=document.createElement('div'); qt.className='q-text'; qt.textContent=item.q;
+    card.appendChild(num); card.appendChild(qt);
+    item.o.forEach(function(opt,oi){
+      var b=document.createElement('button'); b.className='choice';
+      b.textContent=LETTERS[oi]+'.  '+opt;
+      b.addEventListener('click',function(){ choose(card,qi,oi); });
+      card.appendChild(b);
+    });
+    var fb=document.createElement('div'); fb.className='q-fb'; fb.id='fb'+qi;
+    card.appendChild(fb);
+    wrap.appendChild(card);
+  });
+})();
+function choose(card,qi,oi){
+  if(card.dataset.done) return;
+  card.dataset.done='1';
+  var item=QUIZ[qi];
+  var btns=card.querySelectorAll('.choice');
+  btns.forEach(function(b,i){ b.disabled=true; if(i===item.c) b.classList.add('correct'); });
+  var right=(oi===item.c);
+  if(!right) btns[oi].classList.add('wrong');
+  if(right) score++;
+  card.classList.add(right?'ok':'ko');
+  var fb=document.getElementById('fb'+qi);
+  fb.className='q-fb show '+(right?'ok':'ko');
+  fb.textContent=(right?'✓ Correct ! ':'✗ Pas tout à fait. ')+item.e;
+  answered++;
+  if(answered===QUIZ.length) showFinal();
+}
+function showFinal(){
+  var f=document.getElementById('final'); f.classList.add('show');
+  document.getElementById('finalNum').textContent=score+' / '+QUIZ.length;
+  var pct=Math.round(score/QUIZ.length*100);
+  var msg = pct>=90?'Excellent ! Compréhension de niveau C1 maîtrisée.'
+          : pct>=70?'Très bien ! Revois les questions manquées.'
+          : pct>=50?'Pas mal ! Réécoute l\'entretien et réessaie.'
+          : 'Continue ! Réécoute l\'entretien et reprends le quiz.';
+  document.getElementById('finalMsg').textContent=msg;
+  if(window.LEM){ window.LEM.setLesson('c1_francine_gosselin',{score:score,total:QUIZ.length,completed:true,lastPracticed:Date.now()}); }
+  f.scrollIntoView({behavior:'smooth'});
+}
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body>
+</html>
