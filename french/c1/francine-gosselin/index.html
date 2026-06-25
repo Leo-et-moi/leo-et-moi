@@ -69,6 +69,8 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--c1);display:flex;align-items:center;z-index:100;}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
 .nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+.hint-toggle{background:none;border:none;color:var(--navyMid);font-weight:bold;font-size:14px;cursor:pointer;padding:8px 0;font-family:Arial,sans-serif;}
+.hint-box{font-size:14px;color:var(--slate);background:var(--ltBlue);border-radius:8px;padding:10px 12px;margin:4px 0 8px;line-height:1.5;display:flex;align-items:flex-start;gap:8px;}
 @media(min-width:600px){.main{padding:24px 20px 8px;}}
 </style>
 </head>
@@ -79,9 +81,10 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 </header>
 <main class="main">
   <a class="back-link" href="../../../index.html">&#8592; Accueil</a>
-  <div class="lvl-tag">C1 &bull; Compr&eacute;hension orale</div>
-  <div class="page-title">L&rsquo;entretien de Francine Gosselin</div>
-  <div class="page-sub">&Eacute;coute l&rsquo;entretien, r&eacute;vise avec les cartes, puis teste-toi avec le quiz.</div>
+  <div class="lvl-tag">C1</div>
+  <div style="font-size:15px;font-weight:bold;color:var(--dark);margin-bottom:2px;">Exercice de compr&eacute;hension orale &mdash; accent qu&eacute;b&eacute;cois</div>
+  <div class="page-title">L&rsquo;entretien de Francine G.</div>
+  <div class="page-sub" style="display:flex;align-items:flex-start;gap:8px;"><span>&Eacute;coute l&rsquo;entretien, lis la transcription, r&eacute;vise avec les cartes, puis teste-toi avec le quiz.</span><button class="speak-btn" onclick="playClip('c1_fg_instruction.mp3',this)">&#128266;</button></div>
 
   <div class="sec-label">&#127911; &Eacute;coute l&rsquo;entretien</div>
   <div class="interview-card">
@@ -155,14 +158,14 @@ var FLASH=[
  {q:"Dans quelle ville Francine Gosselin réside-t-elle ?",a:"Mirabel"},
  {q:"Quelle est la situation professionnelle actuelle de Francine ?",a:"Elle est en arrêt de travail."},
  {q:"Pour quelle raison médicale Francine doit-elle passer des tests ?",a:"Un problème de dos"},
- {q:"Quelle est l'intention de Francine concernant sa fin de carrière ?",a:"Elle prévoit prendre sa retraite plutôt que de retourner au travail."},
+ {q:"Quelle est l'intention de Francine concernant sa fin de carrière ?",a:"Elle prévoit de prendre sa retraite plutôt que de retourner au travail."},
  {q:"De combien d'enfants se compose la famille d'origine de Francine ?",a:"Six enfants"},
  {q:"Quelle est la répartition par sexe des frères et sœurs de Francine ?",a:"Quatre filles et deux gars"},
  {q:"Quel est le rang de naissance de Francine au sein de sa fratrie ?",a:"La quatrième"},
  {q:"Quel âge a la sœur la plus âgée de Francine ?",a:"68 ans"},
  {q:"Quel âge a le frère aîné de Francine ?",a:"67 ans"},
  {q:"Quel âge a le frère qui précède immédiatement Francine ?",a:"61 ans"},
- {q:"À quel âge Francine s'apprête-t-elle à arriver bientôt ?",a:"60 ans"},
+ {q:"À quel âge Francine s'apprête-t-elle à arrêter bientôt ?",a:"60 ans"},
  {q:"Quels sont les âges des deux sœurs plus jeunes que Francine ?",a:"55 ans et 54 ans"},
  {q:"Quel est le titre professionnel actuel de Francine Gosselin ?",a:"Thérapeute en réadaptation physique"},
  {q:"Quel diplôme collégial (DEC) Francine a-t-elle obtenu initialement ?",a:"Un DEC en techniques de loisir"},
@@ -238,6 +241,14 @@ var answered=0, score=0;
       row.appendChild(b); row.appendChild(au);
       card.appendChild(row);
     });
+    var ht=document.createElement('button'); ht.className='hint-toggle'; ht.innerHTML='💡 Indice';
+    var hbox=document.createElement('div'); hbox.className='hint-box'; hbox.style.display='none';
+    var hsp=document.createElement('span'); hsp.textContent=item.e+' ';
+    var hau=document.createElement('button'); hau.className='speak-btn'; hau.innerHTML='&#128266;';
+    hau.addEventListener('click',function(){ playClip('c1_fg_quiz_'+pad(qi+1)+'_hint.mp3', hau); });
+    hbox.appendChild(hsp); hbox.appendChild(hau);
+    ht.addEventListener('click',function(){ var sh=(hbox.style.display==='none'); hbox.style.display=sh?'block':'none'; ht.innerHTML = sh ? '💡 Masquer l\'indice' : '💡 Indice'; });
+    card.appendChild(ht); card.appendChild(hbox);
     var fb=document.createElement('div'); fb.className='q-fb'; fb.id='fb'+qi;
     card.appendChild(fb);
     wrap.appendChild(card);
@@ -254,10 +265,7 @@ function choose(card,qi,oi){
   card.classList.add(right?'ok':'ko');
   var fb=document.getElementById('fb'+qi);
   fb.className='q-fb show '+(right?'ok':'ko');
-  fb.textContent=(right?'✓ Correct ! ':'✗ Pas tout à fait. ')+item.e+' ';
-  var hb=document.createElement('button'); hb.className='speak-btn'; hb.innerHTML='&#128266;'; hb.title='Écouter l\'indice';
-  hb.addEventListener('click',function(){ playClip('c1_fg_quiz_'+pad(qi+1)+'_hint.mp3', hb); });
-  fb.appendChild(hb);
+  fb.textContent=(right?'✓ Correct !':'✗ Pas tout à fait.');
   answered++;
   if(answered===QUIZ.length) showFinal();
 }
