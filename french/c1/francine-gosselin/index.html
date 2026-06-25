@@ -21,45 +21,42 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;
   min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
 .main{max-width:680px;margin:0 auto;padding:18px 14px 8px;}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;
-  color:var(--navyMid);text-decoration:none;min-height:44px;}
-.lvl-tag{display:inline-block;background:var(--c1);color:#fff;font-size:13px;font-weight:bold;
-  padding:3px 12px;border-radius:20px;margin-bottom:8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--c1);color:#fff;font-size:13px;font-weight:bold;padding:3px 12px;border-radius:20px;margin-bottom:8px;}
 .page-title{font-size:24px;font-weight:bold;color:var(--dark);margin-bottom:2px;}
 .page-sub{font-size:14px;color:var(--slate);margin-bottom:18px;line-height:1.5;}
-.sec-label{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;
-  letter-spacing:1px;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+.sec-label{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:1px;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
 .sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
-.flash{background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);
-  border-top:5px solid var(--c1);padding:26px 22px;min-height:200px;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none;}
-.flash-side{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;
-  color:var(--c1);margin-bottom:12px;}
+.speak-btn{background:none;border:2px solid var(--divider);border-radius:20px;padding:4px 10px;font-size:13px;color:var(--slate);cursor:pointer;min-height:34px;font-family:Arial,sans-serif;flex-shrink:0;}
+.speak-btn.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
+.interview-card{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:5px solid var(--c1);padding:16px 18px;}
+.tr-box{margin-top:14px;padding-top:14px;border-top:1px solid var(--divider);}
+.tr-q{font-size:15px;font-weight:bold;color:var(--coral);margin:12px 0 4px;}
+.tr-a{font-size:15px;color:var(--text);line-height:1.6;}
+.flash{background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-top:5px solid var(--c1);padding:24px 22px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none;}
+.flash-side{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--c1);margin-bottom:12px;}
 .flash-side.reponse{color:var(--coral);}
 .flash-text{font-size:21px;font-weight:bold;color:var(--dark);line-height:1.4;}
-.flash-hint{font-size:13px;color:var(--slate);margin-top:16px;}
+.flash-hint{font-size:13px;color:var(--slate);margin-top:14px;}
 .deck-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;}
-.nav-btn{flex:1;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:14px;
-  font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:52px;}
+.nav-btn{flex:1;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:14px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:52px;}
 .nav-btn:disabled{background:var(--divider);color:var(--slate);cursor:default;}
-.nav-btn:active:not(:disabled){background:#1A3060;}
 .counter{font-size:15px;font-weight:bold;color:var(--dark);min-width:70px;text-align:center;}
-.flip-btn{display:block;width:100%;background:var(--c1);color:#fff;border:none;border-radius:10px;
-  padding:13px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:50px;}
-.flip-btn:active{filter:brightness(0.95);}
-.q-card{background:var(--white);border-radius:12px;border:1.5px solid var(--divider);
-  border-left:5px solid var(--navyMid);padding:18px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+.flip-btn{display:block;width:100%;background:var(--c1);color:#fff;border:none;border-radius:10px;padding:13px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:50px;}
+.q-card{background:var(--white);border-radius:12px;border:1.5px solid var(--divider);border-left:5px solid var(--navyMid);padding:18px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
 .q-card.ok{border-left-color:var(--green);background:var(--ltGreen);}
 .q-card.ko{border-left-color:var(--red);background:#fdf0ee;}
 .q-num{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
-.q-text{font-size:18px;font-weight:bold;color:var(--dark);margin-bottom:14px;line-height:1.4;}
-.choice{display:block;width:100%;text-align:left;font-family:Arial,sans-serif;font-size:16px;
-  font-weight:bold;color:var(--dark);background:var(--ltBlue);border:2px solid var(--divider);
-  border-radius:10px;padding:13px 14px;margin-bottom:9px;cursor:pointer;min-height:50px;line-height:1.35;}
+.q-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:14px;}
+.q-text{font-size:18px;font-weight:bold;color:var(--dark);line-height:1.4;}
+.choice-row{display:flex;align-items:stretch;gap:8px;margin-bottom:9px;}
+.choice{flex:1;text-align:left;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;color:var(--dark);background:var(--ltBlue);border:2px solid var(--divider);border-radius:10px;padding:13px 14px;cursor:pointer;min-height:50px;line-height:1.35;}
 .choice:active:not(:disabled){background:#D5E8FA;}
 .choice.correct{background:var(--ltGreen);border-color:var(--green);color:var(--green);}
 .choice.wrong{background:#fceaea;border-color:var(--red);color:var(--red);}
 .choice:disabled{cursor:default;}
+.mini-audio{flex-shrink:0;width:50px;border:2px solid var(--divider);border-radius:10px;background:var(--white);font-size:18px;cursor:pointer;}
+.mini-audio.speaking{background:var(--navyMid);color:#fff;}
 .q-fb{font-size:15px;font-weight:bold;margin-top:10px;display:none;line-height:1.5;}
 .q-fb.show{display:block;}
 .q-fb.ok{color:var(--green);}
@@ -68,12 +65,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .final.show{display:block;}
 .final-num{font-size:56px;font-weight:bold;color:var(--c1);line-height:1;}
 .final-msg{font-size:17px;color:#fff;margin-top:14px;}
-.retry-btn{margin-top:20px;background:var(--coral);color:#fff;border:none;border-radius:10px;
-  padding:14px 32px;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;cursor:pointer;}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);
-  border-top:3px solid var(--c1);display:flex;align-items:center;z-index:100;}
-.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.retry-btn{margin-top:20px;background:var(--coral);color:#fff;border:none;border-radius:10px;padding:14px 32px;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--c1);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
 .nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
 @media(min-width:600px){.main{padding:24px 20px 8px;}}
 </style>
@@ -87,12 +81,31 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <a class="back-link" href="../../../index.html">&#8592; Accueil</a>
   <div class="lvl-tag">C1 &bull; Compr&eacute;hension orale</div>
   <div class="page-title">L&rsquo;entretien de Francine Gosselin</div>
-  <div class="page-sub">D&rsquo;abord, r&eacute;vise avec les cartes. Ensuite, teste-toi avec le quiz.</div>
+  <div class="page-sub">&Eacute;coute l&rsquo;entretien, r&eacute;vise avec les cartes, puis teste-toi avec le quiz.</div>
+
+  <div class="sec-label">&#127911; &Eacute;coute l&rsquo;entretien</div>
+  <div class="interview-card">
+    <audio id="itw" controls preload="none" src="audio/interview.mp3" style="width:100%;"></audio>
+    <button class="flip-btn" id="trBtn" onclick="toggleTr()" style="margin-top:12px;background:var(--navyMid);">&#128196; Afficher la transcription</button>
+    <div id="transcript" class="tr-box" style="display:none;">
+      <div class="tr-q">QUESTION&nbsp;: Parlez-moi de vous, qui &ecirc;tes-vous&nbsp;?</div>
+      <div class="tr-a">J&rsquo;suis Francine Gosselin, j&rsquo;ai cinquante-neuf ans, je vis &agrave; Mirabel. Je suis pr&eacute;sentement en arr&ecirc;t de travail. Je dois passer des tests pour mon probl&egrave;me de dos. Mais je pr&eacute;vois plut&ocirc;t prendre une retraite plut&ocirc;t que de retourner au travail.</div>
+      <div class="tr-q">QUESTION&nbsp;: Parlez-moi de votre famille, s&rsquo;il vous pla&icirc;t&nbsp;?</div>
+      <div class="tr-a">Je suis n&eacute;e d&rsquo;une famille de six enfants. Quatre filles, deux gars. Je suis la quatri&egrave;me de cette famille. Chez nous on est comme des couples de deux. J&rsquo;ai une s&oelig;ur de soixante-huit, un fr&egrave;re de soixante-sept. J&rsquo;ai mon fr&egrave;re qui est de soixante et un, moi je vais bient&ocirc;t avoir soixante, et j&rsquo;ai deux s&oelig;urs, une de cinquante-cinq, une de cinquante-quatre. Je suis th&eacute;rapeute en r&eacute;adaptation physique, mais auparavant j&rsquo;ai fait des camps loisirs.</div>
+      <div class="tr-q">QUESTION&nbsp;: Qu&rsquo;est-ce que vous aimez faire quand vous avez du temps libre&nbsp;?</div>
+      <div class="tr-a">Je suis une personne hyperactive, alors j&rsquo;aime beaucoup bouger. L&agrave;, &agrave; cause de mon probl&egrave;me de dos, j&rsquo;ai fait beaucoup de marche, mais un peu de v&eacute;lo, j&rsquo;ai fait un peu de patin l&rsquo;hiver et de raquette, mais je ne fais plus beaucoup de sport extr&ecirc;me, je suis plut&ocirc;t calme. Mais je suis une personne qui aimait tous, tous, tous les sports. Je fais un peu de moto, un peu de tout.</div>
+      <div class="tr-q">QUESTION&nbsp;: Est-ce que vous avez d&eacute;j&agrave; voyag&eacute;&nbsp;?</div>
+      <div class="tr-a">Oui, j&rsquo;ai voyag&eacute; beaucoup au Qu&eacute;bec, un peu partout du Nord au Sud et de l&rsquo;Est &agrave; l&rsquo;Ouest au complet. J&rsquo;ai &eacute;t&eacute; cinq fois dans l&rsquo;Ouest am&eacute;ricain en v&eacute;hicule et non en avion, et j&rsquo;suis all&eacute;e trois fois dans l&rsquo;Ouest canadien. J&rsquo;suis all&eacute;e en France, en Chine, au Portugal, et mon prochain voyage est pr&eacute;vu en Espagne. Cette ann&eacute;e, &ccedil;a devrait &ecirc;tre une grosse ann&eacute;e de voyage&nbsp;: l&rsquo;Espagne, le Maroc et possiblement Tel-Aviv en Isra&euml;l.</div>
+      <div class="tr-q">QUESTION&nbsp;: Qu&rsquo;est-ce que vous avez fait comme &eacute;tudes&nbsp;?</div>
+      <div class="tr-a">Ben, j&rsquo;ai fait un dipl&ocirc;me d&rsquo;&eacute;tudes coll&eacute;giales en techniques de loisirs, j&rsquo;ai travaill&eacute; huit ans et demi l&agrave;-dedans. Et comme j&rsquo;ai termin&eacute; de faire le clown, je suis retourn&eacute;e aux &eacute;tudes en r&eacute;adaptation physique. Puis j&rsquo;ai travaill&eacute; dans des CHSLD (centres d&rsquo;h&eacute;bergement et de soins de longue dur&eacute;e), et j&rsquo;&eacute;tais maintenant rendue en CLSC &agrave; domicile, o&ugrave; je faisais la r&eacute;adaptation post-proth&egrave;se de hanche et de genou.</div>
+    </div>
+  </div>
 
   <div class="sec-label">&#128218; Cartes &mdash; r&eacute;vision</div>
   <div class="flash" id="flash" onclick="flip()">
     <div class="flash-side" id="flashSide">Question</div>
     <div class="flash-text" id="flashText">&hellip;</div>
+    <button class="speak-btn" id="flashAudio" style="margin-top:14px;" onclick="event.stopPropagation(); playCard(this);">&#128266; &Eacute;couter</button>
     <div class="flash-hint" id="flashHint">Touche la carte pour voir la r&eacute;ponse</div>
   </div>
   <button class="flip-btn" onclick="flip()">&#128260; Retourner la carte</button>
@@ -118,6 +131,24 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 </nav>
 
 <script>
+// recorded-audio player (no synthetic); files live in ./audio/
+var _clip=null,_cb=null;
+function playClip(file,btn){
+  try{ if(_clip) _clip.pause(); }catch(e){}
+  if(_cb) _cb.classList.remove('speaking');
+  _clip=new Audio('audio/'+file); _cb=btn||null;
+  if(_cb) _cb.classList.add('speaking');
+  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
+  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
+}
+function pad(n){ return (n<10?'0':'')+n; }
+function toggleTr(){
+  var t=document.getElementById('transcript'), b=document.getElementById('trBtn');
+  var show=t.style.display==='none';
+  t.style.display=show?'block':'none';
+  b.innerHTML=(show?'\u{1F4C4} Masquer la transcription':'\u{1F4C4} Afficher la transcription');
+}
+
 var FLASH=[
  {q:"Quel est le nom complet de la femme qui s'exprime dans l'enregistrement ?",a:"Francine Gosselin"},
  {q:"Quel âge a Francine Gosselin au moment de l'entretien ?",a:"59 ans"},
@@ -158,8 +189,7 @@ var FLASH=[
 ];
 var idx=0, showingBack=false;
 function renderCard(){
-  var c=FLASH[idx];
-  var side=document.getElementById('flashSide');
+  var c=FLASH[idx], side=document.getElementById('flashSide');
   side.textContent = showingBack ? 'Réponse' : 'Question';
   side.className = 'flash-side' + (showingBack?' reponse':'');
   document.getElementById('flashText').textContent = showingBack ? c.a : c.q;
@@ -168,6 +198,7 @@ function renderCard(){
   document.getElementById('fPrev').disabled = (idx===0);
   document.getElementById('fNext').disabled = (idx===FLASH.length-1);
 }
+function playCard(btn){ playClip('c1_fg_card_'+pad(idx+1)+'_'+(showingBack?'r':'q')+'.mp3', btn); }
 function flip(){ showingBack=!showingBack; renderCard(); }
 document.getElementById('fPrev').addEventListener('click',function(e){e.stopPropagation(); if(idx>0){idx--;showingBack=false;renderCard();}});
 document.getElementById('fNext').addEventListener('click',function(e){e.stopPropagation(); if(idx<FLASH.length-1){idx++;showingBack=false;renderCard();}});
@@ -185,20 +216,27 @@ var QUIZ=[
  {q:"Pendant combien de temps Francine a-t-elle travaillé dans le domaine des loisirs ?",o:["5 ans.","10 ans.","8 ans et demi.","12 ans."],c:2,e:"La réponse se situe entre huit et neuf ans."},
  {q:"Malgré son problème de dos, quelles activités physiques Francine pratique-t-elle encore ?",o:["Le parachutisme et l'escalade.","Le hockey et le ski alpin.","La natation de compétition et le tennis.","La marche, un peu de vélo et de la moto."],c:3,e:"Elle privilégie des mouvements fluides et des déplacements motorisés ou pédestres moins brusques."}
 ];
-var LETTERS=['A','B','C','D'];
+var LETTERS=['A','B','C','D'], AKEY=['a','b','c','d'];
 var answered=0, score=0;
 (function(){
   var wrap=document.getElementById('quiz');
   QUIZ.forEach(function(item,qi){
     var card=document.createElement('div'); card.className='q-card'; card.id='q'+qi;
     var num=document.createElement('div'); num.className='q-num'; num.textContent='Question '+(qi+1)+' / '+QUIZ.length;
+    var head=document.createElement('div'); head.className='q-head';
     var qt=document.createElement('div'); qt.className='q-text'; qt.textContent=item.q;
-    card.appendChild(num); card.appendChild(qt);
+    var qa=document.createElement('button'); qa.className='speak-btn'; qa.innerHTML='&#128266;';
+    qa.addEventListener('click',function(){ playClip('c1_fg_quiz_'+pad(qi+1)+'_q.mp3', qa); });
+    head.appendChild(qt); head.appendChild(qa);
+    card.appendChild(num); card.appendChild(head);
     item.o.forEach(function(opt,oi){
-      var b=document.createElement('button'); b.className='choice';
-      b.textContent=LETTERS[oi]+'.  '+opt;
+      var row=document.createElement('div'); row.className='choice-row';
+      var b=document.createElement('button'); b.className='choice'; b.textContent=LETTERS[oi]+'.  '+opt;
       b.addEventListener('click',function(){ choose(card,qi,oi); });
-      card.appendChild(b);
+      var au=document.createElement('button'); au.className='mini-audio'; au.innerHTML='&#128266;';
+      au.addEventListener('click',function(){ playClip('c1_fg_quiz_'+pad(qi+1)+'_'+AKEY[oi]+'.mp3', au); });
+      row.appendChild(b); row.appendChild(au);
+      card.appendChild(row);
     });
     var fb=document.createElement('div'); fb.className='q-fb'; fb.id='fb'+qi;
     card.appendChild(fb);
@@ -209,15 +247,17 @@ function choose(card,qi,oi){
   if(card.dataset.done) return;
   card.dataset.done='1';
   var item=QUIZ[qi];
-  var btns=card.querySelectorAll('.choice');
-  btns.forEach(function(b,i){ b.disabled=true; if(i===item.c) b.classList.add('correct'); });
+  card.querySelectorAll('.choice').forEach(function(b,i){ b.disabled=true; if(i===item.c) b.classList.add('correct'); });
   var right=(oi===item.c);
-  if(!right) btns[oi].classList.add('wrong');
+  if(!right) card.querySelectorAll('.choice')[oi].classList.add('wrong');
   if(right) score++;
   card.classList.add(right?'ok':'ko');
   var fb=document.getElementById('fb'+qi);
   fb.className='q-fb show '+(right?'ok':'ko');
-  fb.textContent=(right?'✓ Correct ! ':'✗ Pas tout à fait. ')+item.e;
+  fb.textContent=(right?'✓ Correct ! ':'✗ Pas tout à fait. ')+item.e+' ';
+  var hb=document.createElement('button'); hb.className='speak-btn'; hb.innerHTML='&#128266;'; hb.title='Écouter l\'indice';
+  hb.addEventListener('click',function(){ playClip('c1_fg_quiz_'+pad(qi+1)+'_hint.mp3', hb); });
+  fb.appendChild(hb);
   answered++;
   if(answered===QUIZ.length) showFinal();
 }
