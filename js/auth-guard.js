@@ -19,6 +19,30 @@ const db   = getFirestore(app);
 const ROOT  = new URL('../', import.meta.url).href;
 const LOGIN = ROOT + 'login.html';
 
+// ── EmailJS: notify the teacher when a student completes an exercise ──
+const EMAILJS = {
+  publicKey:  "bRyOHboCG1OXVozPP",
+  serviceId:  "service_ot0oisr",
+  templateId: "template_rnevb2c"
+};
+const LESSON_NAMES = {
+  'etre':  'A1 · Le verbe Être',
+  'avoir': 'A1 · Le verbe Avoir',
+  'c1_francine_gosselin': 'C1 · Francine G. (compréhension orale)'
+};
+let _emailjsReady = null;
+function loadEmailJS() {
+  if (_emailjsReady) return _emailjsReady;
+  _emailjsReady = new Promise((resolve) => {
+    const s = document.createElement('script');
+    s.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+    s.onload = () => { try { window.emailjs.init({ publicKey: EMAILJS.publicKey }); } catch (e) {} resolve(window.emailjs); };
+    s.onerror = () => resolve(null);
+    document.head.appendChild(s);
+  });
+  return _emailjsReady;
+}
+
 let _readyUser = null;
 const _readyCbs = [];
 
@@ -30,7 +54,27 @@ const LEM = {
   async getUser(){ const s = await getDoc(this._userRef()); return s.exists() ? s.data() : {}; },
   async saveUser(partial){ await setDoc(this._userRef(), partial, { merge: true }); },
   async getLesson(id){ const s = await getDoc(this._lessonRef(id)); return s.exists() ? s.data() : null; },
-  async setLesson(id, partial){ await setDoc(this._lessonRef(id), partial, { merge: true }); },
+  async setLesson(id, partial){
+    let prev = {};
+    try { const s = await getDoc(this._lessonRef(id)); prev = s.exists() ? s.data() : {}; } catch (e) {}
+    await setDoc(this._lessonRef(id), partial, { merge: true });
+    if (partial && partial.completed === true && !prev.completed) {
+      this._notifyComplete(id, Object.assign({}, prev, partial));
+    }
+  },
+  async _notifyComplete(id, data){
+    try {
+      const u = await this.getUser();
+      if (!u || u.role === 'teacher') return;
+      const ejs = await loadEmailJS();
+      if (!ejs) return;
+      const name = u.displayName || (this.user && this.user.email) || 'Un élève';
+      const exercise = LESSON_NAMES[id] || id;
+      const score = (typeof data.score === 'number' && typeof data.total === 'number') ? (data.score + '/' + data.total) : '—';
+      const date = new Date().toLocaleString('fr-FR');
+      await ejs.send(EMAILJS.serviceId, EMAILJS.templateId, { student: name, exercise: exercise, score: score, date: date });
+    } catch (e) { /* notification must never block the student */ }
+  },
   async getVocab(){ const s = await getDoc(this._userRef()); return (s.exists() && s.data().vocab) || []; },
   async addVocab(word){
     const ref = this._userRef();
