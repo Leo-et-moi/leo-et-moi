@@ -28,7 +28,8 @@ const EMAILJS = {
 const LESSON_NAMES = {
   'etre':  'A1 · Le verbe Être',
   'avoir': 'A1 · Le verbe Avoir',
-  'c1_francine_gosselin': 'C1 · Francine G. (compréhension orale)'
+  'c1_francine_gosselin': 'C1 · Francine G. (compréhension orale)',
+  'a2_architecture_nombres':'A2 · L’architecture des nombres'
 };
 let _emailjsReady = null;
 function loadEmailJS() {
