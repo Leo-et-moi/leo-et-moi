@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>A1 : Exercices &mdash; Les nombres &mdash; Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--text:#1A2733;
+  --slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;--a1:#C0392B;--green:#1E7B45;--ltgreen:#E3F5EC;--red:#C0392B;--ltred:#FBE7E5;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--a1);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;}
+.main{max-width:640px;margin:0 auto;padding:16px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--a1);color:#fff;font-size:13px;font-weight:bold;padding:2px 12px;border-radius:20px;margin-bottom:6px;}
+.h-title{font-size:21px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.scorebar{position:sticky;top:60px;background:var(--cream);padding:8px 0;font-size:14px;font-weight:bold;color:var(--slate);z-index:50;}
+.sec-label{font-size:12px;font-weight:bold;color:var(--a1);text-transform:uppercase;letter-spacing:1px;margin:22px 0 10px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
+.q{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:15px 16px;margin-bottom:12px;}
+.q-prompt{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.q-audio{flex-shrink:0;background:var(--a1);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;}
+.q-audio.speaking{background:var(--dark);}
+.opts{display:flex;flex-wrap:wrap;gap:8px;}
+.opt{flex:1 1 calc(50% - 8px);min-width:120px;background:var(--cream);border:2px solid var(--divider);border-radius:10px;padding:12px;font-size:16px;font-weight:bold;color:var(--text);font-family:Arial,sans-serif;cursor:pointer;min-height:48px;}
+.opt.good{background:var(--ltgreen);border-color:var(--green);color:var(--green);}
+.opt.bad{background:var(--ltred);border-color:var(--red);color:var(--red);}
+.opt:disabled{cursor:default;}
+.match-wrap{display:flex;gap:10px;}
+.match-col{flex:1;display:flex;flex-direction:column;gap:8px;}
+.mitem{background:var(--cream);border:2px solid var(--divider);border-radius:10px;padding:12px 8px;font-size:15px;font-weight:bold;text-align:center;cursor:pointer;min-height:48px;color:var(--text);}
+.mitem.sel{border-color:var(--a1);background:#fff;}
+.mitem.done{background:var(--ltgreen);border-color:var(--green);color:var(--green);cursor:default;}
+.mitem.flash{background:var(--ltred);border-color:var(--red);}
+.final{display:none;background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:24px;text-align:center;margin-top:16px;}
+.final-num{font-size:40px;font-weight:bold;color:var(--a1);}
+.final-msg{font-size:16px;color:var(--text);margin:8px 0 14px;}
+.retry-btn{background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--a1);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="index.html">&#8592; La le&ccedil;on</a>
+  <div class="lvl-tag">A1</div>
+  <div class="h-title">Exercices &mdash; Les nombres</div>
+  <div class="scorebar" id="scorebar">Score : 0 / 19</div>
+
+  <div class="sec-label">&#128266; &Eacute;coute et choisis</div>
+  <div id="secA"></div>
+  <div class="sec-label">&#128279; Associe le mot et le chiffre</div>
+  <div id="secB"></div>
+  <div class="sec-label">&#129518; La bonne d&eacute;composition</div>
+  <div id="secC"></div>
+  <div class="sec-label">&#9989; Vrai ou Faux</div>
+  <div id="secD"></div>
+  <div class="sec-label">&#128266; Le pi&egrave;ge auditif</div>
+  <div id="secE"></div>
+
+  <div class="final" id="final">
+    <div class="final-num" id="finalNum">0 / 19</div>
+    <div class="final-msg" id="finalMsg"></div>
+    <button class="retry-btn" onclick="location.reload()">Recommencer</button>
+  </div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+var LESSON='a1_les_nombres';
+var _clip=null,_cb=null;
+function playClip(file,btn){
+  try{ if(_clip) _clip.pause(); }catch(e){}
+  if(_cb) _cb.classList.remove('speaking');
+  _clip=new Audio('audio/'+file); _cb=btn||null;
+  if(_cb) _cb.classList.add('speaking');
+  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
+  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
+}
+var TOTAL=19, score=0, answered=0;
+function bump(ok){ if(ok) score++; answered++; var sb=document.getElementById('scorebar'); sb.textContent='Score : '+score+' / '+TOTAL; if(answered>=TOTAL) finishAll(); }
+
+// ----- Multiple choice (audio optional) -----
+function mcRender(host, items){
+  items.forEach(function(it){
+    var card=document.createElement('div'); card.className='q';
+    var p=document.createElement('div'); p.className='q-prompt';
+    if(it.audio){ var b=document.createElement('button'); b.className='q-audio'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(it.audio,b); }; p.appendChild(b); }
+    var span=document.createElement('span'); span.innerHTML=it.q; p.appendChild(span);
+    card.appendChild(p);
+    var wrap=document.createElement('div'); wrap.className='opts';
+    it.opts.forEach(function(opt,oi){
+      var btn=document.createElement('button'); btn.className='opt'; btn.innerHTML=opt;
+      btn.onclick=function(){
+        if(card.dataset.done) return; card.dataset.done='1';
+        var ok=(oi===it.correct);
+        btn.classList.add(ok?'good':'bad');
+        if(!ok){ wrap.children[it.correct].classList.add('good'); }
+        Array.prototype.forEach.call(wrap.children,function(c){ c.disabled=true; });
+        bump(ok);
+      };
+      wrap.appendChild(btn);
+    });
+    card.appendChild(wrap); host.appendChild(card);
+  });
+}
+// ----- Matching -----
+function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; } return a; }
+function matchRender(host, pairs){
+  var card=document.createElement('div'); card.className='q';
+  var wrap=document.createElement('div'); wrap.className='match-wrap';
+  var left=document.createElement('div'); left.className='match-col';
+  var right=document.createElement('div'); right.className='match-col';
+  var sel=null;
+  shuffle(pairs).forEach(function(pr){
+    var l=document.createElement('div'); l.className='mitem'; l.innerHTML=pr.w; l.dataset.v=pr.v;
+    l.onclick=function(){ if(l.classList.contains('done'))return; if(sel) sel.classList.remove('sel'); sel=l; l.classList.add('sel'); };
+    left.appendChild(l);
+  });
+  shuffle(pairs).forEach(function(pr){
+    var r=document.createElement('div'); r.className='mitem'; r.innerHTML=pr.v; r.dataset.v=pr.v;
+    r.onclick=function(){
+      if(r.classList.contains('done')||!sel)return;
+      if(sel.dataset.v===r.dataset.v){ sel.classList.remove('sel'); sel.classList.add('done'); r.classList.add('done'); sel=null; bump(true); }
+      else { var s=sel; r.classList.add('flash'); s.classList.add('flash'); setTimeout(function(){ r.classList.remove('flash'); s.classList.remove('flash'); },450); }
+    };
+    right.appendChild(r);
+  });
+  wrap.appendChild(left); wrap.appendChild(right); card.appendChild(wrap); host.appendChild(card);
+}
+function finishAll(){
+  var f=document.getElementById('final'); f.style.display='block';
+  document.getElementById('finalNum').textContent=score+' / '+TOTAL;
+  var pct=score/TOTAL;
+  document.getElementById('finalMsg').textContent = pct>=0.8 ? 'Excellent ! Tu maîtrises la logique des nombres.' : (pct>=0.5 ? 'Bien joué ! Revois les pièges et recommence.' : 'Bon début. Réécoute la leçon, puis réessaie.');
+  try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson(LESSON,{score:score,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
+  f.scrollIntoView({behavior:'smooth'});
+}
+
+mcRender(document.getElementById('secA'),[
+  {audio:'a1_nb_73.mp3',q:'Quel nombre entends-tu&nbsp;?',opts:['63','73','83','60'],correct:1},
+  {audio:'a1_nb_90.mp3',q:'Quel nombre entends-tu&nbsp;?',opts:['70','80','90','99'],correct:2},
+  {audio:'a1_nb_71.mp3',q:'Quel nombre entends-tu&nbsp;?',opts:['61','71','79','91'],correct:1},
+  {audio:'a1_nb_16.mp3',q:'Quel nombre entends-tu&nbsp;?',opts:['6','16','60','76'],correct:1}
+]);
+matchRender(document.getElementById('secB'),[
+  {w:'soixante-dix',v:'70'},{w:'quatre-vingts',v:'80'},{w:'quatre-vingt-dix',v:'90'},
+  {w:'soixante et onze',v:'71'},{w:'quatre-vingt-un',v:'81'}
+]);
+mcRender(document.getElementById('secC'),[
+  {q:'Quatre-vingt-dix (90) =',opts:['4 &times; 20 + 10','60 + 30','4 &times; 20','90 + 10'],correct:0},
+  {q:'Soixante-dix (70) =',opts:['60 + 10','7 &times; 10','4 &times; 20 - 10','60 + 20'],correct:0},
+  {q:'Soixante-treize (73) =',opts:['60 + 13','70 + 3','4 &times; 20 - 7','60 + 3'],correct:0}
+]);
+mcRender(document.getElementById('secD'),[
+  {q:'&laquo;&nbsp;Quatre-vingts&nbsp;&raquo; s&rsquo;&eacute;crit avec un &laquo;&nbsp;s&nbsp;&raquo;.',opts:['Vrai','Faux'],correct:0},
+  {q:'Il existe un mot unique pour 70.',opts:['Vrai','Faux'],correct:1},
+  {q:'21 se dit &laquo;&nbsp;vingt et un&nbsp;&raquo;.',opts:['Vrai','Faux'],correct:0},
+  {q:'&laquo;&nbsp;Quatre-vingt-un&nbsp;&raquo; garde le &laquo;&nbsp;s&nbsp;&raquo;.',opts:['Vrai','Faux'],correct:1}
+]);
+mcRender(document.getElementById('secE'),[
+  {audio:'a1_nb_80.mp3',q:'&Eacute;coute jusqu&rsquo;&agrave; la fin. Quel nombre&nbsp;?',opts:['4','20','80','420'],correct:2},
+  {audio:'a1_nb_91.mp3',q:'&Eacute;coute jusqu&rsquo;&agrave; la fin. Quel nombre&nbsp;?',opts:['81','90','91','711'],correct:2},
+  {audio:'a1_nb_77.mp3',q:'&Eacute;coute jusqu&rsquo;&agrave; la fin. Quel nombre&nbsp;?',opts:['67','70','77','607'],correct:2}
+]);
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body>
+</html>
