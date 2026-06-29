@@ -29,7 +29,8 @@ const LESSON_NAMES = {
   'etre':  'A1 · Le verbe Être',
   'avoir': 'A1 · Le verbe Avoir',
   'c1_francine_gosselin': 'C1 · Francine G. (compréhension orale)',
-  'a1_les_nombres':'A1 · Les nombres'
+  'a1_les_nombres':'A1 · Les nombres',
+  'a2_nombres_quiz':'A2 · Quiz Les nombres'
 };
 let _emailjsReady = null;
 function loadEmailJS() {

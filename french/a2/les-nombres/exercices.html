@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>A2 : Quiz Les nombres &mdash; Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--text:#1A2733;--slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;--a2:#E07B39;--green:#1E7B45;--ltgreen:#E3F5EC;--red:#C0392B;--ltred:#FBE7E5;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--a2);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;}
+.main{max-width:640px;margin:0 auto;padding:16px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--a2);color:#fff;font-size:13px;font-weight:bold;padding:2px 12px;border-radius:20px;margin-bottom:6px;}
+.h-title{font-size:21px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.scorebar{position:sticky;top:60px;background:var(--cream);padding:8px 0;font-size:14px;font-weight:bold;color:var(--slate);z-index:50;}
+.q{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:15px 16px;margin-bottom:12px;}
+.q-prompt{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
+.q-audio{flex-shrink:0;background:var(--a2);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;}
+.q-audio.speaking{background:var(--dark);}
+.opts{display:flex;flex-wrap:wrap;gap:8px;}
+.opt{flex:1 1 calc(50% - 8px);min-width:120px;background:var(--cream);border:2px solid var(--divider);border-radius:10px;padding:12px;font-size:16px;font-weight:bold;color:var(--text);font-family:Arial,sans-serif;cursor:pointer;min-height:48px;}
+.opt.good{background:var(--ltgreen);border-color:var(--green);color:var(--green);}
+.opt.bad{background:var(--ltred);border-color:var(--red);color:var(--red);}
+.opt:disabled{cursor:default;}
+.hint-toggle{margin-top:10px;background:none;border:none;color:var(--navyMid);font-size:14px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;padding:4px 0;}
+.hint-box{display:none;margin-top:8px;background:var(--cream);border-radius:8px;padding:10px;font-size:14px;color:var(--text);}
+.final{display:none;background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:24px;text-align:center;margin-top:16px;}
+.final-num{font-size:40px;font-weight:bold;color:var(--a2);}
+.final-msg{font-size:16px;color:var(--text);margin:8px 0 14px;}
+.retry-btn{background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--a2);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons A2</a>
+  <div class="lvl-tag">A2</div>
+  <div class="h-title">Exercices sur les nombres</div>
+  <div class="scorebar" id="scorebar">Score : 0 / 8</div>
+  <div id="quiz"></div>
+  <div class="final" id="final">
+    <div class="final-num" id="finalNum">0 / 8</div>
+    <div class="final-msg" id="finalMsg"></div>
+    <button class="retry-btn" onclick="location.reload()">Recommencer</button>
+  </div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+var LESSON='a2_nombres_quiz';
+var _clip=null,_cb=null;
+function playClip(file,btn){
+  try{ if(_clip) _clip.pause(); }catch(e){}
+  if(_cb) _cb.classList.remove('speaking');
+  _clip=new Audio('audio/'+file); _cb=btn||null;
+  if(_cb) _cb.classList.add('speaking');
+  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
+  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
+}
+var Q=[{"a": "a2q_01.mp3", "q": "Un commerçant vend <b>soixante-douze</b> kilos de prunes. Combien de kilos vend-il&nbsp;?", "opts": ["82", "72", "62", "12"], "correct": 1, "hint": "Pense à la somme de soixante et douze."}, {"a": "a2q_02.mp3", "q": "Il y a <b>quatre-vingt-treize</b> élèves dans la salle. Quel est le nombre total d’élèves&nbsp;?", "opts": ["93", "73", "83", "13"], "correct": 0, "hint": "Calcule quatre fois vingt, plus treize."}, {"a": "a2q_03.mp3", "q": "Une recette indique un temps de cuisson de <b>cent dix</b> minutes. Combien de minutes&nbsp;?", "opts": ["120", "100", "110", "210"], "correct": 2, "hint": "Combine le mot pour cent avec le mot pour dix."}, {"a": "a2q_04.mp3", "q": "Un commentateur annonce «&nbsp;<b>dix virgule soixante-neuf</b>&nbsp;» secondes. Comment l’écrit-on en français&nbsp;?", "opts": ["10,69", "10 69", "1069", "10.69"], "correct": 0, "hint": "Quelle ponctuation les Français utilisent-ils pour les décimales&nbsp;?"}, {"a": "a2q_05.mp3", "q": "Il y a <b>quatre-vingt-onze</b> personnes à un marathon. Combien courent&nbsp;?", "opts": ["11", "71", "81", "91"], "correct": 3, "hint": "La série des 90 part de quatre-vingts et ajoute à partir de dix."}, {"a": "a2q_06.mp3", "q": "Une distance vaut <b>dix mille six cent quatre-vingt-quinze</b>. Quelle est sa valeur&nbsp;?", "opts": ["10 695", "1 695", "10 685", "10.695"], "correct": 0, "hint": "Concentre-toi sur les milliers et les centaines au début du nombre."}, {"a": "a2q_07.mp3", "q": "Un boulanger prépare <b>soixante-dix-sept</b> pains. Combien y a-t-il de pains&nbsp;?", "opts": ["77", "97", "67", "6017"], "correct": 0, "hint": "Combine soixante avec dix-sept."}, {"a": "a2q_08.mp3", "q": "Il y a <b>quatre-vingt-un</b> livres sur une étagère. Combien de livres au total&nbsp;?", "opts": ["801", "91", "21", "81"], "correct": 3, "hint": "Identifie le nombre de vingtaines et l’unité ajoutée."}], TOTAL=Q.length, score=0, answered=0;
+var host=document.getElementById('quiz');
+Q.forEach(function(it,qi){
+  var card=document.createElement('div'); card.className='q';
+  var p=document.createElement('div'); p.className='q-prompt';
+  var b=document.createElement('button'); b.className='q-audio'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(it.a,b); };
+  var span=document.createElement('span'); span.innerHTML=(qi+1)+'. '+it.q;
+  p.appendChild(b); p.appendChild(span); card.appendChild(p);
+  var wrap=document.createElement('div'); wrap.className='opts';
+  it.opts.forEach(function(opt,oi){
+    var btn=document.createElement('button'); btn.className='opt'; btn.innerHTML=opt;
+    btn.onclick=function(){
+      if(card.dataset.done) return; card.dataset.done='1';
+      var ok=(oi===it.correct); btn.classList.add(ok?'good':'bad');
+      if(!ok) wrap.children[it.correct].classList.add('good');
+      Array.prototype.forEach.call(wrap.children,function(c){ c.disabled=true; });
+      if(ok) score++; answered++;
+      document.getElementById('scorebar').textContent='Score : '+score+' / '+TOTAL;
+      if(answered>=TOTAL) finish();
+    };
+    wrap.appendChild(btn);
+  });
+  card.appendChild(wrap);
+  var ht=document.createElement('button'); ht.className='hint-toggle'; ht.innerHTML='\u{1F4A1} Indice';
+  var hb=document.createElement('div'); hb.className='hint-box'; hb.innerHTML=it.hint;
+  ht.onclick=function(){ hb.style.display=hb.style.display==='block'?'none':'block'; };
+  card.appendChild(ht); card.appendChild(hb);
+  host.appendChild(card);
+});
+function finish(){
+  var f=document.getElementById('final'); f.style.display='block';
+  document.getElementById('finalNum').textContent=score+' / '+TOTAL;
+  var pct=score/TOTAL;
+  document.getElementById('finalMsg').textContent= pct>=0.8?'Excellent ! Tu lis très bien les nombres.':(pct>=0.5?'Bien joué ! Revois les pièges et recommence.':'Continue à t\u2019entraîner, tu vas y arriver.');
+  try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson(LESSON,{score:score,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
+  f.scrollIntoView({behavior:'smooth'});
+}
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body>
+</html>
