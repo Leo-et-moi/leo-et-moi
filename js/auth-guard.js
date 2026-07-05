@@ -32,7 +32,8 @@ const LESSON_NAMES = {
   'a1_les_nombres':'A1 · Les nombres',
   'a2_nombres_quiz':'A2 · Quiz Les nombres',
   'a2_ecoute_invitations':'A2 · Écoute — Invitations',
-  'a2_lire_invitation':'A2 · Lire une invitation'
+  'a2_lire_invitation':'A2 · Lire une invitation',
+  'b1_lire_faire_part':'B1 · Lire un faire-part'
 };
 let _emailjsReady = null;
 function loadEmailJS() {

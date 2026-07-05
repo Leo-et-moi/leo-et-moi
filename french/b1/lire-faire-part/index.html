@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>B1 : Lire un faire-part &mdash; Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#D4920A;--text:#1A2733;--slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;--b1:#D4920A;--green:#1E7B45;--ltgreen:#E3F5EC;--red:#C0392B;--ltred:#FBE7E5;--ltgold:#FDF3D8;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--b1);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;}
+.main{max-width:660px;margin:0 auto;padding:16px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--b1);color:#fff;font-size:13px;font-weight:bold;padding:2px 12px;border-radius:20px;margin-bottom:6px;}
+.h-title{font-size:21px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.consigne{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-left:4px solid var(--b1);border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:8px;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.aud{flex-shrink:0;background:var(--b1);color:#fff;border:none;border-radius:50%;width:42px;height:42px;font-size:17px;cursor:pointer;}
+.aud.speaking{background:var(--dark);}
+.scorebar{position:sticky;top:60px;background:var(--cream);padding:8px 0;font-size:14px;font-weight:bold;color:var(--slate);z-index:50;}
+.sec-label{font-size:12px;font-weight:bold;color:var(--b1);text-transform:uppercase;letter-spacing:1px;margin:22px 0 10px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
+.form-row,.vrow{display:flex;align-items:center;gap:10px;background:var(--white);border-radius:10px;padding:11px 13px;margin-bottom:8px;box-shadow:0 1px 5px rgba(0,0,0,0.05);}
+.form-row .fr{font-weight:bold;color:var(--dark);}
+.form-row .en,.vrow .en{color:var(--slate);font-size:14px;margin-left:auto;text-align:right;}
+.vrow .fr{font-weight:bold;color:var(--dark);}
+.saud{flex-shrink:0;background:none;border:2px solid var(--divider);border-radius:50%;width:38px;height:38px;font-size:15px;color:var(--slate);cursor:pointer;}
+.saud.speaking{background:var(--b1);color:#fff;border-color:var(--b1);}
+.card-fp{background:var(--white);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:6px solid var(--b1);padding:16px 18px;margin-bottom:12px;}
+.card-fp .who{font-size:13px;font-weight:bold;color:var(--b1);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.card-fp p{font-size:15.5px;line-height:1.7;margin:0 0 10px;}
+.readbtn{display:inline-flex;align-items:center;gap:8px;background:var(--b1);color:#fff;border:none;border-radius:22px;padding:9px 16px;font-size:14px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:42px;}
+.readbtn.speaking{background:var(--dark);}
+.q{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:15px 16px;margin-bottom:12px;}
+.q-prompt{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
+.opts{display:flex;flex-wrap:wrap;gap:8px;}
+.opt{flex:1 1 calc(50% - 8px);min-width:130px;background:var(--cream);border:2px solid var(--divider);border-radius:10px;padding:12px;font-size:15px;font-weight:bold;color:var(--text);font-family:Arial,sans-serif;cursor:pointer;min-height:48px;}
+.opt.good{background:var(--ltgreen);border-color:var(--green);color:var(--green);}
+.opt.bad{background:var(--ltred);border-color:var(--red);color:var(--red);}
+.opt:disabled{cursor:default;}
+.match-wrap{display:flex;gap:10px;}
+.match-col{flex:1;display:flex;flex-direction:column;gap:8px;}
+.mitem{background:var(--cream);border:2px solid var(--divider);border-radius:10px;padding:11px 9px;font-size:13.5px;font-weight:bold;cursor:pointer;min-height:52px;color:var(--text);display:flex;align-items:center;gap:6px;}
+.mitem.sel{border-color:var(--coral);background:var(--ltgold);}
+.mitem.done{background:var(--ltgreen);border-color:var(--green);color:var(--green);cursor:default;}
+.mitem.flash{background:var(--ltred);border-color:var(--red);}
+.mitem .maud{flex-shrink:0;background:none;border:none;font-size:15px;cursor:pointer;}
+.write-card{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:16px;margin-bottom:14px;}
+.write-title{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:6px;display:flex;align-items:flex-start;gap:10px;}
+.write-scn{font-size:14px;color:var(--slate);background:var(--ltgold);border-radius:8px;padding:10px 12px;margin-bottom:12px;}
+.bank{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;}
+.chip{font-family:Arial,sans-serif;font-size:14px;font-weight:bold;padding:6px 12px;border:2px solid var(--b1);border-radius:18px;background:var(--ltgold);color:var(--b1);cursor:pointer;min-height:38px;}
+.chip:hover{background:var(--b1);color:#fff;}
+textarea.pta{width:100%;min-height:130px;font-family:Arial,sans-serif;font-size:16px;line-height:1.7;padding:12px 14px;border:2px solid var(--divider);border-radius:10px;background:var(--cream);color:var(--dark);resize:vertical;}
+textarea.pta:focus{border-color:var(--b1);outline:none;}
+.check-btn{font-family:Arial,sans-serif;font-size:15px;font-weight:bold;background:var(--coral);color:#fff;border:none;border-radius:10px;padding:11px 20px;cursor:pointer;min-height:46px;margin-top:10px;}
+.sres{display:none;margin-top:12px;padding:12px 14px;border-radius:8px;font-size:15px;line-height:1.7;background:var(--cream);}
+.sres.show{display:block;}
+.spell-err{border-bottom:2px wavy var(--red);cursor:help;}
+.sr-item{display:block;margin-top:4px;}
+.final{display:none;background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:24px;text-align:center;margin-top:16px;}
+.final-num{font-size:40px;font-weight:bold;color:var(--b1);}
+.final-msg{font-size:16px;color:var(--text);margin:8px 0 14px;}
+.retry-btn{background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--b1);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons B1</a>
+  <div class="lvl-tag">B1</div>
+  <div class="h-title">Lire un faire-part</div>
+  <div class="consigne"><button class="aud" onclick="playClip('b1_fp_consigne.mp3',this)">&#128266;</button><span>D&eacute;couvre les formules officielles et le vocabulaire, lis les faire-part, fais les exercices, puis r&eacute;dige tes deux faire-part.</span></div>
+  <div class="scorebar" id="scorebar">Score : 0 / 12</div>
+
+  <div class="sec-label">&#128221; Les formules officielles</div>
+  <div id="forms"></div>
+
+  <div class="sec-label">&#128218; Vocabulaire</div>
+  <div id="vocab"></div>
+
+  <div class="sec-label">&#128233; Les faire-part</div>
+  <div class="card-fp"><div class="who">Mariage</div><p><b>Guillaume</b> a le plaisir de vous faire part du mariage de ses parents, <b>Nathalie et Bernard</b>. La c&eacute;r&eacute;monie se d&eacute;roulera le <b>samedi 23 mai 2013 &agrave; 16h30 &agrave; la Mairie d&rsquo;Albi</b>. Un vin d&rsquo;honneur sera servi &agrave; 17h30, &agrave; la salle des f&ecirc;tes de Poulan-Pouzols.</p><button class="readbtn" onclick="playClip('b1_fp_card_mariage.mp3',this)">&#128266; &Eacute;couter</button></div>
+  <div class="card-fp"><div class="who">Naissance</div><p>Le grand fr&egrave;re <b>Nicolas</b> est heureux de vous annoncer l&rsquo;arriv&eacute;e de son petit fr&egrave;re <b>Jean-Fran&ccedil;ois</b>, n&eacute; le <b>10 f&eacute;vrier 2013 &agrave; 20h15</b>. Il fait <b>3,5 kg pour 50 cm</b>. Les parents sont Robert et Annie Dupuis.</p><button class="readbtn" onclick="playClip('b1_fp_card_naissance.mp3',this)">&#128266; &Eacute;couter</button></div>
+  <div class="card-fp"><div class="who">PACS</div><p><b>Christian et Beno&icirc;t</b> sont heureux de vous annoncer qu&rsquo;ils ont <b>pacs&eacute;</b> le 12 juin 2013. Un vin d&rsquo;honneur suivi d&rsquo;un buffet froid sera offert le <b>samedi 25 juillet &agrave; 17h30, au restaurant les Pyr&eacute;n&eacute;es</b>.</p><button class="readbtn" onclick="playClip('b1_fp_card_pacs.mp3',this)">&#128266; &Eacute;couter</button></div>
+
+  <div class="sec-label">&#127991;&#65039; Quel type de faire-part&nbsp;?</div>
+  <div id="secClassify"></div>
+  <div class="sec-label">&#128279; Associe la formule &agrave; son sens</div>
+  <div id="secMatch"></div>
+  <div class="sec-label">&#9989; Compr&eacute;hension</div>
+  <div id="secMC"></div>
+
+  <div class="sec-label">&#9997;&#65039; &Agrave; toi d&rsquo;&eacute;crire &mdash; 2 faire-part</div>
+  <div id="writes"></div>
+
+  <div class="final" id="final">
+    <div class="final-num" id="finalNum">0 / 12</div>
+    <div class="final-msg" id="finalMsg"></div>
+    <button class="retry-btn" onclick="location.reload()">Recommencer</button>
+  </div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+var LESSON='b1_lire_faire_part';
+var _clip=null,_cb=null;
+function playClip(file,btn){
+  try{ if(_clip) _clip.pause(); }catch(e){}
+  if(_cb) _cb.classList.remove('speaking');
+  _clip=new Audio('audio/'+file); _cb=btn||null;
+  if(_cb) _cb.classList.add('speaking');
+  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
+  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
+}
+var MC=[{"a": "b1_fp_q1.mp3", "q": "O&ugrave; se marient Nathalie et Bernard&nbsp;?", "opts": ["&Agrave; la mairie d&rsquo;Albi", "&Agrave; l&rsquo;&eacute;glise", "&Agrave; Dijon"], "correct": 0}, {"a": "b1_fp_q2.mp3", "q": "Quand est n&eacute; Jean-Fran&ccedil;ois&nbsp;?", "opts": ["Le 10 f&eacute;vrier 2013", "Le 10 f&eacute;vrier 2012", "Le 2 f&eacute;vrier 2013"], "correct": 0}, {"a": "b1_fp_q3.mp3", "q": "Combien p&egrave;se Jean-Fran&ccedil;ois &agrave; la naissance&nbsp;?", "opts": ["3,5 kg", "5,3 kg", "3,5 g"], "correct": 0}, {"a": "b1_fp_q4.mp3", "q": "Que c&eacute;l&egrave;brent Christian et Beno&icirc;t&nbsp;?", "opts": ["Un PACS", "Un mariage", "Une naissance"], "correct": 0}, {"a": "b1_fp_q5.mp3", "q": "O&ugrave; a lieu leur vin d&rsquo;honneur&nbsp;?", "opts": ["Au restaurant les Pyr&eacute;n&eacute;es", "&Agrave; la mairie", "&Agrave; l&rsquo;&eacute;glise"], "correct": 0}], CLASSIFY=[{"a": "b1_fp_classify.mp3", "q": "Nathalie &amp; Bernard &mdash; quel type de faire-part&nbsp;?", "opts": ["Mariage", "Naissance", "PACS"], "correct": 0}, {"a": "b1_fp_classify.mp3", "q": "Jean-Fran&ccedil;ois &mdash; quel type de faire-part&nbsp;?", "opts": ["Mariage", "Naissance", "PACS"], "correct": 1}, {"a": "b1_fp_classify.mp3", "q": "Christian &amp; Beno&icirc;t &mdash; quel type de faire-part&nbsp;?", "opts": ["Mariage", "Naissance", "PACS"], "correct": 2}], MATCH=[{"fr": "ont le plaisir de vous annoncer", "en": "are pleased to announce", "a": "b1_fp_form1.mp3"}, {"fr": "a le plaisir de vous faire part de", "en": "is pleased to inform you of", "a": "b1_fp_form2.mp3"}, {"fr": "seront heureux de vous accueillir", "en": "will be happy to welcome you", "a": "b1_fp_form3.mp3"}, {"fr": "r&eacute;ponse souhait&eacute;e avant le&hellip;", "en": "please reply before (RSVP)", "a": "b1_fp_form4.mp3"}], VOCAB=[["la mairie", "the town hall", "b1_fp_v_mairie.mp3"], ["le vin d&rsquo;honneur", "the reception drinks", "b1_fp_v_vindhonneur.mp3"], ["la c&eacute;r&eacute;monie", "the ceremony", "b1_fp_v_ceremonie.mp3"], ["le PACS / pacs&eacute;", "civil partnership", "b1_fp_v_pacs.mp3"], ["la naissance", "the birth", "b1_fp_v_naissance.mp3"], ["un faire-part", "an announcement card", "b1_fp_v_fairepart.mp3"]], FORMS=[{"fr": "ont le plaisir de vous annoncer", "en": "are pleased to announce", "a": "b1_fp_form1.mp3"}, {"fr": "a le plaisir de vous faire part de", "en": "is pleased to inform you of", "a": "b1_fp_form2.mp3"}, {"fr": "seront heureux de vous accueillir", "en": "will be happy to welcome you", "a": "b1_fp_form3.mp3"}, {"fr": "r&eacute;ponse souhait&eacute;e avant le&hellip;", "en": "please reply before (RSVP)", "a": "b1_fp_form4.mp3"}], WRITE=[{"id": 0, "title": "1. &Eacute;cris un faire-part de <b>mariage</b>", "a": "b1_fp_write1.mp3", "scenario": "Inclus&nbsp;: les <b>pr&eacute;noms</b> des mari&eacute;s, la <b>date</b>, le <b>lieu</b> (la mairie), et le <b>vin d&rsquo;honneur</b>. Utilise au moins 3 mots de la banque.", "bank": ["ont le plaisir de vous annoncer", "le mariage", "la c&eacute;r&eacute;monie", "&agrave; la mairie", "le vin d&rsquo;honneur", "r&eacute;ponse souhait&eacute;e"]}, {"id": 1, "title": "2. &Eacute;cris un faire-part de <b>naissance</b>", "a": "b1_fp_write2.mp3", "scenario": "Inclus&nbsp;: le <b>pr&eacute;nom</b> du b&eacute;b&eacute;, la <b>date</b> de naissance, le <b>poids</b> et la <b>taille</b>, et les <b>parents</b>. Utilise au moins 3 mots de la banque.", "bank": ["a le plaisir de vous faire part", "la naissance", "est n&eacute;(e) le", "kg", "cm", "les parents"]}];
+var TOTAL=12, score=0, answered=0;
+function bump(ok){ if(ok) score++; answered++; document.getElementById('scorebar').textContent='Score : '+score+' / '+TOTAL; if(answered>=TOTAL) finish(); }
+function mc(host,items){
+  items.forEach(function(it){
+    var card=document.createElement('div'); card.className='q';
+    var p=document.createElement('div'); p.className='q-prompt';
+    var b=document.createElement('button'); b.className='aud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(it.a,b); };
+    var span=document.createElement('span'); span.innerHTML=it.q; p.appendChild(b); p.appendChild(span); card.appendChild(p);
+    var wrap=document.createElement('div'); wrap.className='opts';
+    it.opts.forEach(function(opt,oi){
+      var btn=document.createElement('button'); btn.className='opt'; btn.innerHTML=opt;
+      btn.onclick=function(){ if(card.dataset.done)return; card.dataset.done='1';
+        var ok=(oi===it.correct); btn.classList.add(ok?'good':'bad'); if(!ok) wrap.children[it.correct].classList.add('good');
+        Array.prototype.forEach.call(wrap.children,function(c){c.disabled=true;}); bump(ok); };
+      wrap.appendChild(btn);
+    });
+    card.appendChild(wrap); host.appendChild(card);
+  });
+}
+mc(document.getElementById('secClassify'),CLASSIFY);
+mc(document.getElementById('secMC'),MC);
+// formules teaching
+var fh=document.getElementById('forms');
+FORMS.forEach(function(m){
+  var r=document.createElement('div'); r.className='form-row';
+  var b=document.createElement('button'); b.className='saud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(m.a,b); };
+  var fr=document.createElement('span'); fr.className='fr'; fr.innerHTML='&laquo;&nbsp;'+m.fr+'&nbsp;&raquo;';
+  var en=document.createElement('span'); en.className='en'; en.innerHTML=m.en;
+  r.appendChild(b); r.appendChild(fr); r.appendChild(en); fh.appendChild(r);
+});
+// vocab
+var vh=document.getElementById('vocab');
+VOCAB.forEach(function(v){
+  var r=document.createElement('div'); r.className='vrow';
+  var b=document.createElement('button'); b.className='saud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(v[2],b); };
+  var fr=document.createElement('span'); fr.className='fr'; fr.innerHTML=v[0];
+  var en=document.createElement('span'); en.className='en'; en.innerHTML=v[1];
+  r.appendChild(b); r.appendChild(fr); r.appendChild(en); vh.appendChild(r);
+});
+// matching formule <-> sens
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+(function(){
+  var host=document.getElementById('secMatch');
+  var card=document.createElement('div'); card.className='q';
+  var wrap=document.createElement('div'); wrap.className='match-wrap';
+  var left=document.createElement('div'); left.className='match-col';
+  var right=document.createElement('div'); right.className='match-col';
+  var sel=null;
+  shuffle(MATCH).forEach(function(pr){
+    var l=document.createElement('div'); l.className='mitem'; l.dataset.v=pr.fr;
+    var ab=document.createElement('button'); ab.className='maud'; ab.innerHTML='&#128266;'; ab.onclick=function(e){ e.stopPropagation(); playClip(pr.a,null); };
+    var sp=document.createElement('span'); sp.innerHTML=pr.fr;
+    l.appendChild(ab); l.appendChild(sp);
+    l.onclick=function(){ if(l.classList.contains('done'))return; if(sel)sel.classList.remove('sel'); sel=l; l.classList.add('sel'); };
+    left.appendChild(l);
+  });
+  shuffle(MATCH).forEach(function(pr){
+    var r=document.createElement('div'); r.className='mitem'; r.dataset.v=pr.fr; r.innerHTML=pr.en;
+    r.onclick=function(){ if(r.classList.contains('done')||!sel)return;
+      if(sel.dataset.v===r.dataset.v){ sel.classList.remove('sel'); sel.classList.add('done'); r.classList.add('done'); sel=null; bump(true); }
+      else { var s=sel; r.classList.add('flash'); s.classList.add('flash'); setTimeout(function(){ r.classList.remove('flash'); s.classList.remove('flash'); },450); } };
+    right.appendChild(r);
+  });
+  wrap.appendChild(left); wrap.appendChild(right); card.appendChild(wrap); host.appendChild(card);
+})();
+// writing tasks + spell check (LanguageTool)
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+async function checkSpell(i){
+  var ta=document.getElementById('pta-'+i), box=document.getElementById('sres-'+i), btn=document.getElementById('sbtn-'+i);
+  var txt=ta.value.trim(); if(!txt){box.classList.remove('show');return;}
+  box.classList.add('show'); box.innerHTML='&#9203; V\u00e9rification en cours&hellip;'; btn.disabled=true;
+  try{
+    var resp=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});
+    var data=await resp.json(); var m=(data.matches||[]).sort(function(a,b){return a.offset-b.offset;});
+    if(!m.length){ box.innerHTML='<strong style="color:var(--green)">&#10003; Aucune erreur d\u00e9tect\u00e9e !</strong>'; }
+    else{
+      var th=''; var last=0;
+      m.forEach(function(x){ th+=escHtml(txt.slice(last,x.offset)); th+='<span class="spell-err" title="'+escHtml((x.replacements||[]).slice(0,3).map(function(r){return r.value;}).join(', ')||x.message)+'">'+escHtml(txt.slice(x.offset,x.offset+x.length))+'</span>'; last=x.offset+x.length; });
+      th+=escHtml(txt.slice(last));
+      var tl='<div style="margin-top:8px;"><strong>'+m.length+' correction(s) :</strong>';
+      m.forEach(function(x){ var w=escHtml(txt.slice(x.offset,x.offset+x.length)); var sug=escHtml((x.replacements||[]).slice(0,3).map(function(r){return r.value;}).join(' / ')); tl+='<span class="sr-item">&#10060; <em>'+w+'</em>'+(sug?' &#8594; <strong>'+sug+'</strong>':'')+'</span>'; });
+      tl+='</div>'; box.innerHTML=th+tl;
+    }
+  }catch(e){ box.innerHTML='&#9888;&#65039; V\u00e9rification non disponible (connexion internet requise).'; }
+  finally{ btn.disabled=false; }
+}
+function insertChip(word,i){
+  var ta=document.getElementById('pta-'+i); ta.focus();
+  var s=ta.selectionStart,e=ta.selectionEnd,bef=ta.value.substring(0,s),aft=ta.value.substring(e);
+  var sp=(bef.length>0&&!/\s$/.test(bef))?' ':''; var ins=sp+word;
+  ta.value=bef+ins+aft; var pos=s+ins.length; ta.selectionStart=ta.selectionEnd=pos;
+}
+var wh=document.getElementById('writes');
+WRITE.forEach(function(w){
+  var c=document.createElement('div'); c.className='write-card';
+  var t=document.createElement('div'); t.className='write-title';
+  var b=document.createElement('button'); b.className='aud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(w.a,b); };
+  var ts=document.createElement('span'); ts.innerHTML=w.title; t.appendChild(b); t.appendChild(ts); c.appendChild(t);
+  var scn=document.createElement('div'); scn.className='write-scn'; scn.innerHTML=w.scenario; c.appendChild(scn);
+  var bank=document.createElement('div'); bank.className='bank';
+  w.bank.forEach(function(word){ var ch=document.createElement('button'); ch.className='chip'; ch.innerHTML=word;
+    ch.onclick=function(){ insertChip(ch.textContent,w.id); }; bank.appendChild(ch); });
+  c.appendChild(bank);
+  var ta=document.createElement('textarea'); ta.className='pta'; ta.id='pta-'+w.id; ta.placeholder='\u00c9cris ton faire-part ici\u2026'; c.appendChild(ta);
+  var btn=document.createElement('button'); btn.className='check-btn'; btn.id='sbtn-'+w.id; btn.innerHTML='&#128269; V\u00e9rifier l\u2019orthographe'; btn.onclick=function(){ checkSpell(w.id); }; c.appendChild(btn);
+  var res=document.createElement('div'); res.className='sres'; res.id='sres-'+w.id; c.appendChild(res);
+  wh.appendChild(c);
+});
+function finish(){
+  var f=document.getElementById('final'); f.style.display='block';
+  document.getElementById('finalNum').textContent=score+' / '+TOTAL;
+  var pct=score/TOTAL;
+  document.getElementById('finalMsg').innerHTML=(pct>=0.8?'Excellent ! Tu ma\u00eetrises les faire-part.':(pct>=0.5?'Bien jou\u00e9 !':'Relis les formules et recommence.'))+'<br><span style="font-size:14px;color:var(--slate)">N\u2019oublie pas d\u2019\u00e9crire tes deux faire-part ci-dessus.</span>';
+  try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson(LESSON,{score:score,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
+}
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body>
+</html>
