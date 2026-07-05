@@ -31,7 +31,8 @@ const LESSON_NAMES = {
   'c1_francine_gosselin': 'C1 · Francine G. (compréhension orale)',
   'a1_les_nombres':'A1 · Les nombres',
   'a2_nombres_quiz':'A2 · Quiz Les nombres',
-  'a2_ecoute_invitations':'A2 · Écoute — Invitations'
+  'a2_ecoute_invitations':'A2 · Écoute — Invitations',
+  'a2_lire_invitation':'A2 · Lire une invitation'
 };
 let _emailjsReady = null;
 function loadEmailJS() {

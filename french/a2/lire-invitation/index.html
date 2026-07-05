@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>A2 : Lire une invitation &mdash; Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#D4920A;--text:#1A2733;--slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;--a2:#E07B39;--green:#1E7B45;--ltgreen:#E3F5EC;--red:#C0392B;--ltred:#FBE7E5;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--a2);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;}
+.main{max-width:640px;margin:0 auto;padding:16px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--a2);color:#fff;font-size:13px;font-weight:bold;padding:2px 12px;border-radius:20px;margin-bottom:6px;}
+.h-title{font-size:21px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.consigne{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-left:4px solid var(--a2);border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:8px;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.aud{flex-shrink:0;background:var(--a2);color:#fff;border:none;border-radius:50%;width:42px;height:42px;font-size:17px;cursor:pointer;}
+.aud.speaking{background:var(--dark);}
+.scorebar{position:sticky;top:60px;background:var(--cream);padding:8px 0;font-size:14px;font-weight:bold;color:var(--slate);z-index:50;}
+.sec-label{font-size:12px;font-weight:bold;color:var(--a2);text-transform:uppercase;letter-spacing:1px;margin:22px 0 10px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
+.card-inv{background:var(--white);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:6px solid var(--gold);padding:16px 18px;margin-bottom:12px;}
+.card-inv .who{font-size:13px;font-weight:bold;color:var(--gold);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.card-inv p{font-size:16px;line-height:1.7;margin:0 0 10px;}
+.readbtn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--dark);border:none;border-radius:22px;padding:9px 16px;font-size:14px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:42px;}
+.readbtn.speaking{background:var(--dark);color:#fff;}
+.q{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:15px 16px;margin-bottom:12px;}
+.q-prompt{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
+.opts{display:flex;flex-wrap:wrap;gap:8px;}
+.opt{flex:1 1 calc(50% - 8px);min-width:130px;background:var(--cream);border:2px solid var(--divider);border-radius:10px;padding:12px;font-size:15px;font-weight:bold;color:var(--text);font-family:Arial,sans-serif;cursor:pointer;min-height:48px;}
+.opt.good{background:var(--ltgreen);border-color:var(--green);color:var(--green);}
+.opt.bad{background:var(--ltred);border-color:var(--red);color:var(--red);}
+.opt:disabled{cursor:default;}
+.vocab{display:flex;flex-direction:column;gap:8px;}
+.vrow{display:flex;align-items:center;gap:10px;background:var(--white);border-radius:10px;padding:10px 12px;box-shadow:0 1px 5px rgba(0,0,0,0.05);}
+.vrow .fr{font-weight:bold;color:var(--dark);}
+.vrow .en{color:var(--slate);font-size:14px;margin-left:auto;}
+.vaud{flex-shrink:0;background:none;border:2px solid var(--divider);border-radius:50%;width:38px;height:38px;font-size:15px;color:var(--slate);cursor:pointer;}
+.vaud.speaking{background:var(--a2);color:#fff;border-color:var(--a2);}
+.final{display:none;background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:24px;text-align:center;margin-top:16px;}
+.final-num{font-size:40px;font-weight:bold;color:var(--a2);}
+.final-msg{font-size:16px;color:var(--text);margin:8px 0 14px;}
+.retry-btn{background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--a2);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons A2</a>
+  <div class="lvl-tag">A2</div>
+  <div class="h-title">Lire une invitation</div>
+  <div class="consigne"><button class="aud" onclick="playClip('a2_inv_consigne.mp3',this)">&#128266;</button><span>Lis chaque invitation, &eacute;coute-la si tu veux, puis r&eacute;ponds aux questions. Bonne lecture&nbsp;!</span></div>
+  <div class="scorebar" id="scorebar">Score : 0 / 12</div>
+
+  <div class="sec-label">&#9993;&#65039; Invitation 1 &mdash; Thierry &agrave; Julie</div>
+  <div class="card-inv">
+    <div class="who">Le message</div>
+    <p>Ch&egrave;re Julie,<br>je f&ecirc;te mes 37 ans <b>samedi 14 janvier</b> chez moi. T&eacute;l&eacute;phone-moi avant le 7 janvier. Tu peux venir avec ton copain Romain.<br>Thierry Fournier &middot; 2 impasse Kerry, 29000 Brest &middot; t&eacute;l. 02 56 57 58 59</p>
+    <button class="readbtn" onclick="playClip('a2_inv_doc1.mp3',this)">&#128266; &Eacute;couter l&rsquo;invitation</button>
+  </div>
+  <div id="secA"></div>
+
+  <div class="sec-label">&#127880; Invitation 2 &mdash; L&rsquo;anniversaire de Julien</div>
+  <div class="card-inv">
+    <div class="who">Le message</div>
+    <p>Je t&rsquo;invite &agrave; mon anniversaire pour mes <b>7 ans</b>&nbsp;! Le <b>samedi 2 juin de 16h &agrave; 19h</b>.<br>Mon adresse&nbsp;: 47 rue H&eacute;rold, Nice. Mon t&eacute;l&eacute;phone&nbsp;: 04 97 03 07 00.<br>De la part de&nbsp;: Julien.</p>
+    <button class="readbtn" onclick="playClip('a2_inv_doc2.mp3',this)">&#128266; &Eacute;couter l&rsquo;invitation</button>
+  </div>
+  <div id="secB"></div>
+
+  <div class="sec-label">&#9989; Vrai ou Faux</div>
+  <div id="secC"></div>
+
+  <div class="sec-label">&#128218; Mots utiles</div>
+  <div class="vocab" id="vocab"></div>
+
+  <div class="final" id="final">
+    <div class="final-num" id="finalNum">0 / 12</div>
+    <div class="final-msg" id="finalMsg"></div>
+    <button class="retry-btn" onclick="location.reload()">Recommencer</button>
+  </div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+var LESSON='a2_lire_invitation';
+var _clip=null,_cb=null;
+function playClip(file,btn){
+  try{ if(_clip) _clip.pause(); }catch(e){}
+  if(_cb) _cb.classList.remove('speaking');
+  _clip=new Audio('audio/'+file); _cb=btn||null;
+  if(_cb) _cb.classList.add('speaking');
+  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
+  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
+}
+var Q=[{"s": "A", "a": "a2_inv_d1q1.mp3", "q": "C&rsquo;est une invitation &agrave;&hellip;", "opts": ["un mariage", "un anniversaire", "une naissance"], "correct": 1}, {"s": "A", "a": "a2_inv_d1q2.mp3", "q": "O&ugrave; se passe la f&ecirc;te&nbsp;?", "opts": ["chez Thierry", "au restaurant", "dans un bar"], "correct": 0}, {"s": "A", "a": "a2_inv_d1q3.mp3", "q": "La f&ecirc;te est le&hellip;", "opts": ["7 janvier", "14 f&eacute;vrier", "14 janvier"], "correct": 2}, {"s": "A", "a": "a2_inv_d1q4.mp3", "q": "Qui organise la f&ecirc;te&nbsp;?", "opts": ["Romain", "Julie", "Thierry"], "correct": 2}, {"s": "B", "a": "a2_inv_d2q1.mp3", "q": "C&rsquo;est une invitation &agrave;&hellip;", "opts": ["un anniversaire", "un mariage", "une naissance"], "correct": 0}, {"s": "B", "a": "a2_inv_d2q2.mp3", "q": "Quand a lieu la f&ecirc;te&nbsp;?", "opts": ["Le 2 juin, de 16h &agrave; 19h", "Le 2 juillet, de 16h &agrave; 19h", "Le 2 juin, de 6h &agrave; 9h"], "correct": 0}, {"s": "B", "a": "a2_inv_d2q3.mp3", "q": "Quelle est l&rsquo;adresse&nbsp;?", "opts": ["47 rue H&eacute;rold, Nice", "7 rue H&eacute;rold, Nice", "47 rue H&eacute;rold, Nancy"], "correct": 0}, {"s": "B", "a": "a2_inv_d2q4.mp3", "q": "Qui invite&nbsp;?", "opts": ["Julien", "Julie", "Thierry"], "correct": 0}, {"s": "C", "a": "a2_inv_vf1.mp3", "q": "Thierry f&ecirc;te ses 37 ans.", "opts": ["Vrai", "Faux"], "correct": 0}, {"s": "C", "a": "a2_inv_vf2.mp3", "q": "Julie doit t&eacute;l&eacute;phoner avant le 14 janvier.", "opts": ["Vrai", "Faux"], "correct": 1}, {"s": "C", "a": "a2_inv_vf3.mp3", "q": "Julien a 7 ans.", "opts": ["Vrai", "Faux"], "correct": 0}, {"s": "C", "a": "a2_inv_vf4.mp3", "q": "La f&ecirc;te de Julien est le matin.", "opts": ["Vrai", "Faux"], "correct": 1}], VOCAB=[["inviter", "to invite", "a2_inv_v_inviter.mp3"], ["une f&ecirc;te", "a party", "a2_inv_v_fete.mp3"], ["un anniversaire", "a birthday", "a2_inv_v_anniv.mp3"], ["r&eacute;pondre", "to reply", "a2_inv_v_repondre.mp3"], ["l&rsquo;adresse", "the address", "a2_inv_v_adresse.mp3"]], TOTAL=12, score=0, answered=0;
+function bump(ok){ if(ok) score++; answered++; document.getElementById('scorebar').textContent='Score : '+score+' / '+TOTAL; if(answered>=TOTAL) finish(); }
+function renderMC(sec){
+  var host=document.getElementById('sec'+sec);
+  Q.filter(function(it){return it.s===sec;}).forEach(function(it){
+    var card=document.createElement('div'); card.className='q';
+    var p=document.createElement('div'); p.className='q-prompt';
+    var b=document.createElement('button'); b.className='aud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(it.a,b); };
+    var span=document.createElement('span'); span.innerHTML=it.q;
+    p.appendChild(b); p.appendChild(span); card.appendChild(p);
+    var wrap=document.createElement('div'); wrap.className='opts';
+    it.opts.forEach(function(opt,oi){
+      var btn=document.createElement('button'); btn.className='opt'; btn.innerHTML=opt;
+      btn.onclick=function(){
+        if(card.dataset.done) return; card.dataset.done='1';
+        var ok=(oi===it.correct); btn.classList.add(ok?'good':'bad');
+        if(!ok) wrap.children[it.correct].classList.add('good');
+        Array.prototype.forEach.call(wrap.children,function(c){ c.disabled=true; });
+        bump(ok);
+      };
+      wrap.appendChild(btn);
+    });
+    card.appendChild(wrap); host.appendChild(card);
+  });
+}
+renderMC('A'); renderMC('B'); renderMC('C');
+// vocab (non noté)
+var vh=document.getElementById('vocab');
+VOCAB.forEach(function(v){
+  var row=document.createElement('div'); row.className='vrow';
+  var b=document.createElement('button'); b.className='vaud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(v[2],b); };
+  var fr=document.createElement('span'); fr.className='fr'; fr.innerHTML=v[0];
+  var en=document.createElement('span'); en.className='en'; en.innerHTML=v[1];
+  row.appendChild(b); row.appendChild(fr); row.appendChild(en); vh.appendChild(row);
+});
+function finish(){
+  var f=document.getElementById('final'); f.style.display='block';
+  document.getElementById('finalNum').textContent=score+' / '+TOTAL;
+  var pct=score/TOTAL;
+  document.getElementById('finalMsg').textContent= pct>=0.8?'Excellent ! Tu lis tr\u00e8s bien les invitations.':(pct>=0.5?'Bien jou\u00e9 ! Relis et recommence.':'Continue, relis les invitations et r\u00e9essaie.');
+  try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson(LESSON,{score:score,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
+  f.scrollIntoView({behavior:'smooth'});
+}
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body>
+</html>
