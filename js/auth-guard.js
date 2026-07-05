@@ -30,7 +30,8 @@ const LESSON_NAMES = {
   'avoir': 'A1 · Le verbe Avoir',
   'c1_francine_gosselin': 'C1 · Francine G. (compréhension orale)',
   'a1_les_nombres':'A1 · Les nombres',
-  'a2_nombres_quiz':'A2 · Quiz Les nombres'
+  'a2_nombres_quiz':'A2 · Quiz Les nombres',
+  'a2_ecoute_invitations':'A2 · Écoute — Invitations'
 };
 let _emailjsReady = null;
 function loadEmailJS() {

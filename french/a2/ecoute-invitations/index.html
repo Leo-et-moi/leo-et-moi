@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>Exercices d&#x2019;écoute — Les Invitations — A2</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F0E8;--dark:#1B2845;--navy:#2C4A7C;--coral:#E8503A;
+  --gold:#D4920A;--ltGold:#FDF3D8;--ltBlue:#E8F0FA;--ltGreen:#E3F5EC;
+  --green:#1E7B45;--text:#1A2733;--slate:#4A6580;--div:#D8DFE8;--white:#fff;
+  --red:#C0392B;--ltRed:#fceaea;
+}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:14px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.top-title{font-size:20px;font-weight:bold;color:#fff;}
+.top-title span{color:var(--coral);}
+.top-sub{font-size:13px;color:#9DC8E8;margin-top:2px;}
+.spk{background:none;border:2px solid rgba(255,255,255,0.25);border-radius:20px;padding:6px 12px;
+  color:#9DC8E8;font-family:Arial,sans-serif;font-size:14px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;min-height:40px;white-space:nowrap;}
+.spk-dark{border-color:var(--div);color:var(--slate);font-size:13px;}
+.tabs{display:flex;overflow-x:auto;background:var(--dark);padding:0 12px 12px;gap:8px;-webkit-overflow-scrolling:touch;}
+.tab{font-family:Arial,sans-serif;font-size:14px;font-weight:bold;padding:8px 16px;
+  border:2px solid rgba(255,255,255,0.2);border-radius:20px;background:none;color:#9DC8E8;
+  cursor:pointer;min-height:40px;white-space:nowrap;transition:background 0.15s;}
+.tab.active{background:var(--coral);border-color:var(--coral);color:#fff;}
+.main{max-width:740px;margin:0 auto;padding:20px 14px 52px;}
+.msg-panel{display:none;}
+.msg-panel.active{display:block;}
+.panel-head{margin:16px 0 20px;}
+.panel-title{font-size:22px;font-weight:bold;color:var(--dark);}
+.panel-sub{font-size:14px;color:var(--slate);}
+.sec{margin-bottom:8px;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+.sec-hdr{background:var(--dark);padding:12px 16px;display:flex;align-items:center;gap:12px;}
+.sec-icon{font-size:22px;line-height:1;}
+.sec-label{flex:1;}
+.sec-label-fr{font-size:17px;font-weight:bold;color:#fff;}
+.sec-label-en{font-size:13px;color:#9DC8E8;}
+.sec-body{background:var(--white);padding:18px;border:1px solid var(--div);border-top:none;border-radius:0 0 12px 12px;}
+.instr{background:var(--ltBlue);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;
+  padding:12px 14px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;}
+.instr-text{flex:1;font-size:16px;line-height:1.5;}
+.instr-en{font-size:13px;color:var(--slate);margin-top:3px;}
+.listen-btn{font-family:Arial,sans-serif;font-size:17px;font-weight:bold;border:none;
+  border-radius:12px;padding:14px 24px;cursor:pointer;min-height:56px;width:100%;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:background 0.15s;background:var(--navy);color:#fff;margin-bottom:10px;}
+.listen-btn.phase2{background:var(--gold);color:var(--dark);}
+.listen-btn.done{background:var(--green);color:#fff;}
+.tr-note{font-size:14px;color:var(--slate);text-align:center;padding:8px 0;}
+.vmatch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;}
+@media(max-width:520px){.vmatch-grid{grid-template-columns:1fr;}}
+.vcol-lbl{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;
+  letter-spacing:0.5px;margin-bottom:6px;}
+.vcol{display:flex;flex-direction:column;gap:8px;}
+.vcard{background:var(--cream);border:2px solid var(--div);border-radius:10px;
+  padding:12px 14px;cursor:pointer;font-size:15px;line-height:1.5;min-height:52px;
+  transition:border-color 0.15s,background 0.15s;}
+.vcard:hover:not(.matched):not(.disabled){border-color:var(--navy);}
+.vcard.sel{border-color:var(--coral);background:var(--ltGold);}
+.vcard.matched{border-color:var(--green);background:var(--ltGreen);cursor:default;}
+.vcard.err{border-color:var(--red);background:var(--ltRed);}
+.vcard.disabled{cursor:default;opacity:0.55;}
+.v-score{margin-top:10px;font-size:14px;color:var(--slate);}
+.write-sec-lbl{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;
+  letter-spacing:0.5px;margin-bottom:8px;}
+.vchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.vchip-ins{font-family:Arial,sans-serif;font-size:15px;font-weight:bold;
+  padding:6px 14px;border:2px solid var(--navy);border-radius:20px;
+  background:var(--ltBlue);color:var(--navy);cursor:pointer;min-height:40px;
+  transition:background 0.15s,color 0.15s;}
+.vchip-ins:hover{background:var(--navy);color:#fff;}
+.spell-note{font-size:13px;line-height:1.6;padding:10px 14px;background:var(--ltGold);
+  border-left:3px solid var(--gold);border-radius:0 6px 6px 0;margin-bottom:12px;}
+.spell-note .accent-tip{color:var(--red);font-weight:bold;}
+textarea.pta{width:100%;min-height:160px;font-family:Arial,sans-serif;font-size:17px;
+  line-height:1.7;padding:12px 14px;border:2px solid var(--div);border-radius:10px;
+  background:var(--cream);color:var(--dark);resize:vertical;}
+textarea.pta:focus{border-color:var(--navy);outline:none;}
+.check-btn{font-family:Arial,sans-serif;font-size:16px;font-weight:bold;
+  background:var(--coral);color:#fff;border:none;border-radius:10px;
+  padding:12px 24px;cursor:pointer;min-height:48px;margin-top:10px;}
+.write-result{display:none;margin-top:12px;padding:12px 14px;border-radius:8px;font-size:15px;line-height:1.7;}
+.write-result.show{display:block;}
+.wr-ok{background:var(--ltGreen);}
+.wr-warn{background:var(--ltGold);}
+.wr-part{background:#FFF3CD;}
+.w-hit{color:var(--green);font-weight:bold;}
+.w-miss{color:var(--slate);}
+.comp-q{margin-bottom:20px;}
+.comp-qlbl{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:3px;}
+.comp-qen{font-size:13px;color:var(--slate);margin-bottom:10px;}
+.comp-opts{display:flex;flex-wrap:wrap;gap:8px;}
+.copt{font-family:Arial,sans-serif;font-size:15px;font-weight:bold;padding:10px 16px;
+  border:2px solid var(--div);border-radius:10px;background:var(--cream);
+  color:var(--dark);cursor:pointer;min-height:48px;transition:background 0.15s;}
+.copt.correct{background:var(--ltGreen);border-color:var(--green);color:var(--green);}
+.copt.wrong{background:var(--ltRed);border-color:var(--red);color:var(--red);}
+.copt.reveal-correct{background:var(--ltGreen);border-color:var(--green);color:var(--green);opacity:0.7;}
+.sum-wrap{display:none;margin-top:20px;padding-top:16px;border-top:2px solid var(--div);}
+.sum-wrap.open{display:block;}
+.sum-title{font-size:17px;font-weight:bold;color:var(--dark);margin-bottom:12px;}
+.sum-tbl{width:100%;border-collapse:collapse;font-size:15px;}
+.sum-tbl th{background:var(--dark);color:#fff;padding:10px 12px;text-align:left;}
+.sum-tbl td{padding:10px 12px;border-bottom:1px solid var(--div);vertical-align:top;}
+.sum-tbl tr:nth-child(even) td{background:var(--cream);}
+.tf{font-weight:bold;color:var(--navy);}
+.te{font-size:13px;color:var(--slate);}
+.af{font-weight:bold;color:var(--dark);}
+.ae{font-size:13px;color:var(--slate);}
+.tr-btn{font-family:Arial,sans-serif;font-size:14px;background:none;border:1px solid var(--div);
+  border-radius:8px;padding:7px 14px;color:var(--slate);cursor:pointer;}
+.tr-box{display:none;margin-top:10px;background:var(--cream);border-radius:8px;
+  border:1px solid var(--div);padding:14px;font-size:16px;line-height:1.8;}
+.tr-box.open{display:block;}
+.tr-lbl{font-size:11px;font-weight:bold;color:var(--coral);text-transform:uppercase;
+  letter-spacing:0.5px;margin-bottom:6px;}
+
+.spell-btn{font-family:Arial,sans-serif;font-size:16px;font-weight:bold;
+  background:var(--navy);color:#fff;border:none;border-radius:10px;
+  padding:12px 20px;cursor:pointer;min-height:48px;margin-top:10px;}
+.spell-btn:disabled{opacity:0.6;cursor:wait;}
+.spell-result-box{display:none;margin-top:12px;border-radius:10px;
+  border:2px solid var(--div);overflow:hidden;font-size:16px;}
+.spell-result-box.show{display:block;}
+.sr-text{padding:14px 16px;line-height:1.9;background:#fff;border-bottom:1px solid var(--div);white-space:pre-wrap;word-wrap:break-word;}
+.sr-list{padding:12px 16px;background:var(--ltRed);}
+.spell-err{border-bottom:3px solid var(--red);cursor:help;background:rgba(192,57,43,0.08);}
+.sr-item{display:inline-block;margin:3px 8px 3px 0;font-size:15px;}
+
+.corr-toggle{font-family:Arial,sans-serif;font-size:15px;font-weight:bold;
+  background:var(--ltGreen);color:var(--green);border:2px solid var(--green);
+  border-radius:10px;padding:12px 20px;cursor:pointer;min-height:48px;
+  margin-top:14px;width:100%;text-align:center;}
+</style>
+</head><body>
+<header class="top-bar">
+  <div>
+    <div class="top-title">&#127925; Les <span>Invitations</span></div>
+    <div class="top-sub">Exercices d&#x2019;écoute &mdash; Niveau A2 &nbsp;|&nbsp; Listening Exercises &mdash; Level A2</div>
+  </div>
+  <button class="spk" onclick="playInstr('instr/titre.mp3',`Exercices d écoute. Les Invitations. Niveau A2.`,'fr-FR')">&#128266; Écouter</button>
+</header>
+<nav class="tabs">
+  <button class="tab active" onclick="switchTab(0)">1 — Annie</button>
+  <button class="tab" onclick="switchTab(1)">2 — Hélène</button>
+  <button class="tab" onclick="switchTab(2)">3 — Gaston</button>
+  <button class="tab" onclick="switchTab(3)">4 — Carole</button>
+  <button class="tab" onclick="switchTab(4)">5 — Inconnue</button>
+  <button class="tab" onclick="switchTab(5)">6 — Stéphane</button>
+</nav><main class="main">
+<div class="msg-panel active" id="panel-0">
+  <div class="panel-head">
+    <div class="panel-title">Message 1 &mdash; Annie</div>
+    <div class="panel-sub">Niveau A2 &nbsp;&#183;&nbsp; Exercices A, B, C, D</div>
+  </div>
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128270;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice A &mdash; Vocabulaire / Vocabulary</div>
+        <div class="sec-label-en">Exercise A — Match each French sentence with its English translation</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_a.mp3',`Exercice A. Vocabulaire.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Clique sur une phrase en <strong>français</strong>, puis sur sa traduction en <strong>anglais</strong>.
+          <div class="instr-en">Click a <strong>French</strong> sentence, then its <strong>English</strong> translation.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_a_instr.mp3',`Associe chaque phrase française avec sa traduction anglaise.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="vmatch-grid">
+        <div class="vcol">
+          <div class="vcol-lbl">&#127467;&#127479; Français</div>
+          <div class="vcard" id="vfr-0-0" onclick="vmFR(0,0)">Merci pour votre <strong>invitation</strong> à votre mariage.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m1_v1.mp3',`invitation`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; invitation</button></div>
+          <div class="vcard" id="vfr-0-1" onclick="vmFR(0,1)">Mes <strong>félicitations</strong> à tous les deux !<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m1_v2.mp3',`félicitations`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; félicitations</button></div>
+          <div class="vcard" id="vfr-0-2" onclick="vmFR(0,2)"><strong>Malheureusement</strong>, je ne pourrai pas être présente.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m1_v3.mp3',`malheureusement`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; malheureusement</button></div>
+          <div class="vcard" id="vfr-0-3" onclick="vmFR(0,3)">Je suis en <strong>stage linguistique</strong> à Londres.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m1_v4.mp3',`stage linguistique`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; stage linguistique</button></div>
+          <div class="vcard" id="vfr-0-4" onclick="vmFR(0,4)">Je le <strong>regrette</strong> vraiment.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m1_v5.mp3',`regrette`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; regrette</button></div>
+          <div class="vcard" id="vfr-0-5" onclick="vmFR(0,5)">Tous mes <strong>vœux de bonheur</strong> !<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m1_v6.mp3',`vœux de bonheur`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; vœux de bonheur</button></div>
+        </div>
+        <div class="vcol">
+          <div class="vcol-lbl">&#127468;&#127463; English</div>
+          <div id="ven-col-0"></div>
+        </div>
+      </div>
+      <div class="v-score" id="vscore-0">0 / 6 correct</div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9997;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice B &mdash; Production écrite</div>
+        <div class="sec-label-en">Exercise B — Writing</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_b.mp3',`Exercice B. Production écrite.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écris <strong>trois phrases</strong>, à la suite, en utilisant à chaque fois <strong>au moins 1 mot différent</strong> du vocabulaire ci-dessous.
+          <div class="instr-en">Write <strong>three sentences</strong>, one after another, each using <strong>at least 1 different vocabulary word</strong> from the list below.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/choisis3mots.mp3',`Écris trois phrases en utilisant à chaque fois au moins un mot différent du vocabulaire.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="spell-note">
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_b_spell.mp3',`Vérification orthographique intégrée.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#128269; <strong>Vérification orthographique intégrée :</strong> Clique sur le bouton <strong>Orthographe / Spelling</strong> pour vérifier l&#x2019;orthographe et la grammaire françaises automatiquement (connexion internet requise).<br>
+        / <strong>Built-in spell check:</strong> Click the <strong>Orthographe / Spelling</strong> button to automatically check French spelling and grammar (internet required).<br>
+        <span class="accent-tip"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_ponct.mp3',`Inclus la ponctuation. Inclus les accents.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#9888;&#65039; Inclus la ponctuation, les virgules si nécessaire et un point à la fin de chaque phrase. Inclus aussi les accents : <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — ils font partie de l&#x2019;orthographe correcte.<br>/ Include punctuation, commas when necessary, and a period at the end of each sentence. Also include accents: <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — they are part of correct spelling.</span>
+      </div>
+      <div class="spell-note" style="background:var(--ltGreen);border-color:var(--green);margin-bottom:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_exemple.mp3',`Exemple : Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.`,'fr-FR')" style="margin-right:8px;">&#128266;</button><strong>Exemple / Example :</strong> Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.<br><em style="color:var(--slate);font-size:13px;">↑ virgule après « déçu » · point à la fin / comma after « déçu » · period at the end</em></div>
+      <div class="write-sec-lbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_vocab.mp3',`Vocabulaire de référence. Clique pour insérer dans ta phrase.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>Vocabulaire de référence &mdash; clique pour insérer / Reference vocabulary &mdash; click to insert</div>
+      <div class="vchips"><button class="vchip-ins" onclick="insertVocab(`invitation`,'pta-0');">invitation</button><button class="vchip-ins" onclick="insertVocab(`félicitations`,'pta-0');">félicitations</button><button class="vchip-ins" onclick="insertVocab(`malheureusement`,'pta-0');">malheureusement</button><button class="vchip-ins" onclick="insertVocab(`stage linguistique`,'pta-0');">stage linguistique</button><button class="vchip-ins" onclick="insertVocab(`je regrette`,'pta-0');">je regrette</button><button class="vchip-ins" onclick="insertVocab(`vœux de bonheur`,'pta-0');">vœux de bonheur</button></div>
+      <textarea class="pta" id="pta-0" spellcheck="true" lang="fr"
+        placeholder="Écris tes trois phrases ici&#8230;"
+        oninput="checkWriting(0)"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <button class="check-btn" onclick="checkWriting(0,true)">&#10003; Vocabulaire / Vocabulary</button>
+        <button class="spell-btn" id="sbtn-0" onclick="checkSpelling(0)">&#128269; Orthographe / Spelling</button>
+      </div>
+      <div class="write-result" id="wres-0"></div>
+      <div class="spell-result-box" id="sres-0"></div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#127925;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice C &mdash; Écoute / Listen</div>
+        <div class="sec-label-en">Exercise C — Listen to the message twice</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ecoute2fois.mp3',`Exercice C. Écoute le message deux fois.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écoute <strong>deux fois</strong>. Première fois : compréhension générale. Deuxième fois : prends des notes pour l&#x2019;exercice D.
+          <div class="instr-en">Listen <strong>twice</strong>. First: general understanding. Second: take notes for Exercise D.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_c_instr.mp3',`Écoute deux fois. Première fois pour comprendre en général. Deuxième fois pour prendre des notes.`,'fr-FR')">&#128266;</button>
+      </div>
+      <button class="listen-btn" id="lbtn-0" data-src="Audio/Message 1 Annie.mp3" data-msgidx="0" onclick="playLesson(0,this)">
+        &#9654; Écouter une première fois / First listen
+      </button>
+      <p class="tr-note">&#128214; Transcriptions disponibles en fin de page / Transcripts available at the end of the page</p>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128203;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice D &mdash; Compréhension</div>
+        <div class="sec-label-en">Exercise D — Comprehension — click the correct answer</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_d.mp3',`Exercice D. Compréhension. Clique sur la bonne réponse.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q1.mp3',`L'invitation : pour faire quoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>1. L&#x2019;invitation : pour faire quoi ? / What was the invitation for?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="0" data-q="what" data-correct="true" onclick="cAnswer(this,0,'what')">Un mariage 💍</button>
+          <button class="copt" data-msg="0" data-q="what" data-correct="false" onclick="cAnswer(this,0,'what')">Une fête 🎂</button>
+          <button class="copt" data-msg="0" data-q="what" data-correct="false" onclick="cAnswer(this,0,'what')">Un dîner 🍽️</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q2.mp3',`Quand ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>2. Quand ? / When?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="0" data-q="when" data-correct="false" onclick="cAnswer(this,0,'when')">Le 14 juillet</button>
+          <button class="copt" data-msg="0" data-q="when" data-correct="true" onclick="cAnswer(this,0,'when')">Le 20 juin</button>
+          <button class="copt" data-msg="0" data-q="when" data-correct="false" onclick="cAnswer(this,0,'when')">Le 26 juillet</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q3.mp3',`Invitation acceptée ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>3. Invitation acceptée ? / Accepted?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="0" data-q="acc" data-correct="false" onclick="cAnswer(this,0,'acc')">&#10003; Oui / Yes</button>
+          <button class="copt" data-msg="0" data-q="acc" data-correct="true" onclick="cAnswer(this,0,'acc')">&#10007; Non / No</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q4.mp3',`Si refusée, pourquoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>4. Si refusée, pourquoi ? / If declined, why?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="0" data-q="why" data-correct="false" onclick="cAnswer(this,0,'why')">Elle est malade.</button>
+          <button class="copt" data-msg="0" data-q="why" data-correct="true" onclick="cAnswer(this,0,'why')">Elle est en stage linguistique à Londres.</button>
+          <button class="copt" data-msg="0" data-q="why" data-correct="false" onclick="cAnswer(this,0,'why')">Elle travaille.</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_corr.mp3',`Afficher les corrigés.`,'fr-FR')">&#128266;</button><button class="corr-toggle" id="corrBtn-0" style="margin-top:0;flex:1;" onclick="toggleCorr(0)">&#128203; Afficher les corrigés / Show answer keys</button></div>
+      <div class="sum-wrap" id="sum-0">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <div class="sum-title">&#128203; Corrigés / Answer keys</div>
+          <button class="tr-btn" onclick="toggleCorr(0)">Masquer / Hide &#9650;</button>
+        </div>
+        <table class="sum-tbl">
+          <tr><th>Question</th><th>Réponse / Answer</th></tr>
+          <tr>
+            <td><div class="tf">Invitation pour faire quoi ?</div><div class="te">What was the invitation for?</div></td>
+            <td><div class="af">Un mariage</div><div class="ae">A wedding</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Quand ?</div><div class="te">When?</div></td>
+            <td><div class="af">Le 20 juin</div><div class="ae">June 20th</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Acceptée ?</div><div class="te">Accepted?</div></td>
+            <td><div class="af">✗ Non</div><div class="ae">No</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Refusée — Pourquoi ?</div><div class="te">Declined — Why?</div></td>
+            <td><div class="af">Elle est en stage linguistique à Londres.</div><div class="ae">She is on a language internship in London.</div></td>
+          </tr>
+        </table>
+        <div style="margin-top:12px;">
+          <button class="spk spk-dark" onclick="playInstr('instr/m1_sum.mp3',`Un mariage. Le 20 juin. Invitation refusée. Elle est en stage linguistique à Londres.`,'fr-FR')">&#128266; Corrigés audio / Audio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128214;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Transcriptions</div>
+        <div class="sec-label-en">Transcripts</div>
+      </div>
+    </div>
+    <div class="sec-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('trfr-0')">&#128214; Transcription (FR)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m1_tr_fr.mp3',`Allô, Sylvie, Marc. C'est Annie. Merci pour votre invitation à votre mariage. Quelle bonne nouvelle ! Mes félicitations à tous les deux ! Malheureusement je ne pourrais pas être présente le 20 juin. Je suis en stage linguistique à Londres. Je le regrette vraiment mais je voudrais participer à la liste de mariage quand même. Encore une fois, félicitations et tous mes vœux de bonheur !`,'fr-FR')">&#128266; Écouter FR</button>
+      </div>
+      <div class="tr-box" id="trfr-0"><div class="tr-lbl">Transcription — Français</div>Allô, Sylvie, Marc. C'est Annie. Merci pour votre invitation à votre mariage. Quelle bonne nouvelle ! Mes félicitations à tous les deux ! Malheureusement je ne pourrais pas être présente le 20 juin. Je suis en stage linguistique à Londres. Je le regrette vraiment mais je voudrais participer à la liste de mariage quand même. Encore une fois, félicitations et tous mes vœux de bonheur !</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('tren-0')">&#128214; Transcript (EN)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m1_tr_en.mp3',`Hello, Sylvie and Marc. It's Annie. Thank you for your invitation to your wedding. What great news! Congratulations to you both! Unfortunately I won't be able to be there on June 20th. I'm on a language internship in London. I truly regret it, but I'd still like to contribute to the wedding registry. Once again, congratulations and all my wishes for happiness!`,'en-US')">&#128266; Listen EN</button>
+      </div>
+      <div class="tr-box" id="tren-0"><div class="tr-lbl">Transcript — English</div>Hello, Sylvie and Marc. It's Annie. Thank you for your invitation to your wedding. What great news! Congratulations to you both! Unfortunately I won't be able to be there on June 20th. I'm on a language internship in London. I truly regret it, but I'd still like to contribute to the wedding registry. Once again, congratulations and all my wishes for happiness!</div>
+    </div>
+  </div>
+  <div style="height:32px;"></div>
+</div>
+<div class="msg-panel" id="panel-1">
+  <div class="panel-head">
+    <div class="panel-title">Message 2 &mdash; Hélène</div>
+    <div class="panel-sub">Niveau A2 &nbsp;&#183;&nbsp; Exercices A, B, C, D</div>
+  </div>
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128270;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice A &mdash; Vocabulaire / Vocabulary</div>
+        <div class="sec-label-en">Exercise A — Match each French sentence with its English translation</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_a.mp3',`Exercice A. Vocabulaire.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Clique sur une phrase en <strong>français</strong>, puis sur sa traduction en <strong>anglais</strong>.
+          <div class="instr-en">Click a <strong>French</strong> sentence, then its <strong>English</strong> translation.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_a_instr.mp3',`Associe chaque phrase française avec sa traduction anglaise.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="vmatch-grid">
+        <div class="vcol">
+          <div class="vcol-lbl">&#127467;&#127479; Français</div>
+          <div class="vcard" id="vfr-1-0" onclick="vmFR(1,0)">Je vais <strong>assister à</strong> cet heureux évènement.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m2_v1.mp3',`assister à`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; assister à</button></div>
+          <div class="vcard" id="vfr-1-1" onclick="vmFR(1,1)">Cet <strong>heureux évènement</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m2_v2.mp3',`heureux évènement`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; heureux évènement</button></div>
+          <div class="vcard" id="vfr-1-2" onclick="vmFR(1,2)">Je <strong>réserve</strong> ma journée du 26 juillet.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m2_v3.mp3',`réserve`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; réserve</button></div>
+          <div class="vcard" id="vfr-1-3" onclick="vmFR(1,3)"><strong>Bisous</strong> à vous deux.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m2_v4.mp3',`bisous`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; bisous</button></div>
+        </div>
+        <div class="vcol">
+          <div class="vcol-lbl">&#127468;&#127463; English</div>
+          <div id="ven-col-1"></div>
+        </div>
+      </div>
+      <div class="v-score" id="vscore-1">0 / 4 correct</div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9997;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice B &mdash; Production écrite</div>
+        <div class="sec-label-en">Exercise B — Writing</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_b.mp3',`Exercice B. Production écrite.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écris <strong>trois phrases</strong>, à la suite, en utilisant à chaque fois <strong>au moins 1 mot différent</strong> du vocabulaire ci-dessous.
+          <div class="instr-en">Write <strong>three sentences</strong>, one after another, each using <strong>at least 1 different vocabulary word</strong> from the list below.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/choisis3mots.mp3',`Écris trois phrases en utilisant à chaque fois au moins un mot différent du vocabulaire.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="spell-note">
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_b_spell.mp3',`Vérification orthographique intégrée.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#128269; <strong>Vérification orthographique intégrée :</strong> Clique sur le bouton <strong>Orthographe / Spelling</strong> pour vérifier l&#x2019;orthographe et la grammaire françaises automatiquement (connexion internet requise).<br>
+        / <strong>Built-in spell check:</strong> Click the <strong>Orthographe / Spelling</strong> button to automatically check French spelling and grammar (internet required).<br>
+        <span class="accent-tip"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_ponct.mp3',`Inclus la ponctuation. Inclus les accents.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#9888;&#65039; Inclus la ponctuation, les virgules si nécessaire et un point à la fin de chaque phrase. Inclus aussi les accents : <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — ils font partie de l&#x2019;orthographe correcte.<br>/ Include punctuation, commas when necessary, and a period at the end of each sentence. Also include accents: <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — they are part of correct spelling.</span>
+      </div>
+      <div class="spell-note" style="background:var(--ltGreen);border-color:var(--green);margin-bottom:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_exemple.mp3',`Exemple : Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.`,'fr-FR')" style="margin-right:8px;">&#128266;</button><strong>Exemple / Example :</strong> Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.<br><em style="color:var(--slate);font-size:13px;">↑ virgule après « déçu » · point à la fin / comma after « déçu » · period at the end</em></div>
+      <div class="write-sec-lbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_vocab.mp3',`Vocabulaire de référence. Clique pour insérer dans ta phrase.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>Vocabulaire de référence &mdash; clique pour insérer / Reference vocabulary &mdash; click to insert</div>
+      <div class="vchips"><button class="vchip-ins" onclick="insertVocab(`assister à`,'pta-1');">assister à</button><button class="vchip-ins" onclick="insertVocab(`heureux évènement`,'pta-1');">heureux évènement</button><button class="vchip-ins" onclick="insertVocab(`réserver ma journée`,'pta-1');">réserver ma journée</button><button class="vchip-ins" onclick="insertVocab(`bisous`,'pta-1');">bisous</button></div>
+      <textarea class="pta" id="pta-1" spellcheck="true" lang="fr"
+        placeholder="Écris tes trois phrases ici&#8230;"
+        oninput="checkWriting(1)"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <button class="check-btn" onclick="checkWriting(1,true)">&#10003; Vocabulaire / Vocabulary</button>
+        <button class="spell-btn" id="sbtn-1" onclick="checkSpelling(1)">&#128269; Orthographe / Spelling</button>
+      </div>
+      <div class="write-result" id="wres-1"></div>
+      <div class="spell-result-box" id="sres-1"></div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#127925;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice C &mdash; Écoute / Listen</div>
+        <div class="sec-label-en">Exercise C — Listen to the message twice</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ecoute2fois.mp3',`Exercice C. Écoute le message deux fois.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écoute <strong>deux fois</strong>. Première fois : compréhension générale. Deuxième fois : prends des notes pour l&#x2019;exercice D.
+          <div class="instr-en">Listen <strong>twice</strong>. First: general understanding. Second: take notes for Exercise D.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_c_instr.mp3',`Écoute deux fois. Première fois pour comprendre en général. Deuxième fois pour prendre des notes.`,'fr-FR')">&#128266;</button>
+      </div>
+      <button class="listen-btn" id="lbtn-1" data-src="Audio/Message 2 Helene.mp3" data-msgidx="1" onclick="playLesson(1,this)">
+        &#9654; Écouter une première fois / First listen
+      </button>
+      <p class="tr-note">&#128214; Transcriptions disponibles en fin de page / Transcripts available at the end of the page</p>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128203;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice D &mdash; Compréhension</div>
+        <div class="sec-label-en">Exercise D — Comprehension — click the correct answer</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_d.mp3',`Exercice D. Compréhension. Clique sur la bonne réponse.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q1.mp3',`L'invitation : pour faire quoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>1. L&#x2019;invitation : pour faire quoi ? / What was the invitation for?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="1" data-q="what" data-correct="false" onclick="cAnswer(this,1,'what')">Un anniversaire 🎂</button>
+          <button class="copt" data-msg="1" data-q="what" data-correct="true" onclick="cAnswer(this,1,'what')">Un mariage 💍</button>
+          <button class="copt" data-msg="1" data-q="what" data-correct="false" onclick="cAnswer(this,1,'what')">Un concert 🎵</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q2.mp3',`Quand ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>2. Quand ? / When?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="1" data-q="when" data-correct="false" onclick="cAnswer(this,1,'when')">Le 20 juin</button>
+          <button class="copt" data-msg="1" data-q="when" data-correct="true" onclick="cAnswer(this,1,'when')">Le 26 juillet</button>
+          <button class="copt" data-msg="1" data-q="when" data-correct="false" onclick="cAnswer(this,1,'when')">Le 15 août</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q3.mp3',`Invitation acceptée ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>3. Invitation acceptée ? / Accepted?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="1" data-q="acc" data-correct="true" onclick="cAnswer(this,1,'acc')">&#10003; Oui / Yes</button>
+          <button class="copt" data-msg="1" data-q="acc" data-correct="false" onclick="cAnswer(this,1,'acc')">&#10007; Non / No</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_corr.mp3',`Afficher les corrigés.`,'fr-FR')">&#128266;</button><button class="corr-toggle" id="corrBtn-1" style="margin-top:0;flex:1;" onclick="toggleCorr(1)">&#128203; Afficher les corrigés / Show answer keys</button></div>
+      <div class="sum-wrap" id="sum-1">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <div class="sum-title">&#128203; Corrigés / Answer keys</div>
+          <button class="tr-btn" onclick="toggleCorr(1)">Masquer / Hide &#9650;</button>
+        </div>
+        <table class="sum-tbl">
+          <tr><th>Question</th><th>Réponse / Answer</th></tr>
+          <tr>
+            <td><div class="tf">Invitation pour faire quoi ?</div><div class="te">What was the invitation for?</div></td>
+            <td><div class="af">Un mariage (heureux évènement)</div><div class="ae">A wedding</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Quand ?</div><div class="te">When?</div></td>
+            <td><div class="af">Le 26 juillet</div><div class="ae">July 26th</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Acceptée ?</div><div class="te">Accepted?</div></td>
+            <td><div class="af">✓ Oui</div><div class="ae">Yes</div></td>
+          </tr>
+          
+        </table>
+        <div style="margin-top:12px;">
+          <button class="spk spk-dark" onclick="playInstr('instr/m2_sum.mp3',`Un mariage (heureux évènement). Le 26 juillet. Invitation acceptée.`,'fr-FR')">&#128266; Corrigés audio / Audio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128214;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Transcriptions</div>
+        <div class="sec-label-en">Transcripts</div>
+      </div>
+    </div>
+    <div class="sec-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('trfr-1')">&#128214; Transcription (FR)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m2_tr_fr.mp3',`Amandine, Jean, c'est Hélène. Bien sûr que je vais assister à cet heureux évènement. Je réserve ma journée du 26 Juillet. Bisous à vous deux.`,'fr-FR')">&#128266; Écouter FR</button>
+      </div>
+      <div class="tr-box" id="trfr-1"><div class="tr-lbl">Transcription — Français</div>Amandine, Jean, c'est Hélène. Bien sûr que je vais assister à cet heureux évènement. Je réserve ma journée du 26 Juillet. Bisous à vous deux.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('tren-1')">&#128214; Transcript (EN)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m2_tr_en.mp3',`Amandine, Jean, it's Hélène. Of course I'm going to attend this happy occasion. I'm setting aside the whole day of July 26th. Kisses to you both.`,'en-US')">&#128266; Listen EN</button>
+      </div>
+      <div class="tr-box" id="tren-1"><div class="tr-lbl">Transcript — English</div>Amandine, Jean, it's Hélène. Of course I'm going to attend this happy occasion. I'm setting aside the whole day of July 26th. Kisses to you both.</div>
+    </div>
+  </div>
+  <div style="height:32px;"></div>
+</div>
+<div class="msg-panel" id="panel-2">
+  <div class="panel-head">
+    <div class="panel-title">Message 3 &mdash; Gaston</div>
+    <div class="panel-sub">Niveau A2 &nbsp;&#183;&nbsp; Exercices A, B, C, D</div>
+  </div>
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128270;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice A &mdash; Vocabulaire / Vocabulary</div>
+        <div class="sec-label-en">Exercise A — Match each French sentence with its English translation</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_a.mp3',`Exercice A. Vocabulaire.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Clique sur une phrase en <strong>français</strong>, puis sur sa traduction en <strong>anglais</strong>.
+          <div class="instr-en">Click a <strong>French</strong> sentence, then its <strong>English</strong> translation.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_a_instr.mp3',`Associe chaque phrase française avec sa traduction anglaise.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="vmatch-grid">
+        <div class="vcol">
+          <div class="vcol-lbl">&#127467;&#127479; Français</div>
+          <div class="vcard" id="vfr-2-0" onclick="vmFR(2,0)">Je suis un peu <strong>gêné</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m3_v1.mp3',`gêné`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; gêné</button></div>
+          <div class="vcard" id="vfr-2-1" onclick="vmFR(2,1)">Je ne peux pas aller à l'<strong>exposition</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m3_v2.mp3',`exposition`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; exposition</button></div>
+          <div class="vcard" id="vfr-2-2" onclick="vmFR(2,2)">Je ne me <strong>sens pas bien</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m3_v3.mp3',`sens pas bien`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; sens pas bien</button></div>
+          <div class="vcard" id="vfr-2-3" onclick="vmFR(2,3)">J'ai <strong>mal à l'estomac</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m3_v4.mp3',`mal à l'estomac`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; mal à l'estomac</button></div>
+          <div class="vcard" id="vfr-2-4" onclick="vmFR(2,4)">J'ai dû manger des <strong>huîtres</strong> pas fraîches.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m3_v5.mp3',`huîtres`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; huîtres</button></div>
+          <div class="vcard" id="vfr-2-5" onclick="vmFR(2,5)">Je suis <strong>désolé</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m3_v6.mp3',`désolé`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; désolé</button></div>
+        </div>
+        <div class="vcol">
+          <div class="vcol-lbl">&#127468;&#127463; English</div>
+          <div id="ven-col-2"></div>
+        </div>
+      </div>
+      <div class="v-score" id="vscore-2">0 / 6 correct</div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9997;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice B &mdash; Production écrite</div>
+        <div class="sec-label-en">Exercise B — Writing</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_b.mp3',`Exercice B. Production écrite.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écris <strong>trois phrases</strong>, à la suite, en utilisant à chaque fois <strong>au moins 1 mot différent</strong> du vocabulaire ci-dessous.
+          <div class="instr-en">Write <strong>three sentences</strong>, one after another, each using <strong>at least 1 different vocabulary word</strong> from the list below.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/choisis3mots.mp3',`Écris trois phrases en utilisant à chaque fois au moins un mot différent du vocabulaire.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="spell-note">
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_b_spell.mp3',`Vérification orthographique intégrée.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#128269; <strong>Vérification orthographique intégrée :</strong> Clique sur le bouton <strong>Orthographe / Spelling</strong> pour vérifier l&#x2019;orthographe et la grammaire françaises automatiquement (connexion internet requise).<br>
+        / <strong>Built-in spell check:</strong> Click the <strong>Orthographe / Spelling</strong> button to automatically check French spelling and grammar (internet required).<br>
+        <span class="accent-tip"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_ponct.mp3',`Inclus la ponctuation. Inclus les accents.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#9888;&#65039; Inclus la ponctuation, les virgules si nécessaire et un point à la fin de chaque phrase. Inclus aussi les accents : <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — ils font partie de l&#x2019;orthographe correcte.<br>/ Include punctuation, commas when necessary, and a period at the end of each sentence. Also include accents: <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — they are part of correct spelling.</span>
+      </div>
+      <div class="spell-note" style="background:var(--ltGreen);border-color:var(--green);margin-bottom:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_exemple.mp3',`Exemple : Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.`,'fr-FR')" style="margin-right:8px;">&#128266;</button><strong>Exemple / Example :</strong> Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.<br><em style="color:var(--slate);font-size:13px;">↑ virgule après « déçu » · point à la fin / comma after « déçu » · period at the end</em></div>
+      <div class="write-sec-lbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_vocab.mp3',`Vocabulaire de référence. Clique pour insérer dans ta phrase.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>Vocabulaire de référence &mdash; clique pour insérer / Reference vocabulary &mdash; click to insert</div>
+      <div class="vchips"><button class="vchip-ins" onclick="insertVocab(`gêné`,'pta-2');">gêné</button><button class="vchip-ins" onclick="insertVocab(`l'exposition`,'pta-2');">l'exposition</button><button class="vchip-ins" onclick="insertVocab(`ne me sens pas bien`,'pta-2');">ne me sens pas bien</button><button class="vchip-ins" onclick="insertVocab(`mal à l'estomac`,'pta-2');">mal à l'estomac</button><button class="vchip-ins" onclick="insertVocab(`huîtres`,'pta-2');">huîtres</button><button class="vchip-ins" onclick="insertVocab(`désolé`,'pta-2');">désolé</button></div>
+      <textarea class="pta" id="pta-2" spellcheck="true" lang="fr"
+        placeholder="Écris tes trois phrases ici&#8230;"
+        oninput="checkWriting(2)"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <button class="check-btn" onclick="checkWriting(2,true)">&#10003; Vocabulaire / Vocabulary</button>
+        <button class="spell-btn" id="sbtn-2" onclick="checkSpelling(2)">&#128269; Orthographe / Spelling</button>
+      </div>
+      <div class="write-result" id="wres-2"></div>
+      <div class="spell-result-box" id="sres-2"></div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#127925;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice C &mdash; Écoute / Listen</div>
+        <div class="sec-label-en">Exercise C — Listen to the message twice</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ecoute2fois.mp3',`Exercice C. Écoute le message deux fois.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écoute <strong>deux fois</strong>. Première fois : compréhension générale. Deuxième fois : prends des notes pour l&#x2019;exercice D.
+          <div class="instr-en">Listen <strong>twice</strong>. First: general understanding. Second: take notes for Exercise D.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_c_instr.mp3',`Écoute deux fois. Première fois pour comprendre en général. Deuxième fois pour prendre des notes.`,'fr-FR')">&#128266;</button>
+      </div>
+      <button class="listen-btn" id="lbtn-2" data-src="Audio/message 3 Gaston.mp3" data-msgidx="2" onclick="playLesson(2,this)">
+        &#9654; Écouter une première fois / First listen
+      </button>
+      <p class="tr-note">&#128214; Transcriptions disponibles en fin de page / Transcripts available at the end of the page</p>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128203;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice D &mdash; Compréhension</div>
+        <div class="sec-label-en">Exercise D — Comprehension — click the correct answer</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_d.mp3',`Exercice D. Compréhension. Clique sur la bonne réponse.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q1.mp3',`L'invitation : pour faire quoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>1. L&#x2019;invitation : pour faire quoi ? / What was the invitation for?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="2" data-q="what" data-correct="false" onclick="cAnswer(this,2,'what')">Un dîner 🍽️</button>
+          <button class="copt" data-msg="2" data-q="what" data-correct="true" onclick="cAnswer(this,2,'what')">Une exposition 🖼️</button>
+          <button class="copt" data-msg="2" data-q="what" data-correct="false" onclick="cAnswer(this,2,'what')">Un concert 🎵</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q2.mp3',`Quand ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>2. Quand ? / When?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="2" data-q="when" data-correct="false" onclick="cAnswer(this,2,'when')">Ce matin</button>
+          <button class="copt" data-msg="2" data-q="when" data-correct="false" onclick="cAnswer(this,2,'when')">Ce soir</button>
+          <button class="copt" data-msg="2" data-q="when" data-correct="true" onclick="cAnswer(this,2,'when')">Cette après-midi</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q3.mp3',`Invitation acceptée ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>3. Invitation acceptée ? / Accepted?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="2" data-q="acc" data-correct="false" onclick="cAnswer(this,2,'acc')">&#10003; Oui / Yes</button>
+          <button class="copt" data-msg="2" data-q="acc" data-correct="true" onclick="cAnswer(this,2,'acc')">&#10007; Non / No</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q4.mp3',`Si refusée, pourquoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>4. Si refusée, pourquoi ? / If declined, why?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="2" data-q="why" data-correct="false" onclick="cAnswer(this,2,'why')">Il est en voyage.</button>
+          <button class="copt" data-msg="2" data-q="why" data-correct="true" onclick="cAnswer(this,2,'why')">Il a mal à l'estomac.</button>
+          <button class="copt" data-msg="2" data-q="why" data-correct="false" onclick="cAnswer(this,2,'why')">Il a trop de travail.</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_corr.mp3',`Afficher les corrigés.`,'fr-FR')">&#128266;</button><button class="corr-toggle" id="corrBtn-2" style="margin-top:0;flex:1;" onclick="toggleCorr(2)">&#128203; Afficher les corrigés / Show answer keys</button></div>
+      <div class="sum-wrap" id="sum-2">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <div class="sum-title">&#128203; Corrigés / Answer keys</div>
+          <button class="tr-btn" onclick="toggleCorr(2)">Masquer / Hide &#9650;</button>
+        </div>
+        <table class="sum-tbl">
+          <tr><th>Question</th><th>Réponse / Answer</th></tr>
+          <tr>
+            <td><div class="tf">Invitation pour faire quoi ?</div><div class="te">What was the invitation for?</div></td>
+            <td><div class="af">Une exposition</div><div class="ae">An art exhibition</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Quand ?</div><div class="te">When?</div></td>
+            <td><div class="af">Cette après-midi</div><div class="ae">That afternoon</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Acceptée ?</div><div class="te">Accepted?</div></td>
+            <td><div class="af">✗ Non</div><div class="ae">No</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Refusée — Pourquoi ?</div><div class="te">Declined — Why?</div></td>
+            <td><div class="af">Il a mal à l'estomac (huîtres pas fraîches).</div><div class="ae">He has a stomachache from bad oysters.</div></td>
+          </tr>
+        </table>
+        <div style="margin-top:12px;">
+          <button class="spk spk-dark" onclick="playInstr('instr/m3_sum.mp3',`Une exposition. Cette après-midi. Invitation refusée. Il a mal à l'estomac (huîtres pas fraîches).`,'fr-FR')">&#128266; Corrigés audio / Audio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128214;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Transcriptions</div>
+        <div class="sec-label-en">Transcripts</div>
+      </div>
+    </div>
+    <div class="sec-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('trfr-2')">&#128214; Transcription (FR)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m3_tr_fr.mp3',`Bonjour Gaston, je suis un peu gêné mais je ne peux pas aller à l'exposition avec vous cet après-midi. Je ne me sens vraiment pas bien. C'est rien de grave. J'ai mal à l'estomac. J'ai dû manger des huîtres pas fraîches ce midi. Je suis vraiment désolé.`,'fr-FR')">&#128266; Écouter FR</button>
+      </div>
+      <div class="tr-box" id="trfr-2"><div class="tr-lbl">Transcription — Français</div>Bonjour Gaston, je suis un peu gêné mais je ne peux pas aller à l'exposition avec vous cet après-midi. Je ne me sens vraiment pas bien. C'est rien de grave. J'ai mal à l'estomac. J'ai dû manger des huîtres pas fraîches ce midi. Je suis vraiment désolé.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('tren-2')">&#128214; Transcript (EN)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m3_tr_en.mp3',`Good evening Gaston, I'm a little embarrassed but I can't go to the exhibition with you this afternoon. I really don't feel well. It's nothing serious. I have a stomachache. I must have eaten some bad oysters at lunch. I'm sorry.`,'en-US')">&#128266; Listen EN</button>
+      </div>
+      <div class="tr-box" id="tren-2"><div class="tr-lbl">Transcript — English</div>Good evening Gaston, I'm a little embarrassed but I can't go to the exhibition with you this afternoon. I really don't feel well. It's nothing serious. I have a stomachache. I must have eaten some bad oysters at lunch. I'm sorry.</div>
+    </div>
+  </div>
+  <div style="height:32px;"></div>
+</div>
+<div class="msg-panel" id="panel-3">
+  <div class="panel-head">
+    <div class="panel-title">Message 4 &mdash; Carole</div>
+    <div class="panel-sub">Niveau A2 &nbsp;&#183;&nbsp; Exercices A, B, C, D</div>
+  </div>
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128270;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice A &mdash; Vocabulaire / Vocabulary</div>
+        <div class="sec-label-en">Exercise A — Match each French sentence with its English translation</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_a.mp3',`Exercice A. Vocabulaire.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Clique sur une phrase en <strong>français</strong>, puis sur sa traduction en <strong>anglais</strong>.
+          <div class="instr-en">Click a <strong>French</strong> sentence, then its <strong>English</strong> translation.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_a_instr.mp3',`Associe chaque phrase française avec sa traduction anglaise.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="vmatch-grid">
+        <div class="vcol">
+          <div class="vcol-lbl">&#127467;&#127479; Français</div>
+          <div class="vcard" id="vfr-3-0" onclick="vmFR(3,0)">Je suis <strong>déçue</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m4_v1.mp3',`déçue`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; déçue</button></div>
+          <div class="vcard" id="vfr-3-1" onclick="vmFR(3,1)">Je voulais venir à ta <strong>fête</strong> !<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m4_v2.mp3',`fête`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; fête</button></div>
+          <div class="vcard" id="vfr-3-2" onclick="vmFR(3,2)">Ma <strong>colocataire</strong> est seule ce soir.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m4_v3.mp3',`colocataire`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; colocataire</button></div>
+          <div class="vcard" id="vfr-3-3" onclick="vmFR(3,3)">Elle est <strong>en pleurs</strong> sur le sofa.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m4_v4.mp3',`en pleurs`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; en pleurs</button></div>
+          <div class="vcard" id="vfr-3-4" onclick="vmFR(3,4)">Elle a <strong>rompu</strong> avec son petit-ami.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m4_v5.mp3',`rompu`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; rompu</button></div>
+          <div class="vcard" id="vfr-3-5" onclick="vmFR(3,5)">Je suis <strong>désolée</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m4_v6.mp3',`désolée`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; désolée</button></div>
+        </div>
+        <div class="vcol">
+          <div class="vcol-lbl">&#127468;&#127463; English</div>
+          <div id="ven-col-3"></div>
+        </div>
+      </div>
+      <div class="v-score" id="vscore-3">0 / 6 correct</div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9997;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice B &mdash; Production écrite</div>
+        <div class="sec-label-en">Exercise B — Writing</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_b.mp3',`Exercice B. Production écrite.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écris <strong>trois phrases</strong>, à la suite, en utilisant à chaque fois <strong>au moins 1 mot différent</strong> du vocabulaire ci-dessous.
+          <div class="instr-en">Write <strong>three sentences</strong>, one after another, each using <strong>at least 1 different vocabulary word</strong> from the list below.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/choisis3mots.mp3',`Écris trois phrases en utilisant à chaque fois au moins un mot différent du vocabulaire.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="spell-note">
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_b_spell.mp3',`Vérification orthographique intégrée.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#128269; <strong>Vérification orthographique intégrée :</strong> Clique sur le bouton <strong>Orthographe / Spelling</strong> pour vérifier l&#x2019;orthographe et la grammaire françaises automatiquement (connexion internet requise).<br>
+        / <strong>Built-in spell check:</strong> Click the <strong>Orthographe / Spelling</strong> button to automatically check French spelling and grammar (internet required).<br>
+        <span class="accent-tip"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_ponct.mp3',`Inclus la ponctuation. Inclus les accents.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#9888;&#65039; Inclus la ponctuation, les virgules si nécessaire et un point à la fin de chaque phrase. Inclus aussi les accents : <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — ils font partie de l&#x2019;orthographe correcte.<br>/ Include punctuation, commas when necessary, and a period at the end of each sentence. Also include accents: <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — they are part of correct spelling.</span>
+      </div>
+      <div class="spell-note" style="background:var(--ltGreen);border-color:var(--green);margin-bottom:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_exemple.mp3',`Exemple : Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.`,'fr-FR')" style="margin-right:8px;">&#128266;</button><strong>Exemple / Example :</strong> Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.<br><em style="color:var(--slate);font-size:13px;">↑ virgule après « déçu » · point à la fin / comma after « déçu » · period at the end</em></div>
+      <div class="write-sec-lbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_vocab.mp3',`Vocabulaire de référence. Clique pour insérer dans ta phrase.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>Vocabulaire de référence &mdash; clique pour insérer / Reference vocabulary &mdash; click to insert</div>
+      <div class="vchips"><button class="vchip-ins" onclick="insertVocab(`déçue`,'pta-3');">déçue</button><button class="vchip-ins" onclick="insertVocab(`la fête`,'pta-3');">la fête</button><button class="vchip-ins" onclick="insertVocab(`colocataire`,'pta-3');">colocataire</button><button class="vchip-ins" onclick="insertVocab(`en pleurs`,'pta-3');">en pleurs</button><button class="vchip-ins" onclick="insertVocab(`a rompu`,'pta-3');">a rompu</button><button class="vchip-ins" onclick="insertVocab(`désolée`,'pta-3');">désolée</button></div>
+      <textarea class="pta" id="pta-3" spellcheck="true" lang="fr"
+        placeholder="Écris tes trois phrases ici&#8230;"
+        oninput="checkWriting(3)"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <button class="check-btn" onclick="checkWriting(3,true)">&#10003; Vocabulaire / Vocabulary</button>
+        <button class="spell-btn" id="sbtn-3" onclick="checkSpelling(3)">&#128269; Orthographe / Spelling</button>
+      </div>
+      <div class="write-result" id="wres-3"></div>
+      <div class="spell-result-box" id="sres-3"></div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#127925;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice C &mdash; Écoute / Listen</div>
+        <div class="sec-label-en">Exercise C — Listen to the message twice</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ecoute2fois.mp3',`Exercice C. Écoute le message deux fois.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écoute <strong>deux fois</strong>. Première fois : compréhension générale. Deuxième fois : prends des notes pour l&#x2019;exercice D.
+          <div class="instr-en">Listen <strong>twice</strong>. First: general understanding. Second: take notes for Exercise D.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_c_instr.mp3',`Écoute deux fois. Première fois pour comprendre en général. Deuxième fois pour prendre des notes.`,'fr-FR')">&#128266;</button>
+      </div>
+      <button class="listen-btn" id="lbtn-3" data-src="Audio/Message 4 Carole.mp3" data-msgidx="3" onclick="playLesson(3,this)">
+        &#9654; Écouter une première fois / First listen
+      </button>
+      <p class="tr-note">&#128214; Transcriptions disponibles en fin de page / Transcripts available at the end of the page</p>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128203;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice D &mdash; Compréhension</div>
+        <div class="sec-label-en">Exercise D — Comprehension — click the correct answer</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_d.mp3',`Exercice D. Compréhension. Clique sur la bonne réponse.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q1.mp3',`L'invitation : pour faire quoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>1. L&#x2019;invitation : pour faire quoi ? / What was the invitation for?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="3" data-q="what" data-correct="false" onclick="cAnswer(this,3,'what')">Un mariage 💍</button>
+          <button class="copt" data-msg="3" data-q="what" data-correct="true" onclick="cAnswer(this,3,'what')">Une fête 🎉</button>
+          <button class="copt" data-msg="3" data-q="what" data-correct="false" onclick="cAnswer(this,3,'what')">Un dîner 🍽️</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q2.mp3',`Quand ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>2. Quand ? / When?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="3" data-q="when" data-correct="false" onclick="cAnswer(this,3,'when')">Ce week-end</button>
+          <button class="copt" data-msg="3" data-q="when" data-correct="false" onclick="cAnswer(this,3,'when')">Demain soir</button>
+          <button class="copt" data-msg="3" data-q="when" data-correct="true" onclick="cAnswer(this,3,'when')">Ce soir</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q3.mp3',`Invitation acceptée ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>3. Invitation acceptée ? / Accepted?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="3" data-q="acc" data-correct="false" onclick="cAnswer(this,3,'acc')">&#10003; Oui / Yes</button>
+          <button class="copt" data-msg="3" data-q="acc" data-correct="true" onclick="cAnswer(this,3,'acc')">&#10007; Non / No</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q4.mp3',`Si refusée, pourquoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>4. Si refusée, pourquoi ? / If declined, why?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="3" data-q="why" data-correct="true" onclick="cAnswer(this,3,'why')">Sa colocataire a rompu avec son petit-ami.</button>
+          <button class="copt" data-msg="3" data-q="why" data-correct="false" onclick="cAnswer(this,3,'why')">Elle est malade.</button>
+          <button class="copt" data-msg="3" data-q="why" data-correct="false" onclick="cAnswer(this,3,'why')">Elle a trop de travail.</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_corr.mp3',`Afficher les corrigés.`,'fr-FR')">&#128266;</button><button class="corr-toggle" id="corrBtn-3" style="margin-top:0;flex:1;" onclick="toggleCorr(3)">&#128203; Afficher les corrigés / Show answer keys</button></div>
+      <div class="sum-wrap" id="sum-3">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <div class="sum-title">&#128203; Corrigés / Answer keys</div>
+          <button class="tr-btn" onclick="toggleCorr(3)">Masquer / Hide &#9650;</button>
+        </div>
+        <table class="sum-tbl">
+          <tr><th>Question</th><th>Réponse / Answer</th></tr>
+          <tr>
+            <td><div class="tf">Invitation pour faire quoi ?</div><div class="te">What was the invitation for?</div></td>
+            <td><div class="af">Une fête</div><div class="ae">A party</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Quand ?</div><div class="te">When?</div></td>
+            <td><div class="af">Ce soir</div><div class="ae">That evening</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Acceptée ?</div><div class="te">Accepted?</div></td>
+            <td><div class="af">✗ Non</div><div class="ae">No</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Refusée — Pourquoi ?</div><div class="te">Declined — Why?</div></td>
+            <td><div class="af">Sa colocataire est en pleurs — elle a rompu avec son petit-ami.</div><div class="ae">Her roommate is in tears — she broke up with her boyfriend.</div></td>
+          </tr>
+        </table>
+        <div style="margin-top:12px;">
+          <button class="spk spk-dark" onclick="playInstr('instr/m4_sum.mp3',`Une fête. Ce soir. Invitation refusée. Sa colocataire est en pleurs — elle a rompu avec son petit-ami.`,'fr-FR')">&#128266; Corrigés audio / Audio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128214;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Transcriptions</div>
+        <div class="sec-label-en">Transcripts</div>
+      </div>
+    </div>
+    <div class="sec-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('trfr-3')">&#128214; Transcription (FR)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m4_tr_fr.mp3',`Salut, Sarah. C'est Carole. Écoute, je suis déçue, je voulais vraiment venir à ta fête ! Mais je ne peux pas laisser ma colocataire Sarah seule ce soir. Elle est en pleurs sur le sofa, elle a rompu avec son petit-ami. Une fois de plus, je suis désolée.`,'fr-FR')">&#128266; Écouter FR</button>
+      </div>
+      <div class="tr-box" id="trfr-3"><div class="tr-lbl">Transcription — Français</div>Salut, Sarah. C'est Carole. Écoute, je suis déçue, je voulais vraiment venir à ta fête ! Mais je ne peux pas laisser ma colocataire Sarah seule ce soir. Elle est en pleurs sur le sofa, elle a rompu avec son petit-ami. Une fois de plus, je suis désolée.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('tren-3')">&#128214; Transcript (EN)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m4_tr_en.mp3',`Hey Sarah, it's Carole. Listen, I'm so disappointed, I really wanted to come to your party! But I can't leave my roommate alone tonight. She's in tears on the sofa — she broke up with her boyfriend. Once again, I'm so sorry.`,'en-US')">&#128266; Listen EN</button>
+      </div>
+      <div class="tr-box" id="tren-3"><div class="tr-lbl">Transcript — English</div>Hey Sarah, it's Carole. Listen, I'm so disappointed, I really wanted to come to your party! But I can't leave my roommate alone tonight. She's in tears on the sofa — she broke up with her boyfriend. Once again, I'm so sorry.</div>
+    </div>
+  </div>
+  <div style="height:32px;"></div>
+</div>
+<div class="msg-panel" id="panel-4">
+  <div class="panel-head">
+    <div class="panel-title">Message 5 &mdash; Inconnue</div>
+    <div class="panel-sub">Niveau A2 &nbsp;&#183;&nbsp; Exercices A, B, C, D</div>
+  </div>
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128270;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice A &mdash; Vocabulaire / Vocabulary</div>
+        <div class="sec-label-en">Exercise A — Match each French sentence with its English translation</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_a.mp3',`Exercice A. Vocabulaire.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Clique sur une phrase en <strong>français</strong>, puis sur sa traduction en <strong>anglais</strong>.
+          <div class="instr-en">Click a <strong>French</strong> sentence, then its <strong>English</strong> translation.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_a_instr.mp3',`Associe chaque phrase française avec sa traduction anglaise.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="vmatch-grid">
+        <div class="vcol">
+          <div class="vcol-lbl">&#127467;&#127479; Français</div>
+          <div class="vcard" id="vfr-4-0" onclick="vmFR(4,0)">Pour le <strong>dîner</strong> de ce soir...<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m5_v1.mp3',`dîner`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; dîner</button></div>
+          <div class="vcard" id="vfr-4-1" onclick="vmFR(4,1)">Tu as besoin de quelque chose <strong>en particulier</strong> ?<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m5_v2.mp3',`en particulier`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; en particulier</button></div>
+          <div class="vcard" id="vfr-4-2" onclick="vmFR(4,2)">Une <strong>bouteille de vin</strong> ?<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m5_v3.mp3',`bouteille de vin`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; bouteille de vin</button></div>
+          <div class="vcard" id="vfr-4-3" onclick="vmFR(4,3)"><strong>Fais-moi savoir</strong> avant 5h.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m5_v4.mp3',`fais-moi savoir`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; fais-moi savoir</button></div>
+          <div class="vcard" id="vfr-4-4" onclick="vmFR(4,4)">Je <strong>m'arrêterais</strong> à Carrefour.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m5_v5.mp3',`m'arrêterais`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; m'arrêterais</button></div>
+        </div>
+        <div class="vcol">
+          <div class="vcol-lbl">&#127468;&#127463; English</div>
+          <div id="ven-col-4"></div>
+        </div>
+      </div>
+      <div class="v-score" id="vscore-4">0 / 5 correct</div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9997;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice B &mdash; Production écrite</div>
+        <div class="sec-label-en">Exercise B — Writing</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_b.mp3',`Exercice B. Production écrite.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écris <strong>trois phrases</strong>, à la suite, en utilisant à chaque fois <strong>au moins 1 mot différent</strong> du vocabulaire ci-dessous.
+          <div class="instr-en">Write <strong>three sentences</strong>, one after another, each using <strong>at least 1 different vocabulary word</strong> from the list below.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/choisis3mots.mp3',`Écris trois phrases en utilisant à chaque fois au moins un mot différent du vocabulaire.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="spell-note">
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_b_spell.mp3',`Vérification orthographique intégrée.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#128269; <strong>Vérification orthographique intégrée :</strong> Clique sur le bouton <strong>Orthographe / Spelling</strong> pour vérifier l&#x2019;orthographe et la grammaire françaises automatiquement (connexion internet requise).<br>
+        / <strong>Built-in spell check:</strong> Click the <strong>Orthographe / Spelling</strong> button to automatically check French spelling and grammar (internet required).<br>
+        <span class="accent-tip"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_ponct.mp3',`Inclus la ponctuation. Inclus les accents.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#9888;&#65039; Inclus la ponctuation, les virgules si nécessaire et un point à la fin de chaque phrase. Inclus aussi les accents : <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — ils font partie de l&#x2019;orthographe correcte.<br>/ Include punctuation, commas when necessary, and a period at the end of each sentence. Also include accents: <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — they are part of correct spelling.</span>
+      </div>
+      <div class="spell-note" style="background:var(--ltGreen);border-color:var(--green);margin-bottom:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_exemple.mp3',`Exemple : Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.`,'fr-FR')" style="margin-right:8px;">&#128266;</button><strong>Exemple / Example :</strong> Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.<br><em style="color:var(--slate);font-size:13px;">↑ virgule après « déçu » · point à la fin / comma after « déçu » · period at the end</em></div>
+      <div class="write-sec-lbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_vocab.mp3',`Vocabulaire de référence. Clique pour insérer dans ta phrase.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>Vocabulaire de référence &mdash; clique pour insérer / Reference vocabulary &mdash; click to insert</div>
+      <div class="vchips"><button class="vchip-ins" onclick="insertVocab(`le dîner`,'pta-4');">le dîner</button><button class="vchip-ins" onclick="insertVocab(`en particulier`,'pta-4');">en particulier</button><button class="vchip-ins" onclick="insertVocab(`bouteille de vin`,'pta-4');">bouteille de vin</button><button class="vchip-ins" onclick="insertVocab(`fais-moi savoir`,'pta-4');">fais-moi savoir</button><button class="vchip-ins" onclick="insertVocab(`m'arrêterais`,'pta-4');">m'arrêterais</button></div>
+      <textarea class="pta" id="pta-4" spellcheck="true" lang="fr"
+        placeholder="Écris tes trois phrases ici&#8230;"
+        oninput="checkWriting(4)"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <button class="check-btn" onclick="checkWriting(4,true)">&#10003; Vocabulaire / Vocabulary</button>
+        <button class="spell-btn" id="sbtn-4" onclick="checkSpelling(4)">&#128269; Orthographe / Spelling</button>
+      </div>
+      <div class="write-result" id="wres-4"></div>
+      <div class="spell-result-box" id="sres-4"></div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#127925;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice C &mdash; Écoute / Listen</div>
+        <div class="sec-label-en">Exercise C — Listen to the message twice</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ecoute2fois.mp3',`Exercice C. Écoute le message deux fois.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écoute <strong>deux fois</strong>. Première fois : compréhension générale. Deuxième fois : prends des notes pour l&#x2019;exercice D.
+          <div class="instr-en">Listen <strong>twice</strong>. First: general understanding. Second: take notes for Exercise D.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_c_instr.mp3',`Écoute deux fois. Première fois pour comprendre en général. Deuxième fois pour prendre des notes.`,'fr-FR')">&#128266;</button>
+      </div>
+      <button class="listen-btn" id="lbtn-4" data-src="Audio/Message 5 Inconnue.mp3" data-msgidx="4" onclick="playLesson(4,this)">
+        &#9654; Écouter une première fois / First listen
+      </button>
+      <p class="tr-note">&#128214; Transcriptions disponibles en fin de page / Transcripts available at the end of the page</p>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128203;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice D &mdash; Compréhension</div>
+        <div class="sec-label-en">Exercise D — Comprehension — click the correct answer</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_d.mp3',`Exercice D. Compréhension. Clique sur la bonne réponse.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q1.mp3',`L'invitation : pour faire quoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>1. L&#x2019;invitation : pour faire quoi ? / What was the invitation for?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="4" data-q="what" data-correct="false" onclick="cAnswer(this,4,'what')">Une fête 🎉</button>
+          <button class="copt" data-msg="4" data-q="what" data-correct="true" onclick="cAnswer(this,4,'what')">Un dîner 🍽️</button>
+          <button class="copt" data-msg="4" data-q="what" data-correct="false" onclick="cAnswer(this,4,'what')">Un concert 🎵</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q2.mp3',`Quand ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>2. Quand ? / When?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="4" data-q="when" data-correct="false" onclick="cAnswer(this,4,'when')">Ce matin</button>
+          <button class="copt" data-msg="4" data-q="when" data-correct="false" onclick="cAnswer(this,4,'when')">Demain</button>
+          <button class="copt" data-msg="4" data-q="when" data-correct="true" onclick="cAnswer(this,4,'when')">Ce soir</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q3.mp3',`Invitation acceptée ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>3. Invitation acceptée ? / Accepted?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="4" data-q="acc" data-correct="true" onclick="cAnswer(this,4,'acc')">&#10003; Oui / Yes</button>
+          <button class="copt" data-msg="4" data-q="acc" data-correct="false" onclick="cAnswer(this,4,'acc')">&#10007; Non / No</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_corr.mp3',`Afficher les corrigés.`,'fr-FR')">&#128266;</button><button class="corr-toggle" id="corrBtn-4" style="margin-top:0;flex:1;" onclick="toggleCorr(4)">&#128203; Afficher les corrigés / Show answer keys</button></div>
+      <div class="sum-wrap" id="sum-4">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <div class="sum-title">&#128203; Corrigés / Answer keys</div>
+          <button class="tr-btn" onclick="toggleCorr(4)">Masquer / Hide &#9650;</button>
+        </div>
+        <table class="sum-tbl">
+          <tr><th>Question</th><th>Réponse / Answer</th></tr>
+          <tr>
+            <td><div class="tf">Invitation pour faire quoi ?</div><div class="te">What was the invitation for?</div></td>
+            <td><div class="af">Un dîner</div><div class="ae">A dinner</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Quand ?</div><div class="te">When?</div></td>
+            <td><div class="af">Ce soir</div><div class="ae">That evening</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Acceptée ?</div><div class="te">Accepted?</div></td>
+            <td><div class="af">✓ Oui</div><div class="ae">Yes</div></td>
+          </tr>
+          
+        </table>
+        <div style="margin-top:12px;">
+          <button class="spk spk-dark" onclick="playInstr('instr/m5_sum.mp3',`Un dîner. Ce soir. Invitation acceptée.`,'fr-FR')">&#128266; Corrigés audio / Audio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128214;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Transcriptions</div>
+        <div class="sec-label-en">Transcripts</div>
+      </div>
+    </div>
+    <div class="sec-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('trfr-4')">&#128214; Transcription (FR)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m5_tr_fr.mp3',`Allô Alice ? Pour le dîner de ce soir, tu as besoin de quelque chose en particulier ? Des fleurs, un dessert, une bouteille de vin ? Fais-moi savoir avant 5h et je m'arrêterais à Carrefour.`,'fr-FR')">&#128266; Écouter FR</button>
+      </div>
+      <div class="tr-box" id="trfr-4"><div class="tr-lbl">Transcription — Français</div>Allô Alice ? Pour le dîner de ce soir, tu as besoin de quelque chose en particulier ? Des fleurs, un dessert, une bouteille de vin ? Fais-moi savoir avant 5h et je m'arrêterais à Carrefour.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('tren-4')">&#128214; Transcript (EN)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m5_tr_en.mp3',`Hello Alice? For tonight's dinner, do you need anything in particular? Flowers, a dessert, a bottle of wine? Let me know before 5 o'clock and I'll stop by Carrefour.`,'en-US')">&#128266; Listen EN</button>
+      </div>
+      <div class="tr-box" id="tren-4"><div class="tr-lbl">Transcript — English</div>Hello Alice? For tonight's dinner, do you need anything in particular? Flowers, a dessert, a bottle of wine? Let me know before 5 o'clock and I'll stop by Carrefour.</div>
+    </div>
+  </div>
+  <div style="height:32px;"></div>
+</div>
+<div class="msg-panel" id="panel-5">
+  <div class="panel-head">
+    <div class="panel-title">Message 6 &mdash; Stéphane</div>
+    <div class="panel-sub">Niveau A2 &nbsp;&#183;&nbsp; Exercices A, B, C, D</div>
+  </div>
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128270;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice A &mdash; Vocabulaire / Vocabulary</div>
+        <div class="sec-label-en">Exercise A — Match each French sentence with its English translation</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_a.mp3',`Exercice A. Vocabulaire.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Clique sur une phrase en <strong>français</strong>, puis sur sa traduction en <strong>anglais</strong>.
+          <div class="instr-en">Click a <strong>French</strong> sentence, then its <strong>English</strong> translation.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_a_instr.mp3',`Associe chaque phrase française avec sa traduction anglaise.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="vmatch-grid">
+        <div class="vcol">
+          <div class="vcol-lbl">&#127467;&#127479; Français</div>
+          <div class="vcard" id="vfr-5-0" onclick="vmFR(5,0)">Salut les <strong>copains</strong> !<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m6_v1.mp3',`copains`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; copains</button></div>
+          <div class="vcard" id="vfr-5-1" onclick="vmFR(5,1)">Je ne vais pas vous <strong>retrouver</strong> au club.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m6_v2.mp3',`retrouver`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; retrouver</button></div>
+          <div class="vcard" id="vfr-5-2" onclick="vmFR(5,2)">Je n'ai pas <strong>envie de sortir</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m6_v3.mp3',`envie de sortir`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; envie de sortir</button></div>
+          <div class="vcard" id="vfr-5-3" onclick="vmFR(5,3)">Je <strong>projette</strong> une soirée télé.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m6_v4.mp3',`projette`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; projette</button></div>
+          <div class="vcard" id="vfr-5-4" onclick="vmFR(5,4)">Ce n'est que <strong>partie remise</strong>.<br><button class="spk spk-dark" onclick="event.stopPropagation();playInstr('instr/m6_v5.mp3',`partie remise`,'fr-FR')" style="margin-top:6px;font-size:12px;">&#128266; partie remise</button></div>
+        </div>
+        <div class="vcol">
+          <div class="vcol-lbl">&#127468;&#127463; English</div>
+          <div id="ven-col-5"></div>
+        </div>
+      </div>
+      <div class="v-score" id="vscore-5">0 / 5 correct</div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9997;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice B &mdash; Production écrite</div>
+        <div class="sec-label-en">Exercise B — Writing</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_b.mp3',`Exercice B. Production écrite.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écris <strong>trois phrases</strong>, à la suite, en utilisant à chaque fois <strong>au moins 1 mot différent</strong> du vocabulaire ci-dessous.
+          <div class="instr-en">Write <strong>three sentences</strong>, one after another, each using <strong>at least 1 different vocabulary word</strong> from the list below.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/choisis3mots.mp3',`Écris trois phrases en utilisant à chaque fois au moins un mot différent du vocabulaire.`,'fr-FR')">&#128266;</button>
+      </div>
+      <div class="spell-note">
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_b_spell.mp3',`Vérification orthographique intégrée.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#128269; <strong>Vérification orthographique intégrée :</strong> Clique sur le bouton <strong>Orthographe / Spelling</strong> pour vérifier l&#x2019;orthographe et la grammaire françaises automatiquement (connexion internet requise).<br>
+        / <strong>Built-in spell check:</strong> Click the <strong>Orthographe / Spelling</strong> button to automatically check French spelling and grammar (internet required).<br>
+        <span class="accent-tip"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_ponct.mp3',`Inclus la ponctuation. Inclus les accents.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>&#9888;&#65039; Inclus la ponctuation, les virgules si nécessaire et un point à la fin de chaque phrase. Inclus aussi les accents : <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — ils font partie de l&#x2019;orthographe correcte.<br>/ Include punctuation, commas when necessary, and a period at the end of each sentence. Also include accents: <strong>é, è, ê, ë &middot; à, â &middot; î, ï &middot; ô &middot; ù, û, ü &middot; ç &middot; œ</strong> — they are part of correct spelling.</span>
+      </div>
+      <div class="spell-note" style="background:var(--ltGreen);border-color:var(--green);margin-bottom:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_exemple.mp3',`Exemple : Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.`,'fr-FR')" style="margin-right:8px;">&#128266;</button><strong>Exemple / Example :</strong> Je suis vraiment déçu, mais je ne pourrai pas venir à ta fête.<br><em style="color:var(--slate);font-size:13px;">↑ virgule après « déçu » · point à la fin / comma after « déçu » · period at the end</em></div>
+      <div class="write-sec-lbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_b_vocab.mp3',`Vocabulaire de référence. Clique pour insérer dans ta phrase.`,'fr-FR')" style="margin-right:8px;">&#128266;</button>Vocabulaire de référence &mdash; clique pour insérer / Reference vocabulary &mdash; click to insert</div>
+      <div class="vchips"><button class="vchip-ins" onclick="insertVocab(`les copains`,'pta-5');">les copains</button><button class="vchip-ins" onclick="insertVocab(`retrouver`,'pta-5');">retrouver</button><button class="vchip-ins" onclick="insertVocab(`pas envie de sortir`,'pta-5');">pas envie de sortir</button><button class="vchip-ins" onclick="insertVocab(`projette`,'pta-5');">projette</button><button class="vchip-ins" onclick="insertVocab(`soirée télé`,'pta-5');">soirée télé</button><button class="vchip-ins" onclick="insertVocab(`partie remise`,'pta-5');">partie remise</button></div>
+      <textarea class="pta" id="pta-5" spellcheck="true" lang="fr"
+        placeholder="Écris tes trois phrases ici&#8230;"
+        oninput="checkWriting(5)"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <button class="check-btn" onclick="checkWriting(5,true)">&#10003; Vocabulaire / Vocabulary</button>
+        <button class="spell-btn" id="sbtn-5" onclick="checkSpelling(5)">&#128269; Orthographe / Spelling</button>
+      </div>
+      <div class="write-result" id="wres-5"></div>
+      <div class="spell-result-box" id="sres-5"></div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#127925;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice C &mdash; Écoute / Listen</div>
+        <div class="sec-label-en">Exercise C — Listen to the message twice</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ecoute2fois.mp3',`Exercice C. Écoute le message deux fois.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-text">
+          Écoute <strong>deux fois</strong>. Première fois : compréhension générale. Deuxième fois : prends des notes pour l&#x2019;exercice D.
+          <div class="instr-en">Listen <strong>twice</strong>. First: general understanding. Second: take notes for Exercise D.</div>
+        </div>
+        <button class="spk spk-dark" onclick="playInstr('instr/ex_c_instr.mp3',`Écoute deux fois. Première fois pour comprendre en général. Deuxième fois pour prendre des notes.`,'fr-FR')">&#128266;</button>
+      </div>
+      <button class="listen-btn" id="lbtn-5" data-src="Audio/Message 6 Stephane.mp3" data-msgidx="5" onclick="playLesson(5,this)">
+        &#9654; Écouter une première fois / First listen
+      </button>
+      <p class="tr-note">&#128214; Transcriptions disponibles en fin de page / Transcripts available at the end of the page</p>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128203;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice D &mdash; Compréhension</div>
+        <div class="sec-label-en">Exercise D — Comprehension — click the correct answer</div>
+      </div>
+      <button class="spk" onclick="playInstr('instr/ex_d.mp3',`Exercice D. Compréhension. Clique sur la bonne réponse.`,'fr-FR')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q1.mp3',`L'invitation : pour faire quoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>1. L&#x2019;invitation : pour faire quoi ? / What was the invitation for?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="5" data-q="what" data-correct="false" onclick="cAnswer(this,5,'what')">Un dîner 🍽️</button>
+          <button class="copt" data-msg="5" data-q="what" data-correct="false" onclick="cAnswer(this,5,'what')">Une exposition 🖼️</button>
+          <button class="copt" data-msg="5" data-q="what" data-correct="true" onclick="cAnswer(this,5,'what')">Le club 🕺</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q2.mp3',`Quand ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>2. Quand ? / When?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="5" data-q="when" data-correct="false" onclick="cAnswer(this,5,'when')">Ce soir</button>
+          <button class="copt" data-msg="5" data-q="when" data-correct="false" onclick="cAnswer(this,5,'when')">Ce week-end</button>
+          <button class="copt" data-msg="5" data-q="when" data-correct="true" onclick="cAnswer(this,5,'when')">Demain soir</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q3.mp3',`Invitation acceptée ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>3. Invitation acceptée ? / Accepted?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="5" data-q="acc" data-correct="false" onclick="cAnswer(this,5,'acc')">&#10003; Oui / Yes</button>
+          <button class="copt" data-msg="5" data-q="acc" data-correct="true" onclick="cAnswer(this,5,'acc')">&#10007; Non / No</button>
+        </div>
+      </div>
+      <div class="comp-q">
+        <div class="comp-qlbl"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_q4.mp3',`Si refusée, pourquoi ?`,'fr-FR')" style="margin-right:8px;">&#128266;</button>4. Si refusée, pourquoi ? / If declined, why?</div>
+        <div class="comp-opts">
+          <button class="copt" data-msg="5" data-q="why" data-correct="false" onclick="cAnswer(this,5,'why')">Il est malade.</button>
+          <button class="copt" data-msg="5" data-q="why" data-correct="false" onclick="cAnswer(this,5,'why')">Il a trop de travail.</button>
+          <button class="copt" data-msg="5" data-q="why" data-correct="true" onclick="cAnswer(this,5,'why')">Il n'a pas envie de sortir.</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:14px;"><button class="spk spk-dark" onclick="playInstr('instr/ex_d_corr.mp3',`Afficher les corrigés.`,'fr-FR')">&#128266;</button><button class="corr-toggle" id="corrBtn-5" style="margin-top:0;flex:1;" onclick="toggleCorr(5)">&#128203; Afficher les corrigés / Show answer keys</button></div>
+      <div class="sum-wrap" id="sum-5">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+          <div class="sum-title">&#128203; Corrigés / Answer keys</div>
+          <button class="tr-btn" onclick="toggleCorr(5)">Masquer / Hide &#9650;</button>
+        </div>
+        <table class="sum-tbl">
+          <tr><th>Question</th><th>Réponse / Answer</th></tr>
+          <tr>
+            <td><div class="tf">Invitation pour faire quoi ?</div><div class="te">What was the invitation for?</div></td>
+            <td><div class="af">Sortir au club</div><div class="ae">Going out to the club</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Quand ?</div><div class="te">When?</div></td>
+            <td><div class="af">Demain soir</div><div class="ae">The next evening</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Acceptée ?</div><div class="te">Accepted?</div></td>
+            <td><div class="af">✗ Non</div><div class="ae">No</div></td>
+          </tr>
+          <tr>
+            <td><div class="tf">Refusée — Pourquoi ?</div><div class="te">Declined — Why?</div></td>
+            <td><div class="af">Il n'a pas envie de sortir — il projette une soirée télé.</div><div class="ae">He doesn't feel like going out — he's planning a TV night.</div></td>
+          </tr>
+        </table>
+        <div style="margin-top:12px;">
+          <button class="spk spk-dark" onclick="playInstr('instr/m6_sum.mp3',`Sortir au club. Demain soir. Invitation refusée. Il n'a pas envie de sortir — il projette une soirée télé.`,'fr-FR')">&#128266; Corrigés audio / Audio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec" style="margin-top:24px;">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128214;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Transcriptions</div>
+        <div class="sec-label-en">Transcripts</div>
+      </div>
+    </div>
+    <div class="sec-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('trfr-5')">&#128214; Transcription (FR)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m6_tr_fr.mp3',`Salut les copains, c'est Stéphane. Je ne vais pas vous retrouver au club demain soir, j'ai pas envie de sortir. Je projette une soirée télé. Bien sûr, ce n'est que partie remise.`,'fr-FR')">&#128266; Écouter FR</button>
+      </div>
+      <div class="tr-box" id="trfr-5"><div class="tr-lbl">Transcription — Français</div>Salut les copains, c'est Stéphane. Je ne vais pas vous retrouver au club demain soir, j'ai pas envie de sortir. Je projette une soirée télé. Bien sûr, ce n'est que partie remise.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;margin-bottom:8px;">
+        <button class="tr-btn" onclick="toggleTr('tren-5')">&#128214; Transcript (EN)</button>
+        <button class="spk spk-dark" onclick="playInstr('instr/m6_tr_en.mp3',`Hey guys, it's Stephane. I'm not going to meet you at the club tomorrow night — I don't feel like going out. I'm planning to take the night to watch TV. Of course, we'll do it another time.`,'en-US')">&#128266; Listen EN</button>
+      </div>
+      <div class="tr-box" id="tren-5"><div class="tr-lbl">Transcript — English</div>Hey guys, it's Stephane. I'm not going to meet you at the club tomorrow night — I don't feel like going out. I'm planning to take the night to watch TV. Of course, we'll do it another time.</div>
+    </div>
+  </div>
+  <div style="height:32px;"></div>
+</div>
+</main>
+<script>
+function speak(text,lang){
+  lang=lang||'fr-FR';
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang=lang;u.rate=0.88;
+  /* audio synthétique désactivé — règle MP3 uniquement */
+}
+let _ia=null,_iaSrc=null;
+function playInstr(src,fallback,lang){
+  lang=lang||'fr-FR';
+  if(window.speechSynthesis)window.speechSynthesis.cancel();
+  // Same file already playing → pause (toggle off)
+  if(_ia&&_iaSrc===src&&!_ia.paused){_ia.pause();return;}
+  // Same file was paused → resume
+  if(_ia&&_iaSrc===src&&_ia.paused&&_ia.currentTime>0){_ia.play().catch(()=>{});return;}
+  // Different file → stop previous and start new
+  if(_ia){_ia.pause();_ia.currentTime=0;}
+  const a=new Audio(src);
+  _ia=a;_iaSrc=src;
+  const fb=()=>speak(fallback,lang);
+  a.onerror=fb;
+  a.onended=()=>{_ia=null;_iaSrc=null;};
+  a.play().catch(fb);
+}
+
+function switchTab(i){
+  document.querySelectorAll('.msg-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+  document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  if(_la){_la.pause();_la.currentTime=0;_la=null;_lb=null;}
+  setTimeout(()=>initVM(i),50);
+}
+
+let _la=null,_lb=null;
+const lcount={};
+function setBtnText(btn,count,state){
+  if(state==='playing'){
+    btn.innerHTML=(count<1?'&#9646;&#9646; Première écoute... / Pause':'&#9646;&#9646; Deuxième écoute... / Pause');
+    btn.className='listen-btn'+(count>=1?' phase2':'');
+  }else{
+    if(count===0){btn.innerHTML='&#9654; Écouter une première fois / First listen';btn.className='listen-btn';}
+    else if(count===1){btn.innerHTML='&#9654; Écouter une deuxième fois / Second listen';btn.className='listen-btn phase2';}
+    else{btn.innerHTML='&#8635; Réécouter / Listen again';btn.className='listen-btn done';}
+  }
+}
+function playLesson(i,btn){
+  if(!lcount[i])lcount[i]=0;
+  const src=btn.dataset.src;
+  if(_lb===btn&&_la&&!_la.paused){_la.pause();setBtnText(btn,lcount[i],'idle');return;}
+  if(_lb===btn&&_la&&_la.paused&&_la.currentTime>0){_la.play().catch(()=>{});setBtnText(btn,lcount[i],'playing');return;}
+  if(_la){_la.pause();_la.currentTime=0;}
+  if(_lb&&_lb!==btn){const pi2=parseInt(_lb.dataset.msgidx);setBtnText(_lb,lcount[pi2]||0,'idle');}
+  const a=new Audio(src);_la=a;_lb=btn;
+  setBtnText(btn,lcount[i],'playing');
+  a.onended=()=>{lcount[i]=Math.min((lcount[i]||0)+1,2);setBtnText(btn,lcount[i],'idle');if(_lb===btn){_la=null;_lb=null;}};
+  a.onerror=()=>{btn.innerHTML='&#10060; Fichier non trouvé / File not found';btn.disabled=true;};
+  a.play().catch(()=>{});
+}
+
+function toggleTr(id){document.getElementById(id)?.classList.toggle('open');}
+
+const VOCAB_LEN=[6, 4, 6, 6, 5, 5];
+const VOCAB_EN=[
+  ["Thank you for your <strong>invitation</strong> to your wedding.", "<strong>Congratulations</strong> to you both!", "<strong>Unfortunately</strong>, I won't be able to be there.", "I'm on a <strong>language internship</strong> in London.", "I truly <strong>regret</strong> it.", "All my <strong>wishes for happiness</strong>!"],
+  ["I'm going to <strong>attend</strong> this happy occasion.", "This <strong>happy occasion</strong>.", "I'm <strong>setting aside</strong> the whole day of July 26th.", "<strong>Kisses</strong> to you both."],
+  ["I'm a little <strong>embarrassed</strong>.", "I can't go to the <strong>exhibition</strong>.", "I don't <strong>feel well</strong>.", "I have a <strong>stomachache</strong>.", "I must have eaten bad <strong>oysters</strong>.", "I'm <strong>sorry</strong>."],
+  ["I'm so <strong>disappointed</strong>.", "I wanted to come to your <strong>party</strong>!", "I can't leave my <strong>roommate</strong> alone tonight.", "She's <strong>in tears</strong> on the sofa.", "She <strong>broke up</strong> with her boyfriend.", "I'm so <strong>sorry</strong>."],
+  ["For tonight's <strong>dinner</strong>...", "Do you want anything <strong>in particular</strong>?", "A <strong>bottle of wine</strong>?", "<strong>Let me know</strong> before 5 o'clock.", "I'll <strong>stop by</strong> Carrefour."],
+  ["Hey <strong>guys</strong>!", "I'm not going to <strong>meet</strong> you at the club.", "I don't <strong>feel like going out</strong>.", "I'm <strong>planning</strong> to take the night to watch TV.", "<strong>We'll do it another time</strong>."],
+];
+const VOCAB_EN_PLAIN=[
+  ["Thank you for your invitation to your wedding.", "Congratulations to you both!", "Unfortunately, I won't be able to be there.", "I'm on a language internship in London.", "I truly regret it.", "All my wishes for happiness!"],
+  ["I'm going to attend this happy occasion.", "This happy occasion.", "I'm setting aside the whole day of July 26th.", "Kisses to you both."],
+  ["I'm a little embarrassed.", "I can't go to the exhibition.", "I don't feel well.", "I have a stomachache.", "I must have eaten bad oysters.", "I'm sorry."],
+  ["I'm so disappointed.", "I wanted to come to your party!", "I can't leave my roommate alone tonight.", "She's in tears on the sofa.", "She broke up with her boyfriend.", "I'm so sorry."],
+  ["For tonight's dinner...", "Do you want anything in particular?", "A bottle of wine?", "Let me know before 5 o'clock.", "I'll stop by Carrefour."],
+  ["Hey guys!", "I'm not going to meet you at the club.", "I don't feel like going out.", "I'm planning to take the night to watch TV.", "We'll do it another time."],
+];
+function playVocabEN(i,orig){
+  playInstr('instr/m'+(i+1)+'_v'+(orig+1)+'_en.mp3',VOCAB_EN_PLAIN[i][orig],'en-US');
+}
+const vmState={};
+function initVM(i){
+  if(vmState[i])return;
+  const n=VOCAB_LEN[i];
+  const o=[...Array(n).keys()];
+  for(let k=o.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[o[k],o[j]]=[o[j],o[k]];}
+  vmState[i]={selFR:null,matched:new Set(),enOrder:o};
+  const col=document.getElementById('ven-col-'+i);
+  if(!col)return;
+  col.innerHTML=o.map((orig,disp)=>{
+    const spkBtn='<br><button class="spk spk-dark" onclick="event.stopPropagation();playVocabEN('+i+','+orig+')" style="margin-top:6px;font-size:12px;">&#128266;</button>';
+    return '<div class="vcard" id="ven-'+i+'-'+disp+'" onclick="vmEN('+i+','+disp+')">'+VOCAB_EN[i][orig]+spkBtn+'</div>';
+  }).join('');
+}
+function vmFR(i,j){
+  initVM(i);const st=vmState[i];
+  if(st.matched.has(j))return;
+  const p=st.selFR;
+  document.querySelectorAll('#panel-'+i+' .vcard').forEach(c=>c.classList.remove('sel'));
+  if(p===j){st.selFR=null;return;}
+  st.selFR=j;document.getElementById('vfr-'+i+'-'+j)?.classList.add('sel');
+}
+function vmEN(i,disp){
+  initVM(i);const st=vmState[i];
+  const orig=st.enOrder[disp];
+  if(st.matched.has(orig)||st.selFR===null)return;
+  const sf=st.selFR;
+  const fr=document.getElementById('vfr-'+i+'-'+sf);
+  const en=document.getElementById('ven-'+i+'-'+disp);
+  st.selFR=null;
+  if(sf===orig){
+    fr?.classList.remove('sel');fr?.classList.add('matched','disabled');
+    en?.classList.add('matched','disabled');
+    st.matched.add(sf);
+    const sc=document.getElementById('vscore-'+i);
+    if(sc)sc.textContent=st.matched.size+' / '+VOCAB_LEN[i]+' correct';
+    if(st.matched.size===VOCAB_LEN[i]&&sc)sc.innerHTML='&#127881; Parfait ! / All matched!';
+  }else{
+    fr?.classList.add('err');en?.classList.add('err');
+    setTimeout(()=>{fr?.classList.remove('err');en?.classList.remove('err');},900);
+  }
+}
+
+function insertVocab(word,taId){
+  const ta=document.getElementById(taId);
+  if(!ta)return;
+  ta.focus();
+  const s=ta.selectionStart,e=ta.selectionEnd;
+  const before=ta.value.substring(0,s);
+  const after=ta.value.substring(e);
+  const space=(before.length>0&&!/\s$/.test(before))?' ':'';
+  const ins=space+word;
+  ta.value=before+ins+after;
+  const pos=s+ins.length;
+  ta.selectionStart=pos;ta.selectionEnd=pos;
+  ta.dispatchEvent(new Event('input'));
+  const idx=parseInt(taId.replace('pta-',''));
+  checkWriting(idx);
+}
+
+const BANKS=[["invitation", "f\u00e9licitations", "malheureusement", "stage linguistique", "je regrette", "v\u0153ux de bonheur"],["assister \u00e0", "heureux \u00e9v\u00e8nement", "r\u00e9server ma journ\u00e9e", "bisous"],["g\u00ean\u00e9", "l'exposition", "ne me sens pas bien", "mal \u00e0 l'estomac", "hu\u00eetres", "d\u00e9sol\u00e9"],["d\u00e9\u00e7ue", "la f\u00eate", "colocataire", "en pleurs", "a rompu", "d\u00e9sol\u00e9e"],["le d\u00eener", "en particulier", "bouteille de vin", "fais-moi savoir", "m'arr\u00eaterais"],["les copains", "retrouver", "pas envie de sortir", "projette", "soir\u00e9e t\u00e9l\u00e9", "partie remise"]];
+function checkWriting(i,force){
+  const ta=document.getElementById('pta-'+i);
+  const res=document.getElementById('wres-'+i);
+  if(!ta||!res)return;
+  const txt=ta.value;
+  if(!force&&txt.length<5){res.classList.remove('show');return;}
+  const words=BANKS[i];
+  const found=words.filter(w=>txt.toLowerCase().includes(w.toLowerCase()));
+  const n=found.length;
+  let cls,icon,msg;
+  if(n>=3){cls='wr-ok';icon='&#10003; Bravo !';msg='';}
+  else if(n===2){cls='wr-part';icon='&#128515; Presque !';msg=' &mdash; Encore 1 mot différent. / One more different word.';}
+  else if(n===1){cls='wr-part';icon='&#128578; Bonne progression !';msg=' &mdash; Encore 2 mots différents. / Two more different words.';}
+  else{cls='wr-warn';icon='&#9888;&#65039; Pas encore.';msg=' &mdash; Utilise au moins 3 mots différents. / Use at least 3 different words.';}
+  res.className='write-result show '+cls;
+  let html='<strong>'+icon+'</strong>'+msg+'<br>';
+  html+='Mots trouvés / Words found: ';
+  html+=words.map(w=>'<span class="'+(found.includes(w)?'w-hit':'w-miss')+'">'+w+'</span>').join(', ');
+  res.innerHTML=html;
+}
+
+const NEEDED=[["what", "when", "acc", "why"],["what", "when", "acc"],["what", "when", "acc", "why"],["what", "when", "acc", "why"],["what", "when", "acc"],["what", "when", "acc", "why"]];
+const cAnswers={};
+function cAnswer(btn,i,q){
+  const correct=btn.dataset.correct==='true';
+  const siblings=document.querySelectorAll('.copt[data-msg="'+i+'"][data-q="'+q+'"]');
+  siblings.forEach(b=>b.disabled=true);
+  btn.classList.add(correct?'correct':'wrong');
+  if(!correct)siblings.forEach(b=>{if(b.dataset.correct==='true')b.classList.add('reveal-correct');});
+  if(!cAnswers[i])cAnswers[i]={};cAnswers[i][q]=correct;
+  if(NEEDED[i].every(k=>cAnswers[i][k]!==undefined)){
+    
+  }
+}
+
+document.querySelectorAll('.msg-panel').forEach((p,i)=>{
+  if(p.classList.contains('active'))initVM(i);
+});
+
+function escHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+async function checkSpelling(i){
+  const ta=document.getElementById('pta-'+i);
+  const box=document.getElementById('sres-'+i);
+  const btn=document.getElementById('sbtn-'+i);
+  if(!ta||!box)return;
+  const txt=ta.value.trim();
+  if(!txt){box.innerHTML='';box.classList.remove('show');return;}
+  box.classList.add('show');
+  box.innerHTML='<div class="sr-text" style="color:var(--slate)">&#9203; Vérification en cours&#8230; / Checking&#8230;</div>';
+  if(btn){btn.disabled=true;}
+  try{
+    const resp=await fetch('https://api.languagetool.org/v2/check',{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:'text='+encodeURIComponent(txt)+'&language=fr'
+    });
+    const data=await resp.json();
+    const matches=(data.matches||[]).sort((a,b)=>a.offset-b.offset);
+    if(matches.length===0){
+      box.innerHTML='<div class="sr-text"><strong style="color:var(--green)">&#10003; Aucune erreur ! / No errors found!</strong></div>';
+    }else{
+      let th='<div class="sr-text">';
+      let last=0;
+      for(const m of matches){
+        th+=escHtml(txt.slice(last,m.offset));
+        const w=txt.slice(m.offset,m.offset+m.length);
+        const sug=m.replacements.slice(0,3).map(r=>r.value).join(', ');
+        th+='<span class="spell-err" title="'+(sug?'&#8594; '+escHtml(sug):escHtml(m.message))+'">'+escHtml(w)+'</span>';
+        last=m.offset+m.length;
+      }
+      th+=escHtml(txt.slice(last))+'</div>';
+      let tl='<div class="sr-list"><strong>'+matches.length+' correction(s) :</strong><br>';
+      for(const m of matches){
+        const w=escHtml(txt.slice(m.offset,m.offset+m.length));
+        const sug=m.replacements.slice(0,3).map(r=>escHtml(r.value)).join(' / ');
+        tl+='<span class="sr-item">&#10060; <em>'+w+'</em>'+(sug?' &#8594; <strong>'+sug+'</strong>':'')+'</span>';
+      }
+      tl+='</div>';
+      box.innerHTML=th+tl;
+    }
+  }catch(e){
+    box.innerHTML='<div class="sr-text" style="color:var(--slate)">&#9888;&#65039; Vérification non disponible — connexion internet requise. / Spell check not available — internet required.</div>';
+  }finally{
+    if(btn){btn.disabled=false;}
+  }
+}
+
+function toggleCorr(i){
+  const wrap=document.getElementById('sum-'+i);
+  const btn=document.getElementById('corrBtn-'+i);
+  if(!wrap)return;
+  const showing=wrap.classList.contains('open');
+  wrap.classList.toggle('open',!showing);
+  if(btn)btn.innerHTML=showing
+    ?'&#128203; Afficher les corrig&#233;s / Show answer keys'
+    :'&#128203; Masquer les corrig&#233;s / Hide answer keys';
+}
+</script><style>
+body{padding-bottom:calc(64px + 20px);}
+.lem-finish-wrap{max-width:740px;margin:0 auto;padding:0 14px 22px;}
+.lem-finish{width:100%;background:var(--coral);color:#fff;border:none;border-radius:12px;padding:15px;font-size:17px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:52px;}
+.lem-done{display:none;background:var(--ltGreen);border-radius:12px;padding:16px;text-align:center;color:var(--green);font-weight:bold;margin-top:12px;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:var(--dark);border-top:3px solid var(--coral);display:flex;align-items:center;z-index:100;}
+.bottom-nav .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:64px;}
+.bottom-nav .nav-icon{font-size:22px;line-height:1;}.bottom-nav .nav-label{font-size:11px;font-weight:bold;}
+</style>
+<div class="lem-finish-wrap">
+  <button class="lem-finish" id="lemFinish">&#9989; Terminer et enregistrer mon score</button>
+  <div class="lem-done" id="lemDone"></div>
+</div>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item" href="../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+(function(){
+  var TOTAL=54;
+  function computeScore(){
+    var pairs=Math.round(document.querySelectorAll('.vcard.matched').length/2);
+    var comp=document.querySelectorAll('.copt.correct').length;
+    return pairs+comp;
+  }
+  var btn=document.getElementById('lemFinish'), done=document.getElementById('lemDone');
+  btn.addEventListener('click',function(){
+    var sc=computeScore();
+    done.style.display='block';
+    done.innerHTML='&#127881; Score enregistr\u00e9 : '+sc+' / '+TOTAL+'<br><span style="font-weight:normal;font-size:14px;">Vocabulaire + compr\u00e9hension. Tu peux continuer ou revenir plus tard.</span>';
+    try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson('a2_ecoute_invitations',{score:sc,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
+    done.scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body></html>
