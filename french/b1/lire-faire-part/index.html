@@ -70,6 +70,12 @@ textarea.pta:focus{border-color:var(--b1);outline:none;}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
 .nav-item.active{color:var(--coral);}
 .nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+.card--mariage,.card--pacs{background:var(--cream);border-left:none;}
+.card--mariage{box-shadow:0 0 0 4px var(--cream),0 0 0 5px #E7C77A,0 3px 12px rgba(0,0,0,.08);}
+.card--pacs{box-shadow:0 0 0 4px var(--cream),0 0 0 5px #B9C4D6,0 3px 12px rgba(0,0,0,.08);}
+.card--mariage .motif,.card--pacs .motif{text-align:center;font-size:26px;margin:0 0 4px;}
+.card--naissance{border-left:none;overflow:hidden;}
+.card--naissance .band{background:#F7D9E0;text-align:center;font-size:28px;padding:12px 0 8px;margin:-16px -18px 12px;}
 </style>
 </head>
 <body>
@@ -91,9 +97,9 @@ textarea.pta:focus{border-color:var(--b1);outline:none;}
   <div id="vocab"></div>
 
   <div class="sec-label">&#128233; Les faire-part</div>
-  <div class="card-fp"><div class="who">Mariage</div><p><b>Guillaume</b> a le plaisir de vous faire part du mariage de ses parents, <b>Nathalie et Bernard</b>. La c&eacute;r&eacute;monie se d&eacute;roulera le <b>samedi 23 mai 2013 &agrave; 16h30 &agrave; la Mairie d&rsquo;Albi</b>. Un vin d&rsquo;honneur sera servi &agrave; 17h30, &agrave; la salle des f&ecirc;tes de Poulan-Pouzols.</p><button class="readbtn" onclick="playClip('b1_fp_card_mariage.mp3',this)">&#128266; &Eacute;couter</button></div>
-  <div class="card-fp"><div class="who">Naissance</div><p>Le grand fr&egrave;re <b>Nicolas</b> est heureux de vous annoncer l&rsquo;arriv&eacute;e de son petit fr&egrave;re <b>Jean-Fran&ccedil;ois</b>, n&eacute; le <b>10 f&eacute;vrier 2013 &agrave; 20h15</b>. Il fait <b>3,5 kg pour 50 cm</b>. Les parents sont Robert et Annie Dupuis.</p><button class="readbtn" onclick="playClip('b1_fp_card_naissance.mp3',this)">&#128266; &Eacute;couter</button></div>
-  <div class="card-fp"><div class="who">PACS</div><p><b>Christian et Beno&icirc;t</b> sont heureux de vous annoncer qu&rsquo;ils se sont <b>pacs&eacute;s</b> le 12 juin 2013. Un vin d&rsquo;honneur suivi d&rsquo;un buffet froid sera offert le <b>samedi 25 juillet &agrave; 17h30, au restaurant les Pyr&eacute;n&eacute;es</b>.</p><button class="readbtn" onclick="playClip('b1_fp_card_pacs.mp3',this)">&#128266; &Eacute;couter</button></div>
+  <div class="card-fp card--mariage"><div class="motif">&#128141;</div><div class="who">Mariage</div><p><b>Guillaume</b> a le plaisir de vous faire part du mariage de ses parents, <b>Nathalie et Bernard</b>. La c&eacute;r&eacute;monie se d&eacute;roulera le <b>samedi 23 mai 2013 &agrave; 16h30 &agrave; la Mairie d&rsquo;Albi</b>. Un vin d&rsquo;honneur sera servi &agrave; 17h30, &agrave; la salle des f&ecirc;tes de Poulan-Pouzols.</p><button class="readbtn" onclick="playClip('b1_fp_card_mariage.mp3',this)">&#128266; &Eacute;couter</button></div>
+  <div class="card-fp card--naissance"><div class="band">&#128118;</div><div class="who">Naissance</div><p>Le grand fr&egrave;re <b>Nicolas</b> est heureux de vous annoncer l&rsquo;arriv&eacute;e de son petit fr&egrave;re <b>Jean-Fran&ccedil;ois</b>, n&eacute; le <b>10 f&eacute;vrier 2013 &agrave; 20h15</b>. Il fait <b>3,5 kg pour 50 cm</b>. Les parents sont Robert et Annie Dupuis.</p><button class="readbtn" onclick="playClip('b1_fp_card_naissance.mp3',this)">&#128266; &Eacute;couter</button></div>
+  <div class="card-fp card--pacs"><div class="motif">&#129346;</div><div class="who">PACS</div><p><b>Christian et Beno&icirc;t</b> sont heureux de vous annoncer qu&rsquo;ils se sont <b>pacs&eacute;s</b> le 12 juin 2013. Un vin d&rsquo;honneur suivi d&rsquo;un buffet froid sera offert le <b>samedi 25 juillet &agrave; 17h30, au restaurant les Pyr&eacute;n&eacute;es</b>.</p><button class="readbtn" onclick="playClip('b1_fp_card_pacs.mp3',this)">&#128266; &Eacute;couter</button></div>
 
   <div class="sec-label">&#127991;&#65039; Quel type de faire-part&nbsp;?</div>
   <div id="secClassify"></div>
