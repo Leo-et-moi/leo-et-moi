@@ -143,11 +143,15 @@ textarea.pta:focus{border-color:var(--b1);outline:none;}
 </nav>
 <script>
 var LESSON='b1_lire_faire_part';
-var _clip=null,_cb=null;
+var _clip=null,_cb=null,_src=null;
 function playClip(file,btn){
+  if(_cb===btn && _clip && _src===file){
+    if(!_clip.paused){ _clip.pause(); if(_cb) _cb.classList.remove('speaking'); return; }
+    _clip.play().catch(function(){}); if(_cb) _cb.classList.add('speaking'); return;
+  }
   try{ if(_clip) _clip.pause(); }catch(e){}
   if(_cb) _cb.classList.remove('speaking');
-  _clip=new Audio('audio/'+file); _cb=btn||null;
+  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file;
   if(_cb) _cb.classList.add('speaking');
   _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
   _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });

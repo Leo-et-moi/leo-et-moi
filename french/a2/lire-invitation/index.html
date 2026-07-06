@@ -90,7 +90,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <div id="secA"></div>
 
   <div class="sec-label">&#127880; Invitation 2 &mdash; L&rsquo;anniversaire de Julien</div>
-  <div class="invit anniv"><div class="conf"><span style="background:#E8503A"></span><span style="background:#D4920A"></span><span style="background:#2C4A7C"></span><span style="background:#7CB82F"></span><span style="background:#E8503A"></span><span style="background:#D4920A"></span></div><div class="names">&#127880; Les 7 ans de Julien&nbsp;!</div><div class="intro">Je t&rsquo;invite &agrave; mon anniversaire&nbsp;!</div><div class="detail">Le <b>samedi 2 juin, de 16h &agrave; 19h</b>.<br>Mon adresse&nbsp;: 47 rue H&eacute;rold, 06000 Nice.<br>Mon t&eacute;l&eacute;phone&nbsp;: 04 97 03 07 90.<br>Mon courriel&nbsp;: juju34@chez-juju.com<br>De la part de&nbsp;: Julien.</div><button class="readbtn" onclick="playClip('a2_inv_doc2.mp3',this)">&#128266; &Eacute;couter l&rsquo;invitation</button></div>
+  <div class="invit anniv"><div class="conf"><span style="background:#E8503A"></span><span style="background:#D4920A"></span><span style="background:#2C4A7C"></span><span style="background:#7CB82F"></span><span style="background:#E8503A"></span><span style="background:#D4920A"></span></div><div class="names">&#127880; Les 7 ans de Julien&nbsp;!</div><div class="intro">Je t&rsquo;invite &agrave; mon anniversaire&nbsp;!</div><div class="detail">Le <b>samedi 2 juin, de 16h &agrave; 19h</b>.<br>Mon adresse&nbsp;: 47 rue H&eacute;rold, 06000 Nice.<br>Le t&eacute;l&eacute;phone de mes parents&nbsp;: 04 97 03 07 90.<br>Mon courriel&nbsp;: juju34@chez-juju.com<br>De la part de&nbsp;: Julien.</div><button class="readbtn" onclick="playClip('a2_inv_doc2.mp3',this)">&#128266; &Eacute;couter l&rsquo;invitation</button></div>
   <div id="secB"></div>
 
   <div class="sec-label">&#9989; Vrai ou Faux</div>
@@ -113,11 +113,15 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 </nav>
 <script>
 var LESSON='a2_lire_invitation';
-var _clip=null,_cb=null;
+var _clip=null,_cb=null,_src=null;
 function playClip(file,btn){
+  if(_cb===btn && _clip && _src===file){
+    if(!_clip.paused){ _clip.pause(); if(_cb) _cb.classList.remove('speaking'); return; }
+    _clip.play().catch(function(){}); if(_cb) _cb.classList.add('speaking'); return;
+  }
   try{ if(_clip) _clip.pause(); }catch(e){}
   if(_cb) _cb.classList.remove('speaking');
-  _clip=new Audio('audio/'+file); _cb=btn||null;
+  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file;
   if(_cb) _cb.classList.add('speaking');
   _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
   _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });

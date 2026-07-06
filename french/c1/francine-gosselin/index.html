@@ -147,11 +147,15 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 
 <script>
 // recorded-audio player (no synthetic); files live in ./audio/
-var _clip=null,_cb=null;
+var _clip=null,_cb=null,_src=null;
 function playClip(file,btn){
+  if(_cb===btn && _clip && _src===file){
+    if(!_clip.paused){ _clip.pause(); if(_cb) _cb.classList.remove('speaking'); return; }
+    _clip.play().catch(function(){}); if(_cb) _cb.classList.add('speaking'); return;
+  }
   try{ if(_clip) _clip.pause(); }catch(e){}
   if(_cb) _cb.classList.remove('speaking');
-  _clip=new Audio('audio/'+file); _cb=btn||null;
+  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file;
   if(_cb) _cb.classList.add('speaking');
   _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
   _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
