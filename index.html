@@ -358,7 +358,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 <div class="vocab-card">
   <div class="vocab-tag">
     <span class="vocab-tag-label">5 expressions avec AVOIR</span>
-    <button class="speak-btn" onclick="playSeq(['vocab_1_faim.mp3','vocab_2_soif.mp3','vocab_3_peur.mp3','vocab_4_besoin.mp3','vocab_5_chance.mp3'])">&#128266; Tout &eacute;couter</button>
+    <button class="speak-btn" onclick="playSeq(['vocab_1_faim.mp3','vocab_2_soif.mp3','vocab_3_peur.mp3','vocab_4_besoin.mp3','vocab_5_chance.mp3'],this)">&#128266; Tout &eacute;couter</button>
   </div>
 
   <div class="vocab-item">
@@ -523,26 +523,31 @@ if(window.LEM && window.LEM.user) lemCounts();
 
 // ── WEB SPEECH API ───────────────────────────────────────────
 let currentUtt=null;
-function speak(text,lang='fr-FR'){
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang=lang; u.rate=0.88; u.pitch=1;
-  currentUtt=u;
-  window.speechSynthesis.speak(u);
-}
+function speak(){ /* audio synthétique désactivé — MP3 uniquement */ }
 // ── RECORDED AUDIO (your voice; no synthetic) ──────────────
-var _clip=null,_clipBtn=null;
+var _clip=null,_clipBtn=null,_clipSrc=null,_sq=null;
+function _stopSeq(){ if(_sq){ try{ if(_sq.clip) _sq.clip.pause(); }catch(e){} if(_sq.btn) _sq.btn.classList.remove('speaking'); _sq=null; } }
 function playClip(file,btn){
+  if(_clipBtn===btn && _clip && _clipSrc===file){
+    if(!_clip.paused){ _clip.pause(); if(_clipBtn) _clipBtn.classList.remove('speaking'); return; }
+    _clip.play().catch(function(){}); if(_clipBtn) _clipBtn.classList.add('speaking'); return;
+  }
+  _stopSeq();
   try{ if(_clip) _clip.pause(); }catch(e){}
   if(_clipBtn) _clipBtn.classList.remove('speaking');
-  _clip=new Audio('french/audio/'+file); _clipBtn=btn||null;
+  _clip=new Audio('french/audio/'+file); _clipBtn=btn||null; _clipSrc=file;
   if(_clipBtn) _clipBtn.classList.add('speaking');
   _clip.onended=_clip.onerror=function(){ if(_clipBtn) _clipBtn.classList.remove('speaking'); };
   _clip.play().catch(function(){ if(_clipBtn) _clipBtn.classList.remove('speaking'); });
 }
-function playSeq(files){
-  var i=0;(function nx(){ if(i>=files.length)return; var a=new Audio('french/audio/'+files[i]); i++; a.onended=nx; a.onerror=nx; a.play().catch(nx); })();
+function playSeq(files,btn){
+  if(_sq && _sq.btn===btn){
+    if(!_sq.paused){ _sq.paused=true; if(_sq.clip) _sq.clip.pause(); if(btn) btn.classList.remove('speaking'); return; }
+    _sq.paused=false; if(btn) btn.classList.add('speaking'); if(_sq.clip && _sq.clip.paused) _sq.clip.play().catch(function(){}); return;
+  }
+  _stopSeq(); try{ if(_clip) _clip.pause(); }catch(e){} if(_clipBtn) _clipBtn.classList.remove('speaking');
+  _sq={clip:null,btn:btn||null,files:files,i:0,paused:false}; if(btn) btn.classList.add('speaking');
+  (function nx(){ if(!_sq||_sq.paused) return; if(_sq.i>=_sq.files.length){ if(_sq.btn) _sq.btn.classList.remove('speaking'); _sq=null; return; } var a=new Audio('french/audio/'+_sq.files[_sq.i]); _sq.clip=a; _sq.i++; a.onended=nx; a.onerror=nx; a.play().catch(nx); })();
 }
 function speakPage(){
   const greeting=document.getElementById('greetMsg').textContent;
