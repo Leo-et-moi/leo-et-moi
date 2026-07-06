@@ -53,6 +53,24 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .card--anniv{border-left-color:#E8503A;}
 .conf{display:flex;gap:8px;justify-content:center;padding:2px 0 12px;flex-wrap:wrap;}
 .conf span{width:12px;height:12px;border-radius:50%;}
+.invit{border-radius:14px;padding:22px 20px 20px;margin-bottom:14px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.09);overflow:hidden;}
+.invit .motif{font-size:30px;line-height:1;margin-bottom:6px;}
+.invit .intro{font-size:13.5px;color:var(--slate);margin:2px 0 4px;line-height:1.5;}
+.invit .names{font-size:24px;font-weight:bold;line-height:1.25;margin:2px 0 10px;}
+.invit .detail{font-size:14.5px;line-height:1.7;color:var(--text);}
+.invit .detail b{color:var(--dark);}
+.invit .readbtn{margin-top:16px;}
+.invit.mariage{background:var(--cream);border:2px solid #D4920A;box-shadow:0 0 0 4px var(--cream),0 0 0 5px #E7C77A,0 3px 12px rgba(0,0,0,.09);}
+.invit.mariage .names{color:var(--coral);}
+.invit.pacs{background:var(--cream);border:2px solid #9FB0C9;box-shadow:0 0 0 4px var(--cream),0 0 0 5px #C6D0E0,0 3px 12px rgba(0,0,0,.09);}
+.invit.pacs .names{color:var(--navyMid);}
+.invit.naissance{background:#fff;padding-top:0;}
+.invit.naissance .band{background:#F7D9E0;font-size:30px;padding:14px 0 10px;margin:0 -20px 14px;}
+.invit.naissance .names{color:#C64B7A;}
+.invit.anniv{background:#fff;padding-top:0;}
+.invit.anniv .conf{display:flex;gap:8px;justify-content:center;padding:14px 0 12px;flex-wrap:wrap;}
+.invit.anniv .conf span{width:13px;height:13px;border-radius:50%;}
+.invit.anniv .names{color:var(--navyMid);}
 </style>
 </head>
 <body>
@@ -68,21 +86,11 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <div class="scorebar" id="scorebar">Score : 0 / 12</div>
 
   <div class="sec-label">&#9993;&#65039; Invitation 1 &mdash; Thierry &agrave; Julie</div>
-  <div class="card-inv card--anniv">
-    <div class="conf"><span style="background:#E8503A"></span><span style="background:#D4920A"></span><span style="background:#2C4A7C"></span><span style="background:#7CB82F"></span><span style="background:#E8503A"></span><span style="background:#D4920A"></span></div>
-    <div class="who">Le message</div>
-    <p>Ch&egrave;re Julie,<br>je f&ecirc;te mes 37 ans <b>samedi 14 janvier</b> chez moi. T&eacute;l&eacute;phone-moi avant le 7 janvier. Tu peux venir avec ton copain Romain.<br>Thierry Fournier &middot; 2 Place de la Com&eacute;die, 34000 Montpellier &middot; t&eacute;l. 04 56 75 85 95 &middot; tfournier92@chez-moi.com</p>
-    <button class="readbtn" onclick="playClip('a2_inv_doc1.mp3',this)">&#128266; &Eacute;couter l&rsquo;invitation</button>
-  </div>
+  <div class="invit anniv"><div class="conf"><span style="background:#E8503A"></span><span style="background:#D4920A"></span><span style="background:#2C4A7C"></span><span style="background:#7CB82F"></span><span style="background:#E8503A"></span><span style="background:#D4920A"></span></div><div class="names">&#127881; Thierry f&ecirc;te ses 37 ans&nbsp;!</div><div class="intro">Ch&egrave;re Julie, je t&rsquo;invite&nbsp;!</div><div class="detail"><b>Samedi 14 janvier</b>, chez lui. T&eacute;l&eacute;phone-lui avant le 7 janvier. Tu peux venir avec ton copain Romain.<br><span style="font-size:12.5px;color:var(--slate);">Thierry Fournier &middot; 2 Place de la Com&eacute;die, 34000 Montpellier &middot; t&eacute;l. 04 56 75 85 95 &middot; tfournier92@chez-moi.com</span></div><button class="readbtn" onclick="playClip('a2_inv_doc1.mp3',this)">&#128266; &Eacute;couter l&rsquo;invitation</button></div>
   <div id="secA"></div>
 
   <div class="sec-label">&#127880; Invitation 2 &mdash; L&rsquo;anniversaire de Julien</div>
-  <div class="card-inv card--anniv">
-    <div class="conf"><span style="background:#E8503A"></span><span style="background:#D4920A"></span><span style="background:#2C4A7C"></span><span style="background:#7CB82F"></span><span style="background:#E8503A"></span><span style="background:#D4920A"></span></div>
-    <div class="who">Le message</div>
-    <p>Je t&rsquo;invite &agrave; mon anniversaire pour mes <b>7 ans</b>&nbsp;! Le <b>samedi 2 juin de 16h &agrave; 19h</b>.<br>Mon adresse&nbsp;: 47 rue H&eacute;rold, 06000 Nice. Mon t&eacute;l&eacute;phone&nbsp;: 04 97 03 07 90.<br>De la part de&nbsp;: Julien.</p>
-    <button class="readbtn" onclick="playClip('a2_inv_doc2.mp3',this)">&#128266; &Eacute;couter l&rsquo;invitation</button>
-  </div>
+  <div class="invit anniv"><div class="conf"><span style="background:#E8503A"></span><span style="background:#D4920A"></span><span style="background:#2C4A7C"></span><span style="background:#7CB82F"></span><span style="background:#E8503A"></span><span style="background:#D4920A"></span></div><div class="names">&#127880; Les 7 ans de Julien&nbsp;!</div><div class="intro">Je t&rsquo;invite &agrave; mon anniversaire&nbsp;!</div><div class="detail">Le <b>samedi 2 juin, de 16h &agrave; 19h</b>.<br>Mon adresse&nbsp;: 47 rue H&eacute;rold, 06000 Nice.<br>Mon t&eacute;l&eacute;phone&nbsp;: 04 97 03 07 90.<br>De la part de&nbsp;: Julien.</div><button class="readbtn" onclick="playClip('a2_inv_doc2.mp3',this)">&#128266; &Eacute;couter l&rsquo;invitation</button></div>
   <div id="secB"></div>
 
   <div class="sec-label">&#9989; Vrai ou Faux</div>

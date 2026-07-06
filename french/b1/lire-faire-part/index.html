@@ -76,6 +76,24 @@ textarea.pta:focus{border-color:var(--b1);outline:none;}
 .card--mariage .motif,.card--pacs .motif{text-align:center;font-size:26px;margin:0 0 4px;}
 .card--naissance{border-left:none;overflow:hidden;}
 .card--naissance .band{background:#F7D9E0;text-align:center;font-size:28px;padding:12px 0 8px;margin:-16px -18px 12px;}
+.invit{border-radius:14px;padding:22px 20px 20px;margin-bottom:14px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.09);overflow:hidden;}
+.invit .motif{font-size:30px;line-height:1;margin-bottom:6px;}
+.invit .intro{font-size:13.5px;color:var(--slate);margin:2px 0 4px;line-height:1.5;}
+.invit .names{font-size:24px;font-weight:bold;line-height:1.25;margin:2px 0 10px;}
+.invit .detail{font-size:14.5px;line-height:1.7;color:var(--text);}
+.invit .detail b{color:var(--dark);}
+.invit .readbtn{margin-top:16px;}
+.invit.mariage{background:var(--cream);border:2px solid #D4920A;box-shadow:0 0 0 4px var(--cream),0 0 0 5px #E7C77A,0 3px 12px rgba(0,0,0,.09);}
+.invit.mariage .names{color:var(--coral);}
+.invit.pacs{background:var(--cream);border:2px solid #9FB0C9;box-shadow:0 0 0 4px var(--cream),0 0 0 5px #C6D0E0,0 3px 12px rgba(0,0,0,.09);}
+.invit.pacs .names{color:var(--navyMid);}
+.invit.naissance{background:#fff;padding-top:0;}
+.invit.naissance .band{background:#F7D9E0;font-size:30px;padding:14px 0 10px;margin:0 -20px 14px;}
+.invit.naissance .names{color:#C64B7A;}
+.invit.anniv{background:#fff;padding-top:0;}
+.invit.anniv .conf{display:flex;gap:8px;justify-content:center;padding:14px 0 12px;flex-wrap:wrap;}
+.invit.anniv .conf span{width:13px;height:13px;border-radius:50%;}
+.invit.anniv .names{color:var(--navyMid);}
 </style>
 </head>
 <body>
@@ -97,9 +115,9 @@ textarea.pta:focus{border-color:var(--b1);outline:none;}
   <div id="vocab"></div>
 
   <div class="sec-label">&#128233; Les faire-part</div>
-  <div class="card-fp card--mariage"><div class="motif">&#128141;</div><div class="who">Mariage</div><p><b>Guillaume</b> a le plaisir de vous faire part du mariage de ses parents, <b>Nathalie et Bernard</b>. La c&eacute;r&eacute;monie se d&eacute;roulera le <b>samedi 23 mai 2013 &agrave; 16h30 &agrave; la Mairie d&rsquo;Albi</b>. Un vin d&rsquo;honneur sera servi &agrave; 17h30, &agrave; la salle des f&ecirc;tes de Poulan-Pouzols.</p><button class="readbtn" onclick="playClip('b1_fp_card_mariage.mp3',this)">&#128266; &Eacute;couter</button></div>
-  <div class="card-fp card--naissance"><div class="band">&#128118;</div><div class="who">Naissance</div><p>Le grand fr&egrave;re <b>Nicolas</b> est heureux de vous annoncer l&rsquo;arriv&eacute;e de son petit fr&egrave;re <b>Jean-Fran&ccedil;ois</b>, n&eacute; le <b>10 f&eacute;vrier 2013 &agrave; 20h15</b>. Il fait <b>3,5 kg pour 50 cm</b>. Les parents sont Robert et Annie Dupuis.</p><button class="readbtn" onclick="playClip('b1_fp_card_naissance.mp3',this)">&#128266; &Eacute;couter</button></div>
-  <div class="card-fp card--pacs"><div class="motif">&#129346;</div><div class="who">PACS</div><p><b>Christian et Beno&icirc;t</b> sont heureux de vous annoncer qu&rsquo;ils se sont <b>pacs&eacute;s</b> le 12 juin 2013. Un vin d&rsquo;honneur suivi d&rsquo;un buffet froid sera offert le <b>samedi 25 juillet &agrave; 17h30, au restaurant les Pyr&eacute;n&eacute;es</b>.</p><button class="readbtn" onclick="playClip('b1_fp_card_pacs.mp3',this)">&#128266; &Eacute;couter</button></div>
+  <div class="invit mariage"><div class="motif">&#128141;</div><div class="intro">Guillaume a le plaisir de vous faire part du mariage de ses parents</div><div class="names">Nathalie &amp; Bernard</div><div class="detail">La c&eacute;r&eacute;monie se d&eacute;roulera le <b>samedi 23 mai 2013 &agrave; 16h30</b>, &agrave; la <b>Mairie d&rsquo;Albi</b>.<br>Un vin d&rsquo;honneur sera servi &agrave; 17h30, &agrave; la salle des f&ecirc;tes de Poulan-Pouzols.</div><button class="readbtn" onclick="playClip('b1_fp_card_mariage.mp3',this)">&#128266; &Eacute;couter</button></div>
+  <div class="invit naissance"><div class="band">&#128118;</div><div class="intro">Le grand fr&egrave;re Nicolas est heureux de vous annoncer l&rsquo;arriv&eacute;e de son petit fr&egrave;re</div><div class="names">Jean-Fran&ccedil;ois</div><div class="detail">N&eacute; le <b>10 f&eacute;vrier 2013 &agrave; 20h15</b>.<br>Il fait <b>3,5 kg pour 50 cm</b>.<br>Les parents sont Robert et Annie Dupuis.</div><button class="readbtn" onclick="playClip('b1_fp_card_naissance.mp3',this)">&#128266; &Eacute;couter</button></div>
+  <div class="invit pacs"><div class="motif">&#129346;</div><div class="names">Christian &amp; Beno&icirc;t</div><div class="intro">sont heureux de vous annoncer qu&rsquo;ils se sont pacs&eacute;s le 12 juin 2013</div><div class="detail">Un vin d&rsquo;honneur suivi d&rsquo;un buffet froid sera offert le <b>samedi 25 juillet &agrave; 17h30</b>, au <b>restaurant les Pyr&eacute;n&eacute;es</b>.</div><button class="readbtn" onclick="playClip('b1_fp_card_pacs.mp3',this)">&#128266; &Eacute;couter</button></div>
 
   <div class="sec-label">&#127991;&#65039; Quel type de faire-part&nbsp;?</div>
   <div id="secClassify"></div>
