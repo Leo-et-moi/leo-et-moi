@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>B1 : Les interrogatifs &mdash; Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--text:#1A2733;--slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;--b1:#D4920A;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--b1);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}.site-name span{color:var(--coral);}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;}
+.main{max-width:640px;margin:0 auto;padding:16px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--b1);color:#fff;font-size:13px;font-weight:bold;padding:2px 12px;border-radius:20px;margin-bottom:6px;}
+.deck-title{font-size:15px;font-weight:bold;color:var(--slate);margin-bottom:14px;}
+.slide{display:none;background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:6px solid var(--b1);padding:20px 18px;min-height:320px;}
+.slide.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.s-kicker{font-size:12px;font-weight:bold;color:var(--b1);text-transform:uppercase;letter-spacing:1px;}
+.s-title{font-size:21px;font-weight:bold;color:var(--dark);margin:2px 0 12px;line-height:1.25;}
+.line{display:flex;align-items:flex-start;gap:10px;font-size:15.5px;margin:0 0 14px;}
+.t-play,.ex-aud{flex-shrink:0;background:var(--b1);color:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;}
+.t-play.speaking,.ex-aud.speaking{background:var(--dark);}
+.excard{display:flex;align-items:center;gap:12px;background:var(--cream);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
+.ex-body{flex:1;}
+.ex-fr{font-size:17px;font-weight:bold;color:var(--dark);}
+.ex-tag{display:block;font-size:12px;color:var(--slate);margin-top:2px;}
+.gram{font-size:12px;color:var(--slate);font-weight:normal;}
+.three{display:flex;gap:10px;margin-top:6px;}
+.tcard{flex:1;background:var(--cream);border-radius:12px;padding:14px 6px;text-align:center;font-size:22px;font-weight:bold;color:var(--b1);}
+.tcard span{display:block;font-size:12.5px;color:var(--text);font-weight:bold;margin-top:4px;}
+.note{background:var(--cream);border-radius:8px;padding:10px 12px;font-size:15px;font-weight:bold;color:var(--dark);margin-top:6px;display:flex;align-items:center;gap:10px;}
+.deck-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;}
+.nav-btn{background:var(--white);border:2px solid var(--divider);border-radius:10px;padding:11px 14px;font-size:15px;font-weight:bold;color:var(--navyMid);font-family:Arial,sans-serif;cursor:pointer;min-height:48px;flex:1;}
+.nav-btn:disabled{opacity:.4;}
+.counter{font-size:14px;font-weight:bold;color:var(--slate);min-width:54px;text-align:center;}
+.ex-links{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+.ex-link{display:block;background:var(--b1);color:#fff;text-decoration:none;border-radius:12px;padding:14px;font-size:15px;font-weight:bold;text-align:center;}
+.ex-link.soon{background:var(--card);color:var(--slate);cursor:default;}
+.ex-link.soon span{font-weight:normal;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--b1);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
+.nav-item.active{color:var(--coral);}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+</style>
+</head>
+<body>
+<header class="top-bar"><a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<main class="main">
+  <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons B1</a>
+  <div class="lvl-tag">B1</div>
+  <div class="deck-title">Les adjectifs et pronoms interrogatifs &mdash; pour poser des questions</div>
+  <div id="deck"><section class="slide active"><div class="s-kicker">Introduction</div><div class="s-title">Poser une question</div><p class="line"><button class="t-play" onclick="playClip('b1q_consigne.mp3',this)">&#128266;</button><span>D&eacute;couvre les fa&ccedil;ons de poser une question, puis les <b>adjectifs</b> et <b>pronoms interrogatifs</b>. &Eacute;coute chaque exemple.</span></p></section><section class="slide"><div class="s-kicker">&Eacute;tape 2</div><div class="s-title">3 fa&ccedil;ons de poser une question</div><p class="line"><button class="t-play" onclick="playClip('b1q_s2.mp3',this)">&#128266;</button><span>Il existe trois fa&ccedil;ons&nbsp;: <b>1.</b> l&rsquo;intonation, <b>2.</b> est-ce que, <b>3.</b> l&rsquo;inversion.</span></p><div class="three"><div class="tcard">1<span>L&rsquo;intonation</span></div><div class="tcard">2<span>Est-ce que</span></div><div class="tcard">3<span>L&rsquo;inversion</span></div></div></section><section class="slide"><div class="s-kicker">1</div><div class="s-title">L&rsquo;intonation</div><p class="line"><button class="t-play" onclick="playClip('b1q_s3.mp3',this)">&#128266;</button><span>On garde l&rsquo;ordre normal et on <b>monte la voix</b> &agrave; la fin.</span></p><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_paris.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr">Vous habitez &agrave; Paris&nbsp;?</span><span class="ex-tag">oui / non</span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_ou.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr">Tu habites o&ugrave;&nbsp;?</span><span class="ex-tag">question ouverte</span></div></div></section><section class="slide"><div class="s-kicker">2</div><div class="s-title">Est-ce que</div><p class="line"><button class="t-play" onclick="playClip('b1q_s4.mp3',this)">&#128266;</button><span>On ajoute <b>&laquo;&nbsp;est-ce que&nbsp;&raquo;</b> au d&eacute;but.</span></p><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_ecole.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr">Est-ce que tu vas &agrave; l&rsquo;&eacute;cole&nbsp;?</span><span class="ex-tag">oui / non</span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_quand.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr">Quand est-ce que tu vas &agrave; l&rsquo;&eacute;cole&nbsp;?</span><span class="ex-tag">question ouverte</span></div></div></section><section class="slide"><div class="s-kicker">3</div><div class="s-title">L&rsquo;inversion (et le &laquo;&nbsp;-t-&nbsp;&raquo;)</div><p class="line"><button class="t-play" onclick="playClip('b1q_s5.mp3',this)">&#128266;</button><span>On <b>inverse</b> le verbe et le sujet. Si le verbe finit par une <b>voyelle</b>, on ajoute <b>-t-</b>.</span></p><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_nage.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr">Nage-t-il&nbsp;?</span><span class="ex-tag">oui / non</span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_appelle.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr">Comment s&rsquo;appelle-t-il&nbsp;?</span><span class="ex-tag">question ouverte</span></div></div><div class="note">a-t-il &middot; parle-t-elle &middot; va-t-elle <button class="t-play" onclick="playClip('b1q_ex_t.mp3',this)">&#128266;</button></div></section><section class="slide"><div class="s-kicker">&Eacute;tape 6</div><div class="s-title">L&rsquo;adjectif interrogatif&nbsp;: quel</div><p class="line"><button class="t-play" onclick="playClip('b1q_s6.mp3',this)">&#128266;</button><span><b>quel</b> s&rsquo;accorde avec le nom (genre et nombre).</span></p><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_quel.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr"><b>Quel</b> film&nbsp;? <span class="gram">(masc. sing.)</span></span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_quelle.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr"><b>Quelle</b> langue&nbsp;? <span class="gram">(f&eacute;m. sing.)</span></span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_quels.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr"><b>Quels</b> fruits&nbsp;? <span class="gram">(masc. plur.)</span></span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_quelles.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr"><b>Quelles</b> couleurs&nbsp;? <span class="gram">(f&eacute;m. plur.)</span></span></div></div></section><section class="slide"><div class="s-kicker">&Eacute;tape 7</div><div class="s-title">Le pronom interrogatif&nbsp;: lequel</div><p class="line"><button class="t-play" onclick="playClip('b1q_s7.mp3',this)">&#128266;</button><span><b>lequel</b> remplace &laquo;&nbsp;quel + nom&nbsp;&raquo;. Il s&rsquo;accorde aussi.</span></p><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_lequel.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr">Quel film&nbsp;? &rarr; <b>Lequel</b>&nbsp;? <span class="gram">(masc. sing.)</span></span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_laquelle.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr"><b>Laquelle</b>&nbsp;? <span class="gram">(f&eacute;m. sing.)</span></span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_lesquels.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr"><b>Lesquels</b>&nbsp;? <span class="gram">(masc. plur.)</span></span></div></div><div class="excard"><button class="ex-aud" onclick="playClip('b1q_ex_lesquelles.mp3',this)">&#128266;</button><div class="ex-body"><span class="ex-fr"><b>Lesquelles</b>&nbsp;? <span class="gram">(f&eacute;m. plur.)</span></span></div></div></section><section class="slide"><div class="s-kicker">R&eacute;cap</div><div class="s-title">R&eacute;cap</div><p class="line"><button class="t-play" onclick="playClip('b1q_s8.mp3',this)">&#128266;</button><span>3 fa&ccedil;ons&nbsp;: intonation, est-ce que, inversion (+ le -t-). Et pour choisir&nbsp;: <b>quel</b> (adjectif, + nom) / <b>lequel</b> (pronom, seul). &Agrave; toi de t&rsquo;entra&icirc;ner&nbsp;!</span></p><div class="ex-links"><a class="ex-link" href="exercices-b1.html">&#9997;&#65039; Exercices B1 &middot; Reconna&icirc;tre et former les questions &#8594;</a><a class="ex-link soon">&#128218; Exercices B2 &middot; Questions avanc&eacute;es + r&eacute;daction <span>(bient&ocirc;t)</span></a></div></section></div>
+  <div class="deck-nav">
+    <button class="nav-btn" id="prev">&#8592; Pr&eacute;c&eacute;dent</button>
+    <span class="counter" id="counter">1 / 8</span>
+    <button class="nav-btn" id="next">Suivant &#8594;</button>
+  </div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+var _clip=null,_cb=null,_src=null;
+function playClip(file,btn){
+  if(_cb===btn && _clip && _src===file){
+    if(!_clip.paused){ _clip.pause(); if(_cb)_cb.classList.remove('speaking'); return; }
+    _clip.play().catch(function(){}); if(_cb)_cb.classList.add('speaking'); return;
+  }
+  try{ if(_clip) _clip.pause(); }catch(e){}
+  if(_cb) _cb.classList.remove('speaking');
+  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file;
+  if(_cb) _cb.classList.add('speaking');
+  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
+  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
+}
+var slides=document.querySelectorAll('.slide'),idx=0;
+var prev=document.getElementById('prev'),next=document.getElementById('next'),counter=document.getElementById('counter');
+function show(i){ try{ if(_clip)_clip.pause(); }catch(e){} slides[idx].classList.remove('active'); idx=Math.max(0,Math.min(slides.length-1,i)); slides[idx].classList.add('active'); counter.textContent=(idx+1)+' / '+slides.length; prev.disabled=(idx===0); next.disabled=(idx===slides.length-1); window.scrollTo({top:0,behavior:'smooth'}); }
+prev.addEventListener('click',function(){ show(idx-1); });
+next.addEventListener('click',function(){ show(idx+1); });
+show(0);
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body>
+</html>

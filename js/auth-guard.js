@@ -34,7 +34,8 @@ const LESSON_NAMES = {
   'a2_nombres_quiz':'A2 · Quiz Les nombres',
   'a2_ecoute_invitations':'A2 · Écoute — Invitations',
   'a2_lire_invitation':'A2 · Lire une invitation',
-  'b1_lire_faire_part':'B1 · Lire un faire-part'
+  'b1_lire_faire_part':'B1 · Lire un faire-part',
+  'b1_interrogatifs':'B1 · Les interrogatifs'
 };
 let _emailjsReady = null;
 function loadEmailJS() {
