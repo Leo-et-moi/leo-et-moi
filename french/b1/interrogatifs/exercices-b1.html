@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes">
 <title>B1 : Exercices &mdash; interrogatifs &mdash; Leo-et-moi</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#D4920A;--text:#1A2733;--slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;--b1:#D4920A;--green:#1E7B45;--ltgreen:#E3F5EC;--red:#C0392B;--ltred:#FBE7E5;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--text:#1A2733;--slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;--b1:#D4920A;--green:#1E7B45;--ltgreen:#E3F5EC;--red:#C0392B;--ltred:#FBE7E5;}
 html{font-size:18px;}
 body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
 .top-bar{background:var(--dark);border-bottom:4px solid var(--b1);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
@@ -32,59 +29,58 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .play-big.speaking{background:var(--dark);}
 .tr-btn{display:block;width:100%;margin-top:12px;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:46px;}
 .tr-box{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--divider);font-size:15px;line-height:1.8;}
-.tr-box.open{display:block;}
-.tr-box .l{margin:2px 0;}
+.tr-box.open{display:block;}.tr-box .l{margin:2px 0;}
 .q{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:15px 16px;margin-bottom:12px;}
 .q-prompt{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
 .gram{font-size:12px;color:var(--slate);font-weight:normal;}
 .opts{display:flex;flex-wrap:wrap;gap:8px;}
 .opt{flex:1 1 calc(50% - 8px);min-width:120px;background:var(--cream);border:2px solid var(--divider);border-radius:10px;padding:12px;font-size:15px;font-weight:bold;color:var(--text);font-family:Arial,sans-serif;cursor:pointer;min-height:48px;}
 .opt.good{background:var(--ltgreen);border-color:var(--green);color:var(--green);}
-.opt.bad{background:var(--ltred);border-color:var(--red);color:var(--red);}
-.opt:disabled{cursor:default;}
+.opt.bad{background:var(--ltred);border-color:var(--red);color:var(--red);}.opt:disabled{cursor:default;}
 .final{display:none;background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:24px;text-align:center;margin-top:16px;}
 .final-num{font-size:40px;font-weight:bold;color:var(--b1);}.final-msg{font-size:16px;color:var(--text);margin:8px 0 14px;}
 .retry-btn{background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;}
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--b1);display:flex;align-items:center;z-index:100;}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
 .nav-item.active{color:var(--coral);}.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
-</style>
-</head>
+</style></head>
 <body>
 <header class="top-bar"><a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
 <main class="main">
   <a class="back-link" href="index.html">&#8592; La le&ccedil;on</a>
   <div class="lvl-tag">B1</div>
   <div class="h-title">Exercices &middot; Adjectifs &amp; pronoms interrogatifs</div>
-  <div class="consigne"><button class="aud" onclick="playClip('b1qx_consigne.mp3',this)">&#128266;</button><span>D&eacute;couvre le vocabulaire, &eacute;coute le dialogue (tu peux afficher la transcription), puis fais les exercices.</span></div>
-  <div class="scorebar" id="scorebar">Score : 0 / 15</div>
-
-  <div class="sec-label">&#128218; Vocabulaire &agrave; d&eacute;couvrir</div>
-  <div id="vocab"></div>
-
+  <div class="consigne"><button class="aud" onclick="playClip('b1qx_consigne.mp3',this)">&#128266;</button><span>D&eacute;couvre le vocabulaire, &eacute;coute le dialogue (transcription possible), puis fais les exercices.</span></div>
+  <div class="scorebar" id="scorebar">Score : 0 / 60</div>
+  <div class="sec-label">&#128483;&#65039; Diff&eacute;rentes mani&egrave;res de commencer une question</div><div id="manners"></div>
+  <div class="sec-label">&#128218; Vocabulaire &agrave; d&eacute;couvrir</div><div id="dvocab"></div>
   <div class="sec-label">&#127911; &Eacute;coute le dialogue</div>
   <div class="ecoute">
     <button class="play-big" onclick="playClip('b1qx_dialogue.mp3',this)">&#128266; &Eacute;couter le dialogue</button>
-    <button class="tr-btn" id="trBtn" onclick="var t=document.getElementById('tr'),o=t.classList.toggle('open');this.innerHTML=o?'&#128196; Masquer la transcription':'&#128196; Afficher la transcription';">&#128196; Afficher la transcription</button>
+    <button class="tr-btn" onclick="var t=document.getElementById('tr'),o=t.classList.toggle('open');this.innerHTML=o?'&#128196; Masquer la transcription':'&#128196; Afficher la transcription';">&#128196; Afficher la transcription</button>
     <div class="tr-box" id="tr">
-      <div class="l">&mdash; Salut&nbsp;! Tu habites o&ugrave;&nbsp;?</div>
-      <div class="l">&mdash; &Agrave; Lyon. Et toi&nbsp;?</div>
-      <div class="l">&mdash; &Agrave; Paris. Est-ce que tu viens souvent ici&nbsp;?</div>
-      <div class="l">&mdash; Oui. Quel quartier pr&eacute;f&egrave;res-tu&nbsp;?</div>
-      <div class="l">&mdash; Le Marais. Lequel pr&eacute;f&egrave;res-tu, toi&nbsp;?</div>
-      <div class="l">&mdash; Montmartre. &Agrave; quelle heure part ton train&nbsp;?</div>
-      <div class="l">&mdash; &Agrave; 18h. Comment vas-tu &agrave; la gare&nbsp;?</div>
-      <div class="l">&mdash; En m&eacute;tro. Prend-il beaucoup de temps&nbsp;?</div>
-      <div class="l">&mdash; Non, vingt minutes.</div>
+      <div class="l">&mdash; Salut L&eacute;a&nbsp;! Tu es libre samedi&nbsp;?</div>
+      <div class="l">&mdash; Oui&nbsp;! Qu&rsquo;est-ce que tu proposes&nbsp;?</div>
+      <div class="l">&mdash; On pourrait aller au cin&eacute;ma. Quel film veux-tu voir&nbsp;?</div>
+      <div class="l">&mdash; Le nouveau film de science-fiction. &Agrave; quelle heure commence-t-il&nbsp;?</div>
+      <div class="l">&mdash; &Agrave; vingt heures. O&ugrave; est le cin&eacute;ma&nbsp;?</div>
+      <div class="l">&mdash; Rue Victor Hugo, &agrave; c&ocirc;t&eacute; de la gare.</div>
+      <div class="l">&mdash; Comment y va-t-on&nbsp;?</div>
+      <div class="l">&mdash; En bus, le num&eacute;ro douze.</div>
+      <div class="l">&mdash; Combien co&ucirc;te le billet&nbsp;?</div>
+      <div class="l">&mdash; Neuf euros. Et apr&egrave;s, tu veux manger o&ugrave;&nbsp;?</div>
+      <div class="l">&mdash; Dans un restaurant italien. Lequel pr&eacute;f&egrave;res-tu&nbsp;?</div>
+      <div class="l">&mdash; Celui de la place. Pourquoi celui-l&agrave;&nbsp;?</div>
+      <div class="l">&mdash; Parce que les pizzas y sont excellentes&nbsp;!</div>
+      <div class="l">&mdash; Parfait. Qui invite l&rsquo;autre&nbsp;?</div>
+      <div class="l">&mdash; Moi, c&rsquo;est mon anniversaire&nbsp;!</div>
     </div>
   </div>
-
   <div class="sec-label" id="lblA"></div><div id="secA"></div>
   <div class="sec-label" id="lblB"></div><div id="secB"></div>
   <div class="sec-label" id="lblC"></div><div id="secC"></div>
   <div class="sec-label" id="lblD"></div><div id="secD"></div>
-
-  <div class="final" id="final"><div class="final-num" id="finalNum">0 / 15</div><div class="final-msg" id="finalMsg"></div><button class="retry-btn" onclick="location.reload()">Recommencer</button></div>
+  <div class="final" id="final"><div class="final-num" id="finalNum">0 / 60</div><div class="final-msg" id="finalMsg"></div><button class="retry-btn" onclick="location.reload()">Recommencer</button></div>
 </main>
 <nav class="bottom-nav">
   <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
@@ -96,47 +92,32 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 var LESSON='b1_interrogatifs';
 var _clip=null,_cb=null,_src=null;
 function playClip(file,btn){
-  if(_cb===btn && _clip && _src===file){
-    if(!_clip.paused){ _clip.pause(); if(_cb)_cb.classList.remove('speaking'); return; }
-    _clip.play().catch(function(){}); if(_cb)_cb.classList.add('speaking'); return;
-  }
-  try{ if(_clip) _clip.pause(); }catch(e){}
-  if(_cb) _cb.classList.remove('speaking');
-  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file;
-  if(_cb) _cb.classList.add('speaking');
+  if(_cb===btn && _clip && _src===file){ if(!_clip.paused){ _clip.pause(); if(_cb)_cb.classList.remove('speaking'); return; } _clip.play().catch(function(){}); if(_cb)_cb.classList.add('speaking'); return; }
+  try{ if(_clip) _clip.pause(); }catch(e){} if(_cb) _cb.classList.remove('speaking');
+  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file; if(_cb) _cb.classList.add('speaking');
   _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
   _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
 }
-var Q=[{"s": "A", "a": "b1qx_a1.mp3", "q": "___ <b>film</b>&nbsp;?", "opts": ["quel", "quelle", "quels", "quelles"], "correct": 0}, {"s": "A", "a": "b1qx_a2.mp3", "q": "___ <b>langue</b>&nbsp;?", "opts": ["quel", "quelle", "quels", "quelles"], "correct": 1}, {"s": "A", "a": "b1qx_a3.mp3", "q": "___ <b>fruits</b>&nbsp;?", "opts": ["quel", "quelle", "quels", "quelles"], "correct": 2}, {"s": "A", "a": "b1qx_a4.mp3", "q": "___ <b>couleurs</b>&nbsp;?", "opts": ["quel", "quelle", "quels", "quelles"], "correct": 3}, {"s": "B", "a": "b1qx_b1.mp3", "q": "Quel film&nbsp;? &rarr; ___", "opts": ["Lequel", "Laquelle", "Lesquels", "Lesquelles"], "correct": 0}, {"s": "B", "a": "b1qx_b2.mp3", "q": "Quelle langue&nbsp;? &rarr; ___", "opts": ["Lequel", "Laquelle", "Lesquels", "Lesquelles"], "correct": 1}, {"s": "B", "a": "b1qx_b3.mp3", "q": "Quels fruits&nbsp;? &rarr; ___", "opts": ["Lequel", "Laquelle", "Lesquels", "Lesquelles"], "correct": 2}, {"s": "B", "a": "b1qx_b4.mp3", "q": "Quelles couleurs&nbsp;? &rarr; ___", "opts": ["Lequel", "Laquelle", "Lesquels", "Lesquelles"], "correct": 3}, {"s": "C", "a": "b1qx_c1.mp3", "q": "Quelle est la question avec <b>est-ce que</b>&nbsp;?", "opts": ["Tu viens&nbsp;?", "Est-ce que tu viens&nbsp;?", "Viens-tu&nbsp;?"], "correct": 1}, {"s": "C", "a": "b1qx_c2.mp3", "q": "Quelle est la question par <b>inversion</b>&nbsp;?", "opts": ["Est-ce que tu viens&nbsp;?", "Tu viens&nbsp;?", "Viens-tu&nbsp;?"], "correct": 2}, {"s": "C", "a": "b1qx_c3.mp3", "q": "O&ugrave; faut-il un &laquo;&nbsp;-t-&nbsp;&raquo;&nbsp;?", "opts": ["Parle-il&nbsp;?", "Parle-t-il&nbsp;?"], "correct": 1}, {"s": "C", "a": "b1qx_c4.mp3", "q": "Compl&egrave;te&nbsp;: Comment ___ il&nbsp;? <span class='gram'>(aller)</span>", "opts": ["va-t-", "va-", "vas-t-"], "correct": 0}, {"s": "D", "a": "b1qx_d1.mp3", "q": "O&ugrave; habite la 2<sup>e</sup> personne&nbsp;?", "opts": ["&Agrave; Lyon", "&Agrave; Paris", "&Agrave; Montmartre"], "correct": 0}, {"s": "D", "a": "b1qx_d2.mp3", "q": "Quel quartier pr&eacute;f&egrave;re la 1<sup>re</sup> personne&nbsp;?", "opts": ["Le Marais", "Montmartre", "Le Quartier Latin"], "correct": 0}, {"s": "D", "a": "b1qx_d3.mp3", "q": "&Agrave; quelle heure part le train&nbsp;?", "opts": ["18h", "8h", "20h"], "correct": 0}], VOCAB=[["qui", "who", "b1qx_v_qui.mp3"], ["que / qu&rsquo;est-ce que", "what", "b1qx_v_que.mp3"], ["o&ugrave;", "where", "b1qx_v_ou.mp3"], ["quand", "when", "b1qx_v_quand.mp3"], ["comment", "how", "b1qx_v_comment.mp3"], ["pourquoi", "why", "b1qx_v_pourquoi.mp3"], ["combien", "how many / much", "b1qx_v_combien.mp3"], ["quel &middot; lequel", "which", "b1qx_v_quel.mp3"]], SEC={"A": "L&rsquo;adjectif interrogatif (quel)", "B": "Le pronom interrogatif (lequel)", "C": "Poser la question", "D": "Compr&eacute;hension du dialogue"}, TOTAL=15, score=0, answered=0;
+var Q=[{"s": "A", "a": "b1qx_a01.mp3", "q": "___ <b>film</b>&nbsp;?", "opts": ["quelles", "quelle", "quel", "quels"], "correct": 2}, {"s": "A", "a": "b1qx_a02.mp3", "q": "___ <b>livre</b>&nbsp;?", "opts": ["quelle", "quels", "quelles", "quel"], "correct": 3}, {"s": "A", "a": "b1qx_a03.mp3", "q": "___ <b>sport</b>&nbsp;?", "opts": ["quelle", "quel", "quelles", "quels"], "correct": 1}, {"s": "A", "a": "b1qx_a04.mp3", "q": "___ <b>pays</b>&nbsp;?", "opts": ["quelles", "quels", "quel", "quelle"], "correct": 2}, {"s": "A", "a": "b1qx_a05.mp3", "q": "___ <b>langue</b>&nbsp;?", "opts": ["quels", "quel", "quelle", "quelles"], "correct": 2}, {"s": "A", "a": "b1qx_a06.mp3", "q": "___ <b>ville</b>&nbsp;?", "opts": ["quels", "quelles", "quel", "quelle"], "correct": 3}, {"s": "A", "a": "b1qx_a07.mp3", "q": "___ <b>saison</b>&nbsp;?", "opts": ["quelle", "quelles", "quels", "quel"], "correct": 0}, {"s": "A", "a": "b1qx_a08.mp3", "q": "___ <b>robe</b>&nbsp;?", "opts": ["quelles", "quel", "quels", "quelle"], "correct": 3}, {"s": "A", "a": "b1qx_a09.mp3", "q": "___ <b>fruits</b>&nbsp;?", "opts": ["quelle", "quels", "quel", "quelles"], "correct": 1}, {"s": "A", "a": "b1qx_a10.mp3", "q": "___ <b>g&acirc;teaux</b>&nbsp;?", "opts": ["quelle", "quelles", "quels", "quel"], "correct": 2}, {"s": "A", "a": "b1qx_a11.mp3", "q": "___ <b>l&eacute;gumes</b>&nbsp;?", "opts": ["quelles", "quel", "quelle", "quels"], "correct": 3}, {"s": "A", "a": "b1qx_a12.mp3", "q": "___ <b>chocolats</b>&nbsp;?", "opts": ["quelles", "quelle", "quels", "quel"], "correct": 2}, {"s": "A", "a": "b1qx_a13.mp3", "q": "___ <b>couleurs</b>&nbsp;?", "opts": ["quelles", "quels", "quel", "quelle"], "correct": 0}, {"s": "A", "a": "b1qx_a14.mp3", "q": "___ <b>chaussures</b>&nbsp;?", "opts": ["quelle", "quelles", "quel", "quels"], "correct": 1}, {"s": "A", "a": "b1qx_a15.mp3", "q": "___ <b>fleurs</b>&nbsp;?", "opts": ["quelle", "quelles", "quels", "quel"], "correct": 1}, {"s": "A", "a": "b1qx_a16.mp3", "q": "___ <b>id&eacute;es</b>&nbsp;?", "opts": ["quel", "quelle", "quels", "quelles"], "correct": 3}, {"s": "B", "a": "b1qx_b01.mp3", "q": "Quel film&nbsp;? &rarr; ___", "opts": ["Lequel", "Lesquelles", "Laquelle", "Lesquels"], "correct": 0}, {"s": "B", "a": "b1qx_b02.mp3", "q": "Quel livre&nbsp;? &rarr; ___", "opts": ["Lesquelles", "Lequel", "Laquelle", "Lesquels"], "correct": 1}, {"s": "B", "a": "b1qx_b03.mp3", "q": "Quel sport&nbsp;? &rarr; ___", "opts": ["Lesquelles", "Lequel", "Lesquels", "Laquelle"], "correct": 1}, {"s": "B", "a": "b1qx_b04.mp3", "q": "Quel pays&nbsp;? &rarr; ___", "opts": ["Lesquelles", "Laquelle", "Lesquels", "Lequel"], "correct": 3}, {"s": "B", "a": "b1qx_b05.mp3", "q": "Quelle langue&nbsp;? &rarr; ___", "opts": ["Lequel", "Lesquels", "Laquelle", "Lesquelles"], "correct": 2}, {"s": "B", "a": "b1qx_b06.mp3", "q": "Quelle ville&nbsp;? &rarr; ___", "opts": ["Laquelle", "Lequel", "Lesquelles", "Lesquels"], "correct": 0}, {"s": "B", "a": "b1qx_b07.mp3", "q": "Quelle saison&nbsp;? &rarr; ___", "opts": ["Lesquelles", "Laquelle", "Lesquels", "Lequel"], "correct": 1}, {"s": "B", "a": "b1qx_b08.mp3", "q": "Quelle robe&nbsp;? &rarr; ___", "opts": ["Lesquels", "Lequel", "Lesquelles", "Laquelle"], "correct": 3}, {"s": "B", "a": "b1qx_b09.mp3", "q": "Quels fruits&nbsp;? &rarr; ___", "opts": ["Lesquels", "Lequel", "Laquelle", "Lesquelles"], "correct": 0}, {"s": "B", "a": "b1qx_b10.mp3", "q": "Quels g&acirc;teaux&nbsp;? &rarr; ___", "opts": ["Lesquelles", "Laquelle", "Lesquels", "Lequel"], "correct": 2}, {"s": "B", "a": "b1qx_b11.mp3", "q": "Quels l&eacute;gumes&nbsp;? &rarr; ___", "opts": ["Lequel", "Laquelle", "Lesquelles", "Lesquels"], "correct": 3}, {"s": "B", "a": "b1qx_b12.mp3", "q": "Quels chocolats&nbsp;? &rarr; ___", "opts": ["Lequel", "Laquelle", "Lesquels", "Lesquelles"], "correct": 2}, {"s": "B", "a": "b1qx_b13.mp3", "q": "Quelles couleurs&nbsp;? &rarr; ___", "opts": ["Lesquels", "Laquelle", "Lesquelles", "Lequel"], "correct": 2}, {"s": "B", "a": "b1qx_b14.mp3", "q": "Quelles chaussures&nbsp;? &rarr; ___", "opts": ["Laquelle", "Lequel", "Lesquels", "Lesquelles"], "correct": 3}, {"s": "B", "a": "b1qx_b15.mp3", "q": "Quelles fleurs&nbsp;? &rarr; ___", "opts": ["Lesquelles", "Laquelle", "Lesquels", "Lequel"], "correct": 0}, {"s": "B", "a": "b1qx_b16.mp3", "q": "Quelles id&eacute;es&nbsp;? &rarr; ___", "opts": ["Lequel", "Lesquels", "Laquelle", "Lesquelles"], "correct": 3}, {"s": "C", "a": "b1qx_c01.mp3", "q": "&laquo;&nbsp;Tu viens.&nbsp;&raquo; &rarr; avec est-ce que&nbsp;:", "opts": ["Est-ce tu viens&nbsp;?", "Tu viens&nbsp;?", "Est-ce que tu viens&nbsp;?", "Viens-tu&nbsp;?"], "correct": 2}, {"s": "C", "a": "b1qx_c02.mp3", "q": "&laquo;&nbsp;Vous partez.&nbsp;&raquo; &rarr; avec est-ce que&nbsp;:", "opts": ["Partez-vous&nbsp;?", "Est-ce vous partez&nbsp;?", "Est-ce que vous partez&nbsp;?", "Vous partez&nbsp;?"], "correct": 2}, {"s": "C", "a": "b1qx_c03.mp3", "q": "&laquo;&nbsp;Elle travaille.&nbsp;&raquo; &rarr; avec est-ce que&nbsp;:", "opts": ["Travaille-t-elle&nbsp;?", "Elle travaille&nbsp;?", "Est-ce qu&rsquo;elle travaille&nbsp;?", "Est-ce elle travaille&nbsp;?"], "correct": 2}, {"s": "C", "a": "b1qx_c04.mp3", "q": "&laquo;&nbsp;Ils arrivent.&nbsp;&raquo; &rarr; avec est-ce que&nbsp;:", "opts": ["Arrivent-ils&nbsp;?", "Est-ce ils arrivent&nbsp;?", "Est-ce qu&rsquo;ils arrivent&nbsp;?", "Ils arrivent&nbsp;?"], "correct": 2}, {"s": "C", "a": "b1qx_c05.mp3", "q": "&laquo;&nbsp;Il mange.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["Mange-t-il&nbsp;?", "Il mange&nbsp;?", "Mange il&nbsp;?", "Est-ce qu&rsquo;il mange&nbsp;?"], "correct": 0}, {"s": "C", "a": "b1qx_c06.mp3", "q": "&laquo;&nbsp;Elle chante.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["Elle chante&nbsp;?", "Chante elle&nbsp;?", "Chantes-t-elle&nbsp;?", "Chante-t-elle&nbsp;?"], "correct": 3}, {"s": "C", "a": "b1qx_c07.mp3", "q": "&laquo;&nbsp;Tu comprends.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["Comprends-tu&nbsp;?", "Comprend-tu&nbsp;?", "Tu comprends&nbsp;?", "Comprends-t-tu&nbsp;?"], "correct": 0}, {"s": "C", "a": "b1qx_c08.mp3", "q": "&laquo;&nbsp;Vous savez.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["Savez-vous&nbsp;?", "Vous savez&nbsp;?", "Sait-vous&nbsp;?", "Savez vous&nbsp;?"], "correct": 0}, {"s": "C", "a": "b1qx_c09.mp3", "q": "O&ugrave; faut-il un &laquo;&nbsp;-t-&nbsp;&raquo;&nbsp;?", "opts": ["Parle-t-il&nbsp;?", "Parlet-il&nbsp;?", "Parle-il&nbsp;?", "Parle t-il&nbsp;?"], "correct": 0}, {"s": "C", "a": "b1qx_c10.mp3", "q": "O&ugrave; faut-il un &laquo;&nbsp;-t-&nbsp;&raquo;&nbsp;?", "opts": ["A t-elle&nbsp;?", "At-elle&nbsp;?", "A-t-elle&nbsp;?", "A-elle&nbsp;?"], "correct": 2}, {"s": "C", "a": "b1qx_c11.mp3", "q": "Compl&egrave;te&nbsp;: Comment ___ elle&nbsp;? <span class='gram'>(aller)</span>", "opts": ["va-t", "vas-t-", "va-t-", "va-"], "correct": 2}, {"s": "C", "a": "b1qx_c12.mp3", "q": "Compl&egrave;te&nbsp;: Que ___ il&nbsp;? <span class='gram'>(manger)</span>", "opts": ["manges-t-", "manget-", "mange-t-", "mange-"], "correct": 2}, {"s": "C", "a": "b1qx_c13.mp3", "q": "Quelle forme est correcte&nbsp;?", "opts": ["Va-t-il&nbsp;?", "Vat-il&nbsp;?", "Va t-il&nbsp;?", "Va-il&nbsp;?"], "correct": 0}, {"s": "C", "a": "b1qx_c14.mp3", "q": "Quelle forme est correcte&nbsp;?", "opts": ["Aimes-t-elle&nbsp;?", "Aime-elle&nbsp;?", "Aimet-elle&nbsp;?", "Aime-t-elle&nbsp;?"], "correct": 3}, {"s": "C", "a": "b1qx_c15.mp3", "q": "&laquo;&nbsp;Il y a un probl&egrave;me.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["Y a-t-il un probl&egrave;me&nbsp;?", "Y a-il un probl&egrave;me&nbsp;?", "A-t-il y un probl&egrave;me&nbsp;?", "Il y a un probl&egrave;me&nbsp;?"], "correct": 0}, {"s": "C", "a": "b1qx_c16.mp3", "q": "&laquo;&nbsp;On part.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["Parte-on&nbsp;?", "Part-on&nbsp;?", "On part&nbsp;?", "Part on&nbsp;?"], "correct": 1}, {"s": "D", "a": "b1qx_d01.mp3", "q": "Quel jour sortent-ils&nbsp;?", "opts": ["Samedi", "Dimanche", "Vendredi", "Lundi"], "correct": 0}, {"s": "D", "a": "b1qx_d02.mp3", "q": "O&ugrave; vont-ils d&rsquo;abord&nbsp;?", "opts": ["Au cin&eacute;ma", "Au th&eacute;&acirc;tre", "Au restaurant", "Au parc"], "correct": 0}, {"s": "D", "a": "b1qx_d03.mp3", "q": "Quel type de film&nbsp;?", "opts": ["Documentaire", "Horreur", "Com&eacute;die", "Science-fiction"], "correct": 3}, {"s": "D", "a": "b1qx_d04.mp3", "q": "&Agrave; quelle heure commence le film&nbsp;?", "opts": ["18h", "21h", "19h", "20h"], "correct": 3}, {"s": "D", "a": "b1qx_d05.mp3", "q": "O&ugrave; est le cin&eacute;ma&nbsp;?", "opts": ["Place du March&eacute;", "Rue Victor Hugo", "Avenue Jaur&egrave;s", "Rue de Paris"], "correct": 1}, {"s": "D", "a": "b1qx_d06.mp3", "q": "Comment y vont-ils&nbsp;?", "opts": ["&Agrave; pied", "En voiture", "En m&eacute;tro", "En bus"], "correct": 3}, {"s": "D", "a": "b1qx_d07.mp3", "q": "Quel bus prennent-ils&nbsp;?", "opts": ["Le 2", "Le 20", "Le 21", "Le 12"], "correct": 3}, {"s": "D", "a": "b1qx_d08.mp3", "q": "Combien co&ucirc;te le billet&nbsp;?", "opts": ["12 euros", "19 euros", "7 euros", "9 euros"], "correct": 3}, {"s": "D", "a": "b1qx_d09.mp3", "q": "O&ugrave; mangent-ils apr&egrave;s&nbsp;?", "opts": ["&Agrave; la maison", "Au restaurant chinois", "Au fast-food", "Au restaurant italien"], "correct": 3}, {"s": "D", "a": "b1qx_d10.mp3", "q": "Pourquoi ce restaurant&nbsp;?", "opts": ["Les pizzas sont excellentes", "Il y a de la place", "C&rsquo;est plus pr&egrave;s", "C&rsquo;est moins cher"], "correct": 0}, {"s": "D", "a": "b1qx_d11.mp3", "q": "Qui invite l&rsquo;autre&nbsp;?", "opts": ["La 1re personne", "La 2e personne", "Les deux", "Personne"], "correct": 0}, {"s": "D", "a": "b1qx_d12.mp3", "q": "Pourquoi invite-t-elle/il&nbsp;?", "opts": ["Elle a gagn&eacute; de l&rsquo;argent", "C&rsquo;est No&euml;l", "C&rsquo;est son anniversaire", "Elle est riche"], "correct": 2}], MANNERS=[["qui", "who", "b1qx_v_qui.mp3"], ["que / qu&rsquo;est-ce que", "what", "b1qx_v_que.mp3"], ["o&ugrave;", "where", "b1qx_v_ou.mp3"], ["quand", "when", "b1qx_v_quand.mp3"], ["comment", "how", "b1qx_v_comment.mp3"], ["pourquoi", "why", "b1qx_v_pourquoi.mp3"], ["combien", "how many / much", "b1qx_v_combien.mp3"], ["quel &middot; lequel", "which", "b1qx_v_quel.mp3"]], DVOCAB=[["libre", "free / available", "b1qx_dv_libre.mp3"], ["proposer", "to suggest", "b1qx_dv_proposer.mp3"], ["le cin&eacute;ma", "the cinema", "b1qx_dv_cinema.mp3"], ["commencer", "to begin", "b1qx_dv_commencer.mp3"], ["la gare", "the station", "b1qx_dv_gare.mp3"], ["le bus", "the bus", "b1qx_dv_bus.mp3"], ["le billet", "the ticket", "b1qx_dv_billet.mp3"], ["le restaurant", "the restaurant", "b1qx_dv_restaurant.mp3"], ["l&rsquo;anniversaire", "the birthday", "b1qx_dv_anniversaire.mp3"]], SEC={"A": "L&rsquo;adjectif interrogatif (quel)", "B": "Le pronom interrogatif (lequel)", "C": "Poser la question", "D": "Compr&eacute;hension du dialogue"}, TOTAL=60, score=0, answered=0;
 function bump(ok){ if(ok) score++; answered++; document.getElementById('scorebar').textContent='Score : '+score+' / '+TOTAL; if(answered>=TOTAL) finish(); }
-var vh=document.getElementById('vocab');
-VOCAB.forEach(function(v){ var r=document.createElement('div'); r.className='vrow';
+function strip(host,arr){ arr.forEach(function(v){ var r=document.createElement('div'); r.className='vrow';
   var b=document.createElement('button'); b.className='vaud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(v[2],b); };
   var fr=document.createElement('span'); fr.className='fr'; fr.innerHTML=v[0]; var en=document.createElement('span'); en.className='en'; en.innerHTML=v[1];
-  r.appendChild(b); r.appendChild(fr); r.appendChild(en); vh.appendChild(r); });
-['A','B','C','D'].forEach(function(sec){
-  document.getElementById('lbl'+sec).innerHTML=SEC[sec];
-  var host=document.getElementById('sec'+sec);
-  Q.filter(function(it){return it.s===sec;}).forEach(function(it){
-    var card=document.createElement('div'); card.className='q';
-    var p=document.createElement('div'); p.className='q-prompt';
-    var b=document.createElement('button'); b.className='aud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(it.a,b); };
+  r.appendChild(b); r.appendChild(fr); r.appendChild(en); host.appendChild(r); }); }
+strip(document.getElementById('manners'),MANNERS); strip(document.getElementById('dvocab'),DVOCAB);
+['A','B','C','D'].forEach(function(s){ document.getElementById('lbl'+s).innerHTML=SEC[s]; var host=document.getElementById('sec'+s);
+  Q.filter(function(it){return it.s===s;}).forEach(function(it){ var card=document.createElement('div'); card.className='q';
+    var p=document.createElement('div'); p.className='q-prompt'; var b=document.createElement('button'); b.className='aud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(it.a,b); };
     var span=document.createElement('span'); span.innerHTML=it.q; p.appendChild(b); p.appendChild(span); card.appendChild(p);
     var wrap=document.createElement('div'); wrap.className='opts';
     it.opts.forEach(function(opt,oi){ var btn=document.createElement('button'); btn.className='opt'; btn.innerHTML=opt;
-      btn.onclick=function(){ if(card.dataset.done)return; card.dataset.done='1';
-        var ok=(oi===it.correct); btn.classList.add(ok?'good':'bad'); if(!ok) wrap.children[it.correct].classList.add('good');
-        Array.prototype.forEach.call(wrap.children,function(c){c.disabled=true;}); bump(ok); };
+      btn.onclick=function(){ if(card.dataset.done)return; card.dataset.done='1'; var ok=(oi===it.correct); btn.classList.add(ok?'good':'bad'); if(!ok) wrap.children[it.correct].classList.add('good'); Array.prototype.forEach.call(wrap.children,function(c){c.disabled=true;}); bump(ok); };
       wrap.appendChild(btn); });
-    card.appendChild(wrap); host.appendChild(card);
-  });
-});
-function finish(){ var f=document.getElementById('final'); f.style.display='block';
-  document.getElementById('finalNum').textContent=score+' / '+TOTAL; var pct=score/TOTAL;
+    card.appendChild(wrap); host.appendChild(card); }); });
+function finish(){ var f=document.getElementById('final'); f.style.display='block'; document.getElementById('finalNum').textContent=score+' / '+TOTAL; var pct=score/TOTAL;
   document.getElementById('finalMsg').textContent= pct>=0.8?'Excellent ! Tu maîtrises les interrogatifs.':(pct>=0.5?'Bien joué ! Revois et recommence.':'Réécoute la leçon, puis réessaie.');
   try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson(LESSON,{score:score,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
   f.scrollIntoView({behavior:'smooth'}); }
 </script>
 <script type="module" src="../../../js/auth-guard.js"></script>
-</body>
-</html>
+</body></html>
