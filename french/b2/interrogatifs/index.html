@@ -33,6 +33,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .tr-btn{display:block;width:100%;margin-top:12px;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:46px;}
 .tr-box{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--divider);font-size:15px;line-height:1.8;}
 .tr-box.open{display:block;}.tr-box .l{margin:2px 0;}
+.tri{display:block;font-size:12.5px;line-height:1.35;color:var(--slate);font-style:italic;text-align:right;margin-top:4px;}
 .q{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:15px 16px;margin-bottom:12px;}
 .q-prompt{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
 .gram{font-size:12px;color:var(--slate);font-weight:normal;}
@@ -69,23 +70,23 @@ textarea.pta:focus{border-color:var(--b2);outline:none;}
   <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons B2</a>
   <div class="lvl-tag">B2</div>
   <div class="h-title">Exercices &middot; Adjectifs &amp; pronoms interrogatifs</div>
-  <div class="consigne"><button class="aud" onclick="playClip('b2qx_consigne.mp3',this)">&#128266;</button><span>Vocabulaire, &eacute;coute (transcription disponible), exercices, puis r&eacute;dige tes questions et soumets-les.</span></div>
+  <div class="consigne"><button class="aud" onclick="playClip('b2qx_consigne.mp3',this)">&#128266;</button><span>Vocabulaire, &eacute;coute (transcription disponible), exercices, puis r&eacute;dige tes questions et soumets-les.<span class="tri">Vocabulary, listening (transcript available), exercises, then write your questions and submit them.</span></span></div>
   <div class="revoir"><span>&#128214; Avant de commencer, revois la le&ccedil;on&nbsp;:</span> <a href="../../b1/interrogatifs/index.html">Les adjectifs et pronoms interrogatifs &#8594;</a></div>
   <div class="scorebar" id="scorebar">Score : 0 / 12</div>
   <div class="sec-label">&#128218; Vocabulaire &agrave; d&eacute;couvrir</div><div id="vocab"></div>
   <div class="sec-label">&#127911; &Eacute;coute le dialogue</div>
   <div class="ecoute">
-    <div class="ecoute-instr"><button class="aud" onclick="playClip('b2qx_ecoute_instr.mp3',this)">&#128266;</button><span>&Eacute;coute deux fois. La premi&egrave;re fois pour la compr&eacute;hension, la deuxi&egrave;me fois tu peux prendre des notes. Identifie les blocs d&rsquo;information (verbes, noms, liaisons, dates, nombres&hellip;). Tu peux arr&ecirc;ter l&rsquo;&eacute;coute et la reprendre &agrave; ton rythme.</span></div>
+    <div class="ecoute-instr"><button class="aud" onclick="playClip('b2qx_ecoute_instr.mp3',this)">&#128266;</button><span>&Eacute;coute deux fois. La premi&egrave;re fois pour la compr&eacute;hension, la deuxi&egrave;me fois tu peux prendre des notes. Identifie les blocs d&rsquo;information (verbes, noms, liaisons, dates, nombres&hellip;). Tu peux arr&ecirc;ter l&rsquo;&eacute;coute et la reprendre &agrave; ton rythme.<span class="tri">Listen twice: first for understanding, then you can take notes. Identify the blocks of information (verbs, nouns, liaisons, dates, numbers…). You can pause and resume at your own pace.</span></span></div>
     <button class="play-big" onclick="playClip('b2qx_dialogue.mp3',this)">&#128266; &Eacute;couter le dialogue</button>
     <button class="tr-btn" onclick="var t=document.getElementById('tr'),o=t.classList.toggle('open');this.innerHTML=o?'&#128196; Masquer la transcription':'&#128196; Afficher la transcription';">&#128196; Afficher la transcription</button>
     <div class="tr-box" id="tr">
-      <div class="l">&mdash; Bonjour&nbsp;! Qu&rsquo;est-ce qui t&rsquo;am&egrave;ne ici&nbsp;?</div>
-      <div class="l">&mdash; Je cherche un livre. Lequel&nbsp;?</div>
-      <div class="l">&mdash; Un roman de Camus. Auquel penses-tu&nbsp;?</div>
-      <div class="l">&mdash; &Agrave; &laquo;&nbsp;L&rsquo;&Eacute;tranger&nbsp;&raquo;. As-tu d&eacute;j&agrave; lu Camus&nbsp;?</div>
-      <div class="l">&mdash; Oui. Duquel de ses livres parles-tu le plus souvent&nbsp;?</div>
-      <div class="l">&mdash; De &laquo;&nbsp;La Peste&nbsp;&raquo;. Comment le trouves-tu&nbsp;?</div>
-      <div class="l">&mdash; Passionnant.</div>
+      <div class="l">&mdash; Bonjour&nbsp;! Qu&rsquo;est-ce qui t&rsquo;am&egrave;ne ici&nbsp;?<span class="tri">Hello! What brings you here?</span></div>
+      <div class="l">&mdash; Je cherche un livre. Lequel&nbsp;?<span class="tri">I'm looking for a book. Which one?</span></div>
+      <div class="l">&mdash; Un roman de Camus. Auquel penses-tu&nbsp;?<span class="tri">A novel by Camus. Which one are you thinking of?</span></div>
+      <div class="l">&mdash; &Agrave; &laquo;&nbsp;L&rsquo;&Eacute;tranger&nbsp;&raquo;. As-tu d&eacute;j&agrave; lu Camus&nbsp;?<span class="tri">&laquo;&nbsp;The Stranger&nbsp;&raquo;. Have you read Camus before?</span></div>
+      <div class="l">&mdash; Oui. Duquel de ses livres parles-tu le plus souvent&nbsp;?<span class="tri">Yes. Which of his books do you talk about most often?</span></div>
+      <div class="l">&mdash; De &laquo;&nbsp;La Peste&nbsp;&raquo;. Comment le trouves-tu&nbsp;?<span class="tri">&laquo;&nbsp;The Plague&nbsp;&raquo;. What do you think of it?</span></div>
+      <div class="l">&mdash; Passionnant.<span class="tri">Fascinating.</span></div>
     </div>
   </div>
   <div class="sec-label" id="lblA"></div><div id="secA"></div>
