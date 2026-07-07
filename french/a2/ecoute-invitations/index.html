@@ -1543,6 +1543,8 @@ body{padding-bottom:calc(64px + 20px);}
 .bottom-nav .nav-icon{font-size:22px;line-height:1;}.bottom-nav .nav-label{font-size:11px;font-weight:bold;}
 </style>
 <div class="lem-finish-wrap">
+  <button class="lem-finish" id="submitWrites" style="background:var(--navy);margin-bottom:10px;">&#128228; Soumettre &agrave; mon professeur / Submit to my teacher</button>
+  <div class="lem-done" id="submitDone" style="margin-top:0;margin-bottom:12px;"></div>
   <button class="lem-finish" id="lemFinish">&#9989; Terminer et enregistrer mon score</button>
   <div class="lem-done" id="lemDone"></div>
 </div>
@@ -1567,6 +1569,23 @@ body{padding-bottom:calc(64px + 20px);}
     done.innerHTML='&#127881; Score enregistr\u00e9 : '+sc+' / '+TOTAL+'<br><span style="font-weight:normal;font-size:14px;">Vocabulaire + compr\u00e9hension. Tu peux continuer ou revenir plus tard.</span>';
     try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson('a2_ecoute_invitations',{score:sc,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
     done.scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+<script>
+(function(){
+  var labels=['Réponse à Annie','Réponse à Hélène','Réponse à Gaston','Réponse à Carole','Réponse à l’inconnue','Réponse à Stéphane'];
+  var btn=document.getElementById('submitWrites'), done=document.getElementById('submitDone');
+  if(!btn) return;
+  btn.addEventListener('click',async function(){
+    var writings={},any=false;
+    for(var i=0;i<6;i++){ var ta=document.getElementById('pta-'+i); if(ta && ta.value.trim()){ writings[labels[i]]=ta.value.trim(); any=true; } }
+    if(!any){ done.style.display='block'; done.style.background='#FDF3D8'; done.style.color='#1A2733'; done.textContent='Écris au moins une réponse avant de soumettre.'; return; }
+    btn.disabled=true; var old=btn.innerHTML; btn.innerHTML='Envoi…';
+    var ok=true; try{ if(window.LEM&&window.LEM.submitWriting){ ok=await window.LEM.submitWriting('a2_ecoute_invitations','A2 · Écoute — Invitations', writings); } }catch(ex){ ok=false; }
+    done.style.display='block';
+    if(ok!==false){ done.innerHTML='✅ Envoyé à ton professeur ! Tes réponses sont enregistrées.'; btn.innerHTML='Soumis ✓'; }
+    else { done.style.background='#FDF3D8'; done.style.color='#1A2733'; done.textContent='Une erreur est survenue. Réessaie.'; btn.disabled=false; btn.innerHTML=old; }
   });
 })();
 </script>
