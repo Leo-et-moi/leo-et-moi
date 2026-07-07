@@ -24,7 +24,7 @@ const EMAILJS = {
   publicKey:  "bRyOHboCG1OXVozPP",
   serviceId:  "service_ot0oisr",
   templateId: "template_rnevb2c",
-  templateWriting: ""
+  templateWriting: "template_d8u57nr"
 };
 const LESSON_NAMES = {
   'etre':  'A1 · Le verbe Être',
