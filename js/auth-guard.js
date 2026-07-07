@@ -23,7 +23,8 @@ const LOGIN = ROOT + 'login.html';
 const EMAILJS = {
   publicKey:  "bRyOHboCG1OXVozPP",
   serviceId:  "service_ot0oisr",
-  templateId: "template_rnevb2c"
+  templateId: "template_rnevb2c",
+  templateWriting: ""
 };
 const LESSON_NAMES = {
   'etre':  'A1 · Le verbe Être',
@@ -79,6 +80,21 @@ const LEM = {
       const date = new Date().toLocaleString('fr-FR');
       await ejs.send(EMAILJS.serviceId, EMAILJS.templateId, { student: name, exercise: exercise, score: score, date: date });
     } catch (e) { /* notification must never block the student */ }
+  },
+  async submitWriting(lessonId, lessonName, writings){
+    try { await setDoc(this._lessonRef(lessonId), { writings: writings, writingsAt: Date.now() }, { merge: true }); } catch (e) { return false; }
+    try {
+      if (EMAILJS.templateWriting) {
+        const u = await this.getUser();
+        const ejs = await loadEmailJS();
+        if (ejs) {
+          const name = u.displayName || (this.user && this.user.email) || 'Un \u00e9l\u00e8ve';
+          const body = Object.keys(writings).map(function(k){ return '\u2014 ' + k + ' \u2014\n' + writings[k]; }).join('\n\n');
+          await ejs.send(EMAILJS.serviceId, EMAILJS.templateWriting, { student: name, lesson: lessonName, text: body, date: new Date().toLocaleString('fr-FR') });
+        }
+      }
+    } catch (e) {}
+    return true;
   },
   async getVocab(){ const s = await getDoc(this._userRef()); return (s.exists() && s.data().vocab) || []; },
   async addVocab(word){

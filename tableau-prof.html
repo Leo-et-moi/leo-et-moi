@@ -40,6 +40,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
 .nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
 @media(min-width:600px){.main{padding:24px 20px 8px;}}
+.wblock{background:var(--cream);border-radius:8px;padding:8px 10px;margin:6px 0 0;}
+.wtitle{font-size:12px;font-weight:bold;color:var(--navyMid);margin-bottom:3px;}
+.wtext{font-size:13px;color:var(--text);white-space:pre-wrap;}
 </style>
 </head>
 <body>
@@ -128,6 +131,9 @@ function render(content, students){
         var dt=l.lastPracticed?(' · '+fdate(l.lastPracticed)):'';
         html+='<div class="lesson-row"><span class="lesson-name">'+esc(nm)+'</span>'+
               '<span class="lesson-meta">'+sc+' · '+st+dt+'</span></div>';
+        if(l.writings){ Object.keys(l.writings).forEach(function(k){
+          html+='<div class="wblock"><div class="wtitle">✍️ '+esc(k)+'</div><div class="wtext">'+esc(l.writings[k])+'</div></div>';
+        }); }
       });
     }
     html+='</div>';

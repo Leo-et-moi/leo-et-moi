@@ -94,6 +94,9 @@ textarea.pta:focus{border-color:var(--b1);outline:none;}
 .invit.anniv .conf{display:flex;gap:8px;justify-content:center;padding:14px 0 12px;flex-wrap:wrap;}
 .invit.anniv .conf span{width:13px;height:13px;border-radius:50%;}
 .invit.anniv .names{color:var(--navyMid);}
+.lem-submit{display:block;width:100%;background:var(--coral);color:#fff;border:none;border-radius:12px;padding:15px;font-size:16px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:52px;margin-bottom:8px;}
+.lem-submit:disabled{opacity:.6;}
+.lem-submit-done{display:none;background:var(--ltgreen);border-radius:12px;padding:14px;text-align:center;color:var(--green);font-weight:bold;margin-bottom:8px;}
 </style>
 </head>
 <body>
@@ -128,6 +131,8 @@ textarea.pta:focus{border-color:var(--b1);outline:none;}
 
   <div class="sec-label">&#9997;&#65039; &Agrave; toi d&rsquo;&eacute;crire &mdash; 3 faire-part</div>
   <div id="writes"></div>
+  <button class="lem-submit" id="submitWrites">&#128228; Soumettre mes faire-part &agrave; mon professeur</button>
+  <div class="lem-submit-done" id="submitDone"></div>
 
   <div class="final" id="final">
     <div class="final-num" id="finalNum">0 / 12</div>
@@ -272,6 +277,22 @@ function finish(){
   document.getElementById('finalMsg').innerHTML=(pct>=0.8?'Excellent ! Tu ma\u00eetrises les faire-part.':(pct>=0.5?'Bien jou\u00e9 !':'Relis les formules et recommence.'))+'<br><span style="font-size:14px;color:var(--slate)">N\u2019oublie pas d\u2019\u00e9crire tes trois faire-part ci-dessus.</span>';
   try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson(LESSON,{score:score,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
 }
+
+(function(){
+  var labels=['Faire-part de mariage','Faire-part de naissance','Faire-part 250 ans (USA)'];
+  var btn=document.getElementById('submitWrites'), done=document.getElementById('submitDone');
+  if(!btn) return;
+  btn.addEventListener('click',async function(){
+    var writings={},any=false;
+    for(var i=0;i<3;i++){ var ta=document.getElementById('pta-'+i); if(ta && ta.value.trim()){ writings[labels[i]]=ta.value.trim(); any=true; } }
+    if(!any){ done.style.display='block'; done.style.background='var(--ltgold)'; done.style.color='var(--dark)'; done.textContent='\u00c9cris au moins un faire-part avant de soumettre.'; return; }
+    btn.disabled=true; var old=btn.innerHTML; btn.innerHTML='Envoi\u2026';
+    var ok=true; try{ if(window.LEM&&window.LEM.submitWriting){ ok=await window.LEM.submitWriting('b1_lire_faire_part','B1 \u00b7 Lire un faire-part', writings); } }catch(e){ ok=false; }
+    done.style.display='block';
+    if(ok!==false){ done.innerHTML='&#9989; Envoy\u00e9 \u00e0 ton professeur ! Tes faire-part sont enregistr\u00e9s.'; btn.innerHTML='Soumis &#10003;'; }
+    else { done.style.background='var(--ltgold)'; done.style.color='var(--dark)'; done.textContent='Une erreur est survenue. R\u00e9essaie.'; btn.disabled=false; btn.innerHTML=old; }
+  });
+})();
 </script>
 <script type="module" src="../../../js/auth-guard.js"></script>
 </body>
