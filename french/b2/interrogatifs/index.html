@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>B2 : Exercices &mdash; interrogatifs &mdash; Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--text:#1A2733;--slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--card:#EDE8DF;--nav-h:64px;--b2:#7CB82F;--green:#1E7B45;--ltgreen:#E3F5EC;--red:#C0392B;--ltred:#FBE7E5;--ltgold:#FDF3D8;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--b2);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}.site-name span{color:var(--coral);}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;}
+.main{max-width:640px;margin:0 auto;padding:16px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--b2);color:#fff;font-size:13px;font-weight:bold;padding:2px 12px;border-radius:20px;margin-bottom:6px;}
+.h-title{font-size:20px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.consigne{display:flex;align-items:flex-start;gap:10px;background:var(--white);border-left:4px solid var(--b2);border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:8px;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.aud{flex-shrink:0;background:var(--b2);color:#fff;border:none;border-radius:50%;width:42px;height:42px;font-size:17px;cursor:pointer;}
+.aud.speaking{background:var(--dark);}
+.scorebar{position:sticky;top:60px;background:var(--cream);padding:8px 0;font-size:14px;font-weight:bold;color:var(--slate);z-index:50;}
+.sec-label{font-size:12px;font-weight:bold;color:var(--b2);text-transform:uppercase;letter-spacing:1px;margin:22px 0 10px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
+.vrow{display:flex;align-items:center;gap:10px;background:var(--white);border-radius:10px;padding:10px 12px;margin-bottom:8px;box-shadow:0 1px 5px rgba(0,0,0,0.05);}
+.vrow .fr{font-weight:bold;color:var(--dark);}.vrow .en{color:var(--slate);font-size:14px;margin-left:auto;}
+.vaud{flex-shrink:0;background:none;border:2px solid var(--divider);border-radius:50%;width:38px;height:38px;font-size:15px;color:var(--slate);cursor:pointer;}
+.vaud.speaking{background:var(--b2);color:#fff;border-color:var(--b2);}
+.ecoute{background:var(--white);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-left:6px solid var(--b2);padding:16px;margin-bottom:8px;}
+.play-big{display:inline-flex;align-items:center;gap:8px;background:var(--b2);color:#fff;border:none;border-radius:24px;padding:11px 20px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:46px;}
+.play-big.speaking{background:var(--dark);}
+.tr-btn{display:block;width:100%;margin-top:12px;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:46px;}
+.tr-box{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--divider);font-size:15px;line-height:1.8;}
+.tr-box.open{display:block;}.tr-box .l{margin:2px 0;}
+.q{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:15px 16px;margin-bottom:12px;}
+.q-prompt{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
+.gram{font-size:12px;color:var(--slate);font-weight:normal;}
+.opts{display:flex;flex-wrap:wrap;gap:8px;}
+.opt{flex:1 1 calc(50% - 8px);min-width:120px;background:var(--cream);border:2px solid var(--divider);border-radius:10px;padding:12px;font-size:15px;font-weight:bold;color:var(--text);font-family:Arial,sans-serif;cursor:pointer;min-height:48px;}
+.opt.good{background:var(--ltgreen);border-color:var(--green);color:var(--green);}
+.opt.bad{background:var(--ltred);border-color:var(--red);color:var(--red);}.opt:disabled{cursor:default;}
+.write-card{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:16px;margin-bottom:14px;}
+.write-title{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
+.bank{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;}
+.chip{font-family:Arial,sans-serif;font-size:14px;font-weight:bold;padding:6px 12px;border:2px solid var(--b2);border-radius:18px;background:var(--ltgold);color:#5f8a1f;cursor:pointer;min-height:38px;}
+.chip:hover{background:var(--b2);color:#fff;}
+textarea.pta{width:100%;min-height:120px;font-family:Arial,sans-serif;font-size:16px;line-height:1.7;padding:12px 14px;border:2px solid var(--divider);border-radius:10px;background:var(--cream);color:var(--dark);resize:vertical;}
+textarea.pta:focus{border-color:var(--b2);outline:none;}
+.check-btn{font-family:Arial,sans-serif;font-size:15px;font-weight:bold;background:var(--coral);color:#fff;border:none;border-radius:10px;padding:11px 20px;cursor:pointer;min-height:46px;margin-top:10px;}
+.sres{display:none;margin-top:12px;padding:12px 14px;border-radius:8px;font-size:15px;line-height:1.7;background:var(--cream);}
+.sres.show{display:block;}.spell-err{border-bottom:2px wavy var(--red);}.sr-item{display:block;margin-top:4px;}
+.lem-submit{display:block;width:100%;background:var(--coral);color:#fff;border:none;border-radius:12px;padding:15px;font-size:16px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:52px;margin-bottom:8px;}
+.lem-submit:disabled{opacity:.6;}.lem-submit-done{display:none;background:var(--ltgreen);border-radius:12px;padding:14px;text-align:center;color:var(--green);font-weight:bold;margin-bottom:8px;}
+.final{display:none;background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:24px;text-align:center;margin-top:16px;}
+.final-num{font-size:40px;font-weight:bold;color:var(--b2);}.final-msg{font-size:16px;color:var(--text);margin:8px 0 14px;}
+.retry-btn{background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--b2);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
+.nav-item.active{color:var(--coral);}.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+</style>
+</head>
+<body>
+<header class="top-bar"><a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<main class="main">
+  <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons B2</a>
+  <div class="lvl-tag">B2</div>
+  <div class="h-title">Exercices &middot; Adjectifs &amp; pronoms interrogatifs</div>
+  <div class="consigne"><button class="aud" onclick="playClip('b2qx_consigne.mp3',this)">&#128266;</button><span>Vocabulaire, &eacute;coute (transcription possible), exercices, puis r&eacute;dige tes questions et soumets-les.</span></div>
+  <div class="scorebar" id="scorebar">Score : 0 / 12</div>
+  <div class="sec-label">&#128218; Vocabulaire &agrave; d&eacute;couvrir</div><div id="vocab"></div>
+  <div class="sec-label">&#127911; &Eacute;coute le dialogue</div>
+  <div class="ecoute">
+    <button class="play-big" onclick="playClip('b2qx_dialogue.mp3',this)">&#128266; &Eacute;couter le dialogue</button>
+    <button class="tr-btn" onclick="var t=document.getElementById('tr'),o=t.classList.toggle('open');this.innerHTML=o?'&#128196; Masquer la transcription':'&#128196; Afficher la transcription';">&#128196; Afficher la transcription</button>
+    <div class="tr-box" id="tr">
+      <div class="l">&mdash; Bonjour&nbsp;! Qu&rsquo;est-ce qui t&rsquo;am&egrave;ne ici&nbsp;?</div>
+      <div class="l">&mdash; Je cherche un livre. Lequel&nbsp;?</div>
+      <div class="l">&mdash; Un roman de Camus. Auquel penses-tu&nbsp;?</div>
+      <div class="l">&mdash; &Agrave; &laquo;&nbsp;L&rsquo;&Eacute;tranger&nbsp;&raquo;. As-tu d&eacute;j&agrave; lu Camus&nbsp;?</div>
+      <div class="l">&mdash; Oui. Duquel de ses livres parles-tu le plus souvent&nbsp;?</div>
+      <div class="l">&mdash; De &laquo;&nbsp;La Peste&nbsp;&raquo;. Comment le trouves-tu&nbsp;?</div>
+      <div class="l">&mdash; Passionnant.</div>
+    </div>
+  </div>
+  <div class="sec-label" id="lblA"></div><div id="secA"></div>
+  <div class="sec-label" id="lblB"></div><div id="secB"></div>
+  <div class="sec-label" id="lblC"></div><div id="secC"></div>
+  <div class="sec-label" id="lblD"></div><div id="secD"></div>
+  <div class="sec-label">&#9997;&#65039; &Agrave; toi d&rsquo;&eacute;crire</div>
+  <div id="writes"></div>
+  <button class="lem-submit" id="submitWrites">&#128228; Soumettre &agrave; mon professeur / Submit to my teacher</button>
+  <div class="lem-submit-done" id="submitDone"></div>
+  <div class="final" id="final"><div class="final-num" id="finalNum">0 / 12</div><div class="final-msg" id="finalMsg"></div><button class="retry-btn" onclick="location.reload()">Recommencer</button></div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="../index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script>
+var LESSON='b2_interrogatifs';
+var _clip=null,_cb=null,_src=null;
+function playClip(file,btn){
+  if(_cb===btn && _clip && _src===file){
+    if(!_clip.paused){ _clip.pause(); if(_cb)_cb.classList.remove('speaking'); return; }
+    _clip.play().catch(function(){}); if(_cb)_cb.classList.add('speaking'); return;
+  }
+  try{ if(_clip) _clip.pause(); }catch(e){}
+  if(_cb) _cb.classList.remove('speaking');
+  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file;
+  if(_cb) _cb.classList.add('speaking');
+  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
+  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
+}
+var Q=[{"s": "A", "a": "b2qx_a1.mp3", "q": "Tu penses &agrave; un livre. ___ penses-tu&nbsp;?", "opts": ["auquel", "&agrave; laquelle", "auxquels", "auxquelles"], "correct": 0}, {"s": "A", "a": "b2qx_a2.mp3", "q": "Tu penses &agrave; une chanson. ___&nbsp;?", "opts": ["auquel", "&agrave; laquelle", "auxquels", "auxquelles"], "correct": 1}, {"s": "A", "a": "b2qx_a3.mp3", "q": "Tu penses &agrave; des livres. ___&nbsp;?", "opts": ["auquel", "&agrave; laquelle", "auxquels", "auxquelles"], "correct": 2}, {"s": "A", "a": "b2qx_a4.mp3", "q": "Tu penses &agrave; des chansons. ___&nbsp;?", "opts": ["auquel", "&agrave; laquelle", "auxquels", "auxquelles"], "correct": 3}, {"s": "B", "a": "b2qx_b1.mp3", "q": "___ se passe&nbsp;? <span class='gram'>(sujet)</span>", "opts": ["Qu&rsquo;est-ce qui", "Qu&rsquo;est-ce que"], "correct": 0}, {"s": "B", "a": "b2qx_b2.mp3", "q": "___ tu lis&nbsp;? <span class='gram'>(objet)</span>", "opts": ["Qu&rsquo;est-ce qui", "Qu&rsquo;est-ce que"], "correct": 1}, {"s": "B", "a": "b2qx_b3.mp3", "q": "___ t&rsquo;int&eacute;resse&nbsp;? <span class='gram'>(sujet)</span>", "opts": ["Qu&rsquo;est-ce qui", "Qu&rsquo;est-ce que"], "correct": 0}, {"s": "C", "a": "b2qx_c1.mp3", "q": "&laquo;&nbsp;Il a lu Camus.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["A-t-il lu Camus&nbsp;?", "Il a lu Camus&nbsp;?", "Est-ce qu&rsquo;il a lu&nbsp;?"], "correct": 0}, {"s": "C", "a": "b2qx_c2.mp3", "q": "&laquo;&nbsp;Elle arrive.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["Arrive-t-elle&nbsp;?", "Arrive elle&nbsp;?", "Elle arrive&nbsp;?"], "correct": 0}, {"s": "C", "a": "b2qx_c3.mp3", "q": "&laquo;&nbsp;Comment il va.&nbsp;&raquo; &rarr; inversion&nbsp;:", "opts": ["Comment va-t-il&nbsp;?", "Comment il va&nbsp;?", "Comment va il&nbsp;?"], "correct": 0}, {"s": "D", "a": "b2qx_d1.mp3", "q": "Quel auteur cherche-t-on&nbsp;?", "opts": ["Camus", "Sartre", "Zola"], "correct": 0}, {"s": "D", "a": "b2qx_d2.mp3", "q": "De quel livre parle-t-on le plus&nbsp;?", "opts": ["La Peste", "L&rsquo;&Eacute;tranger", "La Chute"], "correct": 0}], VOCAB=[["qu&rsquo;est-ce qui", "what (subject)", "b2qx_v_quici.mp3"], ["qu&rsquo;est-ce que", "what (object)", "b2qx_v_quque.mp3"], ["auquel / &agrave; laquelle", "to which", "b2qx_v_auquel.mp3"], ["duquel / de laquelle", "of / from which", "b2qx_v_duquel.mp3"], ["&agrave; quoi", "to what", "b2qx_v_aquoi.mp3"], ["lequel d&rsquo;entre vous", "which of you", "b2qx_v_entrevous.mp3"]], SEC={"A": "&agrave; + lequel (auquel&hellip;)", "B": "qu&rsquo;est-ce qui / qu&rsquo;est-ce que", "C": "Transformer par inversion", "D": "Compr&eacute;hension du dialogue"}, WRITE=[{"id": 0, "a": "b2qx_w1.mp3", "title": "1. &Eacute;cris <b>3 questions par inversion</b> (dont une avec le &laquo;&nbsp;-t-&nbsp;&raquo;)", "bank": ["As-tu&hellip;", "Comment&hellip;", "-t-il", "Pourquoi&hellip;", "O&ugrave;&hellip;"]}, {"id": 1, "a": "b2qx_w2.mp3", "title": "2. R&eacute;dige un <b>court dialogue</b> (4 &agrave; 6 r&eacute;pliques) avec <b>quel</b>, <b>lequel</b> et <b>est-ce que</b>", "bank": ["Quel&hellip;", "Lequel&hellip;", "Est-ce que&hellip;", "Qu&rsquo;est-ce qui&hellip;", "Auquel&hellip;"]}], TOTAL=12, score=0, answered=0;
+function bump(ok){ if(ok) score++; answered++; document.getElementById('scorebar').textContent='Score : '+score+' / '+TOTAL; if(answered>=TOTAL) finish(); }
+var vh=document.getElementById('vocab');
+VOCAB.forEach(function(v){ var r=document.createElement('div'); r.className='vrow';
+  var b=document.createElement('button'); b.className='vaud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(v[2],b); };
+  var fr=document.createElement('span'); fr.className='fr'; fr.innerHTML=v[0]; var en=document.createElement('span'); en.className='en'; en.innerHTML=v[1];
+  r.appendChild(b); r.appendChild(fr); r.appendChild(en); vh.appendChild(r); });
+['A','B','C','D'].forEach(function(sec){
+  document.getElementById('lbl'+sec).innerHTML=SEC[sec];
+  var host=document.getElementById('sec'+sec);
+  Q.filter(function(it){return it.s===sec;}).forEach(function(it){
+    var card=document.createElement('div'); card.className='q';
+    var p=document.createElement('div'); p.className='q-prompt';
+    var b=document.createElement('button'); b.className='aud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(it.a,b); };
+    var span=document.createElement('span'); span.innerHTML=it.q; p.appendChild(b); p.appendChild(span); card.appendChild(p);
+    var wrap=document.createElement('div'); wrap.className='opts';
+    it.opts.forEach(function(opt,oi){ var btn=document.createElement('button'); btn.className='opt'; btn.innerHTML=opt;
+      btn.onclick=function(){ if(card.dataset.done)return; card.dataset.done='1';
+        var ok=(oi===it.correct); btn.classList.add(ok?'good':'bad'); if(!ok) wrap.children[it.correct].classList.add('good');
+        Array.prototype.forEach.call(wrap.children,function(c){c.disabled=true;}); bump(ok); };
+      wrap.appendChild(btn); });
+    card.appendChild(wrap); host.appendChild(card);
+  });
+});
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+async function checkSpell(i){
+  var ta=document.getElementById('pta-'+i), box=document.getElementById('sres-'+i), btn=document.getElementById('sbtn-'+i);
+  var txt=ta.value.trim(); if(!txt){box.classList.remove('show');return;}
+  box.classList.add('show'); box.innerHTML='&#9203; Vérification…'; btn.disabled=true;
+  try{ var resp=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});
+    var data=await resp.json(); var m=(data.matches||[]).sort(function(a,b){return a.offset-b.offset;});
+    if(!m.length){ box.innerHTML='<strong style="color:var(--green)">&#10003; Aucune erreur détectée !</strong>'; }
+    else{ var th='',last=0; m.forEach(function(x){ th+=escHtml(txt.slice(last,x.offset)); th+='<span class="spell-err" title="'+escHtml((x.replacements||[]).slice(0,3).map(function(r){return r.value;}).join(', ')||x.message)+'">'+escHtml(txt.slice(x.offset,x.offset+x.length))+'</span>'; last=x.offset+x.length; }); th+=escHtml(txt.slice(last));
+      var tl='<div style="margin-top:8px;"><strong>'+m.length+' correction(s) :</strong>'; m.forEach(function(x){ var w=escHtml(txt.slice(x.offset,x.offset+x.length)); var sug=escHtml((x.replacements||[]).slice(0,3).map(function(r){return r.value;}).join(' / ')); tl+='<span class="sr-item">&#10060; <em>'+w+'</em>'+(sug?' &#8594; <strong>'+sug+'</strong>':'')+'</span>'; }); tl+='</div>'; box.innerHTML=th+tl; }
+  }catch(e){ box.innerHTML='&#9888;&#65039; Vérification non disponible (connexion internet requise).'; } finally{ btn.disabled=false; }
+}
+function insertChip(word,i){ var ta=document.getElementById('pta-'+i); ta.focus(); var s=ta.selectionStart,e=ta.selectionEnd,bef=ta.value.substring(0,s),aft=ta.value.substring(e); var sp=(bef.length>0&&!/\s$/.test(bef))?' ':''; var ins=sp+word; ta.value=bef+ins+aft; var pos=s+ins.length; ta.selectionStart=ta.selectionEnd=pos; }
+var wh=document.getElementById('writes');
+WRITE.forEach(function(w){ var c=document.createElement('div'); c.className='write-card';
+  var t=document.createElement('div'); t.className='write-title'; var b=document.createElement('button'); b.className='aud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(w.a,b); }; var ts=document.createElement('span'); ts.innerHTML=w.title; t.appendChild(b); t.appendChild(ts); c.appendChild(t);
+  var bank=document.createElement('div'); bank.className='bank'; w.bank.forEach(function(word){ var ch=document.createElement('button'); ch.className='chip'; ch.innerHTML=word; ch.onclick=function(){ insertChip(ch.textContent,w.id); }; bank.appendChild(ch); }); c.appendChild(bank);
+  var ta=document.createElement('textarea'); ta.className='pta'; ta.id='pta-'+w.id; ta.placeholder='Écris ici…'; c.appendChild(ta);
+  var btn=document.createElement('button'); btn.className='check-btn'; btn.id='sbtn-'+w.id; btn.innerHTML='&#128269; Vérifier l’orthographe'; btn.onclick=function(){ checkSpell(w.id); }; c.appendChild(btn);
+  var res=document.createElement('div'); res.className='sres'; res.id='sres-'+w.id; c.appendChild(res); wh.appendChild(c); });
+(function(){ var labels=['Questions par inversion','Dialogue avec quel/lequel/est-ce que'];
+  var btn=document.getElementById('submitWrites'), done=document.getElementById('submitDone'); if(!btn) return;
+  btn.addEventListener('click',async function(){ var writings={},any=false;
+    for(var i=0;i<2;i++){ var ta=document.getElementById('pta-'+i); if(ta && ta.value.trim()){ writings[labels[i]]=ta.value.trim(); any=true; } }
+    if(!any){ done.style.display='block'; done.style.background='var(--ltgold)'; done.style.color='var(--dark)'; done.textContent='Écris au moins un texte avant de soumettre.'; return; }
+    btn.disabled=true; var old=btn.innerHTML; btn.innerHTML='Envoi…';
+    var ok=true; try{ if(window.LEM&&window.LEM.submitWriting){ ok=await window.LEM.submitWriting('b2_interrogatifs','B2 · Les interrogatifs', writings); } }catch(ex){ ok=false; }
+    done.style.display='block';
+    if(ok!==false){ done.innerHTML='&#9989; Envoyé à ton professeur !'; btn.innerHTML='Soumis &#10003;'; }
+    else { done.style.background='var(--ltgold)'; done.style.color='var(--dark)'; done.textContent='Une erreur est survenue. Réessaie.'; btn.disabled=false; btn.innerHTML=old; } });
+})();
+function finish(){ var f=document.getElementById('final'); f.style.display='block';
+  document.getElementById('finalNum').textContent=score+' / '+TOTAL; var pct=score/TOTAL;
+  document.getElementById('finalMsg').innerHTML=(pct>=0.8?'Excellent !':(pct>=0.5?'Bien joué !':'Revois la leçon, puis réessaie.'))+'<br><span style="font-size:14px;color:var(--slate)">N’oublie pas de rédiger et soumettre tes questions.</span>';
+  try{ if(window.LEM&&window.LEM.setLesson) window.LEM.setLesson(LESSON,{score:score,total:TOTAL,completed:true,lastPracticed:Date.now()}); }catch(e){}
+  f.scrollIntoView({behavior:'smooth'}); }
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+</body>
+</html>
