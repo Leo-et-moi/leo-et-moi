@@ -30,6 +30,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .tr-btn{display:block;width:100%;margin-top:12px;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:12px;font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:46px;}
 .tr-box{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--divider);font-size:15px;line-height:1.8;}
 .tr-box.open{display:block;}.tr-box .l{margin:2px 0;}
+.revoir{background:#FDF3D8;border-radius:10px;padding:11px 14px;margin-bottom:10px;font-size:14px;font-weight:bold;color:var(--dark);}
+.revoir a{color:var(--navyMid);}
+.ecoute-instr{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);margin-bottom:12px;line-height:1.5;}
 .tri{display:block;font-size:12.5px;line-height:1.35;color:var(--slate);font-style:italic;text-align:right;margin-top:4px;}
 .q{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);padding:15px 16px;margin-bottom:12px;}
 .q-prompt{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;}
@@ -52,12 +55,14 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <div class="lvl-tag">B1</div>
   <div class="h-title">Exercices &middot; Adjectifs &amp; pronoms interrogatifs</div>
   <div class="consigne"><button class="aud" onclick="playClip('b1qx_consigne.mp3',this)">&#128266;</button><span>D&eacute;couvre le vocabulaire, &eacute;coute le dialogue, puis fais les exercices (tu peux afficher la transcription, mais seulement apr&egrave;s avoir termin&eacute; les exercices).<span class="tri">Discover the vocabulary, listen to the dialogue, then do the exercises (you can show the transcript, but only after finishing the exercises).</span></span></div>
+  <div class="revoir"><span>&#128214; Avant de commencer, revois la le&ccedil;on&nbsp;:</span> <a href="index.html">Les adjectifs et pronoms interrogatifs &#8594;</a></div>
   <div class="scorebar" id="scorebar">Score : 0 / 44</div>
   <div class="sec-label">&#128266; Prononciation &mdash; adjectifs &amp; pronoms</div><div id="pron"></div>
   <div class="sec-label">&#128483;&#65039; Diff&eacute;rentes mani&egrave;res de commencer une question</div><div id="manners"></div>
   <div class="sec-label">&#128218; Vocabulaire &agrave; d&eacute;couvrir</div><div id="dvocab"></div>
   <div class="sec-label">&#127911; &Eacute;coute le dialogue</div>
   <div class="ecoute">
+    <div class="ecoute-instr"><button class="aud" onclick="playClip('b1qx_ecoute_instr.mp3',this)">&#128266;</button><span>&Eacute;coute deux fois. La premi&egrave;re fois pour la compr&eacute;hension, la deuxi&egrave;me fois tu peux prendre des notes. Identifie les blocs d&rsquo;information (verbes, noms, liaisons, dates, nombres&hellip;). Tu peux arr&ecirc;ter l&rsquo;&eacute;coute et la reprendre &agrave; ton rythme.<span class="tri">Listen twice: first for understanding, then you can take notes. Identify the blocks of information (verbs, nouns, liaisons, dates, numbers…). You can pause and resume at your own pace.</span></span></div>
     <button class="play-big" onclick="playClip('b1qx_dialogue.mp3',this)">&#128266; &Eacute;couter le dialogue</button>
     <button class="tr-btn" onclick="var t=document.getElementById('tr'),o=t.classList.toggle('open');this.innerHTML=o?'&#128196; Masquer la transcription':'&#128196; Afficher la transcription';">&#128196; Afficher la transcription</button>
     <div class="tr-box" id="tr">
