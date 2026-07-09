@@ -170,11 +170,27 @@ async function checkSpell(i){
   }catch(e){ box.innerHTML='&#9888;&#65039; Vérification non disponible (connexion internet requise).'; } finally{ btn.disabled=false; }
 }
 function insertChip(word,i){ var ta=document.getElementById('pta-'+i); ta.focus(); var s=ta.selectionStart,e=ta.selectionEnd,bef=ta.value.substring(0,s),aft=ta.value.substring(e); var sp=(bef.length>0&&!/\s$/.test(bef))?' ':''; var ins=sp+word; ta.value=bef+ins+aft; var pos=s+ins.length; ta.selectionStart=ta.selectionEnd=pos; }
+function checkVocab(i){
+  var ta=document.getElementById('pta-'+i), box=document.getElementById('vres-'+i), w=WRITE[i];
+  if(!ta||!box||!w) return;
+  var txt=ta.value.toLowerCase();
+  if(!txt.trim()){ box.classList.remove('show'); return; }
+  var words=w.bank.map(function(bk){ var d=document.createElement('div'); d.innerHTML=bk; return d.textContent.replace(/[\u2026.\s]+$/,'').trim(); }).filter(function(x){return x;});
+  var found=words.filter(function(x){ return txt.indexOf(x.toLowerCase())>=0; });
+  var n=found.length, icon, msg;
+  if(n>=2){ icon='&#10003; Bravo !'; msg=''; }
+  else if(n===1){ icon='&#128578; Bonne progression !'; msg=' &mdash; Utilise encore 1 mot de la liste. / Use one more word from the list.'; }
+  else { icon='&#9888;&#65039; Pas encore.'; msg=' &mdash; Utilise au moins 2 mots de la liste ci-dessus. / Use at least 2 words from the list above.'; }
+  box.classList.add('show');
+  box.innerHTML='<strong>'+icon+'</strong>'+msg+'<br>Mots utilis&eacute;s / Words used: '+words.map(function(x){ return '<span style="'+(found.indexOf(x)>=0?'color:#1E7B45;font-weight:bold':'color:#4A6580;text-decoration:line-through')+'">'+x+'</span>'; }).join(', ');
+}
 var wh=document.getElementById('writes');
 WRITE.forEach(function(w){ var c=document.createElement('div'); c.className='write-card';
   var t=document.createElement('div'); t.className='write-title'; var b=document.createElement('button'); b.className='aud'; b.innerHTML='&#128266;'; b.onclick=function(){ playClip(w.a,b); }; var ts=document.createElement('span'); ts.innerHTML=w.title; t.appendChild(b); t.appendChild(ts); c.appendChild(t);
   var bank=document.createElement('div'); bank.className='bank'; w.bank.forEach(function(word){ var ch=document.createElement('button'); ch.className='chip'; ch.innerHTML=word; ch.onclick=function(){ insertChip(ch.textContent,w.id); }; bank.appendChild(ch); }); c.appendChild(bank);
   var ta=document.createElement('textarea'); ta.className='pta'; ta.id='pta-'+w.id; ta.placeholder='Écris ici…'; c.appendChild(ta);
+  var vbtn=document.createElement('button'); vbtn.className='check-btn'; vbtn.style.background='var(--green)'; vbtn.style.marginRight='8px'; vbtn.innerHTML='&#10003; Vocabulaire / Vocabulary'; vbtn.onclick=function(){ checkVocab(w.id); }; c.appendChild(vbtn);
+  var vres=document.createElement('div'); vres.className='sres'; vres.id='vres-'+w.id; c.appendChild(vres);
   var btn=document.createElement('button'); btn.className='check-btn'; btn.id='sbtn-'+w.id; btn.innerHTML='&#128269; Orthographe / Spelling'; btn.onclick=function(){ checkSpell(w.id); }; c.appendChild(btn);
   var res=document.createElement('div'); res.className='sres'; res.id='sres-'+w.id; c.appendChild(res); wh.appendChild(c); });
 (function(){ var labels=['Questions par inversion','Dialogue (quel/lequel/est-ce que)','Questions avec quel','Questions avec lequel','Questions avec est-ce que','Dialogue Pilates'];
