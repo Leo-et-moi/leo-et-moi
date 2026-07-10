@@ -665,18 +665,5 @@ function playAudio(src,btn){
   <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
 </nav>
 <script type="module" src="../../../js/auth-guard.js"></script>
-<script>
-// Teacher recording script: hidden for students, shown only when the signed-in user is a teacher.
-document.addEventListener('lem-auth-ready', function(){
-  if (window.LEM && window.LEM.getUser){
-    window.LEM.getUser().then(function(u){
-      if (u && u.role === 'teacher'){
-        var el = document.querySelector('.script-section');
-        if (el) el.style.display = 'block';
-      }
-    }).catch(function(){});
-  }
-});
-</script>
 </body>
 </html>

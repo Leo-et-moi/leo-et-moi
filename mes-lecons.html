@@ -101,16 +101,21 @@ function render(level,role){
     el.innerHTML=badge+'<div class="lvl-info"><div class="lvl-name">'+L.name+'</div>'+status+'<div class="lvl-status" data-counts="'+L.id+'"></div>'+'</div>'+arrow;
     wrap.appendChild(el);
   });
+  fillCounts();
 }
 var COUNTS={};
+function fillCounts(){
+  document.querySelectorAll('[data-counts]').forEach(function(el){
+    el.textContent=COUNTS[el.getAttribute('data-counts')]||'';
+  });
+}
 fetch('catalog.json').then(function(r){return r.json();}).then(function(c){
   ['A1','A2','B1','B2','C1','C2'].forEach(function(n){
     var L=c.lecons.filter(function(x){return x.niveau===n&&x.publie;}).length;
     var E=c.exercices.filter(function(x){return x.niveau===n&&x.publie;}).length;
     COUNTS[n.toLowerCase()]=L+' le\u00e7on'+(L>1?'s':'')+' \u00b7 '+E+' exercice'+(E>1?'s':'');
   });
-  var els=document.querySelectorAll('[data-counts]');
-  els.forEach(function(el){ el.textContent=COUNTS[el.getAttribute('data-counts')]||''; });
+  fillCounts();
 }).catch(function(){});
 
 function load(){

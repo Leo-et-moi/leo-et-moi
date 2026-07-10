@@ -321,36 +321,6 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <div class="warmup-result" id="wuResult"></div>
 </div>
 
-<!-- SPACED REPETITION REMINDER -->
-<div class="spaced-card" id="spacedCard">
-  <div class="spaced-icon">&#128336;</div>
-  <div class="spaced-text">
-    <div class="spaced-title" id="spacedTitle">R&eacute;vision conseill&eacute;e</div>
-    <div class="spaced-sub" id="spacedSub">Ta m&eacute;moire a besoin de toi&nbsp;!</div>
-  </div>
-  <a class="spaced-btn" id="spacedLink" href="#">Revoir &#8594;</a>
-</div>
-
-<!-- CONTINUE LEARNING -->
-<div class="sec-label">&#9654; Continuer</div>
-<div class="continue-card">
-  <div class="continue-label">Le&ccedil;on en cours</div>
-  <div class="continue-title">Le verbe AVOIR</div>
-  <div class="continue-sub">A1 &nbsp;&#183;&nbsp; Le&ccedil;on 02 &nbsp;&#183;&nbsp; ~30 min</div>
-  <div class="prog-wrap"><div class="prog-fill" style="width:40%"></div></div>
-  <div class="prog-text">Exercices : 10 / 24 r&eacute;ponses</div>
-  <a class="cta-btn" href="french/a1/02-avoir/exercices.html">Continuer les exercices &#8594;</a>
-  <div class="pomodoro-row" id="pomRow">
-    <button class="pom-btn" onclick="togglePomodoro()">&#9654; D&eacute;marrer la minuterie</button>
-    <div style="flex:1;">
-      <div class="pom-display" id="pomDisplay">25:00</div>
-      <div class="pom-label">Session de 25 min &middot; pause de 5 min</div>
-    </div>
-    <button class="pom-hide-btn" onclick="setPomVisible(false)" title="Masquer la minuterie">Masquer</button>
-  </div>
-  <button class="pom-show-btn" id="pomShowBtn" onclick="setPomVisible(true)" style="display:none;">&#9201;&#65039; Afficher la minuterie <span class="pom-opt">(optionnel)</span></button>
-</div>
-
 <!-- PHRASE / VOCABULAIRE / ANATOMIE — générés depuis data/programme/ -->
 <div id="semaineHosts">
 <div class="sec-label">&#127881; Phrase de la semaine</div>
@@ -590,6 +560,7 @@ const WARMUPS=[
 
 // ── SPACED REPETITION (Firestore via window.LEM) ────────────
 function lemSpaced(){
+  if(!document.getElementById('spacedCard')) return; // carte retirée (sera reconstruite en Phase 6)
   const lessons=[
     {key:'etre',label:'Le verbe Être',href:'french/a1/01-etre/exercices.html'},
     {key:'avoir',label:'Le verbe Avoir',href:'french/a1/02-avoir/exercices.html'}
@@ -679,54 +650,6 @@ function cefrBarTab(id,btn){
   detail.style.display='block';
 }
 
-// ── POMODORO ─────────────────────────────────────────────────
-let pomInterval=null,pomSecs=25*60,pomRunning=false;
-function togglePomodoro(){
-  const btn=document.querySelector('.pom-btn');
-  const disp=document.getElementById('pomDisplay');
-  if(pomRunning){
-    clearInterval(pomInterval);pomRunning=false;
-    btn.textContent='\u25b6 D\u00e9marrer la minuterie';
-  }else{
-    pomRunning=true;
-    btn.textContent='\u23f8 Pause';
-    pomInterval=setInterval(()=>{
-      pomSecs--;
-      const m=Math.floor(pomSecs/60),s=pomSecs%60;
-      disp.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
-      if(pomSecs<=0){
-        clearInterval(pomInterval);pomRunning=false;
-        disp.textContent='00:00';
-        btn.textContent='\u25b6 D\u00e9marrer la minuterie';
-        pomSecs=25*60;
-        playClip('pomodoro_fin.mp3');
-        alert('🎉 Bien joué ! Ta session de vingt-cinq minutes est terminée. Maintenant, prends une pause de cinq minutes.\n\nGood job! Your 25-minute session is over. Now take a 5-minute break.');
-      }
-    },1000);
-  }
-}
-
-// \u2500\u2500 POMODORO : MINUTERIE OPTIONNELLE \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
-function setPomVisible(v){
-  const row=document.getElementById('pomRow');
-  const showBtn=document.getElementById('pomShowBtn');
-  if(v){
-    row.style.display='flex';
-    showBtn.style.display='none';
-    localStorage.setItem('pomHidden','0');
-  }else{
-    // arr\u00eate la minuterie si elle tourne, puis remet \u00e0 z\u00e9ro
-    if(pomRunning){clearInterval(pomInterval);pomRunning=false;}
-    pomSecs=25*60;
-    document.getElementById('pomDisplay').textContent='25:00';
-    document.querySelector('.pom-btn').textContent='\u25b6 D\u00e9marrer la minuterie';
-    row.style.display='none';
-    showBtn.style.display='flex';
-    localStorage.setItem('pomHidden','1');
-  }
-}
-// applique le choix m\u00e9moris\u00e9 au chargement
-(function(){ if(localStorage.getItem('pomHidden')==='1') setPomVisible(false); })();
 </script>
 <script type="module" src="js/auth-guard.js"></script>
 </body>
