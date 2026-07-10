@@ -2,7 +2,7 @@
    La page déclare :  <body data-niveau="A1">
    Rend : en-tête (badge + compteurs), section « Leçons », section « Exercices »
    (numérotés, badges de compétences), état de progression via LEM (auth-guard). */
-import { lecons, exercices } from './catalog.js';
+import { lecons, exercices, tests } from './catalog.js';
 import { badges } from './ui.js';
 
 const NIVEAUX = {
@@ -52,6 +52,29 @@ async function render() {
   else ls.forEach((l, i) => wl.appendChild(carte(l, i + 1, 'lecon', meta.css)));
   if (!es.length) we.innerHTML = '<div class="empty-note">Exercices bientôt disponibles.</div>';
   else es.forEach((e, i) => we.appendChild(carte(e, i + 1, 'exercice', meta.css)));
+
+  // Tests / examens du niveau (Phase 7)
+  const ts = await tests(niveau);
+  if (ts.length) {
+    const host = document.getElementById('exercices').parentNode;
+    const titre = document.createElement('div');
+    titre.className = 'section-title';
+    titre.textContent = '📝 ' + ts.length + ' Test' + (ts.length > 1 ? 's' : '');
+    host.appendChild(titre);
+    ts.forEach((x, i) => {
+      const a = document.createElement('a');
+      a.className = 'lesson-card';
+      a.href = '/french/tests/test.html?id=' + x.id;
+      a.style.setProperty('--lvl', meta.css);
+      a.innerHTML =
+        `<div class="lesson-num">T${i + 1}</div>` +
+        `<div class="lesson-info"><div class="lesson-name">${x.titre}</div>` +
+        `<div class="lesson-sub">${x.nbQuestions} questions · ${x.duree ? x.duree + ' min' : 'sans limite de temps'}</div>` +
+        `<div class="lesson-status" data-progress="${x.id}">&hellip;</div></div>` +
+        `<span class="lesson-arrow">&#8594;</span>`;
+      host.appendChild(a);
+    });
+  }
 }
 
 /* Progression (scores Firestore) quand l'authentification est prête. */

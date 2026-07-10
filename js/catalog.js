@@ -37,10 +37,17 @@ export async function compteurs(niveau) {
   return { lecons: (await lecons(niveau)).length, exercices: (await exercices(niveau)).length };
 }
 
-/** Retrouve un item (leçon ou exercice) par ID. */
+/** Tests publiés d'un niveau, ordonnés. */
+export async function tests(niveau) {
+  const c = await loadCatalog();
+  return pub(c.tests || []).filter((t) => t.niveau === niveau).sort(byOrdre);
+}
+
+/** Retrouve un item (leçon, exercice ou test) par ID. */
 export async function item(id) {
   const c = await loadCatalog();
-  return c.lecons.find((l) => l.id === id) || c.exercices.find((e) => e.id === id) || null;
+  return c.lecons.find((l) => l.id === id) || c.exercices.find((e) => e.id === id)
+    || (c.tests || []).find((t) => t.id === id) || null;
 }
 
 /** Leçons liées à un exercice (bandeau « revois la leçon »). */

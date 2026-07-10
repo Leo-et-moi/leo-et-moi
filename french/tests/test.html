@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Test — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="/mes-lecons.html">&#8592; Mes le&ccedil;ons</a>
+  <h1 id="titre" style="font-size:24px;color:#1B2845;">&hellip;</h1>
+
+  <div id="accueilTest" class="card">
+    <p id="intro">Chargement&hellip;</p>
+    <p style="font-size:15px;color:#4A6580;">R&eacute;ponds &agrave; ton rythme. Une question &agrave; la fois, r&eacute;ponse expliqu&eacute;e imm&eacute;diatement.
+    <span class="en" style="text-align:left;">Answer at your own pace. One question at a time, instant feedback.</span></p>
+    <button id="start" class="btn-primary" style="display:none;border:none;">Commencer le test &#8594;</button>
+  </div>
+
+  <div id="zone" style="display:none;">
+    <div id="compte" style="display:none;font-size:20px;font-weight:bold;color:#E8503A;text-align:right;"></div>
+    <div id="avance" style="font-weight:bold;color:#4A6580;margin:8px 0;"></div>
+    <div class="progress"><span id="barre" style="width:0%"></span></div>
+    <div id="question"></div>
+  </div>
+
+  <div id="fin" style="display:none;"></div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="/index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item active" href="/mes-lecons.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="/reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="/index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+<script src="/js/audio.js"></script>
+<script type="module" src="/js/test.js"></script>
+<script type="module" src="/js/auth-guard.js"></script>
+</body>
+</html>

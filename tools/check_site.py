@@ -81,6 +81,22 @@ if catalog:
             elif i not in exercices[eid].get("lecons", []):
                 err(f"Lien asymétrique : {i} référence {eid}, mais {eid} ne référence pas {i}")
 
+# ---------- 1b. Tests (Phase 7) ----------
+if catalog:
+    for ts in catalog.get("tests", []):
+        i = ts.get("id", "?")
+        if not ID_RE.match(i):
+            err(f"Test {i} : ID mal formé")
+        if not ts.get("sources"):
+            err(f"Test {i} : aucune source")
+        for s in ts.get("sources", []):
+            if s not in exercices:
+                err(f"Test {i} : source inconnue → {s}")
+            elif not exercices[s].get("questions"):
+                err(f"Test {i} : la source {s} n'a pas de banque de questions")
+        if not isinstance(ts.get("nbQuestions"), int) or ts["nbQuestions"] < 1:
+            err(f"Test {i} : nbQuestions invalide")
+
 # ---------- 2. Fichiers de questions (Phase 6+) ----------
 for i, e in exercices.items():
     q = e.get("questions")

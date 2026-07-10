@@ -232,5 +232,22 @@
       "publie": true,
       "progressId": "c1_francine_gosselin"
     }
+  ],
+  "tests": [
+    {
+      "id": "A1-T-001",
+      "niveau": "A1",
+      "ordre": 10,
+      "type": "examen",
+      "titre": "Examen du niveau A1",
+      "sources": [
+        "A1-E-001",
+        "A1-E-002",
+        "A1-E-003"
+      ],
+      "nbQuestions": 20,
+      "duree": null,
+      "publie": true
+    }
   ]
 }
