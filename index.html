@@ -308,18 +308,13 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   </div>
 </div>
 
-<!-- DAILY WARM-UP -->
-<div class="sec-label">&#9889; &Eacute;chauffement de la semaine</div>
+<!-- ÉCHAUFFEMENT & RÉVISION ADAPTATIFS (banques du catalogue) -->
+<div class="sec-label">&#9889; &Eacute;chauffement</div>
 <div class="warmup-card">
-  <div class="warmup-tag">Question de la semaine</div>
-  <div class="warmup-q" id="wuQ"></div>
-  <div class="warmup-timer-row">
-    <button class="speak-btn" id="wuSpeakBtn" onclick="speakWarmup()">&#128266; &Eacute;couter</button>
-    <span class="warmup-time">&#128336; ~2 min</span>
-  </div>
-  <div class="warmup-opts" id="wuOpts"></div>
-  <div class="warmup-result" id="wuResult"></div>
+  <div class="warmup-tag" id="warmupTag">S&rsquo;adapte &agrave; ton niveau &middot; change tous les 2 jours</div>
+  <div id="warmupHost"></div>
 </div>
+<div id="revisionHost"></div>
 
 <div id="continuerHost"></div>
 
@@ -540,9 +535,6 @@ function speakPage(){
   const phrase="Phrase de la semaine. J'ai faim. I'm hungry.";
   speak(greeting+'. '+phrase,'fr-FR');
 }
-function speakWarmup(){
-  playClip('warmup_'+((window._wuIndex||0)+1)+'.mp3', document.getElementById('wuSpeakBtn'));
-}
 function speakVocab(){
   speak([
     'avoir faim — to be hungry. J\'ai faim après l\'entraînement.',
@@ -577,7 +569,8 @@ function speakVocab(){
   });
 })();
 
-// ── DAILY WARM-UP ────────────────────────────────────────────
+// ── ÉCHAUFFEMENT & RÉVISION ADAPTATIFS ────────────────────
+// Repli hors connexion / sans banque :
 const WARMUPS=[
   {q:"Que signifie « J'ai faim » ?",opts:["I'm cold","I'm hungry","I'm tired","I'm thirsty"],ans:1},
   {q:"Comment conjugue-t-on AVOIR avec « elle » ?",opts:["elle ai","elle as","elle a","elle ont"],ans:2},
@@ -588,39 +581,93 @@ const WARMUPS=[
   {q:"Que signifie « avoir de la chance » ?",opts:["to be thirsty","to be lucky","to need","to be cold"],ans:1},
   {q:"Que signifie « Nous avons cours demain » ?",opts:["We are tired tomorrow","We have class tomorrow","We need tomorrow","We are lucky tomorrow"],ans:1},
 ];
-(function(){
-  const dy=Math.floor((now-new Date(now.getFullYear(),0,0))/86400000);
-  const wk=Math.floor(dy/7);
-  window._wuIndex=wk%WARMUPS.length;
-  const w=WARMUPS[window._wuIndex];
-  document.getElementById('wuQ').textContent=w.q;
-  const grid=document.getElementById('wuOpts');
-  w.opts.forEach((o,i)=>{
-    const b=document.createElement('button');
-    b.className='warmup-opt';
-    b.textContent=o;
-    b.onclick=function(){
-      if(grid.dataset.answered)return;
-      grid.dataset.answered='1';
-      grid.querySelectorAll('.warmup-opt').forEach((btn,j)=>{
-        btn.disabled=true;
-        if(j===w.ans)btn.classList.add('correct');
-      });
-      const res=document.getElementById('wuResult');
+function mulberry32(a){return function(){a|=0;a=(a+0x6D2B79F5)|0;var t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};}
+var _dy=Math.floor((now-new Date(now.getFullYear(),0,0))/86400000);
+var GRAINE=now.getFullYear()*500+(_dy>>1); // change toutes les 48 h
+
+var _qa=null,_qaBtn=null;
+function playBank(path,btn){
+  if(_qaBtn===btn&&_qa){ if(!_qa.paused){_qa.pause();btn.classList.remove('speaking');return;} _qa.play().catch(function(){}); btn.classList.add('speaking'); return; }
+  try{if(_qa)_qa.pause();}catch(e){} if(_qaBtn)_qaBtn.classList.remove('speaking');
+  _qa=new Audio(path);_qaBtn=btn;btn.classList.add('speaking');
+  _qa.onended=_qa.onerror=function(){btn.classList.remove('speaking');};
+  _qa.play().catch(function(){btn.classList.remove('speaking');});
+}
+function renderQ(host,q,audioBase){
+  host.innerHTML='<div class="warmup-q">'+q.q+'</div>';
+  if(q.audio&&audioBase){
+    var row=document.createElement('div');row.className='warmup-timer-row';
+    var b=document.createElement('button');b.className='speak-btn';b.innerHTML='🔊 Écouter';
+    b.onclick=function(){playBank('/'+audioBase+q.audio,b);};
+    row.appendChild(b);host.appendChild(row);
+  }
+  var grid=document.createElement('div');grid.className='warmup-opts';
+  var res=document.createElement('div');res.className='warmup-result';
+  q.options.forEach(function(o,i){
+    var btn=document.createElement('button');btn.className='warmup-opt';btn.innerHTML=o;
+    btn.onclick=function(){
+      if(grid.dataset.answered)return; grid.dataset.answered='1';
+      grid.querySelectorAll('.warmup-opt').forEach(function(x,j){x.disabled=true;if(j===q.bonneReponse)x.classList.add('correct');});
       res.style.display='block';
-      if(i===w.ans){
-        b.classList.add('correct');
-        res.className='warmup-result ok';
-        res.textContent='\u2713 Correct\u00a0! Bien jou\u00e9.';
-      }else{
-        b.classList.add('wrong');
-        res.className='warmup-result ko';
-        res.textContent='\u2717 Pas tout \u00e0 fait. La bonne r\u00e9ponse est\u00a0: '+w.opts[w.ans];
-      }
+      if(i===q.bonneReponse){btn.classList.add('correct');res.className='warmup-result ok';res.textContent='✓ Correct ! Bien joué.';}
+      else{btn.classList.add('wrong');res.className='warmup-result ko';res.innerHTML='✗ Pas tout à fait. La bonne réponse est : '+q.options[q.bonneReponse];}
     };
-    grid.appendChild(b);
+    grid.appendChild(btn);
   });
-})();
+  host.appendChild(grid);host.appendChild(res);
+}
+function pickSeeded(pool,n,off){
+  var rnd=mulberry32(GRAINE+(off||0)),arr=pool.slice(),out=[];
+  while(arr.length&&out.length<n){out.push(arr.splice(Math.floor(rnd()*arr.length),1)[0]);}
+  return out;
+}
+// Repli immédiat (remplacé dès que les banques répondent)
+(function(){var w=WARMUPS[GRAINE%WARMUPS.length];renderQ(document.getElementById('warmupHost'),{q:w.q,options:w.opts,bonneReponse:w.ans},null);})();
+
+function lemAdaptatif(){
+  if(!window.LEM) return;
+  Promise.all([
+    window.LEM.getUser().catch(function(){return{};}),
+    fetch('catalog.json',{cache:'no-store'}).then(function(r){return r.json();})
+  ]).then(function(res){
+    var u=res[0]||{},c=res[1];
+    var ORD=['a1','a2','b1','b2','c1','c2'];
+    var idx=ORD.indexOf(((u.level)||'a1').toLowerCase()); if(idx<0)idx=0;
+    var exos=c.exercices.filter(function(e){return e.questions&&e.publie&&ORD.indexOf(e.niveau.toLowerCase())<=idx;});
+    if(!exos.length) return;
+    Promise.all(exos.map(function(e){return fetch(e.questions,{cache:'no-store'}).then(function(r){return r.json();}).catch(function(){return null;});}))
+    .then(function(banks){
+      var pool=[],byId={};
+      banks.forEach(function(b,i){ if(!b)return; byId[exos[i].id]=b;
+        b.questions.forEach(function(q){ if(!q.contexte) pool.push({q:q,base:b.audioBase,ex:exos[i]}); }); });
+      if(pool.length){
+        var pick=pickSeeded(pool,1,0)[0];
+        var tag=document.getElementById('warmupTag');
+        if(tag) tag.textContent='Niveau '+pick.ex.niveau+' · change tous les 2 jours';
+        renderQ(document.getElementById('warmupHost'),pick.q,pick.base);
+      }
+      // Révision espacée : uniquement les exercices déjà terminés
+      Promise.all(exos.map(function(e){return e.progressId?window.LEM.getLesson(e.progressId).catch(function(){return null;}):Promise.resolve(null);}))
+      .then(function(ps){
+        var rpool=[];
+        exos.forEach(function(e,i){ var b=byId[e.id]; if(!b||!ps[i]||!ps[i].completed)return;
+          b.questions.forEach(function(q){ if(!q.contexte) rpool.push({q:q,base:b.audioBase,ex:e}); }); });
+        if(!rpool.length) return;
+        var picks=pickSeeded(rpool,2,7);
+        var host=document.getElementById('revisionHost');
+        host.innerHTML='<div class="sec-label">🔁 Révision</div>';
+        picks.forEach(function(p){
+          var card=document.createElement('div');card.className='warmup-card';
+          card.innerHTML='<div class="warmup-tag">'+p.ex.titre+'</div>';
+          var qh=document.createElement('div');card.appendChild(qh);host.appendChild(card);
+          renderQ(qh,p.q,p.base);
+        });
+      });
+    });
+  }).catch(function(e){console.error('[leo-et-moi] adaptatif :',e);});
+}
+document.addEventListener('lem-auth-ready',lemAdaptatif);
+if(window.LEM&&window.LEM.user)lemAdaptatif();
 
 // ── SPACED REPETITION (Firestore via window.LEM) ────────────
 function lemSpaced(){
