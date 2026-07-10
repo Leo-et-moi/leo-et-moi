@@ -492,8 +492,26 @@ function lemPerso(){
               '<div class="continue-title">Bravo, tu as termin\u00e9 tous les exercices !</div>'+
               '<a class="cta-btn" href="french/'+lvl+'/index.html">Revoir mes exercices \u2192</a>';
       } else {
-        html+='<div class="continue-label">Niveau '+LVL+'</div>'+
-              '<div class="continue-title">Les exercices arrivent bient\u00f4t !</div>';
+        // Pas encore d'exercices \u00e0 ce niveau : proposer le plus avanc\u00e9 disponible en dessous
+        var lower=c.exercices.filter(function(e){return e.publie&&ORDER.indexOf(e.niveau.toLowerCase())<idx;})
+          .sort(function(a,b){var d=ORDER.indexOf(b.niveau.toLowerCase())-ORDER.indexOf(a.niveau.toLowerCase());return d||a.ordre-b.ordre;});
+        Promise.all(lower.map(function(e){return e.progressId?window.LEM.getLesson(e.progressId).catch(function(){return null;}):Promise.resolve(null);}))
+        .then(function(lps){
+          var t2=null,tp2=null;
+          for(var j=0;j<lower.length;j++){ if(!(lps[j]&&lps[j].completed)){ t2=lower[j];tp2=lps[j];break; } }
+          if(t2){
+            var st2=tp2&&typeof tp2.score==='number';
+            html+='<div class="continue-label">En attendant les exercices '+LVL+'</div>'+
+                  '<div class="continue-title">'+t2.titre+'</div>'+
+                  '<div class="continue-sub">'+t2.niveau+' \u00b7 '+(st2?'d\u00e9j\u00e0 commenc\u00e9':'nouveau pour toi')+'</div>'+
+                  '<a class="cta-btn" href="/'+t2.chemin+'">'+(st2?'Continuer':'Commencer')+' \u2192</a>';
+          } else {
+            html+='<div class="continue-label">Niveau '+LVL+'</div>'+
+                  '<div class="continue-title">Tu as tout termin\u00e9 \u2014 bravo ! De nouveaux exercices arrivent bient\u00f4t.</div>';
+          }
+          host.innerHTML=html+'</div>';
+        });
+        return;
       }
       host.innerHTML=html+'</div>';
     });
