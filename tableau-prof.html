@@ -43,6 +43,12 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .wblock{background:var(--cream);border-radius:8px;padding:8px 10px;margin:6px 0 0;}
 .wtitle{font-size:12px;font-weight:bold;color:var(--navyMid);margin-bottom:3px;}
 .wtext{font-size:13px;color:var(--text);white-space:pre-wrap;}
+.comp-zone{margin:8px 0 10px;}
+.comp-row{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:13px;}
+.comp-ico{width:86px;flex-shrink:0;color:var(--slate);font-weight:bold;}
+.comp-bar{flex:1;height:10px;background:var(--divider);border-radius:6px;overflow:hidden;}
+.comp-fill{height:100%;background:var(--navyMid);}
+.comp-pct{width:44px;text-align:right;color:var(--slate);font-weight:bold;}
 </style>
 </head>
 <body>
@@ -83,6 +89,15 @@ function esc(s){ var d=document.createElement('div'); d.textContent=s==null?'':S
 
 function ready(cb){ if(window.LEM && window.LEM.user) cb(); else document.addEventListener('lem-auth-ready', cb); }
 
+// Catalogue : titres, niveaux et compétences par clé de progression
+var CAT={byProgress:{},byTest:{}};
+var CATREADY=fetch('catalog.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(c){
+  (c.exercices||[]).forEach(function(e){ if(e.progressId) CAT.byProgress[e.progressId]={titre:e.titre,niveau:e.niveau,competences:e.competences||[]}; });
+  (c.tests||[]).forEach(function(x){ CAT.byTest[x.id]={titre:x.titre,niveau:x.niveau}; });
+}).catch(function(){});
+var COMP_LABELS={listening:'🎧 Écoute',reading:'📖 Lecture',writing:'✍️ Écriture',speaking:'🗣️ Oral'};
+function fduree(sec){ if(typeof sec!=='number') return ''; var m=Math.floor(sec/60),s=sec%60; return ' · ⏱ '+m+' min '+(s<10?'0':'')+s; }
+
 ready(async function(){
   var content=document.getElementById('content');
   try{
@@ -92,6 +107,7 @@ ready(async function(){
       content.innerHTML='<div class="notice">Cette page est r&eacute;serv&eacute;e au professeur.</div>';
       return;
     }
+    await CATREADY;
     var usnap=await getDocs(collection(db,'users'));
     var students=[];
     for(const d of usnap.docs){
@@ -125,14 +141,37 @@ function render(content, students){
     if(!s.lessons.length){
       html+='<div class="none">Aucun exercice commenc&eacute;.</div>';
     } else {
+      // Barres par compétence (agrégat des scores × compétences du catalogue)
+      var comp={};
+      s.lessons.forEach(function(l){
+        var meta=CAT.byProgress[l.id];
+        if(!meta||typeof l.score!=='number'||typeof l.total!=='number'||!l.total) return;
+        meta.competences.forEach(function(cp){
+          comp[cp]=comp[cp]||{s:0,t:0}; comp[cp].s+=l.score; comp[cp].t+=l.total;
+        });
+      });
+      var keys=['listening','reading','writing','speaking'].filter(function(k){return comp[k];});
+      if(keys.length){
+        html+='<div class="comp-zone">';
+        keys.forEach(function(k){
+          var pct=Math.round(100*comp[k].s/comp[k].t);
+          html+='<div class="comp-row"><span class="comp-ico">'+COMP_LABELS[k]+'</span>'+
+                '<span class="comp-bar"><span class="comp-fill" style="width:'+pct+'%"></span></span>'+
+                '<span class="comp-pct">'+pct+'%</span></div>';
+        });
+        html+='</div>';
+      }
       s.lessons.sort(function(a,b){ return (b.lastPracticed||0)-(a.lastPracticed||0); });
       s.lessons.forEach(function(l){
-        var nm=LESSON_NAMES[l.id]||l.id;
+        var meta=CAT.byProgress[l.id], tmeta=CAT.byTest[l.id];
+        var nm = meta ? (meta.niveau+' · '+meta.titre)
+               : tmeta ? ('📝 '+tmeta.niveau+' · '+tmeta.titre)
+               : (LESSON_NAMES[l.id]||l.id);
         var sc=(typeof l.score==='number'&&typeof l.total==='number')?('<span class="score">'+l.score+'/'+l.total+'</span>'):'—';
         var st=l.completed?'✓ terminé':'en cours';
         var dt=l.lastPracticed?(' · '+fdate(l.lastPracticed)):'';
         html+='<div class="lesson-row"><span class="lesson-name">'+esc(nm)+'</span>'+
-              '<span class="lesson-meta">'+sc+' · '+st+dt+'</span></div>';
+              '<span class="lesson-meta">'+sc+' · '+st+fduree(l.dureeSec)+dt+'</span></div>';
         if(l.writings){ Object.keys(l.writings).forEach(function(k){
           html+='<div class="wblock"><div class="wtitle">✍️ '+esc(k)+'</div><div class="wtext">'+esc(l.writings[k])+'</div></div>';
         }); }
