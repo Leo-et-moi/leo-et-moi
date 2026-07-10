@@ -39,7 +39,7 @@ export async function bandeauRevoir() {
   const div = document.createElement('div');
   div.className = 'revoir';
   div.style.cssText = S.revoir;
-  const liens = ls.map((l) => `<a href="/${l.chemin}" style="${S.lien}">${l.titre} &#8594;</a>`).join(' · ');
+  const liens = ls.map((l) => `<a href="/${l.chemin}?de=${id}" style="${S.lien}">${l.titre} &#8594;</a>`).join(' · ');
   div.innerHTML = `&#128214; Avant de commencer, revois la le&ccedil;on&nbsp;: ${liens}`;
   const { el, mode } = hostOr('.revoir-host', true);
   if (mode === 'prepend') el.prepend(div); else el.appendChild(div);
@@ -57,4 +57,18 @@ export async function exercicesLies() {
     es.map((e) => `<div style="${S.ligne}"><a href="/${e.chemin}" style="${S.lien}">${e.titre} &#8594;</a>${badges(e.competences)}</div>`).join('');
   const { el } = hostOr('.exercices-host', false);
   el.appendChild(div);
+}
+
+/** « ↩ Revenir à l'exercice » — pages de leçon, quand on arrive depuis un
+    exercice (paramètre ?de=<ID> ajouté par le bandeau « revois la leçon »). */
+export async function retourExercice() {
+  const de = new URLSearchParams(location.search).get('de');
+  if (!de) return;
+  const e = await item(de);
+  if (!e || !e.chemin) return;
+  const div = document.createElement('div');
+  div.style.cssText = S.revoir;
+  div.innerHTML = `&#8617;&#65039; Quand tu as fini, reviens à l'exercice&nbsp;: <a href="/${e.chemin}" style="${S.lien}">${e.titre} &#8594;</a>`;
+  const { el, mode } = hostOr('.revoir-host', true);
+  if (mode === 'prepend') el.prepend(div); else el.appendChild(div);
 }

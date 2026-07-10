@@ -52,6 +52,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 <body data-item-id="B1-L-001">
 <header class="top-bar"><a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
 <main class="main">
+<div class="revoir-host"></div>
   <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons B1</a>
   <div class="lvl-tag">B1</div>
   <div class="deck-title">Les adjectifs et pronoms interrogatifs &mdash; pour poser des questions</div>
@@ -79,6 +80,6 @@ next.addEventListener('click',function(){ show(idx+1); });
 show(0);
 </script>
 <script type="module" src="../../../js/auth-guard.js"></script>
-<script type="module">import { exercicesLies } from '/js/ui.js'; exercicesLies();</script>
+<script type="module">import { exercicesLies, retourExercice } from '/js/ui.js'; exercicesLies(); retourExercice();</script>
 </body>
 </html>

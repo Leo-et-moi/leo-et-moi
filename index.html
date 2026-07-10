@@ -321,6 +321,8 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <div class="warmup-result" id="wuResult"></div>
 </div>
 
+<div id="continuerHost"></div>
+
 <!-- PHRASE / VOCABULAIRE / ANATOMIE — générés depuis data/programme/ -->
 <div id="semaineHosts">
 <div class="sec-label">&#127881; Phrase de la semaine</div>
@@ -435,17 +437,75 @@ function lemGreet(){
 document.addEventListener('lem-auth-ready', lemGreet);
 if(window.LEM && window.LEM.user) lemGreet();
 
-// ── COMPLETED-LESSON COUNT (real, from Firestore) ───────────
-function lemCounts(){
+// \u2500\u2500 PERSONNALISATION (niveau r\u00e9el, Firestore + catalogue) \u2500\u2500\u2500\u2500
+var ORDER=['a1','a2','b1','b2','c1','c2'];
+var LVL_NAMES={a1:'D\u00e9butant',a2:'\u00c9l\u00e9mentaire',b1:'Interm\u00e9diaire',b2:'Interm\u00e9diaire +',c1:'Avanc\u00e9',c2:'Ma\u00eetrise'};
+
+function lemPerso(){
   if(!window.LEM) return;
-  Promise.all([window.LEM.getLesson('etre'), window.LEM.getLesson('avoir')]).then(function(rs){
-    var done = rs.filter(function(d){ return d && d.completed; }).length;
-    var w = done<=1 ? 'le\u00e7on compl\u00e9t\u00e9e' : 'le\u00e7ons compl\u00e9t\u00e9es';
-    var a=document.getElementById('cefrDone'); if(a) a.textContent = done+' '+w;
-  }).catch(function(){});
+  Promise.all([
+    window.LEM.getUser().catch(function(){return {};}),
+    fetch('catalog.json',{cache:'no-store'}).then(function(r){return r.json();})
+  ]).then(function(res){
+    var u=res[0]||{}, c=res[1];
+    var lvl=((u.level)||'a1').toLowerCase();
+    if(ORDER.indexOf(lvl)<0) lvl='a1';
+    var LVL=lvl.toUpperCase();
+
+    // 1. Barre CECRL au niveau r\u00e9el
+    var idx=ORDER.indexOf(lvl);
+    var lbl=document.getElementById('cefrCurrentLabel');
+    if(lbl) lbl.textContent=LVL+' \u2014 '+LVL_NAMES[lvl];
+    document.querySelectorAll('.cefr-seg').forEach(function(seg,i){
+      seg.classList.remove('current','locked');
+      if(i===idx){ seg.classList.add('current'); seg.title=ORDER[i].toUpperCase()+' \u2014 en cours'; }
+      else if(i>idx){ seg.classList.add('locked'); seg.title=ORDER[i].toUpperCase()+' \u2014 verrouill\u00e9'; }
+      else { seg.title=ORDER[i].toUpperCase()+' \u2014 termin\u00e9'; }
+    });
+
+    // 2. Exercices du niveau, dans l'ordre du catalogue
+    var exos=c.exercices.filter(function(e){return e.niveau===LVL&&e.publie;})
+                        .sort(function(a,b){return a.ordre-b.ordre;});
+    Promise.all(exos.map(function(e){
+      return e.progressId ? window.LEM.getLesson(e.progressId).catch(function(){return null;}) : Promise.resolve(null);
+    })).then(function(ps){
+      var done=0, target=null, tProg=null, tIdx=0;
+      for(var i=0;i<exos.length;i++){
+        if(ps[i]&&ps[i].completed){ done++; continue; }
+        if(!target){ target=exos[i]; tProg=ps[i]; tIdx=i+1; }
+      }
+      var a=document.getElementById('cefrDone');
+      if(a) a.textContent=done+' exercice'+(done>1?'s':'')+' compl\u00e9t\u00e9'+(done>1?'s':'')+' en '+LVL;
+
+      // 3. Carte \u25b6 Continuer
+      var host=document.getElementById('continuerHost');
+      if(!host||u.role==='teacher') return;
+      var html='<div class="sec-label">\u25b6 Continuer</div><div class="continue-card">';
+      if(target){
+        var started=tProg&&typeof tProg.score==='number';
+        html+='<div class="continue-label">'+(started?'Exercice en cours':'Prochain exercice')+'</div>'+
+              '<div class="continue-title">'+target.titre+'</div>'+
+              '<div class="continue-sub">'+LVL+' \u00b7 Exercice '+tIdx+' / '+exos.length+'</div>';
+        if(started){
+          var pct=Math.min(100,Math.round(100*tProg.score/Math.max(1,tProg.total)));
+          html+='<div class="prog-wrap"><div class="prog-fill" style="width:'+pct+'%"></div></div>'+
+                '<div class="prog-text">Score enregistr\u00e9 : '+tProg.score+' / '+tProg.total+'</div>';
+        }
+        html+='<a class="cta-btn" href="/'+target.chemin+'">'+(started?'Continuer':'Commencer')+' \u2192</a>';
+      } else if(exos.length){
+        html+='<div class="continue-label">Niveau '+LVL+' termin\u00e9 \ud83c\udf89</div>'+
+              '<div class="continue-title">Bravo, tu as termin\u00e9 tous les exercices !</div>'+
+              '<a class="cta-btn" href="french/'+lvl+'/index.html">Revoir mes exercices \u2192</a>';
+      } else {
+        html+='<div class="continue-label">Niveau '+LVL+'</div>'+
+              '<div class="continue-title">Les exercices arrivent bient\u00f4t !</div>';
+      }
+      host.innerHTML=html+'</div>';
+    });
+  }).catch(function(e){ console.error('[leo-et-moi] personnalisation :', e); });
 }
-document.addEventListener('lem-auth-ready', lemCounts);
-if(window.LEM && window.LEM.user) lemCounts();
+document.addEventListener('lem-auth-ready', lemPerso);
+if(window.LEM && window.LEM.user) lemPerso();
 
 // ── WEB SPEECH API ───────────────────────────────────────────
 let currentUtt=null;
