@@ -25,7 +25,6 @@ SYNTH_TOLERES = {
     "reference/index.html",
     "reference/vocabulaire.html",
     "french/a2/ecoute-invitations/index.html",
-    "french/a1/index.html",
 }
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {"a1_resume.mp3"}

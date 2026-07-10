@@ -71,7 +71,7 @@ var LEVELS=[
  {id:'b1',name:'Intermédiaire',color:'#D4920A',href:'french/b1/index.html'},
  {id:'b2',name:'Intermédiaire +',color:'#7CB82F',href:'french/b2/index.html'},
  {id:'c1',name:'Avancé',color:'#27AE60',href:'french/c1/index.html'},
- {id:'c2',name:'Maîtrise',color:'#1A5C38',href:null}
+ {id:'c2',name:'Maîtrise',color:'#1A5C38',href:'french/c2/index.html'}
 ];
 var ORDER=['a1','a2','b1','b2','c1','c2'];
 
@@ -98,10 +98,21 @@ function render(level,role){
     else if(isCurrent) status='<span class="lvl-status current">&#9654; Niveau actuel — ouvrir</span>';
     else status='<span class="lvl-status">&#10003; Terminé — revoir</span>';
     var arrow=(unlocked&&hasContent)?'<span class="lvl-arrow">&#8594;</span>':'';
-    el.innerHTML=badge+'<div class="lvl-info"><div class="lvl-name">'+L.name+'</div>'+status+'</div>'+arrow;
+    el.innerHTML=badge+'<div class="lvl-info"><div class="lvl-name">'+L.name+'</div>'+status+'<div class="lvl-status" data-counts="'+L.id+'"></div>'+'</div>'+arrow;
     wrap.appendChild(el);
   });
 }
+var COUNTS={};
+fetch('catalog.json').then(function(r){return r.json();}).then(function(c){
+  ['A1','A2','B1','B2','C1','C2'].forEach(function(n){
+    var L=c.lecons.filter(function(x){return x.niveau===n&&x.publie;}).length;
+    var E=c.exercices.filter(function(x){return x.niveau===n&&x.publie;}).length;
+    COUNTS[n.toLowerCase()]=L+' le\u00e7on'+(L>1?'s':'')+' \u00b7 '+E+' exercice'+(E>1?'s':'');
+  });
+  var els=document.querySelectorAll('[data-counts]');
+  els.forEach(function(el){ el.textContent=COUNTS[el.getAttribute('data-counts')]||''; });
+}).catch(function(){});
+
 function load(){
   if(window.LEM && window.LEM.getUser){
     window.LEM.getUser().then(function(u){ render((u&&u.level)||'a1', u&&u.role); }).catch(function(){ render('a1'); });
