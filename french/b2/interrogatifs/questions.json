@@ -1,0 +1,166 @@
+{
+ "version": 1,
+ "exercice": "B2-E-001",
+ "audioBase": "french/b2/interrogatifs/audio/",
+ "questions": [
+  {
+   "q": "Tu penses &agrave; un livre. ___ penses-tu&nbsp;?",
+   "options": [
+    "auquel",
+    "&agrave; laquelle",
+    "auxquels",
+    "auxquelles"
+   ],
+   "bonneReponse": 0,
+   "audio": "b2qx_a1.mp3",
+   "section": "A"
+  },
+  {
+   "q": "Tu penses &agrave; une chanson. ___ penses-tu&nbsp;?",
+   "options": [
+    "auquel",
+    "&agrave; laquelle",
+    "auxquels",
+    "auxquelles"
+   ],
+   "bonneReponse": 1,
+   "audio": "b2qx_a2.mp3",
+   "section": "A"
+  },
+  {
+   "q": "Tu penses &agrave; des livres. ___ penses-tu&nbsp;?",
+   "options": [
+    "auquel",
+    "&agrave; laquelle",
+    "auxquels",
+    "auxquelles"
+   ],
+   "bonneReponse": 2,
+   "audio": "b2qx_a3.mp3",
+   "section": "A"
+  },
+  {
+   "q": "Tu penses &agrave; des chansons. ___ penses-tu&nbsp;?",
+   "options": [
+    "auquel",
+    "&agrave; laquelle",
+    "auxquels",
+    "auxquelles"
+   ],
+   "bonneReponse": 3,
+   "audio": "b2qx_a4.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ se passe&nbsp;? <span class='gram'>(sujet)</span>",
+   "options": [
+    "Qu&rsquo;est-ce qui",
+    "Qu&rsquo;est-ce que"
+   ],
+   "bonneReponse": 0,
+   "audio": "b2qx_b1.mp3",
+   "section": "B"
+  },
+  {
+   "q": "___ tu lis&nbsp;? <span class='gram'>(objet)</span>",
+   "options": [
+    "Qu&rsquo;est-ce qui",
+    "Qu&rsquo;est-ce que"
+   ],
+   "bonneReponse": 1,
+   "audio": "b2qx_b2.mp3",
+   "section": "B"
+  },
+  {
+   "q": "___ t&rsquo;int&eacute;resse&nbsp;? <span class='gram'>(sujet)</span>",
+   "options": [
+    "Qu&rsquo;est-ce qui",
+    "Qu&rsquo;est-ce que"
+   ],
+   "bonneReponse": 0,
+   "audio": "b2qx_b3.mp3",
+   "section": "B"
+  },
+  {
+   "q": "&laquo;&nbsp;Il a lu Camus.&nbsp;&raquo; &rarr; inversion&nbsp;:",
+   "options": [
+    "A-t-il lu Camus&nbsp;?",
+    "Il a lu Camus&nbsp;?",
+    "Est-ce qu&rsquo;il a lu&nbsp;?"
+   ],
+   "bonneReponse": 0,
+   "audio": "b2qx_c1.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;Elle arrive.&nbsp;&raquo; &rarr; inversion&nbsp;:",
+   "options": [
+    "Arrive-t-elle&nbsp;?",
+    "Arrive elle&nbsp;?",
+    "Elle arrive&nbsp;?"
+   ],
+   "bonneReponse": 0,
+   "audio": "b2qx_c2.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;Comment il va.&nbsp;&raquo; &rarr; inversion&nbsp;:",
+   "options": [
+    "Comment va-t-il&nbsp;?",
+    "Comment il va&nbsp;?",
+    "Comment va il&nbsp;?"
+   ],
+   "bonneReponse": 0,
+   "audio": "b2qx_c3.mp3",
+   "section": "C"
+  },
+  {
+   "q": "Quel auteur cherche-t-on&nbsp;?",
+   "options": [
+    "Camus",
+    "Sartre",
+    "Zola"
+   ],
+   "bonneReponse": 0,
+   "audio": "b2qx_d1.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "De quel livre parle-t-on le plus&nbsp;?",
+   "options": [
+    "La Peste",
+    "La Chute",
+    "Le Premier Homme"
+   ],
+   "bonneReponse": 0,
+   "audio": "b2qx_d2.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "Quel roman la personne cherche-t-elle&nbsp;?",
+   "options": [
+    "Les Mis&eacute;rables",
+    "L&rsquo;&Eacute;tranger",
+    "Germinal"
+   ],
+   "bonneReponse": 1,
+   "audio": "b2qx_d3.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "Comment trouve-t-il &laquo;&nbsp;La Peste&nbsp;&raquo;&nbsp;?",
+   "options": [
+    "Ennuyeux",
+    "Difficile",
+    "Passionnant"
+   ],
+   "bonneReponse": 2,
+   "audio": "b2qx_d4.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  }
+ ]
+}

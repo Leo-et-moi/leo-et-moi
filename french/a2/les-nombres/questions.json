@@ -1,0 +1,103 @@
+{
+ "version": 1,
+ "exercice": "A2-E-001",
+ "audioBase": "french/a2/les-nombres/audio/",
+ "questions": [
+  {
+   "q": "Un commerçant vend <b>soixante-douze</b> kilos de prunes. Combien de kilos vend-il&nbsp;?",
+   "options": [
+    "82",
+    "72",
+    "62",
+    "12"
+   ],
+   "bonneReponse": 1,
+   "audio": "a2q_01.mp3",
+   "hint": "Pense à la somme de soixante et douze."
+  },
+  {
+   "q": "Il y a <b>quatre-vingt-treize</b> élèves dans la salle. Quel est le nombre total d’élèves&nbsp;?",
+   "options": [
+    "93",
+    "73",
+    "83",
+    "13"
+   ],
+   "bonneReponse": 0,
+   "audio": "a2q_02.mp3",
+   "hint": "Calcule quatre fois vingt, plus treize."
+  },
+  {
+   "q": "Une recette indique un temps de cuisson de <b>cent dix</b> minutes. Combien de minutes&nbsp;?",
+   "options": [
+    "120",
+    "100",
+    "110",
+    "210"
+   ],
+   "bonneReponse": 2,
+   "audio": "a2q_03.mp3",
+   "hint": "Combine le mot pour cent avec le mot pour dix."
+  },
+  {
+   "q": "Un commentateur annonce «&nbsp;<b>dix virgule soixante-neuf</b>&nbsp;» secondes. Comment l’écrit-on en français&nbsp;?",
+   "options": [
+    "10,69",
+    "10 69",
+    "1069",
+    "10.69"
+   ],
+   "bonneReponse": 0,
+   "audio": "a2q_04.mp3",
+   "hint": "Quelle ponctuation les Français utilisent-ils pour les décimales&nbsp;?"
+  },
+  {
+   "q": "Il y a <b>quatre-vingt-onze</b> personnes à un marathon. Combien courent&nbsp;?",
+   "options": [
+    "11",
+    "71",
+    "81",
+    "91"
+   ],
+   "bonneReponse": 3,
+   "audio": "a2q_05.mp3",
+   "hint": "La série des 90 part de quatre-vingts et ajoute à partir de dix."
+  },
+  {
+   "q": "Une distance vaut <b>dix mille six cent quatre-vingt-quinze</b>. Quelle est sa valeur&nbsp;?",
+   "options": [
+    "10 695",
+    "1 695",
+    "10 685",
+    "10.695"
+   ],
+   "bonneReponse": 0,
+   "audio": "a2q_06.mp3",
+   "hint": "Concentre-toi sur les milliers et les centaines au début du nombre."
+  },
+  {
+   "q": "Un boulanger prépare <b>soixante-dix-sept</b> pains. Combien y a-t-il de pains&nbsp;?",
+   "options": [
+    "77",
+    "97",
+    "67",
+    "6017"
+   ],
+   "bonneReponse": 0,
+   "audio": "a2q_07.mp3",
+   "hint": "Combine soixante avec dix-sept."
+  },
+  {
+   "q": "Il y a <b>quatre-vingt-un</b> livres sur une étagère. Combien de livres au total&nbsp;?",
+   "options": [
+    "801",
+    "91",
+    "21",
+    "81"
+   ],
+   "bonneReponse": 3,
+   "audio": "a2q_08.mp3",
+   "hint": "Identifie le nombre de vingtaines et l’unité ajoutée."
+  }
+ ]
+}

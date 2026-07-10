@@ -1,0 +1,543 @@
+{
+ "version": 1,
+ "exercice": "B1-E-001",
+ "audioBase": "french/b1/interrogatifs/audio/",
+ "questions": [
+  {
+   "q": "___ <b>train</b>&nbsp;?",
+   "options": [
+    "quelles",
+    "quelle",
+    "quel",
+    "quels"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_a01.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>livre</b>&nbsp;?",
+   "options": [
+    "quelle",
+    "quel",
+    "quelles",
+    "quels"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_a02.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>sport</b>&nbsp;?",
+   "options": [
+    "quels",
+    "quel",
+    "quelle",
+    "quelles"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_a03.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>maison</b>&nbsp;?",
+   "options": [
+    "quelle",
+    "quelles",
+    "quels",
+    "quel"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_a04.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>ville</b>&nbsp;?",
+   "options": [
+    "quelle",
+    "quels",
+    "quel",
+    "quelles"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_a05.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>saison</b>&nbsp;?",
+   "options": [
+    "quelles",
+    "quel",
+    "quelle",
+    "quels"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_a06.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>bonbons</b>&nbsp;?",
+   "options": [
+    "quelles",
+    "quels",
+    "quel",
+    "quelle"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_a07.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>g&acirc;teaux</b>&nbsp;?",
+   "options": [
+    "quelle",
+    "quelles",
+    "quels",
+    "quel"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_a08.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>l&eacute;gumes</b>&nbsp;?",
+   "options": [
+    "quel",
+    "quelles",
+    "quelle",
+    "quels"
+   ],
+   "bonneReponse": 3,
+   "audio": "b1qx_a09.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>photos</b>&nbsp;?",
+   "options": [
+    "quelles",
+    "quel",
+    "quels",
+    "quelle"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_a10.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>chaussures</b>&nbsp;?",
+   "options": [
+    "quel",
+    "quels",
+    "quelle",
+    "quelles"
+   ],
+   "bonneReponse": 3,
+   "audio": "b1qx_a11.mp3",
+   "section": "A"
+  },
+  {
+   "q": "___ <b>fleurs</b>&nbsp;?",
+   "options": [
+    "quelles",
+    "quelle",
+    "quels",
+    "quel"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_a12.mp3",
+   "section": "A"
+  },
+  {
+   "q": "Quel <b>v&eacute;lo</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lesquels",
+    "Lequel",
+    "Laquelle",
+    "Lesquelles"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_b01.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quel <b>sac</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lequel",
+    "Laquelle",
+    "Lesquelles",
+    "Lesquels"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_b02.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quel <b>chapeau</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lesquels",
+    "Laquelle",
+    "Lesquelles",
+    "Lequel"
+   ],
+   "bonneReponse": 3,
+   "audio": "b1qx_b03.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quelle <b>table</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lesquelles",
+    "Laquelle",
+    "Lesquels",
+    "Lequel"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_b04.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quelle <b>voiture</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lesquelles",
+    "Laquelle",
+    "Lequel",
+    "Lesquels"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_b05.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quelle <b>chanson</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Laquelle",
+    "Lesquels",
+    "Lequel",
+    "Lesquelles"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_b06.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quels <b>chocolats</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lequel",
+    "Lesquels",
+    "Laquelle",
+    "Lesquelles"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_b07.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quels <b>jouets</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lequel",
+    "Laquelle",
+    "Lesquels",
+    "Lesquelles"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_b08.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quels <b>cadeaux</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lequel",
+    "Lesquels",
+    "Laquelle",
+    "Lesquelles"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_b09.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quelles <b>robes</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lesquelles",
+    "Lesquels",
+    "Lequel",
+    "Laquelle"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_b10.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quelles <b>id&eacute;es</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lequel",
+    "Lesquels",
+    "Lesquelles",
+    "Laquelle"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_b11.mp3",
+   "section": "B"
+  },
+  {
+   "q": "Quelles <b>valises</b>&nbsp;? &rarr; ___",
+   "options": [
+    "Lequel",
+    "Laquelle",
+    "Lesquelles",
+    "Lesquels"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_b12.mp3",
+   "section": "B"
+  },
+  {
+   "q": "&laquo;&nbsp;Tu viens.&nbsp;&raquo; &rarr; avec est-ce que&nbsp;:",
+   "options": [
+    "Est-ce que tu viens&nbsp;?",
+    "Tu viens&nbsp;?",
+    "Viens-tu&nbsp;?",
+    "Est-ce tu viens&nbsp;?"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_c01.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;Vous partez.&nbsp;&raquo; &rarr; avec est-ce que&nbsp;:",
+   "options": [
+    "Est-ce vous partez&nbsp;?",
+    "Vous partez&nbsp;?",
+    "Partez-vous&nbsp;?",
+    "Est-ce que vous partez&nbsp;?"
+   ],
+   "bonneReponse": 3,
+   "audio": "b1qx_c02.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;Elle travaille.&nbsp;&raquo; &rarr; avec est-ce que&nbsp;:",
+   "options": [
+    "Elle travaille&nbsp;?",
+    "Est-ce qu&rsquo;elle travaille&nbsp;?",
+    "Est-ce elle travaille&nbsp;?",
+    "Travaille-t-elle&nbsp;?"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_c03.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;Il mange.&nbsp;&raquo; &rarr; inversion&nbsp;:",
+   "options": [
+    "Mange il&nbsp;?",
+    "Il mange&nbsp;?",
+    "Est-ce qu&rsquo;il mange&nbsp;?",
+    "Mange-t-il&nbsp;?"
+   ],
+   "bonneReponse": 3,
+   "audio": "b1qx_c04.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;Elle chante.&nbsp;&raquo; &rarr; inversion&nbsp;:",
+   "options": [
+    "Elle chante&nbsp;?",
+    "Chante elle&nbsp;?",
+    "Chantes-t-elle&nbsp;?",
+    "Chante-t-elle&nbsp;?"
+   ],
+   "bonneReponse": 3,
+   "audio": "b1qx_c05.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;Tu comprends.&nbsp;&raquo; &rarr; inversion&nbsp;:",
+   "options": [
+    "Comprends-tu&nbsp;?",
+    "Comprend-tu&nbsp;?",
+    "Comprends-t-tu&nbsp;?",
+    "Tu comprends&nbsp;?"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_c06.mp3",
+   "section": "C"
+  },
+  {
+   "q": "O&ugrave; faut-il un &laquo;&nbsp;-t-&nbsp;&raquo;&nbsp;?",
+   "options": [
+    "Parle-t-il&nbsp;?",
+    "Parlet-il&nbsp;?",
+    "Parle-il&nbsp;?",
+    "Parle t-il&nbsp;?"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_c07.mp3",
+   "section": "C"
+  },
+  {
+   "q": "O&ugrave; faut-il un &laquo;&nbsp;-t-&nbsp;&raquo;&nbsp;?",
+   "options": [
+    "At-elle&nbsp;?",
+    "A t-elle&nbsp;?",
+    "A-t-elle&nbsp;?",
+    "A-elle&nbsp;?"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_c08.mp3",
+   "section": "C"
+  },
+  {
+   "q": "Compl&egrave;te&nbsp;: Comment ___ elle&nbsp;? <span class='gram'>(aller)</span>",
+   "options": [
+    "vas-t-",
+    "va-",
+    "va-t",
+    "va-t-"
+   ],
+   "bonneReponse": 3,
+   "audio": "b1qx_c09.mp3",
+   "section": "C"
+  },
+  {
+   "q": "Compl&egrave;te&nbsp;: Que ___ il&nbsp;? <span class='gram'>(manger)</span>",
+   "options": [
+    "mange-",
+    "mange-t-",
+    "manget-",
+    "manges-t-"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_c10.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;Il y a un probl&egrave;me.&nbsp;&raquo; &rarr; inversion&nbsp;:",
+   "options": [
+    "Il y a un probl&egrave;me&nbsp;?",
+    "Y a-t-il un probl&egrave;me&nbsp;?",
+    "A-t-il y un probl&egrave;me&nbsp;?",
+    "Y a-il un probl&egrave;me&nbsp;?"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_c11.mp3",
+   "section": "C"
+  },
+  {
+   "q": "&laquo;&nbsp;On part.&nbsp;&raquo; &rarr; inversion&nbsp;:",
+   "options": [
+    "On part&nbsp;?",
+    "Parte-on&nbsp;?",
+    "Part-on&nbsp;?",
+    "Part on&nbsp;?"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_c12.mp3",
+   "section": "C"
+  },
+  {
+   "q": "Quel jour sortent-ils&nbsp;?",
+   "options": [
+    "Dimanche",
+    "Samedi",
+    "Lundi",
+    "Vendredi"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_d01.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "O&ugrave; vont-ils d&rsquo;abord&nbsp;?",
+   "options": [
+    "Au parc",
+    "Au restaurant",
+    "Au cin&eacute;ma",
+    "Au th&eacute;&acirc;tre"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_d02.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "Quel type de film vont-ils voir&nbsp;?",
+   "options": [
+    "Com&eacute;die",
+    "Documentaire",
+    "Science-fiction",
+    "Horreur"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_d03.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "&Agrave; quelle heure commence le film&nbsp;?",
+   "options": [
+    "21h",
+    "20h",
+    "19h",
+    "18h"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_d04.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "O&ugrave; est le cin&eacute;ma&nbsp;?",
+   "options": [
+    "Rue Victor Hugo",
+    "Rue de Paris",
+    "Place du March&eacute;",
+    "Avenue Jaur&egrave;s"
+   ],
+   "bonneReponse": 0,
+   "audio": "b1qx_d05.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "Comment y vont-ils&nbsp;?",
+   "options": [
+    "En m&eacute;tro",
+    "En bus",
+    "&Agrave; pied",
+    "En voiture"
+   ],
+   "bonneReponse": 1,
+   "audio": "b1qx_d06.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "Combien co&ucirc;te le billet&nbsp;?",
+   "options": [
+    "19 euros",
+    "7 euros",
+    "9 euros",
+    "12 euros"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_d07.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  },
+  {
+   "q": "Pourquoi le choix de ce restaurant&nbsp;?",
+   "options": [
+    "Il y a de la place",
+    "C&rsquo;est plus pr&egrave;s",
+    "Les pizzas sont excellentes",
+    "C&rsquo;est moins cher"
+   ],
+   "bonneReponse": 2,
+   "audio": "b1qx_d08.mp3",
+   "section": "D",
+   "contexte": "dialogue"
+  }
+ ]
+}

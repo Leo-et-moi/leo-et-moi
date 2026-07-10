@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "misAJour": "2026-07-09",
+  "misAJour": "2026-07-10",
   "audioBase": "",
   "lecons": [
     {
@@ -99,7 +99,7 @@
         "listening",
         "reading"
       ],
-      "questions": null,
+      "questions": "french/a1/les-nombres/questions.json",
       "publie": true,
       "progressId": "a1_les_nombres"
     },
@@ -132,7 +132,7 @@
         "listening",
         "reading"
       ],
-      "questions": null,
+      "questions": "french/a2/les-nombres/questions.json",
       "publie": true,
       "progressId": "a2_nombres_quiz"
     },
@@ -179,7 +179,7 @@
         "listening",
         "reading"
       ],
-      "questions": null,
+      "questions": "french/b1/interrogatifs/questions.json",
       "publie": true,
       "progressId": "b1_interrogatifs"
     },
@@ -213,7 +213,7 @@
         "writing",
         "listening"
       ],
-      "questions": null,
+      "questions": "french/b2/interrogatifs/questions.json",
       "publie": true,
       "progressId": "b2_interrogatifs"
     },
