@@ -111,21 +111,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
   <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
 </nav>
+<script src="/js/audio.js"></script>
 <script>
 var LESSON='a2_lire_invitation';
-var _clip=null,_cb=null,_src=null;
-function playClip(file,btn){
-  if(_cb===btn && _clip && _src===file){
-    if(!_clip.paused){ _clip.pause(); if(_cb) _cb.classList.remove('speaking'); return; }
-    _clip.play().catch(function(){}); if(_cb) _cb.classList.add('speaking'); return;
-  }
-  try{ if(_clip) _clip.pause(); }catch(e){}
-  if(_cb) _cb.classList.remove('speaking');
-  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file;
-  if(_cb) _cb.classList.add('speaking');
-  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
-  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
-}
 var Q=[{"s": "A", "a": "a2_inv_d1q1.mp3", "q": "C&rsquo;est une invitation &agrave;&hellip;", "opts": ["un mariage", "un anniversaire", "une naissance"], "correct": 1}, {"s": "A", "a": "a2_inv_d1q2.mp3", "q": "O&ugrave; se passe la f&ecirc;te&nbsp;?", "opts": ["chez Thierry", "au restaurant", "dans un bar"], "correct": 0}, {"s": "A", "a": "a2_inv_d1q3.mp3", "q": "La f&ecirc;te est le&hellip;", "opts": ["7 janvier", "14 f&eacute;vrier", "14 janvier"], "correct": 2}, {"s": "A", "a": "a2_inv_d1q4.mp3", "q": "Qui organise la f&ecirc;te&nbsp;?", "opts": ["Romain", "Julie", "Thierry"], "correct": 2}, {"s": "B", "a": "a2_inv_d2q1.mp3", "q": "C&rsquo;est une invitation &agrave;&hellip;", "opts": ["un mariage", "un anniversaire", "une naissance"], "correct": 1}, {"s": "B", "a": "a2_inv_d2q2.mp3", "q": "Quand a lieu la f&ecirc;te&nbsp;?", "opts": ["Le 2 juillet, de 16h &agrave; 19h", "Le 2 juin, de 6h &agrave; 9h", "Le 2 juin, de 16h &agrave; 19h"], "correct": 2}, {"s": "B", "a": "a2_inv_d2q3.mp3", "q": "Quelle est l&rsquo;adresse&nbsp;?", "opts": ["7 rue H&eacute;rold, Nice", "47 rue H&eacute;rold, Nice", "47 rue H&eacute;rold, Nancy"], "correct": 1}, {"s": "B", "a": "a2_inv_d2q4.mp3", "q": "Qui invite&nbsp;?", "opts": ["Julie", "Thierry", "Julien"], "correct": 2}, {"s": "C", "a": "a2_inv_vf1.mp3", "q": "Thierry f&ecirc;te ses 37 ans.", "opts": ["Vrai", "Faux"], "correct": 0}, {"s": "C", "a": "a2_inv_vf2.mp3", "q": "Julie doit t&eacute;l&eacute;phoner avant le 14 janvier.", "opts": ["Vrai", "Faux"], "correct": 1}, {"s": "C", "a": "a2_inv_vf3.mp3", "q": "Julien a 7 ans.", "opts": ["Vrai", "Faux"], "correct": 0}, {"s": "C", "a": "a2_inv_vf4.mp3", "q": "La f&ecirc;te de Julien est le matin.", "opts": ["Vrai", "Faux"], "correct": 1}], VOCAB=[["inviter", "to invite", "a2_inv_v_inviter.mp3"], ["une f&ecirc;te", "a party", "a2_inv_v_fete.mp3"], ["un anniversaire", "a birthday", "a2_inv_v_anniv.mp3"], ["r&eacute;pondre", "to reply", "a2_inv_v_repondre.mp3"], ["l&rsquo;adresse", "the address", "a2_inv_v_adresse.mp3"]], TOTAL=12, score=0, answered=0;
 function bump(ok){ if(ok) score++; answered++; document.getElementById('scorebar').textContent='Score : '+score+' / '+TOTAL; if(answered>=TOTAL) finish(); }
 function renderMC(sec){

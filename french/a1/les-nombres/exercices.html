@@ -81,21 +81,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
   <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
 </nav>
+<script src="/js/audio.js"></script>
 <script>
 var LESSON='a1_les_nombres';
-var _clip=null,_cb=null,_src=null;
-function playClip(file,btn){
-  if(_cb===btn && _clip && _src===file){
-    if(!_clip.paused){ _clip.pause(); if(_cb) _cb.classList.remove('speaking'); return; }
-    _clip.play().catch(function(){}); if(_cb) _cb.classList.add('speaking'); return;
-  }
-  try{ if(_clip) _clip.pause(); }catch(e){}
-  if(_cb) _cb.classList.remove('speaking');
-  _clip=new Audio('audio/'+file); _cb=btn||null; _src=file;
-  if(_cb) _cb.classList.add('speaking');
-  _clip.onended=_clip.onerror=function(){ if(_cb) _cb.classList.remove('speaking'); };
-  _clip.play().catch(function(){ if(_cb) _cb.classList.remove('speaking'); });
-}
 var TOTAL=19, score=0, answered=0;
 function bump(ok){ if(ok) score++; answered++; var sb=document.getElementById('scorebar'); sb.textContent='Score : '+score+' / '+TOTAL; if(answered>=TOTAL) finishAll(); }
 
