@@ -65,7 +65,7 @@
         "listening",
         "reading"
       ],
-      "questions": null,
+      "questions": "french/a1/01-etre/questions.json",
       "publie": true,
       "progressId": "etre"
     },
@@ -82,7 +82,7 @@
         "listening",
         "reading"
       ],
-      "questions": null,
+      "questions": "french/a1/02-avoir/questions.json",
       "publie": true,
       "progressId": "avoir"
     },

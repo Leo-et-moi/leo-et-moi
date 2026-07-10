@@ -1,0 +1,273 @@
+{
+ "version": 1,
+ "exercice": "A1-E-002",
+ "audioBase": "french/a1/02-avoir/",
+ "questions": [
+  {
+   "q": "Complète : J'___ 17 ans.",
+   "options": [
+    "ai",
+    "as",
+    "a",
+    "avons"
+   ],
+   "bonneReponse": 0,
+   "audio": "avoir_01.mp3",
+   "en": "I am 17 years old."
+  },
+  {
+   "q": "Complète : Tu ___ un frère ?",
+   "options": [
+    "ai",
+    "as",
+    "a",
+    "ont"
+   ],
+   "bonneReponse": 1,
+   "audio": "avoir_02.mp3",
+   "en": "Do you have a brother?"
+  },
+  {
+   "q": "Complète : Il ___ un vélo.",
+   "options": [
+    "ai",
+    "avez",
+    "a",
+    "avons"
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_03.mp3",
+   "en": "He has a bike."
+  },
+  {
+   "q": "Complète : Nous ___ un chien.",
+   "options": [
+    "ont",
+    "avez",
+    "avons",
+    "a"
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_04.mp3",
+   "en": "We have a dog."
+  },
+  {
+   "q": "Complète : Vous ___ quel âge ?",
+   "options": [
+    "as",
+    "avez",
+    "avons",
+    "ont"
+   ],
+   "bonneReponse": 1,
+   "audio": "avoir_05.mp3",
+   "en": "How old are you?"
+  },
+  {
+   "q": "Complète : Elle ___ faim.",
+   "options": [
+    "ai",
+    "as",
+    "a",
+    "ont"
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_06.mp3",
+   "en": "She is hungry."
+  },
+  {
+   "q": "Complète : Ils ___ 20 ans.",
+   "options": [
+    "a",
+    "avons",
+    "ont",
+    "avez"
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_07.mp3",
+   "en": "They are 20 years old."
+  },
+  {
+   "q": "Complète : On ___ soif.",
+   "options": [
+    "avons",
+    "ai",
+    "a",
+    "ont"
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_08.mp3",
+   "en": "We are thirsty."
+  },
+  {
+   "q": "Complète : Je n'___ pas de voiture.",
+   "options": [
+    "ai",
+    "as",
+    "a",
+    "avons"
+   ],
+   "bonneReponse": 0,
+   "audio": "avoir_09.mp3",
+   "en": "I don't have a car."
+  },
+  {
+   "q": "Complète : Elles ___ peur.",
+   "options": [
+    "a",
+    "avez",
+    "ont",
+    "avons"
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_10.mp3",
+   "en": "They are scared."
+  },
+  {
+   "q": "Écoute / lis la phrase : « J'ai 17 ans. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "avoir_tf1.mp3",
+   "en": "Correct or incorrect?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Tu as faim. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "avoir_tf2.mp3",
+   "en": "Correct or incorrect?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Il avons un chien. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 1,
+   "audio": "avoir_tf3.mp3",
+   "en": "Correct or incorrect?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Nous avons cours demain. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "avoir_tf4.mp3",
+   "en": "Correct or incorrect?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Vous avez de la chance ! » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "avoir_tf5.mp3",
+   "en": "Correct or incorrect?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Ils ont ai soif. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 1,
+   "audio": "avoir_tf6.mp3",
+   "en": "Correct or incorrect?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Je n'ai pas de frère. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "avoir_tf7.mp3",
+   "en": "Correct or incorrect?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Elle ont 16 ans. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 1,
+   "audio": "avoir_tf8.mp3",
+   "en": "Correct or incorrect?"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « J'ai faim. »",
+   "options": [
+    "A. I am cold.",
+    "B. I am hungry.",
+    "C. I am thirsty.",
+    "D. I am scared."
+   ],
+   "bonneReponse": 1,
+   "audio": "avoir_tr1.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Elle a 15 ans. »",
+   "options": [
+    "A. She has a dog.",
+    "B. She is 15 years old.",
+    "C. He is 15 years old.",
+    "D. She has 15 friends."
+   ],
+   "bonneReponse": 1,
+   "audio": "avoir_tr2.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Nous n'avons pas de voiture. »",
+   "options": [
+    "A. We have a car.",
+    "B. They don't have a car.",
+    "C. We don't have a car.",
+    "D. I don't have a car."
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_tr3.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Tu as soif ? »",
+   "options": [
+    "A. Are you hungry?",
+    "B. Are you cold?",
+    "C. Are you thirsty?",
+    "D. Are you tired?"
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_tr4.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Ils ont un appartement. »",
+   "options": [
+    "A. They have a car.",
+    "B. They have an apartment.",
+    "C. She has an apartment.",
+    "D. We have an apartment."
+   ],
+   "bonneReponse": 1,
+   "audio": "avoir_tr5.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « On a de la pizza ! »",
+   "options": [
+    "A. I have pizza!",
+    "B. You have pizza!",
+    "C. We have pizza!",
+    "D. They have pizza!"
+   ],
+   "bonneReponse": 2,
+   "audio": "avoir_tr6.mp3"
+  }
+ ]
+}

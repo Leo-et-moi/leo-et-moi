@@ -1,0 +1,273 @@
+{
+ "version": 1,
+ "exercice": "A1-E-001",
+ "audioBase": "french/a1/01-etre/",
+ "questions": [
+  {
+   "q": "Complète : Je ___ américain.",
+   "options": [
+    "suis",
+    "est",
+    "sont",
+    "es"
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_01.mp3",
+   "en": "I am American."
+  },
+  {
+   "q": "Complète : Tu ___ de l'Oregon ?",
+   "options": [
+    "suis",
+    "es",
+    "est",
+    "êtes"
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_02.mp3",
+   "en": "Are you from Oregon?"
+  },
+  {
+   "q": "Complète : Il ___ étudiant.",
+   "options": [
+    "es",
+    "suis",
+    "est",
+    "sommes"
+   ],
+   "bonneReponse": 2,
+   "audio": "etre_03.mp3",
+   "en": "He is a student."
+  },
+  {
+   "q": "Complète : Nous ___ amis.",
+   "options": [
+    "sommes",
+    "sont",
+    "est",
+    "êtes"
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_04.mp3",
+   "en": "We are friends."
+  },
+  {
+   "q": "Complète : Vous ___ professeur ?",
+   "options": [
+    "est",
+    "êtes",
+    "es",
+    "sommes"
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_05.mp3",
+   "en": "Are you a teacher?"
+  },
+  {
+   "q": "Complète : Elle ___ française.",
+   "options": [
+    "es",
+    "sont",
+    "est",
+    "suis"
+   ],
+   "bonneReponse": 2,
+   "audio": "etre_06.mp3",
+   "en": "She is French."
+  },
+  {
+   "q": "Complète : Ils ___ brésiliens.",
+   "options": [
+    "est",
+    "sommes",
+    "sont",
+    "êtes"
+   ],
+   "bonneReponse": 2,
+   "audio": "etre_07.mp3",
+   "en": "They are Brazilian."
+  },
+  {
+   "q": "Complète : On ___ en classe.",
+   "options": [
+    "suis",
+    "est",
+    "sont",
+    "sommes"
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_08.mp3",
+   "en": "We are in class."
+  },
+  {
+   "q": "Complète : Je ne ___ pas fatigué.",
+   "options": [
+    "est",
+    "suis",
+    "es",
+    "sont"
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_09.mp3",
+   "en": "I am not tired."
+  },
+  {
+   "q": "Complète : Elles ___ japonaises.",
+   "options": [
+    "sont",
+    "est",
+    "êtes",
+    "sommes"
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_10.mp3",
+   "en": "They are Japanese."
+  },
+  {
+   "q": "Écoute / lis la phrase : « Je est américain. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_tf1.mp3",
+   "en": "Correct or incorrect sentence?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Tu es de Portland. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_tf2.mp3",
+   "en": "Correct or incorrect sentence?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Ils sont espagnols. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_tf3.mp3",
+   "en": "Correct or incorrect sentence?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Elle suis étudiante. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_tf4.mp3",
+   "en": "Correct or incorrect sentence?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Nous sommes américains. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_tf5.mp3",
+   "en": "Correct or incorrect sentence?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Il n'est pas de Paris. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_tf6.mp3",
+   "en": "Correct or incorrect sentence?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Vous est professeur ? » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_tf7.mp3",
+   "en": "Correct or incorrect sentence?"
+  },
+  {
+   "q": "Écoute / lis la phrase : « Je ne suis pas fatiguée. » — VRAI (correcte) ou FAUX (incorrecte) ?",
+   "options": [
+    "VRAI — Correct",
+    "FAUX — Incorrect"
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_tf8.mp3",
+   "en": "Correct or incorrect sentence?"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Je suis de l'Oregon. »",
+   "options": [
+    "A. I am tired.",
+    "B. I am from Oregon.",
+    "C. We are from Oregon.",
+    "D. You are from Oregon."
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_tr1.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Vous êtes français ? »",
+   "options": [
+    "A. Are you tired?",
+    "B. Are you a student?",
+    "C. Are you French?",
+    "D. Is he French?"
+   ],
+   "bonneReponse": 2,
+   "audio": "etre_tr2.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Elle n'est pas étudiante. »",
+   "options": [
+    "A. She is a student.",
+    "B. He is not a student.",
+    "C. She is not a student.",
+    "D. They are not students."
+   ],
+   "bonneReponse": 2,
+   "audio": "etre_tr3.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Ils sont brésiliens et espagnols. »",
+   "options": [
+    "A. They are Brazilian and Spanish.",
+    "B. We are Brazilian and Spanish.",
+    "C. She is Brazilian and Spanish.",
+    "D. He is Brazilian and Spanish."
+   ],
+   "bonneReponse": 0,
+   "audio": "etre_tr4.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « On est en classe. »",
+   "options": [
+    "A. He is in class.",
+    "B. We are in class.",
+    "C. They are in class.",
+    "D. You are in class."
+   ],
+   "bonneReponse": 1,
+   "audio": "etre_tr5.mp3"
+  },
+  {
+   "q": "Quelle est la bonne traduction ? « Est-ce que tu es fatigué ? »",
+   "options": [
+    "A. You are tired.",
+    "B. Are you hungry?",
+    "C. Are you tired?",
+    "D. Is he tired?"
+   ],
+   "bonneReponse": 2,
+   "audio": "etre_tr6.mp3"
+  }
+ ]
+}
