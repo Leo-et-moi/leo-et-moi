@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnostic — Leo-et-moi</title>
+<style>
+body{font-family:Arial,sans-serif;font-size:18px;background:#F5F0E8;color:#1A2733;padding:20px;line-height:1.6;}
+.ok{color:#1E7B45;font-weight:bold;}
+.err{color:#C0392B;font-weight:bold;}
+pre{background:#fff;border:1px solid #D8DFE8;border-radius:8px;padding:12px;white-space:pre-wrap;font-size:15px;}
+</style>
+</head>
+<body>
+<h1>Diagnostic Leo-et-moi</h1>
+<p>Copie tout ce qui s'affiche ci-dessous et envoie-le à Claude.</p>
+<pre id="out">Démarrage…</pre>
+<script>
+var out=document.getElementById('out'); out.textContent='';
+function log(msg, cls){ var d=document.createElement('div'); if(cls)d.className=cls; d.textContent=msg; out.appendChild(d); }
+log('Navigateur : '+navigator.userAgent);
+log('URL : '+location.href);
+log('Date : '+new Date().toString());
+log('--- Test 1 : fetch catalog.json (comme l\'accueil) ---');
+fetch('catalog.json',{cache:'no-store'}).then(function(r){
+  log('HTTP '+r.status+' — Content-Type : '+(r.headers.get('content-type')||'?'));
+  return r.text();
+}).then(function(txt){
+  log('Taille : '+txt.length+' caractères');
+  try{
+    var c=JSON.parse(txt);
+    log('JSON valide — '+c.lecons.length+' leçons, '+c.exercices.length+' exercices','ok');
+    var L=c.lecons.filter(function(x){return x.niveau==='A1'&&x.publie;}).length;
+    var E=c.exercices.filter(function(x){return x.niveau==='A1'&&x.publie;}).length;
+    log('Compteur A1 calculé : '+L+' L · '+E+' E','ok');
+  }catch(e){ log('JSON INVALIDE : '+e.message,'err'); log('Début du contenu reçu : '+txt.slice(0,200)); }
+}).catch(function(e){ log('ÉCHEC du fetch : '+e.message,'err'); });
+log('--- Test 2 : import des modules (comme les pages de niveau) ---');
+import('/js/catalog.js').then(function(m){
+  log('Module catalog.js chargé','ok');
+  return m.compteurs('A1');
+}).then(function(c){
+  log('compteurs(A1) → '+c.lecons+' leçons, '+c.exercices+' exercices','ok');
+}).catch(function(e){ log('ÉCHEC modules : '+e.name+' — '+e.message,'err'); });
+window.addEventListener('error',function(e){ log('ERREUR PAGE : '+e.message+' ('+(e.filename||'')+':'+(e.lineno||'')+')','err'); });
+</script>
+</body>
+</html>
