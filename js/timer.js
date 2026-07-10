@@ -1,13 +1,14 @@
-/* timer.js — Minuterie optionnelle + chronomètre silencieux (Phase 5).
-   À inclure sur chaque page de leçon/exercice :  <script src="/js/timer.js"></script>
+/* timer.js — Chronomètre silencieux + minuterie de test (Phase 5, révisé).
+   À inclure sur chaque page de contenu :  <script src="/js/timer.js"></script>
 
-   1. MINUTERIE (visible, optionnelle — profil de Leo : il l'utilise ou pas).
-      Bouton discret ⏱️ en bas à droite → widget Pomodoro 25 min (▶/⏸, ✕).
-      La préférence est mémorisée dans Firestore (users/{uid}.timer) via LEM :
-      activée une fois, elle apparaît sur toutes les pages ; masquée = masquée partout.
-   2. CHRONOMÈTRE SILENCIEUX (invisible, toujours actif).
+   1. CHRONOMÈTRE SILENCIEUX (invisible, toujours actif — décision d'Eric).
       Mesure le temps passé sur la page ; quand l'exercice enregistre
-      completed=true, la durée (dureeSec) est ajoutée au score dans Firestore. */
+      completed=true, la durée (dureeSec) est ajoutée au score dans Firestore.
+      Visible seulement au tableau de bord prof.
+   2. MINUTERIE VISIBLE — réservée aux TESTS (décision d'Eric, 10/07/2026).
+      Ne s'affiche que si la page déclare <body data-timer="visible">
+      (pages de tests, Phase 7). Jamais sur les leçons ni les exercices.
+      Préférence élève mémorisée dans Firestore (users/{uid}.timer). */
 (function () {
   'use strict';
   var t0 = Date.now();
@@ -83,10 +84,12 @@
   function setVisible(v) { box.style.display = v ? 'flex' : 'none'; showBtn.style.display = v ? 'none' : 'block'; }
 
   function init() {
-    build();
+    var testPage = document.body && document.body.dataset && document.body.dataset.timer === 'visible';
+    if (testPage) build();
     wrapLEM();
     document.addEventListener('lem-auth-ready', function () {
       wrapLEM();
+      if (!testPage) return;
       try {
         window.LEM.getUser().then(function (u) { if (u && u.timer === true) setVisible(true); }).catch(function () {});
       } catch (e) {}
