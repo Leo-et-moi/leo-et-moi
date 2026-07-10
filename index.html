@@ -475,9 +475,14 @@ function lemPerso(){
       // 3. Carte \u25b6 Continuer
       var host=document.getElementById('continuerHost');
       if(!host||u.role==='teacher') return;
-      var html='<div class="sec-label">\u25b6 Continuer</div><div class="continue-card">';
+      var INSTR='<div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;">'+
+        '<button class="speak-btn" onclick="playClip(\'continue_instruction.mp3\',this)" aria-label="\u00c9couter">\ud83d\udd0a</button>'+
+        '<div style="font-size:17px;">Passe \u00e0 la le\u00e7on ou l\u2019exercice suivant\u00a0:'+
+        '<br><span style="font-size:14px;color:var(--slate);">Move on to the next lesson or exercise.</span></div></div>';
+      var html='<div class="sec-label">\u25b6 Continue</div><div class="continue-card">';
       if(target){
         var started=tProg&&typeof tProg.score==='number';
+        html+=INSTR;
         html+='<div class="continue-label">'+(started?'Exercice en cours':'Prochain exercice')+'</div>'+
               '<div class="continue-title">'+target.titre+'</div>'+
               '<div class="continue-sub">'+LVL+' \u00b7 Exercice '+tIdx+' / '+exos.length+'</div>';
@@ -501,6 +506,7 @@ function lemPerso(){
           for(var j=0;j<lower.length;j++){ if(!(lps[j]&&lps[j].completed)){ t2=lower[j];tp2=lps[j];break; } }
           if(t2){
             var st2=tp2&&typeof tp2.score==='number';
+            html+=INSTR;
             html+='<div class="continue-label">En attendant les exercices '+LVL+'</div>'+
                   '<div class="continue-title">'+t2.titre+'</div>'+
                   '<div class="continue-sub">'+t2.niveau+' \u00b7 '+(st2?'d\u00e9j\u00e0 commenc\u00e9':'nouveau pour toi')+'</div>'+
