@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "note": "Le programme est décidé par le professeur. Semaine 1 = proposition construite sur le contenu A1 existant, à valider/modifier par Eric. Un même ID peut revenir sur plusieurs semaines (révision).",
+  "semaines": [
+    {
+      "numero": 1,
+      "niveau": "A1",
+      "titre": "Premiers pas — être, avoir, les nombres",
+      "jours": [
+        { "jour": 1, "plan": ["echauffement", "A1-L-001", "A1-E-001", "revision"] },
+        { "jour": 2, "plan": ["echauffement", "A1-L-002", "A1-E-002", "revision"] },
+        { "jour": 3, "plan": ["echauffement", "A1-L-003", "A1-E-003", "revision"] },
+        { "jour": 4, "plan": ["echauffement", "A1-L-003", "A1-E-004", "revision"] },
+        { "jour": 5, "plan": ["echauffement", "A1-T-001", "revision"] }
+      ],
+      "test": "A1-T-001"
+    }
+  ]
+}

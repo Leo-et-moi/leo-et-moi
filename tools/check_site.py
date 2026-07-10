@@ -116,11 +116,11 @@ par_path = ROOT / "parcours.json"
 if par_path.exists() and catalog:
     try:
         par = json.loads(par_path.read_text(encoding="utf-8"))
-        known = set(lecons) | set(exercices) | {"echauffement", "revision"}
+        known = set(lecons) | set(exercices) | {ts["id"] for ts in catalog.get("tests", [])} | {"echauffement", "revision"}
         for s in par.get("semaines", []):
             for j in s.get("jours", []):
                 for x in j.get("plan", []):
-                    if x not in known and not ID_RE.match(x):
+                    if x not in known:
                         err(f"parcours.json : semaine {s.get('numero')} jour {j.get('jour')} : item inconnu → {x}")
     except Exception as e:
         err(f"parcours.json invalide : {e}")

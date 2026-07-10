@@ -440,9 +440,10 @@ function lemPerso(){
   if(!window.LEM) return;
   Promise.all([
     window.LEM.getUser().catch(function(){return {};}),
-    fetch('catalog.json',{cache:'no-store'}).then(function(r){return r.json();})
+    fetch('catalog.json',{cache:'no-store'}).then(function(r){return r.json();}),
+    fetch('parcours.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
   ]).then(function(res){
-    var u=res[0]||{}, c=res[1];
+    var u=res[0]||{}, c=res[1], par=res[2];
     var lvl=((u.level)||'a1').toLowerCase();
     if(ORDER.indexOf(lvl)<0) lvl='a1';
     var LVL=lvl.toUpperCase();
@@ -457,6 +458,10 @@ function lemPerso(){
       else if(i>idx){ seg.classList.add('locked'); seg.title=ORDER[i].toUpperCase()+' \u2014 verrouill\u00e9'; }
       else { seg.title=ORDER[i].toUpperCase()+' \u2014 termin\u00e9'; }
     });
+
+    // 1b. Ma journée (parcours du prof) — remplace Continuer quand un parcours existe
+    var weeks=((par&&par.semaines)||[]).filter(function(w){return (w.niveau||'').toLowerCase()===lvl;});
+    if(weeks.length && u.role!=='teacher'){ renderJournee(weeks,c,LVL); return; }
 
     // 2. Exercices du niveau, dans l'ordre du catalogue
     var exos=c.exercices.filter(function(e){return e.niveau===LVL&&e.publie;})
@@ -522,6 +527,66 @@ function lemPerso(){
       host.innerHTML=html+'</div>';
     });
   }).catch(function(e){ console.error('[leo-et-moi] personnalisation :', e); });
+}
+function renderJournee(weeks,c,LVL){
+  var host=document.getElementById('continuerHost');
+  if(!host) return;
+  // Clé de progression de chaque item planifié (exercices + tests)
+  var track={};
+  weeks.forEach(function(w){ w.jours.forEach(function(j){ j.plan.forEach(function(x){
+    if(x==='echauffement'||x==='revision'||track[x]!==undefined) return;
+    var e=c.exercices.find(function(e){return e.id===x;});
+    if(e){ track[x]=e.progressId||null; return; }
+    var ts=(c.tests||[]).find(function(t){return t.id===x;});
+    if(ts) track[x]=ts.id;
+  }); }); });
+  var ids=Object.keys(track).filter(function(k){return track[k];});
+  Promise.all(ids.map(function(k){return window.LEM.getLesson(track[k]).catch(function(){return null;});}))
+  .then(function(ps){
+    var done={};
+    ids.forEach(function(k,i){ if(ps[i]&&ps[i].completed) done[k]=true; });
+    var dayDone=function(j){
+      var tracked=j.plan.filter(function(x){return track[x];});
+      return tracked.length>0 && tracked.every(function(x){return done[x];});
+    };
+    // Jour courant : premier jour non terminé
+    var W=null,J=null,fini=true;
+    outer: for(var wi=0;wi<weeks.length;wi++){
+      for(var ji=0;ji<weeks[wi].jours.length;ji++){
+        if(!dayDone(weeks[wi].jours[ji])){ W=weeks[wi]; J=weeks[wi].jours[ji]; fini=false; break outer; }
+      }
+    }
+    if(fini){ W=weeks[weeks.length-1]; J=W.jours[W.jours.length-1]; }
+    var nbJours=W.jours.length, faits=W.jours.filter(dayDone).length;
+    var ICONES={echauffement:'⚡',revision:'🔁'};
+    var lignes='',cta=null;
+    J.plan.forEach(function(x){
+      var lbl,href,ok=false;
+      if(x==='echauffement'){ lbl='⚡ Échauffement'; href='#warmupTag'; }
+      else if(x==='revision'){ lbl='🔁 Révision'; href='#revisionHost'; }
+      else{
+        var l=c.lecons.find(function(l){return l.id===x;});
+        var e=c.exercices.find(function(e){return e.id===x;});
+        var ts=(c.tests||[]).find(function(t){return t.id===x;});
+        if(l){ lbl='📖 '+l.titre; href='/'+l.chemin; }
+        else if(e){ lbl='✏️ '+e.titre; href='/'+e.chemin; ok=!!done[x]; if(!ok&&!cta) cta={href:href,titre:e.titre}; }
+        else if(ts){ lbl='📝 '+ts.titre; href='/french/tests/test.html?id='+ts.id; ok=!!done[x]; if(!ok&&!cta) cta={href:href,titre:ts.titre}; }
+        else return;
+      }
+      lignes+='<div style="display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid var(--divider);font-size:16px;">'+
+        '<span style="width:24px;text-align:center;">'+(ok?'✅':'▫️')+'</span>'+
+        '<a href="'+href+'" style="color:var(--navyMid);text-decoration:none;font-weight:bold;flex:1;">'+lbl+'</a></div>';
+    });
+    var html='<div class="sec-label">📅 Ma journée</div><div class="continue-card">'+
+      '<div class="continue-label">Semaine '+W.numero+' — '+W.titre+'</div>'+
+      '<div class="continue-sub">'+LVL+' · Jour '+(W.jours.indexOf(J)+1)+' / '+nbJours+'</div>'+
+      '<div class="prog-wrap"><div class="prog-fill" style="width:'+Math.round(100*faits/nbJours)+'%"></div></div>'+
+      '<div class="prog-text">'+faits+' jour'+(faits>1?'s':'')+' terminé'+(faits>1?'s':'')+' sur '+nbJours+' cette semaine</div>'+
+      lignes;
+    if(fini){ html+='<p style="font-weight:bold;color:var(--green);">🎉 Semaine terminée — bravo ! Ton professeur prépare la suite.</p>'; }
+    else if(cta){ html+='<a class="cta-btn" href="'+cta.href+'" style="margin-top:12px;">Continue : '+cta.titre+' →</a>'; }
+    host.innerHTML=html+'</div>';
+  });
 }
 document.addEventListener('lem-auth-ready', lemPerso);
 if(window.LEM && window.LEM.user) lemPerso();

@@ -92,9 +92,38 @@ function ready(cb){ if(window.LEM && window.LEM.user) cb(); else document.addEve
 // Catalogue : titres, niveaux et compétences par clé de progression
 var CAT={byProgress:{},byTest:{}};
 var CATREADY=fetch('catalog.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(c){
+  CAT.raw=c;
   (c.exercices||[]).forEach(function(e){ if(e.progressId) CAT.byProgress[e.progressId]={titre:e.titre,niveau:e.niveau,competences:e.competences||[]}; });
   (c.tests||[]).forEach(function(x){ CAT.byTest[x.id]={titre:x.titre,niveau:x.niveau}; });
+  return fetch('parcours.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(p){ CAT.parcours=p; }).catch(function(){});
 }).catch(function(){});
+
+// Position d'un élève dans le parcours de son niveau (mêmes règles que l'accueil)
+function positionParcours(level, lessons){
+  var par=CAT.parcours, c=CAT.raw;
+  if(!par||!c) return null;
+  var weeks=(par.semaines||[]).filter(function(w){return (w.niveau||'').toLowerCase()===level;});
+  if(!weeks.length) return null;
+  var done={};
+  lessons.forEach(function(l){ if(l.completed) done[l.id]=true; });
+  var keyOf=function(x){
+    var e=c.exercices.find(function(e){return e.id===x;});
+    if(e) return e.progressId||null;
+    var ts=(c.tests||[]).find(function(t){return t.id===x;});
+    return ts?ts.id:null;
+  };
+  var dayDone=function(j){
+    var keys=j.plan.map(keyOf).filter(Boolean);
+    return keys.length>0 && keys.every(function(k){return done[k];});
+  };
+  for(var wi=0;wi<weeks.length;wi++){
+    for(var ji=0;ji<weeks[wi].jours.length;ji++){
+      if(!dayDone(weeks[wi].jours[ji]))
+        return '📅 Semaine '+weeks[wi].numero+' · Jour '+(ji+1)+'/'+weeks[wi].jours.length;
+    }
+  }
+  return '📅 Parcours terminé 🎉';
+}
 var COMP_LABELS={listening:'🎧 Écoute',reading:'📖 Lecture',writing:'✍️ Écriture',speaking:'🗣️ Oral'};
 function fduree(sec){ if(typeof sec!=='number') return ''; var m=Math.floor(sec/60),s=sec%60; return ' · ⏱ '+m+' min '+(s<10?'0':'')+s; }
 
@@ -137,7 +166,8 @@ function render(content, students){
     html+='<div class="stu">';
     html+='<div class="stu-head"><span class="stu-name">'+esc(s.name||s.email||'(sans nom)')+'</span>'+
           '<span class="lvl-pill" style="background:'+(LVLCOLOR[lvl]||'#888')+'">'+lvl.toUpperCase()+'</span></div>';
-    html+='<div class="stu-meta">'+esc(s.email)+' &nbsp;·&nbsp; &#128293; '+s.streak+' j &nbsp;·&nbsp; &#128218; '+s.vocab+' mots</div>';
+    var pos=positionParcours(lvl, s.lessons);
+    html+='<div class="stu-meta">'+esc(s.email)+' &nbsp;·&nbsp; &#128293; '+s.streak+' j &nbsp;·&nbsp; &#128218; '+s.vocab+' mots'+(pos?(' &nbsp;·&nbsp; '+pos):'')+'</div>';
     if(!s.lessons.length){
       html+='<div class="none">Aucun exercice commenc&eacute;.</div>';
     } else {
