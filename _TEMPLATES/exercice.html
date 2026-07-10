@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- À REMPLIR : Niveau : Titre --> — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<!-- À REMPLIR : data-item-id = ID du catalogue (ex. A2-E-004) -->
+<body data-item-id="XX-E-000">
+
+<header class="topbar"><span class="brand">Leo-et-moi</span></header>
+
+<!-- Le bandeau « 📖 revois la leçon » est généré ici depuis le catalogue -->
+<main class="revoir-host" style="padding:0 12px">
+  <h1><!-- À REMPLIR : titre de l'exercice --></h1>
+  <p id="scorebar">Score : 0 / 0</p>
+  <div id="quiz"></div>
+</main>
+
+<script src="/js/audio.js"></script>
+<script src="/js/quiz.js"></script>
+<script type="module">
+  import { bandeauRevoir } from '/js/ui.js';
+  bandeauRevoir();
+
+  // À REMPLIR : questions (audio optionnel, fichiers dans ./audio/)
+  const QUESTIONS = [
+    { q: "Exemple de question&nbsp;?", en: "Example question?",
+      options: ["bonne réponse", "autre", "autre", "autre"],
+      bonneReponse: 0, audio: "exemple_q1.mp3" }
+  ];
+
+  LeoQuiz.render(document.getElementById('quiz'), QUESTIONS, {
+    onScore: (s, t, done) => { document.getElementById('scorebar').textContent = `Score : ${s} / ${t}`; },
+    onDone: (s, t) => {
+      // Enregistrement Firestore : brancher ici le même appel que les pages
+      // existantes (js/auth-guard.js expose l'utilisateur connecté).
+      document.getElementById('scorebar').textContent = `Terminé ! Score : ${s} / ${t} 🎉`;
+    }
+  });
+</script>
+</body>
+</html>

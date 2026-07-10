@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- À REMPLIR : Niveau : Titre (oral) --> — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<!-- À REMPLIR : data-item-id = ID du catalogue. Compétence : speaking -->
+<body data-item-id="XX-E-000">
+
+<header class="topbar"><span class="brand">Leo-et-moi</span></header>
+
+<main class="revoir-host" style="padding:0 12px">
+  <h1>🗣️ <!-- À REMPLIR : titre --></h1>
+  <div class="card card--gold">
+    <b>Comment ça marche&nbsp;:</b> écoute le modèle 🔊, répète à voix haute,
+    puis dis-nous comment c'était&nbsp;: 😕 difficile · 🙂 presque · 😃 facile.
+    <span class="en">Listen, repeat out loud, then rate yourself.</span>
+  </div>
+  <div id="items"></div>
+</main>
+
+<script src="/js/audio.js"></script>
+<script src="/js/speaking.js"></script>
+<script type="module">
+  import { bandeauRevoir } from '/js/ui.js';
+  bandeauRevoir();
+
+  // À REMPLIR : phrases à répéter (fichiers dans ./audio/)
+  const ITEMS = [
+    { fr: "Bonjour, comment ça va ?", en: "Hello, how are you?", audio: "exemple_s1.mp3" }
+  ];
+
+  LeoSpeaking.render(document.getElementById('items'), ITEMS, {
+    onDone: (s, t) => { /* Enregistrement Firestore ici (cf. pages existantes). */ }
+  });
+</script>
+</body>
+</html>

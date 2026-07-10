@@ -1,0 +1,104 @@
+/* site.css — Design « Bleu & Corail » leo-et-moi (gabarit partagé, Phase 1).
+   Source des standards : GUIDE_LEO-ET-MOI.md §3 et WEBSITE_PROJECT_HANDOFF.md §3.
+   Les pages existantes migrent vers ce fichier page par page ; les nouvelles
+   pages (via _TEMPLATES/) l'utilisent d'office. */
+
+:root {
+  --dark: #1B2845;      /* barre haute, cartes sombres */
+  --navyMid: #2C4A7C;   /* boutons secondaires, liens */
+  --coral: #E8503A;     /* CTA principal, accents */
+  --gold: #D4920A;      /* cartes phrase/vocab */
+  --cream: #F5F0E8;     /* fond de page */
+  --text: #1A2733;      /* texte courant */
+  --slate: #4A6580;     /* texte secondaire */
+  --white: #FFFFFF;     /* cartes de contenu */
+  --divider: #D8DFE8;   /* bordures, séparateurs */
+  --card: #EDE8DF;
+  --green: #1E7B45;  --ltgreen: #E3F5EC;   /* bonne réponse */
+  --red: #C0392B;    --ltred: #FBE7E5;     /* mauvaise réponse */
+  /* Couleurs CEFR (usage interne au site uniquement) */
+  --a1: #C0392B; --a2: #E07B39; --b1: #D4920A;
+  --b2: #7CB82F; --c1: #27AE60; --c2: #1A5C38;
+  --nav-h: 64px;
+}
+
+/* Base — profil de Leo : Arial ≥ 18 px, pas d'italique, gras seulement */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--cream); color: var(--text);
+  font-family: Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.55;
+  padding-bottom: var(--nav-h);
+}
+h1, h2, h3 { line-height: 1.25; }
+a { color: var(--navyMid); }
+
+/* Barre haute */
+.topbar {
+  position: sticky; top: 0; z-index: 50; background: var(--dark); color: #fff;
+  display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+}
+.topbar .brand { font-weight: bold; font-size: 20px; }
+
+/* Cartes */
+.card {
+  background: var(--white); border: 1px solid var(--divider); border-radius: 14px;
+  padding: 16px; margin: 14px auto; max-width: 720px;
+}
+.card--gold { background: #FBF3E2; border-color: var(--gold); }
+
+/* Boutons — cibles tactiles ≥ 44 px */
+button, .btn {
+  font-family: inherit; font-size: 18px; min-height: 44px; min-width: 44px;
+  border-radius: 12px; border: 1px solid var(--divider); cursor: pointer;
+}
+.btn-primary { background: var(--coral); color: #fff; border: none; padding: 12px 20px; font-weight: bold; }
+.btn-secondary { background: var(--navyMid); color: #fff; border: none; padding: 12px 20px; }
+
+/* Bouton audio 🔊 — état 'speaking' géré par js/audio.js */
+.t-play, .vaud {
+  background: var(--navyMid); color: #fff; border: none; border-radius: 50%;
+  width: 44px; height: 44px; font-size: 20px;
+}
+.speaking { background: var(--coral) !important; }
+
+/* Options de QCM (js/quiz.js) */
+.opt {
+  display: block; width: 100%; text-align: left; padding: 12px 16px; margin: 8px 0;
+  background: var(--white); border: 2px solid var(--divider); border-radius: 12px;
+}
+.opt.good { background: var(--ltgreen); border-color: var(--green); }
+.opt.bad { background: var(--ltred); border-color: var(--red); }
+.opt:disabled { cursor: default; }
+
+/* Bandeau « revois la leçon » (js/ui.js) */
+.revoir {
+  background: #FBF3E2; border: 1px solid var(--gold); border-radius: 12px;
+  padding: 12px 16px; margin: 14px auto; max-width: 720px;
+}
+
+/* Badges de compétences */
+.comp-badge { font-size: 15px; background: var(--card); border-radius: 8px; padding: 2px 8px; margin-right: 6px; white-space: nowrap; }
+
+/* Texte bilingue : équivalent anglais en petit corps, aligné à droite
+   (italique proscrit pour Leo → petit corps + couleur secondaire) */
+.en { display: block; text-align: right; font-size: 15px; color: var(--slate); }
+
+/* Barre de progression */
+.progress { background: var(--divider); border-radius: 8px; height: 12px; overflow: hidden; }
+.progress > span { display: block; height: 100%; background: var(--coral); }
+
+/* Auto-évaluation Speaking (js/speaking.js) */
+.selfeval { display: flex; gap: 12px; justify-content: center; }
+.selfeval button { font-size: 28px; width: 64px; height: 64px; border-radius: 50%; background: var(--white); }
+.selfeval button.sel { border: 3px solid var(--coral); }
+
+/* Navigation basse */
+.bottomnav {
+  position: fixed; bottom: 0; left: 0; right: 0; height: var(--nav-h); z-index: 50;
+  display: flex; background: var(--dark);
+}
+.bottomnav a { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px; }
+
+/* Desktop */
+@media (min-width: 600px) { .card, .revoir { max-width: 760px; } }

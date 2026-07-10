@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- À REMPLIR : Niveau : Titre --> — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<!-- À REMPLIR : data-item-id = ID du catalogue (ex. A2-L-001) -->
+<body data-item-id="XX-L-000">
+
+<header class="topbar"><span class="brand">Leo-et-moi</span></header>
+
+<main style="padding:0 12px">
+  <h1><!-- À REMPLIR : titre de la leçon --></h1>
+
+  <!-- Option A : leçon vidéo (embed YouTube, pas de stockage vidéo) -->
+  <!--
+  <div class="card">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID"
+      title="Leçon" frameborder="0" allowfullscreen></iframe>
+  </div>
+  -->
+
+  <!-- Option B : contenu HTML + audio. Chaque exemple est bilingue : -->
+  <div class="card">
+    <p>
+      <button class="t-play" onclick="playClip('exemple_01.mp3', this)" aria-label="Écouter">🔊</button>
+      Phrase d'exemple en français.
+      <span class="en">Example sentence in English.</span>
+    </p>
+  </div>
+
+  <!-- La liste « ✏️ Exercices liés » est générée ici depuis le catalogue -->
+  <div class="exercices-host"></div>
+</main>
+
+<script src="/js/audio.js"></script>
+<script type="module">
+  import { exercicesLies } from '/js/ui.js';
+  exercicesLies();
+</script>
+</body>
+</html>

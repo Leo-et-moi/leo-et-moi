@@ -113,7 +113,7 @@ if par_path.exists() and catalog:
 # ---------- 4. Pages HTML : intégrité, liens, audio, interdits ----------
 SRC_RE = re.compile(r"""(?:src|href)\s*=\s*["']([^"'#]+?)["']""", re.I)
 SKIP_PREFIX = ("http://", "https://", "mailto:", "tel:", "javascript:", "data:", "//")
-html_files = [p for p in ROOT.rglob("*.html") if ".git" not in p.parts]
+html_files = [p for p in ROOT.rglob("*.html") if ".git" not in p.parts and "_TEMPLATES" not in p.parts]
 for p in html_files:
     rel = p.relative_to(ROOT)
     try:
