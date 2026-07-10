@@ -49,7 +49,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 @media(min-width:600px){.main{padding:24px 20px 8px;}}
 </style>
 </head>
-<body>
+<body data-item-id="A1-L-001">
 <header class="top-bar">
   <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
   <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
@@ -69,6 +69,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 
   <a class="cta-btn" href="exercices.html">Faire les exercices &#8594;</a>
   <div class="hint">Utilise <strong>Pr&eacute;c&eacute;dent</strong> et <strong>Suivant</strong> pour avancer dans la le&ccedil;on.</div>
+<div class="exercices-host"></div>
 </main>
 <nav class="bottom-nav">
   <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
@@ -96,5 +97,6 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 })();
 </script>
 <script type="module" src="../../../js/auth-guard.js"></script>
+<script type="module">import { exercicesLies } from '/js/ui.js'; exercicesLies();</script>
 </body>
 </html>

@@ -49,7 +49,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
 </style>
 </head>
-<body>
+<body data-item-id="B1-L-001">
 <header class="top-bar"><a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
 <main class="main">
   <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons B1</a>
@@ -61,6 +61,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
     <span class="counter" id="counter">1 / 8</span>
     <button class="nav-btn" id="next">Suivant &#8594;</button>
   </div>
+<div class="exercices-host"></div>
 </main>
 <nav class="bottom-nav">
   <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
@@ -78,5 +79,6 @@ next.addEventListener('click',function(){ show(idx+1); });
 show(0);
 </script>
 <script type="module" src="../../../js/auth-guard.js"></script>
+<script type="module">import { exercicesLies } from '/js/ui.js'; exercicesLies();</script>
 </body>
 </html>

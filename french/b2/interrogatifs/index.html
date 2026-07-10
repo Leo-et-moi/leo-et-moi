@@ -64,14 +64,14 @@ textarea.pta:focus{border-color:var(--b2);outline:none;}
 .ecoute-instr{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);margin-bottom:12px;line-height:1.5;}
 </style>
 </head>
-<body>
+<body data-item-id="B2-E-001">
 <header class="top-bar"><a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
 <main class="main">
   <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons B2</a>
   <div class="lvl-tag">B2</div>
   <div class="h-title">Exercices &middot; Adjectifs &amp; pronoms interrogatifs</div>
   <div class="consigne"><button class="aud" onclick="playClip('b2qx_consigne.mp3',this)">&#128266;</button><span>D&eacute;couvre le vocabulaire, &eacute;coute le dialogue, puis fais les exercices (tu peux afficher la transcription, mais seulement apr&egrave;s avoir termin&eacute; les exercices).<span class="tri">Discover the vocabulary, listen to the dialogue, then do the exercises (you can show the transcript, but only after finishing the exercises).</span></span></div>
-  <div class="revoir"><span>&#128214; Avant de commencer, revois la le&ccedil;on&nbsp;:</span> <a href="../../b1/interrogatifs/index.html">Les adjectifs et pronoms interrogatifs &#8594;</a></div>
+  <div class="revoir-host"></div>
   <div class="scorebar" id="scorebar">Score : 0 / 14</div>
   <div class="sec-label">&#128266; Prononciation &mdash; adjectifs &amp; pronoms</div><div id="vocab"></div>
   <div class="sec-label">&#128218; Vocabulaire &agrave; d&eacute;couvrir</div><div id="dvocab"></div>
@@ -199,5 +199,6 @@ function finish(){ var f=document.getElementById('final'); f.style.display='bloc
   f.scrollIntoView({behavior:'smooth'}); }
 </script>
 <script type="module" src="../../../js/auth-guard.js"></script>
+<script type="module">import { bandeauRevoir } from '/js/ui.js'; bandeauRevoir();</script>
 </body>
 </html>

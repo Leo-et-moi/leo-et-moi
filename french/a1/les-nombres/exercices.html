@@ -47,12 +47,13 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
 </style>
 </head>
-<body>
+<body data-item-id="A1-E-003">
 <header class="top-bar">
   <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
   <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
 </header>
 <main class="main">
+<div class="revoir-host"></div>
   <a class="back-link" href="index.html">&#8592; La le&ccedil;on</a>
   <div class="lvl-tag">A1</div>
   <div class="h-title">Exercices &mdash; Les nombres</div>
@@ -172,5 +173,6 @@ mcRender(document.getElementById('secE'),[
 ]);
 </script>
 <script type="module" src="../../../js/auth-guard.js"></script>
+<script type="module">import { bandeauRevoir } from '/js/ui.js'; bandeauRevoir();</script>
 </body>
 </html>
