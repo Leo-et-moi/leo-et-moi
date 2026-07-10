@@ -261,7 +261,20 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   </div>
 </div>
 
-<a class="cta-btn" href="mes-lecons.html" style="margin-bottom:16px;font-size:20px;">&#128218; Toutes mes le&ccedil;ons &#8594;</a>
+<div style="display:flex;gap:8px;margin-bottom:16px;">
+  <a href="french/a1/index.html" class="lvlchip" style="--c:var(--a1);">A1<span id="cnt-A1"></span></a>
+  <a href="french/a2/index.html" class="lvlchip" style="--c:var(--a2);">A2<span id="cnt-A2"></span></a>
+  <a href="french/b1/index.html" class="lvlchip" style="--c:var(--b1);">B1<span id="cnt-B1"></span></a>
+  <a href="french/b2/index.html" class="lvlchip" style="--c:var(--b2);">B2<span id="cnt-B2"></span></a>
+  <a href="french/c1/index.html" class="lvlchip" style="--c:var(--c1);">C1<span id="cnt-C1"></span></a>
+  <a href="french/c2/index.html" class="lvlchip" style="--c:var(--c2);">C2<span id="cnt-C2"></span></a>
+</div>
+<style>
+.lvlchip{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  background:var(--c);color:#fff;font-weight:bold;font-size:18px;text-decoration:none;
+  border-radius:12px;min-height:56px;padding:6px 0;}
+.lvlchip span{font-size:11px;font-weight:normal;opacity:0.9;}
+</style>
 
 <a id="teacherLink" class="cta-btn" href="tableau-prof.html" style="display:none;margin-bottom:16px;font-size:18px;background:#2C4A7C;">&#128202; Tableau de bord (prof) &#8594;</a>
 
@@ -338,116 +351,15 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <button class="pom-show-btn" id="pomShowBtn" onclick="setPomVisible(true)" style="display:none;">&#9201;&#65039; Afficher la minuterie <span class="pom-opt">(optionnel)</span></button>
 </div>
 
-<!-- PHRASE DE LA SEMAINE -->
+<!-- PHRASE / VOCABULAIRE / ANATOMIE — générés depuis data/programme/ -->
+<div id="semaineHosts">
 <div class="sec-label">&#127881; Phrase de la semaine</div>
-<div class="phrase-card">
-  <div class="phrase-top">
-    <span class="phrase-tag">Semaine du 16 juin</span>
-    <button class="speak-btn" onclick="playClip('phrase_semaine.mp3',this)">&#128266; &Eacute;couter</button>
-  </div>
-  <div class="phrase-fr">&laquo;&nbsp;J&rsquo;ai faim&nbsp;!&nbsp;&raquo;</div>
-  <div class="phrase-en">&ldquo;I&rsquo;m hungry!&rdquo;</div>
-  <div class="phrase-ctx">
-    <div class="phrase-ctx-fr">Il est midi et j&rsquo;ai faim. On mange&nbsp;?</div>
-    <div class="phrase-ctx-en">It&rsquo;s noon and I&rsquo;m hungry. Shall we eat?</div>
-  </div>
-</div>
-
-<!-- VOCABULAIRE DE LA SEMAINE -->
+<div id="phraseHost"></div>
 <div class="sec-label">&#128218; Vocabulaire de la semaine</div>
-<div class="vocab-card">
-  <div class="vocab-tag">
-    <span class="vocab-tag-label">5 expressions avec AVOIR</span>
-    <button class="speak-btn" onclick="playSeq(['vocab_1_faim.mp3','vocab_2_soif.mp3','vocab_3_peur.mp3','vocab_4_besoin.mp3','vocab_5_chance.mp3'],this)">&#128266; Tout &eacute;couter</button>
-  </div>
-
-  <div class="vocab-item">
-    <div class="vocab-row">
-      <span class="vocab-fr">avoir faim</span>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span class="vocab-en">to be hungry</span>
-        <button class="speak-btn" onclick="playClip('vocab_1_faim.mp3',this)">&#128266;</button>
-      </div>
-    </div>
-    <div class="vocab-ctx">&#8220;J&rsquo;ai faim apr&egrave;s l&rsquo;entra&icirc;nement.&#8221; &mdash; I&rsquo;m hungry after practice.</div>
-  </div>
-
-  <div class="vocab-item">
-    <div class="vocab-row">
-      <span class="vocab-fr">avoir soif</span>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span class="vocab-en">to be thirsty</span>
-        <button class="speak-btn" onclick="playClip('vocab_2_soif.mp3',this)">&#128266;</button>
-      </div>
-    </div>
-    <div class="vocab-ctx">&#8220;Tu as soif apr&egrave;s la randonn&eacute;e&nbsp;?&#8221; &mdash; Are you thirsty after the hike?</div>
-  </div>
-
-  <div class="vocab-item">
-    <div class="vocab-row">
-      <span class="vocab-fr">avoir peur</span>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span class="vocab-en">to be scared</span>
-        <button class="speak-btn" onclick="playClip('vocab_3_peur.mp3',this)">&#128266;</button>
-      </div>
-    </div>
-    <div class="vocab-ctx">&#8220;Il a peur des ours dans la for&ecirc;t.&#8221; &mdash; He&rsquo;s scared of bears in the forest.</div>
-  </div>
-
-  <div class="vocab-item">
-    <div class="vocab-row">
-      <span class="vocab-fr">avoir besoin de</span>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span class="vocab-en">to need</span>
-        <button class="speak-btn" onclick="playClip('vocab_4_besoin.mp3',this)">&#128266;</button>
-      </div>
-    </div>
-    <div class="vocab-ctx">&#8220;J&rsquo;ai besoin de mon t&eacute;l&eacute;phone.&#8221; &mdash; I need my phone.</div>
-  </div>
-
-  <div class="vocab-item">
-    <div class="vocab-row">
-      <span class="vocab-fr">avoir de la chance</span>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span class="vocab-en">to be lucky</span>
-        <button class="speak-btn" onclick="playClip('vocab_5_chance.mp3',this)">&#128266;</button>
-      </div>
-    </div>
-    <div class="vocab-ctx">&#8220;On a de la chance, il ne pleut pas&nbsp;!&#8221; &mdash; We&rsquo;re lucky, it&rsquo;s not raining!</div>
-  </div>
-</div>
-
-<!-- MOT DE LA SEMAINE : WORD ANATOMY -->
+<div id="vocabHost"></div>
 <div class="sec-label">&#128300; Anatomie du mot</div>
-<div class="anatomy-card">
-  <div class="anatomy-tag">Comprendre les mots, pas juste les m&eacute;moriser</div>
-  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
-    <div class="anatomy-word">rapidement</div>
-    <button class="speak-btn" style="border-color:rgba(255,255,255,0.2);color:#9DC8E8;" onclick="playClip('anatomie_rapidement.mp3',this)">&#128266;</button>
-  </div>
-  <div class="anatomy-parts">
-    <span class="anatomy-part root">rapide</span>
-    <span class="anatomy-part plus">+</span>
-    <span class="anatomy-part suffix">-ment</span>
-  </div>
-  <div class="anatomy-meaning">rapide (fast) + -ment (how) = <strong style="color:#fff;">rapidly / quickly</strong></div>
-  <div class="anatomy-cognate">&#128161; Le suffixe <strong>-ment</strong> en fran&ccedil;ais = <strong>-ly</strong> en anglais.<br>facilement = easily &nbsp;&#183;&nbsp; lentement = slowly &nbsp;&#183;&nbsp; vraiment = truly</div>
+<div id="anatomyHost"></div>
 </div>
-
-<!-- MES MATIÈRES -->
-<div class="sec-label">&#128218; Mes mati&egrave;res</div>
-<a class="french-card" href="french/a1/index.html">
-  <div class="french-card-top">
-    <div class="french-icon">&#127467;&#127479;</div>
-    <div>
-      <div class="french-name">Fran&ccedil;ais</div>
-      <div class="french-meta">Niveau actuel : A1 &nbsp;&#183;&nbsp; <span id="frCount">2 le&ccedil;ons</span></div>
-    </div>
-  </div>
-  <div class="mini-prog-wrap"><div class="mini-prog-fill" style="width:17%"></div></div>
-  <div class="mini-prog-text" id="frMini">2 le&ccedil;ons A1 compl&eacute;t&eacute;es</div>
-</a>
-
 
 </main>
 
@@ -456,7 +368,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <a class="nav-item active" href="index.html">
     <span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span>
   </a>
-  <a class="nav-item" href="french/a1/index.html">
+  <a class="nav-item" href="mes-lecons.html">
     <span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span>
   </a>
   <a class="nav-item" href="reference/index.html">
@@ -467,6 +379,48 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   </a>
 </nav>
 
+<script>
+// ── Compteurs de niveaux (catalog.json) ──────────────────────
+fetch('catalog.json').then(function(r){return r.json();}).then(function(c){
+  ['A1','A2','B1','B2','C1','C2'].forEach(function(n){
+    var L=c.lecons.filter(function(x){return x.niveau===n&&x.publie;}).length;
+    var E=c.exercices.filter(function(x){return x.niveau===n&&x.publie;}).length;
+    var el=document.getElementById('cnt-'+n); if(el) el.textContent=L+' L \u00b7 '+E+' E';
+  });
+}).catch(function(){});
+
+// ── Contenu hebdomadaire (data/programme/semaine-XX.json) ────
+fetch('data/programme/semaine-01.json').then(function(r){return r.json();}).then(function(S){
+  var j=S.jours[0]; if(!j) return;
+  var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;};
+  var p=j.phrase;
+  document.getElementById('phraseHost').innerHTML =
+    '<div class="phrase-card"><div class="phrase-top"><span class="phrase-tag">'+esc(S.titre)+'</span>'+
+    '<button class="speak-btn" onclick="playClip(\''+p.audio+'\',this)">\ud83d\udd0a \u00c9couter</button></div>'+
+    '<div class="phrase-fr">'+esc(p.fr)+'</div><div class="phrase-en">'+esc(p.en)+'</div>'+
+    '<div class="phrase-ctx"><div class="phrase-ctx-fr">'+esc(p.ctxFr)+'</div><div class="phrase-ctx-en">'+esc(p.ctxEn)+'</div></div></div>';
+  var seq=j.vocabulaire.map(function(v){return "'"+v.audio+"'";}).join(',');
+  var html='<div class="vocab-card"><div class="vocab-tag"><span class="vocab-tag-label">'+esc(S.vocabTitre)+'</span>'+
+    '<button class="speak-btn" onclick="playSeq(['+seq+'],this)">\ud83d\udd0a Tout \u00e9couter</button></div>';
+  j.vocabulaire.forEach(function(v){
+    html+='<div class="vocab-item"><div class="vocab-row"><span class="vocab-fr">'+esc(v.fr)+'</span>'+
+      '<div style="display:flex;align-items:center;gap:8px;"><span class="vocab-en">'+esc(v.en)+'</span>'+
+      '<button class="speak-btn" onclick="playClip(\''+v.audio+'\',this)">\ud83d\udd0a</button></div></div>'+
+      '<div class="vocab-ctx">'+esc(v.ctx)+'</div></div>';
+  });
+  document.getElementById('vocabHost').innerHTML=html+'</div>';
+  var a=j.anatomie;
+  document.getElementById('anatomyHost').innerHTML =
+    '<div class="anatomy-card"><div class="anatomy-tag">Comprendre les mots, pas juste les m\u00e9moriser</div>'+
+    '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">'+
+    '<div class="anatomy-word">'+esc(a.mot)+'</div>'+
+    '<button class="speak-btn" style="border-color:rgba(255,255,255,0.2);color:#9DC8E8;" onclick="playClip(\''+a.audio+'\',this)">\ud83d\udd0a</button></div>'+
+    '<div class="anatomy-parts"><span class="anatomy-part root">'+esc(a.racine)+'</span>'+
+    '<span class="anatomy-part plus">+</span><span class="anatomy-part suffix">'+esc(a.suffixe)+'</span></div>'+
+    '<div class="anatomy-meaning">'+a.sens+'</div>'+
+    '<div class="anatomy-cognate">'+a.note+'</div></div>';
+}).catch(function(){});
+</script>
 <script>
 // ── DATE & GREETING ──────────────────────────────────────────
 const DAYS=['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
@@ -514,8 +468,6 @@ function lemCounts(){
     var done = rs.filter(function(d){ return d && d.completed; }).length;
     var w = done<=1 ? 'le\u00e7on compl\u00e9t\u00e9e' : 'le\u00e7ons compl\u00e9t\u00e9es';
     var a=document.getElementById('cefrDone'); if(a) a.textContent = done+' '+w;
-    var b=document.getElementById('frCount'); if(b) b.textContent = done+' '+(done<=1?'le\u00e7on':'le\u00e7ons');
-    var c=document.getElementById('frMini');  if(c) c.textContent = done+' '+w+' en A1';
   }).catch(function(){});
 }
 document.addEventListener('lem-auth-ready', lemCounts);

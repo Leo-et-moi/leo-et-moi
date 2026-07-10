@@ -1,0 +1,57 @@
+{
+  "semaine": 1,
+  "titre": "Semaine du 16 juin",
+  "vocabTitre": "5 expressions avec AVOIR",
+  "jours": [
+    {
+      "jour": 1,
+      "phrase": {
+        "fr": "« J’ai faim ! »",
+        "en": "“I’m hungry!”",
+        "ctxFr": "Il est midi et j’ai faim. On mange ?",
+        "ctxEn": "It’s noon and I’m hungry. Shall we eat?",
+        "audio": "phrase_semaine.mp3"
+      },
+      "vocabulaire": [
+        {
+          "fr": "avoir faim",
+          "en": "to be hungry",
+          "audio": "vocab_1_faim.mp3",
+          "ctx": "“J’ai faim après l’entraînement.” — I’m hungry after practice."
+        },
+        {
+          "fr": "avoir soif",
+          "en": "to be thirsty",
+          "audio": "vocab_2_soif.mp3",
+          "ctx": "“Tu as soif après la randonnée ?” — Are you thirsty after the hike?"
+        },
+        {
+          "fr": "avoir peur",
+          "en": "to be scared",
+          "audio": "vocab_3_peur.mp3",
+          "ctx": "“Il a peur des ours dans la forêt.” — He’s scared of bears in the forest."
+        },
+        {
+          "fr": "avoir besoin de",
+          "en": "to need",
+          "audio": "vocab_4_besoin.mp3",
+          "ctx": "“J’ai besoin de mon téléphone.” — I need my phone."
+        },
+        {
+          "fr": "avoir de la chance",
+          "en": "to be lucky",
+          "audio": "vocab_5_chance.mp3",
+          "ctx": "“On a de la chance, il ne pleut pas !” — We’re lucky, it’s not raining!"
+        }
+      ],
+      "anatomie": {
+        "mot": "rapidement",
+        "audio": "anatomie_rapidement.mp3",
+        "racine": "rapide",
+        "suffixe": "-ment",
+        "sens": "rapide (fast) + -ment (how) = <strong style=\"color:#fff;\">rapidly / quickly</strong>",
+        "note": "💡 Le suffixe <strong>-ment</strong> en français = <strong>-ly</strong> en anglais.<br>facilement = easily  ·  lentement = slowly  ·  vraiment = truly"
+      }
+    }
+  ]
+}
