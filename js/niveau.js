@@ -73,4 +73,4 @@ function fillProgress() {
 render().then(() => {
   if (window.LEM && window.LEM.user) fillProgress();
   else document.addEventListener('lem-auth-ready', fillProgress);
-});
+}).catch((e) => console.error('[leo-et-moi] rendu du niveau :', e));

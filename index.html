@@ -351,13 +351,17 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 
 <script>
 // ── Compteurs de niveaux (catalog.json) ──────────────────────
-fetch('catalog.json').then(function(r){return r.json();}).then(function(c){
+fetch('catalog.json',{cache:'no-store'}).then(function(r){
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return r.json();
+}).then(function(c){
   ['A1','A2','B1','B2','C1','C2'].forEach(function(n){
     var L=c.lecons.filter(function(x){return x.niveau===n&&x.publie;}).length;
     var E=c.exercices.filter(function(x){return x.niveau===n&&x.publie;}).length;
     var el=document.getElementById('cnt-'+n); if(el) el.textContent=L+' L \u00b7 '+E+' E';
   });
-}).catch(function(){});
+  console.log('[leo-et-moi] compteurs accueil remplis');
+}).catch(function(e){ console.error('[leo-et-moi] compteurs accueil :', e); });
 
 // ── Contenu hebdomadaire (data/programme/semaine-XX.json) ────
 fetch('data/programme/semaine-01.json').then(function(r){return r.json();}).then(function(S){

@@ -11,6 +11,7 @@ export async function loadCatalog() {
   const res = await fetch(new URL('catalog.json', location.origin + '/'), { cache: 'no-cache' });
   if (!res.ok) throw new Error('catalog.json introuvable (' + res.status + ')');
   _catalog = await res.json();
+  console.log('[leo-et-moi] catalogue chargé (v' + _catalog.version + ')');
   return _catalog;
 }
 
