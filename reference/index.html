@@ -86,7 +86,6 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 <header class="top-bar">
   <a class="site-name" href="../index.html">Leo<span>-et-</span>moi</a>
   <div class="top-icons">
-    <button class="icon-btn" onclick="speakPage()" title="Lire la page">&#128266;</button>
     <button class="icon-btn" title="Notifications">&#128276;</button>
   </div>
 </header>
@@ -98,20 +97,19 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <div class="greeting-row">
     <div>
       <div class="greeting-name">&#128216; R&eacute;f&eacute;rence</div>
-      <div class="greeting-date">Tes outils&nbsp;: conjugaison, vocabulaire, dictionnaire</div>
+      <div class="greeting-date">Tes outils&nbsp;: conjugaison, vocabulaire, dictionnaire<br><span style="font-size:12px;opacity:0.85;">Your tools: verb conjugation, vocabulary, dictionary</span></div>
     </div>
-    <button class="speak-btn" style="border-color:rgba(255,255,255,0.25);color:#9DC8E8;flex-shrink:0;margin-top:4px;" onclick="speak('R&eacute;f&eacute;rence. Tes outils : conjugaison, vocabulaire, dictionnaire.','fr-FR')">&#128266; &Eacute;couter</button>
+    <button class="speak-btn" style="border-color:rgba(255,255,255,0.25);color:#9DC8E8;flex-shrink:0;margin-top:4px;" onclick="playClip('ref_outils.mp3',this)">&#128266; &Eacute;couter</button>
   </div>
 </div>
 
-<p class="intro-note">Trois outils pour t&rsquo;aider quand tu en as besoin. Clique sur celui que tu veux ouvrir.</p>
 
 <!-- CONJUGAISON -->
 <a class="ref-card" href="conjugaison.html">
   <div class="ref-icon">&#128221;</div>
   <div class="ref-body">
     <div class="ref-name">Conjugaison</div>
-    <div class="ref-desc">Les verbes &ecirc;tre et avoir, et un lien pour conjuguer tous les verbes.</div>
+    <div class="ref-desc">Le conjugueur Bescherelle pour conjuguer tous les verbes.</div>
   </div>
   <span class="ref-arrow">&#8594;</span>
 </a>
@@ -121,7 +119,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <div class="ref-icon">&#128218;</div>
   <div class="ref-body">
     <div class="ref-name">Mon vocabulaire</div>
-    <div class="ref-desc">Les mots que tu choisis de garder, rien qu&rsquo;&agrave; toi.</div>
+    <div class="ref-desc">Les mots que tu choisis de garder.</div>
   </div>
   <span class="ref-arrow">&#8594;</span>
 </a>
@@ -131,7 +129,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <div class="ref-icon">&#128270;</div>
   <div class="ref-body">
     <div class="ref-name">Dictionnaire <span class="ref-ext">&#127760; site externe</span></div>
-    <div class="ref-desc">Cherche un mot fran&ccedil;ais&ndash;anglais sur Larousse (avec le son).</div>
+    <div class="ref-desc">Cherche un mot fran&ccedil;ais&ndash;anglais sur le Larousse (avec le son).</div>
   </div>
   <span class="ref-arrow">&#8599;</span>
 </a>
@@ -154,18 +152,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   </a>
 </nav>
 
-<script>
-function speak(text,lang='fr-FR'){
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang=lang; u.rate=0.88; u.pitch=1;
-  window.speechSynthesis.speak(u);
-}
-function speakPage(){
-  speak('Référence. Trois outils : conjugaison, mon vocabulaire, et dictionnaire.','fr-FR');
-}
-</script>
+<script src="../js/audio.js"></script>
 <script type="module" src="../js/auth-guard.js"></script>
 </body>
 </html>

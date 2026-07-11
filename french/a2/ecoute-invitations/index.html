@@ -1292,18 +1292,9 @@ textarea.pta:focus{border-color:var(--navy);outline:none;}
 </div>
 </main>
 <script>
-function speak(text,lang){
-  lang=lang||'fr-FR';
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang=lang;u.rate=0.88;
-  /* audio synthétique désactivé — règle MP3 uniquement */
-}
 let _ia=null,_iaSrc=null;
 function playInstr(src,fallback,lang){
   lang=lang||'fr-FR';
-  if(window.speechSynthesis)window.speechSynthesis.cancel();
   // Same file already playing → pause (toggle off)
   if(_ia&&_iaSrc===src&&!_ia.paused){_ia.pause();return;}
   // Same file was paused → resume
@@ -1312,10 +1303,9 @@ function playInstr(src,fallback,lang){
   if(_ia){_ia.pause();_ia.currentTime=0;}
   const a=new Audio(src);
   _ia=a;_iaSrc=src;
-  const fb=()=>speak(fallback,lang);
-  a.onerror=fb;
+  a.onerror=()=>{_ia=null;_iaSrc=null;};
   a.onended=()=>{_ia=null;_iaSrc=null;};
-  a.play().catch(fb);
+  a.play().catch(()=>{});
 }
 
 function switchTab(i){

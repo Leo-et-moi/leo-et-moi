@@ -20,14 +20,10 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 # Pages utilisant encore la voix synthétique (violation de la règle « MP3
 # enregistrés uniquement ») : décision d'Eric attendue (enregistrer ou retirer
 # les boutons). Signalées en AVERTISSEMENT tant qu'elles sont listées ici.
-SYNTH_TOLERES = {
-    "reference/conjugaison.html",
-    "reference/index.html",
-    "reference/vocabulaire.html",
-    "french/a2/ecoute-invitations/index.html",
-}
+SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
-AUDIO_ATTENDUS = {"a1_resume.mp3", "continue_instruction.mp3"}
+AUDIO_ATTENDUS = {"a1_resume.mp3", "continue_instruction.mp3", "ref_outils.mp3",
+                  "a1_res_01.mp3", "a1_res_02.mp3", "a1_res_03.mp3", "a1_res_04.mp3", "a1_res_05.mp3", "a1_res_06.mp3", "a1_res_07.mp3", "a1_res_08.mp3", "a1_res_09.mp3"}
 # ---------------------------------------------------------------------------
 
 # ---------- 1. Catalogue ----------

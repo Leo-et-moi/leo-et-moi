@@ -91,7 +91,6 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 <header class="top-bar">
   <a class="site-name" href="../index.html">Leo<span>-et-</span>moi</a>
   <div class="top-icons">
-    <button class="icon-btn" onclick="speakPage()" title="Lire la page">&#128266;</button>
     <button class="icon-btn" title="Notifications">&#128276;</button>
   </div>
 </header>
@@ -104,7 +103,6 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 
 <div class="count-row" id="countRow" style="display:none;">
   <span class="count-label" id="countLabel">0 mot</span>
-  <button class="listen-all" onclick="speakAll()">&#128266; Tout &eacute;couter</button>
 </div>
 
 <div id="vocabList"></div>
@@ -127,15 +125,6 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 </nav>
 
 <script>
-function speak(text,lang='fr-FR'){
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang=lang; u.rate=0.88; u.pitch=1;
-  window.speechSynthesis.speak(u);
-}
-function speakPage(){ speak('Mon vocabulaire. Les mots que tu choisis de garder.','fr-FR'); }
-
 // ── PERSONAL VOCAB (Firestore via window.LEM) ───────────────
 let _vocab = [];
 
@@ -146,10 +135,6 @@ async function loadAndRender(){
 async function removeWord(fr){
   try { _vocab = await window.LEM.removeVocab(fr); } catch(e){}
   render();
-}
-function speakAll(){
-  if(!_vocab.length) return;
-  speak(_vocab.map(function(w){return w.fr+'. '+(w.ctx||'');}).join(' ... '),'fr-FR');
 }
 function render(){
   const v=_vocab;
@@ -178,11 +163,9 @@ function render(){
     const en=document.createElement('div'); en.className='vocab-en'; en.textContent=w.en||'';
     left.appendChild(fr); left.appendChild(en);
     const actions=document.createElement('div'); actions.className='vocab-actions';
-    const sp=document.createElement('button'); sp.className='speak-btn'; sp.innerHTML='&#128266;';
-    sp.addEventListener('click',function(){ speak(w.fr+'. '+(w.ctx||''),'fr-FR'); });
     const rm=document.createElement('button'); rm.className='remove-btn'; rm.innerHTML='&times;'; rm.title='Retirer ce mot';
     rm.addEventListener('click',function(){ removeWord(w.fr); });
-    actions.appendChild(sp); actions.appendChild(rm);
+    actions.appendChild(rm);
     row.appendChild(left); row.appendChild(actions);
     card.appendChild(row);
     if(w.ctx){ const ctx=document.createElement('div'); ctx.className='vocab-ctx'; ctx.textContent=w.ctx; card.appendChild(ctx); }

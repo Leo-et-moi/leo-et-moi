@@ -87,7 +87,6 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 <header class="top-bar">
   <a class="site-name" href="../index.html">Leo<span>-et-</span>moi</a>
   <div class="top-icons">
-    <button class="icon-btn" onclick="speakPage()" title="Lire la page">&#128266;</button>
     <button class="icon-btn" title="Notifications">&#128276;</button>
   </div>
 </header>
@@ -96,49 +95,12 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 
 <a class="back-link" href="index.html">&#8592; R&eacute;f&eacute;rence</a>
 <div class="page-title">&#128221; Conjugaison</div>
-<div class="page-sub">Les deux verbes les plus utiles d&rsquo;abord. Appuie sur &#128266; pour &eacute;couter.</div>
-
-<!-- ÊTRE -->
-<div class="verb-card">
-  <div class="verb-top">
-    <div class="verb-name">&Ecirc;tre</div>
-    <button class="speak-btn" onclick="speak('Le verbe être. Je suis. Tu es. Il est. Elle est. Nous sommes. Vous êtes. Ils sont. Elles sont.','fr-FR')">&#128266; Tout &eacute;couter</button>
-  </div>
-  <div class="verb-en">to be</div>
-  <div class="verb-tense">Pr&eacute;sent</div>
-
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">je</span> <span class="conj-form">suis</span></span><button class="speak-btn" onclick="speak('je suis','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">tu</span> <span class="conj-form">es</span></span><button class="speak-btn" onclick="speak('tu es','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">il / elle</span> <span class="conj-form">est</span></span><button class="speak-btn" onclick="speak('il est, elle est','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">nous</span> <span class="conj-form">sommes</span></span><button class="speak-btn" onclick="speak('nous sommes','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">vous</span> <span class="conj-form">&ecirc;tes</span></span><button class="speak-btn" onclick="speak('vous êtes','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">ils / elles</span> <span class="conj-form">sont</span></span><button class="speak-btn" onclick="speak('ils sont, elles sont','fr-FR')">&#128266;</button></div>
-</div>
-
-<!-- AVOIR -->
-<div class="verb-card">
-  <div class="verb-top">
-    <div class="verb-name">Avoir</div>
-    <button class="speak-btn" onclick="speak('Le verbe avoir. J\'ai. Tu as. Il a. Elle a. Nous avons. Vous avez. Ils ont. Elles ont.','fr-FR')">&#128266; Tout &eacute;couter</button>
-  </div>
-  <div class="verb-en">to have</div>
-  <div class="verb-tense">Pr&eacute;sent</div>
-
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">j&rsquo;</span><span class="conj-form">ai</span></span><button class="speak-btn" onclick="speak('j\'ai','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">tu</span> <span class="conj-form">as</span></span><button class="speak-btn" onclick="speak('tu as','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">il / elle</span> <span class="conj-form">a</span></span><button class="speak-btn" onclick="speak('il a, elle a','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">nous</span> <span class="conj-form">avons</span></span><button class="speak-btn" onclick="speak('nous avons','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">vous</span> <span class="conj-form">avez</span></span><button class="speak-btn" onclick="speak('vous avez','fr-FR')">&#128266;</button></div>
-  <div class="conj-row"><span class="conj-left"><span class="conj-pron">ils / elles</span> <span class="conj-form">ont</span></span><button class="speak-btn" onclick="speak('ils ont, elles ont','fr-FR')">&#128266;</button></div>
-</div>
-
 <!-- EXTERNAL CONJUGATOR -->
 <div class="ext-card">
-  <div class="ext-title">&#127760; Besoin d&rsquo;un autre verbe&nbsp;?</div>
-  <div class="ext-desc">Ouvre le conjugueur Lingolia pour conjuguer n&rsquo;importe quel verbe, &agrave; tous les temps (site externe, en anglais).</div>
-  <a class="ext-btn" href="https://francais.lingolia.com/en/grammar/conjugator" target="_blank" rel="noopener">Ouvrir le conjugueur Lingolia &#8599;</a>
+  <div class="ext-desc">Conjugue n&rsquo;importe quel verbe, &agrave; tous les temps, sur le conjugueur Bescherelle (site externe, gratuit).<br>
+  <span style="font-size:14px;color:var(--slate);">Conjugate any verb, in every tense, on the Bescherelle conjugator (external site, free).</span></div>
+  <a class="ext-btn" href="https://conjugaison.bescherelle.com/" target="_blank" rel="noopener">Ouvrir le conjugueur Bescherelle &#8599;</a>
 </div>
-
 </main>
 
 <nav class="bottom-nav">
@@ -156,18 +118,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   </a>
 </nav>
 
-<script>
-function speak(text,lang='fr-FR'){
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang=lang; u.rate=0.88; u.pitch=1;
-  window.speechSynthesis.speak(u);
-}
-function speakPage(){
-  speak('Conjugaison. Le verbe être et le verbe avoir au présent.','fr-FR');
-}
-</script>
+
 <script type="module" src="../js/auth-guard.js"></script>
 </body>
 </html>
