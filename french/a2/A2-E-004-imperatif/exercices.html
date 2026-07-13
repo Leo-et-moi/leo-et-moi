@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A2 : Exercices — l'impératif — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body data-item-id="A2-E-004">
+
+<header class="topbar"><span class="brand">Leo-et-moi</span></header>
+
+<main class="revoir-host" style="padding:0 12px">
+  <h1>Exercices — L'impératif</h1>
+  <p id="scorebar">Score : 0 / 0</p>
+  <div id="quiz"></div>
+</main>
+
+<script src="/js/audio.js"></script>
+<script src="/js/quiz.js"></script>
+<script type="module">
+  import { bandeauRevoir } from '/js/ui.js';
+  bandeauRevoir();
+
+  const QUESTIONS = [
+    { q: "Quelle est la <strong>première</strong> étape&nbsp;?", en: "What is the first step?",
+      options: ["Ouvrir le robinet et mouiller les mains", "Se sécher les mains", "Frotter avec du savon", "Jeter le papier"], bonneReponse: 0, audio: "A2-E-004_q01.mp3" },
+    { q: "Juste après avoir mouillé les mains, que fait-on&nbsp;?", en: "Right after wetting your hands?",
+      options: ["On applique du savon", "On jette le papier", "On ferme le robinet", "On se sèche"], bonneReponse: 0, audio: "A2-E-004_q02.mp3" },
+    { q: "Par où commence-t-on à se frotter les mains&nbsp;?", en: "Where do you start scrubbing?",
+      options: ["Par les ongles", "Par les poignets", "Par le papier", "Par les coudes"], bonneReponse: 0, audio: "A2-E-004_q03.mp3" },
+    { q: "Comment tenir les mains pour bien les rincer&nbsp;?", en: "How to hold your hands to rinse well?",
+      options: ["Les doigts vers le haut", "Les doigts vers le bas", "Les mains à plat", "Sans les bouger"], bonneReponse: 0, audio: "A2-E-004_q04.mp3" },
+    { q: "Avec quoi se sèche-t-on les mains&nbsp;?", en: "What do you dry your hands with?",
+      options: ["Avec du papier", "Avec ses vêtements", "Avec de l'eau", "On ne se sèche pas"], bonneReponse: 0, audio: "A2-E-004_q05.mp3" },
+    { q: "Que fait-on du papier à la fin&nbsp;?", en: "What do you do with the paper at the end?",
+      options: ["On le jette à la poubelle", "On le garde", "On le repose", "On le lave"], bonneReponse: 0, audio: "A2-E-004_q06.mp3" },
+    { q: "Choisis la bonne forme&nbsp;: « ___ le robinet. »", en: "Choose the right form.",
+      options: ["Ouvrez", "Ouvrir", "Ouvres", "Vous ouvrez"], bonneReponse: 0, audio: "A2-E-004_q07.mp3" },
+    { q: "À un ami&nbsp;: « ___ tes mains. » <span class='gram'>(mouiller)</span>", en: "To a friend (mouiller).",
+      options: ["Mouille", "Mouilles", "Mouiller", "Tu mouilles"], bonneReponse: 0, audio: "A2-E-004_q08.mp3" },
+    { q: "Quelle phrase est à l'<strong>impératif</strong>&nbsp;?", en: "Which sentence is in the imperative?",
+      options: ["Ferme la porte.", "Tu fermes la porte.", "La porte est fermée.", "Il ferme la porte."], bonneReponse: 0, audio: "A2-E-004_q09.mp3" },
+    { q: "« Frottez vos mains. » — c'est quelle personne&nbsp;?", en: "Which person is it?",
+      options: ["vous", "tu", "nous", "il"], bonneReponse: 0, audio: "A2-E-004_q10.mp3" },
+    { q: "« Rinçons nos mains. » — c'est quelle personne&nbsp;?", en: "Which person is it?",
+      options: ["nous", "vous", "tu", "elles"], bonneReponse: 0, audio: "A2-E-004_q11.mp3" },
+    { q: "Que veut dire « le poignet »&nbsp;?", en: "What does « le poignet » mean?",
+      options: ["the wrist", "the thumb", "the palm", "the soap"], bonneReponse: 0, audio: "A2-E-004_q12.mp3" }
+  ];
+
+  const LESSON = 'A2-E-004';
+  const t0 = Date.now();
+  LeoQuiz.render(document.getElementById('quiz'), QUESTIONS, {
+    onScore: (s, t) => { document.getElementById('scorebar').textContent = `Score : ${s} / ${t}`; },
+    onDone: (s, t) => {
+      document.getElementById('scorebar').textContent = `Terminé ! Score : ${s} / ${t} 🎉`;
+      try {
+        if (window.LEM && window.LEM.setLesson)
+          window.LEM.setLesson(LESSON, { score: s, total: t, completed: true, lastPracticed: Date.now(), dureeSec: Math.round((Date.now() - t0) / 1000) });
+      } catch (e) {}
+    }
+  });
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script src="/js/timer.js"></script>
+</body>
+</html>

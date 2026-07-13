@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A2 : L'impératif — donner des instructions — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+<style>
+.assoc{display:flex;gap:12px;}
+.assoc-col{flex:1;display:flex;flex-direction:column;gap:8px;}
+.assoc-item{background:#fff;border:2px solid #D8DFE8;border-radius:12px;padding:12px 14px;font-size:17px;font-weight:bold;color:#1B2845;cursor:pointer;text-align:left;font-family:Arial,sans-serif;min-height:48px;display:flex;align-items:center;gap:8px;line-height:1.3;}
+.assoc-item.sel{border-color:#2C4A7C;background:#EAF1F8;}
+.assoc-item.done{background:#E3F5EC;border-color:#1E7B45;color:#1E7B45;cursor:default;}
+.assoc-item.bad{border-color:#C0392B;background:#FBE7E5;}
+.assoc-fr .mini{background:none;border:none;font-size:18px;cursor:pointer;padding:0 4px;flex-shrink:0;}
+.assoc-score{font-weight:bold;color:#4A6580;margin:10px 0;}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+</style>
+</head>
+<body data-item-id="A2-L-001">
+
+<header class="topbar"><span class="brand">Leo-et-moi</span></header>
+
+<main style="padding:0 12px">
+  <h1>L'impératif — donner des instructions</h1>
+
+  <div class="card">
+    <p><strong>🎬 Regarde d'abord : comment se laver les mains.</strong> <span class="en">Watch first: how to wash your hands.</span></p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/_07fEFUIjIs" title="Comment se laver les mains" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p>Toutes ces instructions sont à <strong>l'impératif</strong>. <span class="en">All these instructions use the imperative.</span></p>
+  </div>
+
+  <div class="card">
+    <p><button class="t-play" onclick="playClip('A2-L-001_regle1.mp3', this)" aria-label="Écouter">🔊</button>
+    L'impératif sert à donner un <strong>ordre</strong>, un <strong>conseil</strong> ou une <strong>instruction</strong> (une recette, une notice). <span class="en">The imperative gives an order, advice or an instruction.</span></p>
+  </div>
+
+  <div class="card">
+    <p><button class="t-play" onclick="playClip('A2-L-001_regle2.mp3', this)" aria-label="Écouter">🔊</button>
+    On <strong>n'utilise pas de sujet</strong> : « <strong>Ferme</strong> la porte », et non « Tu fermes la porte ». <span class="en">No subject: "Close the door", not "You close the door".</span></p>
+    <p><button class="t-play" onclick="playClip('A2-L-001_regle3.mp3', this)" aria-label="Écouter">🔊</button>
+    L'impératif existe seulement à <strong>trois personnes</strong> : <strong>tu</strong>, <strong>nous</strong>, <strong>vous</strong>. <span class="en">Only three forms: tu, nous, vous.</span></p>
+    <p><button class="t-play" onclick="playClip('A2-L-001_regle4.mp3', this)" aria-label="Écouter">🔊</button>
+    Verbes en <strong>-er</strong> : pas de « <strong>s</strong> » avec <strong>tu</strong> → mouille, frotte, ferme. <span class="en">-er verbs: no "s" with tu.</span></p>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:bold;color:#1B2845;margin-bottom:6px;">Les 3 formes du verbe « mouiller »</div>
+    <p><button class="t-play" onclick="playClip('A2-L-001_forme_tu.mp3', this)" aria-label="Écouter">🔊</button>
+    <strong>Mouille</strong> tes mains. <span class="en">Wet your hands. (to a friend — tu)</span></p>
+    <p><button class="t-play" onclick="playClip('A2-L-001_forme_nous.mp3', this)" aria-label="Écouter">🔊</button>
+    <strong>Mouillons</strong> nos mains. <span class="en">Let's wet our hands. (nous)</span></p>
+    <p><button class="t-play" onclick="playClip('A2-L-001_forme_vous.mp3', this)" aria-label="Écouter">🔊</button>
+    <strong>Mouillez</strong> vos mains. <span class="en">Wet your hands. (polite / written — vous)</span></p>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:bold;color:#1B2845;margin-bottom:4px;">🧩 Le vocabulaire des mains — associe chaque mot à sa traduction</div>
+    <p class="en" style="margin-top:0">Match each French word with its English translation. Click a word, then its match.</p>
+    <div class="assoc-score" id="assocScore">0 / 9</div>
+    <div class="assoc" id="assoc"></div>
+  </div>
+
+  <div class="card">
+    <p><button class="t-play" onclick="playClip('A2-L-001_recap.mp3', this)" aria-label="Écouter">🔊</button>
+    <strong>Récap :</strong> l'impératif = donner une instruction, sans sujet, à tu / nous / vous. Les verbes en -er perdent le « s » avec tu. <span class="en">Recap: imperative = give an instruction, no subject, tu/nous/vous; -er verbs drop the "s" with tu.</span></p>
+  </div>
+
+  <div class="exercices-host"></div>
+</main>
+
+<script src="/js/audio.js"></script>
+<script>
+(function(){
+  var PAIRS=[
+    ["la paume","the palm","A2-L-001_v_paume.mp3"],
+    ["le dos de la main","the back of the hand","A2-L-001_v_dos.mp3"],
+    ["les doigts","the fingers","A2-L-001_v_doigts.mp3"],
+    ["le pouce","the thumb","A2-L-001_v_pouce.mp3"],
+    ["les ongles","the nails","A2-L-001_v_ongles.mp3"],
+    ["le poignet","the wrist","A2-L-001_v_poignet.mp3"],
+    ["entre les doigts","between the fingers","A2-L-001_v_entre.mp3"],
+    ["le savon","the soap","A2-L-001_v_savon.mp3"],
+    ["le robinet","the tap","A2-L-001_v_robinet.mp3"]
+  ];
+  var host=document.getElementById('assoc'); if(!host) return;
+  var scoreEl=document.getElementById('assocScore');
+  function shuf(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  var left=shuf(PAIRS.map(function(p,i){return {i:i,fr:p[0],au:p[2]};}));
+  var right=shuf(PAIRS.map(function(p,i){return {i:i,en:p[1]};}));
+  var colL=document.createElement('div'); colL.className='assoc-col';
+  var colR=document.createElement('div'); colR.className='assoc-col';
+  var sel=null, done=0;
+  left.forEach(function(o){
+    var b=document.createElement('button'); b.className='assoc-item assoc-fr'; b.dataset.i=o.i;
+    b.innerHTML='<span class="mini" role="button" aria-label="Écouter">🔊</span><span>'+o.fr+'</span>';
+    b.querySelector('.mini').onclick=function(ev){ev.stopPropagation(); window.playClip(o.au,b);};
+    b.onclick=function(){ if(b.classList.contains('done'))return; if(sel){sel.classList.remove('sel');} sel=b; b.classList.add('sel'); };
+    colL.appendChild(b);
+  });
+  right.forEach(function(o){
+    var b=document.createElement('button'); b.className='assoc-item'; b.dataset.i=o.i; b.textContent=o.en;
+    b.onclick=function(){ if(b.classList.contains('done'))return; if(!sel)return;
+      if(sel.dataset.i===String(o.i)){
+        sel.classList.remove('sel'); sel.classList.add('done'); b.classList.add('done');
+        done++; scoreEl.textContent=done+' / '+PAIRS.length; sel=null;
+      } else { var bb=b; b.classList.add('bad'); setTimeout(function(){bb.classList.remove('bad');},600); }
+    };
+    colR.appendChild(b);
+  });
+  host.appendChild(colL); host.appendChild(colR);
+})();
+</script>
+<script type="module">
+  import { exercicesLies, retourExercice } from '/js/ui.js';
+  exercicesLies(); retourExercice();
+</script>
+<script src="/js/timer.js"></script>
+</body>
+</html>

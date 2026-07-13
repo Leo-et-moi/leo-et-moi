@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "misAJour": "2026-07-10",
+  "misAJour": "2026-07-13",
   "audioBase": "",
   "lecons": [
     {
@@ -47,6 +47,17 @@
       "exercices": [
         "B1-E-001",
         "B2-E-001"
+      ],
+      "publie": true
+    },
+    {
+      "id": "A2-L-001",
+      "niveau": "A2",
+      "ordre": 10,
+      "titre": "L'impératif — donner des instructions",
+      "chemin": "french/a2/A2-L-001-imperatif/index.html",
+      "exercices": [
+        "A2-E-004"
       ],
       "publie": true
     }
@@ -231,6 +242,23 @@
       "questions": null,
       "publie": true,
       "progressId": "c1_francine_gosselin"
+    },
+    {
+      "id": "A2-E-004",
+      "niveau": "A2",
+      "ordre": 40,
+      "titre": "Exercices — L'impératif",
+      "chemin": "french/a2/A2-E-004-imperatif/exercices.html",
+      "lecons": [
+        "A2-L-001"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "progressId": "A2-E-004",
+      "questions": "french/a2/A2-E-004-imperatif/questions.json",
+      "publie": true
     }
   ],
   "tests": [

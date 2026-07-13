@@ -1,0 +1,160 @@
+{
+  "id": "A2-E-004",
+  "niveau": "A2",
+  "competences": [
+    "listening",
+    "reading"
+  ],
+  "questions": [
+    {
+      "q": "Quelle est la <strong>première</strong> étape&nbsp;?",
+      "en": "What is the first step?",
+      "options": [
+        "Ouvrir le robinet et mouiller les mains",
+        "Se sécher les mains",
+        "Frotter avec du savon",
+        "Jeter le papier"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q01.mp3",
+      "contexte": "video"
+    },
+    {
+      "q": "Juste après avoir mouillé les mains, que fait-on&nbsp;?",
+      "en": "Right after wetting your hands?",
+      "options": [
+        "On applique du savon",
+        "On jette le papier",
+        "On ferme le robinet",
+        "On se sèche"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q02.mp3",
+      "contexte": "video"
+    },
+    {
+      "q": "Par où commence-t-on à se frotter les mains&nbsp;?",
+      "en": "Where do you start scrubbing?",
+      "options": [
+        "Par les ongles",
+        "Par les poignets",
+        "Par le papier",
+        "Par les coudes"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q03.mp3",
+      "contexte": "video"
+    },
+    {
+      "q": "Comment tenir les mains pour bien les rincer&nbsp;?",
+      "en": "How to hold your hands to rinse well?",
+      "options": [
+        "Les doigts vers le haut",
+        "Les doigts vers le bas",
+        "Les mains à plat",
+        "Sans les bouger"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q04.mp3",
+      "contexte": "video"
+    },
+    {
+      "q": "Avec quoi se sèche-t-on les mains&nbsp;?",
+      "en": "What do you dry your hands with?",
+      "options": [
+        "Avec du papier",
+        "Avec ses vêtements",
+        "Avec de l'eau",
+        "On ne se sèche pas"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q05.mp3",
+      "contexte": "video"
+    },
+    {
+      "q": "Que fait-on du papier à la fin&nbsp;?",
+      "en": "What do you do with the paper at the end?",
+      "options": [
+        "On le jette à la poubelle",
+        "On le garde",
+        "On le repose",
+        "On le lave"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q06.mp3",
+      "contexte": "video"
+    },
+    {
+      "q": "Choisis la bonne forme&nbsp;: « ___ le robinet. »",
+      "en": "Choose the right form.",
+      "options": [
+        "Ouvrez",
+        "Ouvrir",
+        "Ouvres",
+        "Vous ouvrez"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q07.mp3"
+    },
+    {
+      "q": "À un ami&nbsp;: « ___ tes mains. » (mouiller)",
+      "en": "To a friend (mouiller).",
+      "options": [
+        "Mouille",
+        "Mouilles",
+        "Mouiller",
+        "Tu mouilles"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q08.mp3"
+    },
+    {
+      "q": "Quelle phrase est à l'impératif&nbsp;?",
+      "en": "Which sentence is in the imperative?",
+      "options": [
+        "Ferme la porte.",
+        "Tu fermes la porte.",
+        "La porte est fermée.",
+        "Il ferme la porte."
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q09.mp3"
+    },
+    {
+      "q": "« Frottez vos mains. » — c'est quelle personne&nbsp;?",
+      "en": "Which person is it?",
+      "options": [
+        "vous",
+        "tu",
+        "nous",
+        "il"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q10.mp3"
+    },
+    {
+      "q": "« Rinçons nos mains. » — c'est quelle personne&nbsp;?",
+      "en": "Which person is it?",
+      "options": [
+        "nous",
+        "vous",
+        "tu",
+        "elles"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q11.mp3"
+    },
+    {
+      "q": "Que veut dire « le poignet »&nbsp;?",
+      "en": "What does « le poignet » mean?",
+      "options": [
+        "the wrist",
+        "the thumb",
+        "the palm",
+        "the soap"
+      ],
+      "bonneReponse": 0,
+      "audio": "A2-E-004_q12.mp3"
+    }
+  ]
+}

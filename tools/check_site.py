@@ -23,7 +23,8 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {"a1_resume.mp3", "continue_instruction.mp3", "ref_outils.mp3",
-                  "a1_res_01.mp3", "a1_res_02.mp3", "a1_res_03.mp3", "a1_res_04.mp3", "a1_res_05.mp3", "a1_res_06.mp3", "a1_res_07.mp3", "a1_res_08.mp3", "a1_res_09.mp3"}
+                  "a1_res_01.mp3", "a1_res_02.mp3", "a1_res_03.mp3", "a1_res_04.mp3", "a1_res_05.mp3", "a1_res_06.mp3", "a1_res_07.mp3", "a1_res_08.mp3", "a1_res_09.mp3",
+                  "A2-L-001_regle1.mp3", "A2-L-001_regle2.mp3", "A2-L-001_regle3.mp3", "A2-L-001_regle4.mp3", "A2-L-001_forme_tu.mp3", "A2-L-001_forme_nous.mp3", "A2-L-001_forme_vous.mp3", "A2-L-001_recap.mp3", "A2-L-001_v_paume.mp3", "A2-L-001_v_dos.mp3", "A2-L-001_v_doigts.mp3", "A2-L-001_v_pouce.mp3", "A2-L-001_v_ongles.mp3", "A2-L-001_v_poignet.mp3", "A2-L-001_v_entre.mp3", "A2-L-001_v_savon.mp3", "A2-L-001_v_robinet.mp3", "A2-E-004_q01.mp3", "A2-E-004_q02.mp3", "A2-E-004_q03.mp3", "A2-E-004_q04.mp3", "A2-E-004_q05.mp3", "A2-E-004_q06.mp3", "A2-E-004_q07.mp3", "A2-E-004_q08.mp3", "A2-E-004_q09.mp3", "A2-E-004_q10.mp3", "A2-E-004_q11.mp3", "A2-E-004_q12.mp3"}
 # ---------------------------------------------------------------------------
 
 # ---------- 1. Catalogue ----------
