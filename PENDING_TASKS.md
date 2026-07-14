@@ -10,3 +10,10 @@ _Demandes de gabarits/architecture signalées par Opus. Fable les traite puis le
 ## ⏳ En attente
 
 _(aucune)_
+
+## 🔧 Pour Fable — nouveau standard « audio bilingue » (signalé par Opus, 13/07)
+
+**Standard demandé par Eric** : chaque phrase a **deux boutons audio distincts** — un français (existant) **et un anglais** (nouveau, fichier `<nom>_en.mp3`), pour que l'élève puisse aussi écouter la traduction affichée.
+1. **`js/quiz.js`** : ajouter le support d'un champ `audioEn` par question (2ᵉ bouton 🔊 EN à côté de l'énoncé) — nécessaire pour appliquer le standard aux **exercices** (ex. A2-E-004 : q01_en…q12_en).
+2. **Déploiement rétroactif** du 2ᵉ bouton EN sur les pages existantes (leçons + exercices).
+3. Référence visuelle du bouton EN (petit bouton contour marine « 🔊 EN ») : voir `french/a2/A2-L-001-imperatif/index.html` (Opus l'a appliqué à cette leçon).
