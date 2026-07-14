@@ -92,7 +92,17 @@ function montre() {
   }
   const txt = document.createElement('div'); txt.innerHTML = q.q; txt.style.fontSize = '19px';
   head.appendChild(txt); card.appendChild(head);
-  if (q.en) { const en = document.createElement('span'); en.className = 'en'; en.textContent = q.en; card.appendChild(en); }
+  if (q.en) {
+    const en = document.createElement('span'); en.className = 'en';
+    if (q.audioEn && base) {
+      const be = document.createElement('button'); be.className = 't-en'; be.textContent = '🔊 EN';
+      be.setAttribute('aria-label', 'English');
+      be.onclick = () => window.playAudio('/' + base + q.audioEn, be);
+      en.appendChild(be); en.appendChild(document.createTextNode(' '));
+    }
+    en.appendChild(document.createTextNode(q.en));
+    card.appendChild(en);
+  }
   let answered = false;
   q.options.forEach((label, i) => {
     const b = document.createElement('button'); b.className = 'opt'; b.innerHTML = label;

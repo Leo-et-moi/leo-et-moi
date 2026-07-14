@@ -24,11 +24,13 @@
   import { bandeauRevoir } from '/js/ui.js';
   bandeauRevoir();
 
-  // À REMPLIR : questions (audio optionnel, fichiers dans ./audio/)
+  // À REMPLIR : questions. Standard « audio bilingue » : audio = 🔊 français,
+  // audioEn = 🔊 EN de la traduction (fichier <nom>_en.mp3) — les deux optionnels,
+  // le bouton n'apparaît que si le champ est déclaré (déclarer quand le MP3 existe).
   const QUESTIONS = [
     { q: "Exemple de question&nbsp;?", en: "Example question?",
       options: ["bonne réponse", "autre", "autre", "autre"],
-      bonneReponse: 0, audio: "exemple_q1.mp3" }
+      bonneReponse: 0, audio: "exemple_q1.mp3", audioEn: "exemple_q1_en.mp3" }
   ];
 
   LeoQuiz.render(document.getElementById('quiz'), QUESTIONS, {

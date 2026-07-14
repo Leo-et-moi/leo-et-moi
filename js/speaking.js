@@ -26,7 +26,17 @@
       var txt = document.createElement('div'); txt.className = 'q-text';
       txt.innerHTML = (n + 1) + '. Écoute, puis répète à voix haute : <b>' + it.fr + '</b>';
       head.appendChild(play); head.appendChild(txt); card.appendChild(head);
-      if (it.en) { var en = document.createElement('span'); en.className = 'en'; en.textContent = it.en; card.appendChild(en); }
+      if (it.en) {
+        var en = document.createElement('span'); en.className = 'en';
+        if (it.audioEn) {
+          var be = document.createElement('button'); be.className = 't-en'; be.textContent = '🔊 EN';
+          be.setAttribute('aria-label', 'English');
+          be.onclick = function () { window.playClip(it.audioEn, be); };
+          en.appendChild(be); en.appendChild(document.createTextNode(' '));
+        }
+        en.appendChild(document.createTextNode(it.en));
+        card.appendChild(en);
+      }
 
       var row = document.createElement('div'); row.className = 'selfeval';
       var pickd = false;

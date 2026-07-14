@@ -22,7 +22,7 @@
     var idx = q.options.map(function (_, i) { return i; });
     shuffle(idx);
     return {
-      q: q.q, audio: q.audio, en: q.en,
+      q: q.q, audio: q.audio, audioEn: q.audioEn, en: q.en,
       options: idx.map(function (i) { return q.options[i]; }),
       bonneReponse: idx.indexOf(q.bonneReponse)
     };
@@ -44,7 +44,17 @@
       }
       var txt = document.createElement('div'); txt.className = 'q-text'; txt.innerHTML = (n + 1) + '. ' + q.q;
       head.appendChild(txt); card.appendChild(head);
-      if (q.en) { var en = document.createElement('span'); en.className = 'en'; en.textContent = q.en; card.appendChild(en); }
+      if (q.en) {
+        var en = document.createElement('span'); en.className = 'en';
+        if (q.audioEn) {
+          var be = document.createElement('button'); be.className = 't-en'; be.textContent = '🔊 EN';
+          be.setAttribute('aria-label', 'English');
+          be.onclick = function () { window.playClip(q.audioEn, be); };
+          en.appendChild(be); en.appendChild(document.createTextNode(' '));
+        }
+        en.appendChild(document.createTextNode(q.en));
+        card.appendChild(en);
+      }
 
       var answered = false;
       q.options.forEach(function (label, i) {
