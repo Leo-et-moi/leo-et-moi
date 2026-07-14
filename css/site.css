@@ -71,6 +71,13 @@ button, .btn {
 .opt.bad { background: var(--ltred); border-color: var(--red); }
 .opt:disabled { cursor: default; }
 
+/* Consigne / instruction — standard visuel demandé par Eric (réf. : A2-L-001) :
+   liseré corail, fond corail très clair, bouton 🔊 en tête */
+.consigne{background:#FCEEEA;border-left:4px solid var(--coral);border-radius:0 10px 10px 0;
+  padding:10px 12px;margin:10px 0 14px;display:flex;align-items:flex-start;gap:8px;
+  font-size:16px;line-height:1.45;color:var(--text);}
+.consigne .t-play{flex-shrink:0;}
+
 /* Bandeau « revois la leçon » (js/ui.js) */
 .revoir {
   background: #FBF3E2; border: 1px solid var(--gold); border-radius: 12px;
@@ -112,7 +119,11 @@ button, .btn {
 .top-icons{display:flex;gap:4px;}
 .icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;
   min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
-.main{max-width:600px;margin:0 auto;padding:18px 14px 8px;}
+.main{max-width:640px;margin:0 auto;padding:18px 14px 8px;}
+/* Colonne de lecture par défaut : toute page liée à ce fichier est centrée,
+   même sans classe (demande d'Opus, 13/07/2026 — fini les pages « XXL ») */
+main{max-width:640px;margin:0 auto;padding:18px 14px 8px;}
+.wrap{max-width:640px;margin:0 auto;padding:0 12px;}
 .back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;
   color:var(--navyMid);text-decoration:none;min-height:44px;}
 .niveau-head{background:var(--dark);border-radius:16px;padding:20px 18px;margin-bottom:10px;
