@@ -11,3 +11,7 @@ _Demandes de gabarits/architecture signalées par Opus. Fable les traite puis le
 ## ⏳ En attente
 
 - **Déploiement rétroactif des boutons 🔊 EN — décision d'Eric (13/07/2026), EN PAUSE jusqu'à son retour.** Plan arrêté : à son retour, (1) **lancer d'un coup les niveaux A1, A2 et B1** (déclaration des boutons EN + enregistrement des fichiers `<nom>_en.mp3` correspondants) ; (2) **reconsidérer avant décision** pour B2, C1 et C2. **Ne rien lancer d'ici là.** Le socle technique est prêt (commit 673b034).
+
+## 🔧 Pour Fable — bug gabarit (signalé par Opus, 13/07)
+
+**`_TEMPLATES/exercice.html`** pose `class="revoir-host"` **sur le `<main>`** → `bandeauRevoir()` (ui.js, mode `append`) ajoute le bandeau « revois la leçon » **en fin de page** au lieu du début. Corriger le modèle : mettre un **`<div class="revoir-host"></div>` dédié en tête de `<main>`** (comme les pages Être/Avoir), et laisser `<main class="main">`. *Opus a corrigé l'instance A2-E-004 ; le modèle et les éventuels exercices générés depuis lui restent à vérifier.*
