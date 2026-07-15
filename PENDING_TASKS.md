@@ -30,3 +30,9 @@ Proposition de design (à valider par Eric) :
 2. **Données** : `setLesson(testId, {..., type:'test'})` inclut un tableau compact des items ratés — comme les tests tirent des questions **au hasard sans ID stable**, stocker le **texte de la question + réponse choisie + bonne réponse** au moment de la tentative (garder léger : uniquement les erreurs). Éventuellement un résumé **par source/compétence** (« Nombres : 3/7 erreurs ») pour le poids et la lisibilité.
 3. **Tableau prof** : par tentative de test, afficher les erreurs (ou le résumé par thème) → cibler la remédiation. Option : résumé d'erreurs dans l'e-mail EmailJS de fin de test.
 4. **Vigilance** : poids Firestore (stocker compact), pas de sauvegarde auto (export mensuel déjà prévu).
+
+### ↑ Mise à jour (Eric, 13/07) — approche simplifiée préférée
+Remplacer les points 2 (Firestore) et 3 (tableau prof) par : **envoyer une COPIE de l'écran de revue par e-mail au professeur**, sur le modèle du « 📤 Soumettre à mon professeur » des rédactions.
+- **Réutiliser le circuit e-mail existant** (`LEM.submitWriting`/EmailJS) et **le template d'écriture actuel** (`EMAILJS.templateWriting`) — corps du mail = la revue (par question : réponse choisie, ✓/✗, bonne réponse). **Pas de 3ᵉ template** (plan gratuit = 2 max).
+- Placement : bouton « Soumettre » au niveau de la dernière question **OU** (recommandé Opus) envoi **automatique** à la fin du test avec le score, plus fiable qu'un clic que l'élève peut oublier — à trancher par Eric.
+- Bénéfice : **aucun changement du modèle Firestore ni du tableau prof**, chantier limité à `js/test.js`.
