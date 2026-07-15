@@ -39,3 +39,8 @@ Remplacer les points 2 (Firestore) et 3 (tableau prof) par : **envoyer une COPIE
 
 ### ✅ Décision d'Eric (13/07) — verrouillée
 Revue de test = **envoi AUTOMATIQUE à la fin du test, avec le score** (pas de bouton « Soumettre »). Reste : réutiliser `submitWriting`/EmailJS + template d'écriture, corps = la revue par question (choix, ✓/✗, bonne réponse). Chantier `js/test.js` uniquement.
+
+## 🔧 Pour Fable — valider la répartition des rôles (demande d'Eric, via Opus, 14/07)
+
+Opus a créé **`DIRECTIVES_CREATION_SONNET.md`** (à la racine du dépôt) : rôle de **Sonnet** = concevoir le brouillon pédagogique d'un cours (audio-first, bilingue, profil de Leo) et le **transférer à Opus** pour intégration/déploiement ; Sonnet ne touche ni au code, ni au catalogue, ni aux gabarits.
+**Eric te demande de valider ou amender** la répartition des rôles **Opus / Sonnet / Fable**, et d'**ajouter/corriger** ce que tu juges utile dans ce fichier (et, si besoin, dans `DIRECTIVES_ASSISTANT_CONTENU.md`). Tu es libre d'intervenir.
