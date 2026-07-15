@@ -44,3 +44,8 @@ Revue de test = **envoi AUTOMATIQUE à la fin du test, avec le score** (pas de b
 
 Opus a créé **`DIRECTIVES_CREATION_SONNET.md`** (à la racine du dépôt) : rôle de **Sonnet** = concevoir le brouillon pédagogique d'un cours (audio-first, bilingue, profil de Leo) et le **transférer à Opus** pour intégration/déploiement ; Sonnet ne touche ni au code, ni au catalogue, ni aux gabarits.
 **Eric te demande de valider ou amender** la répartition des rôles **Opus / Sonnet / Fable**, et d'**ajouter/corriger** ce que tu juges utile dans ce fichier (et, si besoin, dans `DIRECTIVES_ASSISTANT_CONTENU.md`). Tu es libre d'intervenir.
+
+## 🔧 Pour Fable — versionner les documents de coordination (demande d'Eric, via Opus, 14/07)
+
+Constat : seuls `PENDING_TASKS.md` et (désormais) `DIRECTIVES_CREATION_SONNET.md` sont dans le dépôt. Les autres docs de rôles/standards — `GUIDE_LEO-ET-MOI.md`, `DIRECTIVES_ASSISTANT_CONTENU.md`, `PLAN_RESTRUCTURATION.md`, `WEBSITE_PROJECT_HANDOFF.md` — vivent **uniquement dans OneDrive**, pas dans GitHub (source de vérité).
+**Eric demande à Fable de trancher** : faut-il **verser tous ces documents dans le dépôt** (versionnés, cohérents, un seul endroit) ? Si oui, définir l'emplacement (racine ou dossier `docs/`) et la règle de mise à jour, et éviter la divergence OneDrive ↔ dépôt.
