@@ -36,3 +36,6 @@ Remplacer les points 2 (Firestore) et 3 (tableau prof) par : **envoyer une COPIE
 - **Réutiliser le circuit e-mail existant** (`LEM.submitWriting`/EmailJS) et **le template d'écriture actuel** (`EMAILJS.templateWriting`) — corps du mail = la revue (par question : réponse choisie, ✓/✗, bonne réponse). **Pas de 3ᵉ template** (plan gratuit = 2 max).
 - Placement : bouton « Soumettre » au niveau de la dernière question **OU** (recommandé Opus) envoi **automatique** à la fin du test avec le score, plus fiable qu'un clic que l'élève peut oublier — à trancher par Eric.
 - Bénéfice : **aucun changement du modèle Firestore ni du tableau prof**, chantier limité à `js/test.js`.
+
+### ✅ Décision d'Eric (13/07) — verrouillée
+Revue de test = **envoi AUTOMATIQUE à la fin du test, avec le score** (pas de bouton « Soumettre »). Reste : réutiliser `submitWriting`/EmailJS + template d'écriture, corps = la revue par question (choix, ✓/✗, bonne réponse). Chantier `js/test.js` uniquement.
