@@ -15,3 +15,8 @@ _Demandes de gabarits/architecture signalées par Opus. Fable les traite puis le
 ## 🔧 Pour Fable — bug gabarit (signalé par Opus, 13/07)
 
 **`_TEMPLATES/exercice.html`** pose `class="revoir-host"` **sur le `<main>`** → `bandeauRevoir()` (ui.js, mode `append`) ajoute le bandeau « revois la leçon » **en fin de page** au lieu du début. Corriger le modèle : mettre un **`<div class="revoir-host"></div>` dédié en tête de `<main>`** (comme les pages Être/Avoir), et laisser `<main class="main">`. *Opus a corrigé l'instance A2-E-004 ; le modèle et les éventuels exercices générés depuis lui restent à vérifier.*
+
+## 🔧 Pour Fable — cache des audios remplacés (signalé par Opus, 13/07)
+
+Notre workflow normal remplace un MP3 en **gardant le même nom** (GUIDE §2). Conséquence constatée (A2-E-004_q08) : le navigateur **ressert l'ancienne prise en cache** sur la page, alors que l'URL directe renvoie la bonne. Ctrl+Maj+R ne purge pas toujours l'audio chargé par `new Audio()`.
+**À étudier au niveau du lecteur partagé `js/audio.js`** : une stratégie anti-cache pour les audios remplacés (ex. paramètre de version `?v=` sur l'URL, ou en-têtes de revalidation), **sans** re-télécharger inutilement les fichiers inchangés (connexion rurale de l'élève). Décision d'archi à toi.
