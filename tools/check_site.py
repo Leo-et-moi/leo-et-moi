@@ -154,7 +154,9 @@ for p in html_files:
             err(f"{rel} : lien/ressource introuvable → {m.group(1)}")
 
 # Idem pour les .mp3 cités dans le JS inline (new Audio('...'))
-AUDIO_RE = re.compile(r"""["']([^"']+?\.mp3)["']""")
+# Tolère un cache-buster ?v=N après .mp3 (convention pour les audios REMPLACÉS,
+# voir GUIDE §2 : seul le fichier remplacé change d'URL → pas de re-téléchargement massif)
+AUDIO_RE = re.compile(r"""["']([^"']+?\.mp3)(?:\?v=\d+)?["']""")
 all_mp3 = [q for q in ROOT.rglob("*.mp3") if ".git" not in q.parts]
 by_name = {}
 for q in all_mp3:
