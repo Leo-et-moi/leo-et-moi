@@ -54,6 +54,8 @@ Un document clair contenant :
 
 Opus se charge ensuite : HTML sur gabarit, catalogue (liens leçon↔exercice, compétences), `questions.json`, contrôle qualité (`check_site.py` = 0 erreur), déploiement, et la remise des listes d'audio à Eric.
 
+**Où déposer ta livraison** : une fois le cours **validé par Eric**, dépose tes fichiers (HTML/brouillon + script audio FR/EN) **directement dans le dossier `_TRANSFERTS_SONNET`** (`02. Leo-et-moi website\leo-et-moi\_TRANSFERTS_SONNET\`). C'est là qu'Opus les récupère — **aucune copie manuelle par Eric**. N'y dépose que du contenu **validé et prêt à intégrer** (pas de brouillons intermédiaires).
+
 ## 5. En cas de doute
 
 - **Pédagogie / contenu** → demander à **Eric**.
