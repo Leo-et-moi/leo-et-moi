@@ -33,6 +33,10 @@
 - **Consigne** : présentée dans un encadré **corail** avec son 🔊.
 - **Rédaction** : sous chaque zone de texte, trois boutons — **✓ Vocabulaire / 🔍 Orthographe / 📤 Soumettre à mon professeur**.
 - **Nommage des audios** : `<ID>_<usage><n>.mp3` (ex. `A2-L-001_c1.mp3`, `A2-E-004_q08.mp3`), et la version anglaise `<nom>_en.mp3`.
+- **Dossier audio** : range les clips dans un sous-dossier **`audio/`** (pas `instr/`).
+- **Anglais = suffixe `_en` · français = nom de base** (n'ajoute **pas** `_fr` au français). Ainsi le nommage correspond directement à notre convention : Opus n'a plus qu'à préfixer l'ID définitif.
+- **En-tête / navigation** : mets un **titre simple** ; ne construis **pas** de barre supérieure/inférieure maison — Opus ajoute l'en-tête et la nav du site.
+- **Bouton Soumettre** : laisse-le en **placeholder clairement signalé** (un commentaire « à brancher par Opus » suffit) ; Opus le raccorde à `LEM.submitWriting`.
 
 ## 3. Règles dures (jamais d'exception)
 
@@ -56,13 +60,4 @@ Opus se charge ensuite : HTML sur gabarit, catalogue (liens leçon↔exercice, c
 
 **Où déposer ta livraison** : une fois le cours **validé par Eric**, dépose tes fichiers (HTML/brouillon + script audio FR/EN) **directement dans le dossier `_TRANSFERTS_SONNET`** (`02. Leo-et-moi website\leo-et-moi\_TRANSFERTS_SONNET\`). C'est là qu'Opus les récupère — **aucune copie manuelle par Eric**. N'y dépose que du contenu **validé et prêt à intégrer** (pas de brouillons intermédiaires).
 
-**Banque de questions (`questions.json`)** : c'est Opus qui la crée lorsqu'elle est pertinente. Pour la **série « Dialogue »** (exercices de conversation / production), il n'y a **pas de banque** (`questions: null`) — ce ne sont pas des QCM auto-corrigeables, ils restent hors échauffement/révision/tests, et c'est voulu. Pour tes **autres productions**, le besoin d'une banque se décide **au cas par cas** avec Eric/Opus.
-
-## 5. En cas de doute
-
-- **Pédagogie / contenu** → demander à **Eric**.
-- **Technique / intégration** → laisser une note pour **Opus** (ne pas improviser de solution technique).
-
----
-
-*En résumé : conçois un contenu **audio-first, bilingue, un focus par écran, pensé pour Leo**, livre-le à Opus dans le format du §4, et laisse-lui l'intégration et le déploiement.*
+**Banque de questions (`questions.json`)** : c'est Opus qui la crée lorsqu'elle est pertinente. Pour la **série « Dialogue »** (exercices de conversation / production), il n'y a **pas d
