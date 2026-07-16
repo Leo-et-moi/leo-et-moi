@@ -17,6 +17,13 @@ const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math
 
 const t0 = Date.now();
 let def = null, picked = [], cur = 0, score = 0, finished = false, cdIv = null;
+const revue = [];   // { n, q, choisi, bonne, ok } — alimente l'écran de revue + l'e-mail au prof
+
+function texteBrut(html) {
+  const d = document.createElement('div');
+  d.innerHTML = html;
+  return (d.textContent || '').replace(/\s+/g, ' ').trim();
+}
 
 function shuffleOptions(q) {
   const idx = q.options.map((_, i) => i);
@@ -109,6 +116,8 @@ function montre() {
     b.onclick = () => {
       if (answered) return; answered = true;
       const ok = i === q.bonneReponse;
+      revue.push({ n: cur + 1, q: texteBrut(q.q), choisi: texteBrut(label),
+                   bonne: texteBrut(q.options[q.bonneReponse]), ok });
       if (ok) { score++; b.classList.add('good'); }
       else { b.classList.add('bad'); card.querySelectorAll('.opt')[q.bonneReponse].classList.add('good'); }
       card.querySelectorAll('.opt').forEach((x) => { x.disabled = true; });
@@ -137,14 +146,47 @@ function finish(expire) {
     ? 'Le temps est écoulé — voici ce que tu as fait. C\'est déjà du travail !'
     : (pct >= 0.8 ? 'Excellent ! 🎉' : pct >= 0.5 ? 'Bien joué ! Continue comme ça.' : 'Bon début — revois les leçons et retente ta chance.');
   const min = Math.floor(dureeSec / 60), sec = dureeSec % 60;
+  // ── Écran de revue (décision d'Eric : bienveillant, erreurs expliquées) ──
+  const fautes = revue.filter((r) => !r.ok);
+  let revueHtml = '';
+  if (revue.length) {
+    revueHtml = '<div class="card"><div style="font-size:19px;font-weight:bold;color:#1B2845;margin-bottom:8px;">📖 Revue du test</div>';
+    if (!fautes.length) {
+      revueHtml += '<p style="color:#1E7B45;font-weight:bold;">Aucune erreur — un sans-faute ! 🎉</p>';
+    } else {
+      revueHtml += '<p style="color:#4A6580;font-size:15px;">' + (revue.length - fautes.length) + ' bonne' + (revue.length - fautes.length > 1 ? 's' : '') + ' r\u00e9ponse' + (revue.length - fautes.length > 1 ? 's' : '') + ' \u00b7 ' + fautes.length + ' \u00e0 retravailler — c\u2019est comme \u00e7a qu\u2019on apprend.</p>';
+      fautes.forEach((r) => {
+        revueHtml += '<div style="border-top:1px solid #D8DFE8;padding:10px 0;">' +
+          '<div style="font-weight:bold;">' + r.n + '. ' + r.q + '</div>' +
+          '<div style="color:#C0392B;">✗ Ta r\u00e9ponse : ' + r.choisi + '</div>' +
+          '<div style="color:#1E7B45;">✓ Bonne r\u00e9ponse : ' + r.bonne + '</div></div>';
+      });
+    }
+    revueHtml += '<p style="font-size:14px;color:#4A6580;">📤 Une copie de cette revue a \u00e9t\u00e9 envoy\u00e9e \u00e0 ton professeur.<br><span class="en" style="text-align:left;">A copy of this review was sent to your teacher.</span></p></div>';
+  }
   fin.innerHTML = '<div class="card" style="text-align:center;">' +
     '<div style="font-size:42px;font-weight:bold;color:#1B2845;">' + score + ' / ' + total + '</div>' +
     '<p style="font-size:19px;">' + msg + '</p>' +
     '<p style="color:#4A6580;">Temps : ' + min + ' min ' + (sec < 10 ? '0' : '') + sec + ' s</p>' +
-    '<a class="btn-secondary" style="display:inline-block;text-decoration:none;padding:12px 20px;border-radius:12px;" href="/french/' + def.niveau.toLowerCase() + '/index.html">← Retour au niveau ' + def.niveau + '</a></div>';
+    '<a class="btn-secondary" style="display:inline-block;text-decoration:none;padding:12px 20px;border-radius:12px;" href="/french/' + def.niveau.toLowerCase() + '/index.html">← Retour au niveau ' + def.niveau + '</a></div>' +
+    revueHtml;
   try {
     if (window.LEM && window.LEM.setLesson) {
       window.LEM.setLesson(def.id, { score, total, completed: true, dureeSec, type: 'test', lastPracticed: Date.now() });
+    }
+  } catch (e) {}
+  // ── Envoi AUTOMATIQUE de la revue au professeur (décision d'Eric, 13/07/2026) :
+  //    circuit existant submitWriting → EmailJS templateWriting + visible au tableau prof. ──
+  try {
+    if (window.LEM && window.LEM.submitWriting && revue.length) {
+      const lignes = revue.map((r) => r.ok
+        ? 'Q' + r.n + ' ✓ ' + r.q
+        : 'Q' + r.n + ' ✗ ' + r.q + '\n   Réponse de l\u2019élève : ' + r.choisi + '\n   Bonne réponse : ' + r.bonne);
+      const entete = 'Score : ' + score + ' / ' + total + ' · Temps : ' + min + ' min ' + (sec < 10 ? '0' : '') + sec + ' s' +
+        (expire ? ' · temps écoulé' : '') + '\n\n';
+      const w = {};
+      w['Revue automatique — ' + def.titre] = entete + lignes.join('\n');
+      window.LEM.submitWriting(def.id, def.titre, w);
     }
   } catch (e) {}
 }
