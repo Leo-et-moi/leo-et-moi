@@ -76,3 +76,12 @@ _(aucune)_
 4. **Couleur** : accent **distinct des couleurs CEFR et du corail/or** — proposition : **violet / indigo** (ex. `#6C5CE7`), à ajuster par Fable pour rester dans l'harmonie Bleu & Corail.
 5. **Sur tous les niveaux** : le dossier apparaît sur chaque page A1→C2 ; il n'apparaît que si le niveau a au moins un dialogue publié.
 6. **Lien aux leçons** : **optionnel** par exercice (à discuter au cas par cas) — le bandeau « revois la leçon » n'apparaît déjà que si une leçon est rattachée, donc aucun changement nécessaire de ce côté.
+
+## 🔧 Pour Fable — déploiement Pages cassé (corrigé par Opus, 16/07)
+
+**Symptôme** : e-mails « pages build and deployment: Run failed » (commits 1f6ffdd, cd09474…) → **aucun commit récent n'était mis en ligne** (site figé, anciens audios servis).
+**Cause** : pas de `.nojekyll` à la racine → GitHub Pages lançait **Jekyll** sur un site 100 % statique (230 Mo, 688 MP3), build en échec.
+**Correctif appliqué par Opus** : ajout de **`.nojekyll`** (commit 2ea3fdd) → publication statique directe, sans Jekyll.
+**À surveiller / décider (Fable)** :
+- Confirmer que les builds repassent au vert et vérifier les réglages Pages (source = branche `main`, déploiement statique).
+- **Poids** : 230 Mo / 688 MP3 et ça grimpe vite → la bascule vers un **hébergement audio externe** (Cloudflare R2, champ `audioBase` du catalogue) devient prioritaire avant d'approcher la limite ~1 Go de Pages.
