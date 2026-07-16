@@ -107,19 +107,8 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
       </div>
     </section>
 
-    <section class="slide">
-      <div class="s-title">Étape 3 : Note les verbes à l'impératif</div>
-      <div class="consigne"><button class="t-play" onclick="playClip('A2-L-001_c3.mp3', this)" aria-label="Écouter">🔊</button><div>Écris les verbes d'action que tu repères.<span class="en"><button class="t-en" onclick="playClip(\'A2-L-001_c3_en.mp3\', this)" aria-label="English">🔊 EN</button> Write the action verbs you spot.</span></div></div>
-      <button class="play-big" onclick="playClip('A2-L-001_procedure.mp3', this)">🔊 Réécoute (en audio « Comment se laver les mains »)</button>
-      <textarea class="pta" id="pta-3" placeholder="Écris les verbes ici… (ex : ouvrez, mouillez…)"></textarea>
-      <button class="check-btn" id="sbtn-3" onclick="checkSpell(3)">🔍 Orthographe / Spelling</button>
-      <div class="sres" id="sres-3"></div>
-      <button class="btn-sec" style="margin-top:10px" onclick="var r=document.getElementById('verbs');r.classList.toggle('open');this.textContent=r.classList.contains('open')?'Masquer les verbes':'Auto-correction — voir les verbes';">Auto-correction — voir les verbes</button>
-      <div class="reveal-box" id="verbs">ouvrez · mouillez · appliquez · frottez · rincez · essuyez · jetez</div>
-    </section>
-
-    <section class="slide">
-      <div class="s-title">Étape 4 : Texte à trous</div>
+<section class="slide">
+      <div class="s-title">Étape 3 : Texte à trous</div>
       <div class="consigne"><button class="t-play" onclick="playClip('A2-L-001_c4.mp3', this)" aria-label="Écouter">🔊</button><div>Choisis la forme <strong>entendue</strong> dans la vidéo.<span class="en"><button class="t-en" onclick="playClip(\'A2-L-001_c4_en.mp3\', this)" aria-label="English">🔊 EN</button> Choose the form you heard in the video.</span></div></div>
       <p class="gaptext">
         <span class="gap"><button onclick="gapPick(this,1)">Ouvrez</button><button onclick="gapPick(this,0)">Ouvre</button><button onclick="gapPick(this,0)">Ouvrir</button></span> le robinet,
@@ -133,34 +122,39 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
     </section>
 
     <section class="slide">
-      <div class="s-title">Étape 5 : Transcription</div>
-      <div class="consigne"><button class="t-play" onclick="playClip('A2-L-001_c5.mp3', this)" aria-label="Écouter">🔊</button><div>Affiche la transcription pour vérifier tes réponses.<span class="en"><button class="t-en" onclick="playClip(\'A2-L-001_c5_en.mp3\', this)" aria-label="English">🔊 EN</button> Show the transcript to check your answers.</span></div></div>
-      <button class="btn-sec" onclick="var t=document.getElementById('tr');t.classList.toggle('open');this.textContent=t.classList.contains('open')?'Masquer la transcription':'Afficher la transcription';">Afficher la transcription</button>
-      <div class="tr-box" id="tr">Ouvrez le robinet. Mouillez vos mains et vos poignets. Appliquez du savon doux dans vos paumes de mains. Frottez vos mains en commençant par les ongles, puis les doigts, les espaces interdigitaux, les paumes des mains, les dessus des mains, les pouces, puis finissez par les poignets. Rincez vos mains sous l'eau. L'idéal étant de le faire les doigts orientés vers le haut pour que les impuretés soient évacuées avec l'eau qui coule vers le bas. Essuyez-vous les mains avec du papier que vous utiliserez pour refermer le robinet. Jetez ensuite ce papier dans une poubelle.</div>
+      <div class="s-title">Étape 4 : Écoute, lis la transcription et note les verbes</div>
+      <div class="consigne"><button class="t-play" onclick="playClip('A2-L-001_c3.mp3', this)" aria-label="Écouter">🔊</button><div>Écris les verbes d'action que tu repères.<span class="en"><button class="t-en" onclick="playClip('A2-L-001_c3_en.mp3', this)" aria-label="English">🔊 EN</button> Write the action verbs you spot.</span></div></div>
+      <button class="play-big" onclick="playClip('A2-L-001_procedure.mp3', this)">🔊 Écouter « Comment se laver les mains »</button>
+      <div class="tr-box open" id="tr" style="margin-top:12px;">Ouvrez le robinet. Mouillez vos mains et vos poignets. Appliquez du savon doux dans vos paumes de mains. Frottez vos mains en commençant par les ongles, puis les doigts, les espaces interdigitaux, les paumes des mains, les dessus des mains, les pouces, puis finissez par les poignets. Rincez vos mains sous l'eau. L'idéal étant de le faire les doigts orientés vers le haut pour que les impuretés soient évacuées avec l'eau qui coule vers le bas. Essuyez-vous les mains avec du papier que vous utiliserez pour refermer le robinet. Jetez ensuite ce papier dans une poubelle.</div>
+      <textarea class="pta" id="pta-3" placeholder="Écris les verbes ici… (ex : ouvrez, mouillez…)"></textarea>
+      <button class="check-btn" id="sbtn-3" onclick="checkSpell(3)">🔍 Orthographe / Spelling</button>
+      <div class="sres" id="sres-3"></div>
+      <button class="btn-sec" style="margin-top:10px" onclick="var r=document.getElementById('verbs');r.classList.toggle('open');this.textContent=r.classList.contains('open')?'Masquer les verbes':'Auto-correction — voir les verbes';">Auto-correction — voir les verbes</button>
+      <div class="reveal-box" id="verbs">ouvrez · mouillez · appliquez · frottez · rincez · essuyez · jetez</div>
     </section>
 
     <section class="slide">
-      <div class="s-title">Étape 6 : La règle de l'impératif</div>
-      <div class="consigne"><button class="t-play" onclick="playClip('A2-L-001_c6.mp3', this)" aria-label="Écouter">🔊</button><div>Lis et écoute les quatre règles.<span class="en"><button class="t-en" onclick="playClip(\'A2-L-001_c6_en.mp3\', this)" aria-label="English">🔊 EN</button> Read and listen to the four rules.</span></div></div>
+      <div class="s-title">Étape 5 : La règle de l'impératif</div>
+      <div class="consigne"><button class="t-play" onclick="playClip('A2-L-001_c6.mp3', this)" aria-label="Écouter">🔊</button><div>Lis et écoute les quatre règles.<span class="en"><button class="t-en" onclick="playClip('A2-L-001_c6_en.mp3', this)" aria-label="English">🔊 EN</button> Read and listen to the four rules.</span></div></div>
       <div class="grid4">
         <div class="pane"><span class="h">1 · Emploi</span>
-          <p><button class="t-play" onclick="playClip('A2-L-001_regle1.mp3', this)" aria-label="Écouter">🔊</button> Donner un <b>ordre</b>, un <b>conseil</b>, une <b>instruction</b>.</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip(\'A2-L-001_regle1_en.mp3\', this)" aria-label="English">🔊 EN</button> Give an order, advice, an instruction.</p>
+          <p><button class="t-play" onclick="playClip('A2-L-001_regle1.mp3', this)" aria-label="Écouter">🔊</button> Donner un <b>ordre</b>, un <b>conseil</b>, une <b>instruction</b>.</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip('A2-L-001_regle1_en.mp3', this)" aria-label="English">🔊 EN</button> Give an order, advice, an instruction.</p>
         </div>
         <div class="pane"><span class="h">2 · Sans pronom sujet</span>
-          <p><button class="t-play" onclick="playClip('A2-L-001_regle2.mp3', this)" aria-label="Écouter">🔊</button> Les pronoms <b>tu, nous, vous</b> disparaissent de la phrase : « <b>Ouvre</b> le robinet », au lieu de « Tu ouvres le robinet ».</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip(\'A2-L-001_regle2_en.mp3\', this)" aria-label="English">🔊 EN</button> The pronouns tu, nous, vous disappear: “Ouvre le robinet”, not “Tu ouvres le robinet”.</p>
+          <p><button class="t-play" onclick="playClip('A2-L-001_regle2.mp3', this)" aria-label="Écouter">🔊</button> Les pronoms <b>tu, nous, vous</b> disparaissent : « <b>Ouvre</b> le robinet », au lieu de « Tu ouvres le robinet ».</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip('A2-L-001_regle2_en.mp3', this)" aria-label="English">🔊 EN</button> The pronouns tu, nous, vous disappear: “Ouvre le robinet”, not “Tu ouvres le robinet”.</p>
         </div>
-        <div class="pane"><span class="h">3 · Les 3 formes / Pas de « s »</span>
-          <p><button class="t-play" onclick="playClip('A2-L-001_forme_tu.mp3', this)" aria-label="Écouter">🔊</button> <b>tu</b> Mouille · <b>nous</b> Mouillons · <b>vous</b> Mouillez</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip(\'A2-L-001_forme_tu_en.mp3\', this)" aria-label="English">🔊 EN</button> tu: mouille · nous: mouillons · vous: mouillez</p>
-          <p><button class="t-play" onclick="playClip('A2-L-001_regle4.mp3', this)" aria-label="Écouter">🔊</button> Verbes en <b>-er</b> : pas de « s » avec <b>tu</b> → mouille, frotte.</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip(\'A2-L-001_regle4_en.mp3\', this)" aria-label="English">🔊 EN</button> -er verbs: no “s” with tu → mouille, frotte.</p>
+        <div class="pane" style="grid-column:1 / -1;"><span class="h">3 · Les formes & le « s »</span>
+          <p><button class="t-play" onclick="playClip('A2-L-001_forme_tu.mp3', this)" aria-label="Écouter">🔊</button> <b>Les 3 formes</b> (verbe <i>mouiller</i>) : Première forme <b>mouille</b> (-) · Deuxième forme <b>mouillons</b> (ons) · Troisième forme <b>mouillez</b> (ez)</p>
+          <p><button class="t-play" onclick="playClip('A2-L-001_regle4.mp3', this)" aria-label="Écouter">🔊</button> Verbes en <b>-er</b> : <b>pas de « s »</b> à la 1re forme — <b>sauf</b> en <b>-ir</b> (<i>partir</i> : <b>pars</b> (s), partons, partez) et <b>-re</b> (<i>prendre</i> : <b>prends</b> (s), prenons, prenez).</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip('A2-L-001_regle4_en.mp3', this)" aria-label="English">🔊 EN</button> -er verbs: no “s” in the first form, except with verbs ending in -ir (partir/pars, partons, partez) and -re (prendre/prends, prenons, prenez).</p>
         </div>
         <div class="pane"><span class="h">4 · Le pronom après le verbe</span>
-          <p><button class="t-play" onclick="playClip('A2-L-001_pronom.mp3', this)" aria-label="Écouter">🔊</button> Trait d'union : « <b>lave-toi</b> les mains », « <b>ferme-le</b> » (le robinet).</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip(\'A2-L-001_pronom_en.mp3\', this)" aria-label="English">🔊 EN</button> Hyphen: “lave-toi les mains”; “ferme-le” (the tap).</p>
+          <p><button class="t-play" onclick="playClip('A2-L-001_pronom.mp3', this)" aria-label="Écouter">🔊</button> Trait d'union : « <b>lave-toi</b> les mains », « <b>ferme-le</b> » (le robinet).</p><p class="en" style="text-align:left"><button class="t-en" onclick="playClip('A2-L-001_pronom_en.mp3', this)" aria-label="English">🔊 EN</button> Hyphen: “lave-toi les mains”; “ferme-le” (the tap).</p>
         </div>
       </div>
     </section>
 
-    <section class="slide">
-      <div class="s-title">Étape 7 : À toi d'écrire</div>
+<section class="slide">
+      <div class="s-title">Étape 6 : À toi d'écrire</div>
       <div class="consigne"><button class="t-play" onclick="playClip('A2-L-001_c7.mp3', this)" aria-label="Écouter">🔊</button><div>Écris tes deux réponses, vérifie l'orthographe, puis envoie à ton professeur.<span class="en"><button class="t-en" onclick="playClip(\'A2-L-001_c7_en.mp3\', this)" aria-label="English">🔊 EN</button> Write your two answers, check the spelling, then send to your teacher.</span></div></div>
       <div class="wtask">
         <div class="wt">1. Écris une <strong>consigne d'hygiène</strong> à afficher dans les toilettes des employés d'un restaurant. <span class="en">Write a hygiene instruction for a restaurant staff toilet.</span></div>
@@ -182,7 +176,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 
   <div class="viewer-controls">
     <button id="prevBtn" class="nav-btn" disabled>&#8592; Pr&eacute;c&eacute;dent</button>
-    <span id="counter" class="counter">1 / 7</span>
+    <span id="counter" class="counter">1 / 6</span>
     <button id="nextBtn" class="nav-btn">Suivant &#8594;</button>
   </div>
 
