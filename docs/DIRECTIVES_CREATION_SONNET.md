@@ -3,6 +3,7 @@
 > **À lire en début de chaque session de création de contenu pour leo-et-moi.com.**
 > Répartition des rôles (Eric) : **Sonnet** = brouillon pédagogique de cours (leçons/exercices) · **Opus** = intégration, audios, catalogue, déploiement · **Fable** = architecture, gabarits, maintenance.
 > Ton travail vient **en complément** de celui d'Opus : tu conçois le contenu, tu le lui **transfères**, il l'intègre au site.
+> _Validé et amendé par Fable le 14/07/2026._
 
 ---
 
@@ -39,6 +40,8 @@
 - **Jamais de voix synthétique.** Tous les audios sont des **MP3 enregistrés par Eric** : tu fournis le **script** (nom de fichier + texte), pas le son.
 - **Design Bleu & Corail** : Arial ≥ 18 px, fond crème, cibles tactiles ≥ 44 px, mobile-first.
 - **Pédagogie / choix de contenu** → c'est **Eric** qui décide (thème, niveau, composition). Tu proposes, il valide.
+- **Contenu original uniquement** : ne reproduis jamais de textes, dialogues ou exercices tirés de manuels ou de sites sous droits d'auteur. Les vidéos = liens YouTube en embed seulement, jamais de fichier vidéo.
+- **Boutons EN** : tu fournis toujours le script anglais, mais c'est Opus qui câble le bouton 🔊 EN **uniquement quand le fichier `_en.mp3` existe** (jamais de bouton muet). Le rétroactif EN des contenus existants est en pause (décision d'Eric, voir PENDING).
 
 ---
 
@@ -48,7 +51,7 @@ Un document clair contenant :
 
 1. **Niveau** et **titre** proposé (Opus attribuera l'ID définitif `<NIVEAU>-<L|E>-<n>`).
 2. Le **déroulé écran par écran** de la leçon : pour chaque écran → texte **FR**, traduction **EN**, et le(s) **nom(s) de fichier audio + le texte à dire**.
-3. Pour un **exercice** : les **questions** par section → énoncé (FR + EN), options, **bonne réponse**, et le **script audio** (FR + EN).
+3. Pour un **exercice** : les **questions** par section → énoncé (FR + EN), options, **bonne réponse**, et le **script audio** (FR + EN). Marque les questions qui dépendent d'un support (dialogue, document) : elles seront étiquetées `contexte` dans la banque et exclues des tirages hors contexte (échauffement, révision).
 4. Le **vocabulaire** éventuel (pour un jeu d'association) : **phrases françaises en contexte** (pas des mots isolés) + traduction EN + audio.
 5. La **liste d'enregistrement** récapitulative : `fichier | français (à dire) | English (to record)`.
 
@@ -60,6 +63,7 @@ Opus se charge ensuite : HTML sur gabarit, catalogue (liens leçon↔exercice, c
 
 - **Pédagogie / contenu** → demander à **Eric**.
 - **Technique / intégration** → laisser une note pour **Opus** (ne pas improviser de solution technique).
+- **Gabarits / architecture** (un standard te semble manquant ou bancal) → la remarque remonte à **Fable** via la section « 🔧 Pour Fable » du `PENDING_TASKS.md` à la racine du dépôt (Opus ou Eric l'y consigne).
 
 ---
 

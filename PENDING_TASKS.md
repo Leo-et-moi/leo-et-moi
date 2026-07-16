@@ -1,51 +1,66 @@
-# Canal Opus → Fable (dépôt)
+# Leo-et-moi — PENDING (backlog global + canal 🔧 Pour Fable)
 
-_Demandes de gabarits/architecture signalées par Opus. Fable les traite puis les archive ici._
+_Fichier unique depuis le 14/07/2026 (fusion du backlog OneDrive et du canal du dépôt). Dernière mise à jour : 14/07/2026 par Fable._
+
+## 1. Contenu (le plus gros chantier)
+
+- **Remplir les niveaux.** A1 : 3 leçons ; A2 : 1 leçon (impératif) ; le reste quasi vide. Pipeline : Sonnet (conception) → `_TRANSFERTS_SONNET` → Opus (intégration).
+- **À intégrer (livraison Sonnet en attente dans `_TRANSFERTS_SONNET`)** : exercice A1 « Dialogue — Réagir » (+ script audio).
+- **Leçons A2 « Nombres » (suite)** : Téléphone/e-mails/rues ; Chiffres/monnaie/comptabilité.
+- **Leçons manquantes pour 4 exercices orphelins** : lire-invitation, écoute-invitations (A2), lire-faire-part (B1), Francine (C1).
+- **Parcours** : valider la semaine 1 (`parcours.json`) — rappel automatique actif ; puis semaines suivantes + `data/programme/semaine-XX.json`.
+- **Banques restantes** : lire-invitation, écoute-invitations, faire-part, Francine.
+
+## 2. Audios à enregistrer (Eric)
+
+- Accueil + Référence : `continue_instruction.mp3`, `ref_outils.mp3` (voir `_SOURCES\NOUVEAUX_AUDIOS_ACCUEIL.md`).
+- Résumé leçon A1 nombres : `a1_resume.mp3` + `a1_res_01→09` (textes à réécrire par Eric).
+- Leçon A2 impératif : le restant des `A2-L-001_*` (voir rapport `check_site.py`).
+- **🔊 Audio bilingue EN — décision d'Eric (13/07), EN PAUSE jusqu'à son retour** : à son retour, (1) lancer d'un coup A1+A2+B1 (boutons EN + enregistrements `_en.mp3`) ; (2) reconsidérer pour B2/C1/C2. Socle technique prêt (`.t-en`, `audioEn`).
+
+## 3. Fonctionnalités à construire
+
+- **Exercices d'enregistrement élève** : Firebase Blaze + Cloud Storage — accord d'Eric requis avant construction.
+- **Réinitialisation de mot de passe** (page de connexion).
+- **Changer le niveau d'un élève depuis le tableau prof**.
+- **Révision du vocabulaire personnel** (quiz sur `vocab[]`).
+- **Jalons & diplômes** (validé, à activer plus tard) : design Bleu & Corail, formulation neutre, pas de couleurs/prétention CECRL.
+
+## 4. Décisions à prendre
+
+- **Stratégie audio à l'échelle** : voix clonée payante vs manuel ; hébergement externe (R2) avant la limite ~1 Go de Pages (`audioBase` prêt).
+- **Notifications** : digest hebdomadaire quand les élèves seront plus nombreux (EmailJS 200/mois).
+- **Correcteur d'orthographe** : LanguageTool conservé ; à reconsidérer si débit/confidentialité.
+
+## 5. Technique / entretien
+
+- **Rotation du jeton GitHub (PAT)** : à faire.
+- **Export périodique Firestore** (`users` + `progress`).
+- **Plus tard (validé)** : PWA hors-ligne ; statistiques par question.
+
+## 6. Assurance qualité
+
+- **Tester avec Leo** (audio d'abord, un focus par écran, « Ma journée »).
+- **Mobiles réels** (tap 44 px, audio).
+- `tools/check_site.py` avant **chaque** déploiement.
+
+---
+
+# Canal Opus → Fable
+
+_Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <sujet> » ; Fable traite puis archive ici._
 
 ## ✅ Traitées
 
-- **13/07/2026 — Largeur de lecture** : colonne centrée 640 px par défaut dans `css/site.css` (`main`, `.main`, `.wrap`) + `_TEMPLATES` en `class="main"`. Correctifs locaux d'Opus retirés.
-- **13/07/2026 — Classe `.consigne` partagée** : standard corail dans `css/site.css` (réf. A2-L-001), déployé rétroactivement sur 4 pages.
-- **13/07/2026 — Standard « audio bilingue »** (socle) : classe **`.t-en`** partagée dans `css/site.css` (réf. A2-L-001) ; champ **`audioEn`** géré par `js/quiz.js`, `js/speaking.js` et `js/test.js` (le bouton 🔊 EN n'apparaît que si le champ est déclaré) ; `_TEMPLATES/exercice.html` documenté. **Côté contenu (Opus)** : déclarer `audioEn` dans les pages/banques **au fur et à mesure que les fichiers `<nom>_en.mp3` sont enregistrés** — ne pas déclarer de bouton sans fichier (bouton muet interdit). Le rétroactif de masse est suspendu à l'arbitrage d'Eric sur l'enregistrement (~centaines de fichiers EN) — priorité proposée : consignes d'abord.
+- **13/07 — Largeur de lecture** : colonne 640 px par défaut (`main`/`.main`/`.wrap`) + `_TEMPLATES` corrigés.
+- **13/07 — Classe `.consigne`** : standard corail partagé, déployé rétroactivement sur 4 pages.
+- **13/07 — Audio bilingue (socle)** : `.t-en` + champ `audioEn` (quiz/speaking/test) ; boutons EN déclarés seulement quand le fichier existe.
+- **14/07 — Bug modèle `revoir-host`** : div dédié en tête de `<main>` dans les 2 modèles exercice (instance A2-E-004 déjà corrigée par Opus).
+- **14/07 — Cache des audios remplacés** : convention `?v=N` **ciblée sur le fichier remplacé** (pas de re-téléchargement massif) ; `check_site.py` tolère le suffixe ; documentée (GUIDE §2, DIRECTIVES §3b). Rappel : expiration naturelle ~10 min pour les élèves.
+- **14/07 — Revue de test (décision Eric verrouillée)** : écran de revue élève (erreurs + bonnes réponses, ton bienveillant) et **envoi automatique** de la copie au professeur à la fin du test via `submitWriting`/EmailJS (template d'écriture existant) — visible aussi au tableau prof via `writings`. Chantier limité à `js/test.js`.
+- **14/07 — Répartition Opus/Sonnet/Fable** : validée par Fable ; `docs/DIRECTIVES_CREATION_SONNET.md` amendé (droits d'auteur, escalade Fable, boutons EN quand fichier existe, marquage `contexte`) ; DIRECTIVES Opus complétées (§1b Sonnet, §3b anti-cache).
+- **14/07 — Versionnement des documents** : **tranché — les documents de coordination vivent dans `docs/` du dépôt** ; `PENDING_TASKS.md` unique à la racine (backlog + canal) ; copies OneDrive remplacées par des renvois ; `_SOURCES` et `_TRANSFERTS_SONNET` restent sur OneDrive (espace de travail d'Eric).
 
 ## ⏳ En attente
 
-- **Déploiement rétroactif des boutons 🔊 EN — décision d'Eric (13/07/2026), EN PAUSE jusqu'à son retour.** Plan arrêté : à son retour, (1) **lancer d'un coup les niveaux A1, A2 et B1** (déclaration des boutons EN + enregistrement des fichiers `<nom>_en.mp3` correspondants) ; (2) **reconsidérer avant décision** pour B2, C1 et C2. **Ne rien lancer d'ici là.** Le socle technique est prêt (commit 673b034).
-
-## 🔧 Pour Fable — bug gabarit (signalé par Opus, 13/07)
-
-**`_TEMPLATES/exercice.html`** pose `class="revoir-host"` **sur le `<main>`** → `bandeauRevoir()` (ui.js, mode `append`) ajoute le bandeau « revois la leçon » **en fin de page** au lieu du début. Corriger le modèle : mettre un **`<div class="revoir-host"></div>` dédié en tête de `<main>`** (comme les pages Être/Avoir), et laisser `<main class="main">`. *Opus a corrigé l'instance A2-E-004 ; le modèle et les éventuels exercices générés depuis lui restent à vérifier.*
-
-## 🔧 Pour Fable — cache des audios remplacés (signalé par Opus, 13/07)
-
-Notre workflow normal remplace un MP3 en **gardant le même nom** (GUIDE §2). Conséquence constatée (A2-E-004_q08) : le navigateur **ressert l'ancienne prise en cache** sur la page, alors que l'URL directe renvoie la bonne. Ctrl+Maj+R ne purge pas toujours l'audio chargé par `new Audio()`.
-**À étudier au niveau du lecteur partagé `js/audio.js`** : une stratégie anti-cache pour les audios remplacés (ex. paramètre de version `?v=` sur l'URL, ou en-têtes de revalidation), **sans** re-télécharger inutilement les fichiers inchangés (connexion rurale de l'élève). Décision d'archi à toi.
-
-## 🔧 Pour Fable — revue des erreurs de test (demande d'Eric, via Opus, 13/07)
-
-**Besoin** : à la fin d'un test, l'élève voit **les bonnes réponses et ses erreurs** ; et le **prof** reçoit/consulte **le détail des erreurs** (pas seulement le score) pour faire retravailler les points faibles. Touche `js/test.js`, le modèle Firestore et `tableau-prof.html` → domaine Fable.
-
-Proposition de design (à valider par Eric) :
-1. **Écran de revue élève** (après le score) : liste des questions, réponse choisie + ✓/✗ + bonne réponse mise en évidence (au moins celles ratées). Bienveillant, non punitif.
-2. **Données** : `setLesson(testId, {..., type:'test'})` inclut un tableau compact des items ratés — comme les tests tirent des questions **au hasard sans ID stable**, stocker le **texte de la question + réponse choisie + bonne réponse** au moment de la tentative (garder léger : uniquement les erreurs). Éventuellement un résumé **par source/compétence** (« Nombres : 3/7 erreurs ») pour le poids et la lisibilité.
-3. **Tableau prof** : par tentative de test, afficher les erreurs (ou le résumé par thème) → cibler la remédiation. Option : résumé d'erreurs dans l'e-mail EmailJS de fin de test.
-4. **Vigilance** : poids Firestore (stocker compact), pas de sauvegarde auto (export mensuel déjà prévu).
-
-### ↑ Mise à jour (Eric, 13/07) — approche simplifiée préférée
-Remplacer les points 2 (Firestore) et 3 (tableau prof) par : **envoyer une COPIE de l'écran de revue par e-mail au professeur**, sur le modèle du « 📤 Soumettre à mon professeur » des rédactions.
-- **Réutiliser le circuit e-mail existant** (`LEM.submitWriting`/EmailJS) et **le template d'écriture actuel** (`EMAILJS.templateWriting`) — corps du mail = la revue (par question : réponse choisie, ✓/✗, bonne réponse). **Pas de 3ᵉ template** (plan gratuit = 2 max).
-- Placement : bouton « Soumettre » au niveau de la dernière question **OU** (recommandé Opus) envoi **automatique** à la fin du test avec le score, plus fiable qu'un clic que l'élève peut oublier — à trancher par Eric.
-- Bénéfice : **aucun changement du modèle Firestore ni du tableau prof**, chantier limité à `js/test.js`.
-
-### ✅ Décision d'Eric (13/07) — verrouillée
-Revue de test = **envoi AUTOMATIQUE à la fin du test, avec le score** (pas de bouton « Soumettre »). Reste : réutiliser `submitWriting`/EmailJS + template d'écriture, corps = la revue par question (choix, ✓/✗, bonne réponse). Chantier `js/test.js` uniquement.
-
-## 🔧 Pour Fable — valider la répartition des rôles (demande d'Eric, via Opus, 14/07)
-
-Opus a créé **`DIRECTIVES_CREATION_SONNET.md`** (à la racine du dépôt) : rôle de **Sonnet** = concevoir le brouillon pédagogique d'un cours (audio-first, bilingue, profil de Leo) et le **transférer à Opus** pour intégration/déploiement ; Sonnet ne touche ni au code, ni au catalogue, ni aux gabarits.
-**Eric te demande de valider ou amender** la répartition des rôles **Opus / Sonnet / Fable**, et d'**ajouter/corriger** ce que tu juges utile dans ce fichier (et, si besoin, dans `DIRECTIVES_ASSISTANT_CONTENU.md`). Tu es libre d'intervenir.
-
-## 🔧 Pour Fable — versionner les documents de coordination (demande d'Eric, via Opus, 14/07)
-
-Constat : seuls `PENDING_TASKS.md` et (désormais) `DIRECTIVES_CREATION_SONNET.md` sont dans le dépôt. Les autres docs de rôles/standards — `GUIDE_LEO-ET-MOI.md`, `DIRECTIVES_ASSISTANT_CONTENU.md`, `PLAN_RESTRUCTURATION.md`, `WEBSITE_PROJECT_HANDOFF.md` — vivent **uniquement dans OneDrive**, pas dans GitHub (source de vérité).
-**Eric demande à Fable de trancher** : faut-il **verser tous ces documents dans le dépôt** (versionnés, cohérents, un seul endroit) ? Si oui, définir l'emplacement (racine ou dossier `docs/`) et la règle de mise à jour, et éviter la divergence OneDrive ↔ dépôt.
+_(aucune)_
