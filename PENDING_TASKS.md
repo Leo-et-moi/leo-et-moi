@@ -64,3 +64,15 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 ## ⏳ En attente
 
 _(aucune)_
+
+## 🔧 Pour Fable — série « Dialogue » : dossier distinct par niveau (demande d'Eric, via Opus, 14/07)
+
+« Dialogue » est une **série évolutive** qui couvrira progressivement tous les niveaux (A1→C2). Elle doit être **nettement distinguée** de la liste des exercices, sur **chaque niveau**.
+
+**Spécification (GO d'Eric ; décisions prises) :**
+1. **Catalogue** : ajouter un champ optionnel sur l'exercice, ex. `"serie": "Dialogue"` (+ éventuel ordre interne `"serieOrdre"`). Tout exercice marqué appartient à la série. *(Opus taguera `A1-E-005` — 1er de la série — dès le champ disponible.)*
+2. **Page de niveau** (`js/niveau.js`) : **exclure** les exercices `serie` de la liste normale ; **après la section 📝 Tests**, afficher un **dossier « 💬 Dialogue <Niveau> »**, dans une **couleur distincte**.
+3. **Clic → page de série dédiée** (décision Eric : le mécanisme **le plus adapté au smartphone**) : `french/dialogue/<niveau>.html`, **générée depuis le catalogue**, listant tous les dialogues de ce niveau (grandes cartes, retour simple). Pas d'accordéon (moins bon sur mobile).
+4. **Couleur** : accent **distinct des couleurs CEFR et du corail/or** — proposition : **violet / indigo** (ex. `#6C5CE7`), à ajuster par Fable pour rester dans l'harmonie Bleu & Corail.
+5. **Sur tous les niveaux** : le dossier apparaît sur chaque page A1→C2 ; il n'apparaît que si le niveau a au moins un dialogue publié.
+6. **Lien aux leçons** : **optionnel** par exercice (à discuter au cas par cas) — le bandeau « revois la leçon » n'apparaît déjà que si une leçon est rattachée, donc aucun changement nécessaire de ce côté.
