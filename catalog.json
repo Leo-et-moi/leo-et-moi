@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "misAJour": "2026-07-13",
+  "misAJour": "2026-07-14",
   "audioBase": "",
   "lecons": [
     {
@@ -258,6 +258,22 @@
       ],
       "progressId": "A2-E-004",
       "questions": "french/a2/A2-E-004-imperatif/questions.json",
+      "publie": true
+    },
+    {
+      "id": "A1-E-005",
+      "niveau": "A1",
+      "ordre": 50,
+      "titre": "Dialogue — Réagir et relancer",
+      "chemin": "french/a1/A1-E-005-dialogue-reagir/exercices.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "reading",
+        "writing"
+      ],
+      "progressId": "A1-E-005",
+      "questions": null,
       "publie": true
     }
   ],

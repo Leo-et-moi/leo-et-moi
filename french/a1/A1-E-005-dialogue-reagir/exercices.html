@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>Exercice A1 — Dialogue avec moi — Réagir et relancer</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F0E8;--dark:#1B2845;--navy:#2C4A7C;--coral:#E8503A;
+  --gold:#D4920A;--ltGold:#FDF3D8;--ltBlue:#E8F0FA;--ltGreen:#E3F5EC;
+  --green:#1E7B45;--text:#1A2733;--slate:#4A6580;--div:#D8DFE8;--white:#fff;
+  --red:#C0392B;--ltRed:#fceaea;
+}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+
+/* ── TOP BAR ── */
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:14px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.top-title{font-size:20px;font-weight:bold;color:#fff;}
+.top-title span{color:var(--coral);}
+.top-sub-fr{font-size:14px;color:#9DC8E8;margin-top:2px;font-weight:600;}
+.top-sub-en{font-size:12px;color:#6A9AB8;margin-top:1px;}
+.top-btns{display:flex;gap:8px;flex-shrink:0;}
+/* ── AUDIO BUTTONS ── */
+/* Large FR button — section headers (dark bg) */
+.spk{background:none;border:2px solid rgba(255,255,255,0.3);border-radius:20px;padding:6px 12px;
+  color:#9DC8E8;font-family:Arial,sans-serif;font-size:14px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:5px;min-height:44px;white-space:nowrap;}
+/* Small EN button — section headers (dark bg) */
+.spk-en{background:none;border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px;
+  color:#6A9AB8;font-family:Arial,sans-serif;font-size:12px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;min-height:32px;white-space:nowrap;}
+/* Item-level FR button (light bg) */
+.btn-fr{background:none;border:2px solid var(--navy);border-radius:14px;padding:4px 10px;
+  color:var(--navy);font-family:Arial,sans-serif;font-size:13px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;flex-shrink:0;min-height:44px;}
+/* Item-level EN button (light bg) */
+.btn-en{background:none;border:1px solid var(--div);border-radius:14px;padding:3px 8px;
+  color:var(--slate);font-family:Arial,sans-serif;font-size:12px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;flex-shrink:0;}
+
+/* ── LAYOUT ── */
+.main{max-width:740px;margin:0 auto;padding:20px 14px 60px;}
+.panel-head{margin:16px 0 20px;}
+.panel-title{font-size:24px;font-weight:bold;color:var(--dark);}
+.panel-sub{font-size:14px;color:var(--slate);margin-top:2px;}
+.sec{margin-bottom:10px;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+.sec-hdr{background:var(--dark);padding:12px 16px;display:flex;align-items:center;gap:10px;}
+.sec-icon{font-size:22px;line-height:1;flex-shrink:0;}
+.sec-label{flex:1;}
+.sec-label-fr{font-size:17px;font-weight:bold;color:#fff;}
+.sec-label-en{font-size:13px;color:#9DC8E8;}
+.sec-body{background:var(--white);padding:18px;border:1px solid var(--div);border-top:none;border-radius:0 0 12px 12px;}
+
+/* ── INSTRUCTION BLOCK ── */
+.instr{background:#FEF0EE;border-left:4px solid var(--coral);border-radius:0 8px 8px 0;
+  padding:12px 14px;margin-bottom:16px;}
+.instr-fr-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px;}
+.instr-en-row{display:flex;align-items:flex-start;gap:8px;}
+.instr-fr{font-size:16px;font-weight:600;color:var(--dark);line-height:1.5;}
+.instr-en{font-size:13px;color:var(--slate);line-height:1.5;}
+
+/* ── BILINGUAL ITEM (generic) ── */
+.bi{margin-bottom:10px;}
+.bi-fr{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--dark);}
+.bi-en{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--slate);margin-top:2px;padding-left:2px;}
+
+/* ── OBJECTIVE BOX ── */
+.obj-box{background:var(--dark);border-radius:12px;padding:20px;margin-bottom:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.12);}
+.obj-practice{background:rgba(255,255,255,0.07);border-radius:8px;padding:10px 14px;margin-bottom:14px;}
+.obj-practice-fr{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#E0E8F5;margin-bottom:4px;}
+.obj-practice-en{display:flex;align-items:center;gap:8px;font-size:13px;color:#6A9AB8;}
+.obj-title{font-size:16px;font-weight:bold;color:var(--coral);margin-bottom:14px;letter-spacing:0.3px;}
+.obj-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:480px){.obj-cols{grid-template-columns:1fr;}}
+.obj-col-hdr{margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,0.15);}
+.obj-col-hdr-btn{display:flex;align-items:center;gap:6px;}
+.obj-col-lbl{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;}
+.obj-col-lbl.do{color:#9DC8E8;}
+.obj-col-lbl.dont{color:#E8A87C;}
+.obj-item{margin-bottom:6px;}
+.obj-item-fr{display:flex;align-items:center;gap:6px;font-size:15px;color:#E0E8F5;}
+.obj-item-fr::before{content:"✓";color:var(--green);font-weight:bold;flex-shrink:0;}
+.obj-item-fr.x::before{content:"✕";color:#667788;}
+.obj-item-fr.x{color:#8899AA;}
+.obj-item-en{display:flex;align-items:center;gap:6px;font-size:12px;color:#6A9AB8;padding-left:16px;margin-top:1px;}
+/* obj buttons on dark bg */
+.btn-obj{background:none;border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:3px 8px;
+  color:#9DC8E8;font-family:Arial,sans-serif;font-size:12px;cursor:pointer;flex-shrink:0;}
+.btn-obj-en{background:none;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:2px 6px;
+  color:#6A9AB8;font-family:Arial,sans-serif;font-size:11px;cursor:pointer;flex-shrink:0;}
+
+/* ── VOCABULARY ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:600px){.vocab-grid{grid-template-columns:1fr;}}
+.vocab-col-title{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;
+  letter-spacing:0.5px;margin-bottom:8px;padding-bottom:5px;border-bottom:2px solid var(--div);}
+.vocab-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:10px 12px;margin-bottom:8px;}
+.vocab-fr-row{display:flex;align-items:center;gap:6px;font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.vocab-en-row{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--slate);}
+
+/* ── MATCHING ── */
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:520px){.match-grid{grid-template-columns:1fr;}}
+.match-col-lbl{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.m-cards{display:flex;flex-direction:column;gap:8px;}
+.mcard{background:var(--cream);border:2px solid var(--div);border-radius:10px;
+  padding:12px 14px;cursor:pointer;font-size:14px;line-height:1.4;
+  transition:border-color 0.15s,background 0.15s;}
+.mcard:hover:not(.matched){border-color:var(--navy);}
+.mcard.sel{border-color:var(--coral);background:var(--ltGold);}
+.mcard.matched{border-color:var(--green);background:var(--ltGreen);cursor:default;}
+.mcard.err{border-color:var(--red);background:var(--ltRed);}
+.mcard-tag{font-size:11px;font-weight:bold;margin-bottom:4px;}
+.mcard-tag.num{color:var(--coral);}
+.mcard-tag.ltr{color:var(--navy);}
+.mcard-fr{font-weight:600;font-size:14px;color:var(--dark);margin-bottom:4px;}
+.mcard-en{font-size:12px;color:var(--slate);margin-bottom:4px;}
+.mcard-expr{font-weight:bold;font-size:15px;margin-bottom:4px;}
+.match-score{margin-top:12px;font-size:14px;color:var(--slate);}
+
+/* ── EXERCISE B ── */
+.sit-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:16px;margin-bottom:12px;}
+.sit-num{font-size:11px;font-weight:bold;color:var(--coral);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.sit-text{font-size:17px;font-weight:bold;color:var(--dark);margin-bottom:10px;}
+.sit-actions{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+.sit-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:480px){.sit-row{grid-template-columns:1fr;}}
+.sit-lbl{font-size:12px;font-weight:bold;color:var(--slate);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.3px;}
+.sit-select{font-family:Arial,sans-serif;font-size:15px;width:100%;padding:10px 12px;
+  border:2px solid var(--div);border-radius:8px;background:var(--white);color:var(--dark);cursor:pointer;}
+.sit-select:focus{border-color:var(--navy);outline:none;}
+.model-btn{font-family:Arial,sans-serif;font-size:13px;background:none;
+  border:1px solid var(--div);border-radius:8px;padding:7px 12px;color:var(--slate);cursor:pointer;}
+.model-box{display:none;margin-top:10px;padding:10px 14px;background:var(--ltGreen);
+  border-left:3px solid var(--green);border-radius:0 8px 8px 0;font-size:14px;line-height:1.6;}
+.model-box.show{display:block;}
+
+/* ── PERSONAL SENTENCES ── */
+.phrase-row{margin-bottom:16px;}
+.phrase-starter-fr{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:bold;color:var(--navy);margin-bottom:3px;}
+.phrase-starter-en{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--slate);margin-bottom:6px;}
+.phrase-input{font-family:Arial,sans-serif;font-size:16px;width:100%;padding:10px 12px;
+  border:2px solid var(--div);border-radius:8px;background:var(--cream);color:var(--dark);}
+.phrase-input:focus{border-color:var(--navy);outline:none;}
+/* ── WRITING BUTTONS ── */
+.write-btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.write-btn{font-family:Arial,sans-serif;font-size:14px;padding:8px 14px;min-height:44px;
+  border-radius:10px;cursor:pointer;border:2px solid var(--div);background:var(--white);
+  color:var(--slate);display:inline-flex;align-items:center;gap:6px;transition:border-color 0.15s;}
+.write-btn:hover{border-color:var(--navy);color:var(--navy);}
+.write-btn.vocab{border-color:var(--green);color:var(--green);}
+.write-btn.submit{border-color:var(--coral);color:var(--coral);}
+
+/* ── EXERCISE D ── */
+.q-option{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;
+  background:var(--cream);border:2px solid var(--div);border-radius:10px;
+  padding:12px 14px;cursor:pointer;transition:border-color 0.15s;}
+.q-option:hover{border-color:var(--navy);}
+.q-option.selected{border-color:var(--navy);background:var(--ltBlue);}
+.q-option input[type=radio]{margin-top:4px;accent-color:var(--navy);flex-shrink:0;}
+.q-fr{display:flex;align-items:center;gap:6px;font-size:15px;color:var(--dark);font-weight:600;margin-bottom:3px;}
+.q-en{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--slate);}
+.custom-row{margin-top:14px;}
+.custom-fr{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:bold;color:var(--slate);margin-bottom:3px;}
+.custom-en{display:flex;align-items:center;gap:8px;font-size:12px;color:#8899AA;margin-bottom:8px;}
+
+/* ── AIDE-MÉMOIRE ── */
+.aide-table{width:100%;border-collapse:collapse;}
+.aide-table th{background:var(--dark);color:#fff;padding:10px 12px;font-size:14px;text-align:left;}
+.aide-table td{padding:10px 12px;border-bottom:1px solid var(--div);font-size:14px;vertical-align:middle;}
+.aide-table tr:nth-child(even) td{background:var(--cream);}
+.aide-expr{font-weight:bold;display:block;margin-bottom:3px;}
+.aide-spk{font-family:Arial,sans-serif;font-size:11px;background:none;
+  border:1px solid var(--div);border-radius:10px;padding:3px 8px;color:var(--slate);cursor:pointer;}
+
+/* ── SELF-EVAL ── */
+.eval-item{margin-bottom:10px;}
+.eval-fr{display:flex;align-items:flex-start;gap:10px;}
+.eval-fr input[type=checkbox]{width:22px;height:22px;margin-top:2px;flex-shrink:0;accent-color:var(--green);}
+.eval-text-fr{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:var(--dark);}
+.eval-text-en{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--slate);padding-left:32px;margin-top:2px;}
+.eval-field{margin-top:16px;}
+.eval-field-fr{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:bold;color:var(--navy);margin-bottom:3px;}
+.eval-field-en{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--slate);margin-bottom:6px;}
+.motiv-box{margin-top:18px;padding:18px;background:var(--dark);border-radius:10px;line-height:1.8;}
+.motiv-fr{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:#fff;margin-bottom:8px;}
+.motiv-en{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#6A9AB8;}
+.motiv-fr strong{color:var(--coral);}
+.motiv-en strong{color:#9DC8E8;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:#1B2845;border-top:3px solid #E8503A;display:flex;align-items:center;z-index:200;}
+.bottom-nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:64px;font-family:Arial,sans-serif;}
+.bottom-nav a.active{color:#E8503A;}.bottom-nav .ni{font-size:22px;}.bottom-nav .nl{font-size:11px;font-weight:bold;}
+body{padding-bottom:80px;}
+</style>
+</head>
+<body data-item-id="A1-E-005">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div>
+    <div class="top-title">Leo<span>-et-moi</span></div>
+    <div class="top-sub-fr">Exercice A1 · Réagir et relancer une conversation</div>
+    <div class="top-sub-en">Exercise A1 · Responding and Keeping a Conversation Going</div>
+  </div>
+  <div class="top-btns">
+    <button class="spk" onclick="playClip('A1-E-005_titre.mp3')">&#128266; FR</button>
+    <button class="spk-en" onclick="playClip('A1-E-005_titre_en.mp3')">&#128266; EN</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- PAGE TITLE -->
+  <div class="panel-head">
+    <div class="panel-title">Dialogue avec moi</div>
+    <div class="panel-sub">Niveau A1 · Préparation avant le cours</div>
+  </div>
+
+  <!-- OBJECTIVE BOX -->
+  <div class="obj-box">
+    <div class="obj-title">&#127919; Mon objectif / My goal</div>
+
+    <!-- New practice instruction -->
+    <div class="obj-practice">
+      <div class="obj-practice-fr">
+        <button class="btn-obj" onclick="playClip('A1-E-005_obj_pratique.mp3')">&#128266;</button>
+        Entraine-toi et lis à haute voix toutes les consignes et les écoutes.
+      </div>
+      <div class="obj-practice-en">
+        <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_pratique_en.mp3')">&#128266;</button>
+        Practice and read all the instructions and audio clips aloud.
+      </div>
+    </div>
+
+    <div class="obj-cols">
+      <!-- DO -->
+      <div>
+        <div class="obj-col-hdr">
+          <div class="obj-col-hdr-btn">
+            <button class="btn-obj" onclick="playClip('A1-E-005_obj_je_dois.mp3')">&#128266;</button>
+            <span class="obj-col-lbl do">Je dois seulement... / I only need to...</span>
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr">
+            <button class="btn-obj" onclick="playClip('A1-E-005_obj_ecouter.mp3')">&#128266;</button>
+            écouter
+          </div>
+          <div class="obj-item-en">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_ecouter_en.mp3')">&#128266;</button>
+            listen
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr">
+            <button class="btn-obj" onclick="playClip('A1-E-005_obj_reagir.mp3')">&#128266;</button>
+            réagir
+          </div>
+          <div class="obj-item-en">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_reagir_en.mp3')">&#128266;</button>
+            react
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr">
+            <button class="btn-obj" onclick="playClip('A1-E-005_obj_continuer.mp3')">&#128266;</button>
+            continuer l'échange
+          </div>
+          <div class="obj-item-en">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_continuer_en.mp3')">&#128266;</button>
+            keep the exchange going
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr">
+            <button class="btn-obj" onclick="playClip('A1-E-005_obj_participer.mp3')">&#128266;</button>
+            participer à 4–6 répliques
+          </div>
+          <div class="obj-item-en">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_participer_en.mp3')">&#128266;</button>
+            participate in 4–6 exchanges
+          </div>
+        </div>
+      </div>
+      <!-- DON'T -->
+      <div>
+        <div class="obj-col-hdr">
+          <div class="obj-col-hdr-btn">
+            <button class="btn-obj" onclick="playClip('A1-E-005_obj_ne_dois.mp3')">&#128266;</button>
+            <span class="obj-col-lbl dont">Je n'ai pas besoin de... / I don't need to...</span>
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr x">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_parler_long.mp3')">&#128266;</button>
+            parler longtemps
+          </div>
+          <div class="obj-item-en">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_parler_long_en.mp3')">&#128266;</button>
+            speak at length
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr x">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_sans_erreur.mp3')">&#128266;</button>
+            parler sans erreur
+          </div>
+          <div class="obj-item-en">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_sans_erreur_en.mp3')">&#128266;</button>
+            speak without errors
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr x">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_memoriser.mp3')">&#128266;</button>
+            tout mémoriser
+          </div>
+          <div class="obj-item-en">
+            <button class="btn-obj-en" onclick="playClip('A1-E-005_obj_memoriser_en.mp3')">&#128266;</button>
+            memorise everything
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — VOCABULARY -->
+  <div class="sec" id="sec-voc">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128172;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">1 — Mon vocabulaire utile</div>
+        <div class="sec-label-en">My useful vocabulary · Click &#128266; to hear each expression</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-005_sec_voc.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-005_sec_voc_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="vocab-grid">
+
+        <!-- RÉAGIR -->
+        <div>
+          <div class="vocab-col-title">&#128558; Réagir / React</div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_ah_bon.mp3')">&#128266;</button>Ah bon ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_ah_bon_en.mp3')">&#128266;</button>Really? / Is that so?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_cest_interessant.mp3')">&#128266;</button>C'est intéressant.</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_cest_interessant_en.mp3')">&#128266;</button>That's interesting.</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_moi_aussi.mp3')">&#128266;</button>Moi aussi.</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_moi_aussi_en.mp3')">&#128266;</button>Me too.</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_pas_moi.mp3')">&#128266;</button>Pas moi.</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_pas_moi_en.mp3')">&#128266;</button>Not me. / I don't.</div>
+          </div>
+        </div>
+
+        <!-- CONTINUER -->
+        <div>
+          <div class="vocab-col-title">&#128260; Continuer / Continue</div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_et_vous.mp3')">&#128266;</button>Et vous ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_et_vous_en.mp3')">&#128266;</button>And you?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_pourquoi.mp3')">&#128266;</button>Pourquoi ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_pourquoi_en.mp3')">&#128266;</button>Why?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_et_apres.mp3')">&#128266;</button>Et après ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_et_apres_en.mp3')">&#128266;</button>And then? / What happened next?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_avec_qui.mp3')">&#128266;</button>Avec qui ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_avec_qui_en.mp3')">&#128266;</button>With whom?</div>
+          </div>
+        </div>
+
+        <!-- DEMANDER DE L'AIDE -->
+        <div>
+          <div class="vocab-col-title">&#128682; Demander de l'aide / Ask for help</div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_repeter.mp3')">&#128266;</button>Vous pouvez répéter, s'il vous plaît ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_repeter_en.mp3')">&#128266;</button>Can you repeat, please?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_lentement.mp3')">&#128266;</button>Plus lentement, s'il vous plaît.</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_lentement_en.mp3')">&#128266;</button>More slowly, please.</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_veut_dire.mp3')">&#128266;</button>Qu'est-ce que cela (ou ça) veut dire ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_veut_dire_en.mp3')">&#128266;</button>What does that mean?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-005_v_comment_dit_on.mp3')">&#128266;</button>Comment dit-on... en français ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-005_v_comment_dit_on_en.mp3')">&#128266;</button>How do you say... in French?</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — MATCHING -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128279;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice A — Association</div>
+        <div class="sec-label-en">Match the intention with the correct expression</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-005_exa.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-005_exa_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-fr-row">
+          <button class="btn-fr" onclick="playClip('A1-E-005_exa_instr.mp3')">&#128266;</button>
+          <div class="instr-fr">Cliquez sur une intention à gauche, puis sur l'expression qui correspond à droite.</div>
+        </div>
+        <div class="instr-en-row">
+          <button class="btn-en" onclick="playClip('A1-E-005_exa_instr_en.mp3')">&#128266;</button>
+          <div class="instr-en">Click an intention on the left, then the matching expression on the right.</div>
+        </div>
+      </div>
+      <div class="match-grid">
+        <div>
+          <div class="match-col-lbl">&#127467;&#127479; Intention</div>
+          <div class="m-cards" id="left-col"></div>
+        </div>
+        <div>
+          <div class="match-col-lbl">&#128172; Expression</div>
+          <div class="m-cards" id="right-col"></div>
+        </div>
+      </div>
+      <div class="match-score" id="match-score"></div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — EXERCISE B -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#127897;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice B — Réagissez et posez une question</div>
+        <div class="sec-label-en">React and ask a follow-up question</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-005_exb.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-005_exb_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-fr-row">
+          <button class="btn-fr" onclick="playClip('A1-E-005_exb_instr.mp3')">&#128266;</button>
+          <div class="instr-fr">Écoutez chaque situation. Choisissez une réaction et une question de relance.</div>
+        </div>
+        <div class="instr-en-row">
+          <button class="btn-en" onclick="playClip('A1-E-005_exb_instr_en.mp3')">&#128266;</button>
+          <div class="instr-en">Listen to each situation. Choose a reaction and a follow-up question.</div>
+        </div>
+      </div>
+
+      <div class="sit-card">
+        <div class="sit-num">Situation 1</div>
+        <div class="sit-text">« Demain, je vais partir à New York. »</div>
+        <div class="sit-actions">
+          <button class="btn-fr" onclick="playClip('A1-E-005_sit_1.mp3')">&#128266; Écouter</button>
+          <button class="model-btn" onclick="toggleModel('m1')">&#128065; Voir un modèle</button>
+        </div>
+        <div class="sit-row">
+          <div>
+            <div class="sit-lbl">&#128558; Réaction</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Ah bon ?</option><option>C'est intéressant.</option>
+              <option>Moi aussi.</option><option>Pas moi.</option>
+            </select>
+          </div>
+          <div>
+            <div class="sit-lbl">&#128260; Question de relance</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Et vous ?</option><option>Pourquoi ?</option>
+              <option>Et après ?</option><option>Avec qui ?</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-box" id="m1">
+          <strong>Modèle :</strong> « Ah bon ? Avec qui ? » ou « C'est intéressant. Pourquoi New York ? »
+        </div>
+      </div>
+
+      <div class="sit-card">
+        <div class="sit-num">Situation 2</div>
+        <div class="sit-text">« En septembre, je vais aller à Montpellier. »</div>
+        <div class="sit-actions">
+          <button class="btn-fr" onclick="playClip('A1-E-005_sit_2.mp3')">&#128266; Écouter</button>
+          <button class="model-btn" onclick="toggleModel('m2')">&#128065; Voir un modèle</button>
+        </div>
+        <div class="sit-row">
+          <div>
+            <div class="sit-lbl">&#128558; Réaction</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Ah bon ?</option><option>C'est intéressant.</option>
+              <option>Moi aussi.</option><option>Pas moi.</option>
+            </select>
+          </div>
+          <div>
+            <div class="sit-lbl">&#128260; Question de relance</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Et vous ?</option><option>Pourquoi ?</option>
+              <option>Et après ?</option><option>Avec qui ?</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-box" id="m2">
+          <strong>Modèle :</strong> « C'est intéressant. Avec qui ? » ou « Ah bon ? Pourquoi Montpellier ? »
+        </div>
+      </div>
+
+      <div class="sit-card">
+        <div class="sit-num">Situation 3</div>
+        <div class="sit-text">« Je préfère travailler le matin. »</div>
+        <div class="sit-actions">
+          <button class="btn-fr" onclick="playClip('A1-E-005_sit_3.mp3')">&#128266; Écouter</button>
+          <button class="model-btn" onclick="toggleModel('m3')">&#128065; Voir un modèle</button>
+        </div>
+        <div class="sit-row">
+          <div>
+            <div class="sit-lbl">&#128558; Réaction</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Ah bon ?</option><option>C'est intéressant.</option>
+              <option>Moi aussi.</option><option>Pas moi.</option>
+            </select>
+          </div>
+          <div>
+            <div class="sit-lbl">&#128260; Question de relance</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Et vous ?</option><option>Pourquoi ?</option>
+              <option>Et après ?</option><option>Avec qui ?</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-box" id="m3">
+          <strong>Modèle :</strong> « Moi aussi. Et vous ? » ou « Pas moi. Pourquoi ? »
+        </div>
+      </div>
+
+      <div class="sit-card">
+        <div class="sit-num">Situation 4</div>
+        <div class="sit-text">« Hier, je suis allée au marché. »</div>
+        <div class="sit-actions">
+          <button class="btn-fr" onclick="playClip('A1-E-005_sit_4.mp3')">&#128266; Écouter</button>
+          <button class="model-btn" onclick="toggleModel('m4')">&#128065; Voir un modèle</button>
+        </div>
+        <div class="sit-row">
+          <div>
+            <div class="sit-lbl">&#128558; Réaction</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Ah bon ?</option><option>C'est intéressant.</option>
+              <option>Moi aussi.</option><option>Pas moi.</option>
+            </select>
+          </div>
+          <div>
+            <div class="sit-lbl">&#128260; Question de relance</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Et vous ?</option><option>Pourquoi ?</option>
+              <option>Et après ?</option><option>Avec qui ?</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-box" id="m4">
+          <strong>Modèle :</strong> « C'est intéressant. Et après ? » ou « Ah bon ? Avec qui ? »
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — PERSONAL SENTENCES -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9997;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice C — Mes trois phrases personnelles</div>
+        <div class="sec-label-en">My three personal sentences · To use during class</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-005_exc.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-005_exc_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-fr-row">
+          <button class="btn-fr" onclick="playClip('A1-E-005_exc_instr.mp3')">&#128266;</button>
+          <div class="instr-fr">Complétez les trois phrases. Vous pourrez les lire pendant le cours.</div>
+        </div>
+        <div class="instr-en-row">
+          <button class="btn-en" onclick="playClip('A1-E-005_exc_instr_en.mp3')">&#128266;</button>
+          <div class="instr-en">Complete the three sentences. You can read them during class.</div>
+        </div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-starter-fr"><button class="btn-fr" onclick="playClip('A1-E-005_exc_p1.mp3')">&#128266;</button>Aujourd'hui, je me sens...</div>
+        <div class="phrase-starter-en"><button class="btn-en" onclick="playClip('A1-E-005_exc_p1_en.mp3')">&#128266;</button>Today, I feel...</div>
+        <input class="phrase-input" id="p1" type="text" placeholder="ex : fatigué · bien · content · stressé">
+        <div class="write-btns">
+          <button class="write-btn vocab" onclick="document.getElementById('sec-voc').scrollIntoView({behavior:'smooth'})">&#10003; Vocabulaire</button>
+          <button class="write-btn" onclick="checkSpelling('p1')">&#128269; Orthographe</button>
+        </div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-starter-fr"><button class="btn-fr" onclick="playClip('A1-E-005_exc_p2.mp3')">&#128266;</button>Ce matin, j'ai...</div>
+        <div class="phrase-starter-en"><button class="btn-en" onclick="playClip('A1-E-005_exc_p2_en.mp3')">&#128266;</button>This morning, I...</div>
+        <input class="phrase-input" id="p2" type="text" placeholder="ex : mangé du pain · bu du café · regardé la télé">
+        <div class="write-btns">
+          <button class="write-btn vocab" onclick="document.getElementById('sec-voc').scrollIntoView({behavior:'smooth'})">&#10003; Vocabulaire</button>
+          <button class="write-btn" onclick="checkSpelling('p2')">&#128269; Orthographe</button>
+        </div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-starter-fr"><button class="btn-fr" onclick="playClip('A1-E-005_exc_p3.mp3')">&#128266;</button>Après le cours, je vais...</div>
+        <div class="phrase-starter-en"><button class="btn-en" onclick="playClip('A1-E-005_exc_p3_en.mp3')">&#128266;</button>After class, I'm going to...</div>
+        <input class="phrase-input" id="p3" type="text" placeholder="ex : rentrer chez moi · cuisiner · aller au parc">
+        <div class="write-btns">
+          <button class="write-btn vocab" onclick="document.getElementById('sec-voc').scrollIntoView({behavior:'smooth'})">&#10003; Vocabulaire</button>
+          <button class="write-btn" onclick="checkSpelling('p3')">&#128269; Orthographe</button>
+        </div>
+      </div>
+      <div class="write-btns" style="margin-top:6px;">
+        <button class="write-btn submit" onclick="submitAllPhrases()">&#128228; Soumettre à mon professeur</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — QUESTION FOR TEACHER -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#10067;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice D — Ma question pour le professeur</div>
+        <div class="sec-label-en">My question for the teacher · Choose or write your own</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-005_exd.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-005_exd_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-fr-row">
+          <button class="btn-fr" onclick="playClip('A1-E-005_exd_instr.mp3')">&#128266;</button>
+          <div class="instr-fr">Choisissez une question. Vous la poserez pendant le cours.</div>
+        </div>
+        <div class="instr-en-row">
+          <button class="btn-en" onclick="playClip('A1-E-005_exd_instr_en.mp3')">&#128266;</button>
+          <div class="instr-en">Choose a question. You will ask it during class.</div>
+        </div>
+      </div>
+      <label class="q-option" onclick="selectQ(this)">
+        <input type="radio" name="qteach">
+        <div>
+          <div class="q-fr"><button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-005_exd_q1.mp3')">&#128266;</button>Qu'est-ce que vous aimez faire le week-end ?</div>
+          <div class="q-en"><button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-005_exd_q1_en.mp3')">&#128266;</button>What do you like to do on the weekend?</div>
+        </div>
+      </label>
+      <label class="q-option" onclick="selectQ(this)">
+        <input type="radio" name="qteach">
+        <div>
+          <div class="q-fr"><button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-005_exd_q2.mp3')">&#128266;</button>Qu'est-ce que vous avez fait hier ?</div>
+          <div class="q-en"><button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-005_exd_q2_en.mp3')">&#128266;</button>What did you do yesterday?</div>
+        </div>
+      </label>
+      <label class="q-option" onclick="selectQ(this)">
+        <input type="radio" name="qteach">
+        <div>
+          <div class="q-fr"><button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-005_exd_q3.mp3')">&#128266;</button>Qu'est-ce que vous allez faire après le cours ?</div>
+          <div class="q-en"><button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-005_exd_q3_en.mp3')">&#128266;</button>What are you going to do after class?</div>
+        </div>
+      </label>
+      <label class="q-option" onclick="selectQ(this)">
+        <input type="radio" name="qteach">
+        <div>
+          <div class="q-fr"><button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-005_exd_q4.mp3')">&#128266;</button>Vous préférez le matin ou le soir ? Pourquoi ?</div>
+          <div class="q-en"><button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-005_exd_q4_en.mp3')">&#128266;</button>Do you prefer mornings or evenings? Why?</div>
+        </div>
+      </label>
+      <div class="custom-row">
+        <div class="custom-fr"><button class="btn-fr" onclick="playClip('A1-E-005_exd_custom.mp3')">&#128266;</button>Et écrivez votre propre question :</div>
+        <div class="custom-en"><button class="btn-en" onclick="playClip('A1-E-005_exd_custom_en.mp3')">&#128266;</button>And write your own:</div>
+        <input class="phrase-input" type="text" placeholder="Ma question : ...">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 — AIDE-MÉMOIRE -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128203;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Mon aide-mémoire — À garder visible pendant le cours</div>
+        <div class="sec-label-en">Reference card · Keep this open during your live class</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-005_aide.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-005_aide_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <table class="aide-table">
+        <thead>
+          <tr>
+            <th>&#128558; Je réagis</th>
+            <th>&#128260; Je continue</th>
+            <th>&#128682; Je demande de l'aide</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="aide-expr">Ah bon ?</span><button class="aide-spk" onclick="playClip('A1-E-005_v_ah_bon.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Et vous ?</span><button class="aide-spk" onclick="playClip('A1-E-005_v_et_vous.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Vous pouvez répéter, s'il vous plaît ?</span><button class="aide-spk" onclick="playClip('A1-E-005_v_repeter.mp3')">&#128266;</button></td>
+          </tr>
+          <tr>
+            <td><span class="aide-expr">C'est intéressant.</span><button class="aide-spk" onclick="playClip('A1-E-005_v_cest_interessant.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Pourquoi ?</span><button class="aide-spk" onclick="playClip('A1-E-005_v_pourquoi.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Plus lentement, s'il vous plaît.</span><button class="aide-spk" onclick="playClip('A1-E-005_v_lentement.mp3')">&#128266;</button></td>
+          </tr>
+          <tr>
+            <td><span class="aide-expr">Moi aussi.</span><button class="aide-spk" onclick="playClip('A1-E-005_v_moi_aussi.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Et après ?</span><button class="aide-spk" onclick="playClip('A1-E-005_v_et_apres.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Qu'est-ce que cela (ou ça) veut dire ?</span><button class="aide-spk" onclick="playClip('A1-E-005_v_veut_dire.mp3')">&#128266;</button></td>
+          </tr>
+          <tr>
+            <td><span class="aide-expr">Pas moi.</span><button class="aide-spk" onclick="playClip('A1-E-005_v_pas_moi.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Avec qui ?</span><button class="aide-spk" onclick="playClip('A1-E-005_v_avec_qui.mp3')">&#128266;</button></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 7 — SELF-EVALUATION -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9989;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Après l'activité — Ce que j'ai réussi</div>
+        <div class="sec-label-en">After the activity · What I accomplished</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-005_eval.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-005_eval_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+
+      <div class="eval-item">
+        <div class="eval-fr">
+          <input type="checkbox" id="e1">
+          <label class="eval-text-fr" for="e1"><button class="btn-fr" onclick="playClip('A1-E-005_eval_1.mp3')">&#128266;</button>J'ai réagi à une information.</label>
+        </div>
+        <div class="eval-text-en"><button class="btn-en" onclick="playClip('A1-E-005_eval_1_en.mp3')">&#128266;</button>I reacted to a piece of information.</div>
+      </div>
+
+      <div class="eval-item">
+        <div class="eval-fr">
+          <input type="checkbox" id="e2">
+          <label class="eval-text-fr" for="e2"><button class="btn-fr" onclick="playClip('A1-E-005_eval_2.mp3')">&#128266;</button>J'ai posé une question de relance.</label>
+        </div>
+        <div class="eval-text-en"><button class="btn-en" onclick="playClip('A1-E-005_eval_2_en.mp3')">&#128266;</button>I asked a follow-up question.</div>
+      </div>
+
+      <div class="eval-item">
+        <div class="eval-fr">
+          <input type="checkbox" id="e3">
+          <label class="eval-text-fr" for="e3"><button class="btn-fr" onclick="playClip('A1-E-005_eval_3.mp3')">&#128266;</button>J'ai demandé de l'aide si nécessaire.</label>
+        </div>
+        <div class="eval-text-en"><button class="btn-en" onclick="playClip('A1-E-005_eval_3_en.mp3')">&#128266;</button>I asked for help when needed.</div>
+      </div>
+
+      <div class="eval-item">
+        <div class="eval-fr">
+          <input type="checkbox" id="e4">
+          <label class="eval-text-fr" for="e4"><button class="btn-fr" onclick="playClip('A1-E-005_eval_4.mp3')">&#128266;</button>J'ai participé à un échange de 4 répliques ou plus.</label>
+        </div>
+        <div class="eval-text-en"><button class="btn-en" onclick="playClip('A1-E-005_eval_4_en.mp3')">&#128266;</button>I had an exchange of 4 replies or more.</div>
+      </div>
+
+      <div class="eval-field">
+        <div class="eval-field-fr"><button class="btn-fr" onclick="playClip('A1-E-005_eval_expr1.mp3')">&#128266;</button>L'expression que j'ai utilisée naturellement :</div>
+        <div class="eval-field-en"><button class="btn-en" onclick="playClip('A1-E-005_eval_expr1_en.mp3')">&#128266;</button>The expression I used naturally:</div>
+        <input class="phrase-input" type="text" placeholder="ex : Ah bon ?" style="margin-bottom:14px;">
+        <div class="eval-field-fr"><button class="btn-fr" onclick="playClip('A1-E-005_eval_expr2.mp3')">&#128266;</button>L'expression que je veux réutiliser :</div>
+        <div class="eval-field-en"><button class="btn-en" onclick="playClip('A1-E-005_eval_expr2_en.mp3')">&#128266;</button>The expression I want to reuse:</div>
+        <input class="phrase-input" type="text" placeholder="ex : Et après ?">
+      </div>
+
+      <div class="motiv-box">
+        <div class="motiv-fr">
+          <button class="spk" onclick="playClip('A1-E-005_motiv.mp3')" style="flex-shrink:0;">&#128266;</button>
+          <span>Une conversation réussie n'est pas une conversation sans erreurs.<br>C'est une conversation <strong>qui continue.</strong></span>
+        </div>
+        <div class="motiv-en">
+          <button class="spk-en" onclick="playClip('A1-E-005_motiv_en.mp3')" style="flex-shrink:0;">&#128266;</button>
+          <span>A successful conversation isn't one without mistakes.<br>It's a conversation <strong>that continues.</strong></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script src="/js/audio.js"></script>
+<script>
+// ── AUDIO — MP3 only, no fallback ──
+let _ca=null,_caSrc=null;
+function playAudio(src){
+  if(_ca&&_caSrc===src&&!_ca.paused){_ca.pause();return;}
+  if(_ca&&_caSrc===src&&_ca.paused&&_ca.currentTime>0){_ca.play().catch(()=>{});return;}
+  if(_ca){_ca.pause();_ca.currentTime=0;}
+  const a=new Audio(src);
+  _ca=a;_caSrc=src;
+  a.onended=()=>{_ca=null;_caSrc=null;};
+  a.play().catch(()=>{});
+}
+
+// ── MATCHING EXERCISE ──
+const LEFT=[
+  {fr:'Vous partagez le même goût que votre interlocuteur.',en:'You share the same taste as the person you\'re talking to.',src:'exa_l1'},
+  {fr:'Vous voulez savoir la raison de quelque chose.',en:'You want to know the reason for something.',src:'exa_l2'},
+  {fr:'Une information vous surprend ou vous intéresse.',en:'Some information surprises or interests you.',src:'exa_l3'},
+  {fr:'La personne parle trop vite.',en:'The person speaks too fast.',src:'exa_l4'},
+  {fr:'Vous avez répondu et vous posez la même question à l\'autre personne.',en:'You\'ve answered and are asking the same question back.',src:'exa_l5'},
+  {fr:'Vous voulez connaître la suite d\'une histoire.',en:'You want to know what happens next.',src:'exa_l6'},
+];
+const RIGHT=[
+  {ltr:'A',fr:'Ah bon ?',en:'Really? / Is that so?',src:'v_ah_bon'},
+  {ltr:'B',fr:'Et vous ?',en:'And you?',src:'v_et_vous'},
+  {ltr:'C',fr:'Pourquoi ?',en:'Why?',src:'v_pourquoi'},
+  {ltr:'D',fr:'Et après ?',en:'And then?',src:'v_et_apres'},
+  {ltr:'E',fr:'Plus lentement, s\'il vous plaît.',en:'More slowly, please.',src:'v_lentement'},
+  {ltr:'F',fr:'Moi aussi.',en:'Me too.',src:'v_moi_aussi'},
+];
+const KEY=[5,2,0,4,1,3];
+let selLeft=null;
+const matchedL=new Set(),matchedR=new Set();
+
+function initMatch(){
+  document.getElementById('left-col').innerHTML=LEFT.map((t,i)=>`
+    <div class="mcard" id="ml${i}" onclick="clickL(${i})">
+      <div class="mcard-tag num">${i+1}</div>
+      <div class="mcard-fr">${t.fr}</div>
+      <div style="display:flex;gap:6px;margin-bottom:2px;">
+        <button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-005_${t.src}.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-005_${t.src}_en.mp3')">&#128266;</button>
+      </div>
+      <div class="mcard-en">${t.en}</div>
+    </div>`).join('');
+  document.getElementById('right-col').innerHTML=RIGHT.map((r,i)=>`
+    <div class="mcard" id="mr${i}" onclick="clickR(${i})">
+      <div class="mcard-tag ltr">${r.ltr}</div>
+      <div class="mcard-expr">${r.fr}</div>
+      <div style="display:flex;gap:6px;margin-bottom:2px;">
+        <button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-005_${r.src}.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-005_${r.src}_en.mp3')">&#128266;</button>
+      </div>
+      <div class="mcard-en">${r.en}</div>
+    </div>`).join('');
+}
+
+function clickL(i){
+  if(matchedL.has(i))return;
+  if(selLeft!==null)document.getElementById('ml'+selLeft)?.classList.remove('sel');
+  selLeft=i;
+  document.getElementById('ml'+i).classList.add('sel');
+}
+function clickR(i){
+  if(matchedR.has(i)||selLeft===null)return;
+  const ok=KEY[selLeft]===i;
+  if(ok){
+    document.getElementById('ml'+selLeft).classList.replace('sel','matched');
+    document.getElementById('mr'+i).classList.add('matched');
+    matchedL.add(selLeft);matchedR.add(i);selLeft=null;
+    const n=matchedL.size;
+    document.getElementById('match-score').innerHTML=n===6
+      ?'<span style="color:var(--green);font-weight:bold;">&#10003; Parfait ! 6/6</span>'
+      :`${n}/6 associations correctes`;
+  } else {
+    const lc=document.getElementById('ml'+selLeft);
+    const rc=document.getElementById('mr'+i);
+    lc.classList.add('err');rc.classList.add('err');
+    setTimeout(()=>{lc.classList.remove('err');rc.classList.remove('err');},700);
+  }
+}
+
+function toggleModel(id){document.getElementById(id).classList.toggle('show');}
+function selectQ(el){
+  document.querySelectorAll('.q-option').forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+initMatch();
+
+// ── WRITING BUTTONS ──
+async function checkSpelling(id){
+  const txt=document.getElementById(id).value.trim();
+  if(!txt){alert('Écris une phrase d\'abord.');return;}
+  try{
+    const r=await fetch('https://api.languagetool.org/v2/check',{
+      method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:'language=fr&text='+encodeURIComponent(txt)});
+    const d=await r.json();
+    if(!d.matches||d.matches.length===0){alert('✓ Aucune erreur détectée !');}
+    else{alert('Suggestions :\n'+d.matches.map(m=>'• '+m.message+' → '+(m.replacements[0]?.value||'?')).join('\n'));}
+  }catch(e){alert('Vérification non disponible hors ligne.');}
+}
+function submitAllPhrases(){
+  const p1=document.getElementById('p1').value.trim();
+  const p2=document.getElementById('p2').value.trim();
+  const p3=document.getElementById('p3').value.trim();
+  if(!p1&&!p2&&!p3){alert('Écris au moins une phrase d\'abord.');return;}
+  const body=[
+    'Aujourd\'hui, je me sens... '+p1,
+    'Ce matin, j\'ai... '+p2,
+    'Après le cours, je vais... '+p3
+  ].filter(l=>!l.endsWith('... ')).join('\n');
+  (async function(){let ok=true;try{if(window.LEM&&window.LEM.submitWriting){ok=await window.LEM.submitWriting('A1-E-005','A1 · Dialogue — Réagir',{'Mes phrases':body});}}catch(e){ok=false;}alert(ok!==false?'✅ Envoyé à ton professeur !':'Une erreur est survenue. Réessaie.');})();
+}
+</script>
+<nav class="bottom-nav">
+  <a href="/index.html"><span class="ni">🏠</span><span class="nl">Accueil</span></a>
+  <a class="active" href="/french/a1/index.html"><span class="ni">🇫🇷</span><span class="nl">Français</span></a>
+  <a href="/reference/index.html"><span class="ni">📘</span><span class="nl">Référence</span></a>
+  <a href="/index.html#progress"><span class="ni">⭐</span><span class="nl">Progrès</span></a>
+</nav>
+<script type="module" src="/js/auth-guard.js"></script>
+</body>
+</html>
