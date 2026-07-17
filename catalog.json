@@ -275,6 +275,22 @@
       "progressId": "A1-E-005",
       "questions": null,
       "publie": true
+    },
+    {
+      "id": "A1-E-006",
+      "niveau": "A1",
+      "ordre": 60,
+      "titre": "Discussion au passé composé",
+      "chemin": "french/a1/A1-E-006-discussion-passe-compose/exercices.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "reading",
+        "writing"
+      ],
+      "progressId": "A1-E-006",
+      "questions": null,
+      "publie": true
     }
   ],
   "tests": [

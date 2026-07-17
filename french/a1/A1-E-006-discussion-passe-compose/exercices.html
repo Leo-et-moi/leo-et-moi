@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>Exercice A1 — Discussion au passé composé</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F0E8;--dark:#1B2845;--navy:#2C4A7C;--coral:#E8503A;
+  --gold:#D4920A;--ltGold:#FDF3D8;--ltBlue:#E8F0FA;--ltGreen:#E3F5EC;
+  --green:#1E7B45;--text:#1A2733;--slate:#4A6580;--div:#D8DFE8;--white:#fff;
+  --red:#C0392B;--ltRed:#fceaea;
+}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+
+/* ── TOP BAR ── */
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:14px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.top-title{font-size:20px;font-weight:bold;color:#fff;}
+.top-title span{color:var(--coral);}
+.top-sub-fr{font-size:14px;color:#9DC8E8;margin-top:2px;font-weight:600;}
+.top-sub-en{font-size:12px;color:#6A9AB8;margin-top:1px;}
+.top-btns{display:flex;gap:8px;flex-shrink:0;}
+
+/* ── AUDIO BUTTONS ── */
+.spk{background:none;border:2px solid rgba(255,255,255,0.3);border-radius:20px;padding:6px 12px;
+  color:#9DC8E8;font-family:Arial,sans-serif;font-size:14px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:5px;min-height:44px;white-space:nowrap;}
+.spk-en{background:none;border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px;
+  color:#6A9AB8;font-family:Arial,sans-serif;font-size:12px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;min-height:32px;white-space:nowrap;}
+.btn-fr{background:none;border:2px solid var(--navy);border-radius:14px;padding:4px 10px;
+  color:var(--navy);font-family:Arial,sans-serif;font-size:13px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;flex-shrink:0;min-height:44px;}
+.btn-en{background:none;border:1px solid var(--div);border-radius:14px;padding:3px 8px;
+  color:var(--slate);font-family:Arial,sans-serif;font-size:12px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;flex-shrink:0;}
+
+/* ── LAYOUT ── */
+.main{max-width:740px;margin:0 auto;padding:20px 14px 90px;}
+.panel-head{margin:16px 0 20px;}
+.panel-title{font-size:24px;font-weight:bold;color:var(--dark);}
+.panel-sub{font-size:14px;color:var(--slate);margin-top:2px;}
+.sec{margin-bottom:10px;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+.sec-hdr{background:var(--dark);padding:12px 16px;display:flex;align-items:center;gap:10px;}
+.sec-icon{font-size:22px;line-height:1;flex-shrink:0;}
+.sec-label{flex:1;}
+.sec-label-fr{font-size:17px;font-weight:bold;color:#fff;}
+.sec-label-en{font-size:13px;color:#9DC8E8;}
+.sec-body{background:var(--white);padding:18px;border:1px solid var(--div);border-top:none;border-radius:0 0 12px 12px;}
+
+/* ── INSTRUCTION BLOCK (coral per directives) ── */
+.instr{background:#FEF0EE;border-left:4px solid var(--coral);border-radius:0 8px 8px 0;
+  padding:12px 14px;margin-bottom:16px;}
+.instr-fr-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px;}
+.instr-en-row{display:flex;align-items:flex-start;gap:8px;}
+.instr-fr{font-size:16px;font-weight:600;color:var(--dark);line-height:1.5;}
+.instr-en{font-size:13px;color:var(--slate);line-height:1.5;}
+
+/* ── BILINGUAL ITEM ── */
+.bi-fr{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--dark);}
+.bi-en{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--slate);margin-top:2px;padding-left:2px;}
+
+/* ── OBJECTIVE BOX ── */
+.obj-box{background:var(--dark);border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.12);}
+.obj-practice{background:rgba(255,255,255,0.07);border-radius:8px;padding:10px 14px;margin-bottom:14px;}
+.obj-practice-fr{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#E0E8F5;margin-bottom:4px;}
+.obj-practice-en{display:flex;align-items:center;gap:8px;font-size:13px;color:#6A9AB8;}
+.obj-title{font-size:16px;font-weight:bold;color:var(--coral);margin-bottom:14px;}
+.obj-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:480px){.obj-cols{grid-template-columns:1fr;}}
+.obj-col-hdr{margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,0.15);}
+.obj-col-hdr-btn{display:flex;align-items:center;gap:6px;}
+.obj-col-lbl{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;}
+.obj-col-lbl.do{color:#9DC8E8;}
+.obj-col-lbl.dont{color:#E8A87C;}
+.obj-item{margin-bottom:6px;}
+.obj-item-fr{display:flex;align-items:center;gap:6px;font-size:15px;color:#E0E8F5;}
+.obj-item-fr::before{content:"✓";color:var(--green);font-weight:bold;flex-shrink:0;}
+.obj-item-fr.x::before{content:"✕";color:#667788;}
+.obj-item-fr.x{color:#8899AA;}
+.obj-item-en{display:flex;align-items:center;gap:6px;font-size:12px;color:#6A9AB8;padding-left:16px;margin-top:1px;}
+.btn-obj{background:none;border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:3px 8px;
+  color:#9DC8E8;font-family:Arial,sans-serif;font-size:12px;cursor:pointer;flex-shrink:0;}
+.btn-obj-en{background:none;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:2px 6px;
+  color:#6A9AB8;font-family:Arial,sans-serif;font-size:11px;cursor:pointer;flex-shrink:0;}
+
+/* ── VOCABULARY ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:600px){.vocab-grid{grid-template-columns:1fr;}}
+.vocab-col-title{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;
+  letter-spacing:0.5px;margin-bottom:8px;padding-bottom:5px;border-bottom:2px solid var(--div);}
+.vocab-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:10px 12px;margin-bottom:8px;}
+.vocab-fr-row{display:flex;align-items:center;gap:6px;font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:4px;flex-wrap:wrap;}
+.vocab-en-row{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--slate);}
+
+/* ── MATCHING ── */
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:520px){.match-grid{grid-template-columns:1fr;}}
+.match-col-lbl{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.m-cards{display:flex;flex-direction:column;gap:8px;}
+.mcard{background:var(--cream);border:2px solid var(--div);border-radius:10px;
+  padding:12px 14px;cursor:pointer;line-height:1.4;transition:border-color 0.15s,background 0.15s;}
+.mcard:hover:not(.matched){border-color:var(--navy);}
+.mcard.sel{border-color:var(--coral);background:var(--ltGold);}
+.mcard.matched{border-color:var(--green);background:var(--ltGreen);cursor:default;}
+.mcard.err{border-color:var(--red);background:var(--ltRed);}
+.mcard-tag{font-size:11px;font-weight:bold;margin-bottom:4px;}
+.mcard-tag.num{color:var(--coral);}
+.mcard-tag.ltr{color:var(--navy);}
+.mcard-fr{font-weight:600;font-size:14px;color:var(--dark);margin-bottom:4px;}
+.mcard-en{font-size:12px;color:var(--slate);margin-bottom:4px;}
+.mcard-expr{font-weight:bold;font-size:15px;margin-bottom:4px;}
+.match-score{margin-top:12px;font-size:14px;color:var(--slate);}
+
+/* ── EXERCISE B ── */
+.sit-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:16px;margin-bottom:12px;}
+.sit-num{font-size:11px;font-weight:bold;color:var(--coral);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.sit-text{font-size:17px;font-weight:bold;color:var(--dark);margin-bottom:10px;}
+.sit-actions{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+.sit-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:480px){.sit-row{grid-template-columns:1fr;}}
+.sit-lbl{font-size:12px;font-weight:bold;color:var(--slate);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.3px;}
+.sit-select{font-family:Arial,sans-serif;font-size:15px;width:100%;padding:10px 12px;
+  border:2px solid var(--div);border-radius:8px;background:var(--white);color:var(--dark);cursor:pointer;}
+.sit-select:focus{border-color:var(--navy);outline:none;}
+.model-btn{font-family:Arial,sans-serif;font-size:13px;background:none;
+  border:1px solid var(--div);border-radius:8px;padding:7px 12px;color:var(--slate);cursor:pointer;}
+.model-box{display:none;margin-top:10px;padding:10px 14px;background:var(--ltGreen);
+  border-left:3px solid var(--green);border-radius:0 8px 8px 0;font-size:14px;line-height:1.6;}
+.model-box.show{display:block;}
+
+/* ── CHEMIN DU MINI-DIALOGUE ── */
+.chemin-steps{display:flex;align-items:stretch;gap:0;margin-top:4px;}
+@media(max-width:560px){.chemin-steps{flex-direction:column;gap:4px;}}
+.chemin-step{flex:1;background:var(--ltBlue);border:2px solid var(--navy);border-radius:10px;
+  padding:12px 10px;text-align:center;position:relative;}
+.chemin-step:not(:last-child)::after{content:"→";position:absolute;right:-18px;top:50%;
+  transform:translateY(-50%);font-size:20px;color:var(--navy);font-weight:bold;z-index:1;}
+@media(max-width:560px){.chemin-step:not(:last-child)::after{content:"↓";right:50%;bottom:-16px;top:auto;transform:translateX(50%);}}
+.chemin-num{width:28px;height:28px;background:var(--navy);color:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:bold;
+  margin:0 auto 6px;}
+.chemin-fr{font-size:14px;font-weight:600;color:var(--dark);line-height:1.3;margin-bottom:4px;}
+.chemin-en{font-size:11px;color:var(--slate);line-height:1.3;margin-bottom:6px;}
+.chemin-outer{display:flex;gap:16px;align-items:center;}
+@media(max-width:560px){.chemin-outer{flex-direction:column;gap:4px;}}
+
+/* ── PERSONAL SENTENCES ── */
+.phrase-row{margin-bottom:16px;}
+.phrase-starter-fr{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:bold;color:var(--navy);margin-bottom:3px;}
+.phrase-starter-en{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--slate);margin-bottom:6px;}
+.phrase-input{font-family:Arial,sans-serif;font-size:16px;width:100%;padding:10px 12px;
+  border:2px solid var(--div);border-radius:8px;background:var(--cream);color:var(--dark);}
+.phrase-input:focus{border-color:var(--navy);outline:none;}
+.write-btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.write-btn{font-family:Arial,sans-serif;font-size:14px;padding:8px 14px;min-height:44px;
+  border-radius:10px;cursor:pointer;border:2px solid var(--div);background:var(--white);
+  color:var(--slate);display:inline-flex;align-items:center;gap:6px;transition:border-color 0.15s;}
+.write-btn:hover{border-color:var(--navy);color:var(--navy);}
+.write-btn.vocab{border-color:var(--green);color:var(--green);}
+.write-btn.submit{border-color:var(--coral);color:var(--coral);}
+
+/* ── EXERCISE D ── */
+.q-option{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;
+  background:var(--cream);border:2px solid var(--div);border-radius:10px;
+  padding:12px 14px;cursor:pointer;transition:border-color 0.15s;}
+.q-option:hover{border-color:var(--navy);}
+.q-option.selected{border-color:var(--navy);background:var(--ltBlue);}
+.q-option input[type=radio]{margin-top:4px;accent-color:var(--navy);flex-shrink:0;}
+.q-fr{display:flex;align-items:center;gap:6px;font-size:15px;color:var(--dark);font-weight:600;margin-bottom:3px;}
+.q-en{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--slate);}
+.custom-row{margin-top:14px;}
+.custom-fr{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:bold;color:var(--slate);margin-bottom:3px;}
+.custom-en{display:flex;align-items:center;gap:8px;font-size:12px;color:#8899AA;margin-bottom:8px;}
+
+/* ── CARTE DE SECOURS ── */
+.carte-box{background:var(--ltGold);border:2px solid var(--gold);border-radius:12px;padding:18px;}
+.carte-intro{font-size:14px;color:var(--text);margin-bottom:12px;line-height:1.5;}
+.carte-intro strong{color:var(--gold);}
+.carte-items{display:flex;flex-direction:column;gap:8px;}
+.carte-item{display:flex;align-items:center;gap:10px;}
+.carte-item input[type=checkbox]{width:20px;height:20px;flex-shrink:0;accent-color:var(--gold);}
+.carte-fr{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--dark);}
+.carte-en{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--slate);padding-left:30px;margin-top:1px;}
+
+/* ── AIDE-MÉMOIRE ── */
+.aide-table{width:100%;border-collapse:collapse;}
+.aide-table th{background:var(--dark);color:#fff;padding:10px 12px;font-size:14px;text-align:left;}
+.aide-table td{padding:10px 12px;border-bottom:1px solid var(--div);font-size:14px;vertical-align:middle;}
+.aide-table tr:nth-child(even) td{background:var(--cream);}
+.aide-expr{font-weight:bold;display:block;margin-bottom:3px;}
+.aide-spk{font-family:Arial,sans-serif;font-size:11px;background:none;
+  border:1px solid var(--div);border-radius:10px;padding:3px 8px;color:var(--slate);cursor:pointer;}
+
+/* ── SELF-EVAL ── */
+.eval-item{margin-bottom:10px;}
+.eval-fr{display:flex;align-items:flex-start;gap:10px;}
+.eval-fr input[type=checkbox]{width:22px;height:22px;margin-top:2px;flex-shrink:0;accent-color:var(--green);}
+.eval-text-fr{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:var(--dark);}
+.eval-text-en{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--slate);padding-left:32px;margin-top:2px;}
+.eval-field{margin-top:16px;}
+.eval-field-fr{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:bold;color:var(--navy);margin-bottom:3px;}
+.eval-field-en{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--slate);margin-bottom:6px;}
+.motiv-box{margin-top:18px;padding:18px;background:var(--dark);border-radius:10px;line-height:1.8;}
+.motiv-fr{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:#fff;margin-bottom:8px;}
+.motiv-en{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#6A9AB8;}
+.motiv-fr strong{color:var(--coral);}
+.motiv-en strong{color:#9DC8E8;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:#1B2845;border-top:3px solid #E8503A;display:flex;align-items:center;z-index:200;}
+.bottom-nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:64px;font-family:Arial,sans-serif;}
+.bottom-nav a.active{color:#E8503A;}.bottom-nav .ni{font-size:22px;}.bottom-nav .nl{font-size:11px;font-weight:bold;}
+</style>
+</head>
+<body data-item-id="A1-E-006">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div>
+    <div class="top-title">Leo<span>-et-moi</span></div>
+    <div class="top-sub-fr">Exercice A1 · Discussion au passé composé</div>
+    <div class="top-sub-en">Exercise A1 · Talking About the Past</div>
+  </div>
+  <div class="top-btns">
+    <button class="spk" onclick="playClip('A1-E-006_titre.mp3')">&#128266; FR</button>
+    <button class="spk-en" onclick="playClip('A1-E-006_titre_en.mp3')">&#128266; EN</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="panel-head">
+    <div class="panel-title">Discussion au passé composé</div>
+    <div class="panel-sub">Niveau A1 · Préparation avant le cours</div>
+  </div>
+
+  <!-- OBJECTIF -->
+  <div class="obj-box">
+    <div class="obj-title">&#127919; Mon objectif / My goal</div>
+    <div class="obj-practice">
+      <div class="obj-practice-fr">
+        <button class="btn-obj" onclick="playClip('A1-E-006_obj_pratique.mp3')">&#128266;</button>
+        Entraine-toi et lis à haute voix toutes les consignes et les écoutes.
+      </div>
+      <div class="obj-practice-en">
+        <button class="btn-obj-en" onclick="playClip('A1-E-006_obj_pratique_en.mp3')">&#128266;</button>
+        Practice and read all the instructions and audio clips aloud.
+      </div>
+    </div>
+    <div class="obj-cols">
+      <div>
+        <div class="obj-col-hdr">
+          <div class="obj-col-hdr-btn">
+            <button class="btn-obj" onclick="playClip('A1-E-006_obj_je_dois.mp3')">&#128266;</button>
+            <span class="obj-col-lbl do">Je dois seulement... / I only need to...</span>
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr"><button class="btn-obj" onclick="playClip('A1-E-006_obj_choisir.mp3')">&#128266;</button>choisir une action</div>
+          <div class="obj-item-en"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_choisir_en.mp3')">&#128266;</button>choose an action</div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr"><button class="btn-obj" onclick="playClip('A1-E-006_obj_detail.mp3')">&#128266;</button>ajouter un petit détail</div>
+          <div class="obj-item-en"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_detail_en.mp3')">&#128266;</button>add a small detail</div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr"><button class="btn-obj" onclick="playClip('A1-E-006_obj_relancer.mp3')">&#128266;</button>relancer avec une question</div>
+          <div class="obj-item-en"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_relancer_en.mp3')">&#128266;</button>follow up with a question</div>
+        </div>
+      </div>
+      <div>
+        <div class="obj-col-hdr">
+          <div class="obj-col-hdr-btn">
+            <button class="btn-obj" onclick="playClip('A1-E-006_obj_ne_dois.mp3')">&#128266;</button>
+            <span class="obj-col-lbl dont">Je n'ai pas besoin de... / I don't need to...</span>
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr x"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_histoire.mp3')">&#128266;</button>raconter toute l'histoire</div>
+          <div class="obj-item-en"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_histoire_en.mp3')">&#128266;</button>tell the whole story</div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr x"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_verbes.mp3')">&#128266;</button>connaître tous les verbes</div>
+          <div class="obj-item-en"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_verbes_en.mp3')">&#128266;</button>know all the verbs</div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-item-fr x"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_sans_erreur.mp3')">&#128266;</button>parler sans erreur</div>
+          <div class="obj-item-en"><button class="btn-obj-en" onclick="playClip('A1-E-006_obj_sans_erreur_en.mp3')">&#128266;</button>speak without errors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — VOCABULAIRE -->
+  <div class="sec" id="sec-voc">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128172;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">1 — Mon vocabulaire utile</div>
+        <div class="sec-label-en">My useful vocabulary · Click &#128266; to hear each expression</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-006_sec_voc.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-006_sec_voc_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="vocab-grid">
+
+        <div>
+          <div class="vocab-col-title">&#128337; Raconter au passé / Tell the past</div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_hier.mp3')">&#128266;</button>Hier, j'ai…</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_hier_en.mp3')">&#128266;</button>Yesterday, I…</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_weekend.mp3')">&#128266;</button>Ce week-end, je suis allé(e)…</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_weekend_en.mp3')">&#128266;</button>This weekend, I went…</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_jai_vu.mp3')">&#128266;</button>J'ai vu / mangé / parlé avec…</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_jai_vu_en.mp3')">&#128266;</button>I saw / ate / spoke with…</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_cetait.mp3')">&#128266;</button>C'était bien / difficile / intéressant.</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_cetait_en.mp3')">&#128266;</button>It was good / hard / interesting.</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="vocab-col-title">&#128260; Continuer / Continue</div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_quoi.mp3')">&#128266;</button>Qu'est-ce que vous avez fait ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_quoi_en.mp3')">&#128266;</button>What did you do?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_ou.mp3')">&#128266;</button>Où êtes-vous allé(e) ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_ou_en.mp3')">&#128266;</button>Where did you go?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_avec_qui.mp3')">&#128266;</button>Avec qui ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_avec_qui_en.mp3')">&#128266;</button>With whom?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_aime.mp3')">&#128266;</button>Vous avez aimé ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_aime_en.mp3')">&#128266;</button>Did you like it?</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="vocab-col-title">&#128682; Demander de l'aide / Ask for help</div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_etre_avoir.mp3')">&#128266;</button>C'est avec être ou avoir ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_etre_avoir_en.mp3')">&#128266;</button>Is it with être or avoir?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_comment_dit.mp3')">&#128266;</button>Comment dit-on « I went » en français ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_comment_dit_en.mp3')">&#128266;</button>How do you say "I went" in French?</div>
+          </div>
+          <div class="vocab-card">
+            <div class="vocab-fr-row"><button class="btn-fr" onclick="playClip('A1-E-006_v_corriger.mp3')">&#128266;</button>Vous pouvez corriger, s'il vous plaît ?</div>
+            <div class="vocab-en-row"><button class="btn-en" onclick="playClip('A1-E-006_v_corriger_en.mp3')">&#128266;</button>Can you correct me, please?</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCICE A — ASSOCIATION -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128279;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice A — Association</div>
+        <div class="sec-label-en">Match the intention with the correct expression</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-006_exa.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-006_exa_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-fr-row">
+          <button class="btn-fr" onclick="playClip('A1-E-006_exa_instr.mp3')">&#128266;</button>
+          <div class="instr-fr">Cliquez sur une intention à gauche, puis sur l'expression qui correspond à droite.</div>
+        </div>
+        <div class="instr-en-row">
+          <button class="btn-en" onclick="playClip('A1-E-006_exa_instr_en.mp3')">&#128266;</button>
+          <div class="instr-en">Click an intention on the left, then the matching expression on the right.</div>
+        </div>
+      </div>
+      <div class="match-grid">
+        <div>
+          <div class="match-col-lbl">&#127467;&#127479; Intention</div>
+          <div class="m-cards" id="left-col"></div>
+        </div>
+        <div>
+          <div class="match-col-lbl">&#128172; Expression</div>
+          <div class="m-cards" id="right-col"></div>
+        </div>
+      </div>
+      <div class="match-score" id="match-score"></div>
+    </div>
+  </div>
+
+  <!-- EXERCICE B — RÉAGISSEZ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#127897;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice B — Choisissez une réaction et une question</div>
+        <div class="sec-label-en">Choose a reaction and a follow-up question</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-006_exb.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-006_exb_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-fr-row">
+          <button class="btn-fr" onclick="playClip('A1-E-006_exb_instr.mp3')">&#128266;</button>
+          <div class="instr-fr">Écoutez chaque situation. Choisissez une réaction et une question de relance.</div>
+        </div>
+        <div class="instr-en-row">
+          <button class="btn-en" onclick="playClip('A1-E-006_exb_instr_en.mp3')">&#128266;</button>
+          <div class="instr-en">Listen to each situation. Choose a reaction and a follow-up question.</div>
+        </div>
+      </div>
+
+      <div class="sit-card">
+        <div class="sit-num">Situation 1</div>
+        <div class="sit-text">« Hier, j'ai fait de la voile. »</div>
+        <div class="sit-actions">
+          <button class="btn-fr" onclick="playClip('A1-E-006_sit_1.mp3')">&#128266; Écouter</button>
+          <button class="model-btn" onclick="toggleModel('m1')">&#128065; Voir un modèle</button>
+        </div>
+        <div class="sit-row">
+          <div>
+            <div class="sit-lbl">&#128558; Réaction</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Très sympa !</option><option>C'était bien ?</option>
+              <option>Ah bon ?</option><option>Super !</option>
+            </select>
+          </div>
+          <div>
+            <div class="sit-lbl">&#128260; Question de relance</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Où êtes-vous allé(e) ?</option><option>Avec qui ?</option>
+              <option>Vous avez aimé ?</option><option>Qu'est-ce que vous avez fait ?</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-box" id="m1">
+          <strong>Modèle :</strong> « Très sympa ! Où êtes-vous allé(e) ? »
+        </div>
+      </div>
+
+      <div class="sit-card">
+        <div class="sit-num">Situation 2</div>
+        <div class="sit-text">« Le week-end dernier, nous avons dîné avec des amis. »</div>
+        <div class="sit-actions">
+          <button class="btn-fr" onclick="playClip('A1-E-006_sit_2.mp3')">&#128266; Écouter</button>
+          <button class="model-btn" onclick="toggleModel('m2')">&#128065; Voir un modèle</button>
+        </div>
+        <div class="sit-row">
+          <div>
+            <div class="sit-lbl">&#128558; Réaction</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Ah, sympa !</option><option>C'était bien ?</option>
+              <option>Ah bon ?</option><option>Super !</option>
+            </select>
+          </div>
+          <div>
+            <div class="sit-lbl">&#128260; Question de relance</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Où êtes-vous allé(e) ?</option><option>Avec qui ?</option>
+              <option>Vous avez aimé ?</option><option>Qu'est-ce que vous avez mangé ?</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-box" id="m2">
+          <strong>Modèle :</strong> « C'était bien ? Qu'est-ce que vous avez mangé ? »
+        </div>
+      </div>
+
+      <div class="sit-card">
+        <div class="sit-num">Situation 3</div>
+        <div class="sit-text">« Ce matin, j'ai travaillé à la maison. »</div>
+        <div class="sit-actions">
+          <button class="btn-fr" onclick="playClip('A1-E-006_sit_3.mp3')">&#128266; Écouter</button>
+          <button class="model-btn" onclick="toggleModel('m3')">&#128065; Voir un modèle</button>
+        </div>
+        <div class="sit-row">
+          <div>
+            <div class="sit-lbl">&#128558; Réaction</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Ah bon ?</option><option>C'était bien ?</option>
+              <option>Super !</option><option>Pas facile !</option>
+            </select>
+          </div>
+          <div>
+            <div class="sit-lbl">&#128260; Question de relance</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Vous avez aimé ?</option><option>C'était comment ?</option>
+              <option>Qu'est-ce que vous avez fait ?</option><option>Avec qui ?</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-box" id="m3">
+          <strong>Modèle :</strong> « Ah bon ? C'était comment ? »
+        </div>
+      </div>
+
+      <div class="sit-card">
+        <div class="sit-num">Situation 4</div>
+        <div class="sit-text">« La semaine dernière, j'ai fait une promenade à Monterey. »</div>
+        <div class="sit-actions">
+          <button class="btn-fr" onclick="playClip('A1-E-006_sit_4.mp3')">&#128266; Écouter</button>
+          <button class="model-btn" onclick="toggleModel('m4')">&#128065; Voir un modèle</button>
+        </div>
+        <div class="sit-row">
+          <div>
+            <div class="sit-lbl">&#128558; Réaction</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Super !</option><option>C'était bien ?</option>
+              <option>Ah bon ?</option><option>Comme c'est beau !</option>
+            </select>
+          </div>
+          <div>
+            <div class="sit-lbl">&#128260; Question de relance</div>
+            <select class="sit-select">
+              <option value="">— choisissez —</option>
+              <option>Avec qui ?</option><option>Vous avez aimé ?</option>
+              <option>C'était comment ?</option><option>Qu'est-ce que vous avez vu ?</option>
+            </select>
+          </div>
+        </div>
+        <div class="model-box" id="m4">
+          <strong>Modèle :</strong> « Super ! Avec qui ? »
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCICE C — PHRASES PERSONNELLES -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9997;&#65039;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice C — Préparez trois informations personnelles</div>
+        <div class="sec-label-en">Prepare three personal sentences · To use during class</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-006_exc.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-006_exc_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-fr-row">
+          <button class="btn-fr" onclick="playClip('A1-E-006_exc_instr.mp3')">&#128266;</button>
+          <div class="instr-fr">Complétez les trois phrases. Vous pourrez les lire pendant le cours.</div>
+        </div>
+        <div class="instr-en-row">
+          <button class="btn-en" onclick="playClip('A1-E-006_exc_instr_en.mp3')">&#128266;</button>
+          <div class="instr-en">Complete the three sentences. You can read them during class.</div>
+        </div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-starter-fr"><button class="btn-fr" onclick="playClip('A1-E-006_exc_p1.mp3')">&#128266;</button>Hier, j'ai…</div>
+        <div class="phrase-starter-en"><button class="btn-en" onclick="playClip('A1-E-006_exc_p1_en.mp3')">&#128266;</button>Yesterday, I…</div>
+        <input class="phrase-input" id="p1" type="text" placeholder="ex : regardé un film · mangé des pâtes · appelé un ami">
+        <div class="write-btns">
+          <button class="write-btn vocab" onclick="document.getElementById('sec-voc').scrollIntoView({behavior:'smooth'})">&#10003; Vocabulaire</button>
+          <button class="write-btn" onclick="checkSpelling('p1')">&#128269; Orthographe</button>
+        </div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-starter-fr"><button class="btn-fr" onclick="playClip('A1-E-006_exc_p2.mp3')">&#128266;</button>Ce week-end, je suis allé(e)…</div>
+        <div class="phrase-starter-en"><button class="btn-en" onclick="playClip('A1-E-006_exc_p2_en.mp3')">&#128266;</button>This weekend, I went…</div>
+        <input class="phrase-input" id="p2" type="text" placeholder="ex : au marché · chez des amis · au parc">
+        <div class="write-btns">
+          <button class="write-btn vocab" onclick="document.getElementById('sec-voc').scrollIntoView({behavior:'smooth'})">&#10003; Vocabulaire</button>
+          <button class="write-btn" onclick="checkSpelling('p2')">&#128269; Orthographe</button>
+        </div>
+      </div>
+      <div class="phrase-row">
+        <div class="phrase-starter-fr"><button class="btn-fr" onclick="playClip('A1-E-006_exc_p3.mp3')">&#128266;</button>La dernière fois, j'ai…</div>
+        <div class="phrase-starter-en"><button class="btn-en" onclick="playClip('A1-E-006_exc_p3_en.mp3')">&#128266;</button>Last time, I…</div>
+        <input class="phrase-input" id="p3" type="text" placeholder="ex : vu un bon film · parlé avec ma famille · cuisiné">
+        <div class="write-btns">
+          <button class="write-btn vocab" onclick="document.getElementById('sec-voc').scrollIntoView({behavior:'smooth'})">&#10003; Vocabulaire</button>
+          <button class="write-btn" onclick="checkSpelling('p3')">&#128269; Orthographe</button>
+        </div>
+      </div>
+      <div class="write-btns" style="margin-top:6px;">
+        <button class="write-btn submit" onclick="submitAllPhrases()">&#128228; Soumettre à mon professeur</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCICE D — QUESTION POUR LE PROFESSEUR -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#10067;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Exercice D — Préparez une question pour votre professeur</div>
+        <div class="sec-label-en">Prepare a question for your teacher · Choose or write your own</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-006_exd.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-006_exd_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div class="instr">
+        <div class="instr-fr-row">
+          <button class="btn-fr" onclick="playClip('A1-E-006_exd_instr.mp3')">&#128266;</button>
+          <div class="instr-fr">Choisissez une question. Vous la poserez pendant le cours.</div>
+        </div>
+        <div class="instr-en-row">
+          <button class="btn-en" onclick="playClip('A1-E-006_exd_instr_en.mp3')">&#128266;</button>
+          <div class="instr-en">Choose a question. You will ask it during class.</div>
+        </div>
+      </div>
+      <label class="q-option" onclick="selectQ(this)">
+        <input type="radio" name="qteach">
+        <div>
+          <div class="q-fr"><button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-006_exd_q1.mp3')">&#128266;</button>Qu'est-ce que vous avez fait hier ?</div>
+          <div class="q-en"><button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-006_exd_q1_en.mp3')">&#128266;</button>What did you do yesterday?</div>
+        </div>
+      </label>
+      <label class="q-option" onclick="selectQ(this)">
+        <input type="radio" name="qteach">
+        <div>
+          <div class="q-fr"><button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-006_exd_q2.mp3')">&#128266;</button>Où êtes-vous allé(e) le week-end dernier ?</div>
+          <div class="q-en"><button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-006_exd_q2_en.mp3')">&#128266;</button>Where did you go last weekend?</div>
+        </div>
+      </label>
+      <label class="q-option" onclick="selectQ(this)">
+        <input type="radio" name="qteach">
+        <div>
+          <div class="q-fr"><button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-006_exd_q3.mp3')">&#128266;</button>Avec qui avez-vous parlé récemment ?</div>
+          <div class="q-en"><button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-006_exd_q3_en.mp3')">&#128266;</button>Who did you speak with recently?</div>
+        </div>
+      </label>
+      <label class="q-option" onclick="selectQ(this)">
+        <input type="radio" name="qteach">
+        <div>
+          <div class="q-fr"><button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-006_exd_q4.mp3')">&#128266;</button>Vous avez aimé ? Pourquoi ?</div>
+          <div class="q-en"><button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-006_exd_q4_en.mp3')">&#128266;</button>Did you like it? Why?</div>
+        </div>
+      </label>
+      <div class="custom-row">
+        <div class="custom-fr"><button class="btn-fr" onclick="playClip('A1-E-006_exd_custom.mp3')">&#128266;</button>Et écrivez votre propre question :</div>
+        <div class="custom-en"><button class="btn-en" onclick="playClip('A1-E-006_exd_custom_en.mp3')">&#128266;</button>And write your own:</div>
+        <input class="phrase-input" type="text" placeholder="Ma question : ...">
+      </div>
+    </div>
+  </div>
+
+  <!-- CHEMIN DU MINI-DIALOGUE (NEW) -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128161;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Le chemin du mini-dialogue</div>
+        <div class="sec-label-en">The mini-dialogue path · Follow these steps during class</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-006_chemin.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-006_chemin_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <div style="display:flex;gap:10px;align-items:stretch;flex-wrap:nowrap;overflow-x:auto;">
+        <div class="chemin-step">
+          <div class="chemin-num">1</div>
+          <div class="chemin-fr">Je salue.</div>
+          <div class="chemin-en">I greet.</div>
+          <button class="btn-fr" style="margin:4px auto 0;font-size:12px;min-height:36px;" onclick="playClip('A1-E-006_chemin_1.mp3')">&#128266;</button>
+        </div>
+        <div style="display:flex;align-items:center;font-size:22px;color:var(--navy);font-weight:bold;flex-shrink:0;">→</div>
+        <div class="chemin-step">
+          <div class="chemin-num">2</div>
+          <div class="chemin-fr">Je pose une question au passé.</div>
+          <div class="chemin-en">I ask a question in the past.</div>
+          <button class="btn-fr" style="margin:4px auto 0;font-size:12px;min-height:36px;" onclick="playClip('A1-E-006_chemin_2.mp3')">&#128266;</button>
+        </div>
+        <div style="display:flex;align-items:center;font-size:22px;color:var(--navy);font-weight:bold;flex-shrink:0;">→</div>
+        <div class="chemin-step">
+          <div class="chemin-num">3</div>
+          <div class="chemin-fr">Je réagis et je demande un détail.</div>
+          <div class="chemin-en">I react and ask for a detail.</div>
+          <button class="btn-fr" style="margin:4px auto 0;font-size:12px;min-height:36px;" onclick="playClip('A1-E-006_chemin_3.mp3')">&#128266;</button>
+        </div>
+        <div style="display:flex;align-items:center;font-size:22px;color:var(--navy);font-weight:bold;flex-shrink:0;">→</div>
+        <div class="chemin-step">
+          <div class="chemin-num">4</div>
+          <div class="chemin-fr">Je raconte une chose que j'ai faite.</div>
+          <div class="chemin-en">I share something I did.</div>
+          <button class="btn-fr" style="margin:4px auto 0;font-size:12px;min-height:36px;" onclick="playClip('A1-E-006_chemin_4.mp3')">&#128266;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AIDE-MÉMOIRE -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#128203;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Mon aide-mémoire — À garder visible pendant le cours</div>
+        <div class="sec-label-en">Reference card · Keep this open during your live class</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-006_aide.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-006_aide_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+      <table class="aide-table">
+        <thead>
+          <tr>
+            <th>&#128337; Je raconte</th>
+            <th>&#128260; Je continue</th>
+            <th>&#128682; Je demande de l'aide</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="aide-expr">Hier, j'ai…</span><button class="aide-spk" onclick="playClip('A1-E-006_v_hier.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Et vous ?</span></td>
+            <td><span class="aide-expr">C'est avec être ou avoir ?</span><button class="aide-spk" onclick="playClip('A1-E-006_v_etre_avoir.mp3')">&#128266;</button></td>
+          </tr>
+          <tr>
+            <td><span class="aide-expr">Je suis allé(e)…</span><button class="aide-spk" onclick="playClip('A1-E-006_v_weekend.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Qu'est-ce que vous avez fait ?</span><button class="aide-spk" onclick="playClip('A1-E-006_v_quoi.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Comment dit-on… ?</span><button class="aide-spk" onclick="playClip('A1-E-006_v_comment_dit.mp3')">&#128266;</button></td>
+          </tr>
+          <tr>
+            <td><span class="aide-expr">J'ai aimé…</span><button class="aide-spk" onclick="playClip('A1-E-006_v_aime.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">C'était comment ?</span></td>
+            <td><span class="aide-expr">Vous pouvez corriger ?</span><button class="aide-spk" onclick="playClip('A1-E-006_v_corriger.mp3')">&#128266;</button></td>
+          </tr>
+          <tr>
+            <td><span class="aide-expr">C'était…</span><button class="aide-spk" onclick="playClip('A1-E-006_v_cetait.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Avec qui ?</span><button class="aide-spk" onclick="playClip('A1-E-006_v_avec_qui.mp3')">&#128266;</button></td>
+            <td><span class="aide-expr">Je répète : …</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CARTE DE SECOURS (NEW) -->
+  <div class="sec">
+    <div class="sec-hdr" style="background:var(--gold);">
+      <div class="sec-icon">&#128171;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr" style="color:#fff;">Ma carte de secours</div>
+        <div class="sec-label-en" style="color:#FDF3D8;">My emergency card · Passé composé quick reference</div>
+      </div>
+      <button class="spk" style="border-color:rgba(255,255,255,0.4);color:#FDF3D8;" onclick="playClip('A1-E-006_carte.mp3')">&#128266;</button>
+      <button class="spk-en" style="color:#FDF3D8;" onclick="playClip('A1-E-006_carte_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body" style="background:var(--ltGold);">
+      <div class="carte-box">
+        <div class="carte-intro">
+          <strong>Le passé composé</strong> sert à raconter une action terminée.<br>
+          Une phrase courte suffit pour continuer la conversation.
+        </div>
+        <div class="carte-items">
+          <div>
+            <div class="carte-item">
+              <input type="checkbox" id="c1">
+              <label class="carte-fr" for="c1"><button class="btn-fr" onclick="playClip('A1-E-006_carte_1.mp3')">&#128266;</button>J'ai + participe passé.</label>
+            </div>
+            <div class="carte-en"><button class="btn-en" onclick="playClip('A1-E-006_carte_1_en.mp3')">&#128266;</button>J'ai + past participle.</div>
+          </div>
+          <div>
+            <div class="carte-item">
+              <input type="checkbox" id="c2">
+              <label class="carte-fr" for="c2"><button class="btn-fr" onclick="playClip('A1-E-006_carte_2.mp3')">&#128266;</button>Je suis allé(e)…</label>
+            </div>
+            <div class="carte-en"><button class="btn-en" onclick="playClip('A1-E-006_carte_2_en.mp3')">&#128266;</button>I went…</div>
+          </div>
+          <div>
+            <div class="carte-item">
+              <input type="checkbox" id="c3">
+              <label class="carte-fr" for="c3"><button class="btn-fr" onclick="playClip('A1-E-006_carte_3.mp3')">&#128266;</button>Je ne sais pas conjuguer ce verbe.</label>
+            </div>
+            <div class="carte-en"><button class="btn-en" onclick="playClip('A1-E-006_carte_3_en.mp3')">&#128266;</button>I don't know how to conjugate this verb.</div>
+          </div>
+          <div>
+            <div class="carte-item">
+              <input type="checkbox" id="c4">
+              <label class="carte-fr" for="c4"><button class="btn-fr" onclick="playClip('A1-E-006_carte_4.mp3')">&#128266;</button>Comment dit-on « I did / I went » en français ?</label>
+            </div>
+            <div class="carte-en"><button class="btn-en" onclick="playClip('A1-E-006_carte_4_en.mp3')">&#128266;</button>How do you say "I did / I went" in French?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APRÈS L'ACTIVITÉ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-icon">&#9989;</div>
+      <div class="sec-label">
+        <div class="sec-label-fr">Après l'activité — Ce que j'ai réussi</div>
+        <div class="sec-label-en">After the activity · What I accomplished</div>
+      </div>
+      <button class="spk" onclick="playClip('A1-E-006_eval.mp3')">&#128266;</button>
+      <button class="spk-en" onclick="playClip('A1-E-006_eval_en.mp3')">&#128266;</button>
+    </div>
+    <div class="sec-body">
+
+      <div class="eval-item">
+        <div class="eval-fr">
+          <input type="checkbox" id="e1">
+          <label class="eval-text-fr" for="e1"><button class="btn-fr" onclick="playClip('A1-E-006_eval_1.mp3')">&#128266;</button>J'ai dit une phrase au passé composé.</label>
+        </div>
+        <div class="eval-text-en"><button class="btn-en" onclick="playClip('A1-E-006_eval_1_en.mp3')">&#128266;</button>I said a sentence in the passé composé.</div>
+      </div>
+      <div class="eval-item">
+        <div class="eval-fr">
+          <input type="checkbox" id="e2">
+          <label class="eval-text-fr" for="e2"><button class="btn-fr" onclick="playClip('A1-E-006_eval_2.mp3')">&#128266;</button>J'ai utilisé être ou avoir avec de l'aide.</label>
+        </div>
+        <div class="eval-text-en"><button class="btn-en" onclick="playClip('A1-E-006_eval_2_en.mp3')">&#128266;</button>I used être or avoir with some help.</div>
+      </div>
+      <div class="eval-item">
+        <div class="eval-fr">
+          <input type="checkbox" id="e3">
+          <label class="eval-text-fr" for="e3"><button class="btn-fr" onclick="playClip('A1-E-006_eval_3.mp3')">&#128266;</button>J'ai posé une question au passé.</label>
+        </div>
+        <div class="eval-text-en"><button class="btn-en" onclick="playClip('A1-E-006_eval_3_en.mp3')">&#128266;</button>I asked a question in the past tense.</div>
+      </div>
+      <div class="eval-item">
+        <div class="eval-fr">
+          <input type="checkbox" id="e4">
+          <label class="eval-text-fr" for="e4"><button class="btn-fr" onclick="playClip('A1-E-006_eval_4.mp3')">&#128266;</button>J'ai participé à un échange de quatre répliques ou plus.</label>
+        </div>
+        <div class="eval-text-en"><button class="btn-en" onclick="playClip('A1-E-006_eval_4_en.mp3')">&#128266;</button>I had an exchange of four replies or more.</div>
+      </div>
+
+      <div class="eval-field">
+        <div class="eval-field-fr"><button class="btn-fr" onclick="playClip('A1-E-006_eval_expr1.mp3')">&#128266;</button>Le verbe au passé que j'ai utilisé naturellement :</div>
+        <div class="eval-field-en"><button class="btn-en" onclick="playClip('A1-E-006_eval_expr1_en.mp3')">&#128266;</button>The past tense verb I used naturally:</div>
+        <input class="phrase-input" type="text" placeholder="ex : j'ai mangé · je suis allé(e)" style="margin-bottom:14px;">
+        <div class="eval-field-fr"><button class="btn-fr" onclick="playClip('A1-E-006_eval_expr2.mp3')">&#128266;</button>La question que je veux réutiliser :</div>
+        <div class="eval-field-en"><button class="btn-en" onclick="playClip('A1-E-006_eval_expr2_en.mp3')">&#128266;</button>The question I want to reuse:</div>
+        <input class="phrase-input" type="text" placeholder="ex : Vous avez aimé ? · C'était comment ?">
+      </div>
+
+      <div class="motiv-box">
+        <div class="motiv-fr">
+          <button class="spk" onclick="playClip('A1-E-006_motiv.mp3')" style="flex-shrink:0;">&#128266;</button>
+          <span>Une conversation au passé n'est pas une récitation.<br>C'est un échange : <strong>je raconte, je réagis, je relance.</strong></span>
+        </div>
+        <div class="motiv-en">
+          <button class="spk-en" onclick="playClip('A1-E-006_motiv_en.mp3')" style="flex-shrink:0;">&#128266;</button>
+          <span>A conversation in the past isn't a recitation.<br>It's an exchange: <strong>I share, I react, I follow up.</strong></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script src="/js/audio.js"></script>
+<script>
+// ── AUDIO — MP3 only, no fallback ──
+let _ca=null,_caSrc=null;
+function playAudio(src){
+  if(_ca&&_caSrc===src&&!_ca.paused){_ca.pause();return;}
+  if(_ca&&_caSrc===src&&_ca.paused&&_ca.currentTime>0){_ca.play().catch(()=>{});return;}
+  if(_ca){_ca.pause();_ca.currentTime=0;}
+  const a=new Audio(src);_ca=a;_caSrc=src;
+  a.onended=()=>{_ca=null;_caSrc=null;};
+  a.play().catch(()=>{});
+}
+
+// ── MATCHING ──
+const LEFT=[
+  {fr:'Vous voulez dire votre opinion positive.',en:'You want to express a positive opinion.',src:'exa_l1'},
+  {fr:'Vous voulez demander ce que la personne a fait.',en:'You want to ask what the person did.',src:'exa_l2'},
+  {fr:'Vous voulez demander le lieu.',en:'You want to ask about the place.',src:'exa_l3'},
+  {fr:'Vous voulez demander avec quelle personne.',en:'You want to ask who they were with.',src:'exa_l4'},
+  {fr:'Vous voulez demander une impression.',en:'You want to ask about their impression.',src:'exa_l5'},
+  {fr:'Vous voulez vérifier l\'auxiliaire.',en:'You want to check which auxiliary verb to use.',src:'exa_l6'},
+];
+const RIGHT=[
+  {ltr:'A',fr:'Qu\'est-ce que vous avez fait ?',en:'What did you do?',src:'v_quoi'},
+  {ltr:'B',fr:'Où êtes-vous allé(e) ?',en:'Where did you go?',src:'v_ou'},
+  {ltr:'C',fr:'Avec qui ?',en:'With whom?',src:'v_avec_qui'},
+  {ltr:'D',fr:'C\'était comment ?',en:'What was it like?',src:'exa_rd'},
+  {ltr:'E',fr:'C\'est avec être ou avoir ?',en:'Is it with être or avoir?',src:'v_etre_avoir'},
+  {ltr:'F',fr:'J\'ai beaucoup aimé.',en:'I really enjoyed it.',src:'exa_rf'},
+];
+// KEY[leftIdx] = correct rightIdx
+// L0(opinion+)→F(5), L1(ce que fait)→A(0), L2(lieu)→B(1), L3(avec qui)→C(2), L4(impression)→D(3), L5(auxiliaire)→E(4)
+const KEY=[5,0,1,2,3,4];
+let selLeft=null;
+const matchedL=new Set(),matchedR=new Set();
+
+function initMatch(){
+  document.getElementById('left-col').innerHTML=LEFT.map((t,i)=>`
+    <div class="mcard" id="ml${i}" onclick="clickL(${i})">
+      <div class="mcard-tag num">${i+1}</div>
+      <div class="mcard-fr">${t.fr}</div>
+      <div style="display:flex;gap:6px;margin-bottom:2px;">
+        <button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-006_${t.src}.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-006_${t.src}_en.mp3')">&#128266;</button>
+      </div>
+      <div class="mcard-en">${t.en}</div>
+    </div>`).join('');
+  document.getElementById('right-col').innerHTML=RIGHT.map((r,i)=>`
+    <div class="mcard" id="mr${i}" onclick="clickR(${i})">
+      <div class="mcard-tag ltr">${r.ltr}</div>
+      <div class="mcard-expr">${r.fr}</div>
+      <div style="display:flex;gap:6px;margin-bottom:2px;">
+        <button class="btn-fr" onclick="event.stopPropagation();playClip('A1-E-006_${r.src}.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="event.stopPropagation();playClip('A1-E-006_${r.src}_en.mp3')">&#128266;</button>
+      </div>
+      <div class="mcard-en">${r.en}</div>
+    </div>`).join('');
+}
+function clickL(i){
+  if(matchedL.has(i))return;
+  if(selLeft!==null)document.getElementById('ml'+selLeft)?.classList.remove('sel');
+  selLeft=i;document.getElementById('ml'+i).classList.add('sel');
+}
+function clickR(i){
+  if(matchedR.has(i)||selLeft===null)return;
+  const ok=KEY[selLeft]===i;
+  if(ok){
+    document.getElementById('ml'+selLeft).classList.replace('sel','matched');
+    document.getElementById('mr'+i).classList.add('matched');
+    matchedL.add(selLeft);matchedR.add(i);selLeft=null;
+    const n=matchedL.size;
+    document.getElementById('match-score').innerHTML=n===6
+      ?'<span style="color:var(--green);font-weight:bold;">&#10003; Parfait ! 6/6</span>'
+      :`${n}/6 associations correctes`;
+  } else {
+    const lc=document.getElementById('ml'+selLeft),rc=document.getElementById('mr'+i);
+    lc.classList.add('err');rc.classList.add('err');
+    setTimeout(()=>{lc.classList.remove('err');rc.classList.remove('err');},700);
+  }
+}
+
+// ── WRITING ──
+async function checkSpelling(id){
+  const txt=document.getElementById(id).value.trim();
+  if(!txt){alert('Écris une phrase d\'abord.');return;}
+  try{
+    const r=await fetch('https://api.languagetool.org/v2/check',{
+      method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:'language=fr&text='+encodeURIComponent(txt)});
+    const d=await r.json();
+    if(!d.matches||d.matches.length===0){alert('✓ Aucune erreur détectée !');}
+    else{alert('Suggestions :\n'+d.matches.map(m=>'• '+m.message+' → '+(m.replacements[0]?.value||'?')).join('\n'));}
+  }catch(e){alert('Vérification non disponible hors ligne.');}
+}
+function submitAllPhrases(){
+  const p1=document.getElementById('p1').value.trim();
+  const p2=document.getElementById('p2').value.trim();
+  const p3=document.getElementById('p3').value.trim();
+  if(!p1&&!p2&&!p3){alert('Écris au moins une phrase d\'abord.');return;}
+  const body=[
+    'Hier, j\'ai… '+p1,
+    'Ce week-end, je suis allé(e)… '+p2,
+    'La dernière fois, j\'ai… '+p3
+  ].filter(l=>!l.endsWith('… ')).join('\n');
+  (async function(){let ok=true;try{if(window.LEM&&window.LEM.submitWriting){ok=await window.LEM.submitWriting('A1-E-006','A1 · Discussion — Passé composé',{'Mes phrases':body});}}catch(e){ok=false;}alert(ok!==false?'✅ Envoyé à ton professeur !':'Une erreur est survenue. Réessaie.');})();
+}
+function toggleModel(id){document.getElementById(id).classList.toggle('show');}
+function selectQ(el){
+  document.querySelectorAll('.q-option').forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+initMatch();
+</script>
+<nav class="bottom-nav">
+  <a href="/index.html"><span class="ni">🏠</span><span class="nl">Accueil</span></a>
+  <a class="active" href="/french/a1/index.html"><span class="ni">🇫🇷</span><span class="nl">Français</span></a>
+  <a href="/reference/index.html"><span class="ni">📘</span><span class="nl">Référence</span></a>
+  <a href="/index.html#progress"><span class="ni">⭐</span><span class="nl">Progrès</span></a>
+</nav>
+<script type="module" src="/js/auth-guard.js"></script>
+</body>
+</html>
