@@ -762,16 +762,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 
 <script src="/js/audio.js"></script>
 <script>
-// ── AUDIO ──
-let _ca=null,_caSrc=null;
-function playClip(src){
-  if(_ca&&_caSrc===src&&!_ca.paused){_ca.pause();return;}
-  if(_ca&&_caSrc===src&&_ca.paused&&_ca.currentTime>0){_ca.play().catch(()=>{});return;}
-  if(_ca){_ca.pause();_ca.currentTime=0;}
-  const a=new Audio(src);_ca=a;_caSrc=src;
-  a.onended=()=>{_ca=null;_caSrc=null;};
-  a.play().catch(()=>{});
-}
+// ── AUDIO : moteur partagé /js/audio.js (playClip → audio/<fichier>) ──
 
 // ── TOGGLES ──
 function toggleMethod(){
