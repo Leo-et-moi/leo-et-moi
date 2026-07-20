@@ -211,6 +211,23 @@
       "progressId": "b1_lire_faire_part"
     },
     {
+      "id": "B1-E-003",
+      "niveau": "B1",
+      "ordre": 30,
+      "titre": "Lecture — Les Alcooliques Anonymes (Joseph Kessel)",
+      "chemin": "french/b1/B1-E-003-lecture-kessel/exercices.html",
+      "lecons": [],
+      "competences": [
+        "reading",
+        "listening",
+        "writing",
+        "speaking"
+      ],
+      "progressId": "B1-E-003",
+      "questions": "french/b1/B1-E-003-lecture-kessel/questions.json",
+      "publie": true
+    },
+    {
       "id": "B2-E-001",
       "niveau": "B2",
       "ordre": 10,

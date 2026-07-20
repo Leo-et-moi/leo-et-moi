@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exercice B1 · Lecture — Les Alcooliques Anonymes · Joseph Kessel</title>
+<style>
+:root{
+  --navy:#1B2845;--dark:#0F1A2D;--coral:#E8503A;--green:#2E7D47;--amber:#B8720A;
+  --purple:#6B3FA0;--slate:#5A6A80;--div:#D8DDED;--white:#FFFFFF;
+  --cream:#F5F0E8;--ltBlue:#EDF2FA;--ltGreen:#EAF5ED;--ltAmber:#FEF8ED;
+  --ltPurple:#F0EAF8;--gold:#C9820A;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--dark);}
+
+/* TOP BAR */
+.top-bar{background:var(--navy);color:#fff;padding:12px 18px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.top-title{font-size:20px;font-weight:bold;}
+.top-title span{color:#7CB9E8;}
+.top-sub-fr{font-size:13px;color:#CDD8F0;margin-top:2px;}
+.top-sub-en{font-size:12px;color:#9AAFCC;}
+.top-btns{display:flex;gap:6px;flex-shrink:0;align-items:center;}
+
+/* MAIN */
+.main{max-width:760px;margin:0 auto;padding:14px 12px 40px;}
+
+/* PANEL HEAD */
+.panel-head{background:var(--navy);color:#fff;border-radius:12px;padding:14px 18px;margin-bottom:14px;}
+.panel-title{font-size:21px;font-weight:bold;}
+.panel-sub{font-size:14px;color:#9AAFCC;margin-top:4px;}
+
+/* BUTTONS */
+.spk{background:var(--dark);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer;min-height:36px;font-family:Arial,sans-serif;}
+.spk:hover{background:var(--coral);}
+.spk-en{background:var(--slate);color:#fff;border:none;border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;min-height:32px;font-family:Arial,sans-serif;}
+.spk-en:hover{background:var(--navy);}
+.btn-fr{background:var(--navy);color:#fff;border:none;border-radius:6px;padding:6px 10px;font-size:14px;cursor:pointer;min-height:44px;font-family:Arial,sans-serif;white-space:nowrap;}
+.btn-fr:hover{background:var(--dark);}
+.btn-en{background:var(--slate);color:#fff;border:none;border-radius:6px;padding:5px 9px;font-size:13px;cursor:pointer;min-height:36px;font-family:Arial,sans-serif;}
+.btn-en:hover{background:var(--navy);}
+.btn-ex{background:var(--ltBlue);color:var(--navy);border:1px solid rgba(44,74,124,0.2);border-radius:6px;padding:5px 10px;font-size:13px;cursor:pointer;min-height:36px;font-family:Arial,sans-serif;}
+.reveal-btn{font-family:Arial,sans-serif;font-size:13px;background:none;border:1px solid var(--div);border-radius:8px;padding:5px 12px;color:var(--slate);cursor:pointer;min-height:36px;}
+.reveal-btn:hover{border-color:var(--navy);color:var(--navy);}
+
+/* SECTION */
+.sec{background:#fff;border-radius:12px;padding:0;margin-bottom:14px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.sec-hdr{background:var(--ltBlue);padding:12px 16px;display:flex;align-items:center;gap:10px;}
+.sec-icon{font-size:22px;flex-shrink:0;}
+.sec-label{flex:1;}
+.sec-label-fr{font-size:16px;font-weight:bold;color:var(--dark);}
+.sec-label-en{font-size:12px;color:var(--slate);}
+.sec-body{padding:16px;}
+
+/* INSTRUCTION BOX */
+.instr{background:#FEF0EE;border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:14px;}
+.instr-fr-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;}
+.instr-en-row{display:flex;align-items:flex-start;gap:8px;}
+.instr-fr{font-size:16px;font-weight:600;color:var(--dark);padding-top:2px;}
+.instr-en{font-size:14px;color:var(--slate);padding-top:4px;}
+
+/* NOTE BOX */
+.note-box{background:var(--ltAmber);border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:10px 14px;font-size:14px;color:var(--dark);margin-bottom:14px;}
+
+/* PRACTICE INSTRUCTION */
+.practice-box{background:var(--ltBlue);border-radius:10px;padding:12px 16px;margin-bottom:12px;}
+.practice-fr{display:flex;align-items:flex-start;gap:8px;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.practice-en{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--slate);}
+
+/* MÉTHODE DE LECTURE */
+.method-box{background:var(--ltBlue);border:2px solid rgba(44,74,124,0.25);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+.method-hdr{padding:13px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;}
+.method-hdr:hover{background:rgba(44,74,124,0.07);}
+.method-hdr-left{display:flex;align-items:center;gap:10px;}
+.method-title{font-size:16px;font-weight:bold;color:var(--navy);}
+.method-title-en{font-size:13px;color:var(--slate);}
+.method-arrow{font-size:14px;color:var(--slate);}
+.method-body{display:none;padding:0 16px 14px;}
+.method-body.open{display:block;}
+.method-intro{display:flex;align-items:center;gap:8px;margin:10px 0 12px;font-size:15px;color:var(--dark);background:rgba(44,74,124,0.08);border-radius:8px;padding:8px 12px;}
+.method-step{margin-bottom:10px;}
+.method-step-hdr{display:flex;align-items:flex-start;gap:8px;font-weight:bold;color:var(--navy);font-size:15px;margin-bottom:3px;}
+.method-step-txt{font-size:14px;color:var(--dark);padding-left:34px;line-height:1.5;}
+.method-en{margin-top:10px;border-top:1px solid var(--div);padding-top:10px;}
+.method-step-txt-en{font-size:13px;color:var(--slate);padding-left:34px;line-height:1.5;}
+
+/* AVANT LA LECTURE label */
+.avant-lbl{background:var(--amber);color:#fff;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:8px;}
+
+/* VOCAB MATCH CARDS */
+.vm-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.vm-row{display:flex;align-items:flex-start;gap:8px;}
+.vm-letter{font-size:15px;font-weight:bold;color:var(--coral);flex-shrink:0;min-width:22px;}
+.vm-word-wrap{flex:1;}
+.vm-word{font-size:16px;font-weight:bold;color:var(--dark);}
+.vm-quote{font-size:13px;color:var(--slate);font-style:italic;margin:3px 0 6px 0;}
+.vm-def{display:none;background:var(--ltGreen);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--green);font-weight:600;margin-top:6px;}
+.vm-def.shown{display:block;}
+.vm-defnum{display:inline-flex;align-items:center;justify-content:center;background:var(--green);color:#fff;border-radius:50%;width:22px;height:22px;font-size:12px;font-weight:bold;margin-right:6px;flex-shrink:0;}
+
+/* CONTRAIRES */
+.word-bank{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px 0;padding:10px 12px;background:var(--ltBlue);border-radius:8px;}
+.bank-chip{background:#fff;border:1.5px solid rgba(44,74,124,0.25);border-radius:12px;padding:4px 12px;font-size:14px;color:var(--navy);font-weight:600;}
+.contr-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.contr-num{font-weight:bold;color:var(--coral);font-size:15px;flex-shrink:0;min-width:22px;}
+.contr-text{font-size:15px;color:var(--dark);flex:1;}
+.contr-ne{font-weight:bold;color:var(--slate);margin:0 6px;}
+.contr-answer{display:none;padding:4px 12px;background:var(--ltGreen);border-radius:8px;font-size:15px;font-weight:bold;color:var(--green);}
+.contr-answer.shown{display:inline-block;}
+.contr-reveal-btn{font-family:Arial,sans-serif;font-size:13px;background:none;border:1px solid var(--div);border-radius:8px;padding:4px 10px;color:var(--slate);cursor:pointer;min-height:36px;flex-shrink:0;}
+.contr-reveal-btn:hover{border-color:var(--green);color:var(--green);}
+
+/* RAPPEL DU PROTOCOLE */
+.rappel-box{background:var(--ltAmber);border:2px solid rgba(184,114,10,0.3);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+.rappel-hdr{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;}
+.rappel-hdr:hover{background:rgba(184,114,10,0.08);}
+.rappel-title{font-size:16px;font-weight:bold;color:var(--amber);}
+.rappel-title-en{font-size:13px;color:var(--slate);}
+.rappel-arrow{font-size:14px;color:var(--slate);}
+.rappel-body{display:none;padding:0 16px 14px;}
+.rappel-body.open{display:block;}
+.rappel-text{font-size:15px;color:var(--dark);line-height:1.6;margin-bottom:6px;}
+.rappel-text-en{font-size:14px;color:var(--slate);line-height:1.5;}
+.cahier-box{background:#fff;border:2px solid var(--div);border-radius:12px;padding:14px;margin-bottom:14px;}
+.cahier-lbl{font-size:14px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.recall-textarea{width:100%;min-height:120px;border:1.5px solid var(--div);border-radius:8px;padding:10px 12px;font-family:Arial,sans-serif;font-size:15px;resize:vertical;background:var(--cream);color:var(--dark);}
+.recall-textarea:focus{outline:none;border-color:var(--navy);}
+
+/* TEXT DISPLAY */
+.text-display{background:var(--cream);border-radius:10px;padding:18px;line-height:2;font-size:16px;}
+.dialogue-line{color:var(--navy);font-weight:700;font-style:italic;display:block;margin:4px 0;}
+.text-p{margin-bottom:14px;}
+.text-sep{text-align:center;font-weight:bold;color:var(--slate);letter-spacing:6px;margin:10px 0;}
+.toggle-text-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--slate);color:#fff;border:none;border-radius:10px;padding:10px 18px;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;cursor:pointer;width:100%;min-height:46px;margin-bottom:12px;}
+.toggle-text-btn:hover{background:var(--navy);}
+.big-listen-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--navy);color:#fff;border:none;border-radius:12px;padding:14px 24px;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;cursor:pointer;width:100%;min-height:52px;margin-bottom:14px;}
+.big-listen-btn:hover{background:var(--dark);}
+
+/* QCM */
+.qcm-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
+.qcm-q-fr{display:flex;align-items:flex-start;gap:8px;font-size:16px;font-weight:600;color:var(--dark);margin-bottom:4px;}
+.qcm-q-en{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--slate);margin-bottom:10px;padding-left:4px;}
+.qcm-options{display:flex;flex-direction:column;gap:6px;}
+.qcm-opt{background:var(--white);border:1.5px solid var(--div);border-radius:8px;padding:10px 14px;font-size:15px;cursor:pointer;text-align:left;font-family:Arial,sans-serif;min-height:46px;line-height:1.4;}
+.qcm-opt:hover:not(:disabled){border-color:var(--navy);background:var(--ltBlue);}
+.qcm-opt.correct{background:var(--ltGreen)!important;border-color:var(--green)!important;color:var(--green)!important;font-weight:bold;}
+.qcm-opt.wrong{background:#FEE!important;border-color:var(--coral)!important;color:var(--coral)!important;}
+.qcm-opt:disabled{cursor:not-allowed;opacity:0.7;}
+
+/* GRAM EXERCISES (pronoms, PC/Imp) */
+.gram-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
+.gram-num{font-weight:bold;color:var(--coral);font-size:15px;margin-bottom:5px;}
+.gram-sentence{font-size:16px;font-style:italic;color:var(--dark);margin-bottom:4px;line-height:1.5;}
+.gram-prompt{font-size:14px;color:var(--slate);margin-bottom:8px;}
+.gram-options{display:flex;flex-wrap:wrap;gap:6px;}
+.gram-opt{background:var(--white);border:1.5px solid var(--div);border-radius:8px;padding:8px 16px;font-size:15px;cursor:pointer;font-family:Arial,sans-serif;min-height:44px;}
+.gram-opt:hover:not(:disabled){border-color:var(--navy);background:var(--ltBlue);}
+.gram-opt.correct{background:var(--ltGreen)!important;border-color:var(--green)!important;color:var(--green)!important;font-weight:bold;}
+.gram-opt.wrong{background:#FEE!important;border-color:var(--coral)!important;color:var(--coral)!important;}
+.gram-opt:disabled{cursor:not-allowed;opacity:0.7;}
+.gram-note{font-size:13px;color:var(--amber);margin-top:8px;padding:6px 10px;background:var(--ltAmber);border-radius:6px;display:none;}
+.gram-note.show{display:block;}
+
+/* MOTS INVARIABLES */
+.inv-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.inv-def{font-size:15px;color:var(--dark);margin-bottom:8px;line-height:1.5;}
+.inv-row{display:flex;align-items:center;gap:8px;}
+.inv-slot{display:inline-flex;align-items:center;min-width:130px;min-height:36px;border:2px dashed var(--div);border-radius:8px;padding:4px 10px;font-size:15px;font-weight:bold;color:var(--dark);cursor:pointer;background:var(--white);transition:border-color .15s,background .15s;}
+.inv-slot.is-active{border-color:var(--navy);background:var(--ltBlue);}
+.inv-slot.is-correct{border-color:var(--green)!important;background:var(--ltGreen)!important;color:var(--green);cursor:default;border-style:solid;}
+.inv-slot.is-wrong{border-color:var(--coral)!important;background:#FEE!important;}
+
+/* TENSES */
+.tense-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.tense-phrase{display:flex;align-items:flex-start;gap:8px;font-size:15px;font-style:italic;margin-bottom:6px;color:var(--dark);}
+.tense-verb{font-weight:bold;color:var(--navy);}
+.tense-reveal{display:flex;align-items:center;gap:8px;}
+.tense-badge{display:none;padding:3px 12px;border-radius:12px;font-size:13px;font-weight:bold;font-family:Arial;}
+.tense-badge.show{display:inline-block;}
+.badge-present{background:var(--ltBlue);color:var(--navy);}
+.badge-pc{background:var(--ltGreen);color:var(--green);}
+.badge-imp{background:var(--ltAmber);color:var(--amber);}
+.badge-fp{background:var(--ltPurple);color:var(--purple);}
+.badge-fs{background:#FEF0EE;color:var(--coral);}
+.badge-later{background:#F3F3F3;color:#888;}
+
+/* TRANSFORMATION TABLE */
+.trans-table{width:100%;border-collapse:collapse;margin-bottom:14px;}
+.trans-table th{background:var(--dark);color:#fff;padding:9px 12px;font-size:14px;text-align:left;}
+.trans-table td{padding:9px 12px;border-bottom:1px solid var(--div);font-size:14px;vertical-align:middle;}
+.trans-table tr:nth-child(even) td{background:var(--cream);}
+.trans-label{font-weight:bold;white-space:nowrap;}
+.tense-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;}
+.dot-present{background:var(--navy);}
+.dot-pc{background:var(--green);}
+.dot-imp{background:var(--amber);}
+.dot-fp{background:var(--purple);}
+.dot-fs{background:var(--coral);}
+.trans-hidden{display:none;}
+.trans-hidden.shown{display:inline;}
+.trans-reveal-btn{font-family:Arial,sans-serif;font-size:13px;background:none;border:1px solid var(--div);border-radius:8px;padding:4px 10px;color:var(--slate);cursor:pointer;min-height:36px;white-space:nowrap;}
+.trans-reveal-btn:hover{border-color:var(--navy);color:var(--navy);}
+.trans-reveal-btn.open{border-color:var(--green);color:var(--green);}
+.serie-lbl{font-size:13px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;padding-bottom:5px;border-bottom:2px solid var(--div);}
+
+/* REFORMULATION */
+.ref-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:8px;}
+.ref-original{display:flex;align-items:flex-start;gap:8px;font-size:15px;font-style:italic;color:var(--dark);margin-bottom:6px;}
+.ref-reveal-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.ref-simple{display:none;padding:6px 12px;background:var(--ltGreen);border-radius:8px;font-size:14px;color:var(--green);font-weight:600;}
+.ref-simple.show{display:inline-block;}
+.ref-ctx{display:none;padding:6px 12px;background:var(--ltBlue);border-radius:8px;font-size:14px;color:var(--navy);}
+.ref-ctx.show{display:inline-block;}
+.ref-oral{font-size:12px;color:var(--slate);margin-top:4px;font-style:italic;}
+
+/* DISCUSSION */
+.disc-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:16px;margin-bottom:10px;}
+.disc-q-fr{display:flex;align-items:flex-start;gap:8px;font-size:17px;font-weight:bold;color:var(--dark);margin-bottom:5px;}
+.disc-q-en{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--slate);margin-bottom:10px;}
+.disc-amorces{margin-bottom:10px;}
+.disc-amorces-lbl{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;}
+.amorce{display:inline-flex;align-items:center;gap:5px;background:var(--ltBlue);border:1px solid rgba(44,74,124,0.2);border-radius:16px;padding:4px 10px;margin:3px;font-size:14px;font-weight:600;color:var(--navy);}
+.word-bank-lbl{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;}
+.word-chip{display:inline-block;background:var(--white);border:1px solid var(--div);border-radius:12px;padding:3px 10px;margin:3px;font-size:13px;color:var(--text);}
+
+/* ENGLISH VERSION */
+.en-text-box{background:var(--ltBlue);border:2px solid rgba(44,74,124,0.2);border-radius:10px;padding:20px;line-height:2;}
+.en-dialogue-line{color:var(--navy);font-weight:600;font-style:italic;display:block;margin:4px 0;}
+.en-p{margin-bottom:14px;font-size:16px;}
+.en-sep{text-align:center;font-weight:bold;color:var(--slate);letter-spacing:6px;margin:10px 0;}
+.en-ver-toggle-hdr{cursor:pointer;user-select:none;}
+.en-ver-toggle-hdr:hover{opacity:0.9;}
+#en-ver-arrow{margin-left:6px;font-size:13px;}
+
+/* VM MATCHING 2-COL */
+.vm-match-hint{font-size:13px;color:var(--slate);background:var(--ltAmber);border-radius:8px;padding:7px 12px;margin-bottom:10px;}
+.vm-match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px;}
+.vm-col-hdr{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;padding:6px 0 8px;border-bottom:2px solid var(--div);margin-bottom:8px;}
+.vm-word-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:10px 12px;cursor:pointer;user-select:none;transition:all 0.15s;}
+.vm-word-card:hover:not(.vm-done){border-color:var(--navy);}
+.vm-word-card.vm-selected{border-color:var(--navy);background:var(--ltBlue);box-shadow:0 0 0 3px rgba(27,40,69,0.15);}
+.vm-word-card.vm-done{border-color:var(--green);background:var(--ltGreen);cursor:default;}
+.vm-word-card.vm-flash-wrong{border-color:var(--coral)!important;background:#FEE!important;}
+.vm-def-card{background:#fff;border:2px solid var(--div);border-radius:10px;padding:10px 12px;cursor:pointer;user-select:none;font-size:14px;transition:all 0.15s;}
+.vm-def-card:hover:not(.vm-done){border-color:var(--purple);}
+.vm-def-card.vm-selected{border-color:var(--purple);background:var(--ltPurple);}
+.vm-def-card.vm-done{border-color:var(--green);background:var(--ltGreen);cursor:default;}
+.vm-def-card.vm-flash-wrong{border-color:var(--coral)!important;background:#FEE!important;}
+.vm-defnum-badge{display:inline-flex;align-items:center;justify-content:center;background:var(--slate);color:#fff;border-radius:50%;width:22px;height:22px;font-size:12px;font-weight:bold;margin-right:6px;flex-shrink:0;}
+.vm-defnum-badge.vm-matched{background:var(--green);}
+
+/* CONTRAIRES 2-COL DYNAMIC */
+.contr-2col-grid{margin-bottom:8px;}
+.contr-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;margin-bottom:6px;}
+.contr-target{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:10px 12px;font-size:15px;color:var(--dark);display:flex;align-items:center;gap:6px;}
+.contr-ne-badge{font-size:13px;font-weight:bold;color:var(--coral);margin-left:4px;}
+.contr-slot{min-height:44px;border:2px dashed var(--div);border-radius:10px;padding:4px 12px;display:flex;align-items:center;width:100%;font-size:15px;cursor:pointer;user-select:none;color:var(--slate);}
+.contr-slot:hover:not(.cs-correct){border-color:var(--navy);}
+.contr-slot.cs-active{border-color:var(--navy);background:var(--ltBlue);color:var(--navy);}
+.contr-slot.cs-correct{border-color:var(--green)!important;background:var(--ltGreen)!important;color:var(--green)!important;font-weight:bold;border-style:solid;cursor:default;}
+.contr-slot.cs-wrong{border-color:var(--coral)!important;background:#FEE!important;color:var(--coral)!important;border-style:solid;}
+.contr-slot-hint{font-size:13px;color:var(--slate);}
+.bank-chip.bc-clickable{cursor:pointer;transition:all 0.15s;}
+.bank-chip.bc-clickable:hover:not(.bc-used){background:var(--ltBlue);border-color:var(--navy);color:var(--navy);}
+.bank-chip.bc-used{opacity:0.35;cursor:not-allowed;text-decoration:line-through;}
+
+/* PCIMP WORD BANK STYLE */
+.pc-blank{display:inline-flex;align-items:center;justify-content:center;min-width:130px;min-height:30px;border:2px dashed var(--div);border-radius:6px;padding:2px 8px;font-size:15px;color:var(--slate);margin:0 3px;background:var(--cream);vertical-align:middle;}
+.pc-blank.pc-correct{border-color:var(--green);background:var(--ltGreen);color:var(--green);font-weight:bold;border-style:solid;font-style:normal;}
+.pc-blank.pc-wrong{border-color:var(--coral);background:#FEE;color:var(--coral);border-style:solid;}
+.pc-bank{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.pc-chip{cursor:pointer;background:#fff;border:1.5px solid var(--div);border-radius:8px;padding:7px 14px;font-size:14px;font-family:Arial,sans-serif;min-height:40px;transition:all 0.15s;}
+.pc-chip:hover:not(.pc-chip-used){border-color:var(--navy);background:var(--ltBlue);}
+.pc-chip.pc-chip-used{opacity:0.35;cursor:not-allowed;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:#1B2845;border-top:3px solid #E8503A;display:flex;align-items:center;z-index:200;}
+.bottom-nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:64px;font-family:Arial,sans-serif;}
+.bottom-nav a.active{color:#E8503A;}.bottom-nav .ni{font-size:22px;}.bottom-nav .nl{font-size:11px;font-weight:bold;}
+</style>
+</head>
+<body data-item-id="B1-E-003">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div>
+    <div class="top-title">Leo<span>-et-moi</span></div>
+    <div class="top-sub-fr">Exercice B1 · Lecture — Les Alcooliques Anonymes <strong>par</strong> Joseph Kessel</div>
+    <div class="top-sub-en">B1 Reading Exercise · Alcoholics Anonymous <strong>by</strong> Joseph Kessel</div>
+  </div>
+  <div class="top-btns">
+    <button class="spk" onclick="playClip('B1-E-003_titre.mp3')">&#128266; FR</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_titre_en.mp3')">&#128266; EN</button>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- PANEL HEAD -->
+<div class="panel-head">
+  <div class="panel-title">Lecture — Les Alcooliques Anonymes</div>
+</div>
+
+<!-- MÉTHODE DE LECTURE -->
+<div class="method-box">
+  <div class="method-hdr" onclick="toggleMethod()">
+    <div class="method-hdr-left">
+      <span style="font-size:22px;">&#128218;</span>
+      <div>
+        <div class="method-title">Méthode de Lecture · <span style="font-style:italic;">Reading Method</span></div>
+        <div class="method-title-en">« Lire et répéter » — Read-and-Recall (Blurting)</div>
+      </div>
+    </div>
+    <span class="method-arrow" id="method-arrow">&#9660;</span>
+  </div>
+  <div class="method-body" id="method-body">
+    <!-- FR block -->
+    <div style="background:rgba(44,74,124,0.06);border-radius:10px;padding:12px;margin-bottom:10px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_methode.mp3')" style="flex-shrink:0;">&#128266;</button>
+        <div style="font-size:15px;line-height:1.7;color:var(--dark);">
+          Tu n'as pas besoin de comprendre chaque mot.<br>
+          <strong>&#9312; Première lecture</strong><br>
+          Écoute et lis en même temps, sans prendre de notes et sans pause.<br>
+          <strong>&#9313; Deuxième lecture</strong><br>
+          Écoute et lis en même temps, tu peux mettre en pause et reprendre à tout moment. Masque le texte et fais un résumé de ce que tu comprends en anglais par écrit.
+        </div>
+      </div>
+    </div>
+    <!-- EN block -->
+    <div style="background:rgba(90,106,128,0.06);border-radius:10px;padding:12px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <button class="btn-en" onclick="event.stopPropagation();playClip('B1-E-003_methode_en.mp3')" style="flex-shrink:0;">&#128266;</button>
+        <div style="font-size:14px;line-height:1.7;color:var(--slate);">
+          You don't need to understand every word.<br>
+          <strong>&#9312; First reading</strong><br>
+          Listen and read at the same time, without taking notes or pausing.<br>
+          <strong>&#9313; Second reading</strong><br>
+          Listen and read at the same time; you can pause and resume at any time. Hide the text and write a summary of what you understand in English.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRACTICE INSTRUCTION -->
+<div class="practice-box" style="margin-bottom:14px;">
+  <div class="practice-fr">
+    <button class="btn-fr" onclick="playClip('B1-E-003_pratique.mp3')">&#128266;</button>
+    <span>Exercice de lecture, de compréhension et d'expression orale. Entraine-toi et lis à haute voix toutes les consignes et les écoutes.</span>
+  </div>
+  <div class="practice-en">
+    <button class="btn-en" onclick="playClip('B1-E-003_pratique_en.mp3')">&#128266;</button>
+    <span>Reading, comprehension, and speaking exercise. Practice and read all the instructions and audio clips aloud.</span>
+  </div>
+</div>
+
+<!-- AVANT LA LECTURE header -->
+<div class="sec">
+  <div class="sec-hdr" style="background:var(--ltAmber);">
+    <div class="sec-icon">&#9997;&#65039;</div>
+    <div class="sec-label">
+      <div class="sec-label-fr" style="color:var(--amber);">Avant la lecture / Before reading</div>
+      <div class="sec-label-fr" style="color:var(--amber);font-size:11px;margin-top:1px;">Fais ces exercices de vocabulaire avant de lire le texte</div>
+      <div class="sec-label-en" style="color:var(--amber);font-size:11px;margin-top:1px;">Complete these vocabulary exercises before reading the text</div>
+    </div>
+    <button class="spk" onclick="playClip('B1-E-003_sec_avant.mp3')">&#128266;</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_sec_avant_en.mp3')">&#128266;</button>
+  </div>
+  <div class="sec-body">
+
+    <!-- EX 1 — VOCABULAIRE ET SENS -->
+    <div style="margin-bottom:8px;">
+      <span style="font-size:16px;font-weight:bold;color:var(--coral);">Exercice 1</span>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_ex1_instr.mp3')">&#128266;</button>
+        <div class="instr-fr">Association — Vocabulaire et Sens. Clique sur un mot de la colonne A, puis sur la définition qui correspond dans la colonne B.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_ex1_instr_en.mp3')">&#128266;</button>
+        <div class="instr-en">Vocabulary and Meaning. Click a word in column A, then click its matching definition in column B.</div>
+      </div>
+    </div>
+    <div id="vm-cards"></div>
+
+    <!-- EX 2 — CHASSE AUX CONTRAIRES -->
+    <div style="margin-top:18px;margin-bottom:8px;">
+      <span style="font-size:16px;font-weight:bold;color:var(--coral);">Exercice 2</span>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_ex2_instr.mp3')">&#128266;</button>
+        <div class="instr-fr">La chasse aux contraires. Clique d'abord sur une case réponse dans la colonne de droite, puis sur le mot que tu choisis dans la banque de mots.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_ex2_instr_en.mp3')">&#128266;</button>
+        <div class="instr-en">The Antonym Hunt. First click on an answer box in the right-hand column, then click on the word you choose from the word bank.</div>
+      </div>
+    </div>
+    <div class="word-bank" id="contr-bank">
+      <strong style="font-size:13px;color:var(--slate);margin-right:4px;">Banque :</strong>
+      <span class="bank-chip bc-clickable" id="bchip_0" onclick="contrClickChip('clochards',this)">clochards</span>
+      <span class="bank-chip bc-clickable" id="bchip_1" onclick="contrClickChip('misérables',this)">misérables</span>
+      <span class="bank-chip bc-clickable" id="bchip_2" onclick="contrClickChip('savants',this)">savants</span>
+      <span class="bank-chip bc-clickable" id="bchip_3" onclick="contrClickChip(&quot;l'égoïsme&quot;,this)">l'égoïsme</span>
+      <span class="bank-chip bc-clickable" id="bchip_4" onclick="contrClickChip('le sommet',this)">le sommet</span>
+      <span class="bank-chip bc-clickable" id="bchip_5" onclick="contrClickChip(&quot;l'obscurité&quot;,this)">l'obscurité</span>
+      <span class="bank-chip bc-clickable" id="bchip_6" onclick="contrClickChip('un mensonge',this)">un mensonge</span>
+    </div>
+    <div id="contr-cards"></div>
+
+  </div>
+</div>
+
+<!-- RAPPEL DU PROTOCOLE + CAHIER NUMÉRIQUE -->
+<div class="rappel-box">
+  <div class="rappel-hdr" onclick="toggleRappel()">
+    <div>
+      <div class="rappel-title">&#128276; Rappel du Protocole de lecture</div>
+      <div class="rappel-title-en">Reading Protocol Reminder — click to show / hide</div>
+    </div>
+    <span class="rappel-arrow" id="rappel-arrow">&#9660;</span>
+  </div>
+  <div class="rappel-body" id="rappel-body">
+    <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;">
+      <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_rappel_instr.mp3')">&#128266;</button>
+      <div class="rappel-text">Lisez le texte attentivement deux fois. Ensuite, assurez-vous que le texte est masqué, puis écrivez tout ce que vous avez retenu en anglais dans votre cahier numérique.</div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px;">
+      <button class="btn-en" onclick="event.stopPropagation();playClip('B1-E-003_rappel_instr_en.mp3')">&#128266;</button>
+      <div class="rappel-text-en">Read the text carefully twice. Then, make sure the text is hidden, and write down everything you remember in English in your digital notebook.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CAHIER NUMÉRIQUE -->
+<div class="cahier-box">
+  <div class="cahier-lbl">&#128221; Votre cahier numérique / Your digital notebook</div>
+  <div style="font-size:14px;color:var(--slate);margin-bottom:8px;">Write your summary in English after reading. / Écrivez votre résumé en anglais après la lecture.</div>
+  <textarea id="recall-textarea" class="recall-textarea" placeholder="Write your summary here in English… / Écrivez votre résumé ici en anglais…"></textarea>
+  <div style="margin-top:8px;">
+    <button onclick="soumettreResume()" style="width:100%;padding:12px 20px;background:var(--coral);color:#fff;border:none;border-radius:10px;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+      &#128231; Soumettre à mon professeur / Submit to my teacher
+    </button>
+  </div>
+</div>
+
+<!-- LE TEXTE -->
+<div class="sec">
+  <div class="sec-hdr">
+    <div class="sec-icon">&#128216;</div>
+    <div class="sec-label">
+      <div class="sec-label-fr">Le texte — Page 1</div>
+      <div class="sec-label-en">Joseph Kessel · Les Alcooliques Anonymes · Page 1</div>
+    </div>
+    <button class="spk" onclick="playClip('B1-E-003_sec_texte.mp3')">&#128266;</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_sec_texte_en.mp3')">&#128266;</button>
+  </div>
+  <div class="sec-body">
+    <button class="big-listen-btn" onclick="playClip('B1-E-003_texte_p1.mp3')">
+      &#128266; Écouter la page 1 en français
+    </button>
+    <button class="toggle-text-btn" id="toggle-text-btn" onclick="toggleTexte()">
+      &#128065; Masquer / Afficher le texte
+    </button>
+    <div id="texte-body">
+      <div class="text-display">
+        <span class="dialogue-line">— Je m'appelle John N… et je suis un <strong>alcoolique</strong>.</span>
+        <span class="dialogue-line">— Je m'appelle Mary S… et je suis une <strong>alcoolique</strong>.</span>
+        <p class="text-p">Cette phrase rituelle, dite publiquement, <strong>à visage découvert</strong>, résonne à New York tous les jours de l'année et dans cinquante réunions différentes.</p>
+        <p class="text-p">N'importe qui peut entrer, écouter.</p>
+        <p class="text-p">Pour ma part, je l'ai entendue pendant des semaines, le soir, l'après-midi, le matin.</p>
+        <p class="text-p">Je l'ai entendue Park Avenue, parmi une audience de millionnaires. À Bowery, mêlé aux <strong>clochards</strong> les plus <strong>déchus</strong> du monde. À Greenwich Village — avec la <strong>bohème</strong> et les homosexuels. Dans Harlem, chez les Noirs. Au cours d'un congrès qui réunissait des médecins, des psychiatres, des prêtres, des magistrats éminents. Sur le port de Manhattan, entouré de <strong>bourlingueurs</strong> <strong>hâlés</strong> par tous les vents et tous les soleils.</p>
+        <span class="dialogue-line">— Je m'appelle William R… et je suis un alcoolique.</span>
+        <span class="dialogue-line">— Je m'appelle Agnès B… et je suis une alcoolique.</span>
+        <p class="text-p">Les noms changeaient, mais les mots qui les accompagnaient étaient toujours les mêmes.</p>
+        <p class="text-p">Je les ai entendus jusque dans les hôpitaux d'aliénés. Et même à Sing-Sing, la prison, derrière les <strong>barreaux</strong> sinistres.</p>
+        <span class="dialogue-line">— Je m'appelle Frank T… et je suis un alcoolique.</span>
+        <span class="dialogue-line">— Je m'appelle Elizabeth F… et je suis une alcoolique.</span>
+        <p class="text-p">Selon la nature de l'homme ou de la femme qui les prononçaient, les paroles avaient l'accent du fait constaté, accepté, de l'<strong>aveu</strong> difficile, de la <strong>plainte</strong> ou du cri. Selon la condition sociale, le vêtement était luxueux, ou pauvre. Selon le degré d'éducation, variaient les manières et les voix. Mais l'origine, la culture, le costume, la fortune des hommes et des femmes qui parlaient ainsi et des hommes et des femmes à qui s'adressaient leurs propos n'avaient aucune importance. Ils étaient tous unis par un lien commun, plus fort que celui d'un milieu, d'une race, d'une famille, ou même d'un amour. Blancs ou Noirs, <strong>opulents</strong> ou misérables, illettrés ou savants, ils étaient solidaires, ils étaient frères à jamais, parce qu'ils avaient subi le même <strong>mal dévorant</strong> et qu'ils avaient laissé aux griffes du monstre leur chair et leur âme. Ils étaient tous descendus au tréfonds de l'abîme et s'ils avaient pu remonter à la clarté qui luit pour le commun des hommes, ils le devaient entièrement, uniquement, à cette solidarité, à cette fraternité.</p>
+        <span class="dialogue-line">— Je m'appelle James W… et je suis un alcoolique.</span>
+        <span class="dialogue-line">— Je m'appelle Louise D… et je suis une alcoolique.</span>
+        <p class="text-p">Extraordinaire <strong>litanie</strong> ! Elle m'obsède tandis que j'écris ces lignes. Car elle a scandé sans répit la découverte peut-être la plus étonnante et la plus <strong>poignante</strong> qu'il m'ait été donné de faire au cours d'une existence consacrée pourtant à la recherche de l'exceptionnel.</p>
+        <div class="text-sep">* * *</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QCM -->
+<div class="sec">
+  <div class="sec-hdr">
+    <div class="sec-icon">&#9989;</div>
+    <div class="sec-label">
+      <div class="sec-label-fr">QCM · Vérification de la lecture</div>
+      <div class="sec-label-en">Comprehension Check</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_qcm_instr.mp3')">&#128266;</button>
+        <div class="instr-fr">Questions à Choix Multiples — QCM. Réponds aux questions pour vérifier ta compréhension du texte. Clique sur la bonne réponse.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_qcm_instr_en.mp3')">&#128266;</button>
+        <div class="instr-en">Multiple Choice Questions — MCQ. Answer the questions to check your understanding. Click the correct answer.</div>
+      </div>
+    </div>
+    <div id="qcm-cards"></div>
+  </div>
+</div>
+
+<!-- RÉVISION GRAMMATICALE -->
+<div class="sec">
+  <div class="sec-hdr" style="background:var(--ltPurple);">
+    <div class="sec-icon">&#128218;</div>
+    <div class="sec-label">
+      <div class="sec-label-fr" style="color:var(--purple);">Exercices de Révision Grammaticale</div>
+      <div class="sec-label-en">Grammar Review Exercises</div>
+    </div>
+    <button class="spk" onclick="playClip('B1-E-003_sec_rev.mp3')">&#128266;</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_sec_rev_en.mp3')">&#128266;</button>
+  </div>
+  <div class="sec-body">
+
+    <!-- EX A — PRONOMS -->
+    <div style="margin-bottom:6px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+        <span style="font-size:16px;font-weight:bold;color:var(--purple);">Exercice A</span>
+      </div>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exA_instr.mp3')">&#128266;</button>
+        <div class="instr-fr">Regarde dans le texte où se trouvent les pronoms de l'exercice et choisis quelles phrases ou quels mots ils remplacent.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exA_instr_en.mp3')">&#128266;</button>
+        <div class="instr-en">Look in the text to find the pronouns in the exercise, and identify which sentences or words they replace.</div>
+      </div>
+    </div>
+    <div id="pron-cards"></div>
+
+    <!-- LES TEMPS DU VERBE (conservé) -->
+    <div style="border-top:2px solid var(--div);margin:18px 0 14px;padding-top:14px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+        <span style="font-size:16px;font-weight:bold;color:var(--green);">&#9200;&#65039; Les temps du verbe</span>
+        <button class="spk" onclick="playClip('B1-E-003_exc.mp3')" style="font-size:13px;padding:5px 10px;">&#128266; FR</button>
+        <button class="spk-en" onclick="playClip('B1-E-003_exc_en.mp3')">&#128266; EN</button>
+      </div>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_a.mp3')">&#128266;</button>
+        <div class="instr-fr">Série A — Lis la phrase. Identifie le temps du verbe en gras. Clique pour vérifier.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_a_en.mp3')">&#128266;</button>
+        <div class="instr-en">Series A — Read the sentence. Identify the tense of the bold verb. Click to check.</div>
+      </div>
+    </div>
+    <div id="tense-a"></div>
+    <div class="note-box" style="margin-top:4px;">
+      <strong>&#128276; Note :</strong> Le texte contient aussi des formes comme <em>avaient subi, avaient laissé, étaient descendus</em>. Ce sont des verbes au <strong>plus-que-parfait</strong> — un temps du passé que nous étudierons plus tard. / <em>These are verbs in the <strong>pluperfect</strong> — a past tense we will study later.</em>
+    </div>
+    <div class="instr" style="margin-top:14px;">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_b.mp3')">&#128266;</button>
+        <div class="instr-fr">Série B — Lis la phrase de base. Transforme-la aux cinq temps que tu connais. Dis chaque phrase à voix haute.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_b_en.mp3')">&#128266;</button>
+        <div class="instr-en">Series B — Read the base sentence. Transform it using the five tenses you know. Say each sentence aloud.</div>
+      </div>
+    </div>
+    <div style="margin-bottom:8px;font-size:14px;color:var(--slate);display:flex;align-items:center;gap:6px;">
+      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base1.mp3')">&#128266;</button>
+      <strong>Phrase de base 1 :</strong> « Les personnes parlent dans une réunion. »
+    </div>
+    <table class="trans-table">
+      <thead><tr><th>Temps</th><th>Phrase</th></tr></thead>
+      <tbody>
+        <tr><td class="trans-label"><span class="tense-dot dot-present"></span>Présent</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r1',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r1"> Les personnes <strong>parlent</strong> dans une réunion.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-pc"></span>Passé composé</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r2',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r2"> Les personnes <strong>ont parlé</strong> dans une réunion.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-imp"></span>Imparfait</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r3',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r3"> Les personnes <strong>parlaient</strong> dans une réunion.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-fp"></span>Futur proche</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r4',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r4"> Les personnes <strong>vont parler</strong> dans une réunion.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-fs"></span>Futur simple</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r5',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r5"> Les personnes <strong>parleront</strong> dans une réunion.</span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-bottom:8px;font-size:14px;color:var(--slate);display:flex;align-items:center;gap:6px;">
+      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base2.mp3')">&#128266;</button>
+      <strong>Phrase de base 2 :</strong> « Ils écoutent les autres. »
+    </div>
+    <table class="trans-table">
+      <thead><tr><th>Temps</th><th>Phrase</th></tr></thead>
+      <tbody>
+        <tr><td class="trans-label"><span class="tense-dot dot-present"></span>Présent</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r1',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r1"> Ils <strong>écoutent</strong> les autres.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-pc"></span>Passé composé</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r2',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r2"> Ils <strong>ont écouté</strong> les autres.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-imp"></span>Imparfait</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r3',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r3"> Ils <strong>écoutaient</strong> les autres.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-fp"></span>Futur proche</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r4',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r4"> Ils <strong>vont écouter</strong> les autres.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-fs"></span>Futur simple</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r5',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r5"> Ils <strong>écouteront</strong> les autres.</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- EX B — PC ET IMPARFAIT -->
+    <div style="border-top:2px solid var(--div);margin:18px 0 14px;padding-top:14px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+        <span style="font-size:16px;font-weight:bold;color:var(--purple);">Exercice B</span>
+      </div>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exB_instr.mp3')">&#128266;</button>
+        <div class="instr-fr">Regarde dans le texte où se trouvent les verbes conjugués au Passé-Composé et à l'Imparfait. Clique sur la forme verbale correcte dans la banque de mots.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exB_instr_en.mp3')">&#128266;</button>
+        <div class="instr-en">Look in the text to find the verbs conjugated in the passé composé and the imperfect. Click the correct verb form from the word bank.</div>
+      </div>
+    </div>
+    <div id="pcimp-cards"></div>
+
+    <!-- EX C — MOTS INVARIABLES -->
+    <div style="border-top:2px solid var(--div);margin:18px 0 14px;padding-top:14px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+        <span style="font-size:16px;font-weight:bold;color:var(--purple);">Exercice C</span>
+      </div>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exC_instr.mp3')">&#128266;</button>
+        <div class="instr-fr">Mots Invariables et outils de liaison. Retrouve le mot du texte qui correspond à chaque définition. Clique d'abord sur une case réponse, puis sur le mot que tu choisis dans la banque de mots.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exC_instr_en.mp3')">&#128266;</button>
+        <div class="instr-en">Invariable words and connectors. Find the word from the text that matches each definition. First click on an answer box, then click on the word you choose from the word bank.</div>
+      </div>
+    </div>
+    <div class="word-bank">
+      <strong style="font-size:13px;color:var(--slate);margin-right:4px;">Banque :</strong>
+      <span class="bank-chip bc-clickable" id="invchip_0" onclick="invClickChip(&quot;n'importe qui&quot;,this)">n'importe qui</span>
+      <span class="bank-chip bc-clickable" id="invchip_1" onclick="invClickChip('même',this)">même</span>
+      <span class="bank-chip bc-clickable" id="invchip_2" onclick="invClickChip('aucun',this)">aucun</span>
+      <span class="bank-chip bc-clickable" id="invchip_3" onclick="invClickChip('selon',this)">selon</span>
+      <span class="bank-chip bc-clickable" id="invchip_4" onclick="invClickChip('parmi',this)">parmi</span>
+      <span class="bank-chip bc-clickable" id="invchip_5" onclick="invClickChip('jusque dans',this)">jusque dans</span>
+      <span class="bank-chip bc-clickable" id="invchip_6" onclick="invClickChip('à jamais',this)">à jamais</span>
+      <span class="bank-chip bc-clickable" id="invchip_7" onclick="invClickChip('pour ma part',this)">pour ma part</span>
+    </div>
+    <div id="inv-cards"></div>
+
+  </div>
+</div>
+
+<!-- REFORMULATION GUIDÉE (conservé) -->
+<div class="sec">
+  <div class="sec-hdr">
+    <div class="sec-icon">&#128257;</div>
+    <div class="sec-label">
+      <div class="sec-label-fr">Exercice D — Reformulation guidée</div>
+      <div class="sec-label-en">Guided reformulation · Simplify and reuse</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exd_instr_a.mp3')">&#128266;</button>
+        <div class="instr-fr">Série A — Lis la phrase du texte. Reformule-la avec des mots plus simples. Clique pour voir un modèle.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exd_instr_a_en.mp3')">&#128266;</button>
+        <div class="instr-en">Series A — Read the phrase from the text. Reformulate it with simpler words. Click to see a model.</div>
+      </div>
+    </div>
+    <div id="ref-a"></div>
+    <div class="instr" style="margin-top:18px;">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exd_instr_b.mp3')">&#128266;</button>
+        <div class="instr-fr">Série B — Lis la phrase. Clique pour voir un nouveau contexte. Ensuite, crée ton propre exemple à l'oral.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exd_instr_b_en.mp3')">&#128266;</button>
+        <div class="instr-en">Series B — Read the sentence. Click to see a new context. Then create your own example orally.</div>
+      </div>
+    </div>
+    <div id="ref-b"></div>
+  </div>
+</div>
+
+<!-- DISCUSSION PERSONNELLE (conservé) -->
+<div class="sec">
+  <div class="sec-hdr">
+    <div class="sec-icon">&#128483;&#65039;</div>
+    <div class="sec-label">
+      <div class="sec-label-fr">Exercice F — Conversation en classe / Préparation</div>
+      <div class="sec-label-en">Classroom Conversation / Preparation</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exf_instr.mp3')">&#128266;</button>
+        <div class="instr-fr">Utilise les amorces et les mots en vrac pour préparer la discussion en classe à l'oral. Pour chaque question, rédige au moins trois phrases, ou plus si tu le peux.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exf_instr_en.mp3')">&#128266;</button>
+        <div class="instr-en">Use the sentence starters and word bank to prepare for the oral class discussion. For each question, write at least three sentences—or more if you can.</div>
+      </div>
+    </div>
+    <div id="disc-cards"></div>
+    <button onclick="soumettreAuProf()" style="margin-top:18px;width:100%;padding:14px 20px;background:var(--coral);color:#fff;border:none;border-radius:12px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;">
+      &#128231; Soumettre à mon professeur / Submit to my teacher
+    </button>
+  </div>
+</div>
+
+<!-- VERSION ANGLAISE 🇺🇸 (conservé, Stars and Stripes) -->
+<div class="sec" id="sec-en-version">
+  <div class="sec-hdr en-ver-toggle-hdr" style="background:var(--navy);" onclick="toggleEnVersion()">
+    <div class="sec-icon">&#127482;&#127480;</div>
+    <div class="sec-label">
+      <div class="sec-label-fr" style="color:#fff;">Version anglaise — Page 1 <span id="en-ver-arrow">&#9660;</span></div>
+      <div class="sec-label-en" style="color:#9AAFCC;">English version · Click to show / hide</div>
+    </div>
+    <button class="spk" onclick="event.stopPropagation();playClip('B1-E-003_sec_en.mp3')" style="background:rgba(255,255,255,0.15);">&#128266;</button>
+    <button class="spk-en" onclick="event.stopPropagation();playClip('B1-E-003_sec_en_en.mp3')">&#128266;</button>
+  </div>
+  <div class="sec-body" id="en-ver-body" style="display:none;">
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_en_instr.mp3')">&#128266;</button>
+        <div class="instr-fr">Lis la version anglaise. Compare-la avec le texte français. Repère les similitudes (FR : <em>rituel</em> / EN : <em>ritual</em>) ou les différences de vocabulaire (FR : <em>N'importe qui</em> / EN : <em>Anyone</em>).</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_en_instr_en.mp3')">&#128266;</button>
+        <div class="instr-en">Read the English version. Compare it with the French text. Identify the similarities (FR: <em>rituel</em> / EN: <em>ritual</em>) or differences in vocabulary (FR: <em>N'importe qui</em> / EN: <em>Anyone</em>).</div>
+      </div>
+    </div>
+    <button class="big-listen-btn" style="background:var(--navy);" onclick="playClip('B1-E-003_texte_p1_en.mp3')">
+      &#128266; Listen to page 1 in English
+    </button>
+    <div class="en-text-box">
+      <span class="en-dialogue-line">— My name is John N… and I am an alcoholic.</span>
+      <span class="en-dialogue-line">— My name is Mary S… and I am an alcoholic.</span>
+      <p class="en-p">This ritual phrase, spoken publicly, openly, echoes through New York every day of the year, in fifty different meetings. Anyone can walk in and listen. For my part, I heard it for weeks — in the evenings, in the afternoons, in the mornings. I heard it on Park Avenue, among an audience of millionaires. At the Bowery, mingled with the most destitute vagrants in the world. In Greenwich Village — with bohemians and homosexuals. In Harlem, among the Black community. At a conference that brought together doctors, psychiatrists, priests, and distinguished magistrates. At the port of Manhattan, surrounded by weathered sailors tanned by every wind and every sun.</p>
+      <span class="en-dialogue-line">— My name is William R… and I am an alcoholic.</span>
+      <span class="en-dialogue-line">— My name is Agnes B… and I am an alcoholic.</span>
+      <p class="en-p">The names changed, but the words that accompanied them were always the same. I heard them even in mental hospitals. And even at Sing-Sing prison, behind its grim bars.</p>
+      <span class="en-dialogue-line">— My name is Frank T… and I am an alcoholic.</span>
+      <span class="en-dialogue-line">— My name is Elizabeth F… and I am an alcoholic.</span>
+      <p class="en-p">Depending on the nature of the man or woman who spoke them, the words carried the tone of an acknowledged, accepted fact, of a difficult confession, of a lament, or of a cry. Depending on social background, the clothing was luxurious or poor. Depending on their level of education, their manners and their voices varied. But the origin, the culture, the dress, the fortune of the men and women who spoke in this way — and of those to whom their words were addressed — had no importance whatsoever. They were all united by a common bond, stronger than that of class, race, family, or even love. White or Black, wealthy or destitute, illiterate or educated, they were united, they were brothers and sisters forever — because they had suffered the same consuming affliction and had surrendered their flesh and their soul to the claws of the monster. They had all descended to the very bottom of the abyss, and if they had been able to rise back toward the light that shines for ordinary people, they owed it entirely, solely, to this solidarity, to this brotherhood.</p>
+      <span class="en-dialogue-line">— My name is James W… and I am an alcoholic.</span>
+      <span class="en-dialogue-line">— My name is Louise D… and I am an alcoholic.</span>
+      <p class="en-p">Extraordinary litany! It haunts me as I write these lines. For it has punctuated, without respite, what is perhaps the most astonishing and most poignant discovery I have ever made in the course of a life devoted to the pursuit of the exceptional.</p>
+      <div class="en-sep">* * *</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<script src="/js/audio.js"></script>
+<script>
+// ── AUDIO ──
+let _ca=null,_caSrc=null;
+function playClip(src){
+  if(_ca&&_caSrc===src&&!_ca.paused){_ca.pause();return;}
+  if(_ca&&_caSrc===src&&_ca.paused&&_ca.currentTime>0){_ca.play().catch(()=>{});return;}
+  if(_ca){_ca.pause();_ca.currentTime=0;}
+  const a=new Audio(src);_ca=a;_caSrc=src;
+  a.onended=()=>{_ca=null;_caSrc=null;};
+  a.play().catch(()=>{});
+}
+
+// ── TOGGLES ──
+function toggleMethod(){
+  const b=document.getElementById('method-body');
+  const ar=document.getElementById('method-arrow');
+  b.classList.toggle('open');
+  ar.innerHTML=b.classList.contains('open')?'&#9650;':'&#9660;';
+}
+function toggleRappel(){
+  const b=document.getElementById('rappel-body');
+  const ar=document.getElementById('rappel-arrow');
+  b.classList.toggle('open');
+  ar.innerHTML=b.classList.contains('open')?'&#9650;':'&#9660;';
+}
+function toggleTexte(){
+  const b=document.getElementById('texte-body');
+  const isHidden=b.style.display==='none';
+  b.style.display=isHidden?'block':'none';
+}
+function toggleEnVersion(){
+  const body=document.getElementById('en-ver-body');
+  const arrow=document.getElementById('en-ver-arrow');
+  const open=body.style.display==='none'||body.style.display==='';
+  body.style.display=open?'block':'none';
+  arrow.innerHTML=open?'&#9650;':'&#9660;';
+}
+
+// ── TRANSFORMATION REVEAL ──
+function revealTrans(id,btn){
+  const el=document.getElementById(id);
+  el.classList.toggle('shown');
+  const open=el.classList.contains('shown');
+  btn.innerHTML=open?'&#128065; Cacher':'&#128065; Voir';
+  btn.classList.toggle('open',open);
+}
+
+// ── TENSES ──
+function toggleTense(bid,nid){
+  const b=document.getElementById(bid);
+  b.classList.toggle('show');
+  if(nid){const n=document.getElementById(nid);if(n)n.classList.toggle('show');}
+}
+
+// ── VOCAB MATCH DATA ──
+const VM=[
+  {id:'A',word:'un alcoolique',quote:'— Je m\'appelle William R… et je suis un alcoolique',defNum:2,def:'une personne malade qui boit trop d\'alcool et a une addiction à l\'alcool',slug:'A'},
+  {id:'B',word:'un clochard',quote:'À Bowery, mêlé aux clochards les plus déchus du monde',defNum:1,def:'une personne sans abri, qui vit dans la rue (pauvre)',slug:'B'},
+  {id:'C',word:'des barreaux',quote:'Et même à Sing-Sing, la prison, derrière les barreaux sinistres',defNum:4,def:'les tiges de métal d\'une cellule / le lieu où on enferme les criminels',slug:'C'},
+  {id:'D',word:'opulent',quote:'Blancs ou Noirs, opulents ou misérables…',defNum:3,def:'très riche (contraire de misérable)',slug:'D'},
+  {id:'E',word:'un bourlingueur',quote:'entouré de bourlingueurs hâlés par tous les vents et tous les soleils',defNum:8,def:'un voyageur qui a beaucoup parcouru le monde',slug:'E'},
+  {id:'F',word:'déchu',quote:'À Bowery, mêlé aux clochards les plus déchus du monde',defNum:5,def:'qui a perdu sa dignité ou sa situation sociale',slug:'F'},
+  {id:'G',word:'la bohème',quote:'À Greenwich Village — avec la bohème…',defNum:6,def:'communauté d\'artistes et de marginaux libre et insouciante',slug:'G'},
+  {id:'H',word:'hâlé',quote:'entouré de bourlingueurs hâlés par tous les vents et tous les soleils',defNum:7,def:'bruni par le soleil, le teint bronzé',slug:'H'},
+  {id:'I',word:'une griffe',quote:'ils avaient laissé aux griffes du monstre leur chair et leur âme',defNum:11,def:'la marque ou la signature distinctive de quelqu\'un',slug:'I'},
+  {id:'J',word:'un aveu',quote:'les paroles avaient l\'accent de l\'aveu difficile',defNum:12,def:'l\'action de reconnaître et de dire une vérité cachée',slug:'J'},
+  {id:'K',word:'une plainte',quote:'les paroles avaient l\'accent de la plainte ou du cri',defNum:9,def:'l\'expression d\'une douleur ou d\'un mécontentement',slug:'K'},
+  {id:'L',word:'une litanie',quote:'Extraordinaire litanie !',defNum:10,def:'une répétition longue et monotone',slug:'L'},
+  {id:'M',word:'poignant(e)',quote:'la découverte la plus étonnante et la plus poignante',defNum:13,def:'qui cause une émotion vive et une tristesse profonde',slug:'M'},
+  {id:'N',word:'à visage découvert',quote:'Cette phrase rituelle, dite publiquement, à visage découvert',defNum:15,def:'se montrer sans masque, sans cacher son identité — parler franchement',slug:'N'},
+  {id:'O',word:'le mal dévorant',quote:'parce qu\'ils avaient subi le même mal dévorant',defNum:14,def:'une souffrance, une addiction ou une maladie grave qui détruit progressivement une personne de l\'intérieur',slug:'O'},
+];
+
+// Fixed shuffle of defNums 1-15 for right column display order
+const VM_DEF_ORDER=[7,3,11,1,14,8,5,12,4,9,13,6,15,2,10];
+// Map defNum → def text
+const VM_DEF_MAP={};
+VM.forEach(v=>VM_DEF_MAP[v.defNum]=v.def);
+// Map defNum → slug that owns it
+const VM_DEF_SLUG={};
+VM.forEach(v=>VM_DEF_SLUG[v.defNum]=v.slug);
+
+let _vmSelWord=null; // slug of selected word card
+const _vmMatchedWords=new Set(); // slugs matched correctly
+const _vmMatchedDefs=new Set(); // defNums matched correctly
+
+function renderVM(){
+  const rows=VM.map((v,i)=>{
+    const n=VM_DEF_ORDER[i];
+    return `
+      <div class="vm-word-card" id="vmw_${v.slug}" onclick="vmClickWord('${v.slug}',this)">
+        <div style="display:flex;align-items:flex-start;gap:8px;">
+          <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_vm_${v.slug}.mp3')" style="flex-shrink:0;">&#128266;</button>
+          <div>
+            <div style="font-size:16px;font-weight:bold;color:var(--dark);">${v.word}</div>
+            <div style="font-size:13px;color:var(--slate);font-style:italic;margin-top:3px;">« ${v.quote} »</div>
+          </div>
+        </div>
+      </div>
+      <div class="vm-def-card" id="vmd_${n}" onclick="vmClickDef(${n},this)">
+        <div style="display:flex;align-items:flex-start;gap:6px;">
+          <span class="vm-defnum-badge" id="vmbadge_${n}">${n}</span>
+          <span>${VM_DEF_MAP[n]}</span>
+        </div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('vm-cards').innerHTML=`
+    <div class="vm-match-hint">&#128073; Clique sur un mot (gauche) &#8594; puis sur la définition (droite).</div>
+    <div class="vm-match-grid">
+      <div class="vm-col-hdr">Colonne A — Mots du texte</div>
+      <div class="vm-col-hdr">Colonne B — Définitions</div>
+      ${rows}
+    </div>`;
+}
+
+function vmClickWord(slug, el){
+  if(_vmMatchedWords.has(slug)) return;
+  if(_vmSelWord===slug){
+    // deselect
+    el.classList.remove('vm-selected');
+    _vmSelWord=null;
+    return;
+  }
+  document.querySelectorAll('.vm-word-card.vm-selected').forEach(c=>c.classList.remove('vm-selected'));
+  _vmSelWord=slug;
+  el.classList.add('vm-selected');
+}
+
+function vmClickDef(defNum, el){
+  if(_vmMatchedDefs.has(defNum)) return;
+  if(!_vmSelWord) return;
+  const word=VM.find(v=>v.slug===_vmSelWord);
+  const correct=word && word.defNum===defNum;
+  const wordEl=document.getElementById('vmw_'+_vmSelWord);
+
+  if(correct){
+    wordEl.classList.remove('vm-selected');
+    wordEl.classList.add('vm-done');
+    el.classList.add('vm-done');
+    document.getElementById('vmbadge_'+defNum).classList.add('vm-matched');
+    _vmMatchedWords.add(_vmSelWord);
+    _vmMatchedDefs.add(defNum);
+    playClip('B1-E-003_def_'+defNum+'.mp3');
+  } else {
+    wordEl.classList.add('vm-flash-wrong');
+    el.classList.add('vm-flash-wrong');
+    setTimeout(()=>{
+      wordEl.classList.remove('vm-flash-wrong','vm-selected');
+      el.classList.remove('vm-flash-wrong');
+    },600);
+  }
+  _vmSelWord=null;
+}
+
+// ── CONTRAIRES DATA ──
+const CONTR=[
+  {text:'Les millionnaires (riches)',answer:'clochards',slug:'1'},
+  {text:'Illettrés (pas d\'école)',answer:'savants',slug:'2'},
+  {text:'Opulents (très riches)',answer:'misérables',slug:'3'},
+  {text:'La solidarité (s\'entraider)',answer:'l\'égoïsme',slug:'4'},
+  {text:'L\'abîme (le point le plus bas)',answer:'le sommet',slug:'5'},
+  {text:'La clarté (la lumière)',answer:'l\'obscurité',slug:'6'},
+  {text:'Un fait (la réalité constatée)',answer:'un mensonge',slug:'7'},
+];
+let _contrActive=null; // index of active (selected) row
+const _contrDone=new Set();
+
+function renderContr(){
+  document.getElementById('contr-cards').innerHTML=`<div class="contr-2col-grid">`+CONTR.map((c,i)=>`
+    <div class="contr-row">
+      <div class="contr-target">
+        <span style="font-weight:bold;color:var(--coral);flex-shrink:0;">${i+1}.</span>
+        <span>${c.text}</span>
+        <span class="contr-ne-badge">≠</span>
+      </div>
+      <div class="contr-slot" id="cs_${i}" onclick="contrSelectRow(${i},this)">
+        <span class="contr-slot-hint">Clique ici puis sur la réponse ↑</span>
+      </div>
+    </div>`).join('')+`</div>`;
+}
+
+function contrSelectRow(i, el){
+  if(_contrDone.has(i)) return;
+  if(_contrActive===i){
+    el.classList.remove('cs-active');
+    _contrActive=null;
+    return;
+  }
+  // deselect old
+  if(_contrActive!==null){
+    const old=document.getElementById('cs_'+_contrActive);
+    if(old) old.classList.remove('cs-active');
+  }
+  _contrActive=i;
+  el.classList.add('cs-active');
+}
+
+function contrClickChip(word, chipEl){
+  if(chipEl.classList.contains('bc-used')) return;
+  if(_contrActive===null) return;
+  const i=_contrActive;
+  const slot=document.getElementById('cs_'+i);
+  const correct=CONTR[i].answer===word;
+
+  if(correct){
+    slot.innerHTML=`<button class="btn-ex" onclick="event.stopPropagation();playClip('B1-E-003_contr_${CONTR[i].slug}.mp3')" style="margin-right:8px;">&#128266;</button><strong>${word}</strong>`;
+    slot.classList.remove('cs-active');
+    slot.classList.add('cs-correct');
+    chipEl.classList.add('bc-used');
+    _contrDone.add(i);
+    _contrActive=null;
+  } else {
+    slot.innerHTML=`<span style="color:var(--coral);">${word} ✗</span>`;
+    slot.classList.add('cs-wrong');
+    setTimeout(()=>{
+      slot.innerHTML='<span class="contr-slot-hint">Clique ici puis sur la réponse ↑</span>';
+      slot.classList.remove('cs-wrong','cs-active');
+      _contrActive=null;
+    },700);
+  }
+}
+
+// ── QCM DATA ──
+const QCM=[
+  {fr:'Dans quelle ville se déroule cette scène ?',en:'In which city does this scene take place?',slug:'qcm_q1',
+   opts:['Paris','Londres','New York','Los Angeles'],correct:2},
+  {fr:'Qu\'est-ce que toutes ces personnes ont en commun ?',en:'What do all these people have in common?',slug:'qcm_q2',
+   opts:['Elles travaillent toutes dans le même hôpital.','Elles souffrent de la même maladie (l\'alcoolisme).','Elles possèdent toutes beaucoup d\'argent.','Elles font partie de la même famille de sang.'],correct:1},
+  {fr:'Quelle est la réaction des personnes face à leur situation ?',en:'What is the people\'s reaction to their situation?',slug:'qcm_q3',
+   opts:['Elles cachent toutes leur identité derrière un masque.','Elles s\'adaptent et s\'entraident de manière solidaire.','Elles sont en colère et refusent de se parler.','Elles accusent la police d\'être responsable de leur mal.'],correct:1},
+  {fr:'Dans quels types de milieux sociaux l\'auteur a-t-il entendu cette phrase ?',en:'In what kinds of social environments did the author hear this phrase?',slug:'qcm_q4',
+   opts:['Uniquement dans les quartiers très pauvres de la ville.','Seulement dans les prisons de haute sécurité.','Dans tous les milieux, des plus riches aux plus misérables.','Uniquement chez les artistes et les écrivains célèbres.'],correct:2},
+  {fr:'Qu\'indique l\'expression « à visage découvert » concernant la déclaration des personnes ?',en:'What does the expression "à visage découvert" indicate?',slug:'qcm_q5',
+   opts:['Elles parlent publiquement sans cacher qui elles sont.','Elles portent un masque médical lors des réunions.','Elles refusent de dire leur véritable nom.','Elles ne parlent que dans l\'obscurité totale.'],correct:0},
+  {fr:'Pourquoi l\'auteur dit-il qu\'ils sont « frères à jamais » ?',en:'Why does the author say they are "brothers forever"?',slug:'qcm_q6',
+   opts:['Parce qu\'ils ont tous grandi dans la même ville.','Parce qu\'ils partagent la même souffrance face à un mal dévorant.','Parce qu\'ils ont décidé de vivre ensemble dans la rue.','Parce qu\'ils ont le même niveau d\'éducation.'],correct:1},
+];
+function renderQCM(){
+  document.getElementById('qcm-cards').innerHTML=QCM.map((q,qi)=>`
+    <div class="qcm-card">
+      <div class="qcm-q-fr">
+        <span style="font-weight:bold;color:var(--coral);flex-shrink:0;">${qi+1}.</span>
+        ${q.fr}
+        <button class="btn-fr" onclick="playClip('B1-E-003_${q.slug}.mp3')" style="flex-shrink:0;margin-left:6px;">&#128266;</button>
+      </div>
+      <div class="qcm-q-en">
+        <button class="btn-en" onclick="playClip('B1-E-003_${q.slug}_en.mp3')" style="flex-shrink:0;">&#128266;</button>
+        ${q.en}
+      </div>
+      <div class="qcm-options">
+        ${q.opts.map((opt,oi)=>`<button class="qcm-opt" id="qcm_${qi}_${oi}" onclick="selectQCM(${qi},${oi},${q.correct})">${opt}</button>`).join('')}
+      </div>
+    </div>`).join('');
+}
+function selectQCM(qi,oi,correct){
+  const opts=document.querySelectorAll(`[id^="qcm_${qi}_"]`);
+  opts.forEach(b=>b.disabled=true);
+  const chosen=document.getElementById(`qcm_${qi}_${oi}`);
+  const correctBtn=document.getElementById(`qcm_${qi}_${correct}`);
+  if(oi===correct){
+    chosen.classList.add('correct');
+  } else {
+    chosen.classList.add('wrong');
+    setTimeout(()=>{chosen.classList.remove('wrong');correctBtn.classList.add('correct');},700);
+  }
+}
+
+// ── PRONOMS DATA ──
+const PRON=[
+  {sentence:'« Je <strong>l\'</strong>ai entendue »',prompt:'Le pronom <strong>l\'</strong> remplace…',
+   opts:['la phrase rituelle','les noms des personnes','les personnes alcooliques'],correct:0,
+   audio:'pron_q1'},
+  {sentence:'« Je <strong>les</strong> ai entendus »',prompt:'Le pronom <strong>les</strong> remplace…',
+   opts:['la phrase rituelle','les mots qui accompagnaient les noms','les clochards'],correct:1,
+   audio:'pron_q2'},
+  {sentence:'« les mots qui <strong>les</strong> accompagnaient »',prompt:'Le pronom <strong>les</strong> remplace…',
+   opts:['les noms','les hôpitaux','les frères'],correct:0,
+   audio:'pron_q3'},
+  {sentence:'« <strong>ils</strong> étaient solidaires »',prompt:'Le pronom <strong>ils</strong> représente…',
+   opts:['les mots','les barreaux','Blancs ou Noirs, opulents ou misérables, illettrés ou savants'],correct:2,
+   audio:'pron_q4'},
+];
+function renderPron(){
+  document.getElementById('pron-cards').innerHTML=PRON.map((p,i)=>`
+    <div class="gram-card">
+      <div class="gram-num">${i+1}.</div>
+      <div class="gram-sentence">
+        <button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3')" style="margin-right:8px;">&#128266;</button>
+        ${p.sentence}
+      </div>
+      <div class="gram-prompt">${p.prompt}</div>
+      <div class="gram-options">
+        ${p.opts.map((opt,oi)=>`<button class="gram-opt" id="pr_${i}_${oi}" onclick="selectGram('pr',${i},${oi},${p.correct})">${opt}</button>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+// ── PC/IMPARFAIT DATA ──
+const PCIMP=[
+  {context:'L\'auteur écrit :',sentence:'« Je l\'<em>[___]</em> Park Avenue »',
+   opts:['aie entendue','ai entendue','entendais'],correct:1,note:null,audio:'pcimp_q1'},
+  {context:'',sentence:'« Les noms <em>[___]</em> »',
+   opts:['ont changé','changeaient','changèrent'],correct:1,note:null,audio:'pcimp_q2'},
+  {context:'',sentence:'« mais les mots <em>[___]</em> toujours les mêmes »',
+   opts:['ont été','étaient','sont'],correct:1,note:null,audio:'pcimp_q3'},
+  {context:'',sentence:'« Blancs ou Noirs, ils <em>[___]</em> solidaires »',
+   opts:['ont été','étaient','furent'],correct:1,note:null,audio:'pcimp_q4'},
+  {context:'',sentence:'« parce qu\'ils <em>[___]</em> le même mal dévorant »',
+   opts:['ont subi','avaient subi','subissaient'],correct:1,note:'avaient subi = plus-que-parfait — un temps du passé que nous étudierons plus tard.',audio:'pcimp_q5'},
+];
+const _pcFilled={}; // qIdx → {word, chipEl, correct}
+
+function renderPCImp(){
+  document.getElementById('pcimp-cards').innerHTML=PCIMP.map((p,i)=>{
+    // replace [___] with a span blank
+    const sentenceHtml=p.sentence.replace('<em>[___]</em>',`<span class="pc-blank" id="pcblank_${i}">___</span>`);
+    const chipsHtml=p.opts.map((opt,oi)=>
+      `<button class="pc-chip" id="pcchip_${i}_${oi}" onclick="pcClickChip(${i},${oi},'${opt.replace(/'/g,"\\'")}',${p.correct}${p.note?`,'pn_${i}'`:',null'})">${opt}</button>`
+    ).join('');
+    return `
+    <div class="gram-card">
+      <div class="gram-num">${i+1}.</div>
+      ${p.context?`<div class="gram-prompt">${p.context}</div>`:''}
+      <div class="gram-sentence" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3')">&#128266;</button>
+        <span>${sentenceHtml}</span>
+      </div>
+      <div class="pc-bank">${chipsHtml}</div>
+      ${p.note?`<div class="gram-note" id="pn_${i}">&#128276; ${p.note}</div>`:''}
+    </div>`;
+  }).join('');
+}
+
+function pcClickChip(qi,oi,word,correct,noteId){
+  if(_pcFilled[qi]) return; // already answered
+  const blank=document.getElementById('pcblank_'+qi);
+  const chip=document.getElementById('pcchip_'+qi+'_'+oi);
+  if(oi===correct){
+    blank.textContent=word;
+    blank.classList.add('pc-correct');
+    chip.classList.add('pc-chip-used');
+    _pcFilled[qi]={correct:true};
+    // disable all chips for this question
+    document.querySelectorAll(`[id^="pcchip_${qi}_"]`).forEach(c=>c.classList.add('pc-chip-used'));
+  } else {
+    blank.textContent=word;
+    blank.classList.add('pc-wrong');
+    chip.classList.add('pc-chip-used');
+    setTimeout(()=>{
+      blank.textContent='___';
+      blank.classList.remove('pc-wrong');
+      chip.classList.remove('pc-chip-used');
+    },700);
+  }
+  if(noteId&&oi===correct){const n=document.getElementById(noteId);if(n)n.classList.add('show');}
+}
+
+function selectGram(pfx,qi,oi,correct,noteId){
+  const opts=document.querySelectorAll(`[id^="${pfx}_${qi}_"]`);
+  opts.forEach(b=>b.disabled=true);
+  const chosen=document.getElementById(`${pfx}_${qi}_${oi}`);
+  const correctBtn=document.getElementById(`${pfx}_${qi}_${correct}`);
+  if(oi===correct){
+    chosen.classList.add('correct');
+  } else {
+    chosen.classList.add('wrong');
+    setTimeout(()=>{chosen.classList.remove('wrong');correctBtn.classList.add('correct');},700);
+  }
+  if(noteId){const n=document.getElementById(noteId);if(n)n.classList.add('show');}
+}
+
+// ── MOTS INVARIABLES DATA ──
+const INV=[
+  {def:'Mot qui signifie « aussi » ou « jusqu\'à » dans le texte (<em>___ à Sing-Sing</em>)',answer:'même',slug:'1'},
+  {def:'Préposition qui exprime l\'intégration au milieu d\'un groupe (<em>___ une audience de millionnaires</em>)',answer:'parmi',slug:'2'},
+  {def:'Préposition complexe qui montre la limite géographique d\'un lieu (<em>___ les hôpitaux d\'aliénés</em>)',answer:'jusque dans',slug:'3'},
+  {def:'Locution adverbiale qui signifie « pour toujours / éternellement » (<em>frères ___</em>)',answer:'à jamais',slug:'4'},
+  {def:'Expression pour donner son opinion personnelle ou son témoignage propre',answer:'pour ma part',slug:'5'},
+  {def:'Pronom indéfini désignant une personne quelconque, sans importance d\'identité',answer:'n\'importe qui',slug:'6'},
+  {def:'Déterminant ou pronom qui exprime la quantité nulle (zéro élément)',answer:'aucun',slug:'7'},
+  {def:'Préposition qui signifie « d\'après » ou « en fonction de »',answer:'selon',slug:'8'},
+];
+let _invActive=null;
+const _invDone=new Set();
+function renderInv(){
+  document.getElementById('inv-cards').innerHTML=INV.map((v,i)=>`
+    <div class="inv-card">
+      <div class="inv-def">${i+1}. ${v.def}</div>
+      <div class="inv-row">
+        <span class="inv-slot" id="invslot_${i}" onclick="invSelectRow(${i},this)">&#8203;</span>
+      </div>
+    </div>`).join('');
+}
+function invSelectRow(i,el){
+  if(_invDone.has(i))return;
+  if(_invActive!==null){
+    const prev=document.getElementById('invslot_'+_invActive);
+    if(prev&&!_invDone.has(_invActive))prev.classList.remove('is-active');
+  }
+  _invActive=i;
+  el.classList.add('is-active');
+}
+function invClickChip(word,chipEl){
+  if(_invActive===null)return;
+  if(chipEl.classList.contains('bc-used'))return;
+  const i=_invActive;
+  const slot=document.getElementById('invslot_'+i);
+  if(INV[i].answer===word){
+    slot.textContent=word;
+    slot.classList.remove('is-active');
+    slot.classList.add('is-correct');
+    chipEl.classList.add('bc-used');
+    _invDone.add(i);
+    _invActive=null;
+    playClip('B1-E-003_inv_q'+INV[i].slug+'.mp3');
+  } else {
+    slot.classList.add('is-wrong');
+    setTimeout(()=>slot.classList.remove('is-wrong'),700);
+  }
+}
+
+// ── TENSES DATA ──
+const TENSES_A=[
+  {phrase:"<span class='tense-verb'>Je m'appelle</span> John N…",temps:'présent',badge:'badge-present',note:'',slug:'ts1'},
+  {phrase:"<span class='tense-verb'>Je suis</span> un alcoolique.",temps:'présent',badge:'badge-present',note:'',slug:'ts2'},
+  {phrase:"N'importe qui <span class='tense-verb'>peut</span> entrer.",temps:'présent',badge:'badge-present',note:'',slug:'ts3'},
+  {phrase:"Je l'<span class='tense-verb'>ai entendue</span> pendant des semaines.",temps:'passé composé',badge:'badge-pc',note:'',slug:'ts4'},
+  {phrase:"Les noms <span class='tense-verb'>changeaient</span>.",temps:'imparfait',badge:'badge-imp',note:'',slug:'ts5'},
+  {phrase:"Les mots <span class='tense-verb'>étaient</span> toujours les mêmes.",temps:'imparfait',badge:'badge-imp',note:'',slug:'ts6'},
+  {phrase:"Le vêtement <span class='tense-verb'>était</span> luxueux ou pauvre.",temps:'imparfait',badge:'badge-imp',note:'',slug:'ts7'},
+  {phrase:"Les manières et les voix <span class='tense-verb'>variaient</span>.",temps:'imparfait',badge:'badge-imp',note:'',slug:'ts8'},
+];
+function renderTenses(){
+  document.getElementById('tense-a').innerHTML=TENSES_A.map((t,i)=>`
+    <div class="tense-card">
+      <div class="tense-phrase"><button class="btn-fr" onclick="playClip('B1-E-003_ts_${t.slug}.mp3')">&#128266;</button><span>${t.phrase}</span></div>
+      <div class="tense-reveal">
+        <button class="reveal-btn" onclick="toggleTense('tb${i}','tn${i}')">&#128065; Voir le temps</button>
+        <span class="tense-badge ${t.badge}" id="tb${i}">${t.temps}</span>
+      </div>
+      ${t.note?`<div class="tense-note" id="tn${i}">${t.note}</div>`:''}
+    </div>`).join('');
+}
+
+// ── REFORMULATION DATA ──
+const REF_A=[
+  {original:"N'importe qui peut entrer, écouter.",simple:'Tout le monde peut entrer et écouter.',slug:'ra1'},
+  {original:"Je l'ai entendue pendant des semaines.",simple:"J'ai entendu cette phrase plusieurs fois.",slug:'ra2'},
+  {original:'Les noms changeaient, mais les mots étaient toujours les mêmes.',simple:'Les personnes étaient différentes, mais elles disaient la même chose.',slug:'ra3'},
+  {original:"Les paroles avaient l'accent de l'aveu difficile.",simple:"Les personnes parlaient comme si c'était difficile d'avouer.",slug:'ra4'},
+  {original:'Le vêtement était luxueux ou pauvre.',simple:"Certaines personnes étaient riches, d'autres pauvres.",slug:'ra5'},
+  {original:"Cela n'avait aucune importance.",simple:"Ce n'était pas important.",slug:'ra6'},
+];
+const REF_B=[
+  {original:'Ils étaient tous unis par un lien commun.',ctx:'Dans une classe, les étudiants sont unis par le même objectif.',slug:'rb1'},
+  {original:'Ils étaient solidaires.',ctx:"Dans une famille, les personnes s'entraident.",slug:'rb2'},
+  {original:'Ils avaient subi le même mal.',ctx:'Ils avaient vécu le même problème. [plus-que-parfait — à étudier plus tard]',slug:'rb3'},
+  {original:"Ils étaient descendus au tréfonds de l'abîme.",ctx:'Ils avaient connu une période très difficile.',slug:'rb4'},
+  {original:'Ils avaient pu remonter à la clarté.',ctx:'Ils avaient réussi à aller mieux.',slug:'rb5'},
+  {original:'Ils le devaient à cette solidarité.',ctx:"Ils avaient réussi grâce à l'aide des autres.",slug:'rb6'},
+];
+function renderRef(){
+  document.getElementById('ref-a').innerHTML=REF_A.map((r,i)=>`
+    <div class="ref-card">
+      <div class="ref-original"><button class="btn-fr" onclick="playClip('B1-E-003_ref_${r.slug}_orig.mp3')">&#128266;</button><em>« ${r.original} »</em></div>
+      <div class="ref-reveal-row">
+        <button class="reveal-btn" onclick="document.getElementById('rs${i}').classList.toggle('show');this.innerHTML=document.getElementById('rs${i}').classList.contains('show')?'&#128065; Cacher':'&#128065; Voir la reformulation'">&#128065; Voir la reformulation</button>
+        <span class="ref-simple" id="rs${i}"><button class="btn-ex" onclick="playClip('B1-E-003_ref_${r.slug}_simple.mp3')">&#128266;</button> ${r.simple}</span>
+      </div>
+      <div class="ref-oral">&#127908; Dis ta propre reformulation à l'oral · Say your own reformulation orally</div>
+    </div>`).join('');
+  document.getElementById('ref-b').innerHTML=REF_B.map((r,i)=>`
+    <div class="ref-card">
+      <div class="ref-original"><button class="btn-fr" onclick="playClip('B1-E-003_ref_${r.slug}_orig.mp3')">&#128266;</button><em>« ${r.original} »</em></div>
+      <div class="ref-reveal-row">
+        <button class="reveal-btn" onclick="document.getElementById('rc${i}').classList.toggle('show');this.innerHTML=document.getElementById('rc${i}').classList.contains('show')?'&#128065; Cacher':'&#128065; Voir le nouveau contexte'">&#128065; Voir le nouveau contexte</button>
+        <span class="ref-ctx" id="rc${i}"><button class="btn-ex" onclick="playClip('B1-E-003_ref_${r.slug}_ctx.mp3')">&#128266;</button> ${r.ctx}</span>
+      </div>
+      <div class="ref-oral">&#127908; Crée ton propre exemple à l'oral · Create your own example orally</div>
+    </div>`).join('');
+}
+
+// ── DISCUSSION DATA ──
+const DISC=[
+  {q:"Pourquoi est-il difficile de dire publiquement : « J'ai un problème » ?",qen:'Why is it difficult to say publicly: "I have a problem"?',slug:'dq1',
+   amorces:["Parce que…","À mon avis, c'est difficile parce que…","Une personne peut avoir peur de…","Peut-être que…"],
+   words:['honte','gêne','pudeur','prendre la parole','dévoiler son intimité','avoir peur du jugement','se sentir fragile','perdre la face','être vulnérable','reconnaître la vérité']},
+  {q:'Dans quels moments de la vie parle-t-on de soi en public ?',qen:'In what moments in life do we speak about ourselves in public?',slug:'dq2',
+   amorces:["On peut parler de soi quand…","Par exemple, lors d'un…","Dans certaines situations, comme…","Je pense que…"],
+   words:['une présentation','un entretien','une réunion','un discours','un mariage','une thérapie de groupe','un cours de langue','un témoignage']},
+  {q:"Qu'est-ce que la solidarité pour vous ?",qen:'What does solidarity mean to you?',slug:'dq3',
+   amorces:["Pour moi, la solidarité, c'est…","Je pense que la solidarité signifie…","Dans ce texte, la solidarité, c'est…","Un exemple de solidarité, c'est…"],
+   words:["s'entraider",'être uni','partager','soutenir quelqu\'un','être ensemble','surmonter un problème','ne pas être seul','une fraternité']},
+];
+function renderDisc(){
+  document.getElementById('disc-cards').innerHTML=DISC.map(d=>`
+    <div class="disc-card">
+      <div class="disc-q-fr"><button class="btn-fr" onclick="playClip('B1-E-003_${d.slug}.mp3')">&#128266;</button>${d.q}</div>
+      <div class="disc-q-en"><button class="btn-en" onclick="playClip('B1-E-003_${d.slug}_en.mp3')">&#128266;</button>${d.qen}</div>
+      <div class="disc-amorces">
+        <div class="disc-amorces-lbl">&#128073; Amorces / Sentence starters</div>
+        ${d.amorces.map(a=>`<span class="amorce">${a}</span>`).join('')}
+      </div>
+      <div class="word-bank-lbl">&#128196; Mots en vrac / Word bank</div>
+      ${d.words.map(w=>`<span class="word-chip">${w}</span>`).join('')}
+      <div style="margin-top:14px;">
+        <div style="font-size:13px;font-weight:bold;color:var(--slate);margin-bottom:6px;">&#128221; Votre cahier numérique / Your digital notebook :</div>
+        <textarea id="disc-note-${d.slug}" rows="4" style="width:100%;font-size:15px;font-family:Arial,sans-serif;border:2px solid var(--div);border-radius:8px;padding:10px;background:var(--white);color:var(--dark);resize:vertical;" placeholder="Prépare ta réponse ici… / Prepare your answer here…"></textarea>
+      </div>
+    </div>`).join('');
+}
+
+// ── SOUMETTRE AU PROFESSEUR ──
+function soumettreResume(){
+  const val=(document.getElementById('recall-textarea')||{}).value||'';
+  const subject='Cahier numérique — Résumé de lecture · Kessel B1';
+  const body='Les Alcooliques Anonymes · Joseph Kessel — Exercice B1\nRead-and-Recall — Résumé / Summary\n\n'
+    +(val.trim()||'(pas de réponse / no answer)');
+  (async function(){let ok=true;try{if(window.LEM&&window.LEM.submitWriting){ok=await window.LEM.submitWriting('B1-E-003','B1 · Lecture Kessel — Résumé',{'Résumé':body});}}catch(e){ok=false;}alert(ok!==false?'✅ Envoyé à ton professeur !':'Une erreur est survenue. Réessaie.');})();
+}
+function soumettreAuProf(){
+  const labels=['Q1 — Pourquoi est-il difficile de dire publiquement : « J\'ai un problème » ?',
+                'Q2 — Dans quels moments de la vie parle-t-on de soi en public ?',
+                'Q3 — Qu\'est-ce que la solidarité pour vous ?'];
+  const slugs=['dq1','dq2','dq3'];
+  let body='Exercice F — Conversation en classe / Preparation\n';
+  body+='Les Alcooliques Anonymes · Joseph Kessel — Exercice B1\n\n';
+  slugs.forEach((s,i)=>{
+    const val=(document.getElementById('disc-note-'+s)||{}).value||'';
+    body+=labels[i]+'\n';
+    body+=(val.trim()||'(pas de réponse / no answer)')+'\n\n';
+  });
+  const subject='Exercice F — Réponses · Kessel B1';
+  (async function(){let ok=true;try{if(window.LEM&&window.LEM.submitWriting){ok=await window.LEM.submitWriting('B1-E-003','B1 · Lecture Kessel — Exercice F',{'Exercice F':body});}}catch(e){ok=false;}alert(ok!==false?'✅ Envoyé à ton professeur !':'Une erreur est survenue. Réessaie.');})();
+}
+
+// ── INIT ──
+renderVM();
+renderContr();
+renderQCM();
+renderPron();
+renderPCImp();
+renderTenses();
+renderInv();
+renderRef();
+renderDisc();
+</script>
+<nav class="bottom-nav">
+  <a href="/index.html"><span class="ni">🏠</span><span class="nl">Accueil</span></a>
+  <a class="active" href="/french/b1/index.html"><span class="ni">🇫🇷</span><span class="nl">Français</span></a>
+  <a href="/reference/index.html"><span class="ni">📘</span><span class="nl">Référence</span></a>
+  <a href="/index.html#progress"><span class="ni">⭐</span><span class="nl">Progrès</span></a>
+</nav>
+<script type="module" src="/js/auth-guard.js"></script>
+</body>
+</html>

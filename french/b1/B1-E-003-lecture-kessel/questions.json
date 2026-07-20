@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "exercice": "B1-E-003",
+  "audioBase": "french/b1/B1-E-003-lecture-kessel/audio/",
+  "questions": [
+    {
+      "q": "« Je <strong>l'</strong>ai entendue » — Le pronom <strong>l'</strong> remplace…",
+      "options": [
+        "la phrase rituelle",
+        "les noms des personnes",
+        "les personnes alcooliques"
+      ],
+      "bonneReponse": 0,
+      "audio": "B1-E-003_pron_q1.mp3",
+      "section": "Pronoms"
+    },
+    {
+      "q": "« Je <strong>les</strong> ai entendus » — Le pronom <strong>les</strong> remplace…",
+      "options": [
+        "la phrase rituelle",
+        "les mots qui accompagnaient les noms",
+        "les clochards"
+      ],
+      "bonneReponse": 1,
+      "audio": "B1-E-003_pron_q2.mp3",
+      "section": "Pronoms"
+    },
+    {
+      "q": "« les mots qui <strong>les</strong> accompagnaient » — Le pronom <strong>les</strong> remplace…",
+      "options": [
+        "les noms",
+        "les hôpitaux",
+        "les frères"
+      ],
+      "bonneReponse": 0,
+      "audio": "B1-E-003_pron_q3.mp3",
+      "section": "Pronoms"
+    },
+    {
+      "q": "« <strong>ils</strong> étaient solidaires » — Le pronom <strong>ils</strong> représente…",
+      "options": [
+        "les mots",
+        "les barreaux",
+        "Blancs ou Noirs, opulents ou misérables, illettrés ou savants"
+      ],
+      "bonneReponse": 2,
+      "audio": "B1-E-003_pron_q4.mp3",
+      "section": "Pronoms"
+    },
+    {
+      "q": "L'auteur écrit : « Je l'<em>[___]</em> Park Avenue »",
+      "options": [
+        "aie entendue",
+        "ai entendue",
+        "entendais"
+      ],
+      "bonneReponse": 1,
+      "audio": "B1-E-003_pcimp_q1.mp3",
+      "section": "Passé composé / imparfait"
+    },
+    {
+      "q": "« Les noms <em>[___]</em> »",
+      "options": [
+        "ont changé",
+        "changeaient",
+        "changèrent"
+      ],
+      "bonneReponse": 1,
+      "audio": "B1-E-003_pcimp_q2.mp3",
+      "section": "Passé composé / imparfait"
+    },
+    {
+      "q": "« mais les mots <em>[___]</em> toujours les mêmes »",
+      "options": [
+        "ont été",
+        "étaient",
+        "sont"
+      ],
+      "bonneReponse": 1,
+      "audio": "B1-E-003_pcimp_q3.mp3",
+      "section": "Passé composé / imparfait"
+    },
+    {
+      "q": "« Blancs ou Noirs, ils <em>[___]</em> solidaires »",
+      "options": [
+        "ont été",
+        "étaient",
+        "furent"
+      ],
+      "bonneReponse": 1,
+      "audio": "B1-E-003_pcimp_q4.mp3",
+      "section": "Passé composé / imparfait"
+    },
+    {
+      "q": "« parce qu'ils <em>[___]</em> le même mal dévorant »",
+      "options": [
+        "ont subi",
+        "avaient subi",
+        "subissaient"
+      ],
+      "bonneReponse": 1,
+      "audio": "B1-E-003_pcimp_q5.mp3",
+      "section": "Passé composé / imparfait"
+    },
+    {
+      "q": "<span class='tense-verb'>Je m'appelle</span> John N… — Quel est le temps du verbe en gras ?",
+      "options": [
+        "imparfait",
+        "passé composé",
+        "présent"
+      ],
+      "bonneReponse": 2,
+      "audio": "B1-E-003_ts_ts1.mp3",
+      "section": "Les temps"
+    },
+    {
+      "q": "<span class='tense-verb'>Je suis</span> un alcoolique. — Quel est le temps du verbe en gras ?",
+      "options": [
+        "imparfait",
+        "passé composé",
+        "présent"
+      ],
+      "bonneReponse": 2,
+      "audio": "B1-E-003_ts_ts2.mp3",
+      "section": "Les temps"
+    },
+    {
+      "q": "N'importe qui <span class='tense-verb'>peut</span> entrer. — Quel est le temps du verbe en gras ?",
+      "options": [
+        "imparfait",
+        "passé composé",
+        "présent"
+      ],
+      "bonneReponse": 2,
+      "audio": "B1-E-003_ts_ts3.mp3",
+      "section": "Les temps"
+    },
+    {
+      "q": "Je l'<span class='tense-verb'>ai entendue</span> pendant des semaines. — Quel est le temps du verbe en gras ?",
+      "options": [
+        "imparfait",
+        "passé composé",
+        "présent"
+      ],
+      "bonneReponse": 1,
+      "audio": "B1-E-003_ts_ts4.mp3",
+      "section": "Les temps"
+    },
+    {
+      "q": "Les noms <span class='tense-verb'>changeaient</span>. — Quel est le temps du verbe en gras ?",
+      "options": [
+        "imparfait",
+        "passé composé",
+        "présent"
+      ],
+      "bonneReponse": 0,
+      "audio": "B1-E-003_ts_ts5.mp3",
+      "section": "Les temps"
+    },
+    {
+      "q": "Les mots <span class='tense-verb'>étaient</span> toujours les mêmes. — Quel est le temps du verbe en gras ?",
+      "options": [
+        "imparfait",
+        "passé composé",
+        "présent"
+      ],
+      "bonneReponse": 0,
+      "audio": "B1-E-003_ts_ts6.mp3",
+      "section": "Les temps"
+    },
+    {
+      "q": "Le vêtement <span class='tense-verb'>était</span> luxueux ou pauvre. — Quel est le temps du verbe en gras ?",
+      "options": [
+        "imparfait",
+        "passé composé",
+        "présent"
+      ],
+      "bonneReponse": 0,
+      "audio": "B1-E-003_ts_ts7.mp3",
+      "section": "Les temps"
+    },
+    {
+      "q": "Les manières et les voix <span class='tense-verb'>variaient</span>. — Quel est le temps du verbe en gras ?",
+      "options": [
+        "imparfait",
+        "passé composé",
+        "présent"
+      ],
+      "bonneReponse": 0,
+      "audio": "B1-E-003_ts_ts8.mp3",
+      "section": "Les temps"
+    }
+  ]
+}
