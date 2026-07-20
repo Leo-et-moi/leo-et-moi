@@ -85,3 +85,15 @@ _(aucune)_
 **À surveiller / décider (Fable)** :
 - Confirmer que les builds repassent au vert et vérifier les réglages Pages (source = branche `main`, déploiement statique).
 - **Poids** : 230 Mo / 688 MP3 et ça grimpe vite → la bascule vers un **hébergement audio externe** (Cloudflare R2, champ `audioBase` du catalogue) devient prioritaire avant d'approcher la limite ~1 Go de Pages.
+
+## 🎚️ Nouveau standard audio — décidé par Eric (20/07/2026)
+
+**Tous les nouveaux MP3 du site : 128 kbps, MONO.**
+
+Contexte : aucun standard n'avait jamais été fixé. Les 688 fichiers en ligne sont à ~230 kbps **stéréo** (défaut WavePad), soit ~112 Mo — alors que la voix est une source mono, donc un canal sur deux est une copie inutile.
+
+- Appliqué pour la 1re fois à **B1-E-003** (Kessel) : 117 fichiers, 33 Mo → **14 Mo**, sans perte perceptible.
+- **Les fichiers existants ne sont pas retouchés** : les remplacer ne récupérerait aucun espace dans l'historique Git et ne ferait qu'alourdir le dépôt.
+- Archive maître des originaux conservée dans OneDrive `_TRANSFERTS_SONNET/instr` → la décision reste réversible.
+
+**🔧 Pour Fable** : inscrire cette règle dans `docs/GUIDE_LEO-ET-MOI.md` §3 et dans `docs/DIRECTIVES_CREATION_SONNET.md` §2 (nommage/format audio). Elle divise par ~2 la vitesse à laquelle l'audio approche la limite ~1 Go de Pages, en attendant l'hébergement externe.
