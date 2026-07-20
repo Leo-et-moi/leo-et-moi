@@ -103,7 +103,7 @@
       "section": "Passé composé / imparfait"
     },
     {
-      "q": "<span class='tense-verb'>Je m'appelle</span> John N… — Quel est le temps du verbe en gras ?",
+      "q": "<b>Je m'appelle</b> John N… — Quel est le temps du verbe en gras ?",
       "options": [
         "imparfait",
         "passé composé",
@@ -114,7 +114,7 @@
       "section": "Les temps"
     },
     {
-      "q": "<span class='tense-verb'>Je suis</span> un alcoolique. — Quel est le temps du verbe en gras ?",
+      "q": "<b>Je suis</b> un alcoolique. — Quel est le temps du verbe en gras ?",
       "options": [
         "imparfait",
         "passé composé",
@@ -125,7 +125,7 @@
       "section": "Les temps"
     },
     {
-      "q": "N'importe qui <span class='tense-verb'>peut</span> entrer. — Quel est le temps du verbe en gras ?",
+      "q": "N'importe qui <b>peut</b> entrer. — Quel est le temps du verbe en gras ?",
       "options": [
         "imparfait",
         "passé composé",
@@ -136,7 +136,7 @@
       "section": "Les temps"
     },
     {
-      "q": "Je l'<span class='tense-verb'>ai entendue</span> pendant des semaines. — Quel est le temps du verbe en gras ?",
+      "q": "Je l'<b>ai entendue</b> pendant des semaines. — Quel est le temps du verbe en gras ?",
       "options": [
         "imparfait",
         "passé composé",
@@ -147,7 +147,7 @@
       "section": "Les temps"
     },
     {
-      "q": "Les noms <span class='tense-verb'>changeaient</span>. — Quel est le temps du verbe en gras ?",
+      "q": "Les noms <b>changeaient</b>. — Quel est le temps du verbe en gras ?",
       "options": [
         "imparfait",
         "passé composé",
@@ -158,7 +158,7 @@
       "section": "Les temps"
     },
     {
-      "q": "Les mots <span class='tense-verb'>étaient</span> toujours les mêmes. — Quel est le temps du verbe en gras ?",
+      "q": "Les mots <b>étaient</b> toujours les mêmes. — Quel est le temps du verbe en gras ?",
       "options": [
         "imparfait",
         "passé composé",
@@ -169,7 +169,7 @@
       "section": "Les temps"
     },
     {
-      "q": "Le vêtement <span class='tense-verb'>était</span> luxueux ou pauvre. — Quel est le temps du verbe en gras ?",
+      "q": "Le vêtement <b>était</b> luxueux ou pauvre. — Quel est le temps du verbe en gras ?",
       "options": [
         "imparfait",
         "passé composé",
@@ -180,7 +180,7 @@
       "section": "Les temps"
     },
     {
-      "q": "Les manières et les voix <span class='tense-verb'>variaient</span>. — Quel est le temps du verbe en gras ?",
+      "q": "Les manières et les voix <b>variaient</b>. — Quel est le temps du verbe en gras ?",
       "options": [
         "imparfait",
         "passé composé",
