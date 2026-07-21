@@ -3,6 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <title>Exercice A1 — Dialogue avec moi — Réagir et relancer</title>
+<link rel="stylesheet" href="/css/site.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -15,13 +16,6 @@ html{font-size:18px;}
 body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
 
 /* ── TOP BAR ── */
-.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);padding:14px 18px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;}
-.top-title{font-size:20px;font-weight:bold;color:#fff;}
-.top-title span{color:var(--coral);}
-.top-sub-fr{font-size:14px;color:#9DC8E8;margin-top:2px;font-weight:600;}
-.top-sub-en{font-size:12px;color:#6A9AB8;margin-top:1px;}
-.top-btns{display:flex;gap:8px;flex-shrink:0;}
 /* ── AUDIO BUTTONS ── */
 /* Large FR button — section headers (dark bg) */
 .spk{background:none;border:2px solid rgba(255,255,255,0.3);border-radius:20px;padding:6px 12px;
@@ -42,6 +36,8 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 
 /* ── LAYOUT ── */
 .main{max-width:740px;margin:0 auto;padding:20px 14px 60px;}
+.lvl-tag{display:inline-block;background:var(--a1);color:#fff;font-size:13px;font-weight:bold;padding:2px 12px;border-radius:20px;margin-bottom:6px;}
+.back-link{margin-bottom:4px;}
 .panel-head{margin:16px 0 20px;}
 .panel-title{font-size:24px;font-weight:bold;color:var(--dark);}
 .panel-sub{font-size:14px;color:var(--slate);margin-top:2px;}
@@ -198,25 +194,26 @@ body{padding-bottom:80px;}
 </head>
 <body data-item-id="A1-E-005">
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div>
-    <div class="top-title">Leo<span>-et-moi</span></div>
-    <div class="top-sub-fr">Exercice A1 · Réagir et relancer une conversation</div>
-    <div class="top-sub-en">Exercise A1 · Responding and Keeping a Conversation Going</div>
-  </div>
-  <div class="top-btns">
-    <button class="spk" onclick="playClip('A1-E-005_titre.mp3', this)">&#128266; FR</button>
-    <button class="spk-en" onclick="playClip('A1-E-005_titre_en.mp3', this)">&#128266; EN</button>
-  </div>
-</div>
+<!-- TOP BAR (modèle standard du site) -->
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
 
 <div class="main">
+<a class="back-link" href="/french/a1/index.html">&#8592; Niveau A1</a>
+<div class="lvl-tag">A1</div>
 
   <!-- PAGE TITLE -->
   <div class="panel-head">
-    <div class="panel-title">Dialogue avec moi</div>
-    <div class="panel-sub">Niveau A1 · Préparation avant le cours</div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+      <div>
+        <div class="panel-title">Exercice A1 · Réagir et relancer une conversation</div>
+        <div class="panel-sub">Exercise A1 · Responding and Keeping a Conversation Going</div>
+        <div class="panel-sub">Dialogue avec moi · Préparation avant le cours</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-shrink:0;align-items:center;">
+        <button class="btn-fr" onclick="playClip('A1-E-005_titre.mp3', this)">&#128266; FR</button>
+        <button class="btn-en" onclick="playClip('A1-E-005_titre_en.mp3', this)">&#128266; EN</button>
+      </div>
+    </div>
   </div>
 
   <!-- OBJECTIVE BOX -->

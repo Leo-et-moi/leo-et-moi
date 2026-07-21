@@ -59,7 +59,8 @@ Juste en dessous, à l'intérieur de `.main`, un **lien de retour** vers la page
 - **Jamais de voix synthétique.** Tous les audios sont des **MP3 enregistrés par Eric** : tu fournis le **script** (nom de fichier + texte), pas le son.
 - **Design Bleu & Corail** : Arial ≥ 18 px, fond crème, cibles tactiles ≥ 44 px, mobile-first.
 - **Pédagogie / choix de contenu** → c'est **Eric** qui décide (thème, niveau, composition). Tu proposes, il valide.
-- **Contenu original uniquement** : ne reproduis jamais de textes, dialogues ou exercices tirés de manuels ou de sites sous droits d'auteur. Les vidéos = liens YouTube en embed seulement, jamais de fichier vidéo.
+- **Extraits d'œuvres** : l'usage pédagogique d'**extraits** est admis (exception d'enseignement / courte citation) — le site n'a aucune finalité commerciale et l'accès est réservé aux élèves connectés. Cite toujours **auteur, titre et année**, et limite-toi à un extrait, jamais une œuvre entière. Décision d'Eric (20/07/2026), qui remplace l'ancienne interdiction générale de reproduire des textes sous droits.
+- **Vidéos** : liens YouTube en embed seulement, jamais de fichier vidéo hébergé.
 - **Boutons EN** : tu fournis toujours le script anglais, mais c'est Opus qui câble le bouton 🔊 EN **uniquement quand le fichier `_en.mp3` existe** (jamais de bouton muet). Le rétroactif EN des contenus existants est en pause (décision d'Eric, voir PENDING).
 
 ---
