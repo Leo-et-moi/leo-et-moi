@@ -97,3 +97,14 @@ Contexte : aucun standard n'avait jamais été fixé. Les 688 fichiers en ligne 
 - Archive maître des originaux conservée dans OneDrive `_TRANSFERTS_SONNET/instr` → la décision reste réversible.
 
 **🔧 Pour Fable** : inscrire cette règle dans `docs/GUIDE_LEO-ET-MOI.md` §3 et dans `docs/DIRECTIVES_CREATION_SONNET.md` §2 (nommage/format audio). Elle divise par ~2 la vitesse à laquelle l'audio approche la limite ~1 Go de Pages, en attendant l'hébergement externe.
+
+## 🔊 Pause sur les boutons audio — pages restantes (20/07/2026)
+
+Le moteur `js/audio.js` gère pause/reprise **uniquement si la page transmet le bouton** : `playClip('fichier.mp3', this)`. Sans le 2e argument, un re-clic relance le son au lieu de le mettre en pause.
+
+Corrigé le 20/07 sur : **B1-E-003** (59), **A1-E-005** (115), **A1-E-006** (125).
+
+Restent des appels sans bouton (à reprendre lors d'un passage sur ces pages) :
+`index.html` (1/7), `french/a2/les-nombres/exercices.html` (1/1), `french/a2/lire-invitation/index.html` (2/5), `french/a2/A2-L-001-imperatif/index.html` (2/24), `french/b1/interrogatifs/exercices-b1.html` (2/5), `french/b1/lire-faire-part/index.html` (5/9), `french/b2/interrogatifs/index.html` (4/7), `french/a1/les-nombres/exercices.html` (1/1), `french/c1/francine-gosselin/index.html` (4/6).
+
+**🔧 Pour Fable** : envisager que `_play()` retombe sur `document.activeElement` ou sur `event.currentTarget` quand `btn` est absent, pour que la pause fonctionne même sans le 2e argument — cela rendrait le standard robuste par défaut plutôt que dépendant de chaque page.

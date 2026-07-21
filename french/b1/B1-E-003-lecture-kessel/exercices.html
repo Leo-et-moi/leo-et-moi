@@ -171,7 +171,9 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .inv-slot.is-wrong{border-color:var(--coral)!important;background:#FEE!important;}
 
 /* TENSES */
-.tense-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+#tense-a{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start;}
+@media(max-width:560px){#tense-a{grid-template-columns:1fr;}}
+.tense-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:12px 14px;margin-bottom:0;}
 .tense-phrase{display:flex;align-items:flex-start;gap:8px;font-size:15px;font-style:italic;margin-bottom:6px;color:var(--dark);}
 .tense-verb{font-weight:bold;color:var(--navy);}
 .tense-reveal{display:flex;align-items:center;gap:8px;}
@@ -287,8 +289,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     <div class="top-sub-en">B1 Reading Exercise · Alcoholics Anonymous <strong>by</strong> Joseph Kessel (1960)</div>
   </div>
   <div class="top-btns">
-    <button class="spk" onclick="playClip('B1-E-003_titre.mp3')">&#128266; FR</button>
-    <button class="spk-en" onclick="playClip('B1-E-003_titre_en.mp3')">&#128266; EN</button>
+    <button class="spk" onclick="playClip('B1-E-003_titre.mp3', this)">&#128266; FR</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_titre_en.mp3', this)">&#128266; EN</button>
   </div>
 </div>
 
@@ -315,7 +317,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     <!-- FR block -->
     <div style="background:rgba(44,74,124,0.06);border-radius:10px;padding:12px;margin-bottom:10px;">
       <div style="display:flex;align-items:flex-start;gap:10px;">
-        <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_methode.mp3')" style="flex-shrink:0;">&#128266;</button>
+        <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_methode.mp3', this)" style="flex-shrink:0;">&#128266;</button>
         <div style="font-size:15px;line-height:1.7;color:var(--dark);">
           Tu n'as pas besoin de comprendre chaque mot.<br>
           <strong>&#9312; Première lecture</strong><br>
@@ -328,7 +330,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     <!-- EN block -->
     <div style="background:rgba(90,106,128,0.06);border-radius:10px;padding:12px;">
       <div style="display:flex;align-items:flex-start;gap:10px;">
-        <button class="btn-en" onclick="event.stopPropagation();playClip('B1-E-003_methode_en.mp3')" style="flex-shrink:0;">&#128266;</button>
+        <button class="btn-en" onclick="event.stopPropagation();playClip('B1-E-003_methode_en.mp3', this)" style="flex-shrink:0;">&#128266;</button>
         <div style="font-size:14px;line-height:1.7;color:var(--slate);">
           You don't need to understand every word.<br>
           <strong>&#9312; First reading</strong><br>
@@ -344,11 +346,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 <!-- PRACTICE INSTRUCTION -->
 <div class="practice-box" style="margin-bottom:14px;">
   <div class="practice-fr">
-    <button class="btn-fr" onclick="playClip('B1-E-003_pratique.mp3')">&#128266;</button>
+    <button class="btn-fr" onclick="playClip('B1-E-003_pratique.mp3', this)">&#128266;</button>
     <span>Exercice de lecture, de compréhension et d'expression orale. Entraine-toi et lis à haute voix toutes les consignes et les écoutes.</span>
   </div>
   <div class="practice-en">
-    <button class="btn-en" onclick="playClip('B1-E-003_pratique_en.mp3')">&#128266;</button>
+    <button class="btn-en" onclick="playClip('B1-E-003_pratique_en.mp3', this)">&#128266;</button>
     <span>Reading, comprehension, and speaking exercise. Practice and read all the instructions and audio clips aloud.</span>
   </div>
 </div>
@@ -362,8 +364,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
       <div class="sec-label-fr" style="color:var(--amber);font-size:11px;margin-top:1px;">Fais ces exercices de vocabulaire avant de lire le texte</div>
       <div class="sec-label-en" style="color:var(--amber);font-size:11px;margin-top:1px;">Complete these vocabulary exercises before reading the text</div>
     </div>
-    <button class="spk" onclick="playClip('B1-E-003_sec_avant.mp3')">&#128266;</button>
-    <button class="spk-en" onclick="playClip('B1-E-003_sec_avant_en.mp3')">&#128266;</button>
+    <button class="spk" onclick="playClip('B1-E-003_sec_avant.mp3', this)">&#128266;</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_sec_avant_en.mp3', this)">&#128266;</button>
   </div>
   <div class="sec-body">
 
@@ -373,11 +375,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     </div>
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_ex1_instr.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_ex1_instr.mp3', this)">&#128266;</button>
         <div class="instr-fr">Association — Vocabulaire et Sens. Clique sur un mot de la colonne A, puis sur la définition qui correspond dans la colonne B.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_ex1_instr_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_ex1_instr_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Vocabulary and Meaning. Click a word in column A, then click its matching definition in column B.</div>
       </div>
     </div>
@@ -389,11 +391,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     </div>
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_ex2_instr.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_ex2_instr.mp3', this)">&#128266;</button>
         <div class="instr-fr">La chasse aux contraires. Clique d'abord sur une case réponse dans la colonne de droite, puis sur le mot que tu choisis dans la banque de mots.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_ex2_instr_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_ex2_instr_en.mp3', this)">&#128266;</button>
         <div class="instr-en">The Antonym Hunt. First click on an answer box in the right-hand column, then click on the word you choose from the word bank.</div>
       </div>
     </div>
@@ -423,11 +425,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   </div>
   <div class="rappel-body" id="rappel-body">
     <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;">
-      <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_rappel_instr.mp3')">&#128266;</button>
+      <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_rappel_instr.mp3', this)">&#128266;</button>
       <div class="rappel-text">Lisez le texte attentivement deux fois. Ensuite, assurez-vous que le texte est masqué, puis écrivez tout ce que vous avez retenu en anglais dans votre cahier numérique.</div>
     </div>
     <div style="display:flex;align-items:flex-start;gap:8px;">
-      <button class="btn-en" onclick="event.stopPropagation();playClip('B1-E-003_rappel_instr_en.mp3')">&#128266;</button>
+      <button class="btn-en" onclick="event.stopPropagation();playClip('B1-E-003_rappel_instr_en.mp3', this)">&#128266;</button>
       <div class="rappel-text-en">Read the text carefully twice. Then, make sure the text is hidden, and write down everything you remember in English in your digital notebook.</div>
     </div>
   </div>
@@ -453,11 +455,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
       <div class="sec-label-fr">Le texte — Page 1</div>
       <div class="sec-label-en">Joseph Kessel · Les Alcooliques Anonymes (1960) · Page 1</div>
     </div>
-    <button class="spk" onclick="playClip('B1-E-003_sec_texte.mp3')">&#128266;</button>
-    <button class="spk-en" onclick="playClip('B1-E-003_sec_texte_en.mp3')">&#128266;</button>
+    <button class="spk" onclick="playClip('B1-E-003_sec_texte.mp3', this)">&#128266;</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_sec_texte_en.mp3', this)">&#128266;</button>
   </div>
   <div class="sec-body">
-    <button class="big-listen-btn" onclick="playClip('B1-E-003_texte_p1.mp3')">
+    <button class="big-listen-btn" onclick="playClip('B1-E-003_texte_p1.mp3', this)">
       &#128266; Écouter la page 1 en français <span style="font-weight:normal;opacity:.75;">· 3 min 07 s</span>
     </button>
     <button class="toggle-text-btn" id="toggle-text-btn" onclick="toggleTexte()">
@@ -499,11 +501,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-body">
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_qcm_instr.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_qcm_instr.mp3', this)">&#128266;</button>
         <div class="instr-fr">Questions à Choix Multiples — QCM. Réponds aux questions pour vérifier ta compréhension du texte. Clique sur la bonne réponse.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_qcm_instr_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_qcm_instr_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Multiple Choice Questions — MCQ. Answer the questions to check your understanding. Click the correct answer.</div>
       </div>
     </div>
@@ -519,8 +521,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
       <div class="sec-label-fr" style="color:var(--purple);">Exercices de Révision Grammaticale</div>
       <div class="sec-label-en">Grammar Review Exercises</div>
     </div>
-    <button class="spk" onclick="playClip('B1-E-003_sec_rev.mp3')">&#128266;</button>
-    <button class="spk-en" onclick="playClip('B1-E-003_sec_rev_en.mp3')">&#128266;</button>
+    <button class="spk" onclick="playClip('B1-E-003_sec_rev.mp3', this)">&#128266;</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_sec_rev_en.mp3', this)">&#128266;</button>
   </div>
   <div class="sec-body">
 
@@ -532,11 +534,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     </div>
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exA_instr.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_exA_instr.mp3', this)">&#128266;</button>
         <div class="instr-fr">Regarde dans le texte où se trouvent les pronoms de l'exercice et choisis quelles phrases ou quels mots ils remplacent.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exA_instr_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_exA_instr_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Look in the text to find the pronouns in the exercise, and identify which sentences or words they replace.</div>
       </div>
     </div>
@@ -546,17 +548,17 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     <div style="border-top:2px solid var(--div);margin:18px 0 14px;padding-top:14px;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
         <span style="font-size:16px;font-weight:bold;color:var(--green);">&#9200;&#65039; Les temps du verbe</span>
-        <button class="spk" onclick="playClip('B1-E-003_exc.mp3')" style="font-size:13px;padding:5px 10px;">&#128266; FR</button>
-        <button class="spk-en" onclick="playClip('B1-E-003_exc_en.mp3')">&#128266; EN</button>
+        <button class="spk" onclick="playClip('B1-E-003_exc.mp3', this)" style="font-size:13px;padding:5px 10px;">&#128266; FR</button>
+        <button class="spk-en" onclick="playClip('B1-E-003_exc_en.mp3', this)">&#128266; EN</button>
       </div>
     </div>
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_a.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_a.mp3', this)">&#128266;</button>
         <div class="instr-fr">Série A — Lis la phrase. Identifie le temps du verbe en gras. Clique pour vérifier.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_a_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_a_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Series A — Read the sentence. Identify the tense of the bold verb. Click to check.</div>
       </div>
     </div>
@@ -566,16 +568,16 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     </div>
     <div class="instr" style="margin-top:14px;">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_b.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_b.mp3', this)">&#128266;</button>
         <div class="instr-fr">Série B — Lis la phrase de base. Transforme-la aux cinq temps que tu connais. Dis chaque phrase à voix haute.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_b_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_b_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Series B — Read the base sentence. Transform it using the five tenses you know. Say each sentence aloud.</div>
       </div>
     </div>
     <div style="margin-bottom:8px;font-size:14px;color:var(--slate);display:flex;align-items:center;gap:6px;">
-      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base1.mp3')">&#128266;</button>
+      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base1.mp3', this)">&#128266;</button>
       <strong>Phrase de base 1 :</strong> « Les personnes parlent dans une réunion. »
     </div>
     <table class="trans-table">
@@ -589,7 +591,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
       </tbody>
     </table>
     <div style="margin-bottom:8px;font-size:14px;color:var(--slate);display:flex;align-items:center;gap:6px;">
-      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base2.mp3')">&#128266;</button>
+      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base2.mp3', this)">&#128266;</button>
       <strong>Phrase de base 2 :</strong> « Ils écoutent les autres. »
     </div>
     <table class="trans-table">
@@ -611,11 +613,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     </div>
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exB_instr.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_exB_instr.mp3', this)">&#128266;</button>
         <div class="instr-fr">Regarde dans le texte où se trouvent les verbes conjugués au Passé-Composé et à l'Imparfait. Clique sur la forme verbale correcte dans la banque de mots.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exB_instr_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_exB_instr_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Look in the text to find the verbs conjugated in the passé composé and the imperfect. Click the correct verb form from the word bank.</div>
       </div>
     </div>
@@ -629,11 +631,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     </div>
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exC_instr.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_exC_instr.mp3', this)">&#128266;</button>
         <div class="instr-fr">Mots Invariables et outils de liaison. Retrouve le mot du texte qui correspond à chaque définition. Clique d'abord sur une case réponse, puis sur le mot que tu choisis dans la banque de mots.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exC_instr_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_exC_instr_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Invariable words and connectors. Find the word from the text that matches each definition. First click on an answer box, then click on the word you choose from the word bank.</div>
       </div>
     </div>
@@ -665,22 +667,22 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-body">
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exd_instr_a.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_exd_instr_a.mp3', this)">&#128266;</button>
         <div class="instr-fr">Série A — Lis la phrase du texte. Reformule-la avec des mots plus simples. Clique pour voir un modèle.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exd_instr_a_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_exd_instr_a_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Series A — Read the phrase from the text. Reformulate it with simpler words. Click to see a model.</div>
       </div>
     </div>
     <div id="ref-a"></div>
     <div class="instr" style="margin-top:18px;">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exd_instr_b.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_exd_instr_b.mp3', this)">&#128266;</button>
         <div class="instr-fr">Série B — Lis la phrase. Clique pour voir un nouveau contexte. Ensuite, crée ton propre exemple à l'oral.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exd_instr_b_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_exd_instr_b_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Series B — Read the sentence. Click to see a new context. Then create your own example orally.</div>
       </div>
     </div>
@@ -700,11 +702,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-body">
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exf_instr.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_exf_instr.mp3', this)">&#128266;</button>
         <div class="instr-fr">Utilise les amorces et les mots en vrac pour préparer la discussion en classe à l'oral. Pour chaque question, rédige au moins trois phrases, ou plus si tu le peux.</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exf_instr_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_exf_instr_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Use the sentence starters and word bank to prepare for the oral class discussion. For each question, write at least three sentences—or more if you can.</div>
       </div>
     </div>
@@ -723,21 +725,21 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
       <div class="sec-label-fr" style="color:#fff;">Version anglaise — Page 1 <span id="en-ver-arrow">&#9660;</span></div>
       <div class="sec-label-en" style="color:#9AAFCC;">English version · Click to show / hide</div>
     </div>
-    <button class="spk" onclick="event.stopPropagation();playClip('B1-E-003_sec_en.mp3')" style="background:rgba(255,255,255,0.15);">&#128266;</button>
-    <button class="spk-en" onclick="event.stopPropagation();playClip('B1-E-003_sec_en_en.mp3')">&#128266;</button>
+    <button class="spk" onclick="event.stopPropagation();playClip('B1-E-003_sec_en.mp3', this)" style="background:rgba(255,255,255,0.15);">&#128266;</button>
+    <button class="spk-en" onclick="event.stopPropagation();playClip('B1-E-003_sec_en_en.mp3', this)">&#128266;</button>
   </div>
   <div class="sec-body" id="en-ver-body" style="display:none;">
     <div class="instr">
       <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_en_instr.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_en_instr.mp3', this)">&#128266;</button>
         <div class="instr-fr">Lis la version anglaise. Compare-la avec le texte français. Repère les similitudes (FR : <em>rituel</em> / EN : <em>ritual</em>) ou les différences de vocabulaire (FR : <em>N'importe qui</em> / EN : <em>Anyone</em>).</div>
       </div>
       <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_en_instr_en.mp3')">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_en_instr_en.mp3', this)">&#128266;</button>
         <div class="instr-en">Read the English version. Compare it with the French text. Identify the similarities (FR: <em>rituel</em> / EN: <em>ritual</em>) or differences in vocabulary (FR: <em>N'importe qui</em> / EN: <em>Anyone</em>).</div>
       </div>
     </div>
-    <button class="big-listen-btn" style="background:var(--navy);" onclick="playClip('B1-E-003_texte_p1_en.mp3')">
+    <button class="big-listen-btn" style="background:var(--navy);" onclick="playClip('B1-E-003_texte_p1_en.mp3', this)">
       &#128266; Listen to page 1 in English
     </button>
     <div class="en-text-box">
@@ -844,7 +846,7 @@ function renderVM(){
     return `
       <div class="vm-word-card" id="vmw_${v.slug}" onclick="vmClickWord('${v.slug}',this)">
         <div style="display:flex;align-items:flex-start;gap:8px;">
-          <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_vm_${v.slug}.mp3')" style="flex-shrink:0;">&#128266;</button>
+          <button class="btn-fr" onclick="event.stopPropagation();playClip('B1-E-003_vm_${v.slug}.mp3', this)" style="flex-shrink:0;">&#128266;</button>
           <div>
             <div style="font-size:16px;font-weight:bold;color:var(--dark);">${v.word}</div>
             <div style="font-size:13px;color:var(--slate);font-style:italic;margin-top:3px;">« ${v.quote} »</div>
@@ -958,7 +960,7 @@ function contrClickChip(word, chipEl){
   const correct=CONTR[i].answer===word;
 
   if(correct){
-    slot.innerHTML=`<button class="btn-ex" onclick="event.stopPropagation();playClip('B1-E-003_contr_${CONTR[i].slug}.mp3')" style="margin-right:8px;">&#128266;</button><strong>${word}</strong>`;
+    slot.innerHTML=`<button class="btn-ex" onclick="event.stopPropagation();playClip('B1-E-003_contr_${CONTR[i].slug}.mp3', this)" style="margin-right:8px;">&#128266;</button><strong>${word}</strong>`;
     slot.classList.remove('cs-active');
     slot.classList.add('cs-correct');
     chipEl.classList.add('bc-used');
@@ -996,10 +998,10 @@ function renderQCM(){
       <div class="qcm-q-fr">
         <span style="font-weight:bold;color:var(--coral);flex-shrink:0;">${qi+1}.</span>
         ${q.fr}
-        <button class="btn-fr" onclick="playClip('B1-E-003_${q.slug}.mp3')" style="flex-shrink:0;margin-left:6px;">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_${q.slug}.mp3', this)" style="flex-shrink:0;margin-left:6px;">&#128266;</button>
       </div>
       <div class="qcm-q-en">
-        <button class="btn-en" onclick="playClip('B1-E-003_${q.slug}_en.mp3')" style="flex-shrink:0;">&#128266;</button>
+        <button class="btn-en" onclick="playClip('B1-E-003_${q.slug}_en.mp3', this)" style="flex-shrink:0;">&#128266;</button>
         ${q.en}
       </div>
       <div class="qcm-options">
@@ -1040,7 +1042,7 @@ function renderPron(){
     <div class="gram-card">
       <div class="gram-num">${i+1}.</div>
       <div class="gram-sentence">
-        <button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3')" style="margin-right:8px;">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3', this)" style="margin-right:8px;">&#128266;</button>
         ${p.sentence}
       </div>
       <div class="gram-prompt">${p.prompt}</div>
@@ -1077,7 +1079,7 @@ function renderPCImp(){
       <div class="gram-num">${i+1}.</div>
       ${p.context?`<div class="gram-prompt">${p.context}</div>`:''}
       <div class="gram-sentence" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-        <button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3')">&#128266;</button>
+        <button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3', this)">&#128266;</button>
         <span>${sentenceHtml}</span>
       </div>
       <div class="pc-bank">${chipsHtml}</div>
@@ -1188,7 +1190,7 @@ const TENSES_A=[
 function renderTenses(){
   document.getElementById('tense-a').innerHTML=TENSES_A.map((t,i)=>`
     <div class="tense-card">
-      <div class="tense-phrase"><button class="btn-fr" onclick="playClip('B1-E-003_ts_${t.slug}.mp3')">&#128266;</button><span>${t.phrase}</span></div>
+      <div class="tense-phrase"><button class="btn-fr" onclick="playClip('B1-E-003_ts_${t.slug}.mp3', this)">&#128266;</button><span>${t.phrase}</span></div>
       <div class="tense-reveal">
         <button class="reveal-btn" onclick="toggleTense('tb${i}','tn${i}')">&#128065; Voir le temps</button>
         <span class="tense-badge ${t.badge}" id="tb${i}">${t.temps}</span>
@@ -1217,19 +1219,19 @@ const REF_B=[
 function renderRef(){
   document.getElementById('ref-a').innerHTML=REF_A.map((r,i)=>`
     <div class="ref-card">
-      <div class="ref-original"><button class="btn-fr" onclick="playClip('B1-E-003_ref_${r.slug}_orig.mp3')">&#128266;</button><em>« ${r.original} »</em></div>
+      <div class="ref-original"><button class="btn-fr" onclick="playClip('B1-E-003_ref_${r.slug}_orig.mp3', this)">&#128266;</button><em>« ${r.original} »</em></div>
       <div class="ref-reveal-row">
         <button class="reveal-btn" onclick="document.getElementById('rs${i}').classList.toggle('show');this.innerHTML=document.getElementById('rs${i}').classList.contains('show')?'&#128065; Cacher':'&#128065; Voir la reformulation'">&#128065; Voir la reformulation</button>
-        <span class="ref-simple" id="rs${i}"><button class="btn-ex" onclick="playClip('B1-E-003_ref_${r.slug}_simple.mp3')">&#128266;</button> ${r.simple}</span>
+        <span class="ref-simple" id="rs${i}"><button class="btn-ex" onclick="playClip('B1-E-003_ref_${r.slug}_simple.mp3', this)">&#128266;</button> ${r.simple}</span>
       </div>
       <div class="ref-oral">&#127908; Dis ta propre reformulation à l'oral · Say your own reformulation orally</div>
     </div>`).join('');
   document.getElementById('ref-b').innerHTML=REF_B.map((r,i)=>`
     <div class="ref-card">
-      <div class="ref-original"><button class="btn-fr" onclick="playClip('B1-E-003_ref_${r.slug}_orig.mp3')">&#128266;</button><em>« ${r.original} »</em></div>
+      <div class="ref-original"><button class="btn-fr" onclick="playClip('B1-E-003_ref_${r.slug}_orig.mp3', this)">&#128266;</button><em>« ${r.original} »</em></div>
       <div class="ref-reveal-row">
         <button class="reveal-btn" onclick="document.getElementById('rc${i}').classList.toggle('show');this.innerHTML=document.getElementById('rc${i}').classList.contains('show')?'&#128065; Cacher':'&#128065; Voir le nouveau contexte'">&#128065; Voir le nouveau contexte</button>
-        <span class="ref-ctx" id="rc${i}"><button class="btn-ex" onclick="playClip('B1-E-003_ref_${r.slug}_ctx.mp3')">&#128266;</button> ${r.ctx}</span>
+        <span class="ref-ctx" id="rc${i}"><button class="btn-ex" onclick="playClip('B1-E-003_ref_${r.slug}_ctx.mp3', this)">&#128266;</button> ${r.ctx}</span>
       </div>
       <div class="ref-oral">&#127908; Crée ton propre exemple à l'oral · Create your own example orally</div>
     </div>`).join('');
@@ -1250,8 +1252,8 @@ const DISC=[
 function renderDisc(){
   document.getElementById('disc-cards').innerHTML=DISC.map(d=>`
     <div class="disc-card">
-      <div class="disc-q-fr"><button class="btn-fr" onclick="playClip('B1-E-003_${d.slug}.mp3')">&#128266;</button>${d.q}</div>
-      <div class="disc-q-en"><button class="btn-en" onclick="playClip('B1-E-003_${d.slug}_en.mp3')">&#128266;</button>${d.qen}</div>
+      <div class="disc-q-fr"><button class="btn-fr" onclick="playClip('B1-E-003_${d.slug}.mp3', this)">&#128266;</button>${d.q}</div>
+      <div class="disc-q-en"><button class="btn-en" onclick="playClip('B1-E-003_${d.slug}_en.mp3', this)">&#128266;</button>${d.qen}</div>
       <div class="disc-amorces">
         <div class="disc-amorces-lbl">&#128073; Amorces / Sentence starters</div>
         ${d.amorces.map(a=>`<span class="amorce">${a}</span>`).join('')}
