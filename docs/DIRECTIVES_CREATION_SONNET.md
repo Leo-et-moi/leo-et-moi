@@ -35,6 +35,25 @@
 - **Rédaction** : sous chaque zone de texte, trois boutons — **✓ Vocabulaire / 🔍 Orthographe / 📤 Soumettre à mon professeur**.
 - **Nommage des audios** : `<ID>_<usage><n>.mp3` (ex. `A2-L-001_c1.mp3`, `A2-E-004_q08.mp3`), et la version anglaise `<nom>_en.mp3`.
 
+### Barre du haut — modèle unique du site (obligatoire depuis le 20/07/2026)
+
+**Ne construis pas de barre supérieure maison.** Toutes les pages partagent la même, avec la marque à gauche et la cloche de notification à droite :
+
+```html
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+```
+
+Juste en dessous, à l'intérieur de `.main`, un **lien de retour** vers la page du niveau puis la **pastille de niveau** :
+
+```html
+<a class="back-link" href="/french/b1/index.html">&#8592; Niveau B1</a>
+<div class="lvl-tag">B1</div>
+```
+
+**Le titre complet de l'exercice ne va PAS dans la barre du haut** : il descend dans le panneau de titre (`.panel-head`), avec le français, la traduction anglaise en petit corps, et les deux boutons 🔊 FR / 🔊 EN à droite. La barre du haut ne contient donc que la marque et la cloche — elle est identique sur tout le site.
+
+**Ces classes viennent de `/css/site.css`** : ajoute simplement `<link rel="stylesheet" href="/css/site.css">` avant ton `<style>` local, ta CSS gardera la priorité sur le reste.
+
 ## 3. Règles dures (jamais d'exception)
 
 - **Jamais de voix synthétique.** Tous les audios sont des **MP3 enregistrés par Eric** : tu fournis le **script** (nom de fichier + texte), pas le son.

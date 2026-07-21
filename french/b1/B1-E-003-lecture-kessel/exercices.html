@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Exercice B1 · Lecture — Les Alcooliques Anonymes · Joseph Kessel (1960)</title>
+<link rel="stylesheet" href="/css/site.css">
 <style>
 :root{
   --navy:#1B2845;--dark:#0F1A2D;--coral:#E8503A;--green:#2E7D47;--amber:#B8720A;
@@ -15,17 +16,13 @@
 body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--dark);}
 
 /* TOP BAR */
-.top-bar{background:var(--navy);color:#fff;padding:12px 18px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;}
-.top-title{font-size:20px;font-weight:bold;}
-.top-title span{color:#7CB9E8;}
-.top-sub-fr{font-size:13px;color:#CDD8F0;margin-top:2px;}
-.top-sub-en{font-size:12px;color:#9AAFCC;}
-.top-btns{display:flex;gap:6px;flex-shrink:0;align-items:center;}
 
 /* MAIN */
 .main{max-width:760px;margin:0 auto;padding:14px 12px 40px;}
 
 /* PANEL HEAD */
+.lvl-tag{display:inline-block;background:var(--b1);color:#fff;font-size:13px;font-weight:bold;padding:2px 12px;border-radius:20px;margin-bottom:6px;}
+.back-link{margin-bottom:4px;}
 .panel-head{background:var(--navy);color:#fff;border-radius:12px;padding:14px 18px;margin-bottom:14px;}
 .panel-title{font-size:21px;font-weight:bold;}
 .panel-sub{font-size:14px;color:#9AAFCC;margin-top:4px;}
@@ -281,24 +278,25 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 </head>
 <body data-item-id="B1-E-003">
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div>
-    <div class="top-title">Leo<span>-et-moi</span></div>
-    <div class="top-sub-fr">Exercice B1 · Lecture — Les Alcooliques Anonymes <strong>par</strong> Joseph Kessel (1960)</div>
-    <div class="top-sub-en">B1 Reading Exercise · Alcoholics Anonymous <strong>by</strong> Joseph Kessel (1960)</div>
-  </div>
-  <div class="top-btns">
-    <button class="spk" onclick="playClip('B1-E-003_titre.mp3', this)">&#128266; FR</button>
-    <button class="spk-en" onclick="playClip('B1-E-003_titre_en.mp3', this)">&#128266; EN</button>
-  </div>
-</div>
+<!-- TOP BAR (modèle standard du site) -->
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
 
 <div class="main">
+<a class="back-link" href="/french/b1/index.html">&#8592; Niveau B1</a>
+<div class="lvl-tag">B1</div>
 
 <!-- PANEL HEAD -->
 <div class="panel-head">
-  <div class="panel-title">Lecture — Les Alcooliques Anonymes</div>
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+    <div>
+      <div class="panel-title">Exercice B1 · Lecture — Les Alcooliques Anonymes <strong>par</strong> Joseph Kessel (1960)</div>
+      <div class="panel-sub">B1 Reading Exercise · Alcoholics Anonymous <strong>by</strong> Joseph Kessel (1960)</div>
+    </div>
+    <div style="display:flex;gap:6px;flex-shrink:0;align-items:center;">
+      <button class="spk" onclick="playClip('B1-E-003_titre.mp3', this)">&#128266; FR</button>
+      <button class="spk-en" onclick="playClip('B1-E-003_titre_en.mp3', this)">&#128266; EN</button>
+    </div>
+  </div>
 </div>
 
 <!-- MÉTHODE DE LECTURE -->
