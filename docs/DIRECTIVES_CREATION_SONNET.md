@@ -33,7 +33,7 @@
 - **Exercice** : le **titre mentionne le niveau** (« Exercices A2 — … ») ; un bandeau « 📖 Avant de commencer, revois la leçon → » en tête ; questions à choix multiples / vrai-faux.
 - **Consigne** : présentée dans un encadré **corail** avec son 🔊.
 - **Rédaction** : sous chaque zone de texte, trois boutons — **✓ Vocabulaire / 🔍 Orthographe / 📤 Soumettre à mon professeur**.
-- **Nommage des audios** : `<ID>_<usage><n>.mp3` (ex. `A2-L-001_c1.mp3`, `A2-E-004_q08.mp3`), et la version anglaise `<nom>_en.mp3`.
+- **Nommage des audios** : `<ID>_<usage><n>.mp3` (ex. `A2-L-001_c1.mp3`, `A2-E-004_q08.mp3`), et la version anglaise `<nom>_en.mp3`. **Format d'enregistrement : 128 kbps MONO** (décision Eric, 20/07/2026) — à rappeler dans chaque liste d'enregistrement que tu produis.
 
 ### Barre du haut — modèle unique du site (obligatoire depuis le 20/07/2026)
 

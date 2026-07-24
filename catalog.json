@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "misAJour": "2026-07-14",
+  "misAJour": "2026-07-21",
   "audioBase": "",
   "lecons": [
     {
@@ -306,7 +306,9 @@
       ],
       "progressId": "A1-E-005",
       "questions": null,
-      "publie": true
+      "publie": true,
+      "serie": "Dialogue",
+      "serieOrdre": 10
     },
     {
       "id": "A1-E-006",

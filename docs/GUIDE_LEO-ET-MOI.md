@@ -75,10 +75,12 @@ Points de vigilance : ne jamais changer le nom ; vérifier le bon dossier ; form
 - **Uniquement des MP3 enregistrés** (voix d'Eric / TTS payant). **Jamais** de `speechSynthesis` — le script de contrôle le vérifie. (4 anciennes pages Référence/A2 encore tolérées, en attente de décision.)
 - Chaque bouton 🔊 : re-clic = pause ; re-clic = reprise ; un autre bouton arrête le précédent ; jamais deux sons à la fois (`js/audio.js`).
 - Nouveaux audios : nommés `<ID>_<usage><n>.mp3` (ex. `A1-E-003_q01.mp3`). Les anciens gardent leur nom pour toujours.
+- **Format (décision Eric, 20/07/2026) : 128 kbps MONO** pour tous les nouveaux MP3 (la voix est mono ; ÷2 sur le poids, aucune perte perceptible — 1re application : B1-E-003, 33→14 Mo). Les fichiers existants ne sont pas retouchés (aucun gain dans l'historique Git). Archive des originaux : OneDrive `_TRANSFERTS_SONNET/instr`.
 - **Audio bilingue (standard, 13/07/2026)** : chaque phrase peut avoir **deux boutons** — 🔊 français + petit bouton « 🔊 EN » (classe `.t-en`) pour la traduction, fichier `<nom>_en.mp3`. Le bouton EN n'est déclaré **que si le fichier existe** (jamais de bouton muet) ; déploiement page par page au rythme des enregistrements. Dans les exercices : champ `audioEn` des questions (`js/quiz.js`, `js/test.js`, `js/speaking.js`).
 
 **Contenu**
 - IDs immuables `<NIVEAU>-<L|E|T>-<numéro>` ; l'ordre pédagogique est le champ `ordre` du catalogue (par dizaines), jamais l'ID.
+- **Séries** (ex. « Dialogue ») : champ `serie` (+ `serieOrdre`) sur l'exercice → il sort de la liste normale et rejoint le **dossier 💬 de sa série** sur la page de niveau (couleur dédiée `--dialogue`, page `french/dialogue/<niveau>.html` générée du catalogue).
 - Chaque exercice est étiqueté par **compétences** : 🎧 listening · 📖 reading · ✍️ writing · 🗣️ speaking.
 - Bandeau « 📖 revois la leçon » et « ✏️ exercices liés » : **générés** depuis le catalogue — ne plus les écrire à la main.
 - QCM : le mélange des options **re-synchronise toujours** l'index de la bonne réponse (`js/quiz.js` et `js/test.js` le font d'office).

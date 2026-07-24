@@ -37,6 +37,13 @@ export async function compteurs(niveau) {
   return { lecons: (await lecons(niveau)).length, exercices: (await exercices(niveau)).length };
 }
 
+/** Exercices publiés d'une série pour un niveau (ex. « Dialogue »), ordonnés. */
+export async function serie(nom, niveau) {
+  const c = await loadCatalog();
+  return pub(c.exercices).filter((e) => e.serie === nom && e.niveau === niveau)
+    .sort((a, b) => (a.serieOrdre || a.ordre) - (b.serieOrdre || b.ordre));
+}
+
 /** Tests publiés d'un niveau, ordonnés. */
 export async function tests(niveau) {
   const c = await loadCatalog();

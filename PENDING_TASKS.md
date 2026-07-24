@@ -61,50 +61,14 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 - **14/07 — Répartition Opus/Sonnet/Fable** : validée par Fable ; `docs/DIRECTIVES_CREATION_SONNET.md` amendé (droits d'auteur, escalade Fable, boutons EN quand fichier existe, marquage `contexte`) ; DIRECTIVES Opus complétées (§1b Sonnet, §3b anti-cache).
 - **14/07 — Versionnement des documents** : **tranché — les documents de coordination vivent dans `docs/` du dépôt** ; `PENDING_TASKS.md` unique à la racine (backlog + canal) ; copies OneDrive remplacées par des renvois ; `_SOURCES` et `_TRANSFERTS_SONNET` restent sur OneDrive (espace de travail d'Eric).
 
+## ✅ Traitées (suite — 21/07 par Fable)
+
+- **21/07 — Série « Dialogue »** : champ `serie`/`serieOrdre` au catalogue (A1-E-005 tagué), exercices de série exclus de la liste normale, **dossier 💬 Dialogue** après les Tests sur chaque page de niveau (visible seulement si ≥ 1 dialogue publié), pages dédiées `french/dialogue/<niveau>.html` ×6 générées du catalogue (grandes cartes, progression, retour simple — pensé smartphone), couleur `--dialogue: #6C5CE7`.
+- **21/07 — Build Pages** : vérifié **au vert** (dernière page C1 Francis servie en ligne) ; `.nojekyll` d'Opus confirmé comme le bon correctif. Poids : rappel — l'**hébergement audio externe (R2)** est le prochain grand chantier à décider avec Eric (voir §4 Décisions), le passage en 128 kbps mono ayant acheté du temps.
+- **21/07 — Standard audio 128 kbps MONO** : inscrit au GUIDE §3 et aux directives Sonnet §2.
+- **21/07 — Pause audio robuste** : `js/audio.js` retrouve désormais le bouton via `window.event`/`activeElement` quand la page ne le transmet pas, et la bascule pause/reprise est **par fichier** — la pause fonctionne même sur les anciens appels sans 2ᵉ argument (les pages listées par Opus n'ont plus besoin d'être reprises pour ça).
+
 ## ⏳ En attente
 
 _(aucune)_
 
-## 🔧 Pour Fable — série « Dialogue » : dossier distinct par niveau (demande d'Eric, via Opus, 14/07)
-
-« Dialogue » est une **série évolutive** qui couvrira progressivement tous les niveaux (A1→C2). Elle doit être **nettement distinguée** de la liste des exercices, sur **chaque niveau**.
-
-**Spécification (GO d'Eric ; décisions prises) :**
-1. **Catalogue** : ajouter un champ optionnel sur l'exercice, ex. `"serie": "Dialogue"` (+ éventuel ordre interne `"serieOrdre"`). Tout exercice marqué appartient à la série. *(Opus taguera `A1-E-005` — 1er de la série — dès le champ disponible.)*
-2. **Page de niveau** (`js/niveau.js`) : **exclure** les exercices `serie` de la liste normale ; **après la section 📝 Tests**, afficher un **dossier « 💬 Dialogue <Niveau> »**, dans une **couleur distincte**.
-3. **Clic → page de série dédiée** (décision Eric : le mécanisme **le plus adapté au smartphone**) : `french/dialogue/<niveau>.html`, **générée depuis le catalogue**, listant tous les dialogues de ce niveau (grandes cartes, retour simple). Pas d'accordéon (moins bon sur mobile).
-4. **Couleur** : accent **distinct des couleurs CEFR et du corail/or** — proposition : **violet / indigo** (ex. `#6C5CE7`), à ajuster par Fable pour rester dans l'harmonie Bleu & Corail.
-5. **Sur tous les niveaux** : le dossier apparaît sur chaque page A1→C2 ; il n'apparaît que si le niveau a au moins un dialogue publié.
-6. **Lien aux leçons** : **optionnel** par exercice (à discuter au cas par cas) — le bandeau « revois la leçon » n'apparaît déjà que si une leçon est rattachée, donc aucun changement nécessaire de ce côté.
-
-## 🔧 Pour Fable — déploiement Pages cassé (corrigé par Opus, 16/07)
-
-**Symptôme** : e-mails « pages build and deployment: Run failed » (commits 1f6ffdd, cd09474…) → **aucun commit récent n'était mis en ligne** (site figé, anciens audios servis).
-**Cause** : pas de `.nojekyll` à la racine → GitHub Pages lançait **Jekyll** sur un site 100 % statique (230 Mo, 688 MP3), build en échec.
-**Correctif appliqué par Opus** : ajout de **`.nojekyll`** (commit 2ea3fdd) → publication statique directe, sans Jekyll.
-**À surveiller / décider (Fable)** :
-- Confirmer que les builds repassent au vert et vérifier les réglages Pages (source = branche `main`, déploiement statique).
-- **Poids** : 230 Mo / 688 MP3 et ça grimpe vite → la bascule vers un **hébergement audio externe** (Cloudflare R2, champ `audioBase` du catalogue) devient prioritaire avant d'approcher la limite ~1 Go de Pages.
-
-## 🎚️ Nouveau standard audio — décidé par Eric (20/07/2026)
-
-**Tous les nouveaux MP3 du site : 128 kbps, MONO.**
-
-Contexte : aucun standard n'avait jamais été fixé. Les 688 fichiers en ligne sont à ~230 kbps **stéréo** (défaut WavePad), soit ~112 Mo — alors que la voix est une source mono, donc un canal sur deux est une copie inutile.
-
-- Appliqué pour la 1re fois à **B1-E-003** (Kessel) : 117 fichiers, 33 Mo → **14 Mo**, sans perte perceptible.
-- **Les fichiers existants ne sont pas retouchés** : les remplacer ne récupérerait aucun espace dans l'historique Git et ne ferait qu'alourdir le dépôt.
-- Archive maître des originaux conservée dans OneDrive `_TRANSFERTS_SONNET/instr` → la décision reste réversible.
-
-**🔧 Pour Fable** : inscrire cette règle dans `docs/GUIDE_LEO-ET-MOI.md` §3 et dans `docs/DIRECTIVES_CREATION_SONNET.md` §2 (nommage/format audio). Elle divise par ~2 la vitesse à laquelle l'audio approche la limite ~1 Go de Pages, en attendant l'hébergement externe.
-
-## 🔊 Pause sur les boutons audio — pages restantes (20/07/2026)
-
-Le moteur `js/audio.js` gère pause/reprise **uniquement si la page transmet le bouton** : `playClip('fichier.mp3', this)`. Sans le 2e argument, un re-clic relance le son au lieu de le mettre en pause.
-
-Corrigé le 20/07 sur : **B1-E-003** (59), **A1-E-005** (115), **A1-E-006** (125).
-
-Restent des appels sans bouton (à reprendre lors d'un passage sur ces pages) :
-`index.html` (1/7), `french/a2/les-nombres/exercices.html` (1/1), `french/a2/lire-invitation/index.html` (2/5), `french/a2/A2-L-001-imperatif/index.html` (2/24), `french/b1/interrogatifs/exercices-b1.html` (2/5), `french/b1/lire-faire-part/index.html` (5/9), `french/b2/interrogatifs/index.html` (4/7), `french/a1/les-nombres/exercices.html` (1/1), `french/c1/francine-gosselin/index.html` (4/6).
-
-**🔧 Pour Fable** : envisager que `_play()` retombe sur `document.activeElement` ou sur `event.currentTarget` quand `btn` est absent, pour que la pause fonctionne même sans le 2e argument — cela rendrait le standard robuste par défaut plutôt que dépendant de chaque page.

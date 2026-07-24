@@ -11,9 +11,26 @@
 
   function _off() { if (_btn) _btn.classList.remove('speaking'); }
 
+  /* Retrouve le bouton même si la page ne l'a pas transmis (demande Opus 20/07 :
+     robustesse par défaut — pause/reprise fonctionnent sans le 2e argument). */
+  function _resolveBtn(btn) {
+    if (btn) return btn;
+    try {
+      var e = window.event;
+      if (e) {
+        var t = (e.currentTarget && e.currentTarget.tagName) ? e.currentTarget : e.target;
+        if (t && t.closest) { var b = t.closest('button'); if (b) return b; }
+      }
+    } catch (err) {}
+    var a = document.activeElement;
+    return (a && a.tagName === 'BUTTON') ? a : null;
+  }
+
   function _play(url, btn, key) {
-    if (_btn === btn && _clip && _key === key) {          // même bouton, même son
+    btn = _resolveBtn(btn);
+    if (_clip && _key === key) {                            // même son (bouton connu ou non)
       if (!_clip.paused) { _clip.pause(); _off(); return; } // → pause
+      if (btn) _btn = btn;
       _clip.play().catch(function () {});                   // → reprise
       if (_btn) _btn.classList.add('speaking');
       return;

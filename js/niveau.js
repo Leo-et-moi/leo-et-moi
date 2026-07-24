@@ -34,7 +34,10 @@ async function render() {
   const niveau = document.body.dataset.niveau;
   const meta = NIVEAUX[niveau];
   const ls = await lecons(niveau);
-  const es = await exercices(niveau);
+  const esTous = await exercices(niveau);
+  const es = esTous.filter((e) => !e.serie);           // les séries ont leur dossier dédié
+  const dial = esTous.filter((e) => e.serie === 'Dialogue')
+    .sort((a, b) => (a.serieOrdre || a.ordre) - (b.serieOrdre || b.ordre));
 
   document.getElementById('niveauBadge').textContent = niveau;
   document.getElementById('niveauNom').textContent = 'Niveau ' + niveau + ' — ' + meta.nom;
@@ -74,6 +77,26 @@ async function render() {
         `<span class="lesson-arrow">&#8594;</span>`;
       host.appendChild(a);
     });
+  }
+
+  // Dossier 💬 Dialogue (série évolutive, demande Eric) — après les Tests,
+  // couleur distincte, seulement si le niveau a au moins un dialogue publié
+  if (dial.length) {
+    const host = document.getElementById('exercices').parentNode;
+    const titre = document.createElement('div');
+    titre.className = 'section-title';
+    titre.textContent = '💬 Dialogue';
+    host.appendChild(titre);
+    const a = document.createElement('a');
+    a.className = 'lesson-card dialogue';
+    a.href = '/french/dialogue/' + niveau.toLowerCase() + '.html';
+    a.style.setProperty('--lvl', 'var(--dialogue)');
+    a.innerHTML =
+      `<div class="lesson-num">💬</div>` +
+      `<div class="lesson-info"><div class="lesson-name">Dialogue ${niveau}</div>` +
+      `<div class="lesson-sub">${dial.length} dialogue${dial.length > 1 ? 's' : ''} · série évolutive</div></div>` +
+      `<span class="lesson-arrow">&#8594;</span>`;
+    host.appendChild(a);
   }
 }
 
