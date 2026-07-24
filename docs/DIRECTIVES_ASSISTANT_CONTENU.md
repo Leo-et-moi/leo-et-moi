@@ -47,6 +47,14 @@ Créer un **test** : une entrée dans la section `tests` du catalogue (titre, so
 
 Le remplacement garde le même nom (règle), mais le navigateur peut resservir l'ancienne prise pendant ~10 min (cache GitHub Pages), parfois plus. **Convention** : après avoir remplacé `x.mp3`, incrémente un cache-buster **sur les seules références de ce fichier** dans les pages/banques : `playClip('x.mp3?v=2')`. Un seul fichier re-téléchargé, les autres restent en cache (connexion rurale). `check_site.py` accepte le suffixe `?v=N`.
 
+## 3c. Réutiliser un enregistrement identique (ne pas faire refaire)
+
+Certains clips reviennent **mot pour mot** d'un exercice à l'autre — typiquement la **consigne** des exercices d'écoute C1 (« Écoute l'entretien, lis la transcription, révise avec les cartes, puis teste-toi avec le quiz. »), identique entre Francine et Francis.
+
+**Règle** : avant d'inscrire un clip dans une liste d'enregistrement, vérifie s'il existe déjà un MP3 au **texte identique** ailleurs sur le site. Si oui, **copie le fichier existant** vers le nouveau dossier `audio/` sous le nouveau nom (playClip lit le dossier local, donc on duplique le fichier, on ne référence pas celui d'un autre exercice), et **retire-le de la liste** confiée à Eric. Ne fais jamais réenregistrer un texte déjà enregistré.
+
+Exemple appliqué (24/07/2026) : `c1_ft_instruction.mp3` = copie de `c1_fg_instruction.mp3`.
+
 ## 4. Déployer un audio d'Eric
 
 Eric dépose ses MP3 dans `_SOURCES\...` (listes : `_SOURCES\NOUVEAUX_AUDIOS_ACCUEIL.md` et `_SOURCES\A1\A1-L-003-les-nombres\NOUVEAUX_AUDIOS_A_ENREGISTRER.md`). Tu copies chaque fichier vers son emplacement GitHub (`french/audio/` pour l'accueil, `reference/audio/` pour la Référence, sinon le dossier `audio/` de la leçon), tu pushes, tu vérifies le bouton en ligne, et tu retires la ligne de la liste + de `AUDIO_ATTENDUS` dans `tools/check_site.py` (seule exception au §1 : cette liste-là, tu peux la tenir à jour).
