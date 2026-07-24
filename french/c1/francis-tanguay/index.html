@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>C1 — Francis Tanguay — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#D4920A;
+  --ltBlue:#E8F0FA;--ltGreen:#E3F5EC;--green:#1E7B45;--red:#C0392B;--text:#1A2733;
+  --slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--nav-h:64px;--c1:#27AE60;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;
+  min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--c1);padding:0 16px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.main{max-width:680px;margin:0 auto;padding:18px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--c1);color:#fff;font-size:13px;font-weight:bold;padding:3px 12px;border-radius:20px;margin-bottom:8px;}
+.page-title{font-size:24px;font-weight:bold;color:var(--dark);margin-bottom:2px;}
+.page-sub{font-size:14px;color:var(--slate);margin-bottom:18px;line-height:1.5;}
+.sec-label{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:1px;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
+.speak-btn{background:none;border:2px solid var(--divider);border-radius:20px;padding:4px 10px;font-size:13px;color:var(--slate);cursor:pointer;min-height:34px;font-family:Arial,sans-serif;flex-shrink:0;}
+.speak-btn.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
+.interview-card{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:5px solid var(--c1);padding:16px 18px;}
+.tr-box{margin-top:14px;padding-top:14px;border-top:1px solid var(--divider);}
+.tr-q{font-size:15px;font-weight:bold;color:var(--coral);margin:12px 0 4px;}
+.tr-a{font-size:15px;color:var(--text);line-height:1.6;}
+.flash{background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-top:5px solid var(--c1);padding:24px 22px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none;}
+.flash-side{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--c1);margin-bottom:12px;}
+.flash-side.reponse{color:var(--coral);}
+.flash-text{font-size:21px;font-weight:bold;color:var(--dark);line-height:1.4;}
+.flash-hint{font-size:13px;color:var(--slate);margin-top:14px;}
+.deck-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;}
+.nav-btn{flex:1;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:14px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:52px;}
+.nav-btn:disabled{background:var(--divider);color:var(--slate);cursor:default;}
+.counter{font-size:15px;font-weight:bold;color:var(--dark);min-width:70px;text-align:center;}
+.flip-btn{display:block;width:100%;background:var(--c1);color:#fff;border:none;border-radius:10px;padding:13px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:50px;}
+.q-card{background:var(--white);border-radius:12px;border:1.5px solid var(--divider);border-left:5px solid var(--navyMid);padding:18px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+.q-card.ok{border-left-color:var(--green);background:var(--ltGreen);}
+.q-card.ko{border-left-color:var(--red);background:#fdf0ee;}
+.q-num{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.q-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:14px;}
+.q-text{font-size:18px;font-weight:bold;color:var(--dark);line-height:1.4;}
+.choice-row{display:flex;align-items:stretch;gap:8px;margin-bottom:9px;}
+.choice{flex:1;text-align:left;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;color:var(--dark);background:var(--ltBlue);border:2px solid var(--divider);border-radius:10px;padding:13px 14px;cursor:pointer;min-height:50px;line-height:1.35;}
+.choice:active:not(:disabled){background:#D5E8FA;}
+.choice.correct{background:var(--ltGreen);border-color:var(--green);color:var(--green);}
+.choice.wrong{background:#fceaea;border-color:var(--red);color:var(--red);}
+.choice:disabled{cursor:default;}
+.mini-audio{flex-shrink:0;width:50px;border:2px solid var(--divider);border-radius:10px;background:var(--white);font-size:18px;cursor:pointer;}
+.mini-audio.speaking{background:var(--navyMid);color:#fff;}
+.q-fb{font-size:15px;font-weight:bold;margin-top:10px;display:none;line-height:1.5;}
+.q-fb.show{display:block;}
+.q-fb.ok{color:var(--green);}
+.q-fb.ko{color:var(--red);}
+.final{display:none;text-align:center;padding:30px 22px;background:var(--dark);border-radius:14px;margin-top:20px;color:#fff;}
+.final.show{display:block;}
+.final-num{font-size:56px;font-weight:bold;color:var(--c1);line-height:1;}
+.final-msg{font-size:17px;color:#fff;margin-top:14px;}
+.retry-btn{margin-top:20px;background:var(--coral);color:#fff;border:none;border-radius:10px;padding:14px 32px;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--c1);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+.hint-toggle{background:none;border:none;color:var(--navyMid);font-weight:bold;font-size:14px;cursor:pointer;padding:8px 0;font-family:Arial,sans-serif;}
+.hint-box{font-size:14px;color:var(--slate);background:var(--ltBlue);border-radius:8px;padding:10px 12px;margin:4px 0 8px;line-height:1.5;display:flex;align-items:flex-start;gap:8px;}
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+</style>
+</head>
+<body>
+<header class="top-bar">
+  <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="../../../index.html">&#8592; Accueil</a>
+  <div class="lvl-tag">C1</div>
+  <div style="font-size:15px;font-weight:bold;color:var(--dark);margin-bottom:2px;">Exercice de compr&eacute;hension orale &mdash; accent qu&eacute;b&eacute;cois</div>
+  <div class="page-title">L&rsquo;entretien de Francis T.</div>
+  <div class="page-sub" style="display:flex;align-items:flex-start;gap:8px;"><span>&Eacute;coute l&rsquo;entretien, lis la transcription, r&eacute;vise avec les cartes, puis teste-toi avec le quiz.</span><button class="speak-btn" onclick="playClip('c1_ft_instruction.mp3',this)">&#128266;</button></div>
+
+  <div class="interview-card">
+    <button class="flip-btn" id="hlBtn" onclick="toggleHl()" style="background:var(--navyMid);">&#10024; Afficher les Highlights</button>
+    <div id="highlights" class="tr-box" style="display:none;">
+    <button class="speak-btn" onclick="playClip('c1_ft_highlights.mp3',this)" style="margin-bottom:12px;">&#128266; &Eacute;couter</button>
+    <p style="margin:0 0 12px;font-size:15px;line-height:1.6;">This is a structured biographical interview with Francis Tanguay, a professional living in the Montreal area who speaks with a Quebec accent.</p>
+    <p style="margin:0 0 12px;font-size:15px;line-height:1.6;">He introduces his family &mdash; describing himself as an only child &mdash; and outlines his career as a supervisor in a call centre serving corporate banking clients, where he handles ongoing training, performance evaluation and improvement projects.</p>
+    <p style="margin:0 0 12px;font-size:15px;line-height:1.6;">He recounts his academic path, from a college diploma in financial products and insurance to his current studies in process improvement at HEC Montr&eacute;al.</p>
+    <p style="margin:0 0 12px;font-size:15px;line-height:1.6;">On the personal side, he shares his taste for independent Qu&eacute;b&eacute;cois cinema over blockbusters, his love of going out with friends and live music shows, and his travels to Asia, Spain and Hawaii.</p>
+    <p style="margin:0;font-size:15px;line-height:1.6;">He explains his fondness for tropical destinations through his love of nature and the outdoors &mdash; &laquo;&nbsp;le grand air&nbsp;&raquo;.</p>
+    </div>
+  </div>
+
+  <div class="sec-label">&#127911; &Eacute;coute l&rsquo;entretien</div>
+  <div class="interview-card">
+    <audio id="itw" controls preload="none" src="audio/interview.mp3" style="width:100%;"></audio>
+    <button class="flip-btn" id="trBtn" onclick="toggleTr()" style="margin-top:12px;background:var(--navyMid);">&#128196; Afficher la transcription</button>
+    <div id="transcript" class="tr-box" style="display:none;">
+<div class="tr-q">QUESTION&nbsp;: Qui &ecirc;tes-vous&nbsp;?</div>
+<div class="tr-a">J&rsquo;m&rsquo;appelle Francis Tanguay.</div>
+<div class="tr-q">QUESTION&nbsp;: Parlez-moi de votre famille, s&rsquo;il vous pla&icirc;t&nbsp;?</div>
+<div class="tr-a">Je suis le fils de Luc Tanguay&hellip; [Heu&nbsp;! j&rsquo;ai presque ri&hellip;] Je suis le fils de Luc Tanguay, heu&nbsp;! le fr&egrave;re &agrave; Mimi, Micheline Tanguay, et puis ma m&egrave;re s&rsquo;appelle Francine Tanguay.</div>
+<div class="tr-q">QUESTION&nbsp;: Vous avez des fr&egrave;res et s&oelig;urs&nbsp;?</div>
+<div class="tr-a">Non, je suis enfant unique.</div>
+<div class="tr-q">QUESTION&nbsp;: Qu&rsquo;est-ce que vous faites dans la vie&nbsp;?</div>
+<div class="tr-a">Je suis superviseur au niveau d&rsquo;un centre d&rsquo;appel pour les services bancaires au niveau entreprises&nbsp;; et puis mon travail consiste &agrave; faire de la formation en continu, de l&rsquo;&eacute;valuation des performances et &agrave; travailler des projets d&rsquo;am&eacute;lioration.</div>
+<div class="tr-q">QUESTION&nbsp;: Et d&rsquo;o&ugrave; est-ce que vous venez&nbsp;?</div>
+<div class="tr-a">Je viens de Laval, Montr&eacute;al, sur le Plateau Mont-Royal.</div>
+<div class="tr-q">QUESTION&nbsp;: Avec votre temps libre, qu&rsquo;est-ce que vous aimez faire&nbsp;?</div>
+<div class="tr-a">J&rsquo;aime beaucoup sortir avec des amis, aller prendre un verre. J&rsquo;aime aller voir les spectacles de musique. J&rsquo;aime aussi regarder les films, aller au cin&eacute;ma.</div>
+<div class="tr-q">QUESTION&nbsp;: Vous avez un film pr&eacute;f&eacute;r&eacute;&nbsp;?</div>
+<div class="tr-a">J&rsquo;ai pas de film pr&eacute;f&eacute;r&eacute;, mais j&rsquo;aime beaucoup les films des producteurs qu&eacute;b&eacute;cois, les films de r&eacute;pertoire un peu plus que les films de &laquo;&nbsp;blockbuster&nbsp;&raquo;.</div>
+<div class="tr-q">QUESTION&nbsp;: Est-ce que vous avez d&eacute;j&agrave; voyag&eacute;&nbsp;?</div>
+<div class="tr-a">Oui, j&rsquo;ai voyag&eacute; en Asie, j&rsquo;ai voyag&eacute; en Espagne. Aux &Eacute;tats-Unis, &agrave; Hawaii, et puis&hellip; c&rsquo;est tout.</div>
+<div class="tr-q">QUESTION&nbsp;: Vous aimez les pays tropicaux alors&nbsp;?</div>
+<div class="tr-a">Beaucoup, mais parce que aussi j&rsquo;aime la nature, le grand air.</div>
+<div class="tr-q">QUESTION&nbsp;: Qu&rsquo;est-ce que vous avez fait comme &eacute;tudes&nbsp;?</div>
+<div class="tr-a">J&rsquo;ai un dipl&ocirc;me d&rsquo;&eacute;tudes coll&eacute;giales en produits financiers et assurances. Je suis pr&eacute;sentement au HEC Montr&eacute;al, pour l&rsquo;am&eacute;lioration des processus.</div>
+    </div>
+  </div>
+
+  <div class="sec-label">&#128218; Cartes &mdash; r&eacute;vision</div>
+  <div class="flash" id="flash" onclick="flip()">
+    <div class="flash-side" id="flashSide">Question</div>
+    <div class="flash-text" id="flashText">&hellip;</div>
+    <button class="speak-btn" id="flashAudio" style="margin-top:14px;" onclick="event.stopPropagation(); playCard(this);">&#128266; &Eacute;couter</button>
+    <div class="flash-hint" id="flashHint">Touche la carte pour voir la r&eacute;ponse</div>
+  </div>
+  <button class="flip-btn" onclick="flip()">&#128260; Retourner la carte</button>
+  <div class="deck-controls">
+    <button id="fPrev" class="nav-btn">&#8592; Pr&eacute;c&eacute;dent</button>
+    <span id="fCount" class="counter">1 / 36</span>
+    <button id="fNext" class="nav-btn">Suivant &#8594;</button>
+  </div>
+
+  <div class="sec-label">&#9989; Quiz &mdash; 10 questions</div>
+  <div id="quiz"></div>
+  <div class="final" id="final">
+    <div class="final-num" id="finalNum">0 / 10</div>
+    <div class="final-msg" id="finalMsg"></div>
+    <button class="retry-btn" onclick="location.reload()">Recommencer</button>
+  </div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item" href="../../a1/index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+
+<script src="/js/audio.js"></script>
+<script>
+// recorded-audio player (no synthetic); files live in ./audio/
+function pad(n){ return (n<10?'0':'')+n; }
+function toggleHl(){
+  var t=document.getElementById('highlights'), b=document.getElementById('hlBtn');
+  var show=t.style.display==='none';
+  t.style.display=show?'block':'none';
+  b.innerHTML=(show?'\u2728 Masquer les Highlights':'\u2728 Afficher les Highlights');
+}
+function toggleTr(){
+  var t=document.getElementById('transcript'), b=document.getElementById('trBtn');
+  var show=t.style.display==='none';
+  t.style.display=show?'block':'none';
+  b.innerHTML=(show?'\u{1F4C4} Masquer la transcription':'\u{1F4C4} Afficher la transcription');
+}
+
+var FLASH=[
+ {q:'Quel est le nom complet de la personne présentée dans ce portrait ?',a:'Francis Tanguay'},
+ {q:'Quel accent la personne interrogée a-t-elle ?',a:'L\'accent québécois'},
+ {q:'Comment Francis prononce-t-il « je m\'appelle » ?',a:'« J\'m\'appelle » (forme contractée typique de l\'oral québécois)'},
+ {q:'Comment se prénomme le père de Francis ?',a:'Luc Tanguay'},
+ {q:'Comment se prénomme la mère de Francis ?',a:'Francine Tanguay'},
+ {q:'Qui est Micheline (« Mimi ») Tanguay par rapport à Francis ?',a:'Sa tante : Luc, le père, est « le frère à Mimi »'},
+ {q:'Que révèle l\'expression « le frère à Mimi » sur la langue parlée au Québec ?',a:'L\'emploi familier de « à » pour la possession (= le frère de Mimi)'},
+ {q:'Francis a-t-il des frères et sœurs ?',a:'Non, il est enfant unique'},
+ {q:'Quelle est la profession de Francis ?',a:'Superviseur dans un centre d\'appel'},
+ {q:'Dans quel secteur travaille son centre d\'appel ?',a:'Les services bancaires aux entreprises'},
+ {q:'Quelle est la première tâche que comporte son travail ?',a:'La formation en continu'},
+ {q:'Quelle tâche de contrôle fait partie de son poste ?',a:'L\'évaluation des performances'},
+ {q:'Sur quel type de projets Francis travaille-t-il ?',a:'Des projets d\'amélioration'},
+ {q:'Quelle est la dimension « pédagogique » de son travail ?',a:'Il forme le personnel en continu'},
+ {q:'D\'où vient Francis ?',a:'De Laval, Montréal, sur le Plateau Mont-Royal'},
+ {q:'Dans quel quartier de Montréal se situe-t-il ?',a:'Le Plateau Mont-Royal'},
+ {q:'Que fait Francis pour se détendre avec ses amis ?',a:'Sortir et aller prendre un verre'},
+ {q:'Quel type de spectacle Francis aime-t-il voir ?',a:'Les spectacles de musique'},
+ {q:'Quel loisir culturel Francis apprécie-t-il ?',a:'Aller au cinéma / regarder des films'},
+ {q:'Francis a-t-il un film préféré ?',a:'Non, il n\'a pas de film préféré'},
+ {q:'Quel type de cinéma Francis privilégie-t-il ?',a:'Les films des producteurs québécois et les films de répertoire'},
+ {q:'Que désigne l\'expression « film de répertoire » ?',a:'Un film d\'auteur / de cinémathèque, par opposition au film grand public'},
+ {q:'Quel type de films Francis apprécie-t-il le moins ?',a:'Les « blockbusters » (superproductions)'},
+ {q:'Dans quels endroits Francis a-t-il voyagé ?',a:'En Asie, en Espagne et aux États-Unis (Hawaii)'},
+ {q:'Dans quel État américain Francis est-il allé ?',a:'À Hawaii'},
+ {q:'Francis apprécie-t-il les pays tropicaux ?',a:'Oui, beaucoup'},
+ {q:'Pourquoi Francis aime-t-il les pays tropicaux ?',a:'Parce qu\'il aime la nature, le grand air'},
+ {q:'Que signifie l\'expression « le grand air » ?',a:'L\'extérieur, la nature, le plein air'},
+ {q:'Quel diplôme Francis a-t-il obtenu ?',a:'Un DEC (diplôme d\'études collégiales)'},
+ {q:'Que signifie l\'acronyme québécois DEC ?',a:'Diplôme d\'études collégiales'},
+ {q:'Dans quel domaine Francis a-t-il obtenu son DEC ?',a:'En produits financiers et assurances'},
+ {q:'Où Francis étudie-t-il présentement ?',a:'Au HEC Montréal'},
+ {q:'Qu\'étudie Francis actuellement au HEC ?',a:'L\'amélioration des processus'},
+ {q:'Que signifie l\'adverbe québécois « présentement » ?',a:'Actuellement, en ce moment'},
+ {q:'Quel fil conducteur relie les études et le métier de Francis ?',a:'La finance / la banque et l\'amélioration des processus'},
+ {q:'En une expression, quelle est la situation familiale de Francis ?',a:'Enfant unique'}
+];
+var idx=0, showingBack=false;
+function renderCard(){
+  var c=FLASH[idx], side=document.getElementById('flashSide');
+  side.textContent = showingBack ? 'Réponse' : 'Question';
+  side.className = 'flash-side' + (showingBack?' reponse':'');
+  document.getElementById('flashText').textContent = showingBack ? c.a : c.q;
+  document.getElementById('flashHint').style.display = showingBack ? 'none' : 'block';
+  document.getElementById('fCount').textContent = (idx+1)+' / '+FLASH.length;
+  document.getElementById('fPrev').disabled = (idx===0);
+  document.getElementById('fNext').disabled = (idx===FLASH.length-1);
+}
+function playCard(btn){ playClip('c1_ft_card_'+pad(idx+1)+'_'+(showingBack?'r':'q')+'.mp3', btn); }
+function flip(){ showingBack=!showingBack; renderCard(); }
+document.getElementById('fPrev').addEventListener('click',function(e){e.stopPropagation(); if(idx>0){idx--;showingBack=false;renderCard();}});
+document.getElementById('fNext').addEventListener('click',function(e){e.stopPropagation(); if(idx<FLASH.length-1){idx++;showingBack=false;renderCard();}});
+renderCard();
+
+var QUIZ=[
+ {q:'Quel est le rôle exact de Francis Tanguay au sein de son entreprise ?',o:['Conseiller en assurances pour les particuliers.','Superviseur dans un centre d\'appel pour services bancaires aux entreprises.','Directeur marketing pour une banque internationale.','Formateur indépendant en gestion de projets.'],c:1,e:'Cherchez un poste de gestion au sein d\'une structure de support client pour le secteur financier.'},
+ {q:'En quoi consiste la dimension pédagogique du travail de Francis ?',o:['Il assure la formation continue du personnel.','Il rédige des manuels de procédures pour les clients.','Il organise des séminaires sur le cinéma québécois.','Il donne des cours de finance à HEC Montréal.'],c:0,e:'Identifiez l\'aspect de son poste qui touche à l\'apprentissage des employés.'},
+ {q:'Quelle est la situation familiale de Francis ?',o:['Il vit avec ses parents, Luc et Francine.','Il est enfant unique.','Il est l\'aîné d\'une famille nombreuse.','Il a une sœur nommée Micheline.'],c:1,e:'Faites attention à la réponse directe qu\'il donne après avoir mentionné ses parents.'},
+ {q:'Comment Francis décrit-il ses goûts en matière de cinéma ?',o:['Il ne regarde que des films internationaux sous-titrés.','Il privilégie le cinéma de répertoire et les productions locales.','Il n\'aime pas aller au cinéma et préfère regarder des films chez lui.','Il est un grand amateur de blockbusters hollywoodiens.'],c:1,e:'Considérez son penchant pour le contenu culturel de sa propre province.'},
+ {q:'Pourquoi Francis apprécie-t-il particulièrement les pays tropicaux ?',o:['Parce qu\'il aime la nature et le grand air.','Pour pratiquer des sports nautiques extrêmes.','Pour étudier les systèmes bancaires étrangers.','Pour fuir l\'hiver québécois uniquement.'],c:0,e:'Pensez à ce qu\'il recherche en termes d\'environnement géographique lorsqu\'il voyage.'},
+ {q:'Quel domaine étudie-t-il actuellement à HEC Montréal ?',o:['Le marketing et la communication d\'entreprise.','L\'amélioration des processus.','La finance et les assurances.','La gestion des ressources humaines.'],c:1,e:'Recherchez un terme lié à l\'efficacité organisationnelle.'},
+ {q:'Où Francis a-t-il voyagé par le passé ?',o:['En Asie, en Espagne et à Hawaii.','À Hawaii uniquement.','En France, en Italie et aux États-Unis.','Au Mexique, au Japon et en Espagne.'],c:0,e:'Il mentionne un continent, un pays européen et un État insulaire américain.'},
+ {q:'Dans le contexte québécois utilisé par Francis, que signifie être au HEC « présentement » ?',o:['Il compte y étudier prochainement.','Il y étudie actuellement.','Il vient d\'y terminer ses études.','Il s\'y présente physiquement chaque jour.'],c:1,e:'Rapprochez ce mot d\'un synonyme indiquant le temps présent.'},
+ {q:'Quelles sont les activités sociales favorites de Francis ?',o:['Faire de la randonnée solitaire et lire des biographies.','Participer à des débats politiques et cuisiner pour ses parents.','Sortir prendre un verre et aller voir des spectacles de musique.','Jouer à des jeux vidéo et faire du sport en salle.'],c:2,e:'Concentrez-vous sur ses interactions avec ses amis et ses sorties culturelles.'},
+ {q:'Que signifie l\'expression « le grand air » utilisée par Francis ?',o:['Un voyage en avion de longue durée.','Un climat très froid et venteux.','L\'extérieur et la nature sauvage.','Une mélodie musicale célèbre.'],c:2,e:'Pensez à ce que l\'on recherche lorsqu\'on s\'éloigne de la ville pour respirer.'}
+];
+var LETTERS=['A','B','C','D'], AKEY=['a','b','c','d'];
+var answered=0, score=0;
+(function(){
+  var wrap=document.getElementById('quiz');
+  QUIZ.forEach(function(item,qi){
+    var card=document.createElement('div'); card.className='q-card'; card.id='q'+qi;
+    var num=document.createElement('div'); num.className='q-num'; num.textContent='Question '+(qi+1)+' / '+QUIZ.length;
+    var head=document.createElement('div'); head.className='q-head';
+    var qt=document.createElement('div'); qt.className='q-text'; qt.textContent=item.q;
+    var qa=document.createElement('button'); qa.className='speak-btn'; qa.innerHTML='&#128266;';
+    qa.addEventListener('click',function(){ playClip('c1_ft_quiz_'+pad(qi+1)+'_q.mp3', qa); });
+    head.appendChild(qt); head.appendChild(qa);
+    card.appendChild(num); card.appendChild(head);
+    item.o.forEach(function(opt,oi){
+      var row=document.createElement('div'); row.className='choice-row';
+      var b=document.createElement('button'); b.className='choice'; b.textContent=LETTERS[oi]+'.  '+opt;
+      b.addEventListener('click',function(){ choose(card,qi,oi); });
+      var au=document.createElement('button'); au.className='mini-audio'; au.innerHTML='&#128266;';
+      au.addEventListener('click',function(){ playClip('c1_ft_quiz_'+pad(qi+1)+'_'+AKEY[oi]+'.mp3', au); });
+      row.appendChild(b); row.appendChild(au);
+      card.appendChild(row);
+    });
+    var ht=document.createElement('button'); ht.className='hint-toggle'; ht.innerHTML='💡 Indice';
+    var hbox=document.createElement('div'); hbox.className='hint-box'; hbox.style.display='none';
+    var hsp=document.createElement('span'); hsp.textContent=item.e+' ';
+    var hau=document.createElement('button'); hau.className='speak-btn'; hau.innerHTML='&#128266;';
+    hau.addEventListener('click',function(){ playClip('c1_ft_quiz_'+pad(qi+1)+'_hint.mp3', hau); });
+    hbox.appendChild(hsp); hbox.appendChild(hau);
+    ht.addEventListener('click',function(){ var sh=(hbox.style.display==='none'); hbox.style.display=sh?'block':'none'; ht.innerHTML = sh ? '💡 Masquer l\'indice' : '💡 Indice'; });
+    card.appendChild(ht); card.appendChild(hbox);
+    var fb=document.createElement('div'); fb.className='q-fb'; fb.id='fb'+qi;
+    card.appendChild(fb);
+    wrap.appendChild(card);
+  });
+})();
+function choose(card,qi,oi){
+  if(card.dataset.done) return;
+  card.dataset.done='1';
+  var item=QUIZ[qi];
+  card.querySelectorAll('.choice').forEach(function(b,i){ b.disabled=true; if(i===item.c) b.classList.add('correct'); });
+  var right=(oi===item.c);
+  if(!right) card.querySelectorAll('.choice')[oi].classList.add('wrong');
+  if(right) score++;
+  card.classList.add(right?'ok':'ko');
+  var fb=document.getElementById('fb'+qi);
+  fb.className='q-fb show '+(right?'ok':'ko');
+  fb.textContent=(right?'✓ Correct !':'✗ Pas tout à fait.');
+  answered++;
+  if(answered===QUIZ.length) showFinal();
+}
+function showFinal(){
+  var f=document.getElementById('final'); f.classList.add('show');
+  document.getElementById('finalNum').textContent=score+' / '+QUIZ.length;
+  var pct=Math.round(score/QUIZ.length*100);
+  var msg = pct>=90?'Excellent ! Compréhension de niveau C1 maîtrisée.'
+          : pct>=70?'Très bien ! Revois les questions manquées.'
+          : pct>=50?'Pas mal ! Réécoute l\'entretien et réessaie.'
+          : 'Continue ! Réécoute l\'entretien et reprends le quiz.';
+  document.getElementById('finalMsg').textContent=msg;
+  if(window.LEM){ window.LEM.setLesson('c1_francis_tanguay',{score:score,total:QUIZ.length,completed:true,lastPracticed:Date.now()}); }
+  f.scrollIntoView({behavior:'smooth'});
+}
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+<script src="/js/timer.js"></script>
+</body>
+</html>

@@ -261,6 +261,21 @@
       "progressId": "c1_francine_gosselin"
     },
     {
+      "id": "C1-E-002",
+      "niveau": "C1",
+      "ordre": 20,
+      "titre": "Francis Tanguay — Écoute",
+      "chemin": "french/c1/francis-tanguay/index.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": null,
+      "publie": true,
+      "progressId": "c1_francis_tanguay"
+    },
+    {
       "id": "A2-E-004",
       "niveau": "A2",
       "ordre": 40,
