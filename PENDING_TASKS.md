@@ -72,3 +72,11 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 
 _(aucune)_
 
+
+## 🔧 Pour Fable — libellé de notification manquant (Francis Tanguay)
+
+`js/auth-guard.js` → `LESSON_NAMES` : ajouter l'entrée
+`'c1_francis_tanguay': 'C1 · Francis T. (compréhension orale)',`
+(à côté de `'c1_francine_gosselin'`).
+
+**Effet actuel** : la notification e-mail de complétion de C1-E-002 part bien, mais affiche l'exercice sous son code brut `c1_francis_tanguay` faute de libellé. La notif fonctionne, c'est purement cosmétique. Constaté le 24/07/2026 (Opus ne modifie pas `js/*.js`, d'où ce renvoi).
