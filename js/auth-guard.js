@@ -30,6 +30,7 @@ const LESSON_NAMES = {
   'etre':  'A1 · Le verbe Être',
   'avoir': 'A1 · Le verbe Avoir',
   'c1_francine_gosselin': 'C1 · Francine G. (compréhension orale)',
+  'c1_francis_tanguay': 'C1 · Francis T. (compréhension orale)',
   'a1_les_nombres':'A1 · Les nombres',
   'a2_nombres_quiz':'A2 · Quiz Les nombres',
   'a2_ecoute_invitations':'A2 · Écoute — Invitations',
