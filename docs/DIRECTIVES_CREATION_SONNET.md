@@ -90,7 +90,7 @@ Modèle : **A1-E-007** (La Ratatouille Folle). Détails techniques : `docs/DIREC
 2. **Le texte codé** (le cœur) — recopie le texte avec ce balisage exact :
    - **Accents** : garde les vrais caractères (é è ê à â ù û ë ï ô ç). Ne rien baliser dessus.
    - **Lettres muettes** : entoure d’accolades **la ou les consonne(s) finale(s) muette(s)** — `vien{s}`, `di{t}`, `beaucou{p}`, `françai{s}`, `spor{t}`. ⚠️ **Jamais le « e » muet final** (prépare, valise → on ne marque rien).
-   - **Liaisons** : consonne de liaison entre chevrons, puis le signe `‿` collé au mot suivant **sans espace** — `nou^s^‿avons`, `e^n^‿échange`, `le^s^‿yeux`. Précise le **son** (z / t / n).
+   - **Liaisons** : consonne de liaison entre chevrons, puis le signe `‿`, le tout **entre les chevrons**, collé au mot suivant **sans espace** — `nou^s‿^avons`, `e^n‿^échange`, `le^s‿^yeux`. Précise le **son** (z / t / n).
    - **Mots difficiles** (qu’un débutant américain prononce mal) : `<mot|pro·non·cia·tion>` avec des points entre syllabes — `<aujourd'hui|o·jour·dwi>`, `<yeux|zieu>`, `<châtains|cha·tin>`.
 
 3. **Exercices (étape 4)** — énoncés **ET bonnes réponses** :
@@ -109,7 +109,7 @@ Modèle : **A1-E-007** (La Ratatouille Folle). Détails techniques : `docs/DIREC
 - Extrait pédagogique autorisé ; **cite auteur, titre, année/page**.
 
 **Mini-exemple** — « J’ai les yeux verts. » devient :
-`J'ai le^s^‿<yeux|zieu> ver{ts}.`  (liaison s→z · « yeux » difficile [zieu] · « ts » de « verts » muets).
+`J'ai le^s‿^<yeux|zieu> ver{ts}.`  (liaison s→z · « yeux » difficile [zieu] · « ts » de « verts » muets).
 
 
 ## 5. En cas de doute
