@@ -23,6 +23,8 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  # Consignes cartes/quiz C1 (Francine + Francis) — en attente
+                  "c1_fg_cards_instr.mp3", "c1_fg_cards_instr_en.mp3", "c1_fg_quiz_instr.mp3", "c1_fg_quiz_instr_en.mp3", "c1_ft_cards_instr.mp3", "c1_ft_cards_instr_en.mp3", "c1_ft_quiz_instr.mp3", "c1_ft_quiz_instr_en.mp3",
                   # Méthode d'écoute C1 (Francine + Francis) — en attente
                   "c1_fg_methode.mp3", "c1_fg_methode_en.mp3", "c1_ft_methode.mp3", "c1_ft_methode_en.mp3",
                   # C1-E-002 (Francis Tanguay) — en attente d'enregistrement

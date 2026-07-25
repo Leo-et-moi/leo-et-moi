@@ -63,8 +63,7 @@ Modèle : `french/c1/francine-gosselin/` et `french/c1/francis-tanguay/`. Standa
 
 - **Sous-titre de la page** : « **Accents francophones — accent [québécois / …]** » (et non plus « Exercice de compréhension orale »).
 - **Bloc « Méthode d'écoute »** (Recall Protocol), pliable, **juste avant** « Afficher les Highlights » : texte **bilingue** FR/EN (première écoute sans notes ; deuxième écoute → écrire de mémoire en anglais, NE PAS TRADUIRE ; révision en suivant la transcription ; repérage des lacunes ; répétition) + **deux audios** `c1_<xx>_methode.mp3` (FR) et `c1_<xx>_methode_en.mp3` (EN). Le texte de méthode est **identique partout** → l'enregistrer une seule fois et le **copier** (cf. §3c).
-- **Consigne sous « Cartes — révision »** : « Écoutez toutes les cartes et répétez à haute voix avant de passer à la carte suivante. » (+ EN).
-- **Consigne sous « Quiz — 10 questions »** : « Écoutez chaque question et chaque réponse, puis répétez-les à voix haute avant de répondre et de passer à la question suivante. » (+ EN).
+- **Consignes sous « Cartes — révision » et « Quiz — 10 questions »** : encadré **corail** titré « Consigne · Instruction », bilingue, avec **🔊 FR + 🔊 EN** (`c1_<xx>_cards_instr.mp3`/`_en`, `c1_<xx>_quiz_instr.mp3`/`_en`). Cartes : « Écoutez toutes les cartes et répétez à haute voix avant de passer à la carte suivante. » Quiz : « Écoutez chaque question et chaque réponse, puis répétez-les à voix haute avant de répondre et de passer à la question suivante. » Textes **identiques partout** → enregistrer une fois, copier (§3c).
 
 ## 4. Déployer un audio d'Eric
 

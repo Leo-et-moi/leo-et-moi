@@ -72,8 +72,10 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .hint-toggle{background:none;border:none;color:var(--navyMid);font-weight:bold;font-size:14px;cursor:pointer;padding:8px 0;font-family:Arial,sans-serif;}
 .hint-box{font-size:14px;color:var(--slate);background:var(--ltBlue);border-radius:8px;padding:10px 12px;margin:4px 0 8px;line-height:1.5;display:flex;align-items:flex-start;gap:8px;}
 @media(min-width:600px){.main{padding:24px 20px 8px;}}
-.listen-instr{font-size:14px;color:var(--slate);background:var(--ltBlue);border-radius:8px;padding:10px 12px;margin:-2px 0 14px;line-height:1.5;}
-.listen-instr .en2{display:block;color:#8899AA;font-size:12.5px;margin-top:3px;}
+.consigne-box{background:#FEF0EE;border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:12px 14px;margin:-2px 0 14px;}
+.consigne-box .cg-title{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--coral);margin-bottom:7px;}
+.consigne-box .cg-fr{font-size:14.5px;color:var(--text);line-height:1.5;display:flex;align-items:flex-start;gap:8px;}
+.consigne-box .cg-en{font-size:12.5px;color:#8899AA;line-height:1.5;margin-top:6px;display:flex;align-items:flex-start;gap:8px;}
 </style>
 </head>
 <body>
@@ -156,7 +158,11 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   </div>
 
   <div class="sec-label">&#128218; Cartes &mdash; r&eacute;vision</div>
-  <div class="listen-instr">&Eacute;coutez toutes les cartes et r&eacute;p&eacute;tez &agrave; haute voix avant de passer &agrave; la carte suivante.<span class="en2">Listen to all the cards and repeat them aloud before moving on to the next card.</span></div>
+  <div class="consigne-box">
+    <div class="cg-title">Consigne &middot; Instruction</div>
+    <div class="cg-fr"><button class="speak-btn" onclick="playClip('c1_ft_cards_instr.mp3',this)">&#128266;</button><span>&Eacute;coutez toutes les cartes et r&eacute;p&eacute;tez &agrave; haute voix avant de passer &agrave; la carte suivante.</span></div>
+    <div class="cg-en"><button class="speak-btn" onclick="playClip('c1_ft_cards_instr_en.mp3',this)">&#128266;</button><span>Listen to all the cards and repeat them aloud before moving on to the next card.</span></div>
+  </div>
   <div class="flash" id="flash" onclick="flip()">
     <div class="flash-side" id="flashSide">Question</div>
     <div class="flash-text" id="flashText">&hellip;</div>
@@ -171,7 +177,11 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   </div>
 
   <div class="sec-label">&#9989; Quiz &mdash; 10 questions</div>
-  <div class="listen-instr">&Eacute;coutez chaque question et chaque r&eacute;ponse, puis r&eacute;p&eacute;tez-les &agrave; voix haute avant de r&eacute;pondre et de passer &agrave; la question suivante.<span class="en2">Listen to each question and answer, then repeat them aloud before answering and moving on to the next question.</span></div>
+  <div class="consigne-box">
+    <div class="cg-title">Consigne &middot; Instruction</div>
+    <div class="cg-fr"><button class="speak-btn" onclick="playClip('c1_ft_quiz_instr.mp3',this)">&#128266;</button><span>&Eacute;coutez chaque question et chaque r&eacute;ponse, puis r&eacute;p&eacute;tez-les &agrave; voix haute avant de r&eacute;pondre et de passer &agrave; la question suivante.</span></div>
+    <div class="cg-en"><button class="speak-btn" onclick="playClip('c1_ft_quiz_instr_en.mp3',this)">&#128266;</button><span>Listen to each question and answer, then repeat them aloud before answering and moving on to the next question.</span></div>
+  </div>
   <div id="quiz"></div>
   <div class="final" id="final">
     <div class="final-num" id="finalNum">0 / 10</div>
