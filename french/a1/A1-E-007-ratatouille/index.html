@@ -9,7 +9,7 @@
 :root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#C87A00;
 --ltBlue:#E8F0FA;--ltGreen:#E3F5EC;--green:#1E7B45;--red:#C0392B;--text:#1A2733;--slate:#4A6580;
 --divider:#D8DFE8;--white:#FFF;--a1:#C0392B;--nav-h:64px;
---aigu:#F6D24B;--grave:#F19CBB;--circ:#8FD9D2;--trema:#C9B3EC;--cedille:#E0A93C;}
+--aigu:#F6D24B;--grave:#F19CBB;--circ:#8FD9D2;--trema:#C9B3EC;--cedille:#E8843A;}
 html{font-size:18px;}
 body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;padding-bottom:calc(var(--nav-h) + 16px);}
 .top-bar{background:var(--dark);border-bottom:4px solid var(--a1);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
@@ -19,7 +19,10 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
 .lvl-tag{display:inline-block;background:var(--a1);color:#fff;font-size:13px;font-weight:bold;padding:3px 12px;border-radius:20px;margin-bottom:6px;}
 .page-title{font-size:23px;font-weight:bold;color:var(--dark);}
-.page-src{font-size:13px;color:var(--slate);margin:2px 0 6px;}
+.page-src{font-size:13px;color:var(--slate);margin:2px 0 4px;}
+.page-pg{font-size:15px;font-weight:bold;color:var(--dark);margin:2px 0 6px;}
+.en-t{font-size:13px;font-weight:normal;color:var(--slate);}
+.lspk{background:rgba(255,255,255,.55);border:none;border-radius:9px;padding:0 5px;margin-left:5px;font-size:12px;cursor:pointer;min-height:22px;}
 .legend{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 6px;font-size:12px;}
 .legend span{padding:3px 9px;border-radius:12px;font-weight:bold;color:#1a2733;}
 .step{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06);border-left:5px solid var(--a1);padding:16px 18px;margin:22px 0;}
@@ -39,12 +42,12 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .chip.t-grave{border-color:var(--grave);background:#FCE9F0;}
 .chip.t-circ{border-color:var(--circ);background:#E4F6F4;}
 .chip.t-trema{border-color:var(--trema);background:#F1EBFB;}
-.chip.t-cedille{border-color:var(--cedille);background:#FBF0D6;}
+.chip.t-cedille{border-color:var(--cedille);background:#FBE6D6;}
 .chip.ok{border-color:var(--green)!important;background:var(--ltGreen)!important;color:var(--green);}
 .chip.ko{border-color:var(--red)!important;background:#FBE7E5!important;color:var(--red);}
 .acc{font-weight:bold;border-radius:4px;padding:0 2px;}
 .acc.t-aigu{background:var(--aigu);}.acc.t-grave{background:var(--grave);}.acc.t-circ{background:var(--circ);}.acc.t-trema{background:var(--trema);}.acc.t-cedille{background:var(--cedille);}
-.sil{color:var(--green);font-style:italic;}
+.sil{color:var(--green);font-weight:bold;}
 .li{color:var(--red);font-weight:bold;}
 .dw{color:var(--gold);font-weight:bold;font-size:.8em;}
 .btn{font-family:Arial;font-size:15px;font-weight:bold;border:none;border-radius:10px;padding:12px 18px;min-height:48px;cursor:pointer;margin:6px 6px 0 0;}
@@ -74,8 +77,9 @@ audio{width:100%;margin-top:8px;}
 <main class="main">
   <a class="back-link" href="/french/a1/index.html">&#8592; Niveau A1</a>
   <div class="lvl-tag">A1</div>
-  <div class="page-title">La Ratatouille Folle &mdash; Chapitre 1&nbsp;: La Pr&eacute;paration</div>
+  <div class="page-title">S&eacute;rie PRO-NON-CIA-TION avec L&Eacute;O</div>
   <div class="page-src">Exercice de lecture avec aide d&rsquo;&eacute;coute &middot; Reading exercise with listening support</div>
+  <div class="page-pg">La Ratatouille Folle &mdash; Chapitre 1&nbsp;: La Pr&eacute;paration &middot; p.&nbsp;3</div>
 
   <div class="consigne">
     <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
@@ -86,20 +90,20 @@ audio{width:100%;margin-top:8px;}
   </div>
 
   <div class="legend">
-    <span style="background:var(--aigu)">&eacute; aigu</span>
-    <span style="background:var(--grave)">&egrave; &agrave; &ugrave; grave</span>
-    <span style="background:var(--circ)">&ecirc; &acirc; &ocirc; circonflexe</span>
-    <span style="background:var(--trema)">&euml; &iuml; tr&eacute;ma</span>
-    <span style="background:var(--cedille)">&ccedil; c&eacute;dille</span>
-    <span style="background:#E3F5EC;color:#1E7B45">lettre muette</span>
-    <span style="background:#FBE7E5;color:#C0392B">liaison &#8255;</span>
-    <span style="background:#FFF3DE;color:#C87A00">mot difficile</span>
+    <span style="background:var(--aigu)">&eacute; aigu<button class="lspk" onclick="playClip('A1-E-007_leg_aigu.mp3',this)">&#128266;</button></span>
+    <span style="background:var(--grave)">&egrave; &agrave; &ugrave; grave<button class="lspk" onclick="playClip('A1-E-007_leg_grave.mp3',this)">&#128266;</button></span>
+    <span style="background:var(--circ)">&ecirc; &acirc; &ocirc; circonflexe<button class="lspk" onclick="playClip('A1-E-007_leg_circ.mp3',this)">&#128266;</button></span>
+    <span style="background:var(--trema)">&euml; &iuml; tr&eacute;ma<button class="lspk" onclick="playClip('A1-E-007_leg_trema.mp3',this)">&#128266;</button></span>
+    <span style="background:var(--cedille)">&ccedil; c&eacute;dille<button class="lspk" onclick="playClip('A1-E-007_leg_cedille.mp3',this)">&#128266;</button></span>
+    <span style="background:#E3F5EC;color:#1E7B45">lettre muette<button class="lspk" onclick="playClip('A1-E-007_leg_muet.mp3',this)">&#128266;</button></span>
+    <span style="background:#FBE7E5;color:#C0392B">liaison &#8255;<button class="lspk" onclick="playClip('A1-E-007_leg_liaison.mp3',this)">&#128266;</button></span>
+    <span style="background:#FFF3DE;color:#C87A00">mot difficile<button class="lspk" onclick="playClip('A1-E-007_leg_difficile.mp3',this)">&#128266;</button></span>
   </div>
 
   <!-- ETAPE 1 -->
   <div class="step">
     <div class="step-h">&#9312; &Eacute;tape 1 &middot; Step 1</div>
-    <div class="step-t">Place les accents</div>
+    <div class="step-t">Place les accents <span class="en-t">/ Add the missing accents to the passage</span></div>
     <div class="consigne">
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
         <button class="spk" onclick="playClip('A1-E-007_e1.mp3',this)">&#128266; FR</button>
@@ -116,7 +120,7 @@ audio{width:100%;margin-top:8px;}
   <!-- ETAPE 2 -->
   <div class="step">
     <div class="step-h">&#9313; &Eacute;tape 2 &middot; Step 2</div>
-    <div class="step-t">Lis en &eacute;coutant</div>
+    <div class="step-t">Lis en &eacute;coutant <span class="en-t">/ Read while listening</span></div>
     <div class="consigne">
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
         <button class="spk" onclick="playClip('A1-E-007_e2.mp3',this)">&#128266; FR</button>
@@ -131,7 +135,7 @@ audio{width:100%;margin-top:8px;}
   <!-- ETAPE 3 -->
   <div class="step">
     <div class="step-h">&#9314; &Eacute;tape 3 &middot; Step 3</div>
-    <div class="step-t">Enregistre-toi</div>
+    <div class="step-t">Enregistre-toi <span class="en-t">/ Record yourself</span></div>
     <div class="consigne">
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
         <button class="spk" onclick="playClip('A1-E-007_e3.mp3',this)">&#128266; FR</button>
@@ -149,7 +153,7 @@ audio{width:100%;margin-top:8px;}
   <!-- ETAPE 4 -->
   <div class="step">
     <div class="step-h">&#9315; &Eacute;tape 4 &middot; Step 4</div>
-    <div class="step-t">Exercices</div>
+    <div class="step-t">Exercices <span class="en-t">/ Exercises</span></div>
     <div class="consigne">
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
         <button class="spk" onclick="playClip('A1-E-007_e4.mp3',this)">&#128266; FR</button>
@@ -163,7 +167,7 @@ audio{width:100%;margin-top:8px;}
     <div id="ex-muet"></div>
 
     <div class="step-t" style="font-size:16px;margin-top:16px;">B. Liaisons &mdash; le son</div>
-    <div class="mrk">Y a-t-il une liaison&nbsp;? Si oui, quel son entends-tu&nbsp;? &middot; Is there a liaison? Which sound?</div>
+    <div class="mrk">Place le signe &#8255; s&rsquo;il y a une liaison, puis trouve le son. Ex.&nbsp;: nous&#8255;avons. &middot; Place the &#8255; mark if there is a liaison, then find the sound.</div>
     <div id="ex-liaison"></div>
 
     <div class="step-t" style="font-size:16px;margin-top:16px;">C. Liaison&nbsp;: obligatoire, interdite ou facultative&nbsp;?</div>
@@ -177,6 +181,7 @@ audio{width:100%;margin-top:8px;}
     <div class="step-t" style="font-size:16px;margin-top:16px;">E. Mots difficiles &middot; Tricky words</div>
     <div class="mrk">&Eacute;coute l&rsquo;audio de l&rsquo;&eacute;tape 2 et r&eacute;p&egrave;te ces mots.</div>
     <div class="hard">
+      <span>yeux <b>[zieu]</b></span>
       <span>aujourd&rsquo;hui <b>[o&middot;jour&middot;dwi]</b></span>
       <span>s&oelig;ur <b>[seur]</b></span>
       <span>ch&acirc;tains <b>[cha&middot;tin]</b></span>
@@ -201,9 +206,9 @@ var TEXT=[
 "— <Aujourd'hui|o·jour·dwi>, on voyage en France, tu te rappelle{s} ?",
 "— Bien sûr.",
 "— Je prépare ma valise. Où son{t} mes ba{s} ? di{t} Julie.",
-"Je m'appelle Daniel. J'ai 24 an{s}. Julie e{st} ma <sœur|seur>. Nous vivon{s} dans la même maison à Londre{s}. Julie a 23 an{s}. No{s} parent{s} s'appell{ent} Arthur et Claire. Nous préparon{s} notre voyage en France où nous seron{s} étudiant{s} e^n^‿<échange|é·chanj> international. Nous apprenon{s} le françai{s} et nou^s^‿avon{s} déjà beaucou{p} appri{s}.",
-"Je sui{s} gran{d}, je mesure 1 mètre 87. J'ai les cheveu{x} châtain{s} et un peu long{s}. J'ai le^s^‿yeu{x} ver{ts} et une grande bouche. Je fai{s} beaucou{p} de spor{t}, j'ai de bonnes jambe{s} parce que je cour{s} tou{s} les matin{s}.",
-"Ma sœur Julie a aussi les cheveu{x} châtain{s}, mai{s} ses cheveu{x} son{t} plu{s} long{s} que les mien{s}. Elle n'a pa{s} le^s^‿yeu{x} ver{ts}, elle a le^s^‿yeu{x} marron{s} comme mon père. Me^s^‿yeu{x} son{t} de la même couleur que ceu{x} de ma mère."
+"Je m'appelle Daniel. J'ai 24 an{s}. Julie e{st} ma <sœur|seur>. Nous vivon{s} dans la même maison à Londre{s}. Julie a 23 an{s}. No{s} parent{s} s'appell{ent} Arthur et Claire. Nous préparon{s} notre voyage en France où nous seron{s} étudiant{s} e^n‿^<échange|é·chanj> international. Nous apprenon{s} le françai{s} et nou^s‿^avon{s} déjà beaucou{p} appri{s}.",
+"Je sui{s} gran{d}, je mesure 1 mètre 87. J'ai les cheveu{x} châtain{s} et un peu long{s}. J'ai le^s‿^<yeux|zieu> ver{ts} et une grande bouche. Je fai{s} beaucou{p} de spor{t}, j'ai de bonnes jambe{s} parce que je cour{s} tou{s} les matin{s}.",
+"Ma sœur Julie a aussi les cheveu{x} châtain{s}, mai{s} ses cheveu{x} son{t} plu{s} long{s} que les mien{s}. Elle n'a pa{s} le^s‿^<yeux|zieu> ver{ts}, elle a le^s‿^<yeux|zieu> marron{s} comme mon père. Me^s‿^<yeux|zieu> son{t} de la même couleur que ceu{x} de ma mère."
 ];
 var ACC={'é':['e','aigu'],'è':['e','grave'],'ê':['e','circ'],'ë':['e','trema'],
 'à':['a','grave'],'â':['a','circ'],'ù':['u','grave'],'û':['u','circ'],'ü':['u','trema'],
@@ -213,7 +218,7 @@ function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g
 function renderSeg(str,mode,out){
   for(var i=0;i<str.length;i++){var ch=str[i];
     if(ACC[ch]){var b=ACC[ch][0],t=ACC[ch][1];
-      if(mode==='place')out.push('<button class="chip t-'+t+'" data-base="'+b+'" data-correct="'+ch+'" onclick="cycle(this)">'+b+'</button>');
+      if(mode==='place'){var op=CYCLE[b],pool=op.filter(function(o){return o!==ch;}),st=pool[Math.floor(Math.random()*pool.length)];out.push('<button class="chip t-'+t+'" data-base="'+b+'" data-correct="'+ch+'" onclick="cycle(this)">'+st+'</button>');}
       else out.push('<span class="acc t-'+t+'">'+ch+'</span>');
     } else out.push(esc(ch));
   }
