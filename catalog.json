@@ -325,6 +325,22 @@
       "progressId": "A1-E-006",
       "questions": null,
       "publie": true
+    },
+    {
+      "id": "A1-E-007",
+      "niveau": "A1",
+      "ordre": 70,
+      "titre": "La Ratatouille Folle — Ch.1 : lecture guidée",
+      "chemin": "french/a1/A1-E-007-ratatouille/index.html",
+      "lecons": [],
+      "competences": [
+        "reading",
+        "listening",
+        "speaking"
+      ],
+      "progressId": "A1-E-007",
+      "questions": null,
+      "publie": true
     }
   ],
   "tests": [

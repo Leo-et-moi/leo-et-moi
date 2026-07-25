@@ -23,6 +23,8 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  # A1-E-007 (Ratatouille) — consignes en attente
+                  "A1-E-007_intro.mp3", "A1-E-007_intro_en.mp3", "A1-E-007_e1.mp3", "A1-E-007_e1_en.mp3", "A1-E-007_e2.mp3", "A1-E-007_e2_en.mp3", "A1-E-007_e3.mp3", "A1-E-007_e3_en.mp3", "A1-E-007_e4.mp3", "A1-E-007_e4_en.mp3",
                   # Consignes cartes/quiz C1 (Francine + Francis) — en attente
                   "c1_fg_cards_instr_en.mp3", "c1_fg_quiz_instr_en.mp3", "c1_ft_cards_instr_en.mp3", "c1_ft_quiz_instr_en.mp3",
                   # Méthode d'écoute C1 (Francine + Francis) — en attente
