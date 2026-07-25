@@ -6,7 +6,7 @@
 <title>A1 — La Ratatouille Folle (lecture) — Leo-et-moi</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#D4920A;
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#C87A00;
 --ltBlue:#E8F0FA;--ltGreen:#E3F5EC;--green:#1E7B45;--red:#C0392B;--text:#1A2733;--slate:#4A6580;
 --divider:#D8DFE8;--white:#FFF;--a1:#C0392B;--nav-h:64px;
 --aigu:#F6D24B;--grave:#F19CBB;--circ:#8FD9D2;--trema:#C9B3EC;--cedille:#E0A93C;}
@@ -20,7 +20,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .lvl-tag{display:inline-block;background:var(--a1);color:#fff;font-size:13px;font-weight:bold;padding:3px 12px;border-radius:20px;margin-bottom:6px;}
 .page-title{font-size:23px;font-weight:bold;color:var(--dark);}
 .page-src{font-size:13px;color:var(--slate);margin:2px 0 6px;}
-.legend{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 6px;font-size:12px;}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 6px;font-size:12px;}
 .legend span{padding:3px 9px;border-radius:12px;font-weight:bold;color:#1a2733;}
 .step{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06);border-left:5px solid var(--a1);padding:16px 18px;margin:22px 0;}
 .step-h{font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--a1);margin-bottom:4px;}
@@ -32,7 +32,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .spk.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
 .cg-fr{font-size:15px;font-weight:600;color:var(--dark);}
 .cg-en{font-size:13px;color:var(--slate);margin-top:3px;}
-.txt{font-size:19px;line-height:2.1;color:var(--text);}
+.txt{font-size:19px;line-height:2.2;color:var(--text);}
 .txt .ln{display:block;margin-bottom:8px;}
 .chip{display:inline-block;min-width:30px;padding:0 4px;margin:0 1px;border-radius:6px;border:2px solid;background:#fff;font-weight:bold;cursor:pointer;line-height:1.7;font-family:Arial;font-size:19px;}
 .chip.t-aigu{border-color:var(--aigu);background:#FEF7DA;}
@@ -44,6 +44,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .chip.ko{border-color:var(--red)!important;background:#FBE7E5!important;color:var(--red);}
 .acc{font-weight:bold;border-radius:4px;padding:0 2px;}
 .acc.t-aigu{background:var(--aigu);}.acc.t-grave{background:var(--grave);}.acc.t-circ{background:var(--circ);}.acc.t-trema{background:var(--trema);}.acc.t-cedille{background:var(--cedille);}
+.sil{color:var(--green);font-style:italic;}
+.li{color:var(--red);font-weight:bold;}
+.dw{color:var(--gold);font-weight:bold;font-size:.8em;}
 .btn{font-family:Arial;font-size:15px;font-weight:bold;border:none;border-radius:10px;padding:12px 18px;min-height:48px;cursor:pointer;margin:6px 6px 0 0;}
 .btn-main{background:var(--navyMid);color:#fff;}.btn-ok{background:var(--green);color:#fff;}
 .btn-alt{background:#fff;color:var(--navyMid);border:2px solid var(--navyMid);}
@@ -83,11 +86,14 @@ audio{width:100%;margin-top:8px;}
   </div>
 
   <div class="legend">
-    <span style="background:var(--aigu)">&eacute; accent aigu</span>
-    <span style="background:var(--grave)">&egrave; &agrave; &ugrave; accent grave</span>
-    <span style="background:var(--circ)">&ecirc; &acirc; &ocirc; &ucirc; circonflexe</span>
+    <span style="background:var(--aigu)">&eacute; aigu</span>
+    <span style="background:var(--grave)">&egrave; &agrave; &ugrave; grave</span>
+    <span style="background:var(--circ)">&ecirc; &acirc; &ocirc; circonflexe</span>
     <span style="background:var(--trema)">&euml; &iuml; tr&eacute;ma</span>
     <span style="background:var(--cedille)">&ccedil; c&eacute;dille</span>
+    <span style="background:#E3F5EC;color:#1E7B45">lettre muette</span>
+    <span style="background:#FBE7E5;color:#C0392B">liaison &#8255;</span>
+    <span style="background:#FFF3DE;color:#C87A00">mot difficile</span>
   </div>
 
   <!-- ETAPE 1 -->
@@ -98,8 +104,8 @@ audio{width:100%;margin-top:8px;}
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
         <button class="spk" onclick="playClip('A1-E-007_e1.mp3',this)">&#128266; FR</button>
         <button class="spk" onclick="playClip('A1-E-007_e1_en.mp3',this)">&#128266; EN</button></div>
-      <div class="cg-fr">Tape sur chaque lettre color&eacute;e&nbsp;: elle change d&rsquo;accent (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Arr&ecirc;te-toi sur le bon accent, puis clique sur &laquo;&nbsp;V&eacute;rifier&nbsp;&raquo;. Pas besoin de clavier&nbsp;!</div>
-      <div class="cg-en">Tap each coloured letter: it cycles through accents (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Stop on the right one, then click &laquo;&nbsp;Check&nbsp;&raquo;. No keyboard needed!</div>
+      <div class="cg-fr">Les autres couleurs sont d&eacute;j&agrave; l&agrave; (vert = muet, rouge = liaison, orange = mot difficile). &Agrave; toi de placer les <b>accents</b>&nbsp;: tape sur chaque lettre color&eacute;e, elle change (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Arr&ecirc;te-toi sur le bon accent, puis clique sur &laquo;&nbsp;V&eacute;rifier&nbsp;&raquo;. Pas besoin de clavier&nbsp;!</div>
+      <div class="cg-en">The other colours are already there (green = silent, red = liaison, orange = tricky word). Your job: place the <b>accents</b>. Tap each coloured letter, it cycles (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Stop on the right one, then click &laquo;&nbsp;Check&nbsp;&raquo;. No keyboard needed!</div>
     </div>
     <div class="txt" id="place"></div>
     <button class="btn btn-ok" onclick="verify1()">&#10003; V&eacute;rifier / Check</button>
@@ -115,8 +121,8 @@ audio{width:100%;margin-top:8px;}
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
         <button class="spk" onclick="playClip('A1-E-007_e2.mp3',this)">&#128266; FR</button>
         <button class="spk" onclick="playClip('A1-E-007_e2_en.mp3',this)">&#128266; EN</button></div>
-      <div class="cg-fr">&Eacute;coute l&rsquo;audio (&#9654; lecture / &#10073;&#10073; pause) et lis le texte color&eacute; &agrave; voix haute en m&ecirc;me temps. Les couleurs t&rsquo;aident &agrave; prononcer les accents.</div>
-      <div class="cg-en">Play the audio (&#9654; play / &#10073;&#10073; pause) and read the coloured text aloud at the same time. The colours help you pronounce the accents.</div>
+      <div class="cg-fr">&Eacute;coute l&rsquo;audio (&#9654; / &#10073;&#10073;) et lis &agrave; voix haute en m&ecirc;me temps. <b style="color:#1E7B45">Ne prononce pas</b> les lettres vertes. <b style="color:#C0392B">Prononce la liaison</b> rouge (&#8255;). Les accents color&eacute;s t&rsquo;aident &agrave; bien prononcer.</div>
+      <div class="cg-en">Play the audio (&#9654; / &#10073;&#10073;) and read aloud at the same time. <b style="color:#1E7B45">Do not pronounce</b> the green letters. <b style="color:#C0392B">Do pronounce</b> the red liaison (&#8255;). The coloured accents help you pronounce correctly.</div>
     </div>
     <audio controls preload="none" src="audio/ratatouille_ch1.mp3"></audio>
     <div class="txt" id="read" style="margin-top:14px;"></div>
@@ -153,19 +159,23 @@ audio{width:100%;margin-top:8px;}
     </div>
 
     <div class="step-t" style="font-size:16px;">A. Muet ou prononc&eacute;&nbsp;? &middot; Silent or pronounced?</div>
-    <div class="mrk">La lettre finale en gras est-elle muette ou prononc&eacute;e&nbsp;? &middot; Is the bold final letter silent or pronounced?</div>
+    <div class="mrk">La lettre finale en gras est-elle muette ou prononc&eacute;e&nbsp;?</div>
     <div id="ex-muet"></div>
 
-    <div class="step-t" style="font-size:16px;margin-top:16px;">B. Les liaisons</div>
-    <div class="mrk">Y a-t-il une liaison&nbsp;? Si oui, quel son&nbsp;? &middot; Is there a liaison? If so, which sound?</div>
+    <div class="step-t" style="font-size:16px;margin-top:16px;">B. Liaisons &mdash; le son</div>
+    <div class="mrk">Y a-t-il une liaison&nbsp;? Si oui, quel son entends-tu&nbsp;? &middot; Is there a liaison? Which sound?</div>
     <div id="ex-liaison"></div>
 
-    <div class="step-t" style="font-size:16px;margin-top:16px;">C. Homophones</div>
+    <div class="step-t" style="font-size:16px;margin-top:16px;">C. Liaison&nbsp;: obligatoire, interdite ou facultative&nbsp;?</div>
+    <div class="mrk">Obligatoire (toujours), interdite (jamais) ou facultative (au choix)&nbsp;? &middot; Required, forbidden, or optional?</div>
+    <div id="ex-oif"></div>
+
+    <div class="step-t" style="font-size:16px;margin-top:16px;">D. Homophones</div>
     <div class="mrk">Choisis le bon mot. &middot; Choose the correct word.</div>
     <div id="ex-homo"></div>
 
-    <div class="step-t" style="font-size:16px;margin-top:16px;">D. Mots difficiles &middot; Tricky words</div>
-    <div class="mrk">&Eacute;coute l&rsquo;audio de l&rsquo;&eacute;tape 2 et r&eacute;p&egrave;te ces mots. &middot; Listen to the Step-2 audio and repeat these words.</div>
+    <div class="step-t" style="font-size:16px;margin-top:16px;">E. Mots difficiles &middot; Tricky words</div>
+    <div class="mrk">&Eacute;coute l&rsquo;audio de l&rsquo;&eacute;tape 2 et r&eacute;p&egrave;te ces mots.</div>
     <div class="hard">
       <span>aujourd&rsquo;hui <b>[o&middot;jour&middot;dwi]</b></span>
       <span>s&oelig;ur <b>[seur]</b></span>
@@ -184,134 +194,111 @@ audio{width:100%;margin-top:8px;}
 </nav>
 <script src="/js/audio.js"></script>
 <script>
-// ---- Texte source (avec accents = corrigé) ----
+// Codage : accents (é è…) = réels ; {x}=muet ; ^x^=consonne de liaison ; ‿=pont ; <mot|pron>=mot difficile
 var TEXT=[
-"Daniel, viens ! me dit Julie de la porte de la maison.",
-"— Qu'est-ce que tu veux, Julie ? je lui réponds.",
-"— Aujourd'hui, on voyage en France, tu te rappelles ?",
+"Daniel, vien{s} ! me di{t} Julie de la porte de la maison.",
+"— Qu'est-ce que tu veu{x}, Julie ? je lui répon{ds}.",
+"— <Aujourd'hui|o·jour·dwi>, on voyage en France, tu te rappelle{s} ?",
 "— Bien sûr.",
-"— Je prépare ma valise. Où sont mes bas ? dit Julie.",
-"Je m'appelle Daniel. J'ai 24 ans. Julie est ma sœur. Nous vivons dans la même maison à Londres. Julie a 23 ans. Nos parents s'appellent Arthur et Claire. Nous préparons notre voyage en France où nous serons étudiants en échange international. Nous apprenons le français et nous avons déjà beaucoup appris.",
-"Je suis grand, je mesure 1 mètre 87. J'ai les cheveux châtains et un peu longs. J'ai les yeux verts et une grande bouche. Je fais beaucoup de sport, j'ai de bonnes jambes parce que je cours tous les matins.",
-"Ma sœur Julie a aussi les cheveux châtains, mais ses cheveux sont plus longs que les miens. Elle n'a pas les yeux verts, elle a les yeux marrons comme mon père. Mes yeux sont de la même couleur que ceux de ma mère."
+"— Je prépare ma valise. Où son{t} mes ba{s} ? di{t} Julie.",
+"Je m'appelle Daniel. J'ai 24 an{s}. Julie e{st} ma <sœur|seur>. Nous vivon{s} dans la même maison à Londre{s}. Julie a 23 an{s}. No{s} parent{s} s'appell{ent} Arthur et Claire. Nous préparon{s} notre voyage en France où nous seron{s} étudiant{s} e^n^‿<échange|é·chanj> international. Nous apprenon{s} le françai{s} et nou^s^‿avon{s} déjà beaucou{p} appri{s}.",
+"Je sui{s} gran{d}, je mesure 1 mètre 87. J'ai les cheveu{x} châtain{s} et un peu long{s}. J'ai le^s^‿yeu{x} ver{ts} et une grande bouche. Je fai{s} beaucou{p} de spor{t}, j'ai de bonnes jambe{s} parce que je cour{s} tou{s} les matin{s}.",
+"Ma sœur Julie a aussi les cheveu{x} châtain{s}, mai{s} ses cheveu{x} son{t} plu{s} long{s} que les mien{s}. Elle n'a pa{s} le^s^‿yeu{x} ver{ts}, elle a le^s^‿yeu{x} marron{s} comme mon père. Me^s^‿yeu{x} son{t} de la même couleur que ceu{x} de ma mère."
 ];
 var ACC={'é':['e','aigu'],'è':['e','grave'],'ê':['e','circ'],'ë':['e','trema'],
 'à':['a','grave'],'â':['a','circ'],'ù':['u','grave'],'û':['u','circ'],'ü':['u','trema'],
 'î':['i','circ'],'ï':['i','trema'],'ô':['o','circ'],'ç':['c','cedille'],'ÿ':['y','trema']};
 var CYCLE={e:['e','é','è','ê','ë'],a:['a','à','â'],u:['u','ù','û','ü'],i:['i','î','ï'],o:['o','ô'],c:['c','ç'],y:['y','ÿ']};
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-
+function renderSeg(str,mode,out){
+  for(var i=0;i<str.length;i++){var ch=str[i];
+    if(ACC[ch]){var b=ACC[ch][0],t=ACC[ch][1];
+      if(mode==='place')out.push('<button class="chip t-'+t+'" data-base="'+b+'" data-correct="'+ch+'" onclick="cycle(this)">'+b+'</button>');
+      else out.push('<span class="acc t-'+t+'">'+ch+'</span>');
+    } else out.push(esc(ch));
+  }
+}
+function renderMarked(line,mode){
+  var out=[],re=/(\{[^}]*\})|(\^[^^]*\^)|(<[^>]*>)|([^{}^<]+)/g,m;
+  while((m=re.exec(line))){
+    if(m[1]){out.push('<span class="sil">'+esc(m[1].slice(1,-1))+'</span>');}
+    else if(m[2]){out.push('<span class="li">'+esc(m[2].slice(1,-1))+'</span>');}
+    else if(m[3]){var inner=m[3].slice(1,-1),p=inner.split('|'),w=p[0],pr=p[1]||'';
+      renderSeg(w,mode,out);
+      if(mode!=='place'&&pr)out.push('<span class="dw">-['+esc(pr)+']</span>');}
+    else if(m[4]){renderSeg(m[4],mode,out);}
+  }
+  return out.join('');
+}
 function renderLines(hostId,mode){
   var host=document.getElementById(hostId),html='';
-  for(var li=0;li<TEXT.length;li++){
-    html+='<span class="ln">';
-    var line=TEXT[li];
-    for(var i=0;i<line.length;i++){
-      var ch=line[i];
-      if(ACC[ch]){
-        var base=ACC[ch][0],type=ACC[ch][1];
-        if(mode==='place'){
-          html+='<button class="chip t-'+type+'" data-base="'+base+'" data-correct="'+ch+'" onclick="cycle(this)">'+base+'</button>';
-        }else{
-          html+='<span class="acc t-'+type+'">'+ch+'</span>';
-        }
-      }else{ html+=esc(ch); }
-    }
-    html+='</span>';
-  }
+  for(var i=0;i<TEXT.length;i++)html+='<span class="ln">'+renderMarked(TEXT[i],mode)+'</span>';
   host.innerHTML=html;
 }
-function cycle(btn){
-  var base=btn.getAttribute('data-base'),opts=CYCLE[base];
-  var cur=btn.textContent,idx=opts.indexOf(cur);
-  btn.textContent=opts[(idx+1)%opts.length];
-  btn.classList.remove('ok','ko');
-}
-function verify1(){
-  var chips=document.querySelectorAll('#place .chip'),good=0;
-  chips.forEach(function(c){
-    if(c.textContent===c.getAttribute('data-correct')){c.classList.add('ok');c.classList.remove('ko');good++;}
-    else{c.classList.add('ko');c.classList.remove('ok');}
-  });
-  document.getElementById('score1').textContent='Score : '+good+' / '+chips.length+(good===chips.length?'  ✓ Parfait !':'  — corrige les lettres en rouge.');
-}
-function reveal1(){
-  var chips=document.querySelectorAll('#place .chip');
-  chips.forEach(function(c){c.textContent=c.getAttribute('data-correct');c.classList.add('ok');c.classList.remove('ko');});
-  document.getElementById('score1').textContent='Correction affichée. Relis le texte, puis passe à l’étape 2.';
-}
-renderLines('place','place');
-renderLines('read','read');
+function cycle(btn){var b=btn.getAttribute('data-base'),o=CYCLE[b],c=btn.textContent,i=o.indexOf(c);
+  btn.textContent=o[(i+1)%o.length];btn.classList.remove('ok','ko');}
+function verify1(){var ch=document.querySelectorAll('#place .chip'),g=0;
+  ch.forEach(function(c){if(c.textContent===c.getAttribute('data-correct')){c.classList.add('ok');c.classList.remove('ko');g++;}
+    else{c.classList.add('ko');c.classList.remove('ok');}});
+  document.getElementById('score1').textContent='Score : '+g+' / '+ch.length+(g===ch.length?'  ✓ Parfait !':'  — corrige les lettres en rouge.');}
+function reveal1(){document.querySelectorAll('#place .chip').forEach(function(c){c.textContent=c.getAttribute('data-correct');c.classList.add('ok');c.classList.remove('ko');});
+  document.getElementById('score1').textContent='Correction affichée. Relis, puis passe à l’étape 2.';}
+renderLines('place','place');renderLines('read','read');
 
-// ---- Enregistrement (MediaRecorder) ----
 var mr,chunks=[];
 function recStart(){
   if(!navigator.mediaDevices||!window.MediaRecorder){document.getElementById('recMsg').textContent='Ton navigateur ne permet pas l’enregistrement. Utilise Chrome ou Edge.';return;}
   navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
     mr=new MediaRecorder(stream);chunks=[];
     mr.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data);};
-    mr.onstop=function(){
-      var blob=new Blob(chunks,{type:(mr.mimeType||'audio/webm')});
-      var url=URL.createObjectURL(blob);
+    mr.onstop=function(){var blob=new Blob(chunks,{type:(mr.mimeType||'audio/webm')}),url=URL.createObjectURL(blob);
       var p=document.getElementById('recPlay');p.src=url;p.style.display='block';
       var dl=document.getElementById('recDl');dl.href=url;dl.style.display='inline-flex';
       stream.getTracks().forEach(function(t){t.stop();});
-      document.getElementById('recMsg').textContent='Enregistrement prêt. Réécoute-toi, puis télécharge et envoie le fichier à ton professeur.';
-    };
-    mr.start();
-    document.getElementById('btnRec').disabled=true;
-    document.getElementById('btnStop').disabled=false;
+      document.getElementById('recMsg').textContent='Enregistrement prêt. Réécoute-toi, puis télécharge et envoie le fichier à ton professeur.';};
+    mr.start();document.getElementById('btnRec').disabled=true;document.getElementById('btnStop').disabled=false;
     document.getElementById('recMsg').textContent='Enregistrement en cours… lis le texte à voix haute.';
-  }).catch(function(){document.getElementById('recMsg').textContent='Micro non autorisé. Autorise le micro dans ton navigateur, puis réessaie.';});
+  }).catch(function(){document.getElementById('recMsg').textContent='Micro non autorisé. Autorise le micro, puis réessaie.';});
 }
-function recStop(){
-  if(mr&&mr.state!=='inactive')mr.stop();
-  document.getElementById('btnRec').disabled=false;
-  document.getElementById('btnStop').disabled=true;
-}
+function recStop(){if(mr&&mr.state!=='inactive')mr.stop();document.getElementById('btnRec').disabled=false;document.getElementById('btnStop').disabled=true;}
 
-// ---- Exercices dynamiques (auto-correction) ----
-function renderMCQ(hostId,items){
-  var host=document.getElementById(hostId);
-  items.forEach(function(it,qi){
-    var card=document.createElement('div');card.className='q-card';
+function renderMCQ(hostId,items){var host=document.getElementById(hostId);
+  items.forEach(function(it,qi){var card=document.createElement('div');card.className='q-card';
     var q=document.createElement('div');q.className='q-t';q.innerHTML=(qi+1)+'. '+it.q;card.appendChild(q);
-    it.o.forEach(function(opt,oi){
-      var b=document.createElement('button');b.className='opt';b.innerHTML=opt;
-      b.onclick=function(){
-        if(card.dataset.done)return;card.dataset.done='1';
-        var opts=card.querySelectorAll('.opt');
-        opts.forEach(function(x,j){x.disabled=true;if(j===it.c)x.classList.add('correct');});
-        if(oi!==it.c)opts[oi].classList.add('wrong');
-        card.classList.add(oi===it.c?'ok':'ko');
-        if(it.note){var n=document.createElement('div');n.className='mrk';n.innerHTML='&#128161; '+it.note;card.appendChild(n);}
-      };
-      card.appendChild(b);
-    });
-    host.appendChild(card);
-  });
-}
+    it.o.forEach(function(opt,oi){var b=document.createElement('button');b.className='opt';b.innerHTML=opt;
+      b.onclick=function(){if(card.dataset.done)return;card.dataset.done='1';
+        var opts=card.querySelectorAll('.opt');opts.forEach(function(x,j){x.disabled=true;if(j===it.c)x.classList.add('correct');});
+        if(oi!==it.c)opts[oi].classList.add('wrong');card.classList.add(oi===it.c?'ok':'ko');
+        if(it.note){var n=document.createElement('div');n.className='mrk';n.innerHTML='&#128161; '+it.note;card.appendChild(n);}};
+      card.appendChild(b);});
+    host.appendChild(card);});}
 renderMCQ('ex-muet',[
- {q:'Bien s<b>û<u>r</u></b>. — la finale <b>r</b>',o:['Muette / Silent','Prononcée / Pronounced'],c:1,note:'« r » finale se prononce (règle CaReFuL).'},
- {q:'Julie es<b>t</b> ma sœur. — la finale <b>t</b>',o:['Muette / Silent','Prononcée / Pronounced'],c:0,note:'Le « t » de « est » est muet.'},
- {q:'Je fais beaucoup de spor<b>t</b>. — la finale <b>t</b>',o:['Muette / Silent','Prononcée / Pronounced'],c:0,note:'« sport » : le « t » final est muet.'},
- {q:'Nous apprenons le françai<b>s</b>. — la finale <b>s</b>',o:['Muette / Silent','Prononcée / Pronounced'],c:0,note:'« s » final muet.'},
- {q:'Je m\'appelle Danie<b>l</b>. — la finale <b>l</b>',o:['Muette / Silent','Prononcée / Pronounced'],c:1,note:'« l » finale se prononce (CaReFuL).'},
- {q:'Où sont mes ba<b>s</b> ? — la finale <b>s</b>',o:['Muette / Silent','Prononcée / Pronounced'],c:0,note:'« bas » : le « s » est muet.'}
+ {q:'Bien s<b>û<u>r</u></b>. — finale <b>r</b>',o:['Muette','Prononcée'],c:1,note:'« r » finale se prononce (règle CaReFuL).'},
+ {q:'Julie es<b>t</b> ma sœur. — finale <b>t</b>',o:['Muette','Prononcée'],c:0,note:'Le « t » de « est » est muet.'},
+ {q:'Je fais beaucoup de spor<b>t</b>. — finale <b>t</b>',o:['Muette','Prononcée'],c:0,note:'« sport » : « t » muet.'},
+ {q:'Nous apprenons le françai<b>s</b>. — finale <b>s</b>',o:['Muette','Prononcée'],c:0,note:'« s » final muet.'},
+ {q:'Je m\'appelle Danie<b>l</b>. — finale <b>l</b>',o:['Muette','Prononcée'],c:1,note:'« l » finale se prononce (CaReFuL).'},
+ {q:'Où sont mes ba<b>s</b> ? — finale <b>s</b>',o:['Muette','Prononcée'],c:0,note:'« bas » : « s » muet.'}
 ]);
 renderMCQ('ex-liaison',[
- {q:'nous&nbsp;avons',o:['Liaison en Z','Liaison en N','Pas de liaison'],c:0,note:'nou<b>s</b>‿avons : le « s » se dit « z ».'},
+ {q:'nous&nbsp;avons',o:['Liaison en Z','Liaison en N','Pas de liaison'],c:0,note:'nou<b>s</b>‿avons : « s » → « z ».'},
  {q:'les&nbsp;yeux',o:['Liaison en Z','Liaison en N','Pas de liaison'],c:0,note:'le<b>s</b>‿yeux : « s » → « z ».'},
  {q:'en&nbsp;échange',o:['Liaison en Z','Liaison en N','Pas de liaison'],c:1,note:'e<b>n</b>‿échange : liaison en « n ».'},
  {q:'les&nbsp;cheveux',o:['Liaison en Z','Liaison en N','Pas de liaison'],c:2,note:'« cheveux » commence par une consonne : pas de liaison.'},
  {q:'mes&nbsp;yeux',o:['Liaison en Z','Liaison en N','Pas de liaison'],c:0,note:'me<b>s</b>‿yeux : « s » → « z ».'}
 ]);
+renderMCQ('ex-oif',[
+ {q:'nous&nbsp;avons',o:['Obligatoire','Interdite','Facultative'],c:0,note:'Pronom + verbe : liaison toujours obligatoire.'},
+ {q:'les&nbsp;yeux',o:['Obligatoire','Interdite','Facultative'],c:0,note:'Déterminant + nom : liaison obligatoire.'},
+ {q:'Arthur et&nbsp;… (et + voyelle)',o:['Obligatoire','Interdite','Facultative'],c:1,note:'Jamais de liaison après « et ».'},
+ {q:'nous serons&nbsp;étudiants',o:['Obligatoire','Interdite','Facultative'],c:2,note:'Après le verbe, la liaison est souvent facultative.'}
+]);
 renderMCQ('ex-homo',[
- {q:'___ sont mes bas ? (lieu)',o:['Ou','Où'],c:1,note:'« Où » (avec accent) = lieu ; « ou » = choix.'},
+ {q:'___ sont mes bas ? (lieu)',o:['Ou','Où'],c:1,note:'« Où » = lieu ; « ou » = choix.'},
  {q:'Nous vivons ___ Londres.',o:['a','à'],c:1,note:'« à » (préposition) ≠ « a » (verbe avoir).'},
  {q:'Julie ___ 23 ans.',o:['a','à'],c:0,note:'« a » = verbe avoir.'},
  {q:'Mes yeux ___ de la même couleur.',o:['son','sont'],c:1,note:'« sont » = verbe être ; « son » = possessif.'},
- {q:'___ cheveux sont plus longs. (les siens)',o:['Ces','Ses'],c:1,note:'« Ses » = à elle ; « Ces » = démonstratif.'}
+ {q:'___ cheveux sont plus longs. (à elle)',o:['Ces','Ses'],c:1,note:'« Ses » = à elle ; « Ces » = démonstratif.'}
 ]);
 </script>
 <script type="module" src="/js/auth-guard.js"></script>
