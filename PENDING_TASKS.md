@@ -83,3 +83,10 @@ _(aucune)_
 - `js/prononciation.js` (nouveau, calqué sur `dialogue.js`) + `french/prononciation/a1.html`.
 
 **Recommandation** : rendre le mécanisme de séries **générique/data-driven** (piloté par le catalogue : nom, emoji, couleur, dossier) au lieu de blocs codés en dur dans `niveau.js` — pour que les prochaines séries ne demandent plus de code. Merci de valider/refactorer si tu le juges utile.
+
+## 🔧 Pour Fable — bouton « Exercice terminé » générique (idée d'Eric, 25/07)
+
+Constat : les exercices/leçons **sans quiz noté ni bouton Soumettre** (ex. A1-E-007 Ratatouille) n'envoient **aucune notification** de complétion au prof.
+Solution ajoutée par Opus sur A1-E-007 : un bouton bilingue « ✅ Exercice terminé — clique ici / Exercise finished — click here » qui appelle `window.LEM.setLesson(progressId,{completed:true,...})` → déclenche la notification e-mail.
+
+**Demande d'Eric** : en faire un **composant standard** proposé automatiquement à la fin de **toutes** les leçons/exercices qui n'ont pas déjà un déclencheur de complétion (quiz `setLesson` ou `submitWriting`). Idéalement injecté par un module partagé (comme la nav) pour ne pas le recopier page par page.

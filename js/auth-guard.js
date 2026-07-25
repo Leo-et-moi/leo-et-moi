@@ -31,6 +31,7 @@ const LESSON_NAMES = {
   'avoir': 'A1 · Le verbe Avoir',
   'c1_francine_gosselin': 'C1 · Francine G. (compréhension orale)',
   'c1_francis_tanguay': 'C1 · Francis T. (compréhension orale)',
+  'A1-E-007': 'A1 · PRO-NON-CIA-TION — La Ratatouille Folle',
   'a1_les_nombres':'A1 · Les nombres',
   'a2_nombres_quiz':'A2 · Quiz Les nombres',
   'a2_ecoute_invitations':'A2 · Écoute — Invitations',

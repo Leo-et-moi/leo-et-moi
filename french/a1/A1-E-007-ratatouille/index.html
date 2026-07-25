@@ -189,6 +189,10 @@ audio{width:100%;margin-top:8px;}
       <span>fran&ccedil;ais <b>[fran&middot;s&egrave;]</b></span>
       <span>d&eacute;j&agrave; <b>[d&eacute;&middot;ja]</b></span>
     </div>
+    <div style="margin-top:20px;text-align:center;">
+      <button class="btn btn-ok" id="doneBtn" onclick="finishEx()" style="font-size:16px;padding:14px 22px;">&#9989; Exercice termin&eacute; &mdash; clique ici / Exercise finished &mdash; click here</button>
+      <div class="mrk" id="doneMsg" style="text-align:center;"></div>
+    </div>
   </div>
 </main>
 <nav class="bottom-nav">
@@ -305,6 +309,7 @@ renderMCQ('ex-homo',[
  {q:'Mes yeux ___ de la même couleur.',o:['son','sont'],c:1,note:'« sont » = verbe être ; « son » = possessif.'},
  {q:'___ cheveux sont plus longs. (à elle)',o:['Ces','Ses'],c:1,note:'« Ses » = à elle ; « Ces » = démonstratif.'}
 ]);
+function finishEx(){var msg=document.getElementById('doneMsg');(async function(){var ok=true;try{if(window.LEM&&window.LEM.setLesson){await window.LEM.setLesson('A1-E-007',{completed:true,lastPracticed:Date.now()});}else{ok=false;}}catch(e){ok=false;}msg.textContent=ok?'✅ Ton professeur a été prévenu ! / Your teacher has been notified!':'Connecte-toi pour envoyer la notification. / Log in to send.';})();document.getElementById('doneBtn').disabled=true;}
 </script>
 <script type="module" src="/js/auth-guard.js"></script>
 </body>

@@ -31,6 +31,9 @@ Texte **entièrement codé** (accents + muettes + liaisons + mots difficiles) au
 ## 6. Étape 3 — S'enregistrer
 Enregistrement navigateur (MediaRecorder), réécoute, **téléchargement** du clip → l'élève l'envoie au professeur (pas de stockage serveur).
 
+## 7c. Bouton « Exercice terminé »
+À la fin de l'exercice, un bouton bilingue **« ✅ Exercice terminé — clique ici / Exercise finished — click here »** appelle `window.LEM.setLesson(progressId,{completed:true})` pour **notifier le professeur** (ces exercices n'ont pas de quiz noté). Le `progressId` doit avoir un libellé dans `LESSON_NAMES` (auth-guard.js).
+
 ## 7. Étape 4 — Exercices dynamiques (auto-corrigés)
 Sur le modèle Mona : **A.** muet/prononcé · **B.** liaisons : *placer le signe ‿* et trouver le son (z/t/n) · **C.** liaison obligatoire/interdite/facultative · **D.** homophones · **E.** mots difficiles (référence, avec les liaisons figées comme « yeux [zieu] »).
 
