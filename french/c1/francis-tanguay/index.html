@@ -159,6 +159,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 <script>
 // recorded-audio player (no synthetic); files live in ./audio/
 function pad(n){ return (n<10?'0':'')+n; }
+// cache-buster ciblé : ?v=N uniquement sur les fichiers re-enregistrés (noms construits dynamiquement)
+var CB={'c1_ft_quiz_01_hint.mp3':2,'c1_ft_quiz_03_d.mp3':2,'c1_ft_quiz_06_hint.mp3':2};
+function cb(f){ return CB[f] ? f+'?v='+CB[f] : f; }
 function toggleHl(){
   var t=document.getElementById('highlights'), b=document.getElementById('hlBtn');
   var show=t.style.display==='none';
@@ -221,7 +224,7 @@ function renderCard(){
   document.getElementById('fPrev').disabled = (idx===0);
   document.getElementById('fNext').disabled = (idx===FLASH.length-1);
 }
-function playCard(btn){ playClip('c1_ft_card_'+pad(idx+1)+'_'+(showingBack?'r':'q')+'.mp3', btn); }
+function playCard(btn){ playClip(cb('c1_ft_card_'+pad(idx+1)+'_'+(showingBack?'r':'q')+'.mp3'), btn); }
 function flip(){ showingBack=!showingBack; renderCard(); }
 document.getElementById('fPrev').addEventListener('click',function(e){e.stopPropagation(); if(idx>0){idx--;showingBack=false;renderCard();}});
 document.getElementById('fNext').addEventListener('click',function(e){e.stopPropagation(); if(idx<FLASH.length-1){idx++;showingBack=false;renderCard();}});
@@ -249,7 +252,7 @@ var answered=0, score=0;
     var head=document.createElement('div'); head.className='q-head';
     var qt=document.createElement('div'); qt.className='q-text'; qt.textContent=item.q;
     var qa=document.createElement('button'); qa.className='speak-btn'; qa.innerHTML='&#128266;';
-    qa.addEventListener('click',function(){ playClip('c1_ft_quiz_'+pad(qi+1)+'_q.mp3', qa); });
+    qa.addEventListener('click',function(){ playClip(cb('c1_ft_quiz_'+pad(qi+1)+'_q.mp3'), qa); });
     head.appendChild(qt); head.appendChild(qa);
     card.appendChild(num); card.appendChild(head);
     item.o.forEach(function(opt,oi){
@@ -257,7 +260,7 @@ var answered=0, score=0;
       var b=document.createElement('button'); b.className='choice'; b.textContent=LETTERS[oi]+'.  '+opt;
       b.addEventListener('click',function(){ choose(card,qi,oi); });
       var au=document.createElement('button'); au.className='mini-audio'; au.innerHTML='&#128266;';
-      au.addEventListener('click',function(){ playClip('c1_ft_quiz_'+pad(qi+1)+'_'+AKEY[oi]+'.mp3', au); });
+      au.addEventListener('click',function(){ playClip(cb('c1_ft_quiz_'+pad(qi+1)+'_'+AKEY[oi]+'.mp3'), au); });
       row.appendChild(b); row.appendChild(au);
       card.appendChild(row);
     });
@@ -265,7 +268,7 @@ var answered=0, score=0;
     var hbox=document.createElement('div'); hbox.className='hint-box'; hbox.style.display='none';
     var hsp=document.createElement('span'); hsp.textContent=item.e+' ';
     var hau=document.createElement('button'); hau.className='speak-btn'; hau.innerHTML='&#128266;';
-    hau.addEventListener('click',function(){ playClip('c1_ft_quiz_'+pad(qi+1)+'_hint.mp3', hau); });
+    hau.addEventListener('click',function(){ playClip(cb('c1_ft_quiz_'+pad(qi+1)+'_hint.mp3'), hau); });
     hbox.appendChild(hsp); hbox.appendChild(hau);
     ht.addEventListener('click',function(){ var sh=(hbox.style.display==='none'); hbox.style.display=sh?'block':'none'; ht.innerHTML = sh ? '💡 Masquer l\'indice' : '💡 Indice'; });
     card.appendChild(ht); card.appendChild(hbox);
