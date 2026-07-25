@@ -79,7 +79,7 @@ const LEM = {
       const ejs = await loadEmailJS();
       if (!ejs) return;
       const name = u.displayName || (this.user && this.user.email) || 'Un élève';
-      const exercise = LESSON_NAMES[id] || id;
+      const exercise = (window.LEM_TITLES && window.LEM_TITLES[id]) || LESSON_NAMES[id] || id;
       const score = (typeof data.score === 'number' && typeof data.total === 'number') ? (data.score + '/' + data.total) : '—';
       const date = new Date().toLocaleString('fr-FR');
       await ejs.send(EMAILJS.serviceId, EMAILJS.templateId, { student: name, exercise: exercise, score: score, date: date });

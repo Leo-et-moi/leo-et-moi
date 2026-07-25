@@ -68,25 +68,14 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 - **21/07 — Standard audio 128 kbps MONO** : inscrit au GUIDE §3 et aux directives Sonnet §2.
 - **21/07 — Pause audio robuste** : `js/audio.js` retrouve désormais le bouton via `window.event`/`activeElement` quand la page ne le transmet pas, et la bascule pause/reprise est **par fichier** — la pause fonctionne même sur les anciens appels sans 2ᵉ argument (les pages listées par Opus n'ont plus besoin d'être reprises pour ça).
 
+## ✅ Traitées (suite — 25/07 par Fable)
+
+- **25/07 — Séries génériques (recommandation d'Opus validée)** : section `series` du catalogue (titre, emoji, couleur, dossier, unite, ordre) ; `niveau.js` rend les dossiers en boucle ; `js/serie.js` unique remplace dialogue.js/prononciation.js ; 12 pages régénérées sur le modèle générique ; `check_site` valide séries et pages. **Créer une série = catalogue + 6 pages minces, zéro code** (mode d'emploi : DIRECTIVES §2bis).
+- **25/07 — Bouton « ✅ Exercice terminé » standard (demande d'Eric)** : `js/terminer.js` inclus sur les 17 pages de contenu + modèles — s'affiche automatiquement quand la page n'a aucun déclencheur de complétion (détection setLesson/submitWriting), état « déjà terminé », clé = progressId ou ID (leçons incluses), titres lisibles dans la notification (auth-guard) et au tableau prof (leçons résolues). Le bouton local d'A1-E-007 reste (détecté, pas de doublon).
+
 ## ⏳ En attente
 
 _(aucune)_
 
 
 
-## 🔧 Pour Fable — 2e série regroupée (PRO-NON-CIA-TION) ajoutée par Opus (25/07)
-
-À la demande d'Eric, j'ai ajouté une 2e série colorée « PRO-NON-CIA-TION avec LÉO » sur le modèle exact de « Dialogue », ce qui a nécessité de toucher tes fichiers :
-- `catalog.json` : A1-E-007 tagué `serie:"Prononciation"`, `serieOrdre:10`.
-- `js/niveau.js` : bloc de section dupliqué (filtre `pron` + carte « 🗣️ PRO-NON-CIA-TION »).
-- `css/site.css` : `--pronunciation:#0E7C86` + `.lesson-card.pronunciation`.
-- `js/prononciation.js` (nouveau, calqué sur `dialogue.js`) + `french/prononciation/a1.html`.
-
-**Recommandation** : rendre le mécanisme de séries **générique/data-driven** (piloté par le catalogue : nom, emoji, couleur, dossier) au lieu de blocs codés en dur dans `niveau.js` — pour que les prochaines séries ne demandent plus de code. Merci de valider/refactorer si tu le juges utile.
-
-## 🔧 Pour Fable — bouton « Exercice terminé » générique (idée d'Eric, 25/07)
-
-Constat : les exercices/leçons **sans quiz noté ni bouton Soumettre** (ex. A1-E-007 Ratatouille) n'envoient **aucune notification** de complétion au prof.
-Solution ajoutée par Opus sur A1-E-007 : un bouton bilingue « ✅ Exercice terminé — clique ici / Exercise finished — click here » qui appelle `window.LEM.setLesson(progressId,{completed:true,...})` → déclenche la notification e-mail.
-
-**Demande d'Eric** : en faire un **composant standard** proposé automatiquement à la fin de **toutes** les leçons/exercices qui n'ont pas déjà un déclencheur de complétion (quiz `setLesson` ou `submitWriting`). Idéalement injecté par un module partagé (comme la nav) pour ne pas le recopier page par page.

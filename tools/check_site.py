@@ -93,6 +93,21 @@ if catalog:
             elif i not in exercices[eid].get("lecons", []):
                 err(f"Lien asymétrique : {i} référence {eid}, mais {eid} ne référence pas {i}")
 
+# ---------- 1a-bis. Séries (génériques, 25/07) ----------
+if catalog:
+    sdefs = catalog.get("series", {})
+    for i, e in exercices.items():
+        s = e.get("serie")
+        if s and s not in sdefs:
+            err(f"{i} : série inconnue « {s} » (absente de la section series du catalogue)")
+    for nom, d in sdefs.items():
+        if not d.get("dossier"):
+            err(f"Série {nom} : champ dossier manquant")
+        else:
+            for lvl in ["a1", "a2", "b1", "b2", "c1", "c2"]:
+                if not (ROOT / "french" / d["dossier"] / f"{lvl}.html").exists():
+                    err(f"Série {nom} : page french/{d['dossier']}/{lvl}.html manquante")
+
 # ---------- 1b. Tests (Phase 7) ----------
 if catalog:
     for ts in catalog.get("tests", []):

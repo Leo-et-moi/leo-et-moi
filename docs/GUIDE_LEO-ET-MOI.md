@@ -80,7 +80,8 @@ Points de vigilance : ne jamais changer le nom ; vérifier le bon dossier ; form
 
 **Contenu**
 - IDs immuables `<NIVEAU>-<L|E|T>-<numéro>` ; l'ordre pédagogique est le champ `ordre` du catalogue (par dizaines), jamais l'ID.
-- **Séries** (ex. « Dialogue ») : champ `serie` (+ `serieOrdre`) sur l'exercice → il sort de la liste normale et rejoint le **dossier 💬 de sa série** sur la page de niveau (couleur dédiée `--dialogue`, page `french/dialogue/<niveau>.html` générée du catalogue).
+- **Séries** (Dialogue 💬, PRO-NON-CIA-TION 🗣️…) : **entièrement pilotées par la section `series` du catalogue** (titre, emoji, couleur, dossier). Un exercice tagué `serie` sort de la liste normale et rejoint le dossier coloré de sa série sur la page de niveau ; pages dédiées `french/<dossier>/<niveau>.html` (génériques, `js/serie.js`). **Créer une série = une entrée `series` + taguer les exercices + 6 pages minces — zéro code.**
+- **Bouton « ✅ Exercice terminé »** (`js/terminer.js`, standard 25/07/2026) : apparaît automatiquement en fin de page sur toute leçon/exercice **sans déclencheur de complétion** (ni quiz noté, ni Soumettre) → notification e-mail au prof + visible au tableau de bord. `data-terminer="off"` pour désactiver, `"on"` pour forcer.
 - Chaque exercice est étiqueté par **compétences** : 🎧 listening · 📖 reading · ✍️ writing · 🗣️ speaking.
 - Bandeau « 📖 revois la leçon » et « ✏️ exercices liés » : **générés** depuis le catalogue — ne plus les écrire à la main.
 - QCM : le mélange des options **re-synchronise toujours** l'index de la bonne réponse (`js/quiz.js` et `js/test.js` le font d'office).

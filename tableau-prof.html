@@ -93,7 +93,12 @@ function ready(cb){ if(window.LEM && window.LEM.user) cb(); else document.addEve
 var CAT={byProgress:{},byTest:{}};
 var CATREADY=fetch('catalog.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(c){
   CAT.raw=c;
-  (c.exercices||[]).forEach(function(e){ if(e.progressId) CAT.byProgress[e.progressId]={titre:e.titre,niveau:e.niveau,competences:e.competences||[]}; });
+  (c.exercices||[]).forEach(function(e){
+    var meta={titre:e.titre,niveau:e.niveau,competences:e.competences||[]};
+    if(e.progressId) CAT.byProgress[e.progressId]=meta;
+    CAT.byProgress[e.id]=CAT.byProgress[e.id]||meta;          // clé = ID (bouton Terminé)
+  });
+  (c.lecons||[]).forEach(function(l){ CAT.byProgress[l.id]={titre:'📖 '+l.titre,niveau:l.niveau,competences:[]}; });
   (c.tests||[]).forEach(function(x){ CAT.byTest[x.id]={titre:x.titre,niveau:x.niveau}; });
   return fetch('parcours.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(p){ CAT.parcours=p; }).catch(function(){});
 }).catch(function(){});

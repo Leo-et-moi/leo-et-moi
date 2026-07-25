@@ -37,6 +37,14 @@ export async function compteurs(niveau) {
   return { lecons: (await lecons(niveau)).length, exercices: (await exercices(niveau)).length };
 }
 
+/** Définitions des séries (titre, emoji, couleur, dossier…), triées par ordre. */
+export async function seriesDefs() {
+  const c = await loadCatalog();
+  return Object.entries(c.series || {})
+    .map(([nom, def]) => Object.assign({ nom }, def))
+    .sort((a, b) => (a.ordre || 0) - (b.ordre || 0));
+}
+
 /** Exercices publiés d'une série pour un niveau (ex. « Dialogue »), ordonnés. */
 export async function serie(nom, niveau) {
   const c = await loadCatalog();

@@ -330,5 +330,6 @@ function toggleAG(){var b=document.getElementById('agBox'),t=document.getElement
 function finishEx(){var msg=document.getElementById('doneMsg');(async function(){var ok=true;try{if(window.LEM&&window.LEM.setLesson){await window.LEM.setLesson('A1-E-007',{completed:true,lastPracticed:Date.now()});}else{ok=false;}}catch(e){ok=false;}msg.textContent=ok?'✅ Ton professeur a été prévenu ! / Your teacher has been notified!':'Connecte-toi pour envoyer la notification. / Log in to send.';})();document.getElementById('doneBtn').disabled=true;}
 </script>
 <script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
 </body>
 </html>

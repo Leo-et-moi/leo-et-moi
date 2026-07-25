@@ -33,6 +33,11 @@ Sonnet conçoit des brouillons pédagogiques (voir `docs/DIRECTIVES_CREATION_SON
 
 Créer un **test** : une entrée dans la section `tests` du catalogue (titre, sources, nbQuestions, duree ou null). **Eric décide** de la composition ; propose des valeurs par défaut raisonnables (pas de limite de temps par défaut).
 
+## 2bis. Séries et bouton « terminé »
+
+- **Nouvelle série** (validée par Eric) : ajouter une entrée à la section `series` de `catalog.json` (titre, emoji, couleur, dossier, unite, ordre), taguer les exercices (`serie`, `serieOrdre`), créer les 6 pages minces `french/<dossier>/<a1…c2>.html` en copiant un dossier de série existant (seul `data-serie` change). Aucun code à écrire — `niveau.js` et `serie.js` font le reste.
+- **Bouton « ✅ Exercice terminé »** : automatique via `js/terminer.js` (inclus sur toute page ayant `data-item-id`). Ne l'ajoute plus à la main ; si une page a déjà son quiz/Soumettre, le bouton se retire tout seul. `data-terminer="off"` / `"on"` pour les cas particuliers.
+
 ## 3. Règles dures (jamais d'exception)
 
 - **Jamais de voix synthétique** (`speechSynthesis`) — le site en est 100 % exempt depuis le 10/07/2026, le script de contrôle le vérifie. Un bouton sans MP3 reste muet et se signale à Eric.

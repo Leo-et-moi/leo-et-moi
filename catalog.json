@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "misAJour": "2026-07-21",
+  "misAJour": "2026-07-25",
   "audioBase": "",
   "lecons": [
     {
@@ -361,5 +361,23 @@
       "duree": null,
       "publie": true
     }
-  ]
+  ],
+  "series": {
+    "Dialogue": {
+      "titre": "Dialogue",
+      "emoji": "💬",
+      "couleur": "#6C5CE7",
+      "dossier": "dialogue",
+      "unite": "dialogue",
+      "ordre": 10
+    },
+    "Prononciation": {
+      "titre": "PRO-NON-CIA-TION avec LÉO",
+      "emoji": "🗣️",
+      "couleur": "#0E7C86",
+      "dossier": "prononciation",
+      "unite": "texte",
+      "ordre": 20
+    }
+  }
 }

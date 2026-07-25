@@ -7,16 +7,16 @@
 <title>Dialogue A2 &mdash; Leo-et-moi</title>
 <link rel="stylesheet" href="/css/site.css">
 </head>
-<body data-niveau="A2">
+<body data-serie="Dialogue" data-niveau="A2">
 <header class="top-bar">
   <a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a>
   <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
 </header>
 <main class="main">
   <a class="back-link" href="/french/a2/index.html">&#8592; Niveau A2</a>
-  <div class="niveau-head" style="--lvl:var(--dialogue);">
-    <span class="badge" style="background:var(--dialogue);">&#128172;</span>
-    <h1>Dialogue A2</h1>
+  <div class="niveau-head">
+    <span class="badge" id="serieBadge">&#128218;</span>
+    <h1 id="serieTitre">Dialogue — A2</h1>
     <div class="niveau-compteurs" id="compteurs">&hellip;</div>
   </div>
   <div id="liste"></div>
@@ -28,7 +28,7 @@
   <a class="nav-item" href="/index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
 </nav>
 <script src="/js/audio.js"></script>
-<script type="module" src="/js/dialogue.js"></script>
+<script type="module" src="/js/serie.js"></script>
 <script type="module" src="/js/auth-guard.js"></script>
 </body>
 </html>

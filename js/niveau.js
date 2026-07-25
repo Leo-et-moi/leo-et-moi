@@ -2,7 +2,7 @@
    La page déclare :  <body data-niveau="A1">
    Rend : en-tête (badge + compteurs), section « Leçons », section « Exercices »
    (numérotés, badges de compétences), état de progression via LEM (auth-guard). */
-import { lecons, exercices, tests } from './catalog.js';
+import { lecons, exercices, tests, seriesDefs } from './catalog.js';
 import { badges } from './ui.js';
 
 const NIVEAUX = {
@@ -36,10 +36,6 @@ async function render() {
   const ls = await lecons(niveau);
   const esTous = await exercices(niveau);
   const es = esTous.filter((e) => !e.serie);           // les séries ont leur dossier dédié
-  const dial = esTous.filter((e) => e.serie === 'Dialogue')
-    .sort((a, b) => (a.serieOrdre || a.ordre) - (b.serieOrdre || b.ordre));
-  const pron = esTous.filter((e) => e.serie === 'Prononciation')
-    .sort((a, b) => (a.serieOrdre || a.ordre) - (b.serieOrdre || b.ordre));
 
   document.getElementById('niveauBadge').textContent = niveau;
   document.getElementById('niveauNom').textContent = 'Niveau ' + niveau + ' — ' + meta.nom;
@@ -81,44 +77,29 @@ async function render() {
     });
   }
 
-  // Dossier 💬 Dialogue (série évolutive, demande Eric) — après les Tests,
-  // couleur distincte, seulement si le niveau a au moins un dialogue publié
-  if (dial.length) {
+  // Dossiers de séries (💬 Dialogue, 🗣️ PRO-NON-CIA-TION…) — générique, piloté
+  // par la section `series` du catalogue : une nouvelle série = zéro code.
+  const defs = await seriesDefs();
+  defs.forEach((def) => {
+    const items = esTous.filter((e) => e.serie === def.nom);
+    if (!items.length) return;
     const host = document.getElementById('exercices').parentNode;
     const titre = document.createElement('div');
     titre.className = 'section-title';
-    titre.textContent = '💬 Dialogue';
+    titre.textContent = def.emoji + ' ' + def.titre;
     host.appendChild(titre);
     const a = document.createElement('a');
-    a.className = 'lesson-card dialogue';
-    a.href = '/french/dialogue/' + niveau.toLowerCase() + '.html';
-    a.style.setProperty('--lvl', 'var(--dialogue)');
+    a.className = 'lesson-card serie';
+    a.href = '/french/' + def.dossier + '/' + niveau.toLowerCase() + '.html';
+    a.style.setProperty('--lvl', def.couleur);
+    a.style.background = def.couleur + '14';   /* teinte légère (8 % alpha hex) */
     a.innerHTML =
-      `<div class="lesson-num">💬</div>` +
-      `<div class="lesson-info"><div class="lesson-name">Dialogue ${niveau}</div>` +
-      `<div class="lesson-sub">${dial.length} dialogue${dial.length > 1 ? 's' : ''} · série évolutive</div></div>` +
+      `<div class="lesson-num">${def.emoji}</div>` +
+      `<div class="lesson-info"><div class="lesson-name">${def.titre} — ${niveau}</div>` +
+      `<div class="lesson-sub">${items.length} ${def.unite || 'exercice'}${items.length > 1 ? 's' : ''} · série évolutive</div></div>` +
       `<span class="lesson-arrow">&#8594;</span>`;
     host.appendChild(a);
-  }
-
-  // Dossier 🗣️ PRO-NON-CIA-TION avec LÉO (série évolutive) — après Dialogue
-  if (pron.length) {
-    const host = document.getElementById('exercices').parentNode;
-    const titre = document.createElement('div');
-    titre.className = 'section-title';
-    titre.textContent = '🗣️ PRO-NON-CIA-TION avec LÉO';
-    host.appendChild(titre);
-    const a = document.createElement('a');
-    a.className = 'lesson-card pronunciation';
-    a.href = '/french/prononciation/' + niveau.toLowerCase() + '.html';
-    a.style.setProperty('--lvl', 'var(--pronunciation)');
-    a.innerHTML =
-      `<div class="lesson-num">🗣️</div>` +
-      `<div class="lesson-info"><div class="lesson-name">PRO-NON-CIA-TION ${niveau}</div>` +
-      `<div class="lesson-sub">${pron.length} texte${pron.length > 1 ? 's' : ''} · série évolutive</div></div>` +
-      `<span class="lesson-arrow">&#8594;</span>`;
-    host.appendChild(a);
-  }
+  });
 }
 
 /* Progression (scores Firestore) quand l'authentification est prête. */
