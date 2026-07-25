@@ -70,6 +70,10 @@ audio{width:100%;margin-top:8px;}
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--a1);display:flex;z-index:100;}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
 .nav-icon{font-size:22px;}.nav-label{font-size:11px;font-weight:bold;}
+.ag-btn{display:block;width:100%;text-align:left;background:#FEF0EE;border:none;border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:11px 12px;font-family:Arial;font-size:14px;font-weight:bold;color:var(--coral);cursor:pointer;margin:12px 0 0;min-height:44px;}
+.ag-box{border-left:4px solid var(--coral);background:#FEF7F5;padding:4px 12px 8px;border-radius:0 0 8px 0;}
+.ag-row{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #F1DED9;font-size:14px;line-height:1.5;color:var(--text);}
+.ag-row:last-child{border-bottom:none;}
 </style>
 </head>
 <body data-item-id="A1-E-007">
@@ -90,15 +94,28 @@ audio{width:100%;margin-top:8px;}
   </div>
 
   <div class="legend">
-    <span style="background:var(--aigu)">&eacute; aigu<button class="lspk" onclick="playClip('A1-E-007_leg_aigu.mp3',this)">&#128266;</button></span>
-    <span style="background:var(--grave)">&egrave; &agrave; &ugrave; grave<button class="lspk" onclick="playClip('A1-E-007_leg_grave.mp3',this)">&#128266;</button></span>
-    <span style="background:var(--circ)">&ecirc; &acirc; &ocirc; circonflexe<button class="lspk" onclick="playClip('A1-E-007_leg_circ.mp3',this)">&#128266;</button></span>
-    <span style="background:var(--trema)">&euml; &iuml; tr&eacute;ma<button class="lspk" onclick="playClip('A1-E-007_leg_trema.mp3',this)">&#128266;</button></span>
-    <span style="background:var(--cedille)">&ccedil; c&eacute;dille<button class="lspk" onclick="playClip('A1-E-007_leg_cedille.mp3',this)">&#128266;</button></span>
-    <span style="background:#E3F5EC;color:#1E7B45">lettre muette<button class="lspk" onclick="playClip('A1-E-007_leg_muet.mp3',this)">&#128266;</button></span>
-    <span style="background:#FBE7E5;color:#C0392B">liaison &#8255;<button class="lspk" onclick="playClip('A1-E-007_leg_liaison.mp3',this)">&#128266;</button></span>
-    <span style="background:#FFF3DE;color:#C87A00">mot difficile<button class="lspk" onclick="playClip('A1-E-007_leg_difficile.mp3',this)">&#128266;</button></span>
+    <span style="background:var(--aigu)">&eacute; aigu</span>
+    <span style="background:var(--grave)">&egrave; &agrave; &ugrave; grave</span>
+    <span style="background:var(--circ)">&ecirc; &acirc; &ocirc; circonflexe</span>
+    <span style="background:var(--trema)">&euml; &iuml; tr&eacute;ma</span>
+    <span style="background:var(--cedille)">&ccedil; c&eacute;dille</span>
+    <span style="background:#E3F5EC;color:#1E7B45">lettre muette</span>
+    <span style="background:#FBE7E5;color:#C0392B">liaison &#8255;</span>
+    <span style="background:#FFF3DE;color:#C87A00">mot difficile</span>
   </div>
+
+  <button class="ag-btn" id="agBtn" onclick="toggleAG()">&#128266; Consigne &middot; Instruction &mdash; écouter les accents &#9662;</button>
+  <div class="ag-box" id="agBox" style="display:none;">
+    <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_aigu.mp3',this)">&#128266;</button><span>e accent aigu se prononce « é ». Exemple : préparé, échange.</span></div>
+    <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_grave.mp3',this)">&#128266;</button><span>e accent grave se prononce « è ». Exemples : mère, père. a et u accent grave « à », « ù », ne modifient pas la prononciation. Exemples : à, où.</span></div>
+    <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_circ.mp3',this)">&#128266;</button><span>e accent circonflexe se prononce « ê ». Exemple : même. a, o et i accent circonflexe « â », « ô », « î », ne modifient pas la prononciation. Exemples : châtains, drôle, île.</span></div>
+    <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_trema.mp3',this)">&#128266;</button><span>e, i et u tréma « ë », « ï », « ü », se prononcent en séparant les syllabes et en accentuant la prononciation. Exemples : Noël, maïs, ambigüe.</span></div>
+    <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_cedille.mp3',this)">&#128266;</button><span>c cédille « ç » se prononce « s ». Exemples : français, leçon.</span></div>
+    <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_muet.mp3',this)">&#128266;</button><span>Lettre muette : en vert, on ne la prononce pas. Exemple : le « s » de « bas ».</span></div>
+    <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_liaison.mp3',this)">&#128266;</button><span>Liaison : en rouge avec le signe rouge. On prononce la consonne. Exemple : nous‿avons.</span></div>
+    <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_difficile.mp3',this)">&#128266;</button><span>Mot difficile : en orange, avec sa prononciation entre crochets. Exemple : les‿yeux, « zieu ».</span></div>
+  </div>
+
 
   <!-- ETAPE 1 -->
   <div class="step">
@@ -106,10 +123,10 @@ audio{width:100%;margin-top:8px;}
     <div class="step-t">Place les accents <span class="en-t">/ Add the missing accents to the passage</span></div>
     <div class="consigne">
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
-        <button class="spk" onclick="playClip('A1-E-007_e1.mp3',this)">&#128266; FR</button>
+        <button class="spk" onclick="playClip('A1-E-007_e1.mp3?v=2',this)">&#128266; FR</button>
         <button class="spk" onclick="playClip('A1-E-007_e1_en.mp3',this)">&#128266; EN</button></div>
-      <div class="cg-fr">Les autres couleurs sont d&eacute;j&agrave; l&agrave; (vert = muet, rouge = liaison, orange = mot difficile). &Agrave; toi de placer les <b>accents</b>&nbsp;: tape sur chaque lettre color&eacute;e, elle change (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Arr&ecirc;te-toi sur le bon accent, puis clique sur &laquo;&nbsp;V&eacute;rifier&nbsp;&raquo;. Pas besoin de clavier&nbsp;!</div>
-      <div class="cg-en">The other colours are already there (green = silent, red = liaison, orange = tricky word). Your job: place the <b>accents</b>. Tap each coloured letter, it cycles (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Stop on the right one, then click &laquo;&nbsp;Check&nbsp;&raquo;. No keyboard needed!</div>
+      <div class="cg-fr">&Agrave; toi de placer les <b>accents</b>&nbsp;: tape sur chaque lettre color&eacute;e, elle change (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Arr&ecirc;te-toi sur le bon accent, puis clique sur &laquo;&nbsp;V&eacute;rifier&nbsp;&raquo;. Pas besoin de clavier&nbsp;! Les autres couleurs sont d&eacute;j&agrave; l&agrave; (vert = muet, rouge = liaison, orange = mot difficile).</div>
+      <div class="cg-en">Your job: place the <b>accents</b>. Tap each coloured letter, it cycles (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Stop on the right one, then click &laquo;&nbsp;Check&nbsp;&raquo;. No keyboard needed! The other colours are already there (green = silent, red = liaison, orange = tricky word).</div>
     </div>
     <div class="txt" id="place"></div>
     <button class="btn btn-ok" onclick="verify1()">&#10003; V&eacute;rifier / Check</button>
@@ -123,7 +140,7 @@ audio{width:100%;margin-top:8px;}
     <div class="step-t">Lis en &eacute;coutant <span class="en-t">/ Read while listening</span></div>
     <div class="consigne">
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
-        <button class="spk" onclick="playClip('A1-E-007_e2.mp3',this)">&#128266; FR</button>
+        <button class="spk" onclick="playClip('A1-E-007_e2.mp3?v=2',this)">&#128266; FR</button>
         <button class="spk" onclick="playClip('A1-E-007_e2_en.mp3',this)">&#128266; EN</button></div>
       <div class="cg-fr">&Eacute;coute l&rsquo;audio (&#9654; / &#10073;&#10073;) et lis &agrave; voix haute en m&ecirc;me temps. <b style="color:#1E7B45">Ne prononce pas</b> les lettres vertes. <b style="color:#C0392B">Prononce la liaison</b> rouge (&#8255;). Les accents color&eacute;s t&rsquo;aident &agrave; bien prononcer.</div>
       <div class="cg-en">Play the audio (&#9654; / &#10073;&#10073;) and read aloud at the same time. <b style="color:#1E7B45">Do not pronounce</b> the green letters. <b style="color:#C0392B">Do pronounce</b> the red liaison (&#8255;). The coloured accents help you pronounce correctly.</div>
@@ -182,12 +199,12 @@ audio{width:100%;margin-top:8px;}
     <div class="mrk">&Eacute;coute l&rsquo;audio de l&rsquo;&eacute;tape 2 et r&eacute;p&egrave;te ces mots.</div>
     <div class="hard">
       <span>yeux <b>[zieu]</b></span>
-      <span>aujourd&rsquo;hui <b>[o&middot;jour&middot;dwi]</b></span>
-      <span>s&oelig;ur <b>[seur]</b></span>
-      <span>ch&acirc;tains <b>[cha&middot;tin]</b></span>
-      <span>&eacute;change <b>[&eacute;&middot;chanj]</b></span>
-      <span>fran&ccedil;ais <b>[fran&middot;s&egrave;]</b></span>
-      <span>d&eacute;j&agrave; <b>[d&eacute;&middot;ja]</b></span>
+      <span><button class="spk" onclick="playClip('A1-E-007_md_aujourdhui.mp3',this)">&#128266;</button> aujourd&rsquo;hui <b>[o&middot;jour&middot;dwi]</b></span>
+      <span><button class="spk" onclick="playClip('A1-E-007_md_soeur.mp3',this)">&#128266;</button> s&oelig;ur <b>[seur]</b></span>
+      <span><button class="spk" onclick="playClip('A1-E-007_md_chatains.mp3',this)">&#128266;</button> ch&acirc;tains <b>[cha&middot;tin]</b></span>
+      <span><button class="spk" onclick="playClip('A1-E-007_md_echange.mp3',this)">&#128266;</button> &eacute;change <b>[&eacute;&middot;chanj]</b></span>
+      <span><button class="spk" onclick="playClip('A1-E-007_md_francais.mp3',this)">&#128266;</button> fran&ccedil;ais <b>[fran&middot;s&egrave;]</b></span>
+      <span><button class="spk" onclick="playClip('A1-E-007_md_deja.mp3',this)">&#128266;</button> d&eacute;j&agrave; <b>[d&eacute;&middot;ja]</b></span>
     </div>
     <div style="margin-top:20px;text-align:center;">
       <button class="btn btn-ok" id="doneBtn" onclick="finishEx()" style="font-size:16px;padding:14px 22px;">&#9989; Exercice termin&eacute; &mdash; clique ici / Exercise finished &mdash; click here</button>
@@ -309,6 +326,7 @@ renderMCQ('ex-homo',[
  {q:'Mes yeux ___ de la même couleur.',o:['son','sont'],c:1,note:'« sont » = verbe être ; « son » = possessif.'},
  {q:'___ cheveux sont plus longs. (à elle)',o:['Ces','Ses'],c:1,note:'« Ses » = à elle ; « Ces » = démonstratif.'}
 ]);
+function toggleAG(){var b=document.getElementById('agBox'),t=document.getElementById('agBtn');var s=b.style.display==='none';b.style.display=s?'block':'none';t.innerHTML=(s?'\u{1F508} Consigne \u00b7 Instruction \u2014 masquer \u25b4':'\u{1F50A} Consigne \u00b7 Instruction \u2014 \u00e9couter les accents \u25be');}
 function finishEx(){var msg=document.getElementById('doneMsg');(async function(){var ok=true;try{if(window.LEM&&window.LEM.setLesson){await window.LEM.setLesson('A1-E-007',{completed:true,lastPracticed:Date.now()});}else{ok=false;}}catch(e){ok=false;}msg.textContent=ok?'✅ Ton professeur a été prévenu ! / Your teacher has been notified!':'Connecte-toi pour envoyer la notification. / Log in to send.';})();document.getElementById('doneBtn').disabled=true;}
 </script>
 <script type="module" src="/js/auth-guard.js"></script>
