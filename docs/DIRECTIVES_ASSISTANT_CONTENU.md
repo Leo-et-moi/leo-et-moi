@@ -57,6 +57,15 @@ Certains clips reviennent **mot pour mot** d'un exercice à l'autre — typiquem
 
 Exemple appliqué (24/07/2026) : `c1_ft_instruction.mp3` = copie de `c1_fg_instruction.mp3`.
 
+## 3d. Série « Accents francophones » (exercices d'écoute C1/C2)
+
+Modèle : `french/c1/francine-gosselin/` et `french/c1/francis-tanguay/`. Standards **obligatoires** pour tout nouvel exercice de la série (décidés par Eric, 24/07/2026) :
+
+- **Sous-titre de la page** : « **Accents francophones — accent [québécois / …]** » (et non plus « Exercice de compréhension orale »).
+- **Bloc « Méthode d'écoute »** (Recall Protocol), pliable, **juste avant** « Afficher les Highlights » : texte **bilingue** FR/EN (première écoute sans notes ; deuxième écoute → écrire de mémoire en anglais, NE PAS TRADUIRE ; révision en suivant la transcription ; repérage des lacunes ; répétition) + **deux audios** `c1_<xx>_methode.mp3` (FR) et `c1_<xx>_methode_en.mp3` (EN). Le texte de méthode est **identique partout** → l'enregistrer une seule fois et le **copier** (cf. §3c).
+- **Consigne sous « Cartes — révision »** : « Écoutez toutes les cartes et répétez à haute voix avant de passer à la carte suivante. » (+ EN).
+- **Consigne sous « Quiz — 10 questions »** : « Écoutez chaque question et chaque réponse, puis répétez-les à voix haute avant de répondre et de passer à la question suivante. » (+ EN).
+
 ## 4. Déployer un audio d'Eric
 
 Eric dépose ses MP3 dans `_SOURCES\...` (listes : `_SOURCES\NOUVEAUX_AUDIOS_ACCUEIL.md` et `_SOURCES\A1\A1-L-003-les-nombres\NOUVEAUX_AUDIOS_A_ENREGISTRER.md`). Tu copies chaque fichier vers son emplacement GitHub (`french/audio/` pour l'accueil, `reference/audio/` pour la Référence, sinon le dossier `audio/` de la leçon), tu pushes, tu vérifies le bouton en ligne, et tu retires la ligne de la liste + de `AUDIO_ATTENDUS` dans `tools/check_site.py` (seule exception au §1 : cette liste-là, tu peux la tenir à jour).

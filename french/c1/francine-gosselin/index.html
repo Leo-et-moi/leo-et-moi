@@ -72,6 +72,8 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .hint-toggle{background:none;border:none;color:var(--navyMid);font-weight:bold;font-size:14px;cursor:pointer;padding:8px 0;font-family:Arial,sans-serif;}
 .hint-box{font-size:14px;color:var(--slate);background:var(--ltBlue);border-radius:8px;padding:10px 12px;margin:4px 0 8px;line-height:1.5;display:flex;align-items:flex-start;gap:8px;}
 @media(min-width:600px){.main{padding:24px 20px 8px;}}
+.listen-instr{font-size:14px;color:var(--slate);background:var(--ltBlue);border-radius:8px;padding:10px 12px;margin:-2px 0 14px;line-height:1.5;}
+.listen-instr .en2{display:block;color:#8899AA;font-size:12.5px;margin-top:3px;}
 </style>
 </head>
 <body>
@@ -82,9 +84,36 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 <main class="main">
   <a class="back-link" href="../../../index.html">&#8592; Accueil</a>
   <div class="lvl-tag">C1</div>
-  <div style="font-size:15px;font-weight:bold;color:var(--dark);margin-bottom:2px;">Exercice de compr&eacute;hension orale &mdash; accent qu&eacute;b&eacute;cois</div>
+  <div style="font-size:15px;font-weight:bold;color:var(--dark);margin-bottom:2px;">Accents francophones &mdash; accent qu&eacute;b&eacute;cois</div>
   <div class="page-title">L&rsquo;entretien de Francine G.</div>
   <div class="page-sub" style="display:flex;align-items:flex-start;gap:8px;"><span>&Eacute;coute l&rsquo;entretien, lis la transcription, r&eacute;vise avec les cartes, puis teste-toi avec le quiz.</span><button class="speak-btn" onclick="playClip('c1_fg_instruction.mp3',this)">&#128266;</button></div>
+
+  <div class="interview-card">
+    <button class="flip-btn" id="methodeBtn" onclick="toggleMethode()" style="background:var(--navyMid);">&#127911; Afficher la m&eacute;thode d&rsquo;&eacute;coute</button>
+    <div id="methode" class="tr-box" style="display:none;">
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <button class="speak-btn" onclick="playClip('c1_fg_methode.mp3',this)">&#128266; FR</button>
+      <button class="speak-btn" onclick="playClip('c1_fg_methode_en.mp3',this)">&#128266; EN</button>
+    </div>
+    <div style="font-size:16px;font-weight:bold;color:var(--dark);">M&eacute;thode d&rsquo;&eacute;coute &mdash; Recall Protocol &middot; Listening Method</div>
+    <div style="font-size:13px;color:var(--slate);margin:2px 0 12px;">&Eacute;couter activement et se rem&eacute;morer imm&eacute;diatement <span style="color:#8899AA;">&middot; Listen actively and retrieve from memory immediately</span></div>
+    <div style="font-size:14.5px;line-height:1.6;color:var(--text);">
+      <p style="margin:0 0 6px;"><strong>1. Premi&egrave;re &eacute;coute</strong> &mdash; &eacute;coutez et ne prenez pas de notes.</p>
+      <p style="margin:0 0 6px;"><strong>2. Deuxi&egrave;me &eacute;coute</strong> &mdash; apr&egrave;s l&rsquo;&eacute;coute, &eacute;crivez tout ce que vous vous rappelez en anglais. <strong style="color:var(--coral);">NE TRADUISEZ PAS&nbsp;!</strong></p>
+      <p style="margin:0 0 6px;"><strong>3. R&eacute;vision et r&eacute;&eacute;coute</strong> &mdash; v&eacute;rification de la compr&eacute;hension&nbsp;: r&eacute;&eacute;coutez l&rsquo;enregistrement, cette fois-ci en suivant la transcription.</p>
+      <p style="margin:0 0 6px;"><strong>4. Identification des lacunes</strong> &mdash; comparez ce dont vous vous souvenez avec la transcription. Notez les mots de vocabulaire, les expressions idiomatiques ou les structures grammaticales qui vous ont &eacute;chapp&eacute;.</p>
+      <p style="margin:0;"><strong>5. R&eacute;p&eacute;tition</strong> &mdash; r&eacute;p&eacute;tez le cycle. Poursuivez ce processus pour le reste du fichier audio.</p>
+    </div>
+    <div style="border-top:1px solid var(--divider);margin:12px 0;"></div>
+    <div style="font-size:13px;line-height:1.55;color:var(--slate);">
+      <p style="margin:0 0 6px;"><strong>1. First listening</strong> &mdash; listen without taking notes.</p>
+      <p style="margin:0 0 6px;"><strong>2. Second listening</strong> &mdash; after listening, write down in English everything you can remember. <strong>DO NOT TRANSLATE!</strong></p>
+      <p style="margin:0 0 6px;"><strong>3. Review &amp; Replay</strong> &mdash; check for understanding. Listen again, this time following along with the transcript.</p>
+      <p style="margin:0 0 6px;"><strong>4. Identify the gaps</strong> &mdash; compare what you successfully recalled with the actual transcript. Note any vocabulary, idioms, or grammar structures you missed.</p>
+      <p style="margin:0;"><strong>5. Repetition</strong> &mdash; repeat the cycle. Continue this process for the remainder of the audio file.</p>
+    </div>
+    </div>
+  </div>
 
   <div class="interview-card">
     <button class="flip-btn" id="hlBtn" onclick="toggleHl()" style="background:var(--navyMid);">&#10024; Afficher les Highlights</button>
@@ -117,6 +146,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   </div>
 
   <div class="sec-label">&#128218; Cartes &mdash; r&eacute;vision</div>
+  <div class="listen-instr">&Eacute;coutez toutes les cartes et r&eacute;p&eacute;tez &agrave; haute voix avant de passer &agrave; la carte suivante.<span class="en2">Listen to all the cards and repeat them aloud before moving on to the next card.</span></div>
   <div class="flash" id="flash" onclick="flip()">
     <div class="flash-side" id="flashSide">Question</div>
     <div class="flash-text" id="flashText">&hellip;</div>
@@ -131,6 +161,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   </div>
 
   <div class="sec-label">&#9989; Quiz &mdash; 10 questions</div>
+  <div class="listen-instr">&Eacute;coutez chaque question et chaque r&eacute;ponse, puis r&eacute;p&eacute;tez-les &agrave; voix haute avant de r&eacute;pondre et de passer &agrave; la question suivante.<span class="en2">Listen to each question and answer, then repeat them aloud before answering and moving on to the next question.</span></div>
   <div id="quiz"></div>
   <div class="final" id="final">
     <div class="final-num" id="finalNum">0 / 10</div>
@@ -149,6 +180,12 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 <script>
 // recorded-audio player (no synthetic); files live in ./audio/
 function pad(n){ return (n<10?'0':'')+n; }
+function toggleMethode(){
+  var t=document.getElementById('methode'), b=document.getElementById('methodeBtn');
+  var show=t.style.display==='none';
+  t.style.display=show?'block':'none';
+  b.innerHTML=(show?'\u{1F3A7} Masquer la m\u00e9thode d\u2019\u00e9coute':'\u{1F3A7} Afficher la m\u00e9thode d\u2019\u00e9coute');
+}
 function toggleHl(){
   var t=document.getElementById('highlights'), b=document.getElementById('hlBtn');
   var show=t.style.display==='none';
