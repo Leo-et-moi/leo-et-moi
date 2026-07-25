@@ -6,7 +6,7 @@
 1. Pastille de niveau (A1…).
 2. **Titre de série** (grand) : « **PRO-NON-CIA-TION avec LÉO** » (sans le mot « Série »), suivi d'un **🔊** (audio du titre, `<ID>_titre.mp3`).
 3. Sous-titre bilingue : « Exercice de lecture avec aide d'écoute · Reading exercise with listening support ».
-4. **Titre du texte** (gras) : nom de l'œuvre — chapitre — **numéro de page** (ex. « La Ratatouille Folle — Chapitre 1 : La Préparation · p. 3 »).
+4. **Titre du texte** (gras) : nom de l'œuvre — chapitre — **numéro de page** (aussi dans le titre de série, avec 🔊) (ex. « La Ratatouille Folle — Chapitre 1 : La Préparation · p. 3 »).
 
 ## 2. Consignes & titres
 - **Toutes** les consignes sont bilingues (FR + EN) avec **🔊 FR et 🔊 EN**.
@@ -17,7 +17,7 @@
 - **Lettres muettes** : **vert GRAS** — uniquement les **consonnes finales** muettes ; **ne pas** marquer le « e » muet final (comme Mona).
 - **Liaison** : la consonne de liaison **et le signe ‿** en **rouge GRAS**.
 - **Mot difficile** : **orange** avec la prononciation entre crochets, y compris les liaisons figées (ex. « les‿yeux [zieu] »).
-- **Légende** en tête : un **🔊 FR** par groupe (aigu, grave, circonflexe, tréma, cédille, lettre muette, liaison, mot difficile) pour entendre la prononciation.
+- **Bloc pliable « Consigne · Instruction »** : contient, pour chaque groupe (aigu, grave, circonflexe, tréma, cédille, lettre muette, liaison, mot difficile), le **texte explicatif + un 🔊 FR**. La **légende** en tête ne garde que les **pastilles de couleur** (repère visuel), **sans audio**.
 
 ## 4. Étape 1 — Placer les accents (sans clavier)
 - Le texte affiche **déjà** tout le codage (vert/rouge/orange) ; seuls les **accents** sont à poser.
@@ -35,7 +35,7 @@ Enregistrement navigateur (MediaRecorder), réécoute, **téléchargement** du c
 À la fin de l'exercice, un bouton bilingue **« ✅ Exercice terminé — clique ici / Exercise finished — click here »** appelle `window.LEM.setLesson(progressId,{completed:true})` pour **notifier le professeur** (ces exercices n'ont pas de quiz noté). Le `progressId` doit avoir un libellé dans `LESSON_NAMES` (auth-guard.js).
 
 ## 7. Étape 4 — Exercices dynamiques (auto-corrigés)
-Sur le modèle Mona : **A.** muet/prononcé · **B.** liaisons : *placer le signe ‿* et trouver le son (z/t/n) · **C.** liaison obligatoire/interdite/facultative · **D.** homophones · **E.** mots difficiles (référence, avec les liaisons figées comme « yeux [zieu] »).
+Sur le modèle Mona : **A.** muet/prononcé · **B.** liaisons : *placer le signe ‿* et trouver le son (z/t/n) · **C.** liaison obligatoire/interdite/facultative · **D.** homophones · **E.** mots difficiles (référence, avec les liaisons figées comme « yeux [zieu] ») — **chaque mot de contenu a un 🔊**.
 
 ## 7b. Regroupement dans le niveau
 La série est **regroupée** dans une **catégorie dédiée** de la page de niveau (comme « 💬 Dialogue »), avec **fond de couleur différencié** (`--pronunciation`, teal) et une **page-dossier** `/french/prononciation/<niveau>.html`. Côté catalogue : `serie:"Prononciation"` + `serieOrdre`.

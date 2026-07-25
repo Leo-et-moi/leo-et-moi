@@ -79,37 +79,20 @@ Opus se charge ensuite : HTML sur gabarit, catalogue (liens leçon↔exercice, c
 
 **Où déposer ta livraison** : une fois le cours **validé par Eric**, dépose tes fichiers (HTML/brouillon + script audio FR/EN) **directement dans le dossier `_TRANSFERTS_SONNET`** (`02. Leo-et-moi website\leo-et-moi\_TRANSFERTS_SONNET\`). C'est là qu'Opus les récupère — **aucune copie manuelle par Eric**. N'y dépose que du contenu **validé et prêt à intégrer** (pas de brouillons intermédiaires).
 
-## 4c. Série « PRO-NON-CIA-TION avec LÉO » (exercices de lecture / prononciation)
+## 4c. Série « PRO-NON-CIA-TION avec LÉO »
 
-Modèle : **A1-E-007** (La Ratatouille Folle). Détails techniques : `docs/DIRECTIVES_SERIE_PRONONCIATION.md` (côté Opus). **Ton rôle** = fournir le **contenu** d’un texte ; Opus construit la page, l’audio, le regroupement coloré et déploie.
+Exercices de lecture / prononciation A1 (modèle : **A1-E-007** Ratatouille).
+**Toutes les conventions techniques** (balisage du texte, exercices, mise en page, audios, regroupement) vivent dans **`DIRECTIVES_SERIE_PRONONCIATION.md`** (dépôt + OneDrive) — **source unique**, rien à dupliquer ici.
 
-**Ce que tu livres (par texte), déposé dans `_TRANSFERTS_SONNET` :**
+**Ton rôle (contenu seulement)** — livre, par texte, dans `_TRANSFERTS_SONNET` :
+1. **En-tête** : niveau · titre = *Œuvre — Chapitre — n° de page* · auteur/source.
+2. Le **texte codé** — accents en vrais caractères ; consonne(s) finale(s) muette(s) `{x}` (**jamais** le « e » muet final) ; liaison `nou^s‿^avons` (consonne + signe `‿` **entre chevrons**, collé) ; mot difficile `<mot|pro·non·cia·tion>`.
+3. Les **5 blocs d'exercices AVEC les bonnes réponses** (muet/prononcé · liaisons + son · obligatoire/interdite/facultative · homophones · mots difficiles).
+4. La liste des **mots difficiles** + prononciation.
 
-1. **En-tête** : niveau · titre = *Œuvre — Chapitre — n° de page* · auteur / source.
+**Tu ne fais PAS** : HTML/JS/CSS, catalogue, **consignes/légende** (standard, réutilisées), **audio du texte** (Eric l'enregistre), déploiement.
 
-2. **Le texte codé** (le cœur) — recopie le texte avec ce balisage exact :
-   - **Accents** : garde les vrais caractères (é è ê à â ù û ë ï ô ç). Ne rien baliser dessus.
-   - **Lettres muettes** : entoure d’accolades **la ou les consonne(s) finale(s) muette(s)** — `vien{s}`, `di{t}`, `beaucou{p}`, `françai{s}`, `spor{t}`. ⚠️ **Jamais le « e » muet final** (prépare, valise → on ne marque rien).
-   - **Liaisons** : consonne de liaison entre chevrons, puis le signe `‿`, le tout **entre les chevrons**, collé au mot suivant **sans espace** — `nou^s‿^avons`, `e^n‿^échange`, `le^s‿^yeux`. Précise le **son** (z / t / n).
-   - **Mots difficiles** (qu’un débutant américain prononce mal) : `<mot|pro·non·cia·tion>` avec des points entre syllabes — `<aujourd'hui|o·jour·dwi>`, `<yeux|zieu>`, `<châtains|cha·tin>`.
-
-3. **Exercices (étape 4)** — énoncés **ET bonnes réponses** :
-   - **A. Muet ou prononcé** : 6 phrases, une lettre finale en gras → muette / prononcée + courte explication.
-   - **B. Liaisons — le son** : 5 groupes → liaison en Z / N / T, ou « pas de liaison » + explication. Inclure **un piège**.
-   - **C. Liaison obligatoire / interdite / facultative** : 4 groupes + explication.
-   - **D. Homophones** : 5 phrases à trou, 2 options, bonne réponse (à/a, où/ou, sont/son, ses/ces…).
-   - **E. Mots difficiles** : liste `mot [pro·non·cia·tion]`.
-
-**Ce que tu NE fais PAS** : ni HTML/JS/CSS, ni catalogue, ni **consignes/légende** (standard, identiques pour toute la série — Opus les réutilise, Eric enregistre l’audio une seule fois), ni l’audio du texte (Eric l’enregistre), ni déploiement.
-
-**Règles dures** :
-- Muettes = **consonnes finales uniquement**, jamais le « e » muet final.
-- Ne marque que des **liaisons réelles** (obligatoires / courantes) ; vérifie le son.
-- **Vérifie chaque bonne réponse**.
-- Extrait pédagogique autorisé ; **cite auteur, titre, année/page**.
-
-**Mini-exemple** — « J’ai les yeux verts. » devient :
-`J'ai le^s‿^<yeux|zieu> ver{ts}.`  (liaison s→z · « yeux » difficile [zieu] · « ts » de « verts » muets).
+**Mini-exemple** — « J'ai les yeux verts. » → `J'ai le^s‿^<yeux|zieu> ver{ts}.`
 
 
 ## 5. En cas de doute
