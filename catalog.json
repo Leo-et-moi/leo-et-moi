@@ -330,7 +330,7 @@
       "id": "A1-E-007",
       "niveau": "A1",
       "ordre": 70,
-      "titre": "La Ratatouille Folle — Ch.1 : lecture guidée",
+      "titre": "La Ratatouille Folle — Ch.1 : La Préparation",
       "chemin": "french/a1/A1-E-007-ratatouille/index.html",
       "lecons": [],
       "competences": [
@@ -340,7 +340,9 @@
       ],
       "progressId": "A1-E-007",
       "questions": null,
-      "publie": true
+      "publie": true,
+      "serie": "Prononciation",
+      "serieOrdre": 10
     }
   ],
   "tests": [

@@ -73,3 +73,13 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 _(aucune)_
 
 
+
+## 🔧 Pour Fable — 2e série regroupée (PRO-NON-CIA-TION) ajoutée par Opus (25/07)
+
+À la demande d'Eric, j'ai ajouté une 2e série colorée « PRO-NON-CIA-TION avec LÉO » sur le modèle exact de « Dialogue », ce qui a nécessité de toucher tes fichiers :
+- `catalog.json` : A1-E-007 tagué `serie:"Prononciation"`, `serieOrdre:10`.
+- `js/niveau.js` : bloc de section dupliqué (filtre `pron` + carte « 🗣️ PRO-NON-CIA-TION »).
+- `css/site.css` : `--pronunciation:#0E7C86` + `.lesson-card.pronunciation`.
+- `js/prononciation.js` (nouveau, calqué sur `dialogue.js`) + `french/prononciation/a1.html`.
+
+**Recommandation** : rendre le mécanisme de séries **générique/data-driven** (piloté par le catalogue : nom, emoji, couleur, dossier) au lieu de blocs codés en dur dans `niveau.js` — pour que les prochaines séries ne demandent plus de code. Merci de valider/refactorer si tu le juges utile.

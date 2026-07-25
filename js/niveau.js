@@ -38,6 +38,8 @@ async function render() {
   const es = esTous.filter((e) => !e.serie);           // les séries ont leur dossier dédié
   const dial = esTous.filter((e) => e.serie === 'Dialogue')
     .sort((a, b) => (a.serieOrdre || a.ordre) - (b.serieOrdre || b.ordre));
+  const pron = esTous.filter((e) => e.serie === 'Prononciation')
+    .sort((a, b) => (a.serieOrdre || a.ordre) - (b.serieOrdre || b.ordre));
 
   document.getElementById('niveauBadge').textContent = niveau;
   document.getElementById('niveauNom').textContent = 'Niveau ' + niveau + ' — ' + meta.nom;
@@ -95,6 +97,25 @@ async function render() {
       `<div class="lesson-num">💬</div>` +
       `<div class="lesson-info"><div class="lesson-name">Dialogue ${niveau}</div>` +
       `<div class="lesson-sub">${dial.length} dialogue${dial.length > 1 ? 's' : ''} · série évolutive</div></div>` +
+      `<span class="lesson-arrow">&#8594;</span>`;
+    host.appendChild(a);
+  }
+
+  // Dossier 🗣️ PRO-NON-CIA-TION avec LÉO (série évolutive) — après Dialogue
+  if (pron.length) {
+    const host = document.getElementById('exercices').parentNode;
+    const titre = document.createElement('div');
+    titre.className = 'section-title';
+    titre.textContent = '🗣️ PRO-NON-CIA-TION avec LÉO';
+    host.appendChild(titre);
+    const a = document.createElement('a');
+    a.className = 'lesson-card pronunciation';
+    a.href = '/french/prononciation/' + niveau.toLowerCase() + '.html';
+    a.style.setProperty('--lvl', 'var(--pronunciation)');
+    a.innerHTML =
+      `<div class="lesson-num">🗣️</div>` +
+      `<div class="lesson-info"><div class="lesson-name">PRO-NON-CIA-TION ${niveau}</div>` +
+      `<div class="lesson-sub">${pron.length} texte${pron.length > 1 ? 's' : ''} · série évolutive</div></div>` +
       `<span class="lesson-arrow">&#8594;</span>`;
     host.appendChild(a);
   }

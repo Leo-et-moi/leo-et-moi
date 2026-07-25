@@ -20,6 +20,7 @@
   --a1: #C0392B; --a2: #E07B39; --b1: #D4920A;
   --b2: #7CB82F; --c1: #27AE60; --c2: #1A5C38;
   --dialogue: #6C5CE7;  /* série Dialogue — distinct des couleurs CEFR et du corail/or */
+  --pronunciation: #0E7C86;  /* série PRO-NON-CIA-TION — teal distinct */
   --nav-h: 64px;
 }
 
@@ -162,3 +163,4 @@ main{max-width:640px;margin:0 auto;padding:18px 14px 8px;}
 
 /* ── Série « Dialogue » (dossier + pages dédiées) ─────────────────────── */
 .lesson-card.dialogue{background:#F4F2FD;}
+.lesson-card.pronunciation{background:#E3F1F2;}

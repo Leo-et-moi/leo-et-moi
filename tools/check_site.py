@@ -22,7 +22,7 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 # les boutons). Signalées en AVERTISSEMENT tant qu'elles sont listées ici.
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
-AUDIO_ATTENDUS = {
+AUDIO_ATTENDUS = {"A1-E-007_titre.mp3", 
                   # A1-E-007 légende (prononciation des groupes) — en attente
                   "A1-E-007_leg_aigu.mp3", "A1-E-007_leg_grave.mp3", "A1-E-007_leg_circ.mp3", "A1-E-007_leg_trema.mp3", "A1-E-007_leg_cedille.mp3", "A1-E-007_leg_muet.mp3", "A1-E-007_leg_liaison.mp3", "A1-E-007_leg_difficile.mp3",
                   # A1-E-007 (Ratatouille) — consignes en attente

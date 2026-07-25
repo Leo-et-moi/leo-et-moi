@@ -4,7 +4,7 @@
 
 ## 1. En-tête (dans cet ordre)
 1. Pastille de niveau (A1…).
-2. **Titre de série** (grand) : « **Série PRO-NON-CIA-TION avec LÉO** ».
+2. **Titre de série** (grand) : « **PRO-NON-CIA-TION avec LÉO** » (sans le mot « Série »), suivi d'un **🔊** (audio du titre, `<ID>_titre.mp3`).
 3. Sous-titre bilingue : « Exercice de lecture avec aide d'écoute · Reading exercise with listening support ».
 4. **Titre du texte** (gras) : nom de l'œuvre — chapitre — **numéro de page** (ex. « La Ratatouille Folle — Chapitre 1 : La Préparation · p. 3 »).
 
@@ -34,6 +34,9 @@ Enregistrement navigateur (MediaRecorder), réécoute, **téléchargement** du c
 ## 7. Étape 4 — Exercices dynamiques (auto-corrigés)
 Sur le modèle Mona : **A.** muet/prononcé · **B.** liaisons : *placer le signe ‿* et trouver le son (z/t/n) · **C.** liaison obligatoire/interdite/facultative · **D.** homophones · **E.** mots difficiles (référence, avec les liaisons figées comme « yeux [zieu] »).
 
+## 7b. Regroupement dans le niveau
+La série est **regroupée** dans une **catégorie dédiée** de la page de niveau (comme « 💬 Dialogue »), avec **fond de couleur différencié** (`--pronunciation`, teal) et une **page-dossier** `/french/prononciation/<niveau>.html`. Côté catalogue : `serie:"Prononciation"` + `serieOrdre`.
+
 ## 8. Audio
 - Audio du texte : **128 kbps mono**.
-- Consignes + libellés de légende : clips **FR** enregistrés par Eric (nommage `A1-E-007_…` : `intro/e1..e4` pour les consignes, `leg_aigu/…/leg_difficile` pour la légende).
+- Consignes + libellés de légende : clips **FR** enregistrés par Eric (nommage `A1-E-007_…` : `titre` pour le titre, `intro/e1..e4` pour les consignes, `leg_aigu/…/leg_difficile` pour la légende).
