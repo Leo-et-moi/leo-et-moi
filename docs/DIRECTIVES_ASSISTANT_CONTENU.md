@@ -47,6 +47,8 @@ Créer un **test** : une entrée dans la section `tests` du catalogue (titre, so
 
 Le remplacement garde le même nom (règle), mais le navigateur peut resservir l'ancienne prise pendant ~10 min (cache GitHub Pages), parfois plus. **Convention** : après avoir remplacé `x.mp3`, incrémente un cache-buster **sur les seules références de ce fichier** dans les pages/banques : `playClip('x.mp3?v=2')`. Un seul fichier re-téléchargé, les autres restent en cache (connexion rurale). `check_site.py` accepte le suffixe `?v=N`.
 
+> **Cas des noms d'audio construits dynamiquement** (modèle d'écoute C1 Francine/Francis, où les clips sont nommés par concaténation `'c1_xx_quiz_'+n+'_hint.mp3'`) : le `?v=` littéral ne s'applique pas. Utiliser dans le script de la page une petite table `var CB={'fichier.mp3':2,…}` et un helper `cb(f)` qui n'ajoute `?v=` qu'aux fichiers listés ; envelopper les appels `playClip(cb(...))`. Une correction ultérieure = une ligne à ajouter dans `CB`.
+
 ## 3c. Réutiliser un enregistrement identique (ne pas faire refaire)
 
 Certains clips reviennent **mot pour mot** d'un exercice à l'autre — typiquement la **consigne** des exercices d'écoute C1 (« Écoute l'entretien, lis la transcription, révise avec les cartes, puis teste-toi avec le quiz. »), identique entre Francine et Francis.
