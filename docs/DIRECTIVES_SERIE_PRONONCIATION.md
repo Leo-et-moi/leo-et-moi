@@ -17,7 +17,7 @@
 - **Lettres muettes** : **vert GRAS** — uniquement les **consonnes finales** muettes ; **ne pas** marquer le « e » muet final (comme Mona).
 - **Liaison** : la consonne de liaison **et le signe ‿** en **rouge GRAS**.
 - **Mot difficile** : **orange** avec la prononciation entre crochets, y compris les liaisons figées (ex. « les‿yeux [zieu] »).
-- **Bloc pliable « Consigne · Instruction »** : contient, pour chaque groupe (aigu, grave, circonflexe, tréma, cédille, lettre muette, liaison, mot difficile), le **texte explicatif + un 🔊 FR**. La **légende** en tête ne garde que les **pastilles de couleur** (repère visuel), **sans audio**.
+- **Bloc pliable « Consigne · Instruction »** : contient, pour chaque groupe (aigu, grave, circonflexe, tréma, cédille, lettre muette, liaison, mot difficile), le **texte explicatif + un 🔊 FR**, avec un bouton **Afficher / Show ↔ Masquer / Hide** (bilingue). La **légende** en tête ne garde que les **pastilles de couleur** (repère visuel), **sans audio**.
 
 ## 4. Étape 1 — Placer les accents (sans clavier)
 - Le texte affiche **déjà** tout le codage (vert/rouge/orange) ; seuls les **accents** sont à poser.
@@ -26,7 +26,7 @@
 - Boutons **Vérifier** (vert/rouge) et **Correction**.
 
 ## 5. Étape 2 — Lire en écoutant
-Texte **entièrement codé** (accents + muettes + liaisons + mots difficiles) au-dessus du lecteur audio (▶ / ⏸). Consigne : ne pas prononcer les lettres vertes, **prononcer la liaison rouge (‿)**.
+Texte **entièrement codé** (accents + muettes + liaisons + mots difficiles) au-dessus du lecteur audio (▶ / ⏸). Consigne : ne pas prononcer les lettres vertes, **prononcer la liaison rouge (‿)** ; rappeler que **l'orange signale les mots difficiles**.
 
 ## 6. Étape 3 — S'enregistrer
 Enregistrement navigateur (MediaRecorder), réécoute, **téléchargement** du clip → l'élève l'envoie au professeur (pas de stockage serveur).
@@ -35,7 +35,7 @@ Enregistrement navigateur (MediaRecorder), réécoute, **téléchargement** du c
 À la fin de l'exercice, un bouton bilingue **« ✅ Exercice terminé — clique ici / Exercise finished — click here »** appelle `window.LEM.setLesson(progressId,{completed:true})` pour **notifier le professeur** (ces exercices n'ont pas de quiz noté). Le `progressId` doit avoir un libellé dans `LESSON_NAMES` (auth-guard.js).
 
 ## 7. Étape 4 — Exercices dynamiques (auto-corrigés)
-Sur le modèle Mona : **A.** muet/prononcé · **B.** liaisons : *placer le signe ‿* et trouver le son (z/t/n) · **C.** liaison obligatoire/interdite/facultative · **D.** homophones · **E.** mots difficiles (référence, avec les liaisons figées comme « yeux [zieu] ») — **chaque mot de contenu a un 🔊**.
+Sur le modèle Mona : **A.** muet/prononcé · **B.** liaisons : *placer le signe ‿* et trouver le son (z/t/n) · **C.** liaison obligatoire/interdite/facultative · **D.** homophones · **E.** mots difficiles (référence, avec les liaisons figées comme « yeux [zieu] ») — **chaque mot a un 🔊** (y compris « yeux »).
 
 ## 7b. Regroupement dans le niveau
 La série est **regroupée** dans une **catégorie dédiée** de la page de niveau (comme « 💬 Dialogue »), avec **fond de couleur différencié** (`--pronunciation`, teal) et une **page-dossier** `/french/prononciation/<niveau>.html`. Côté catalogue : `serie:"Prononciation"` + `serieOrdre`.

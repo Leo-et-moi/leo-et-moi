@@ -104,7 +104,7 @@ audio{width:100%;margin-top:8px;}
     <span style="background:#FFF3DE;color:#C87A00">mot difficile</span>
   </div>
 
-  <button class="ag-btn" id="agBtn" onclick="toggleAG()">&#128266; Consigne &middot; Instruction &mdash; écouter les accents &#9662;</button>
+  <button class="ag-btn" id="agBtn" onclick="toggleAG()">&#128266; Consigne &middot; Instruction &mdash; &eacute;couter les accents &middot; Afficher / Show &#9662;</button>
   <div class="ag-box" id="agBox" style="display:none;">
     <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_aigu.mp3',this)">&#128266;</button><span>e accent aigu se prononce « é ». Exemple : préparé, échange.</span></div>
     <div class="ag-row"><button class="spk" onclick="playClip('A1-E-007_leg_grave.mp3',this)">&#128266;</button><span>e accent grave se prononce « è ». Exemples : mère, père. a et u accent grave « à », « ù », ne modifient pas la prononciation. Exemples : à, où.</span></div>
@@ -123,10 +123,10 @@ audio{width:100%;margin-top:8px;}
     <div class="step-t">Place les accents <span class="en-t">/ Add the missing accents to the passage</span></div>
     <div class="consigne">
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
-        <button class="spk" onclick="playClip('A1-E-007_e1.mp3?v=2',this)">&#128266; FR</button>
+        <button class="spk" onclick="playClip('A1-E-007_e1.mp3?v=3',this)">&#128266; FR</button>
         <button class="spk" onclick="playClip('A1-E-007_e1_en.mp3',this)">&#128266; EN</button></div>
-      <div class="cg-fr">&Agrave; toi de placer les <b>accents</b>&nbsp;: tape sur chaque lettre color&eacute;e, elle change (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Arr&ecirc;te-toi sur le bon accent, puis clique sur &laquo;&nbsp;V&eacute;rifier&nbsp;&raquo;. Pas besoin de clavier&nbsp;! Les autres couleurs sont d&eacute;j&agrave; l&agrave; (vert = muet, rouge = liaison, orange = mot difficile).</div>
-      <div class="cg-en">Your job: place the <b>accents</b>. Tap each coloured letter, it cycles (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Stop on the right one, then click &laquo;&nbsp;Check&nbsp;&raquo;. No keyboard needed! The other colours are already there (green = silent, red = liaison, orange = tricky word).</div>
+      <div class="cg-fr">&Agrave; toi de placer les <b>accents</b>&nbsp;: tape sur chaque lettre color&eacute;e, elle change (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Arr&ecirc;te-toi sur le bon accent, puis clique sur &laquo;&nbsp;V&eacute;rifier&nbsp;&raquo;. Pas besoin de clavier&nbsp;! Les autres couleurs sont d&eacute;j&agrave; l&agrave; (vert = pour les lettres muettes, rouge = pour les liaisons).</div>
+      <div class="cg-en">Your job: place the <b>accents</b>. Tap each coloured letter, it cycles (e &rarr; &eacute; &rarr; &egrave; &rarr; &ecirc;&hellip;). Stop on the right one, then click &laquo;&nbsp;Check&nbsp;&raquo;. No keyboard needed! The other colours are already there (green = silent letters, red = liaisons).</div>
     </div>
     <div class="txt" id="place"></div>
     <button class="btn btn-ok" onclick="verify1()">&#10003; V&eacute;rifier / Check</button>
@@ -140,10 +140,10 @@ audio{width:100%;margin-top:8px;}
     <div class="step-t">Lis en &eacute;coutant <span class="en-t">/ Read while listening</span></div>
     <div class="consigne">
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
-        <button class="spk" onclick="playClip('A1-E-007_e2.mp3?v=2',this)">&#128266; FR</button>
+        <button class="spk" onclick="playClip('A1-E-007_e2.mp3?v=3',this)">&#128266; FR</button>
         <button class="spk" onclick="playClip('A1-E-007_e2_en.mp3',this)">&#128266; EN</button></div>
-      <div class="cg-fr">&Eacute;coute l&rsquo;audio (&#9654; / &#10073;&#10073;) et lis &agrave; voix haute en m&ecirc;me temps. <b style="color:#1E7B45">Ne prononce pas</b> les lettres vertes. <b style="color:#C0392B">Prononce la liaison</b> rouge (&#8255;). Les accents color&eacute;s t&rsquo;aident &agrave; bien prononcer.</div>
-      <div class="cg-en">Play the audio (&#9654; / &#10073;&#10073;) and read aloud at the same time. <b style="color:#1E7B45">Do not pronounce</b> the green letters. <b style="color:#C0392B">Do pronounce</b> the red liaison (&#8255;). The coloured accents help you pronounce correctly.</div>
+      <div class="cg-fr">&Eacute;coute l&rsquo;audio (&#9654; / &#10073;&#10073;) et lis &agrave; haute voix en m&ecirc;me temps. <b style="color:#1E7B45">Ne prononce pas</b> les lettres vertes. <b style="color:#C0392B">Prononce la liaison</b> rouge (&#8255;). Les accents color&eacute;s t&rsquo;aident &agrave; bien prononcer. <b style="color:#C87A00">La couleur orange</b> signale les mots difficiles.</div>
+      <div class="cg-en">Play the audio (&#9654; / &#10073;&#10073;) and read aloud at the same time. <b style="color:#1E7B45">Do not pronounce</b> the green letters. <b style="color:#C0392B">Do pronounce</b> the red liaison (&#8255;). The coloured accents help you pronounce correctly. <b style="color:#C87A00">Orange</b> marks the tricky words.</div>
     </div>
     <audio controls preload="none" src="audio/ratatouille_ch1.mp3"></audio>
     <div class="txt" id="read" style="margin-top:14px;"></div>
@@ -157,7 +157,7 @@ audio{width:100%;margin-top:8px;}
       <div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span>
         <button class="spk" onclick="playClip('A1-E-007_e3.mp3',this)">&#128266; FR</button>
         <button class="spk" onclick="playClip('A1-E-007_e3_en.mp3',this)">&#128266; EN</button></div>
-      <div class="cg-fr">Lis le texte &agrave; voix haute et enregistre-toi. R&eacute;&eacute;coute-toi, puis <b>t&eacute;l&eacute;charge</b> ton enregistrement et envoie-le &agrave; ton professeur.</div>
+      <div class="cg-fr">Lis le texte &agrave; haute voix et enregistre-toi. R&eacute;&eacute;coute-toi, puis <b>t&eacute;l&eacute;charge</b> ton enregistrement et envoie-le &agrave; ton professeur.</div>
       <div class="cg-en">Read the text aloud and record yourself. Listen back, then <b>download</b> your recording and send it to your teacher.</div>
     </div>
     <button class="btn btn-rec" id="btnRec" onclick="recStart()">&#128308; Enregistrer / Record</button>
@@ -198,7 +198,7 @@ audio{width:100%;margin-top:8px;}
     <div class="step-t" style="font-size:16px;margin-top:16px;">E. Mots difficiles &middot; Tricky words</div>
     <div class="mrk">&Eacute;coute l&rsquo;audio de l&rsquo;&eacute;tape 2 et r&eacute;p&egrave;te ces mots.</div>
     <div class="hard">
-      <span>yeux <b>[zieu]</b></span>
+      <span><button class="spk" onclick="playClip('A1-E-007_md_yeux.mp3',this)">&#128266;</button> yeux <b>[zieu]</b></span>
       <span><button class="spk" onclick="playClip('A1-E-007_md_aujourdhui.mp3',this)">&#128266;</button> aujourd&rsquo;hui <b>[o&middot;jour&middot;dwi]</b></span>
       <span><button class="spk" onclick="playClip('A1-E-007_md_soeur.mp3',this)">&#128266;</button> s&oelig;ur <b>[seur]</b></span>
       <span><button class="spk" onclick="playClip('A1-E-007_md_chatains.mp3',this)">&#128266;</button> ch&acirc;tains <b>[cha&middot;tin]</b></span>
@@ -326,7 +326,7 @@ renderMCQ('ex-homo',[
  {q:'Mes yeux ___ de la même couleur.',o:['son','sont'],c:1,note:'« sont » = verbe être ; « son » = possessif.'},
  {q:'___ cheveux sont plus longs. (à elle)',o:['Ces','Ses'],c:1,note:'« Ses » = à elle ; « Ces » = démonstratif.'}
 ]);
-function toggleAG(){var b=document.getElementById('agBox'),t=document.getElementById('agBtn');var s=b.style.display==='none';b.style.display=s?'block':'none';t.innerHTML=(s?'\u{1F508} Consigne \u00b7 Instruction \u2014 masquer \u25b4':'\u{1F50A} Consigne \u00b7 Instruction \u2014 \u00e9couter les accents \u25be');}
+function toggleAG(){var b=document.getElementById('agBox'),t=document.getElementById('agBtn');var s=b.style.display==='none';b.style.display=s?'block':'none';t.innerHTML=(s?'\u{1F508} Consigne \u00b7 Instruction \u2014 Masquer / Hide \u25b4':'\u{1F50A} Consigne \u00b7 Instruction \u2014 \u00e9couter les accents \u00b7 Afficher / Show \u25be');}
 function finishEx(){var msg=document.getElementById('doneMsg');(async function(){var ok=true;try{if(window.LEM&&window.LEM.setLesson){await window.LEM.setLesson('A1-E-007',{completed:true,lastPracticed:Date.now()});}else{ok=false;}}catch(e){ok=false;}msg.textContent=ok?'✅ Ton professeur a été prévenu ! / Your teacher has been notified!':'Connecte-toi pour envoyer la notification. / Log in to send.';})();document.getElementById('doneBtn').disabled=true;}
 </script>
 <script type="module" src="/js/auth-guard.js"></script>
