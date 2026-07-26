@@ -148,6 +148,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .gram-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
 .gram-num{font-weight:bold;color:var(--coral);font-size:15px;margin-bottom:5px;}
 .gram-sentence{font-size:16px;font-style:italic;color:var(--dark);margin-bottom:4px;line-height:1.5;}
+.btn-fin{font-family:Arial;font-size:16px;font-weight:bold;background:var(--green);color:#fff;border:none;border-radius:12px;padding:14px 22px;cursor:pointer;min-height:50px;}
+.gram-context{font-size:14px;color:var(--slate);line-height:1.55;background:#F6F7FB;border-radius:8px;padding:9px 11px;margin-bottom:8px;}
 .gram-prompt{font-size:14px;color:var(--slate);margin-bottom:8px;}
 .gram-options{display:flex;flex-wrap:wrap;gap:6px;}
 .gram-opt{background:var(--white);border:1.5px solid var(--div);border-radius:8px;padding:8px 16px;font-size:15px;cursor:pointer;font-family:Arial,sans-serif;min-height:44px;}
@@ -368,34 +370,18 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-body">
 
     <!-- EX 1 — VOCABULAIRE ET SENS -->
-    <div style="margin-bottom:8px;">
-      <span style="font-size:16px;font-weight:bold;color:var(--coral);">Exercice 1</span>
-    </div>
-    <div class="instr">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_ex1_instr.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Association — Vocabulaire et Sens. Clique sur un mot de la colonne A, puis sur la définition qui correspond dans la colonne B.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_ex1_instr_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Vocabulary and Meaning. Click a word in column A, then click its matching definition in column B.</div>
-      </div>
+    <div style="margin:0 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <span style="font-size:16px;font-weight:bold;color:var(--coral);">Exercice 1 &middot; Association — Vocabulaire et Sens <span style="font-weight:normal;color:var(--slate);font-size:14px;">/ Vocabulary and Meaning</span></span>
+      <button class="spk" onclick="playClip('B1-E-003_ex1_instr.mp3', this)">&#128266; FR</button>
+      <button class="spk-en" onclick="playClip('B1-E-003_ex1_instr_en.mp3', this)">&#128266; EN</button>
     </div>
     <div id="vm-cards"></div>
 
     <!-- EX 2 — CHASSE AUX CONTRAIRES -->
-    <div style="margin-top:18px;margin-bottom:8px;">
-      <span style="font-size:16px;font-weight:bold;color:var(--coral);">Exercice 2</span>
-    </div>
-    <div class="instr">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_ex2_instr.mp3', this)">&#128266;</button>
-        <div class="instr-fr">La chasse aux contraires. Clique d'abord sur une case réponse dans la colonne de droite, puis sur le mot que tu choisis dans la banque de mots.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_ex2_instr_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">The Antonym Hunt. First click on an answer box in the right-hand column, then click on the word you choose from the word bank.</div>
-      </div>
+    <div style="margin:18px 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <span style="font-size:16px;font-weight:bold;color:var(--coral);">Exercice 2 &middot; La chasse aux contraires <span style="font-weight:normal;color:var(--slate);font-size:14px;">/ The Antonym Hunt</span></span>
+      <button class="spk" onclick="playClip('B1-E-003_ex2_instr.mp3', this)">&#128266; FR</button>
+      <button class="spk-en" onclick="playClip('B1-E-003_ex2_instr_en.mp3', this)">&#128266; EN</button>
     </div>
     <div class="word-bank" id="contr-bank">
       <strong style="font-size:13px;color:var(--slate);margin-right:4px;">Banque :</strong>
@@ -438,53 +424,6 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="cahier-lbl">&#128221; Votre cahier numérique / Your digital notebook</div>
   <div style="font-size:14px;color:var(--slate);margin-bottom:8px;">Write your summary in English after reading. / Écrivez votre résumé en anglais après la lecture.</div>
   <textarea id="recall-textarea" class="recall-textarea" placeholder="Write your summary here in English… / Écrivez votre résumé ici en anglais…"></textarea>
-  <div style="margin-top:8px;">
-    <button onclick="soumettreResume()" style="width:100%;padding:12px 20px;background:var(--coral);color:#fff;border:none;border-radius:10px;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
-      &#128231; Soumettre à mon professeur / Submit to my teacher
-    </button>
-  </div>
-</div>
-
-<!-- LE TEXTE -->
-<div class="sec">
-  <div class="sec-hdr">
-    <div class="sec-icon">&#128216;</div>
-    <div class="sec-label">
-      <div class="sec-label-fr">Le texte — Page 1</div>
-      <div class="sec-label-en">Joseph Kessel · Les Alcooliques Anonymes (1960) · Page 1</div>
-    </div>
-    <button class="spk" onclick="playClip('B1-E-003_sec_texte.mp3', this)">&#128266;</button>
-    <button class="spk-en" onclick="playClip('B1-E-003_sec_texte_en.mp3', this)">&#128266;</button>
-  </div>
-  <div class="sec-body">
-    <button class="big-listen-btn" onclick="playClip('B1-E-003_texte_p1.mp3', this)">
-      &#128266; Écouter la page 1 en français <span style="font-weight:normal;opacity:.75;">· 3 min 07 s</span>
-    </button>
-    <button class="toggle-text-btn" id="toggle-text-btn" onclick="toggleTexte()">
-      &#128065; Masquer / Afficher le texte
-    </button>
-    <div id="texte-body">
-      <div class="text-display">
-        <span class="dialogue-line">— Je m'appelle John N… et je suis un <strong>alcoolique</strong>.</span>
-        <span class="dialogue-line">— Je m'appelle Mary S… et je suis une <strong>alcoolique</strong>.</span>
-        <p class="text-p">Cette phrase rituelle, dite publiquement, <strong>à visage découvert</strong>, résonne à New York tous les jours de l'année et dans cinquante réunions différentes.</p>
-        <p class="text-p">N'importe qui peut entrer, écouter.</p>
-        <p class="text-p">Pour ma part, je l'ai entendue pendant des semaines, le soir, l'après-midi, le matin.</p>
-        <p class="text-p">Je l'ai entendue Park Avenue, parmi une audience de millionnaires. À Bowery, mêlé aux <strong>clochards</strong> les plus <strong>déchus</strong> du monde. À Greenwich Village — avec la <strong>bohème</strong> et les homosexuels. Dans Harlem, chez les Noirs. Au cours d'un congrès qui réunissait des médecins, des psychiatres, des prêtres, des magistrats éminents. Sur le port de Manhattan, entouré de <strong>bourlingueurs</strong> <strong>hâlés</strong> par tous les vents et tous les soleils.</p>
-        <span class="dialogue-line">— Je m'appelle William R… et je suis un alcoolique.</span>
-        <span class="dialogue-line">— Je m'appelle Agnès B… et je suis une alcoolique.</span>
-        <p class="text-p">Les noms changeaient, mais les mots qui les accompagnaient étaient toujours les mêmes.</p>
-        <p class="text-p">Je les ai entendus jusque dans les hôpitaux d'aliénés. Et même à Sing-Sing, la prison, derrière les <strong>barreaux</strong> sinistres.</p>
-        <span class="dialogue-line">— Je m'appelle Frank T… et je suis un alcoolique.</span>
-        <span class="dialogue-line">— Je m'appelle Elizabeth F… et je suis une alcoolique.</span>
-        <p class="text-p">Selon la nature de l'homme ou de la femme qui les prononçaient, les paroles avaient l'accent du fait constaté, accepté, de l'<strong>aveu</strong> difficile, de la <strong>plainte</strong> ou du cri. Selon la condition sociale, le vêtement était luxueux, ou pauvre. Selon le degré d'éducation, variaient les manières et les voix. Mais l'origine, la culture, le costume, la fortune des hommes et des femmes qui parlaient ainsi et des hommes et des femmes à qui s'adressaient leurs propos n'avaient aucune importance. Ils étaient tous unis par un lien commun, plus fort que celui d'un milieu, d'une race, d'une famille, ou même d'un amour. Blancs ou Noirs, <strong>opulents</strong> ou misérables, illettrés ou savants, ils étaient solidaires, ils étaient frères à jamais, parce qu'ils avaient subi le même <strong>mal dévorant</strong> et qu'ils avaient laissé aux griffes du monstre leur chair et leur âme. Ils étaient tous descendus au tréfonds de l'abîme et s'ils avaient pu remonter à la clarté qui luit pour le commun des hommes, ils le devaient entièrement, uniquement, à cette solidarité, à cette fraternité.</p>
-        <span class="dialogue-line">— Je m'appelle James W… et je suis un alcoolique.</span>
-        <span class="dialogue-line">— Je m'appelle Louise D… et je suis une alcoolique.</span>
-        <p class="text-p">Extraordinaire <strong>litanie</strong> ! Elle m'obsède tandis que j'écris ces lignes. Car elle a scandé sans répit la découverte peut-être la plus étonnante et la plus <strong>poignante</strong> qu'il m'ait été donné de faire au cours d'une existence consacrée pourtant à la recherche de l'exceptionnel.</p>
-        <div class="text-sep">* * *</div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- QCM -->
@@ -492,7 +431,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-hdr">
     <div class="sec-icon">&#9989;</div>
     <div class="sec-label">
-      <div class="sec-label-fr">QCM · Vérification de la lecture</div>
+      <div class="sec-label-fr">Exercice 3 · QCM · Vérification de la lecture</div>
       <div class="sec-label-en">Comprehension Check</div>
     </div>
   </div>
@@ -516,126 +455,38 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-hdr" style="background:var(--ltPurple);">
     <div class="sec-icon">&#128218;</div>
     <div class="sec-label">
-      <div class="sec-label-fr" style="color:var(--purple);">Exercices de Révision Grammaticale</div>
+      <div class="sec-label-fr" style="color:var(--purple);">Exercice 4 · Révision Grammaticale</div>
       <div class="sec-label-en">Grammar Review Exercises</div>
     </div>
-    <button class="spk" onclick="playClip('B1-E-003_sec_rev.mp3', this)">&#128266;</button>
-    <button class="spk-en" onclick="playClip('B1-E-003_sec_rev_en.mp3', this)">&#128266;</button>
   </div>
   <div class="sec-body">
 
-    <!-- EX A — PRONOMS -->
-    <div style="margin-bottom:6px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-        <span style="font-size:16px;font-weight:bold;color:var(--purple);">Exercice A</span>
-      </div>
-    </div>
+    <!-- EX 4 — PRONOMS -->
     <div class="instr">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exA_instr.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Regarde dans le texte où se trouvent les pronoms de l'exercice et choisis quelles phrases ou quels mots ils remplacent.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exA_instr_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Look in the text to find the pronouns in the exercise, and identify which sentences or words they replace.</div>
-      </div>
+      <div class="instr-fr-row"><div class="instr-fr">Regarde où se trouvent les pronoms et choisis quelles phrases ou quels mots ils remplacent.</div></div>
+      <div class="instr-en-row"><div class="instr-en">Find the pronouns and identify which sentences or words they replace.</div></div>
     </div>
     <div id="pron-cards"></div>
 
     <!-- LES TEMPS DU VERBE (conservé) -->
     <div style="border-top:2px solid var(--div);margin:18px 0 14px;padding-top:14px;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-        <span style="font-size:16px;font-weight:bold;color:var(--green);">&#9200;&#65039; Les temps du verbe</span>
-        <button class="spk" onclick="playClip('B1-E-003_exc.mp3', this)" style="font-size:13px;padding:5px 10px;">&#128266; FR</button>
-        <button class="spk-en" onclick="playClip('B1-E-003_exc_en.mp3', this)">&#128266; EN</button>
+        <span style="font-size:16px;font-weight:bold;color:var(--green);">&#9200;&#65039; Exercice 5 · Les temps du verbe</span>
       </div>
     </div>
     <div class="instr">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_a.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Série A — Lis la phrase. Identifie le temps du verbe en gras. Clique pour vérifier.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_a_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Series A — Read the sentence. Identify the tense of the bold verb. Click to check.</div>
-      </div>
+      <div class="instr-fr-row"><div class="instr-fr">Série A — Lis la phrase. Identifie le temps du verbe en gras (présent, passé composé ou imparfait). Clique pour vérifier.</div></div>
+      <div class="instr-en-row"><div class="instr-en">Series A — Read the sentence. Identify the tense of the bold verb (présent, passé composé ou imparfait). Click to check.</div></div>
     </div>
     <div id="tense-a"></div>
     <div class="note-box" style="margin-top:4px;">
       <strong>&#128276; Note :</strong> Le texte contient aussi des formes comme <em>avaient subi, avaient laissé, étaient descendus</em>. Ce sont des verbes au <strong>plus-que-parfait</strong> — un temps du passé que nous étudierons plus tard. / <em>These are verbs in the <strong>pluperfect</strong> — a past tense we will study later.</em>
     </div>
-    <div class="instr" style="margin-top:14px;">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_b.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Série B — Lis la phrase de base. Transforme-la aux cinq temps que tu connais. Dis chaque phrase à voix haute.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_b_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Series B — Read the base sentence. Transform it using the five tenses you know. Say each sentence aloud.</div>
-      </div>
-    </div>
-    <div style="margin-bottom:8px;font-size:14px;color:var(--slate);display:flex;align-items:center;gap:6px;">
-      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base1.mp3', this)">&#128266;</button>
-      <strong>Phrase de base 1 :</strong> « Les personnes parlent dans une réunion. »
-    </div>
-    <table class="trans-table">
-      <thead><tr><th>Temps</th><th>Phrase</th></tr></thead>
-      <tbody>
-        <tr><td class="trans-label"><span class="tense-dot dot-present"></span>Présent</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r1',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r1"> Les personnes <strong>parlent</strong> dans une réunion.</span></td></tr>
-        <tr><td class="trans-label"><span class="tense-dot dot-pc"></span>Passé composé</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r2',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r2"> Les personnes <strong>ont parlé</strong> dans une réunion.</span></td></tr>
-        <tr><td class="trans-label"><span class="tense-dot dot-imp"></span>Imparfait</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r3',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r3"> Les personnes <strong>parlaient</strong> dans une réunion.</span></td></tr>
-        <tr><td class="trans-label"><span class="tense-dot dot-fp"></span>Futur proche</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r4',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r4"> Les personnes <strong>vont parler</strong> dans une réunion.</span></td></tr>
-        <tr><td class="trans-label"><span class="tense-dot dot-fs"></span>Futur simple</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r5',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r5"> Les personnes <strong>parleront</strong> dans une réunion.</span></td></tr>
-      </tbody>
-    </table>
-    <div style="margin-bottom:8px;font-size:14px;color:var(--slate);display:flex;align-items:center;gap:6px;">
-      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base2.mp3', this)">&#128266;</button>
-      <strong>Phrase de base 2 :</strong> « Ils écoutent les autres. »
-    </div>
-    <table class="trans-table">
-      <thead><tr><th>Temps</th><th>Phrase</th></tr></thead>
-      <tbody>
-        <tr><td class="trans-label"><span class="tense-dot dot-present"></span>Présent</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r1',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r1"> Ils <strong>écoutent</strong> les autres.</span></td></tr>
-        <tr><td class="trans-label"><span class="tense-dot dot-pc"></span>Passé composé</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r2',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r2"> Ils <strong>ont écouté</strong> les autres.</span></td></tr>
-        <tr><td class="trans-label"><span class="tense-dot dot-imp"></span>Imparfait</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r3',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r3"> Ils <strong>écoutaient</strong> les autres.</span></td></tr>
-        <tr><td class="trans-label"><span class="tense-dot dot-fp"></span>Futur proche</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r4',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r4"> Ils <strong>vont écouter</strong> les autres.</span></td></tr>
-        <tr><td class="trans-label"><span class="tense-dot dot-fs"></span>Futur simple</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r5',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r5"> Ils <strong>écouteront</strong> les autres.</span></td></tr>
-      </tbody>
-    </table>
-
-    <!-- EX B — PC ET IMPARFAIT -->
-    <div style="border-top:2px solid var(--div);margin:18px 0 14px;padding-top:14px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-        <span style="font-size:16px;font-weight:bold;color:var(--purple);">Exercice B</span>
-      </div>
-    </div>
-    <div class="instr">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exB_instr.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Regarde dans le texte où se trouvent les verbes conjugués au Passé-Composé et à l'Imparfait. Clique sur la forme verbale correcte dans la banque de mots.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exB_instr_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Look in the text to find the verbs conjugated in the passé composé and the imperfect. Click the correct verb form from the word bank.</div>
-      </div>
-    </div>
-    <div id="pcimp-cards"></div>
-
-    <!-- EX C — MOTS INVARIABLES -->
-    <div style="border-top:2px solid var(--div);margin:18px 0 14px;padding-top:14px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-        <span style="font-size:16px;font-weight:bold;color:var(--purple);">Exercice C</span>
-      </div>
-    </div>
-    <div class="instr">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exC_instr.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Mots Invariables et outils de liaison. Retrouve le mot du texte qui correspond à chaque définition. Clique d'abord sur une case réponse, puis sur le mot que tu choisis dans la banque de mots.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exC_instr_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Invariable words and connectors. Find the word from the text that matches each definition. First click on an answer box, then click on the word you choose from the word bank.</div>
-      </div>
+    <!-- EX 6 — MOTS INVARIABLES -->
+    <div style="border-top:2px solid var(--div);margin:18px 0 12px;padding-top:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <span style="font-size:16px;font-weight:bold;color:var(--purple);">Exercice 6 &middot; Mots Invariables et outils de liaison <span style="font-weight:normal;color:var(--slate);font-size:14px;">/ Invariable words and connectors</span></span>
+      <button class="spk" onclick="playClip('B1-E-003_exC_instr.mp3', this)">&#128266; FR</button>
+      <button class="spk-en" onclick="playClip('B1-E-003_exC_instr_en.mp3', this)">&#128266; EN</button>
     </div>
     <div class="word-bank">
       <strong style="font-size:13px;color:var(--slate);margin-right:4px;">Banque :</strong>
@@ -650,68 +501,6 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     </div>
     <div id="inv-cards"></div>
 
-  </div>
-</div>
-
-<!-- REFORMULATION GUIDÉE (conservé) -->
-<div class="sec">
-  <div class="sec-hdr">
-    <div class="sec-icon">&#128257;</div>
-    <div class="sec-label">
-      <div class="sec-label-fr">Exercice D — Reformulation guidée</div>
-      <div class="sec-label-en">Guided reformulation · Simplify and reuse</div>
-    </div>
-  </div>
-  <div class="sec-body">
-    <div class="instr">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exd_instr_a.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Série A — Lis la phrase du texte. Reformule-la avec des mots plus simples. Clique pour voir un modèle.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exd_instr_a_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Series A — Read the phrase from the text. Reformulate it with simpler words. Click to see a model.</div>
-      </div>
-    </div>
-    <div id="ref-a"></div>
-    <div class="instr" style="margin-top:18px;">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exd_instr_b.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Série B — Lis la phrase. Clique pour voir un nouveau contexte. Ensuite, crée ton propre exemple à l'oral.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exd_instr_b_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Series B — Read the sentence. Click to see a new context. Then create your own example orally.</div>
-      </div>
-    </div>
-    <div id="ref-b"></div>
-  </div>
-</div>
-
-<!-- DISCUSSION PERSONNELLE (conservé) -->
-<div class="sec">
-  <div class="sec-hdr">
-    <div class="sec-icon">&#128483;&#65039;</div>
-    <div class="sec-label">
-      <div class="sec-label-fr">Exercice F — Conversation en classe / Préparation</div>
-      <div class="sec-label-en">Classroom Conversation / Preparation</div>
-    </div>
-  </div>
-  <div class="sec-body">
-    <div class="instr">
-      <div class="instr-fr-row">
-        <button class="btn-fr" onclick="playClip('B1-E-003_exf_instr.mp3', this)">&#128266;</button>
-        <div class="instr-fr">Utilise les amorces et les mots en vrac pour préparer la discussion en classe à l'oral. Pour chaque question, rédige au moins trois phrases, ou plus si tu le peux.</div>
-      </div>
-      <div class="instr-en-row">
-        <button class="btn-en" onclick="playClip('B1-E-003_exf_instr_en.mp3', this)">&#128266;</button>
-        <div class="instr-en">Use the sentence starters and word bank to prepare for the oral class discussion. For each question, write at least three sentences—or more if you can.</div>
-      </div>
-    </div>
-    <div id="disc-cards"></div>
-    <button onclick="soumettreAuProf()" style="margin-top:18px;width:100%;padding:14px 20px;background:var(--coral);color:#fff;border:none;border-radius:12px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;">
-      &#128231; Soumettre à mon professeur / Submit to my teacher
-    </button>
   </div>
 </div>
 
@@ -758,6 +547,10 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   </div>
 </div>
 
+  <div style="margin:24px 0 8px;text-align:center;">
+    <button class="btn-fin" onclick="finishEx()" id="doneBtn">&#9989; Exercice terminé — clique ici / Exercise finished — click here</button>
+    <div id="doneMsg" style="font-size:13px;color:var(--slate);margin-top:8px;"></div>
+  </div>
 </div><!-- /main -->
 
 <script src="/js/audio.js"></script>
@@ -791,6 +584,7 @@ function toggleEnVersion(){
 }
 
 // ── TRANSFORMATION REVEAL ──
+function toggleExpl(id,btn){var e=document.getElementById(id);var o=e.classList.toggle('shown');btn.innerHTML=o?'\u{1F4A1} Masquer / Hide':'\u{1F4A1} Explication / Explanation';}
 function revealTrans(id,btn){
   const el=document.getElementById(id);
   el.classList.toggle('shown');
@@ -1022,32 +816,34 @@ function selectQCM(qi,oi,correct){
 
 // ── PRONOMS DATA ──
 const PRON=[
-  {sentence:'« Je <strong>l\'</strong>ai entendue »',prompt:'Le pronom <strong>l\'</strong> remplace…',
-   opts:['la phrase rituelle','les noms des personnes','les personnes alcooliques'],correct:0,
-   audio:'pron_q1'},
-  {sentence:'« Je <strong>les</strong> ai entendus »',prompt:'Le pronom <strong>les</strong> remplace…',
-   opts:['la phrase rituelle','les mots qui accompagnaient les noms','les clochards'],correct:1,
-   audio:'pron_q2'},
-  {sentence:'« les mots qui <strong>les</strong> accompagnaient »',prompt:'Le pronom <strong>les</strong> remplace…',
-   opts:['les noms','les hôpitaux','les frères'],correct:0,
-   audio:'pron_q3'},
-  {sentence:'« <strong>ils</strong> étaient solidaires »',prompt:'Le pronom <strong>ils</strong> représente…',
-   opts:['les mots','les barreaux','Blancs ou Noirs, opulents ou misérables, illettrés ou savants'],correct:2,
-   audio:'pron_q4'},
+ {context:"— Je m'appelle John N… et je suis un alcoolique. — Je m'appelle Mary S… et je suis une alcoolique. Cette phrase rituelle, dite publiquement, à visage découvert, résonne à New York tous les jours de l'année et dans cinquante réunions différentes. N'importe qui peut entrer, écouter. Pour ma part, « je <strong>l'</strong>ai entendue » pendant des semaines, le soir, l'après-midi, le matin.",
+  prompt:"Le pronom <strong>l'</strong> remplace…",
+  opts:['la phrase rituelle','John N et Mary S','je suis un(e) alcoolique'],correct:0,
+  expl:"« je l'ai entendue » = « j'ai entendu cette phrase rituelle » pendant des semaines."},
+ {context:"— Je m'appelle William R… et je suis un alcoolique. — Je m'appelle Agnès B… et je suis une alcoolique. Les noms changeaient, mais les mots qui les accompagnaient étaient toujours les mêmes. « Je <strong>les</strong> ai entendus » jusque dans les hôpitaux d'aliénés. Et même à Sing-Sing, la prison, derrière les barreaux sinistres.",
+  prompt:"Le pronom <strong>les</strong> remplace…",
+  opts:['la phrase rituelle','les mots qui accompagnaient les noms','William R et Agnès B'],correct:1,
+  expl:"« Je les ai entendus » = « j'ai entendu les mots qui les accompagnaient »."},
+ {context:"— Je m'appelle William R… et je suis un alcoolique. — Je m'appelle Agnès B… et je suis une alcoolique. Les noms changeaient, mais « les mots qui <strong>les</strong> accompagnaient » étaient toujours les mêmes.",
+  prompt:"Le pronom <strong>les</strong> remplace…",
+  opts:['les noms','la phrase rituelle','William R et Agnès B'],correct:0,
+  expl:"« les mots qui les accompagnaient » = « les mots qui accompagnaient les noms »."},
 ];
 function renderPron(){
-  document.getElementById('pron-cards').innerHTML=PRON.map((p,i)=>`
-    <div class="gram-card">
+  document.getElementById('pron-cards').innerHTML=PRON.map((p,i)=>{
+    var order=p.opts.map((o,k)=>k);
+    for(var j=order.length-1;j>0;j--){var r=Math.floor(Math.random()*(j+1));var t=order[j];order[j]=order[r];order[r]=t;}
+    var cp=order.indexOf(p.correct);
+    var optsHtml=order.map((oi,pos)=>`<button class="gram-opt" id="pr_${i}_${pos}" onclick="selectGram('pr',${i},${pos},${cp})">${p.opts[oi]}</button>`).join('');
+    return `<div class="gram-card">
       <div class="gram-num">${i+1}.</div>
-      <div class="gram-sentence">
-        <button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3', this)" style="margin-right:8px;">&#128266;</button>
-        ${p.sentence}
-      </div>
+      <div class="gram-context">${p.context}</div>
       <div class="gram-prompt">${p.prompt}</div>
-      <div class="gram-options">
-        ${p.opts.map((opt,oi)=>`<button class="gram-opt" id="pr_${i}_${oi}" onclick="selectGram('pr',${i},${oi},${p.correct})">${opt}</button>`).join('')}
-      </div>
-    </div>`).join('');
+      <div class="gram-options">${optsHtml}</div>
+      <button class="reveal-btn" style="margin-top:8px;" onclick="toggleExpl('prexpl_${i}',this)">&#128161; Explication / Explanation</button>
+      <span class="trans-hidden" id="prexpl_${i}" style="font-size:14px;color:var(--slate);">${p.expl}</span>
+    </div>`;
+  }).join('');
 }
 
 // ── PC/IMPARFAIT DATA ──
@@ -1126,10 +922,10 @@ function selectGram(pfx,qi,oi,correct,noteId){
 
 // ── MOTS INVARIABLES DATA ──
 const INV=[
-  {def:'Mot qui signifie « aussi » ou « jusqu\'à » dans le texte (<em>___ à Sing-Sing</em>)',answer:'même',slug:'1'},
-  {def:'Préposition qui exprime l\'intégration au milieu d\'un groupe (<em>___ une audience de millionnaires</em>)',answer:'parmi',slug:'2'},
-  {def:'Préposition complexe qui montre la limite géographique d\'un lieu (<em>___ les hôpitaux d\'aliénés</em>)',answer:'jusque dans',slug:'3'},
-  {def:'Locution adverbiale qui signifie « pour toujours / éternellement » (<em>frères ___</em>)',answer:'à jamais',slug:'4'},
+  {def:'Mot qui signifie « aussi » ou « jusqu\'à » — <em>Je les ai entendus jusque dans les hôpitaux d\'aliénés. Et ___ à Sing-Sing, la prison, derrière les barreaux sinistres.</em>',answer:'même',slug:'1'},
+  {def:'Préposition qui exprime l\'intégration au milieu d\'un groupe — <em>Je l\'ai entendue Park Avenue, ___ une audience de millionnaires.</em>',answer:'parmi',slug:'2'},
+  {def:'Préposition complexe qui montre la limite géographique d\'un lieu — <em>Je les ai entendus ___ les hôpitaux d\'aliénés.</em>',answer:'jusque dans',slug:'3'},
+  {def:'Locution adverbiale qui signifie « pour toujours / éternellement » — <em>Blancs ou Noirs, opulents ou misérables, illettrés ou savants, ils étaient solidaires, ils étaient frères ___.</em>',answer:'à jamais',slug:'4'},
   {def:'Expression pour donner son opinion personnelle ou son témoignage propre',answer:'pour ma part',slug:'5'},
   {def:'Pronom indéfini désignant une personne quelconque, sans importance d\'identité',answer:'n\'importe qui',slug:'6'},
   {def:'Déterminant ou pronom qui exprime la quantité nulle (zéro élément)',answer:'aucun',slug:'7'},
@@ -1188,7 +984,7 @@ const TENSES_A=[
 function renderTenses(){
   document.getElementById('tense-a').innerHTML=TENSES_A.map((t,i)=>`
     <div class="tense-card">
-      <div class="tense-phrase"><button class="btn-fr" onclick="playClip('B1-E-003_ts_${t.slug}.mp3', this)">&#128266;</button><span>${t.phrase}</span></div>
+      <div class="tense-phrase"><span>${t.phrase}</span></div>
       <div class="tense-reveal">
         <button class="reveal-btn" onclick="toggleTense('tb${i}','tn${i}')">&#128065; Voir le temps</button>
         <span class="tense-badge ${t.badge}" id="tb${i}">${t.temps}</span>
@@ -1290,15 +1086,13 @@ function soumettreAuProf(){
 }
 
 // ── INIT ──
+function finishEx(){var m=document.getElementById('doneMsg');(async function(){var ok=true;try{if(window.LEM&&window.LEM.setLesson){await window.LEM.setLesson('B1-E-003',{completed:true,lastPracticed:Date.now()});}else{ok=false;}}catch(e){ok=false;}m.textContent=ok?'✅ Ton professeur a été prévenu ! / Your teacher has been notified!':'Connecte-toi pour envoyer la notification.';})();document.getElementById('doneBtn').disabled=true;}
 renderVM();
 renderContr();
 renderQCM();
 renderPron();
-renderPCImp();
 renderTenses();
 renderInv();
-renderRef();
-renderDisc();
 </script>
 <nav class="bottom-nav">
   <a href="/index.html"><span class="ni">🏠</span><span class="nl">Accueil</span></a>
