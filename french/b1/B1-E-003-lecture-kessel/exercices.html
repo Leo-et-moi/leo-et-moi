@@ -212,14 +212,14 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .ref-simple.show{display:inline-block;}
 .ref-ctx{display:none;padding:6px 12px;background:var(--ltBlue);border-radius:8px;font-size:14px;color:var(--navy);}
 .ref-ctx.show{display:inline-block;}
-.ref-oral{font-size:12px;color:var(--slate);margin-top:4px;font-style:italic;}
+
 
 /* DISCUSSION */
-.disc-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:16px;margin-bottom:10px;}
-.disc-q-fr{display:flex;align-items:flex-start;gap:8px;font-size:17px;font-weight:bold;color:var(--dark);margin-bottom:5px;}
-.disc-q-en{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--slate);margin-bottom:10px;}
-.disc-amorces{margin-bottom:10px;}
-.disc-amorces-lbl{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;}
+
+
+
+
+
 .amorce{display:inline-flex;align-items:center;gap:5px;background:var(--ltBlue);border:1px solid rgba(44,74,124,0.2);border-radius:16px;padding:4px 10px;margin:3px;font-size:14px;font-weight:600;color:var(--navy);}
 .word-bank-lbl{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;}
 .word-chip{display:inline-block;background:var(--white);border:1px solid var(--div);border-radius:12px;padding:3px 10px;margin:3px;font-size:13px;color:var(--text);}
@@ -265,17 +265,6 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .bank-chip.bc-clickable:hover:not(.bc-used){background:var(--ltBlue);border-color:var(--navy);color:var(--navy);}
 .bank-chip.bc-used{opacity:0.35;cursor:not-allowed;text-decoration:line-through;}
 
-/* PCIMP WORD BANK STYLE */
-.pc-blank{display:inline-flex;align-items:center;justify-content:center;min-width:130px;min-height:30px;border:2px dashed var(--div);border-radius:6px;padding:2px 8px;font-size:15px;color:var(--slate);margin:0 3px;background:var(--cream);vertical-align:middle;}
-.pc-blank.pc-correct{border-color:var(--green);background:var(--ltGreen);color:var(--green);font-weight:bold;border-style:solid;font-style:normal;}
-.pc-blank.pc-wrong{border-color:var(--coral);background:#FEE;color:var(--coral);border-style:solid;}
-.pc-bank{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
-.pc-chip{cursor:pointer;background:#fff;border:1.5px solid var(--div);border-radius:8px;padding:7px 14px;font-size:14px;font-family:Arial,sans-serif;min-height:40px;transition:all 0.15s;}
-.pc-chip:hover:not(.pc-chip-used){border-color:var(--navy);background:var(--ltBlue);}
-.pc-chip.pc-chip-used{opacity:0.35;cursor:not-allowed;}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:#1B2845;border-top:3px solid #E8503A;display:flex;align-items:center;z-index:200;}
-.bottom-nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:64px;font-family:Arial,sans-serif;}
-.bottom-nav a.active{color:#E8503A;}.bottom-nav .ni{font-size:22px;}.bottom-nav .nl{font-size:11px;font-weight:bold;}
 </style>
 </head>
 <body data-item-id="B1-E-003" data-terminer="on">
@@ -945,66 +934,6 @@ function renderPron(){
   }).join('');
 }
 
-// ── PC/IMPARFAIT DATA ──
-const PCIMP=[
-  {context:'L\'auteur écrit :',sentence:'« Je l\'<em>[___]</em> Park Avenue »',
-   opts:['aie entendue','ai entendue','entendais'],correct:1,note:null,audio:'pcimp_q1'},
-  {context:'',sentence:'« Les noms <em>[___]</em> »',
-   opts:['ont changé','changeaient','changèrent'],correct:1,note:null,audio:'pcimp_q2'},
-  {context:'',sentence:'« mais les mots <em>[___]</em> toujours les mêmes »',
-   opts:['ont été','étaient','sont'],correct:1,note:null,audio:'pcimp_q3'},
-  {context:'',sentence:'« Blancs ou Noirs, ils <em>[___]</em> solidaires »',
-   opts:['ont été','étaient','furent'],correct:1,note:null,audio:'pcimp_q4'},
-  {context:'',sentence:'« parce qu\'ils <em>[___]</em> le même mal dévorant »',
-   opts:['ont subi','avaient subi','subissaient'],correct:1,note:'avaient subi = plus-que-parfait — un temps du passé que nous étudierons plus tard.',audio:'pcimp_q5'},
-];
-const _pcFilled={}; // qIdx → {word, chipEl, correct}
-
-function renderPCImp(){
-  document.getElementById('pcimp-cards').innerHTML=PCIMP.map((p,i)=>{
-    // replace [___] with a span blank
-    const sentenceHtml=p.sentence.replace('<em>[___]</em>',`<span class="pc-blank" id="pcblank_${i}">___</span>`);
-    const chipsHtml=p.opts.map((opt,oi)=>
-      `<button class="pc-chip" id="pcchip_${i}_${oi}" onclick="pcClickChip(${i},${oi},'${opt.replace(/'/g,"\\'")}',${p.correct}${p.note?`,'pn_${i}'`:',null'})">${opt}</button>`
-    ).join('');
-    return `
-    <div class="gram-card">
-      <div class="gram-num">${i+1}.</div>
-      ${p.context?`<div class="gram-prompt">${p.context}</div>`:''}
-      <div class="gram-sentence" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-        <button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3', this)">&#128266;</button>
-        <span>${sentenceHtml}</span>
-      </div>
-      <div class="pc-bank">${chipsHtml}</div>
-      ${p.note?`<div class="gram-note" id="pn_${i}">&#128276; ${p.note}</div>`:''}
-    </div>`;
-  }).join('');
-}
-
-function pcClickChip(qi,oi,word,correct,noteId){
-  if(_pcFilled[qi]) return; // already answered
-  const blank=document.getElementById('pcblank_'+qi);
-  const chip=document.getElementById('pcchip_'+qi+'_'+oi);
-  if(oi===correct){
-    blank.textContent=word;
-    blank.classList.add('pc-correct');
-    chip.classList.add('pc-chip-used');
-    _pcFilled[qi]={correct:true};
-    // disable all chips for this question
-    document.querySelectorAll(`[id^="pcchip_${qi}_"]`).forEach(c=>c.classList.add('pc-chip-used'));
-  } else {
-    blank.textContent=word;
-    blank.classList.add('pc-wrong');
-    chip.classList.add('pc-chip-used');
-    setTimeout(()=>{
-      blank.textContent='___';
-      blank.classList.remove('pc-wrong');
-      chip.classList.remove('pc-chip-used');
-    },700);
-  }
-  if(noteId&&oi===correct){const n=document.getElementById(noteId);if(n)n.classList.add('show');}
-}
-
 function selectGram(pfx,qi,oi,correct,noteId){
   const opts=document.querySelectorAll(`[id^="${pfx}_${qi}_"]`);
   opts.forEach(b=>b.disabled=true);
@@ -1092,74 +1021,6 @@ function renderTenses(){
     </div>`).join('');
 }
 
-// ── REFORMULATION DATA ──
-const REF_A=[
-  {original:"N'importe qui peut entrer, écouter.",simple:'Tout le monde peut entrer et écouter.',slug:'ra1'},
-  {original:"Je l'ai entendue pendant des semaines.",simple:"J'ai entendu cette phrase plusieurs fois.",slug:'ra2'},
-  {original:'Les noms changeaient, mais les mots étaient toujours les mêmes.',simple:'Les personnes étaient différentes, mais elles disaient la même chose.',slug:'ra3'},
-  {original:"Les paroles avaient l'accent de l'aveu difficile.",simple:"Les personnes parlaient comme si c'était difficile d'avouer.",slug:'ra4'},
-  {original:'Le vêtement était luxueux ou pauvre.',simple:"Certaines personnes étaient riches, d'autres pauvres.",slug:'ra5'},
-  {original:"Cela n'avait aucune importance.",simple:"Ce n'était pas important.",slug:'ra6'},
-];
-const REF_B=[
-  {original:'Ils étaient tous unis par un lien commun.',ctx:'Dans une classe, les étudiants sont unis par le même objectif.',slug:'rb1'},
-  {original:'Ils étaient solidaires.',ctx:"Dans une famille, les personnes s'entraident.",slug:'rb2'},
-  {original:'Ils avaient subi le même mal.',ctx:'Ils avaient vécu le même problème. [plus-que-parfait — à étudier plus tard]',slug:'rb3'},
-  {original:"Ils étaient descendus au tréfonds de l'abîme.",ctx:'Ils avaient connu une période très difficile.',slug:'rb4'},
-  {original:'Ils avaient pu remonter à la clarté.',ctx:'Ils avaient réussi à aller mieux.',slug:'rb5'},
-  {original:'Ils le devaient à cette solidarité.',ctx:"Ils avaient réussi grâce à l'aide des autres.",slug:'rb6'},
-];
-function renderRef(){
-  document.getElementById('ref-a').innerHTML=REF_A.map((r,i)=>`
-    <div class="ref-card">
-      <div class="ref-original"><button class="btn-fr" onclick="playClip('B1-E-003_ref_${r.slug}_orig.mp3', this)">&#128266;</button><em>« ${r.original} »</em></div>
-      <div class="ref-reveal-row">
-        <button class="reveal-btn" onclick="document.getElementById('rs${i}').classList.toggle('show');this.innerHTML=document.getElementById('rs${i}').classList.contains('show')?'&#128065; Cacher':'&#128065; Voir la reformulation'">&#128065; Voir la reformulation</button>
-        <span class="ref-simple" id="rs${i}"><button class="btn-ex" onclick="playClip('B1-E-003_ref_${r.slug}_simple.mp3', this)">&#128266;</button> ${r.simple}</span>
-      </div>
-      <div class="ref-oral">&#127908; Dis ta propre reformulation à l'oral · Say your own reformulation orally</div>
-    </div>`).join('');
-  document.getElementById('ref-b').innerHTML=REF_B.map((r,i)=>`
-    <div class="ref-card">
-      <div class="ref-original"><button class="btn-fr" onclick="playClip('B1-E-003_ref_${r.slug}_orig.mp3', this)">&#128266;</button><em>« ${r.original} »</em></div>
-      <div class="ref-reveal-row">
-        <button class="reveal-btn" onclick="document.getElementById('rc${i}').classList.toggle('show');this.innerHTML=document.getElementById('rc${i}').classList.contains('show')?'&#128065; Cacher':'&#128065; Voir le nouveau contexte'">&#128065; Voir le nouveau contexte</button>
-        <span class="ref-ctx" id="rc${i}"><button class="btn-ex" onclick="playClip('B1-E-003_ref_${r.slug}_ctx.mp3', this)">&#128266;</button> ${r.ctx}</span>
-      </div>
-      <div class="ref-oral">&#127908; Crée ton propre exemple à l'oral · Create your own example orally</div>
-    </div>`).join('');
-}
-
-// ── DISCUSSION DATA ──
-const DISC=[
-  {q:"Pourquoi est-il difficile de dire publiquement : « J'ai un problème » ?",qen:'Why is it difficult to say publicly: "I have a problem"?',slug:'dq1',
-   amorces:["Parce que…","À mon avis, c'est difficile parce que…","Une personne peut avoir peur de…","Peut-être que…"],
-   words:['honte','gêne','pudeur','prendre la parole','dévoiler son intimité','avoir peur du jugement','se sentir fragile','perdre la face','être vulnérable','reconnaître la vérité']},
-  {q:'Dans quels moments de la vie parle-t-on de soi en public ?',qen:'In what moments in life do we speak about ourselves in public?',slug:'dq2',
-   amorces:["On peut parler de soi quand…","Par exemple, lors d'un…","Dans certaines situations, comme…","Je pense que…"],
-   words:['une présentation','un entretien','une réunion','un discours','un mariage','une thérapie de groupe','un cours de langue','un témoignage']},
-  {q:"Qu'est-ce que la solidarité pour vous ?",qen:'What does solidarity mean to you?',slug:'dq3',
-   amorces:["Pour moi, la solidarité, c'est…","Je pense que la solidarité signifie…","Dans ce texte, la solidarité, c'est…","Un exemple de solidarité, c'est…"],
-   words:["s'entraider",'être uni','partager','soutenir quelqu\'un','être ensemble','surmonter un problème','ne pas être seul','une fraternité']},
-];
-function renderDisc(){
-  document.getElementById('disc-cards').innerHTML=DISC.map(d=>`
-    <div class="disc-card">
-      <div class="disc-q-fr"><button class="btn-fr" onclick="playClip('B1-E-003_${d.slug}.mp3', this)">&#128266;</button>${d.q}</div>
-      <div class="disc-q-en"><button class="btn-en" onclick="playClip('B1-E-003_${d.slug}_en.mp3', this)">&#128266;</button>${d.qen}</div>
-      <div class="disc-amorces">
-        <div class="disc-amorces-lbl">&#128073; Amorces / Sentence starters</div>
-        ${d.amorces.map(a=>`<span class="amorce">${a}</span>`).join('')}
-      </div>
-      <div class="word-bank-lbl">&#128196; Mots en vrac / Word bank</div>
-      ${d.words.map(w=>`<span class="word-chip">${w}</span>`).join('')}
-      <div style="margin-top:14px;">
-        <div style="font-size:13px;font-weight:bold;color:var(--slate);margin-bottom:6px;">&#128221; Votre cahier numérique / Your digital notebook :</div>
-        <textarea id="disc-note-${d.slug}" rows="4" style="width:100%;font-size:15px;font-family:Arial,sans-serif;border:2px solid var(--div);border-radius:8px;padding:10px;background:var(--white);color:var(--dark);resize:vertical;" placeholder="Prépare ta réponse ici… / Prepare your answer here…"></textarea>
-      </div>
-    </div>`).join('');
-}
-
 // ── SOUMETTRE AU PROFESSEUR ──
 function soumettreResume(){
   const val=(document.getElementById('recall-textarea')||{}).value||'';
@@ -1167,21 +1028,6 @@ function soumettreResume(){
   const body='Les Alcooliques Anonymes · Joseph Kessel — Exercice B1\nRead-and-Recall — Résumé / Summary\n\n'
     +(val.trim()||'(pas de réponse / no answer)');
   (async function(){let ok=true;try{if(window.LEM&&window.LEM.submitWriting){ok=await window.LEM.submitWriting('B1-E-003','B1 · Lecture Kessel — Résumé',{'Résumé':body});}}catch(e){ok=false;}alert(ok!==false?'✅ Envoyé à ton professeur !':'Une erreur est survenue. Réessaie.');})();
-}
-function soumettreAuProf(){
-  const labels=['Q1 — Pourquoi est-il difficile de dire publiquement : « J\'ai un problème » ?',
-                'Q2 — Dans quels moments de la vie parle-t-on de soi en public ?',
-                'Q3 — Qu\'est-ce que la solidarité pour vous ?'];
-  const slugs=['dq1','dq2','dq3'];
-  let body='Exercice F — Conversation en classe / Preparation\n';
-  body+='Les Alcooliques Anonymes · Joseph Kessel — Exercice B1\n\n';
-  slugs.forEach((s,i)=>{
-    const val=(document.getElementById('disc-note-'+s)||{}).value||'';
-    body+=labels[i]+'\n';
-    body+=(val.trim()||'(pas de réponse / no answer)')+'\n\n';
-  });
-  const subject='Exercice F — Réponses · Kessel B1';
-  (async function(){let ok=true;try{if(window.LEM&&window.LEM.submitWriting){ok=await window.LEM.submitWriting('B1-E-003','B1 · Lecture Kessel — Exercice F',{'Exercice F':body});}}catch(e){ok=false;}alert(ok!==false?'✅ Envoyé à ton professeur !':'Une erreur est survenue. Réessaie.');})();
 }
 
 // ── INIT ──
