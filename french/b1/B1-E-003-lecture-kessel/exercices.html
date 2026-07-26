@@ -278,7 +278,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .bottom-nav a.active{color:#E8503A;}.bottom-nav .ni{font-size:22px;}.bottom-nav .nl{font-size:11px;font-weight:bold;}
 </style>
 </head>
-<body data-item-id="B1-E-003">
+<body data-item-id="B1-E-003" data-terminer="on">
 
 <!-- TOP BAR (modèle standard du site) -->
 <header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
@@ -370,18 +370,34 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-body">
 
     <!-- EX 1 — VOCABULAIRE ET SENS -->
-    <div style="margin:0 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+    <div style="margin:0 0 8px;">
       <span style="font-size:16px;font-weight:bold;color:var(--coral);">Exercice 1 &middot; Association — Vocabulaire et Sens <span style="font-weight:normal;color:var(--slate);font-size:14px;">/ Vocabulary and Meaning</span></span>
-      <button class="spk" onclick="playClip('B1-E-003_ex1_instr.mp3', this)">&#128266; FR</button>
-      <button class="spk-en" onclick="playClip('B1-E-003_ex1_instr_en.mp3', this)">&#128266; EN</button>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_ex1_instr.mp3', this)">&#128266;</button>
+        <div class="instr-fr">Clique sur un mot de la colonne A, puis sur la définition qui correspond dans la colonne B.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_ex1_instr_en.mp3', this)">&#128266;</button>
+        <div class="instr-en">Click a word in column A, then click its matching definition in column B.</div>
+      </div>
     </div>
     <div id="vm-cards"></div>
 
     <!-- EX 2 — CHASSE AUX CONTRAIRES -->
-    <div style="margin:18px 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+    <div style="margin:18px 0 8px;">
       <span style="font-size:16px;font-weight:bold;color:var(--coral);">Exercice 2 &middot; La chasse aux contraires <span style="font-weight:normal;color:var(--slate);font-size:14px;">/ The Antonym Hunt</span></span>
-      <button class="spk" onclick="playClip('B1-E-003_ex2_instr.mp3', this)">&#128266; FR</button>
-      <button class="spk-en" onclick="playClip('B1-E-003_ex2_instr_en.mp3', this)">&#128266; EN</button>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_ex2_instr.mp3', this)">&#128266;</button>
+        <div class="instr-fr">Clique d'abord sur une case réponse dans la colonne de droite, puis sur le mot que tu choisis dans la banque de mots.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_ex2_instr_en.mp3', this)">&#128266;</button>
+        <div class="instr-en">First click on an answer box in the right-hand column, then click on the word you choose from the word bank.</div>
+      </div>
     </div>
     <div class="word-bank" id="contr-bank">
       <strong style="font-size:13px;color:var(--slate);margin-right:4px;">Banque :</strong>
@@ -496,13 +512,15 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
       <div class="sec-label-fr" style="color:var(--purple);">Exercice 4 · Révision Grammaticale</div>
       <div class="sec-label-en">Grammar Review Exercises</div>
     </div>
+    <button class="spk" onclick="playClip('B1-E-003_sec_rev.mp3', this)">&#128266;</button>
+    <button class="spk-en" onclick="playClip('B1-E-003_sec_rev_en.mp3', this)">&#128266;</button>
   </div>
   <div class="sec-body">
 
     <!-- EX 4 — PRONOMS -->
     <div class="instr">
-      <div class="instr-fr-row"><div class="instr-fr">Regarde où se trouvent les pronoms et choisis quelles phrases ou quels mots ils remplacent.</div></div>
-      <div class="instr-en-row"><div class="instr-en">Find the pronouns and identify which sentences or words they replace.</div></div>
+      <div class="instr-fr-row"><button class="btn-fr" onclick="playClip('B1-E-003_exA_instr.mp3', this)">&#128266;</button><div class="instr-fr">Regarde où se trouvent les pronoms et choisis quelles phrases ou quels mots ils remplacent.</div></div>
+      <div class="instr-en-row"><button class="btn-en" onclick="playClip('B1-E-003_exA_instr_en.mp3', this)">&#128266;</button><div class="instr-en">Find the pronouns and identify which sentences or words they replace.</div></div>
     </div>
     <div id="pron-cards"></div>
 
@@ -510,21 +528,70 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
     <div style="border-top:2px solid var(--div);margin:18px 0 14px;padding-top:14px;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
         <span style="font-size:16px;font-weight:bold;color:var(--green);">&#9200;&#65039; Exercice 5 · Les temps du verbe</span>
+        <button class="spk" onclick="playClip('B1-E-003_exc.mp3', this)" style="font-size:13px;padding:5px 10px;">&#128266; FR</button>
+        <button class="spk-en" onclick="playClip('B1-E-003_exc_en.mp3', this)">&#128266; EN</button>
       </div>
     </div>
     <div class="instr">
-      <div class="instr-fr-row"><div class="instr-fr">Série A — Lis la phrase. Identifie le temps du verbe en gras (présent, passé composé ou imparfait). Clique pour vérifier.</div></div>
-      <div class="instr-en-row"><div class="instr-en">Series A — Read the sentence. Identify the tense of the bold verb (présent, passé composé ou imparfait). Click to check.</div></div>
+      <div class="instr-fr-row"><button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_a.mp3', this)">&#128266;</button><div class="instr-fr">Série A — Lis la phrase. Identifie le temps du verbe en gras (présent, passé composé ou imparfait). Clique pour vérifier.</div></div>
+      <div class="instr-en-row"><button class="btn-en" onclick="playClip('B1-E-003_exc_instr_a_en.mp3', this)">&#128266;</button><div class="instr-en">Series A — Read the sentence. Identify the tense of the bold verb (présent, passé composé ou imparfait). Click to check.</div></div>
     </div>
     <div id="tense-a"></div>
     <div class="note-box" style="margin-top:4px;">
       <strong>&#128276; Note :</strong> Le texte contient aussi des formes comme <em>avaient subi, avaient laissé, étaient descendus</em>. Ce sont des verbes au <strong>plus-que-parfait</strong> — un temps du passé que nous étudierons plus tard. / <em>These are verbs in the <strong>pluperfect</strong> — a past tense we will study later.</em>
     </div>
+    <div class="instr" style="margin-top:14px;">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exc_instr_b.mp3', this)">&#128266;</button>
+        <div class="instr-fr">Série B — Lis la phrase de base. Transforme-la aux cinq temps que tu connais. Dis chaque phrase à voix haute.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exc_instr_b_en.mp3', this)">&#128266;</button>
+        <div class="instr-en">Series B — Read the base sentence. Transform it using the five tenses you know. Say each sentence aloud.</div>
+      </div>
+    </div>
+    <div style="margin-bottom:8px;font-size:14px;color:var(--slate);display:flex;align-items:center;gap:6px;">
+      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base1.mp3', this)">&#128266;</button>
+      <strong>Phrase de base 1 :</strong> « Les personnes parlent dans une réunion. »
+    </div>
+    <table class="trans-table">
+      <thead><tr><th>Temps</th><th>Phrase</th></tr></thead>
+      <tbody>
+        <tr><td class="trans-label"><span class="tense-dot dot-present"></span>Présent</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r1',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r1"> Les personnes <strong>parlent</strong> dans une réunion.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-pc"></span>Passé composé</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r2',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r2"> Les personnes <strong>ont parlé</strong> dans une réunion.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-imp"></span>Imparfait</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r3',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r3"> Les personnes <strong>parlaient</strong> dans une réunion.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-fp"></span>Futur proche</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r4',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r4"> Les personnes <strong>vont parler</strong> dans une réunion.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-fs"></span>Futur simple</td><td><button class="trans-reveal-btn" onclick="revealTrans('b1r5',this)">&#128065; Voir</button><span class="trans-hidden" id="b1r5"> Les personnes <strong>parleront</strong> dans une réunion.</span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-bottom:8px;font-size:14px;color:var(--slate);display:flex;align-items:center;gap:6px;">
+      <button class="btn-fr" onclick="playClip('B1-E-003_exc_base2.mp3', this)">&#128266;</button>
+      <strong>Phrase de base 2 :</strong> « Ils écoutent les autres. »
+    </div>
+    <table class="trans-table">
+      <thead><tr><th>Temps</th><th>Phrase</th></tr></thead>
+      <tbody>
+        <tr><td class="trans-label"><span class="tense-dot dot-present"></span>Présent</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r1',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r1"> Ils <strong>écoutent</strong> les autres.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-pc"></span>Passé composé</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r2',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r2"> Ils <strong>ont écouté</strong> les autres.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-imp"></span>Imparfait</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r3',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r3"> Ils <strong>écoutaient</strong> les autres.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-fp"></span>Futur proche</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r4',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r4"> Ils <strong>vont écouter</strong> les autres.</span></td></tr>
+        <tr><td class="trans-label"><span class="tense-dot dot-fs"></span>Futur simple</td><td><button class="trans-reveal-btn" onclick="revealTrans('b2r5',this)">&#128065; Voir</button><span class="trans-hidden" id="b2r5"> Ils <strong>écouteront</strong> les autres.</span></td></tr>
+      </tbody>
+    </table>
+
     <!-- EX 6 — MOTS INVARIABLES -->
-    <div style="border-top:2px solid var(--div);margin:18px 0 12px;padding-top:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+    <div style="border-top:2px solid var(--div);margin:18px 0 8px;padding-top:14px;">
       <span style="font-size:16px;font-weight:bold;color:var(--purple);">Exercice 6 &middot; Mots Invariables et outils de liaison <span style="font-weight:normal;color:var(--slate);font-size:14px;">/ Invariable words and connectors</span></span>
-      <button class="spk" onclick="playClip('B1-E-003_exC_instr.mp3', this)">&#128266; FR</button>
-      <button class="spk-en" onclick="playClip('B1-E-003_exC_instr_en.mp3', this)">&#128266; EN</button>
+    </div>
+    <div class="instr">
+      <div class="instr-fr-row">
+        <button class="btn-fr" onclick="playClip('B1-E-003_exC_instr.mp3', this)">&#128266;</button>
+        <div class="instr-fr">Retrouve le mot du texte qui correspond à chaque définition. Clique d'abord sur une case réponse, puis sur le mot que tu choisis dans la banque de mots.</div>
+      </div>
+      <div class="instr-en-row">
+        <button class="btn-en" onclick="playClip('B1-E-003_exC_instr_en.mp3', this)">&#128266;</button>
+        <div class="instr-en">Find the word from the text that matches each definition. First click on an answer box, then click on the word you choose from the word bank.</div>
+      </div>
     </div>
     <div class="word-bank">
       <strong style="font-size:13px;color:var(--slate);margin-right:4px;">Banque :</strong>
@@ -585,10 +652,6 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   </div>
 </div>
 
-  <div style="margin:24px 0 8px;text-align:center;">
-    <button class="btn-fin" onclick="finishEx()" id="doneBtn">&#9989; Exercice terminé — clique ici / Exercise finished — click here</button>
-    <div id="doneMsg" style="font-size:13px;color:var(--slate);margin-top:8px;"></div>
-  </div>
 </div><!-- /main -->
 
 <script src="/js/audio.js"></script>
@@ -856,15 +919,15 @@ function selectQCM(qi,oi,correct){
 const PRON=[
  {context:"— Je m'appelle John N… et je suis un alcoolique. — Je m'appelle Mary S… et je suis une alcoolique. Cette phrase rituelle, dite publiquement, à visage découvert, résonne à New York tous les jours de l'année et dans cinquante réunions différentes. N'importe qui peut entrer, écouter. Pour ma part, « je <strong>l'</strong>ai entendue » pendant des semaines, le soir, l'après-midi, le matin.",
   prompt:"Le pronom <strong>l'</strong> remplace…",
-  opts:['la phrase rituelle','John N et Mary S','je suis un(e) alcoolique'],correct:0,
+  opts:['la phrase rituelle','John N et Mary S','je suis un(e) alcoolique'],correct:0,audio:'pron_q1',
   expl:"« je l'ai entendue » = « j'ai entendu cette phrase rituelle » pendant des semaines."},
  {context:"— Je m'appelle William R… et je suis un alcoolique. — Je m'appelle Agnès B… et je suis une alcoolique. Les noms changeaient, mais les mots qui les accompagnaient étaient toujours les mêmes. « Je <strong>les</strong> ai entendus » jusque dans les hôpitaux d'aliénés. Et même à Sing-Sing, la prison, derrière les barreaux sinistres.",
   prompt:"Le pronom <strong>les</strong> remplace…",
-  opts:['la phrase rituelle','les mots qui accompagnaient les noms','William R et Agnès B'],correct:1,
+  opts:['la phrase rituelle','les mots qui accompagnaient les noms','William R et Agnès B'],correct:1,audio:'pron_q2',
   expl:"« Je les ai entendus » = « j'ai entendu les mots qui les accompagnaient »."},
  {context:"— Je m'appelle William R… et je suis un alcoolique. — Je m'appelle Agnès B… et je suis une alcoolique. Les noms changeaient, mais « les mots qui <strong>les</strong> accompagnaient » étaient toujours les mêmes.",
   prompt:"Le pronom <strong>les</strong> remplace…",
-  opts:['les noms','la phrase rituelle','William R et Agnès B'],correct:0,
+  opts:['les noms','la phrase rituelle','William R et Agnès B'],correct:0,audio:'pron_q3',
   expl:"« les mots qui les accompagnaient » = « les mots qui accompagnaient les noms »."},
 ];
 function renderPron(){
@@ -876,7 +939,7 @@ function renderPron(){
     return `<div class="gram-card">
       <div class="gram-num">${i+1}.</div>
       <div class="gram-context">${p.context}</div>
-      <div class="gram-prompt">${p.prompt}</div>
+      <div class="gram-prompt"><button class="btn-fr" onclick="playClip('B1-E-003_${p.audio}.mp3', this)" style="margin-right:6px;">&#128266;</button>${p.prompt}</div>
       <div class="gram-options">${optsHtml}</div>
       <button class="reveal-btn" style="margin-top:8px;" onclick="toggleExpl('prexpl_${i}',this)">&#128161; Explication / Explanation</button>
       <span class="trans-hidden" id="prexpl_${i}" style="font-size:14px;color:var(--slate);">${p.expl}</span>
@@ -1022,7 +1085,7 @@ const TENSES_A=[
 function renderTenses(){
   document.getElementById('tense-a').innerHTML=TENSES_A.map((t,i)=>`
     <div class="tense-card">
-      <div class="tense-phrase"><span>${t.phrase}</span></div>
+      <div class="tense-phrase"><button class="btn-fr" onclick="playClip('B1-E-003_ts_${t.slug}.mp3', this)">&#128266;</button><span>${t.phrase}</span></div>
       <div class="tense-reveal">
         <button class="reveal-btn" onclick="toggleTense('tb${i}','tn${i}')">&#128065; Voir le temps</button>
         <span class="tense-badge ${t.badge}" id="tb${i}">${t.temps}</span>
@@ -1124,7 +1187,6 @@ function soumettreAuProf(){
 }
 
 // ── INIT ──
-function finishEx(){var m=document.getElementById('doneMsg');(async function(){var ok=true;try{if(window.LEM&&window.LEM.setLesson){await window.LEM.setLesson('B1-E-003',{completed:true,lastPracticed:Date.now()});}else{ok=false;}}catch(e){ok=false;}m.textContent=ok?'✅ Ton professeur a été prévenu ! / Your teacher has been notified!':'Connecte-toi pour envoyer la notification.';})();document.getElementById('doneBtn').disabled=true;}
 renderVM();
 renderContr();
 renderQCM();
