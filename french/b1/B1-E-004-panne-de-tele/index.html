@@ -161,7 +161,7 @@ function renderInt(hostId,arr){var host=document.getElementById(hostId);
     makeQCard(host,(i+1)+'. '+it.prompt+' '+spkBtn(it.file),'',opts,'');});}
 
 /* ---- écho ---- */
-function fmtGroup(t){return t.replace(/\/\//g,'<b>//</b>').replace(/\//g,'<b>/</b>');}
+function fmtGroup(t){return t.replace(/\/\//g,'\u0001').replace(/\//g,'<b>/</b>').replace(/\u0001/g,'<b>//</b>');}
 function renderEcho(){var host=document.getElementById('ex4');
   D.ECHO.forEach(function(part,pi){
     var pd=document.createElement('div');pd.className='echo-part';
