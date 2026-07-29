@@ -80,6 +80,17 @@ Les simples 🔊 `playClip` restent la norme pour les clips courts (mots, défin
 Appliqué (26/07/2026) : Francine & Francis (entretien), Kessel B1-E-003 (page 1 FR — l'EN restera un bouton jusqu'à son enregistrement), Théâtre sonore B1-E-004 (pièce entière). Décidé par Eric. 
 
 > ⚠️ La barre `<audio src>` pointe une **ressource dure** : ne l'utiliser que si le MP3 est **déjà enregistré**. Tant qu'un audio de texte est en attente (ex. version EN non encore enregistrée), garder un bouton `playClip` (toléré via `AUDIO_ATTENDUS`) et passer à la barre au dépôt de l'audio.
+
+## 3f. Règle d'or des exercices de nombres (standard)
+
+Tout exercice qui fait ENTENDRE ou LIRE des nombres (écoute, quiz, jeu des plaques…) affiche en tête, juste sous le titre, un encadré `regle-or` bilingue, impératif :
+
+> 🔊 **Règle d'or : répète à voix haute chaque nombre que tu entends, et lis à voix haute chaque nombre que tu vois. Indispensable pour progresser !**
+> *Golden rule: say aloud every number you hear, and read aloud every number you see. Essential to make progress!*
+
+Style : fond crème/vert clair, bordure gauche couleur du niveau (`--a1`/`--a2`), classe `.regle-or` + sous-ligne `.ro-en`. Décidé par Eric 2026-07-29. Appliqué rétro sur A1-E-003, A1-E-004, A2-E-001 et sur les nouveaux A1-E-008, A2-E-005, A2-E-006 ; à mettre sur tout futur exercice de nombres.
+
+Progression des nombres (décision Eric) : 0-99 (A1-E-003) → 100-999 (A1-E-008 reconnaître · A2-E-006 plaques lire à voix haute · A2-E-005 quiz appliquer) → milliers = sujet B1. La leçon A1-L-003 couvre déjà jusqu'à 999.
 ## 4. Déployer un audio d'Eric
 
 Eric dépose ses MP3 dans `_SOURCES\...` (listes : `_SOURCES\NOUVEAUX_AUDIOS_ACCUEIL.md` et `_SOURCES\A1\A1-L-003-les-nombres\NOUVEAUX_AUDIOS_A_ENREGISTRER.md`). Tu copies chaque fichier vers son emplacement GitHub (`french/audio/` pour l'accueil, `reference/audio/` pour la Référence, sinon le dossier `audio/` de la leçon), tu pushes, tu vérifies le bouton en ligne, et tu retires la ligne de la liste + de `AUDIO_ATTENDUS` dans `tools/check_site.py` (seule exception au §1 : cette liste-là, tu peux la tenir à jour).
