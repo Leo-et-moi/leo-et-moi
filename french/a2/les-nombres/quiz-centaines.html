@@ -40,7 +40,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
 .regle-or{background:#EAF6F0;border-left:4px solid var(--a2);border-radius:0 10px 10px 0;padding:10px 14px;margin:8px 0 14px;font-size:15px;color:var(--text);}.regle-or b{color:var(--a2);}.ro-en{display:block;font-size:13px;color:var(--slate);font-style:italic;margin-top:3px;}</style>
 </head>
-<body data-item-id="A2-E-001">
+<body data-item-id="A2-E-005">
 <header class="top-bar">
   <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
   <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
@@ -49,12 +49,12 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 <div class="revoir-host"></div>
   <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons A2</a>
   <div class="lvl-tag">A2</div>
-  <div class="h-title">Exercices sur les nombres</div>
-  <div class="scorebar" id="scorebar">Score : 0 / 8</div>
+  <div class="h-title">Quiz &mdash; Les centaines (100&ndash;999)</div>
+  <div class="scorebar" id="scorebar">Score : 0 / 10</div>
   <div class="regle-or">&#128266; <b>R&egrave;gle d&rsquo;or :</b> r&eacute;p&egrave;te &agrave; voix haute chaque nombre que tu <b>entends</b>, et lis &agrave; voix haute chaque nombre que tu <b>vois</b>. Indispensable pour progresser&nbsp;!<span class="ro-en">Golden rule: say aloud every number you hear, and read aloud every number you see. Essential to make progress!</span></div>
   <div id="quiz"></div>
   <div class="final" id="final">
-    <div class="final-num" id="finalNum">0 / 8</div>
+    <div class="final-num" id="finalNum">0 / 10</div>
     <div class="final-msg" id="finalMsg"></div>
     <button class="retry-btn" onclick="location.reload()">Recommencer</button>
   </div>
@@ -67,8 +67,19 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 </nav>
 <script src="/js/audio.js"></script>
 <script>
-var LESSON='a2_nombres_quiz';
-var Q=[{"a": "a2q_01.mp3", "q": "Un commerçant vend <b>soixante-douze</b> kilos de prunes. Combien de kilos vend-il&nbsp;?", "opts": ["82", "72", "62", "12"], "correct": 1, "hint": "Pense à la somme de soixante et douze."}, {"a": "a2q_02.mp3", "q": "Il y a <b>quatre-vingt-treize</b> élèves dans la salle. Quel est le nombre total d’élèves&nbsp;?", "opts": ["93", "73", "83", "13"], "correct": 0, "hint": "Calcule quatre fois vingt, plus treize."}, {"a": "a2q_03.mp3", "q": "Une recette indique un temps de cuisson de <b>cent dix</b> minutes. Combien de minutes&nbsp;?", "opts": ["120", "100", "110", "210"], "correct": 2, "hint": "Combine le mot pour cent avec le mot pour dix."}, {"a": "a2q_04.mp3", "q": "Un commentateur annonce «&nbsp;<b>dix virgule soixante-neuf</b>&nbsp;» secondes. Comment l’écrit-on en français&nbsp;?", "opts": ["10,69", "10 69", "1069", "10.69"], "correct": 0, "hint": "Quelle ponctuation les Français utilisent-ils pour les décimales&nbsp;?"}, {"a": "a2q_05.mp3", "q": "Il y a <b>quatre-vingt-onze</b> personnes à un marathon. Combien courent&nbsp;?", "opts": ["11", "71", "81", "91"], "correct": 3, "hint": "La série des 90 part de quatre-vingts et ajoute à partir de dix."}, {"a": "a2q_06.mp3", "q": "Une distance vaut <b>dix mille six cent quatre-vingt-quinze</b>. Quelle est sa valeur&nbsp;?", "opts": ["10 695", "1 695", "10 685", "10.695"], "correct": 0, "hint": "Concentre-toi sur les milliers et les centaines au début du nombre."}, {"a": "a2q_07.mp3", "q": "Un boulanger prépare <b>soixante-dix-sept</b> pains. Combien y a-t-il de pains&nbsp;?", "opts": ["77", "97", "67", "6017"], "correct": 0, "hint": "Combine soixante avec dix-sept."}, {"a": "a2q_08.mp3", "q": "Il y a <b>quatre-vingt-un</b> livres sur une étagère. Combien de livres au total&nbsp;?", "opts": ["801", "91", "21", "81"], "correct": 3, "hint": "Identifie le nombre de vingtaines et l’unité ajoutée."}], TOTAL=Q.length, score=0, answered=0;
+var LESSON='a2_nombres_centaines';
+var Q=[
+ {"a":"a2q_c01.mp3","q":"Une télévision coûte <b>trois cent cinquante</b> euros. Combien d’euros&nbsp;?","opts":["350","305","3050","315"],"correct":0,"hint":"cent + cinquante."},
+ {"a":"a2q_c02.mp3","q":"Le musée a reçu <b>six cent quatre-vingts</b> visiteurs. Combien&nbsp;?","opts":["608","680","618","6080"],"correct":1,"hint":"six fois cent, plus quatre-vingts."},
+ {"a":"a2q_c03.mp3","q":"Ce livre fait <b>deux cent douze</b> pages. Combien&nbsp;?","opts":["2012","212","202","2200"],"correct":1,"hint":"deux cents, puis douze."},
+ {"a":"a2q_c04.mp3","q":"La ville est à <b>cent</b> kilomètres. Combien&nbsp;?","opts":["100","1000","110","10"],"correct":0,"hint":"« cent » seul, sans s."},
+ {"a":"a2q_c05.mp3","q":"Le stade compte <b>neuf cent quatre-vingt-dix-neuf</b> places. Combien&nbsp;?","opts":["909","990","999","9099"],"correct":2,"hint":"le plus grand des centaines."},
+ {"a":"a2q_c06.mp3","q":"Il a parcouru <b>quatre cents</b> mètres. Combien&nbsp;?","opts":["400","440","4000","404"],"correct":0,"hint":"« quatre cents » : rond et final → s."},
+ {"a":"a2q_c07.mp3","q":"L’hôtel a <b>cinq cent trois</b> chambres. Combien&nbsp;?","opts":["530","5003","503","513"],"correct":2,"hint":"cinq cent trois : pas de s (suivi d’un nombre)."},
+ {"a":"a2q_c08.mp3","q":"Le tableau coûte <b>huit cents</b> euros. Combien&nbsp;?","opts":["800","808","8000","880"],"correct":0,"hint":"huit cents → s (rond et final)."},
+ {"a":"a2q_c09.mp3","q":"« Trois cents » ou « trois cent un » : lequel garde le « s »&nbsp;?","opts":["trois cents","trois cent un"],"correct":0,"hint":"s seulement si le nombre est rond ET final."},
+ {"a":"a2q_c10.mp3","q":"On entend « <b>cent un</b> » : quelle valeur&nbsp;?","opts":["101","121","110","1001"],"correct":0,"hint":"cent un, sans « et »."}
+], TOTAL=Q.length, score=0, answered=0;
 var host=document.getElementById('quiz');
 Q.forEach(function(it,qi){
   var card=document.createElement('div'); card.className='q';

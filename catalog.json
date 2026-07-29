@@ -379,6 +379,51 @@
    "publie": true,
    "serie": "Theatre",
    "serieOrdre": 20
+  },
+  {
+   "id": "A1-E-008",
+   "niveau": "A1",
+   "ordre": 45,
+   "titre": "Exercices — Les centaines (100–999)",
+   "chemin": "french/a1/les-nombres/centaines.html",
+   "lecons": [],
+   "competences": [
+    "listening",
+    "speaking"
+   ],
+   "progressId": "A1-E-008",
+   "questions": null,
+   "publie": true
+  },
+  {
+   "id": "A2-E-006",
+   "niveau": "A2",
+   "ordre": 12,
+   "titre": "Jeu des plaques — Les centaines (100–999)",
+   "chemin": "french/a2/les-nombres/plaques.html",
+   "lecons": [],
+   "competences": [
+    "listening",
+    "speaking"
+   ],
+   "progressId": "A2-E-006",
+   "questions": null,
+   "publie": true
+  },
+  {
+   "id": "A2-E-005",
+   "niveau": "A2",
+   "ordre": 15,
+   "titre": "Quiz — Les centaines (100–999)",
+   "chemin": "french/a2/les-nombres/quiz-centaines.html",
+   "lecons": [],
+   "competences": [
+    "listening",
+    "speaking"
+   ],
+   "progressId": "A2-E-005",
+   "questions": null,
+   "publie": true
   }
  ],
  "tests": [
