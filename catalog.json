@@ -361,6 +361,24 @@
    "publie": true,
    "serie": "Theatre",
    "serieOrdre": 10
+  },
+  {
+   "id": "B1-E-005",
+   "niveau": "B1",
+   "ordre": 50,
+   "titre": "Exercice B1 · Expression orale — Elle et Lui : 4. Quarantaine par Jean-Pierre Martinez (2023)",
+   "chemin": "french/b1/B1-E-005-quarantaine/index.html",
+   "lecons": [],
+   "competences": [
+    "speaking",
+    "reading",
+    "listening"
+   ],
+   "progressId": "B1-E-005",
+   "questions": null,
+   "publie": true,
+   "serie": "Theatre",
+   "serieOrdre": 20
   }
  ],
  "tests": [
