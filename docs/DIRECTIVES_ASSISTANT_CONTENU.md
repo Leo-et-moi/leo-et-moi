@@ -88,7 +88,7 @@ Tout exercice qui fait ENTENDRE ou LIRE des nombres (écoute, quiz, jeu des plaq
 > 🔊 **Règle d'or : répète à voix haute chaque nombre que tu entends, et lis à voix haute chaque nombre que tu vois. Indispensable pour progresser !**
 > *Golden rule: say aloud every number you hear, and read aloud every number you see. Essential to make progress!*
 
-Style : fond crème/vert clair, bordure gauche couleur du niveau (`--a1`/`--a2`), classe `.regle-or` + sous-ligne `.ro-en`. Décidé par Eric 2026-07-29. Appliqué rétro sur A1-E-003, A1-E-004, A2-E-001 et sur les nouveaux A1-E-008, A2-E-005, A2-E-006 ; à mettre sur tout futur exercice de nombres.
+Style : fond crème/vert clair, bordure gauche couleur du niveau (`--a1`/`--a2`), classe `.regle-or` + sous-ligne `.ro-en`. La bannière porte **deux audios partagés** `nb_regle_or.mp3` (FR) et `nb_regle_or_en.mp3` (EN) — boutons 🔊 FR/EN, classe `.ro-spk` — enregistrés une fois et copiés dans chaque dossier `audio/`. Décidé par Eric 2026-07-29. Appliqué rétro sur A1-E-003, A1-E-004, A2-E-001 et sur les nouveaux A1-E-008, A2-E-005, A2-E-006 ; à mettre sur tout futur exercice de nombres.
 
 Progression des nombres (décision Eric) : 0-99 (A1-E-003) → 100-999 (A1-E-008 reconnaître · A2-E-006 plaques lire à voix haute · A2-E-005 quiz appliquer) → milliers = sujet B1. La leçon A1-L-003 couvre déjà jusqu'à 999.
 ## 4. Déployer un audio d'Eric

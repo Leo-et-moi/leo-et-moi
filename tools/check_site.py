@@ -23,6 +23,8 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  # Consigne « Règle d'or » (partagée, tous exercices de nombres)
+                  "nb_regle_or.mp3", "nb_regle_or_en.mp3",
                   # Consignes de section (partagées A1-E-003 & A1-E-008)
                   "a1_nb_sec1_en.mp3", "a1_nb_sec2_en.mp3", "a1_nb_sec3_en.mp3", "a1_nb_sec4_en.mp3", "a1_nb_sec5_en.mp3",
                   # Nombres — incidents « défi » (dépassent 999)
