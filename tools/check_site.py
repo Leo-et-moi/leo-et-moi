@@ -24,7 +24,7 @@ SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
                   # B1-E-004 (Théâtre sonore) — restants : cnj_09 (FR à réenregistrer) + 10 consignes/titre EN
-                  "B1-E-004_c1_en.mp3", "B1-E-004_c2_en.mp3", "B1-E-004_c3_en.mp3", "B1-E-004_c4_en.mp3", "B1-E-004_c5_en.mp3", "B1-E-004_c6_en.mp3", "B1-E-004_c7_en.mp3", "B1-E-004_cnj_09.mp3", "B1-E-004_ctexte_en.mp3", "B1-E-004_intro_en.mp3", "B1-E-004_titre_en.mp3",
+                  "B1-E-004_c1_en.mp3", "B1-E-004_c2_en.mp3", "B1-E-004_c3_en.mp3", "B1-E-004_c4_en.mp3", "B1-E-004_c5_en.mp3", "B1-E-004_c6_en.mp3", "B1-E-004_c7_en.mp3", "B1-E-004_ctexte_en.mp3", "B1-E-004_intro_en.mp3", "B1-E-004_titre_en.mp3",
                   # B1-E-004 (Théâtre sonore — Panne de télé) — tous en attente (FR + consignes EN)
                   # B1-E-004 (Théâtre sonore — Panne de télé) — tous en attente (FR)
                   # A1-E-007 légende (prononciation des groupes) — en attente
