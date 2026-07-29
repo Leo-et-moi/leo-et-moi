@@ -70,6 +70,16 @@ Modèle : `french/c1/francine-gosselin/` et `french/c1/francis-tanguay/`. Standa
 - **Bloc « Méthode d'écoute »** (Recall Protocol), pliable, **juste avant** « Afficher les Highlights » : texte **bilingue** FR/EN (première écoute sans notes ; deuxième écoute → écrire de mémoire en anglais, NE PAS TRADUIRE ; révision en suivant la transcription ; repérage des lacunes ; répétition) + **deux audios** `c1_<xx>_methode.mp3` (FR) et `c1_<xx>_methode_en.mp3` (EN). Le texte de méthode est **identique partout** → l'enregistrer une seule fois et le **copier** (cf. §3c).
 - **Consignes sous « Cartes — révision » et « Quiz — 10 questions »** : encadré **corail** titré « Consigne · Instruction », bilingue, avec **🔊 FR + 🔊 EN** (`c1_<xx>_cards_instr.mp3`/`_en`, `c1_<xx>_quiz_instr.mp3`/`_en`). Cartes : « Écoutez toutes les cartes et répétez à haute voix avant de passer à la carte suivante. » Quiz : « Écoutez chaque question et chaque réponse, puis répétez-les à voix haute avant de répondre et de passer à la question suivante. » Textes **identiques partout** → enregistrer une fois, copier (§3c).
 
+
+## 3e. Écoute associée à un texte : barre de lecture navigable (standard)
+
+Dès qu'un audio accompagne un **texte à lire/suivre** (lecture d'une page, d'une pièce, d'un entretien…), utiliser une **barre de lecture native** `<audio controls preload="none" src="audio/<fichier>.mp3">` (classe `listen-bar`, précédée d'un libellé `listen-label`), et **non** un simple bouton `playClip`. La barre permet non seulement de mettre en pause, mais aussi de **déplacer le curseur** pour réécouter un passage précis — essentiel pour un exercice d'écoute/lecture.
+
+Les simples 🔊 `playClip` restent la norme pour les clips courts (mots, définitions, répliques, consignes). La barre est réservée aux **écoutes longues liées à un texte**.
+
+Appliqué (26/07/2026) : Francine & Francis (entretien), Kessel B1-E-003 (page 1 FR — l'EN restera un bouton jusqu'à son enregistrement), Théâtre sonore B1-E-004 (pièce entière). Décidé par Eric. 
+
+> ⚠️ La barre `<audio src>` pointe une **ressource dure** : ne l'utiliser que si le MP3 est **déjà enregistré**. Tant qu'un audio de texte est en attente (ex. version EN non encore enregistrée), garder un bouton `playClip` (toléré via `AUDIO_ATTENDUS`) et passer à la barre au dépôt de l'audio.
 ## 4. Déployer un audio d'Eric
 
 Eric dépose ses MP3 dans `_SOURCES\...` (listes : `_SOURCES\NOUVEAUX_AUDIOS_ACCUEIL.md` et `_SOURCES\A1\A1-L-003-les-nombres\NOUVEAUX_AUDIOS_A_ENREGISTRER.md`). Tu copies chaque fichier vers son emplacement GitHub (`french/audio/` pour l'accueil, `reference/audio/` pour la Référence, sinon le dossier `audio/` de la leçon), tu pushes, tu vérifies le bouton en ligne, et tu retires la ligne de la liste + de `AUDIO_ATTENDUS` dans `tools/check_site.py` (seule exception au §1 : cette liste-là, tu peux la tenir à jour).

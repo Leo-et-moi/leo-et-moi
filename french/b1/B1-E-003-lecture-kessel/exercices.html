@@ -265,7 +265,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .bank-chip.bc-clickable:hover:not(.bc-used){background:var(--ltBlue);border-color:var(--navy);color:var(--navy);}
 .bank-chip.bc-used{opacity:0.35;cursor:not-allowed;text-decoration:line-through;}
 
-</style>
+.listen-label{font-weight:bold;font-size:16px;color:var(--navy);margin-bottom:6px;}.listen-bar{width:100%;margin-bottom:14px;}</style>
 </head>
 <body data-item-id="B1-E-003" data-terminer="on">
 
@@ -439,9 +439,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 <!-- LE TEXTE -->
 <div class="sec">
   <div class="sec-body">
-    <button class="big-listen-btn" onclick="playClip('B1-E-003_texte_p1.mp3', this)">
-      &#128266; Écouter la page 1 en français <span style="font-weight:normal;opacity:.75;">· 3 min 07 s</span>
-    </button>
+    <div class="listen-label">&#128266; Écouter la page 1 en français <span style="font-weight:normal;opacity:.75;">· 3 min 07 s</span></div>
+    <audio class="listen-bar" controls preload="none" src="audio/B1-E-003_texte_p1.mp3"></audio>
     <button class="toggle-text-btn" id="toggle-text-btn" onclick="toggleTexte()">
       &#128065; Masquer / Afficher le texte
     </button>
