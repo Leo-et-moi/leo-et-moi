@@ -50,11 +50,11 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <a class="back-link" href="../index.html">&#8592; Le&ccedil;ons A2</a>
   <div class="lvl-tag">A2</div>
   <div class="h-title">Quiz &mdash; Les centaines (100&ndash;999)</div>
-  <div class="scorebar" id="scorebar">Score : 0 / 10</div>
+  <div class="scorebar" id="scorebar">Score : 0 / 12</div>
   <div class="regle-or">&#128266; <b>R&egrave;gle d&rsquo;or :</b> r&eacute;p&egrave;te &agrave; voix haute chaque nombre que tu <b>entends</b>, et lis &agrave; voix haute chaque nombre que tu <b>vois</b>. Indispensable pour progresser&nbsp;!<span class="ro-en">Golden rule: say aloud every number you hear, and read aloud every number you see. Essential to make progress!</span></div>
   <div id="quiz"></div>
   <div class="final" id="final">
-    <div class="final-num" id="finalNum">0 / 10</div>
+    <div class="final-num" id="finalNum">0 / 12</div>
     <div class="final-msg" id="finalMsg"></div>
     <button class="retry-btn" onclick="location.reload()">Recommencer</button>
   </div>
@@ -78,7 +78,9 @@ var Q=[
  {"a":"a2q_c07.mp3","q":"L’hôtel a <b>cinq cent trois</b> chambres. Combien&nbsp;?","opts":["530","5003","503","513"],"correct":2,"hint":"cinq cent trois : pas de s (suivi d’un nombre)."},
  {"a":"a2q_c08.mp3","q":"Le tableau coûte <b>huit cents</b> euros. Combien&nbsp;?","opts":["800","808","8000","880"],"correct":0,"hint":"huit cents → s (rond et final)."},
  {"a":"a2q_c09.mp3","q":"« Trois cents » ou « trois cent un » : lequel garde le « s »&nbsp;?","opts":["trois cents","trois cent un"],"correct":0,"hint":"s seulement si le nombre est rond ET final."},
- {"a":"a2q_c10.mp3","q":"On entend « <b>cent un</b> » : quelle valeur&nbsp;?","opts":["101","121","110","1001"],"correct":0,"hint":"cent un, sans « et »."}
+ {"a":"a2q_c10.mp3","q":"On entend « <b>cent un</b> » : quelle valeur&nbsp;?","opts":["101","121","110","1001"],"correct":0,"hint":"cent un, sans « et »."},
+ {"a":"a2q_c11.mp3","q":"&#127919; Défi&#8239;! Le loyer est de <b>mille</b> euros. Combien&nbsp;?","opts":["100","1000","10000","110"],"correct":1,"hint":"mille = 1 000, un cran au-dessus des centaines."},
+ {"a":"a2q_c12.mp3","q":"&#127919; Défi&#8239;! La ville a <b>deux mille</b> habitants. Combien&nbsp;?","opts":["200","2000","20000","2100"],"correct":1,"hint":"deux mille = 2 000 ; « mille » invariable."}
 ], TOTAL=Q.length, score=0, answered=0;
 var host=document.getElementById('quiz');
 Q.forEach(function(it,qi){

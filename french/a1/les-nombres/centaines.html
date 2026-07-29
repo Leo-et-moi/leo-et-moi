@@ -57,7 +57,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <a class="back-link" href="index.html">&#8592; La le&ccedil;on</a>
   <div class="lvl-tag">A1</div>
   <div class="h-title">Exercices &mdash; Les centaines (100&ndash;999)</div>
-  <div class="scorebar" id="scorebar">Score : 0 / 19</div>
+  <div class="scorebar" id="scorebar">Score : 0 / 21</div>
   <div class="regle-or">&#128266; <b>R&egrave;gle d&rsquo;or :</b> r&eacute;p&egrave;te &agrave; voix haute chaque nombre que tu <b>entends</b>, et lis &agrave; voix haute chaque nombre que tu <b>vois</b>. Indispensable pour progresser&nbsp;!<span class="ro-en">Golden rule: say aloud every number you hear, and read aloud every number you see. Essential to make progress!</span></div>
 
   <div class="sec-label">&#128266; &Eacute;coute et choisis</div>
@@ -72,7 +72,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <div id="secE"></div>
 
   <div class="final" id="final">
-    <div class="final-num" id="finalNum">0 / 19</div>
+    <div class="final-num" id="finalNum">0 / 21</div>
     <div class="final-msg" id="finalMsg"></div>
     <button class="retry-btn" onclick="location.reload()">Recommencer</button>
   </div>
@@ -86,7 +86,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 <script src="/js/audio.js"></script>
 <script>
 var LESSON='a1_les_nombres_centaines';
-var TOTAL=19, score=0, answered=0;
+var TOTAL=21, score=0, answered=0;
 function bump(ok){ if(ok) score++; answered++; var sb=document.getElementById('scorebar'); sb.textContent='Score : '+score+' / '+TOTAL; if(answered>=TOTAL) finishAll(); }
 
 // ----- Multiple choice (audio optional) -----
@@ -170,7 +170,9 @@ mcRender(document.getElementById('secD'),[
 mcRender(document.getElementById('secE'),[
   {audio:'a1_nb_330.mp3',q:'&Eacute;coute jusqu&rsquo;&agrave; la fin. Quel nombre&nbsp;?',opts:['300','303','330','30'],correct:2},
   {audio:'a1_nb_190.mp3',q:'&Eacute;coute jusqu&rsquo;&agrave; la fin. Quel nombre&nbsp;?',opts:['180','19','190','109'],correct:2},
-  {audio:'a1_nb_716.mp3',q:'&Eacute;coute jusqu&rsquo;&agrave; la fin. Quel nombre&nbsp;?',opts:['700','760','716','617'],correct:2}
+  {audio:'a1_nb_716.mp3',q:'&Eacute;coute jusqu&rsquo;&agrave; la fin. Quel nombre&nbsp;?',opts:['700','760','716','617'],correct:2},
+  {audio:'a1_nb_1000.mp3',q:'&#127919; D&eacute;fi&#8239;! &Eacute;coute jusqu&rsquo;&agrave; la fin. Quel nombre&nbsp;?',opts:['100','1000','10&nbsp;000','110'],correct:1},
+  {audio:'a1_nb_1100.mp3',q:'&#127919; D&eacute;fi&#8239;! &laquo;&nbsp;Onze cents&nbsp;&raquo; = &laquo;&nbsp;mille cent&nbsp;&raquo;. Quelle valeur&nbsp;?',opts:['110','1&nbsp;100','11&nbsp;000','1&nbsp;011'],correct:1}
 ]);
 </script>
 <script type="module" src="../../../js/auth-guard.js"></script>
