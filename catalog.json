@@ -424,6 +424,24 @@
    "progressId": "A2-E-005",
    "questions": null,
    "publie": true
+  },
+  {
+   "id": "B1-E-006",
+   "niveau": "B1",
+   "ordre": 40,
+   "titre": "Expression orale — Elle et Lui : 3. Panne de télé par Jean-Pierre Martinez (2023)",
+   "chemin": "french/b1/B1-E-006-panne-de-tele-b1/index.html",
+   "lecons": [],
+   "competences": [
+    "speaking",
+    "reading",
+    "listening"
+   ],
+   "progressId": "B1-E-006",
+   "questions": null,
+   "publie": true,
+   "serie": "Theatre",
+   "serieOrdre": 10
   }
  ],
  "tests": [

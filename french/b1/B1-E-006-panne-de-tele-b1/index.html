@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>B1 &mdash; Au Th&eacute;&acirc;tre de L&eacute;o : Panne de t&eacute;l&eacute; &mdash; Leo-et-moi</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#C87A00;
+--ltBlue:#E8F0FA;--ltGreen:#E3F5EC;--green:#1E7B45;--red:#C0392B;--text:#1A2733;--slate:#4A6580;
+--divider:#D8DFE8;--white:#FFF;--t:#A0303C;--ltT:#F7E7EA;--nav-h:64px;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;padding-bottom:calc(var(--nav-h) + 16px);}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--t);padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}.site-name span{color:var(--coral);}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;min-width:44px;min-height:44px;cursor:pointer;}
+.main{max-width:720px;margin:0 auto;padding:16px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--t);color:#fff;font-size:13px;font-weight:bold;padding:3px 12px;border-radius:20px;margin-bottom:6px;}
+.page-title{font-size:24px;font-weight:bold;color:var(--dark);}
+.page-src{font-size:13px;color:var(--slate);margin:2px 0 2px;}
+.page-pg{font-size:15px;font-weight:bold;color:var(--dark);margin:2px 0 6px;}
+.intro-lead{font-size:14px;color:var(--slate);margin-bottom:6px;}
+.en-t{font-size:13px;font-weight:normal;color:var(--slate);}
+.step{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.06);border-left:5px solid var(--t);padding:16px 18px;margin:22px 0;}
+.step-texte{border-left-color:var(--gold);}
+.step-h{font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--t);margin-bottom:4px;}
+.step-t{font-size:20px;font-weight:bold;color:var(--dark);margin-bottom:10px;}
+.consigne{background:var(--ltT);border-left:4px solid var(--t);border-radius:0 8px 8px 0;padding:10px 12px;margin-bottom:14px;}
+.cg-head{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
+.cg-tag{font-size:10px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--t);}
+.spk{background:none;border:2px solid var(--divider);border-radius:16px;padding:3px 9px;font-size:12px;color:var(--slate);cursor:pointer;min-height:32px;font-family:Arial;}
+.spk.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
+.cg-fr{font-size:15px;font-weight:600;color:var(--dark);}
+.cg-en{font-size:13px;color:var(--slate);margin-top:3px;}
+.subhead{font-size:15px;font-weight:bold;color:var(--t);margin:18px 0 8px;padding-bottom:3px;border-bottom:2px solid var(--ltT);}
+.btn{font-family:Arial;font-size:15px;font-weight:bold;border:none;border-radius:10px;padding:11px 16px;min-height:46px;cursor:pointer;margin:6px 6px 0 0;}
+.btn-main{background:var(--navyMid);color:#fff;}.btn-alt{background:#fff;color:var(--t);border:2px solid var(--t);}
+.btn-rec{background:var(--t);color:#fff;}.btn-rec.rec-on{background:#6E1B24;}
+.q-card{border:1.5px solid var(--divider);border-left:5px solid var(--navyMid);border-radius:10px;padding:14px;margin-bottom:12px;}
+.q-card.ok{border-left-color:var(--green);background:var(--ltGreen);}.q-card.ko{border-left-color:var(--red);background:#fdf0ee;}
+.q-t{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:6px;}
+.q-ph{font-size:15px;color:var(--slate);font-style:italic;margin-bottom:10px;}
+.opt{display:block;width:100%;text-align:left;font-family:Arial;font-size:15px;font-weight:bold;color:var(--dark);background:var(--ltBlue);border:2px solid var(--divider);border-radius:9px;padding:11px 13px;margin-bottom:8px;min-height:46px;cursor:pointer;}
+.opt.correct{background:var(--ltGreen);border-color:var(--green);color:var(--green);}
+.opt.wrong{background:#fceaea;border-color:var(--red);color:var(--red);}.opt:disabled{cursor:default;}
+.mrk{font-size:13px;color:var(--slate);margin-top:8px;}
+.recwrap{display:block;margin-top:8px;}
+audio{width:100%;margin-top:8px;}
+.dl{display:none;align-items:center;gap:6px;background:var(--gold);color:#fff;text-decoration:none;border-radius:10px;padding:11px 15px;min-height:46px;font-weight:bold;font-size:14px;margin-top:8px;}
+/* écho */
+.echo-part{margin:10px 0 4px;}
+.echo-ptitle{font-size:15px;font-weight:bold;color:var(--dark);background:var(--ltT);border-radius:8px;padding:6px 10px;margin:14px 0 8px;}
+.echo-spk{font-size:14px;font-weight:bold;color:var(--t);margin:10px 0 2px;}
+.echo-dida{font-size:13px;color:var(--slate);font-style:italic;margin:4px 0;}
+.echo-grp{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px dashed #EAD9DC;font-size:18px;line-height:1.5;}
+.echo-grp:last-child{border-bottom:none;}
+.echo-grp .gtxt b{color:var(--t);}
+.txt-play-head{margin:6px 0 10px;}
+.txt-play{font-size:18px;line-height:1.9;background:#FAFAF6;border:1px solid var(--divider);border-radius:10px;padding:12px 14px;}
+.tp-dida{color:var(--slate);font-style:italic;font-size:15px;display:block;margin:6px 0;}
+.tp-line{display:block;margin:4px 0;}
+.tp-line b{color:var(--t);}
+/* miroir */
+.mir-card{border:1.5px solid var(--divider);border-left:5px solid var(--t);border-radius:10px;padding:12px 14px;margin-bottom:10px;}
+.mir-line{font-size:18px;font-weight:bold;color:var(--dark);margin-bottom:4px;}
+.mir-var{font-size:14px;color:var(--slate);margin:4px 0;}
+.mir-var b{color:var(--gold);}
+/* reconstruction */
+.rec-card{border:1.5px solid var(--divider);border-left:5px solid var(--navyMid);border-radius:10px;padding:12px 14px;margin-bottom:10px;}
+.rec-keys{font-size:18px;font-weight:bold;color:var(--dark);}
+.rec-keys .kk{background:#FFF3DE;border:1px solid var(--gold);border-radius:8px;padding:2px 8px;margin-right:4px;color:var(--gold);}
+.rec-reveal{display:none;font-size:18px;color:var(--green);font-weight:bold;margin-top:8px;}
+.example{background:#FFF9EE;border:1px solid var(--gold);border-radius:10px;padding:12px 14px;margin-bottom:12px;}
+.ex-tag{font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:6px;}
+.ex-body{font-size:16px;line-height:1.7;}
+.ex-note{font-size:13px;color:var(--slate);}
+/* ex7 */
+.sc-btn{display:block;width:100%;text-align:left;background:var(--ltBlue);border:2px solid var(--divider);border-radius:10px;padding:11px 13px;margin-bottom:8px;font-family:Arial;font-size:15px;font-weight:bold;color:var(--dark);cursor:pointer;min-height:46px;}
+.sc-btn.sel{background:var(--ltT);border-color:var(--t);color:var(--t);}
+.sc-desc{font-size:14px;color:var(--slate);margin:2px 0 12px;padding-left:6px;border-left:3px solid var(--t);}
+.fiches{display:flex;gap:10px;flex-wrap:wrap;}
+.fiche{flex:1;min-width:210px;background:#FAFAF6;border:1px solid var(--divider);border-radius:10px;padding:10px 12px;}
+.fiche h4{color:var(--t);font-size:15px;margin-bottom:6px;}
+.fiche ul{margin-left:16px;font-size:14px;line-height:1.5;}
+.am-card{border:1.5px solid var(--divider);border-left:5px solid var(--gold);border-radius:10px;padding:10px 12px;margin-bottom:10px;}
+.am-label{font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--gold);}
+.am-text{font-size:17px;font-weight:bold;color:var(--dark);margin:2px 0 4px;}
+.starters{display:flex;flex-wrap:wrap;gap:8px;}
+.starter{background:#fff;border:2px solid var(--divider);border-radius:18px;padding:8px 12px;font-size:14px;font-weight:bold;color:var(--navyMid);cursor:pointer;min-height:40px;}
+.transition{margin-top:12px;background:var(--ltGreen);border-radius:10px;padding:11px 13px;font-size:15px;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--t);display:flex;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);}
+.nav-item.active{color:#fff;}.nav-icon{font-size:22px;}.nav-label{font-size:11px;font-weight:bold;}
+.kicker{display:inline-block;font-size:13px;font-weight:bold;color:var(--t);margin-bottom:2px;}
+.blurb-fr{font-size:14px;color:var(--slate);margin:2px 0 6px;}
+.blurb-en{font-size:13px;color:var(--slate);margin:2px 0 8px;}
+.listen-label{font-weight:bold;font-size:15px;color:var(--t);margin-bottom:6px;}.listen-bar{width:100%;margin-bottom:6px;}.tabs{display:flex;overflow-x:auto;gap:8px;padding:10px 0 6px;-webkit-overflow-scrolling:touch;}
+.tab{flex:0 0 auto;font-family:Arial;font-size:13px;font-weight:bold;padding:8px 13px;border-radius:20px;border:2px solid var(--divider);background:#fff;color:var(--slate);cursor:pointer;min-height:40px;}
+.tab.active{background:var(--t);border-color:var(--t);color:#fff;}
+.tab.soon{opacity:.6;}
+.shown-card{border:1.5px solid var(--divider);border-left:5px solid var(--t);border-radius:10px;padding:12px 14px;margin-bottom:10px;}
+.shown-w{font-size:17px;color:var(--dark);margin-bottom:4px;}
+.shown-ph{font-size:15px;color:var(--slate);font-style:italic;margin-bottom:6px;}
+.shown-def{font-size:15px;color:var(--dark);margin-bottom:3px;}
+.shown-en{font-size:13px;color:var(--slate);}
+.cnj-meaning{font-size:14px;color:var(--slate);margin-top:8px;padding-top:6px;border-top:1px dashed var(--divider);}
+.part-soon{background:var(--ltT);border-radius:12px;padding:24px;text-align:center;color:var(--t);font-weight:bold;font-size:16px;margin:20px 0;}
+</style></head>
+<body data-item-id="B1-E-006">
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<main class="main">
+<a class="back-link" href="/french/b1/index.html">&#8592; Niveau B1</a>
+<div class="kicker">&#127917; Au Th&eacute;&acirc;tre de L&eacute;o, les intonations&#8239;!</div>
+<nav class="tabs">
+ <button class="tab active" onclick="switchTab(0)">1 &middot; L&rsquo;absence de t&eacute;l&eacute;vision</button>
+ <button class="tab soon" onclick="switchTab(1)">2 &middot; La tentative de discussion</button>
+ <button class="tab soon" onclick="switchTab(2)">3 &middot; Le poisson et les surgel&eacute;s</button>
+ <button class="tab soon" onclick="switchTab(3)">4 &middot; L&rsquo;hypoth&egrave;se de l&rsquo;infid&eacute;lit&eacute;</button>
+ <button class="tab soon" onclick="switchTab(4)">5 &middot; Le d&eacute;bat sur la fid&eacute;lit&eacute;</button>
+</nav>
+<div class="page-title">Expression orale &mdash; Elle et Lui&nbsp;: 3. Panne de t&eacute;l&eacute; par Jean-Pierre Martinez (2023) <button class="spk" onclick="playClip('B1-E-006_titre.mp3',this)">&#128266;</button></div>
+<p class="blurb-fr"><i>Com&eacute;die &agrave; sketchs sur l&rsquo;exaltante &eacute;pop&eacute;e de la vie &agrave; deux. Un couple par sayn&egrave;te.</i></p>
+<div class="page-src">Speaking &mdash; Elle et Lui: 3. TV Breakdown by Jean-Pierre Martinez (2023) <button class="spk" onclick="playClip('B1-E-006_titre_en.mp3',this)">&#128266;</button></div>
+<p class="blurb-en"><span class="en-t"><i>A sketch comedy about the exhilarating adventure of life as a couple. One couple per sketch.</i></span></p>
+
+<div class="consigne"><div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span><button class="spk" onclick="playClip('B1-E-006_intro.mp3',this)">&#128266; FR</button><button class="spk" onclick="playClip('B1-E-006_intro_en.mp3',this)">&#128266; EN</button></div><div class="cg-fr">Cette pièce sert à travailler ton <b>expression orale</b>, tes intonations, ton accent et ta diction. Commence par suivre les étapes dans l’ordre à partir du menu, puis suis les exercices dans l’ordre : le vocabulaire, les verbes, les conjugaisons, la lecture en écho, et le texte de la partie.</div><div class="cg-en">This play is for practising your <b>speaking</b>, your intonation, accent and pronunciation. Start by following the steps in order from the menu, then follow the exercises in order: vocabulary, verbs, verb tenses, echo reading, and the part’s text.</div></div>
+<div class="part-panel" id="part1"><div class="echo-ptitle">Première partie — L’absence de télévision</div><div class="step"><div class="step-h">&#9312; Exercice 1 &middot; Exercise 1</div><div class="step-t">D&eacute;couvrir le vocabulaire <span class="en-t">/ Discover the vocabulary</span></div><div class="consigne"><div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span><button class="spk" onclick="playClip('B1-E-006_c1.mp3',this)">&#128266; FR</button><button class="spk" onclick="playClip('B1-E-006_c1_en.mp3',this)">&#128266; EN</button></div><div class="cg-fr">Pour chaque mot, écoute la phrase (&#128266;), lis-la, puis lis la bonne définition française. Attention au sens dans le contexte.</div><div class="cg-en">For each word, listen to the sentence (&#128266;), read it, then read the correct French definition. Mind the meaning in context.</div></div><div id="ex1"></div><div class="subhead">&#128172; Les expressions / Idioms</div><div id="ex1idi"></div></div><div class="step"><div class="step-h">&#9313; Exercice 2 &middot; Exercise 2</div><div class="step-t">Les sens des verbes <span class="en-t">/ Verb meanings</span></div><div class="consigne"><div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span><button class="spk" onclick="playClip('B1-E-006_c2.mp3',this)">&#128266; FR</button><button class="spk" onclick="playClip('B1-E-006_c2_en.mp3',this)">&#128266; EN</button></div><div class="cg-fr">Même principe. Pour chaque verbe dans sa phrase, répète à voix haute chacune des écoutes.</div><div class="cg-en">Same idea. For each verb in its sentence, repeat each listening aloud.</div></div><div id="ex2"></div></div><div class="step"><div class="step-h">&#9314; Exercice 3 &middot; Exercise 3</div><div class="step-t">Les conjugaisons <span class="en-t">/ Verb tenses &amp; moods</span></div><div class="consigne"><div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span><button class="spk" onclick="playClip('B1-E-006_c3.mp3',this)">&#128266; FR</button><button class="spk" onclick="playClip('B1-E-006_c3_en.mp3',this)">&#128266; EN</button></div><div class="cg-fr">Pour chaque réplique, identifie le <b>temps ou le mode</b> du verbe indiqué. Clique : la bonne réponse se colore, avec une explication. Le sens du verbe et sa traduction sont donnés.</div><div class="cg-en">For each line, identify the <b>tense or mood</b> of the given verb. Click: the correct answer turns green, with an explanation. The verb’s meaning and translation are given.</div></div><div id="ex3"></div></div><div class="step"><div class="step-h">&#9315; Exercice 4 &middot; Exercise 4</div><div class="step-t">Jongler avec les r&eacute;pliques &mdash; lecture en &eacute;cho <span class="en-t">/ Juggling the lines — echo reading</span></div><div class="consigne"><div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span><button class="spk" onclick="playClip('B1-E-006_c4.mp3',this)">&#128266; FR</button><button class="spk" onclick="playClip('B1-E-006_c4_en.mp3',this)">&#128266; EN</button></div><div class="cg-fr">Chaque phrase du texte est découpée en <b>groupes rythmiques</b>. Écoute chaque partie ; les parties se complètent au fur et à mesure (&#128266;). Répète exactement après ton professeur chaque partie à voix haute, jusqu’à la phrase entière.</div><div class="cg-en">Each sentence is split into <b>rhythmic groups</b>. Listen to each part; the parts gradually come together (&#128266;). Repeat each part aloud exactly after your teacher, up to the whole sentence.</div></div><div id="ex4"></div></div><div class="step step-texte"><div class="step-h">&#128218; Le texte &middot; The text</div><div class="step-t">La premi&egrave;re partie, lue en entier <span class="en-t">/ The first part, read aloud</span></div><div class="consigne"><div class="cg-head"><span class="cg-tag">Consigne &middot; Instruction</span><button class="spk" onclick="playClip('B1-E-006_ctexte.mp3',this)">&#128266; FR</button><button class="spk" onclick="playClip('B1-E-006_ctexte_en.mp3',this)">&#128266; EN</button></div><div class="cg-fr">Écoute ma lecture (&#128266;) et lis à haute voix en même temps, comme au théâtre. Puis enregistre ta lecture, télécharge-la et envoie-la à ton professeur.</div><div class="cg-en">Listen to my reading (&#128266;) and read aloud at the same time, like on stage. Then record your reading, download it and send it to your teacher.</div></div><div class="txt-play-head"><button class="spk" onclick="playClip('B1-E-006_texte_p1.mp3',this)">&#128266; &Eacute;couter / Listen</button></div><div class="txt-play" id="texte"></div><div class="recwrap" id="rec_texte"><button class="btn btn-rec" onclick="recToggle('rec_texte')">&#128308; Enregistrer ma lecture / Record my reading</button><audio controls style="display:none"></audio><a class="dl" download="panne_p1_rec_texte.webm">&#128190; T&eacute;l&eacute;charger / Download</a></div></div></div>
+<div class="part-panel" id="part2" style="display:none;"><div class="part-soon">&#128296; Partie 2 &mdash; La tentative de discussion<br><span class="en-t" style="font-weight:normal;">Cette partie arrive bient&ocirc;t. / Coming soon.</span></div></div>
+<div class="part-panel" id="part3" style="display:none;"><div class="part-soon">&#128296; Partie 3 &mdash; Le poisson et les produits surgel&eacute;s<br><span class="en-t" style="font-weight:normal;">Cette partie arrive bient&ocirc;t. / Coming soon.</span></div></div>
+<div class="part-panel" id="part4" style="display:none;"><div class="part-soon">&#128296; Partie 4 &mdash; L&rsquo;hypoth&egrave;se de l&rsquo;infid&eacute;lit&eacute;<br><span class="en-t" style="font-weight:normal;">Cette partie arrive bient&ocirc;t. / Coming soon.</span></div></div>
+<div class="part-panel" id="part5" style="display:none;"><div class="part-soon">&#128296; Partie 5 &mdash; Le d&eacute;bat sur la fid&eacute;lit&eacute;<br><span class="en-t" style="font-weight:normal;">Cette partie arrive bient&ocirc;t. / Coming soon.</span></div></div>
+</main><nav class="bottom-nav"><a class="nav-item" href="/index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a><a class="nav-item active" href="/french/b1/index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a><a class="nav-item" href="/reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a><a class="nav-item" href="/index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a></nav>
+<script src="/js/audio.js"></script><script>var D={"VOC": [{"w": "abrutis", "phrase": "On était complètement abrutis !", "file": "B1-E-006_voc_abrutis.mp3", "fr": "Rendus stupides, l’esprit engourdi (ici, par trop de télévision).", "en": "dazed, stupefied (mind numbed)"}], "IDI": [{"w": "s’empêcher de", "phrase": "on ne pouvait pas s’empêcher de la regarder", "file": "B1-E-006_idi_sempecher.mp3", "fr": "Une envie trop forte, incontrôlable ; ne pas pouvoir se retenir.", "en": "to stop oneself (from doing sth)"}, {"w": "ça allait", "phrase": "encore, ça allait", "file": "B1-E-006_idi_ca-allait.mp3", "fr": "C’était acceptable, ça convenait.", "en": "it was okay / it was fine"}], "VRB": [{"v": "racheter", "phrase": "Tu ne veux vraiment pas qu’on en rachète une ?", "file": "B1-E-006_vrb_racheter.mp3", "fr": "Acheter de nouveau un objet que l’on possédait.", "en": "to buy again, to replace"}, {"v": "s’asseoir", "phrase": "Un couple assis sur un canapé.", "file": "B1-E-006_vrb_sasseoir.mp3", "fr": "Prendre une position assise.", "en": "to sit down"}, {"v": "regarder", "phrase": "C’est déjà mieux que de regarder la télé…", "file": "B1-E-006_vrb_regarder.mp3", "fr": "Diriger les yeux vers quelque chose ; ici, regarder la télévision.", "en": "to watch, to look at"}, {"v": "faire", "phrase": "Qu’est-ce que tu veux qu’on fasse ?", "file": "B1-E-006_vrb_faire.mp3", "fr": "Réaliser une action, agir, s’occuper.", "en": "to do, to make"}], "CNJ": [{"quote": "Quand j’étais petite, on n’avait pas la télé. J’allais la regarder chez mon voisin.", "verb": "aller — « j’allais »", "file": "B1-E-006_cnj_01.mp3", "opts": ["présent", "imparfait", "passé composé", "impératif"], "c": 1, "note": "« J’allais » décrit une habitude répétée dans le passé.", "fr": "aller = se déplacer vers un lieu", "en": "to go"}, {"quote": "On ne faisait rien d’autre !", "verb": "faire — « on ne faisait »", "file": "B1-E-006_cnj_02.mp3", "opts": ["présent", "imparfait", "passé composé", "futur simple"], "c": 1, "note": "« faisait » = imparfait : action habituelle ou continue dans le passé.", "fr": "faire = réaliser une action", "en": "to do / to make"}, {"quote": "Qu’est-ce que tu veux qu’on fasse ?", "verb": "faire — « qu’on fasse »", "file": "B1-E-006_cnj_03.mp3", "opts": ["présent", "présent du subjonctif", "imparfait", "conditionnel présent"], "c": 1, "note": "Après « tu veux que », on emploie le subjonctif. ⏳ Ce temps (le subjonctif présent) sera étudié plus tard.", "fr": "faire = réaliser une action", "en": "to do / to make"}], "ECHO_P1": [{"type": "dida", "text": "Un couple assis sur un canapé. La pièce est vide de tout autre meuble. Ils ne font rien, ne disent rien, et regardent fixement droit devant eux."}, {"type": "spk", "name": "Elle", "tag": ""}, {"type": "grp", "text": "Qu’est-ce qu’il y a", "file": "B1-E-006_echo_001.mp3"}, {"type": "grp", "text": "Qu’est-ce qu’il y a / ce soir", "file": "B1-E-006_echo_002.mp3"}, {"type": "grp", "text": "Qu’est-ce qu’il y a / ce soir / à la télé ?", "file": "B1-E-006_echo_003.mp3"}, {"type": "spk", "name": "Lui", "tag": ""}, {"type": "grp", "text": "Je ne sais pas.", "file": "B1-E-006_echo_004.mp3"}, {"type": "grp", "text": "Je ne sais pas. // Pourquoi ?", "file": "B1-E-006_echo_005.mp3"}, {"type": "spk", "name": "Elle", "tag": ""}, {"type": "grp", "text": "Pour savoir…", "file": "B1-E-006_echo_006.mp3"}, {"type": "dida", "text": "Un temps."}, {"type": "grp", "text": "Tu ne veux vraiment pas", "file": "B1-E-006_echo_007.mp3"}, {"type": "grp", "text": "Tu ne veux vraiment pas / qu’on en rachète une ?", "file": "B1-E-006_echo_008.mp3"}, {"type": "spk", "name": "Lui", "tag": ""}, {"type": "grp", "text": "Quand on avait la télé", "file": "B1-E-006_echo_009.mp3"}, {"type": "grp", "text": "Quand on avait la télé / on ne pouvait pas", "file": "B1-E-006_echo_010.mp3"}, {"type": "grp", "text": "Quand on avait la télé / on ne pouvait pas / s’empêcher de la regarder !", "file": "B1-E-006_echo_011.mp3"}, {"type": "spk", "name": "Elle", "tag": ""}, {"type": "grp", "text": "C’est fait pour ça", "file": "B1-E-006_echo_012.mp3"}, {"type": "grp", "text": "C’est fait pour ça / non ?", "file": "B1-E-006_echo_013.mp3"}, {"type": "spk", "name": "Lui", "tag": ""}, {"type": "grp", "text": "On était complètement abrutis !", "file": "B1-E-006_echo_014.mp3"}, {"type": "grp", "text": "On ne faisait rien d’autre !", "file": "B1-E-006_echo_015.mp3"}, {"type": "dida", "text": "Ils regardent toujours fixement droit devant eux."}, {"type": "spk", "name": "Elle", "tag": "ironique"}, {"type": "grp", "text": "Et maintenant", "file": "B1-E-006_echo_016.mp3"}, {"type": "grp", "text": "Et maintenant / qu’est-ce qu’on fait ?", "file": "B1-E-006_echo_017.mp3"}, {"type": "spk", "name": "Lui", "tag": ""}, {"type": "grp", "text": "Qu’est-ce que tu veux", "file": "B1-E-006_echo_018.mp3"}, {"type": "grp", "text": "Qu’est-ce que tu veux / qu’on fasse ?", "file": "B1-E-006_echo_019.mp3"}, {"type": "spk", "name": "Elle", "tag": ""}, {"type": "grp", "text": "Rien…", "file": "B1-E-006_echo_020.mp3"}, {"type": "spk", "name": "Lui", "tag": ""}, {"type": "grp", "text": "C’est déjà mieux", "file": "B1-E-006_echo_021.mp3"}, {"type": "grp", "text": "C’est déjà mieux / que de regarder la télé…", "file": "B1-E-006_echo_022.mp3"}, {"type": "dida", "text": "Un temps."}, {"type": "grp", "text": "Quand il n’y avait qu’une chaîne", "file": "B1-E-006_echo_023.mp3"}, {"type": "grp", "text": "Quand il n’y avait qu’une chaîne / encore", "file": "B1-E-006_echo_024.mp3"}, {"type": "grp", "text": "Quand il n’y avait qu’une chaîne / encore / ça allait.", "file": "B1-E-006_echo_025.mp3"}, {"type": "grp", "text": "Maintenant", "file": "B1-E-006_echo_026.mp3"}, {"type": "grp", "text": "Maintenant / avec le câble…", "file": "B1-E-006_echo_027.mp3"}, {"type": "spk", "name": "Elle", "tag": "nostalgique"}, {"type": "grp", "text": "Quand j’étais petite", "file": "B1-E-006_echo_028.mp3"}, {"type": "grp", "text": "Quand j’étais petite / on n’avait pas la télé.", "file": "B1-E-006_echo_029.mp3"}, {"type": "grp", "text": "J’allais la regarder", "file": "B1-E-006_echo_030.mp3"}, {"type": "grp", "text": "J’allais la regarder / chez mon voisin…", "file": "B1-E-006_echo_031.mp3"}, {"type": "spk", "name": "Lui", "tag": ""}, {"type": "grp", "text": "Tu veux que je demande au voisin", "file": "B1-E-006_echo_032.mp3"}, {"type": "grp", "text": "Tu veux que je demande au voisin / si tu peux aller regarder la télé", "file": "B1-E-006_echo_033.mp3"}, {"type": "grp", "text": "Tu veux que je demande au voisin / si tu peux aller regarder la télé / chez lui ?", "file": "B1-E-006_echo_034.mp3"}, {"type": "dida", "text": "Silence."}], "TEXTE_P1": [["dida", "Un couple assis sur un canapé. La pièce est vide de tout autre meuble. Ils ne font rien, ne disent rien, et regardent fixement droit devant eux."], ["line", "Elle – Qu’est-ce qu’il y a, ce soir, à la télé ?"], ["line", "Lui – Je ne sais pas. Pourquoi ?"], ["line", "Elle – Pour savoir... (Un temps) Tu ne veux vraiment pas qu’on en rachète une ?"], ["line", "Lui – Quand on avait la télé, on ne pouvait pas s’empêcher de la regarder !"], ["line", "Elle – C’est fait pour ça, non ?"], ["line", "Lui – On était complètement abrutis ! On ne faisait rien d’autre !"], ["dida", "Ils regardent toujours fixement droit devant eux."], ["line", "Elle (ironique) – Et maintenant, qu’est-ce qu’on fait ?"], ["line", "Lui – Qu’est-ce que tu veux qu’on fasse ?"], ["line", "Elle – Rien..."], ["line", "Lui – C’est déjà mieux que de regarder la télé... (Un temps) Quand il n’y avait qu’une chaîne, encore, ça allait. Maintenant avec le câble..."], ["line", "Elle (nostalgique) – Quand j’étais petite, on n’avait pas la télé. J’allais la regarder chez mon voisin..."], ["line", "Lui – Tu veux que je demande au voisin si tu peux aller regarder la télé chez lui ?"], ["dida", "Silence."]], "CONS": {"intro": ["Cette pièce sert à travailler ton <b>expression orale</b>, tes intonations, ton accent et ta diction. Commence par suivre les étapes dans l’ordre à partir du menu, puis suis les exercices dans l’ordre : le vocabulaire, les verbes, les conjugaisons, la lecture en écho, et le texte de la partie.", "This play is for practising your <b>speaking</b>, your intonation, accent and pronunciation. Start by following the steps in order from the menu, then follow the exercises in order: vocabulary, verbs, verb tenses, echo reading, and the part’s text."], "c1": ["Pour chaque mot, écoute la phrase (&#128266;), lis-la, puis lis la bonne définition française. Attention au sens dans le contexte.", "For each word, listen to the sentence (&#128266;), read it, then read the correct French definition. Mind the meaning in context."], "c2": ["Même principe. Pour chaque verbe dans sa phrase, répète à voix haute chacune des écoutes.", "Same idea. For each verb in its sentence, repeat each listening aloud."], "c3": ["Pour chaque réplique, identifie le <b>temps ou le mode</b> du verbe indiqué. Clique : la bonne réponse se colore, avec une explication. Le sens du verbe et sa traduction sont donnés.", "For each line, identify the <b>tense or mood</b> of the given verb. Click: the correct answer turns green, with an explanation. The verb’s meaning and translation are given."], "c4": ["Chaque phrase du texte est découpée en <b>groupes rythmiques</b>. Écoute chaque partie ; les parties se complètent au fur et à mesure (&#128266;). Répète exactement après ton professeur chaque partie à voix haute, jusqu’à la phrase entière.", "Each sentence is split into <b>rhythmic groups</b>. Listen to each part; the parts gradually come together (&#128266;). Repeat each part aloud exactly after your teacher, up to the whole sentence."], "ctexte": ["Écoute ma lecture (&#128266;) et lis à haute voix en même temps, comme au théâtre. Puis enregistre ta lecture, télécharge-la et envoie-la à ton professeur.", "Listen to my reading (&#128266;) and read aloud at the same time, like on stage. Then record your reading, download it and send it to your teacher."]}, "P1TITLE": "Première partie — L’absence de télévision"};
+var _mr,_chunks=[],_spot=null;
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function spkBtn(f){return '<button class="spk" onclick="playClip(\''+f+'\',this)">&#128266;</button>';}
+function recHTML(id,label){return '<div class="recwrap" id="'+id+'"><button class="btn btn-rec" onclick="recToggle(\''+id+'\')">&#128308; '+label+'</button><audio controls style="display:none"></audio><a class="dl" download="panne_'+id+'.webm">&#128190; T&eacute;l&eacute;charger / Download</a></div>';}
+function recToggle(id){
+  var spot=document.getElementById(id),btn=spot.querySelector('.btn-rec');
+  if(_mr&&_mr.state==='recording'){ if(_spot===id){_mr.stop();} return; }
+  if(!navigator.mediaDevices||!window.MediaRecorder){alert('Ton navigateur ne permet pas l’enregistrement. Utilise Chrome ou Edge.');return;}
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
+    _mr=new MediaRecorder(stream);_chunks=[];_spot=id;
+    _mr.ondataavailable=function(e){if(e.data&&e.data.size)_chunks.push(e.data);};
+    _mr.onstop=function(){var blob=new Blob(_chunks,{type:_mr.mimeType||'audio/webm'}),url=URL.createObjectURL(blob);
+      var a=spot.querySelector('audio');a.src=url;a.style.display='block';
+      var dl=spot.querySelector('.dl');dl.href=url;dl.style.display='inline-flex';
+      stream.getTracks().forEach(function(t){t.stop();});
+      btn.innerHTML='&#128308; Refaire / Redo';btn.classList.remove('rec-on');_spot=null;};
+    _mr.start();btn.innerHTML='&#9209; Arr&ecirc;ter / Stop';btn.classList.add('rec-on');
+  }).catch(function(){alert('Micro non autoris&eacute;. Autorise le micro, puis r&eacute;essaie.');});
+}
+function makeQCard(host,title,phraseHtml,options,note){
+  var card=document.createElement('div');card.className='q-card';
+  var q=document.createElement('div');q.className='q-t';q.innerHTML=title;card.appendChild(q);
+  if(phraseHtml){var ph=document.createElement('div');ph.className='q-ph';ph.innerHTML=phraseHtml;card.appendChild(ph);}
+  var opts=shuffle(options.slice());
+  opts.forEach(function(o){var b=document.createElement('button');b.className='opt';b.innerHTML=o.label;
+    b.onclick=function(){if(card.dataset.done)return;card.dataset.done='1';
+      var all=card.querySelectorAll('.opt');all.forEach(function(x){x.disabled=true;});
+      opts.forEach(function(oo,k){if(oo.correct)all[k].classList.add('correct');});
+      if(!o.correct)b.classList.add('wrong');
+      card.classList.add(o.correct?'ok':'ko');
+      if(note){var n=document.createElement('div');n.className='mrk';n.innerHTML='&#128161; '+note;card.appendChild(n);}};
+    card.appendChild(b);});
+  host.appendChild(card);
+}
+function fmtGroup(t){return t.replace(/\/\//g,'\u0001').replace(/\//g,'<b>/</b>').replace(/\u0001/g,'<b>//</b>');}
+
+/* ===== réponse donnée (vocab / expressions / verbes) ===== */
+function renderShown(hostId,arr,key){var host=document.getElementById(hostId);
+  arr.forEach(function(it,i){var w=it[key];var c=document.createElement('div');c.className='shown-card';
+    c.innerHTML='<div class="shown-w">'+(i+1)+'. <b>'+w+'</b></div>'+
+      '<div class="shown-ph">'+spkBtn(it.file)+' « '+it.phrase+' »</div>'+
+      '<div class="shown-def"><b>D&eacute;finition&nbsp;:</b> '+it.fr+'</div>'+
+      '<div class="shown-en"><i>EN&nbsp;: '+it.en+'</i></div>';
+    host.appendChild(c);});}
+/* ===== conjugaisons B1 : QCM + sens + EN ===== */
+function renderCnjB1(hostId,arr){var host=document.getElementById(hostId);
+  arr.forEach(function(it,i){var opts=it.opts.map(function(o,k){return {label:o,correct:k===it.c};});
+    makeQCard(host,(i+1)+'. '+spkBtn(it.file)+' « '+it.quote+' »','Verbe&nbsp;: '+it.verb,opts,it.note);
+    var card=host.lastChild;var m=document.createElement('div');m.className='cnj-meaning';
+    m.innerHTML='<b>Sens&nbsp;:</b> '+it.fr+' &nbsp;&middot;&nbsp; <i>EN: '+it.en+'</i>';
+    card.appendChild(m);});}
+/* ===== écho (Partie 1) ===== */
+function renderEchoP1(){var host=document.getElementById('ex4');
+  D.ECHO_P1.forEach(function(it){
+    if(it.type==='spk')host.innerHTML+='<div class="echo-spk">'+it.name+(it.tag?' <span style="font-weight:normal;font-style:italic">('+it.tag+')</span>':'')+'</div>';
+    else if(it.type==='dida')host.innerHTML+='<div class="echo-dida">'+it.text+'</div>';
+    else if(it.type==='grp')host.innerHTML+='<div class="echo-grp">'+spkBtn(it.file)+'<span class="gtxt">'+fmtGroup(it.text)+'</span></div>';
+  });}
+/* ===== texte Partie 1 ===== */
+function renderTexteP1(){var host=document.getElementById('texte');var h='';
+  D.TEXTE_P1.forEach(function(row){var t=row[0],x=row[1];
+    if(t==='dida')h+='<span class="tp-dida">'+x+'</span>';
+    else{var m=x.replace(/^(Elle|Lui)([^–-]*)\s*[–-]\s*/,function(_,w,p){return '<b>'+w+p+' —</b> ';});h+='<span class="tp-line">'+m+'</span>';}
+  });host.innerHTML=h;}
+/* ===== onglets ===== */
+function switchTab(i){var tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.part-panel');
+  tabs.forEach(function(t,k){t.classList.toggle('active',k===i);});
+  panels.forEach(function(p,k){p.style.display=(k===i)?'block':'none';});
+  window.scrollTo(0,0);}
+/* ===== INIT ===== */
+renderShown('ex1',D.VOC,'w');renderShown('ex1idi',D.IDI,'w');renderShown('ex2',D.VRB,'v');
+renderCnjB1('ex3',D.CNJ);renderEchoP1();renderTexteP1();
+</script>
+<script type="module" src="/js/auth-guard.js"></script><script type="module" src="/js/terminer.js"></script></body></html>

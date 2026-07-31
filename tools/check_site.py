@@ -23,6 +23,8 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  # B1-E-006 (Panne de télé B1) — en attente
+                  "B1-E-006_c1.mp3", "B1-E-006_c1_en.mp3", "B1-E-006_c2.mp3", "B1-E-006_c2_en.mp3", "B1-E-006_c3.mp3", "B1-E-006_c3_en.mp3", "B1-E-006_c4.mp3", "B1-E-006_c4_en.mp3", "B1-E-006_cnj_02.mp3", "B1-E-006_cnj_03.mp3", "B1-E-006_ctexte.mp3", "B1-E-006_ctexte_en.mp3", "B1-E-006_intro.mp3", "B1-E-006_intro_en.mp3", "B1-E-006_texte_p1.mp3", "B1-E-006_titre_en.mp3", "B1-E-006_vrb_faire.mp3", "B1-E-006_vrb_regarder.mp3",
                   # Consigne « Règle d'or » (partagée, tous exercices de nombres)
                   "nb_regle_or_en.mp3",
                   # Consignes de section (partagées A1-E-003 & A1-E-008)
