@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Ratatouille Ch.1 p.4 — PRO-NON-CIA-TION avec LÉO · A1</title>
+<style>
+/* ═══ RESET ══════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--dark:#1B2845;--navy:#2C4A7C;--coral:#E8503A;
+  --gold:#D4920A;--ltGold:#FDF3D8;--ltBlue:#E8F0FA;--ltGreen:#E3F5EC;
+  --green:#1E7B45;--text:#1A2733;--slate:#4A6580;--div:#D8DFE8;
+  --card:#EDE8DF;--white:#FFFFFF;--nav-h:58px;--a1:#C0392B;
+  --aigu:#B8820A;--grave:#B5367A;--circ:#1A8A7A;--trema:#7B3FB5;
+  --cedille:#E8503A;--muet:#1E7B45;--liaison:#C0392B;--diff:#C4640A;
+}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.6;min-height:100vh;padding-bottom:calc(var(--nav-h) + 12px);
+  -webkit-text-size-adjust:100%}
+
+/* ═══ TOP BAR ════════════════════════════════════════════════════ */
+
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);
+  padding:0 14px;height:56px;display:flex;align-items:center;
+  justify-content:space-between;position:sticky;top:0;z-index:200}
+.site-name{font-size:19px;font-weight:bold;color:#fff;text-decoration:none;letter-spacing:-.3px}
+.site-name span{color:var(--coral)}
+.back-btn{color:#9DC8E8;font-size:22px;padding:8px;min-width:44px;min-height:44px;
+  display:flex;align-items:center;justify-content:center;text-decoration:none;
+  border:none;background:none;cursor:pointer}
+
+/* ═══ MAIN ═══════════════════════════════════════════════════════ */
+.main{max-width:640px;margin:0 auto;padding:14px 13px 10px}
+
+/* ═══ EN-TÊTE ════════════════════════════════════════════════════ */
+.hdr{background:var(--dark);border-radius:14px;padding:16px 16px 14px;
+  margin-bottom:14px;border-left:6px solid var(--a1)}
+.hdr-chip{display:inline-block;background:var(--a1);color:#fff;font-size:13px;
+  font-weight:bold;padding:2px 10px;border-radius:8px;margin-bottom:8px}
+.hdr-series{font-size:21px;font-weight:bold;color:#fff;display:flex;
+  align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.hdr-sub{font-size:13px;color:#9DC8E8;margin-bottom:6px;line-height:1.5}
+.hdr-title{font-size:15px;font-weight:bold;color:var(--ltGold);margin-bottom:12px}
+.instr-box{background:rgba(255,255,255,.07);border-radius:10px;padding:12px 14px}
+.instr-fr{font-size:15px;color:#E8EEF8;margin-bottom:4px;line-height:1.5}
+.instr-en{font-size:13px;color:#9DC8E8;margin-bottom:10px;font-style:italic;line-height:1.4}
+.audio-row{display:flex;gap:8px;flex-wrap:wrap}
+.abtn{border:none;border-radius:16px;padding:5px 13px;font-size:14px;
+  font-family:Arial,sans-serif;cursor:pointer;min-height:36px;min-width:60px;font-weight:bold}
+.abtn.fr{background:transparent;color:#9DC8E8;border:2px solid #9DC8E8}
+.abtn.en{background:var(--slate);color:#fff;border:2px solid var(--slate)}
+.abtn:active{opacity:.8}
+.spk{border:none;background:transparent;color:#9DC8E8;font-size:18px;cursor:pointer;
+  padding:4px;min-width:36px;min-height:36px;line-height:1}
+.spk-sm{font-size:16px}
+
+/* ═══ LÉGENDE ════════════════════════════════════════════════════ */
+.leg-quick{display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  background:var(--white);border-radius:10px;padding:10px 14px;
+  margin-bottom:8px;border:2px solid var(--div);font-size:17px;font-weight:bold}
+.leg-quick .ac-aigu,.leg-quick .ac-grave,.leg-quick .ac-circ,
+.leg-quick .ac-trema,.leg-quick .ac-cedille,.leg-quick .muet,
+.leg-quick .liaison,.leg-quick .diff{cursor:help}
+.legend-toggle{width:100%;background:var(--card);border:2px solid var(--div);
+  border-radius:10px;padding:9px 14px;font-size:14px;color:var(--slate);
+  cursor:pointer;text-align:left;margin-bottom:8px;font-family:Arial,sans-serif;
+  display:flex;justify-content:space-between;align-items:center}
+.legend-box{background:var(--white);border:2px solid var(--div);border-radius:10px;
+  padding:14px;margin-bottom:14px;display:none}
+.legend-box.show{display:block}
+.leg-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.leg-row:last-child{margin-bottom:0}
+.leg-sw{width:18px;height:18px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.leg-txt{font-size:14px;flex:1;line-height:1.5;color:var(--text)}
+.leg-row .spk{color:var(--navy)}
+
+/* ═══ STEP PILLS ═════════════════════════════════════════════════ */
+.steps-nav{display:flex;gap:6px;margin-bottom:14px}
+.step-pill{flex:1;padding:9px 4px;border:2px solid var(--div);border-radius:20px;
+  font-size:14px;font-weight:bold;color:var(--slate);background:var(--white);
+  cursor:pointer;text-align:center;transition:all .15s;font-family:Arial,sans-serif;
+  min-height:44px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step-pill.active{background:var(--coral);border-color:var(--coral);color:#fff}
+.step-pill.done{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+.pill-label{font-size:11px;display:block;margin-top:1px}
+
+/* ═══ ÉTAPE SECTION ══════════════════════════════════════════════ */
+.etape{display:none}
+.etape.show{display:block;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.etape-hdr{background:var(--navy);border-radius:12px 12px 0 0;padding:11px 16px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.etape-num{background:var(--coral);color:#fff;font-size:12px;font-weight:bold;
+  padding:2px 8px;border-radius:6px;white-space:nowrap;flex-shrink:0}
+.etape-title{font-size:15px;font-weight:bold;color:#fff;line-height:1.3}
+.etape > .instr-box{background:rgba(232,80,58,.08);border:none;border-left:4px solid var(--coral);
+  border-radius:0 0 12px 12px;padding:13px 16px;margin-bottom:14px}
+.etape > .instr-box .instr-fr{color:var(--text)}
+.etape > .instr-box .instr-en{color:var(--slate)}
+.etape > .instr-box .abtn.fr{border-color:var(--coral);color:var(--coral)}
+
+/* ═══ TEXT CODING COLOURS ════════════════════════════════════════ */
+.ac-aigu{color:var(--aigu);font-weight:bold}
+.ac-grave{color:var(--grave);font-weight:bold}
+.ac-circ{color:var(--circ);font-weight:bold}
+.ac-trema{color:var(--trema);font-weight:bold}
+.ac-cedille{color:var(--cedille);font-weight:bold}
+.muet{color:var(--muet);font-weight:bold}
+.liaison{color:var(--liaison);font-weight:bold}
+.diff{color:var(--diff);cursor:pointer}
+.diff:hover{opacity:.8}
+.diff.noaudio{cursor:default;pointer-events:none}
+.d-pron{font-size:.68em;vertical-align:super;margin-left:1px;font-weight:normal}
+
+/* ═══ STEP 1 — ACCENT SLOTS ══════════════════════════════════════ */
+.text-block{font-size:19px;line-height:2.1;background:var(--white);border-radius:12px;
+  padding:16px 15px;margin-bottom:12px;border:2px solid var(--div)}
+.text-block p{margin-bottom:.9em}
+.text-block p:last-child{margin-bottom:0}
+.acc-slot{display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.1em;border-bottom:2px solid;border-radius:3px;
+  cursor:pointer;padding:0 2px;font-weight:bold;user-select:none;
+  -webkit-tap-highlight-color:transparent;vertical-align:baseline;
+  transition:background .12s}
+.acc-slot.aigu{color:var(--aigu);border-color:var(--aigu)}
+.acc-slot.grave{color:var(--grave);border-color:var(--grave)}
+.acc-slot.circ{color:var(--circ);border-color:var(--circ)}
+.acc-slot.trema{color:var(--trema);border-color:var(--trema)}
+.acc-slot.cedille{color:var(--cedille);border-color:var(--cedille)}
+.acc-slot.ligature{color:var(--grave);border-color:var(--grave)}
+.acc-slot.ok{background:rgba(30,123,69,.15);color:var(--green)!important;
+  border-color:var(--green)!important}
+.acc-slot.wrong{background:rgba(192,57,43,.15);color:var(--a1)!important;
+  border-color:var(--a1)!important}
+.acc-slot.fixed{background:rgba(30,123,69,.12);color:var(--green)!important;
+  border-color:var(--green)!important;cursor:default}
+.verify-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.btn-verify{padding:11px 20px;border:none;border-radius:10px;font-size:15px;
+  font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;
+  background:var(--green);color:#fff;min-height:44px}
+.btn-correct{padding:11px 18px;border:2px solid var(--div);border-radius:10px;
+  font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;
+  background:var(--card);color:var(--slate);min-height:44px}
+.score-msg{font-size:15px;font-weight:bold;padding:10px 13px;border-radius:8px;
+  background:var(--ltBlue);color:var(--navy)}
+
+/* ═══ STEP 2 — AUDIO PLAYER ══════════════════════════════════════ */
+.para-active{background:rgba(212,146,10,.15);border-radius:6px;
+  outline:2px solid rgba(212,146,10,.4);padding:2px 4px;margin:-2px -4px}
+.player-wrap{background:var(--dark);border-radius:14px;padding:16px;margin-bottom:14px}
+.player-top{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:12px}
+.play-btn{width:56px;height:56px;border-radius:50%;background:var(--coral);border:none;
+  color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;font-family:Arial,sans-serif}
+.play-btn:active{opacity:.85}
+.time-display{color:#9DC8E8;font-size:14px;min-width:95px;text-align:center;
+  font-variant-numeric:tabular-nums}
+.seek-bar{width:100%;height:5px;accent-color:var(--coral);cursor:pointer;
+  margin-bottom:12px;display:block}
+.nav-bar{display:flex;gap:8px}
+.nav-btn{flex:1;padding:9px 10px;border:2px solid rgba(255,255,255,.2);border-radius:10px;
+  background:none;color:#9DC8E8;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;
+  min-height:44px;transition:background .12s}
+.nav-btn:disabled{opacity:.4;cursor:default}
+.nav-btn:not(:disabled):active{background:rgba(255,255,255,.1)}
+
+/* ═══ STEP 3 — RECORDING ════════════════════════════════════════ */
+.rec-wrap{display:flex;flex-direction:column;gap:12px;padding:4px 0}
+.btn-record{padding:14px 20px;border:none;border-radius:12px;font-size:16px;
+  font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:54px;
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  transition:all .15s}
+.btn-record.idle{background:#C0392B;color:#fff}
+.btn-record.recording{background:#7B1818;color:#fff;animation:pulse 1.1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.rec-controls{display:flex;gap:10px;flex-wrap:wrap}
+.btn-listen{flex:1;padding:12px;border:2px solid var(--navy);border-radius:10px;
+  font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;
+  background:var(--white);color:var(--navy);min-height:48px}
+.btn-dl{flex:1;padding:12px;border:2px solid var(--green);border-radius:10px;
+  font-size:15px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;
+  background:var(--white);color:var(--green);min-height:48px}
+.rec-note{font-size:13px;color:var(--slate);font-style:italic;text-align:center;
+  line-height:1.4}
+
+/* ═══ EXERCISES ═════════════════════════════════════════════════ */
+.exo{background:var(--white);border-radius:12px;padding:16px;
+  margin-bottom:14px;border-left:4px solid var(--navy)}
+.exo-title{font-size:16px;font-weight:bold;color:var(--dark);margin-bottom:3px}
+.exo-title span{color:var(--navy)}
+.exo-sub{font-size:13px;color:var(--slate);margin-bottom:14px;line-height:1.4}
+.qa-item{border-bottom:1px solid var(--div);padding:11px 0}
+.qa-item:last-child{border-bottom:none;padding-bottom:0}
+.qa-q{font-size:16px;margin-bottom:9px;line-height:1.4}
+.qa-q .hl{color:var(--a1);font-weight:bold}
+.qa-btns{display:flex;gap:8px;flex-wrap:wrap}
+.qa-btn{padding:9px 16px;border:2px solid var(--div);border-radius:8px;
+  font-size:14px;cursor:pointer;background:var(--white);color:var(--text);
+  font-family:Arial,sans-serif;min-height:44px;font-weight:bold;transition:all .12s}
+.qa-btn:not(:disabled):active{background:var(--card)}
+.qa-btn.sel-ok{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+.qa-btn.sel-wrong{background:#FDE8E5;border-color:var(--coral);color:var(--coral)}
+.qa-btn.show-ok{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+.qa-explain{font-size:13px;color:var(--slate);margin-top:8px;display:none;
+  padding:8px 10px;background:var(--ltBlue);border-radius:6px;line-height:1.4}
+.qa-explain.show{display:block}
+
+/* Exo B */
+.qb-item{border-bottom:1px solid var(--div);padding:11px 0}
+.qb-item:last-child{border-bottom:none;padding-bottom:0}
+.qb-words{font-size:17px;font-weight:bold;margin-bottom:9px;display:flex;
+  align-items:center;gap:2px;flex-wrap:wrap}
+.qb-gap{display:inline-flex;align-items:center;justify-content:center;
+  min-width:36px;height:34px;border:2px dashed var(--div);border-radius:8px;
+  cursor:pointer;padding:0 6px;font-size:18px;font-weight:bold;color:var(--liaison);
+  transition:all .15s;margin:0 3px;user-select:none;-webkit-tap-highlight-color:transparent}
+.qb-gap.active{border-style:solid;border-color:var(--liaison);background:rgba(192,57,43,.08)}
+.qb-gap.locked{cursor:default}
+.qb-sounds{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.qb-sounds .lbl{font-size:14px;color:var(--slate)}
+.qb-sound{padding:8px 14px;border:2px solid var(--div);border-radius:8px;font-size:15px;
+  cursor:pointer;background:var(--white);color:var(--text);font-family:Arial,sans-serif;
+  min-height:44px;font-weight:bold}
+.qb-sound.sel-ok{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+.qb-sound.sel-wrong{background:#FDE8E5;border-color:var(--coral);color:var(--coral)}
+.qb-sound.show-ok{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+
+/* Exo D */
+.qd-item{border-bottom:1px solid var(--div);padding:11px 0}
+.qd-item:last-child{border-bottom:none;padding-bottom:0}
+.qd-q{font-size:16px;margin-bottom:9px}
+.qd-word{font-weight:bold}
+.qd-sound{font-size:13px;color:var(--slate);margin-left:4px}
+.qd-opts{display:flex;gap:8px;flex-wrap:wrap}
+.qd-wrap{display:inline-flex;align-items:center;gap:3px}
+.qd-opt{padding:9px 15px;border:2px solid var(--div);border-radius:8px;font-size:15px;
+  cursor:pointer;background:var(--white);font-family:Arial,sans-serif;
+  min-height:44px;font-weight:bold}
+.qd-opt.sel-ok{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+.qd-opt.sel-wrong{background:#FDE8E5;border-color:var(--coral);color:var(--coral)}
+.qd-opt.show-ok{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+.hom-spk{border:none;background:none;cursor:pointer;font-size:1rem;padding:2px 4px;
+  opacity:.65;line-height:1}
+.hom-spk:hover{opacity:1}
+
+/* Exo E */
+.md-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:380px){.md-grid{grid-template-columns:1fr}}
+.md-card{background:var(--ltBlue);border-radius:10px;padding:11px 12px;
+  display:flex;align-items:center;gap:10px}
+.md-info{flex:1;min-width:0}
+.md-word{font-size:16px;font-weight:bold;color:var(--dark);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.md-pron{font-size:12px;color:var(--slate);margin-top:1px}
+.md-spk{border:none;background:var(--navy);color:#fff;border-radius:20px;
+  padding:5px 11px;font-size:14px;cursor:pointer;min-height:36px;min-width:44px;
+  font-family:Arial,sans-serif;flex-shrink:0}
+.md-spk:active{opacity:.8}
+
+/* ═══ DONE BUTTON ════════════════════════════════════════════════ */
+.done-btn{width:100%;padding:16px;background:var(--green);color:#fff;border:none;
+  border-radius:14px;font-size:17px;font-weight:bold;font-family:Arial,sans-serif;
+  cursor:pointer;margin-top:20px;display:flex;align-items:center;
+  justify-content:center;gap:10px;min-height:58px;text-align:center;line-height:1.3}
+.done-btn:disabled{background:var(--slate);cursor:default}
+.done-msg{display:none;text-align:center;padding:16px 12px;color:var(--green);
+  font-size:18px;font-weight:bold;line-height:1.4}
+
+/* ═══ BOTTOM NAV ══════════════════════════════════════════════── */
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);
+  background:var(--dark);border-top:3px solid var(--coral);
+  display:flex;align-items:stretch;z-index:200}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;
+  min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;padding:6px 2px}
+.nav-item.active{color:var(--coral)}
+.nav-icon{font-size:20px;line-height:1}
+.nav-label{font-size:10px;font-weight:bold;letter-spacing:.3px}
+</style>
+</head>
+<body>
+
+
+<header class="top-bar">
+  <a href="../" class="back-btn" aria-label="Retour">←</a>
+  <span class="site-name">leo<span>-et-moi</span>.com</span>
+  <div class="top-icons"></div>
+</header>
+
+<main class="main" id="mainContent">
+
+  <!-- ══════════════════════════════════════════════════════════
+       EN-TÊTE
+  ══════════════════════════════════════════════════════════════ -->
+  <div class="hdr">
+    <div><span class="hdr-chip">A1</span></div>
+    <div class="hdr-series">
+      PRO-NON-CIA-TION avec LÉO
+      <button class="spk spk-sm" onclick="A('audio/A1-E-007_titre.mp3')" aria-label="Écouter le titre de la série">🔊</button>
+    </div>
+    <div class="hdr-sub">Exercice de lecture avec aide d'écoute&nbsp;·&nbsp;Reading exercise with listening support</div>
+    <div class="hdr-title">La Ratatouille Folle — Chapitre&nbsp;1&nbsp;: La Préparation&nbsp;·&nbsp;p.&nbsp;4</div>
+    <div class="instr-box">
+      <div class="instr-fr">Suis les quatre étapes dans l'ordre&nbsp;: place les accents, lis en écoutant, enregistre-toi, puis fais les exercices.</div>
+      <div class="instr-en">Follow the four steps in order: place the accents, read while listening, record yourself, then do the exercises.</div>
+      <div class="audio-row">
+        <button class="abtn fr" onclick="A('audio/A1-E-007_intro.mp3')">🔊&nbsp;FR</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       LÉGENDE
+  ══════════════════════════════════════════════════════════════ -->
+  <div class="leg-quick" aria-label="Légende des couleurs">
+    <span class="ac-aigu" title="accent aigu">é</span>
+    <span class="ac-grave" title="accent grave">è&nbsp;à&nbsp;ù</span>
+    <span class="ac-circ" title="accent circonflexe">ê</span>
+    <span class="ac-trema" title="tréma">ë</span>
+    <span class="ac-cedille" title="cédille">ç</span>
+    <span class="muet" title="lettre muette">s</span>
+    <span class="liaison" title="liaison">s&#x203F;</span>
+    <span class="diff" title="mot difficile">mot</span>
+  </div>
+  <button class="legend-toggle" onclick="toggleLeg()" id="legToggle" aria-expanded="false">
+    <span>📖 Consigne&nbsp;·&nbsp;Instruction</span><span id="legArrow">▾</span>
+  </button>
+  <div class="legend-box" id="legBox" role="region" aria-label="Explication des couleurs">
+    <div class="leg-row">
+      <span class="leg-sw" style="background:var(--aigu)"></span>
+      <span class="leg-txt"><strong class="ac-aigu">e accent aigu</strong> se prononce «&nbsp;é&nbsp;». Ex.&nbsp;: préparé, échange.</span>
+      <button class="spk" onclick="A('audio/A1-E-007_leg_aigu.mp3')" aria-label="Écouter">🔊</button>
+    </div>
+    <div class="leg-row">
+      <span class="leg-sw" style="background:var(--grave)"></span>
+      <span class="leg-txt"><strong class="ac-grave">e accent grave</strong> se prononce «&nbsp;è&nbsp;». Ex.&nbsp;: mère, père. <em>à</em> et <em>ù</em> ne changent pas la prononciation.</span>
+      <button class="spk" onclick="A('audio/A1-E-007_leg_grave.mp3')" aria-label="Écouter">🔊</button>
+    </div>
+    <div class="leg-row">
+      <span class="leg-sw" style="background:var(--circ)"></span>
+      <span class="leg-txt"><strong class="ac-circ">e accent circonflexe</strong> se prononce «&nbsp;ê&nbsp;». Ex.&nbsp;: même. â, ô, î ne changent pas la prononciation.</span>
+      <button class="spk" onclick="A('audio/A1-E-007_leg_circ.mp3')" aria-label="Écouter">🔊</button>
+    </div>
+    <div class="leg-row">
+      <span class="leg-sw" style="background:var(--trema)"></span>
+      <span class="leg-txt"><strong class="ac-trema">e, i, u tréma</strong> (ë, ï, ü) : les syllabes se séparent. Ex.&nbsp;: Noël, maïs.</span>
+      <button class="spk" onclick="A('audio/A1-E-007_leg_trema.mp3')" aria-label="Écouter">🔊</button>
+    </div>
+    <div class="leg-row">
+      <span class="leg-sw" style="background:var(--cedille)"></span>
+      <span class="leg-txt"><strong class="ac-cedille">c cédille</strong> «&nbsp;ç&nbsp;» se prononce «&nbsp;s&nbsp;». Ex.&nbsp;: français, leçon.</span>
+      <button class="spk" onclick="A('audio/A1-E-007_leg_cedille.mp3')" aria-label="Écouter">🔊</button>
+    </div>
+    <div class="leg-row">
+      <span class="leg-sw" style="background:var(--muet)"></span>
+      <span class="leg-txt"><strong class="muet">Lettre muette</strong>&nbsp;: en vert gras, on ne la prononce pas. Ex.&nbsp;: le «&nbsp;s&nbsp;» de «&nbsp;bas&nbsp;».</span>
+      <button class="spk" onclick="A('audio/A1-E-007_leg_muet.mp3')" aria-label="Écouter">🔊</button>
+    </div>
+    <div class="leg-row">
+      <span class="leg-sw" style="background:var(--liaison)"></span>
+      <span class="leg-txt"><strong class="liaison">Liaison</strong>&nbsp;: en rouge gras avec &#x203F;. On prononce la consonne. Ex.&nbsp;: nous&#x203F;avons.</span>
+      <button class="spk" onclick="A('audio/A1-E-007_leg_liaison.mp3')" aria-label="Écouter">🔊</button>
+    </div>
+    <div class="leg-row">
+      <span class="leg-sw" style="background:var(--diff)"></span>
+      <span class="leg-txt"><strong class="diff">Mot difficile</strong>&nbsp;: en orange avec sa prononciation entre crochets — clique pour écouter. Ex.&nbsp;: les&#x203F;yeux [zieu].</span>
+      <button class="spk" onclick="A('audio/A1-E-007_leg_difficile.mp3')" aria-label="Écouter">🔊</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       STEPS PILLS
+  ══════════════════════════════════════════════════════════════ -->
+  <div class="steps-nav" role="tablist">
+    <button class="step-pill active" id="pill1" onclick="goStep(1)" role="tab" aria-selected="true">
+      1<span class="pill-label">Accents</span>
+    </button>
+    <button class="step-pill" id="pill2" onclick="goStep(2)" role="tab" aria-selected="false">
+      2<span class="pill-label">Écouter</span>
+    </button>
+    <button class="step-pill" id="pill3" onclick="goStep(3)" role="tab" aria-selected="false">
+      3<span class="pill-label">Enregistrer</span>
+    </button>
+    <button class="step-pill" id="pill4" onclick="goStep(4)" role="tab" aria-selected="false">
+      4<span class="pill-label">Exercices</span>
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       ÉTAPE 1 — PLACE LES ACCENTS
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="etape show" id="e1" role="tabpanel">
+    <div class="etape-hdr">
+      <span class="etape-num">Étape&nbsp;1</span>
+      <span class="etape-title">Place les accents&nbsp;·&nbsp;Add the missing accents</span>
+    </div>
+    <div class="instr-box">
+      <div class="instr-fr">Tape sur chaque lettre colorée pour changer l'accent. Arrête-toi sur le bon, puis clique sur «&nbsp;Vérifier&nbsp;». Pas besoin de clavier&nbsp;!</div>
+      <div class="instr-en">Tap each coloured letter to cycle. Stop on the right accent, then click «&nbsp;Check&nbsp;». No keyboard needed!</div>
+      <div class="audio-row">
+        <button class="abtn fr" onclick="A('audio/A1-E-007_e1.mp3')">🔊&nbsp;FR</button>
+        
+      </div>
+    </div>
+    <div class="text-block" id="text-step1"><!-- filled by JS --></div>
+    <div class="verify-bar">
+      <button class="btn-verify" onclick="verifyAccents()">✓ Vérifier · Check</button>
+      <button class="btn-correct" onclick="showCorrection()">Correction</button>
+    </div>
+    <div class="score-msg" id="scoreMsg" style="display:none"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       ÉTAPE 2 — LIS EN ÉCOUTANT
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="etape" id="e2" role="tabpanel">
+    <div class="etape-hdr">
+      <span class="etape-num">Étape&nbsp;2</span>
+      <span class="etape-title">Lis en écoutant&nbsp;·&nbsp;Read while listening</span>
+    </div>
+    <div class="instr-box">
+      <div class="instr-fr">Écoute l'audio et lis à haute voix. Ne prononce pas les <span class="muet">lettres vertes</span>. Prononce la <span class="liaison">liaison rouge</span>. Les mots <span class="diff">orange</span> sont difficiles — clique pour les entendre.</div>
+      <div class="instr-en">Play the audio and read aloud. Do not say the <span class="muet">green letters</span>. Say the <span class="liaison">red liaison</span>. <span class="diff">Orange</span> words are tricky — tap to hear them.</div>
+      <div class="audio-row">
+        <button class="abtn fr" onclick="A('audio/A1-E-007_e2.mp3')">🔊&nbsp;FR</button>
+        
+      </div>
+    </div>
+    <div class="text-block" id="text-step2"><!-- filled by JS --></div>
+    <div class="player-wrap">
+      <div class="player-top">
+        <button class="play-btn" id="playBtn" onclick="togglePlay()" aria-label="Lecture / Pause">▶</button>
+        <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+      </div>
+      <input type="range" class="seek-bar" id="seekBar" value="0" min="0" max="100" step="0.1"
+             oninput="seekTo(this.value)" aria-label="Position dans l'audio">
+      <div class="nav-bar">
+        <button class="nav-btn" id="prevParaBtn" onclick="prevPara()" disabled aria-label="Paragraphe précédent">← Paragraphe préc.</button>
+        <button class="nav-btn" id="nextParaBtn" onclick="nextPara()" aria-label="Paragraphe suivant">Paragraphe suiv. →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       ÉTAPE 3 — ENREGISTRE-TOI
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="etape" id="e3" role="tabpanel">
+    <div class="etape-hdr">
+      <span class="etape-num">Étape&nbsp;3</span>
+      <span class="etape-title">Enregistre-toi&nbsp;·&nbsp;Record yourself</span>
+    </div>
+    <div class="instr-box">
+      <div class="instr-fr">Lis le texte à haute voix et enregistre-toi. Réécoute-toi, puis télécharge ton enregistrement et envoie-le à ton professeur.</div>
+      <div class="instr-en">Read the text aloud and record yourself. Listen back, then download your recording and send it to your teacher.</div>
+      <div class="audio-row">
+        <button class="abtn fr" onclick="A('audio/A1-E-007_e3.mp3')">🔊&nbsp;FR</button>
+        
+      </div>
+    </div>
+    <div class="text-block" id="text-step3"><!-- filled by JS --></div>
+    <div class="rec-wrap">
+      <button class="btn-record idle" id="recBtn" onclick="toggleRecord()">
+        🔴&nbsp;Enregistrer&nbsp;·&nbsp;Record
+      </button>
+      <div class="rec-controls" id="recControls" style="display:none">
+        <button class="btn-listen" onclick="listenBack()">▶ Réécouter · Listen</button>
+        <button class="btn-dl" onclick="downloadRec()">⬇ Télécharger · Download</button>
+      </div>
+      <p class="rec-note">🎤 Le navigateur demandera l'accès au microphone.&nbsp;·&nbsp;The browser will ask for mic access.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       ÉTAPE 4 — EXERCICES
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="etape" id="e4" role="tabpanel">
+    <div class="etape-hdr">
+      <span class="etape-num">Étape&nbsp;4</span>
+      <span class="etape-title">Exercices&nbsp;·&nbsp;Exercises</span>
+    </div>
+    <div class="instr-box">
+      <div class="instr-fr">Clique sur la bonne réponse. Chaque exercice se corrige tout seul.</div>
+      <div class="instr-en">Click the right answer. Each exercise checks itself.</div>
+      <div class="audio-row">
+        <button class="abtn fr" onclick="A('audio/A1-E-007_e4.mp3')">🔊&nbsp;FR</button>
+        
+      </div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-title">Exercice&nbsp;<span>A</span> — Muet ou prononcé&nbsp;?</div>
+      <div class="exo-sub">La lettre en rouge — muette ou prononcée dans ce contexte&nbsp;?</div>
+      <div id="exoA"><!-- filled by JS --></div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-title">Exercice&nbsp;<span>B</span> — Liaisons</div>
+      <div class="exo-sub">Clique sur l'espace entre les deux mots pour placer &#x203F;, puis choisis le son.</div>
+      <div id="exoB"><!-- filled by JS --></div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-title">Exercice&nbsp;<span>C</span> — Type de liaison</div>
+      <div class="exo-sub">La liaison est-elle obligatoire, interdite ou facultative&nbsp;?</div>
+      <div id="exoC"><!-- filled by JS --></div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-title">Exercice&nbsp;<span>D</span> — Homophones</div>
+      <div class="exo-sub">Quel mot se prononce pareil&nbsp;?</div>
+      <div id="exoD"><!-- filled by JS --></div>
+    </div>
+
+    <div class="exo">
+      <div class="exo-title">Exercice&nbsp;<span>E</span> — Mots difficiles</div>
+      <div class="exo-sub">Clique sur 🔊 pour entendre chaque mot.</div>
+      <div id="exoE"><!-- filled by JS --></div>
+    </div>
+
+    
+    <button class="done-btn" id="doneBtn" onclick="exerciceTermine()">
+      ✅ Exercice terminé — clique ici&nbsp;·&nbsp;Exercise finished — click here
+    </button>
+    <div class="done-msg" id="doneMsg">
+      Bravo&nbsp;! 🎉<br>Exercice complété.&nbsp;·&nbsp;Great job! Exercise completed.
+    </div>
+  </section>
+
+</main>
+
+
+<nav class="bottom-nav" aria-label="Navigation principale">
+  <a href="/french/a1/" class="nav-item">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">A1</span>
+  </a>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">📚</span>
+    <span class="nav-label">Leçons</span>
+  </a>
+  <a href="#" class="nav-item active" aria-current="page">
+    <span class="nav-icon">🗣️</span>
+    <span class="nav-label">Pronon.</span>
+  </a>
+  <a href="#" class="nav-item">
+    <span class="nav-icon">⭐</span>
+    <span class="nav-label">Progrès</span>
+  </a>
+</nav>
+
+<script>
+'use strict';
+
+/* ═══════════════════════════════════════════════════════════════
+   AUDIO — AUCUNE VOIX SYNTHÉTIQUE. Tous les audios sont des MP3
+   enregistrés par Eric. Jamais de voix synthétique.
+   Chemins audio relatifs au fichier HTML (dossier audio/).
+   ─ Fichiers partagés depuis A1-E-007 : voir CONTENU_POUR_OPUS.md
+   ─ Nouveaux fichiers p.4 : p4_titre.mp3, p4_md_*.mp3
+═══════════════════════════════════════════════════════════════ */
+let _aud = null, _audSrc = '';
+function A(src) {
+  if (!src) return;
+  if (_aud) {
+    if (_audSrc === src && !_aud.paused) { _aud.pause(); return; }
+    _aud.pause();
+  }
+  _aud = new Audio(src);
+  _audSrc = src;
+  _aud.play().catch(function(){});
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STEP NAVIGATION
+═══════════════════════════════════════════════════════════════ */
+var _step = 1;
+function goStep(n) {
+  _step = n;
+  [1,2,3,4].forEach(function(i) {
+    var sec = document.getElementById('e'+i);
+    var pill = document.getElementById('pill'+i);
+    sec.classList.toggle('show', i===n);
+    pill.classList.toggle('active', i===n);
+    pill.setAttribute('aria-selected', i===n ? 'true' : 'false');
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+  if (n===2) highlightPara();
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LEGEND TOGGLE
+═══════════════════════════════════════════════════════════════ */
+function toggleLeg() {
+  var box = document.getElementById('legBox');
+  var arr = document.getElementById('legArrow');
+  var btn = document.getElementById('legToggle');
+  var open = box.classList.toggle('show');
+  arr.textContent = open ? '▴' : '▾';
+  btn.setAttribute('aria-expanded', open);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TEXT PARSER — CODED NOTATION → HTML
+   Notation :
+     {x}        → lettre muette (x = la lettre)
+     ^C‿^       → liaison (C‿ entre chevrons, ‿ = U+203F)
+     <mot|pron> → mot difficile (mot peut contenir {x})
+     é è ê…     → accent coloré / slot interactif (step 1)
+═══════════════════════════════════════════════════════════════ */
+var AC_TYPE = {
+  'é':'aigu','É':'aigu',
+  'è':'grave','à':'grave','ù':'grave',
+  'È':'grave','À':'grave','Ù':'grave',
+  'ê':'circ','â':'circ','û':'circ','î':'circ','ô':'circ',
+  'Ê':'circ','Â':'circ','Û':'circ','Î':'circ','Ô':'circ',
+  'ë':'trema','ï':'trema',
+  'ç':'cedille','Ç':'cedille',
+  'œ':'ligature','Œ':'ligature'
+};
+var AC_CYCLE = {
+  'é':['è','ê','e','é'],  // é
+  'è':['é','ê','e','è'],  // è
+  'ê':['é','è','e','ê'],  // ê
+  'É':['È','Ê','E','É'],  // É
+  'à':['a','â','à'],           // à
+  'â':['à','a','â'],           // â
+  'ç':['c','ç'],                     // ç
+  'Ç':['C','Ç'],                     // Ç
+  'ù':['u','ù'],                     // ù
+  'Ù':['U','Ù'],                     // Ù
+  'œ':['oe','œ']                     // œ
+};
+
+var SLOTS = {};
+var _sn = 0;
+var _verified = false;
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;');
+}
+
+function mkSlot(ch) {
+  var type = AC_TYPE[ch];
+  var cycle = AC_CYCLE[ch];
+  if (!cycle) { return '<span class="ac-'+type+'">'+esc(ch)+'</span>'; }
+  var ci = cycle.indexOf(ch);
+  var si;
+  do { si = Math.floor(Math.random()*cycle.length); } while(si===ci && cycle.length>1);
+  var id = 's'+(_sn++);
+  SLOTS[id] = {correct:ch, cycle:cycle, idx:si};
+  return '<span class="acc-slot '+type+'" id="'+id+'" onclick="tap(\''+id+'\')" role="button" tabindex="0" onkeydown="if(event.key===\'Enter\'||event.key===\' \')tap(\''+id+'\')">'+esc(cycle[si])+'</span>';
+}
+
+function mkColor(ch) {
+  var type = AC_TYPE[ch];
+  return type ? '<span class="ac-'+type+'">'+esc(ch)+'</span>' : esc(ch);
+}
+
+function parseInner(s, step1) {
+  var h='', i=0;
+  while(i<s.length) {
+    if(s[i]==='{') {
+      var j=s.indexOf('}',i+1);
+      if(j!==-1) { h+='<span class="muet">'+esc(s.slice(i+1,j))+'</span>'; i=j+1; continue; }
+    }
+    var ch=s[i];
+    h += AC_TYPE[ch] ? (step1 ? mkSlot(ch) : mkColor(ch)) : esc(ch);
+    i++;
+  }
+  return h;
+}
+
+var MD_AUDIO = {
+  'auteur':'audio/p4_md_auteur.mp3',
+  'plusieurs':'audio/p4_md_plusieurs.mp3',
+  'émotion':'audio/p4_md_emotion.mp3',
+  'professeur':'audio/p4_md_professeur.mp3',
+  'sciences':'audio/p4_md_sciences.mp3',
+  'naturelles':'audio/p4_md_naturelles.mp3',
+  'humain':'audio/p4_md_humain.mp3',
+  'particulier':'audio/p4_md_particulier.mp3',
+  'matière':'audio/p4_md_matiere.mp3',
+  'fier':'audio/p4_md_fier.mp3',
+  'dépêche-toi':'audio/p4_md_depechetoi.mp3',
+  'emmener':'audio/p4_md_emmener.mp3',
+  'aéroport':'audio/p4_md_aeroport.mp3',
+  "t'inquiète":'audio/p4_md_tinquiete.mp3',
+  'preniez':'audio/p4_md_preniez.mp3',
+  'liasse':'audio/p4_md_liasse.mp3',
+  'économisé':'audio/p4_md_economise.mp3',
+  "aujourd'hui":'audio/A1-E-007_md_aujourdhui.mp3',
+  'sœur':'audio/A1-E-007_md_soeur.mp3',
+  'français':'audio/A1-E-007_md_francais.mp3'
+};
+
+function getMdKey(mot) {
+  return mot.replace(/\{([^}]+)\}/g,'$1').toLowerCase().trim();
+}
+
+function parseCoded(str, step1, noAudio) {
+  var h='', i=0;
+  while(i<str.length) {
+    // <mot|pron> mot difficile
+    if(str[i]==='<') {
+      var pi=str.indexOf('|',i+1), ci=str.indexOf('>',i+1);
+      if(pi!==-1 && ci!==-1 && pi<ci) {
+        var mot=str.slice(i+1,pi), pron=str.slice(pi+1,ci);
+        var key=getMdKey(mot);
+        var src=MD_AUDIO[key]||'';
+        var inner=parseInner(mot,step1);
+        var onclick=(!noAudio && src)?' onclick="A(this.dataset.audio)"':'';
+        var data=(!noAudio && src)?' data-audio="'+src+'"':'';
+        var cls='diff'+(noAudio?' noaudio':'');
+        h+='<span class="'+cls+'"'+data+onclick+'>'+inner+'<span class="d-pron"> ['+esc(pron)+']</span></span>';
+        i=ci+1; continue;
+      }
+    }
+    // {x} muet
+    if(str[i]==='{') {
+      var j=str.indexOf('}',i+1);
+      if(j!==-1) { h+='<span class="muet">'+esc(str.slice(i+1,j))+'</span>'; i=j+1; continue; }
+    }
+    // ^C‿^ liaison (‿ = U+203F inside the carets)
+    if(str[i]==='^') {
+      var k=str.indexOf('^',i+1);
+      if(k!==-1) { h+='<span class="liaison">'+esc(str.slice(i+1,k))+'</span>'; i=k+1; continue; }
+    }
+    var ch=str[i];
+    h += AC_TYPE[ch] ? (step1 ? mkSlot(ch) : mkColor(ch)) : esc(ch);
+    i++;
+  }
+  return h;
+}
+
+/* Coded text — 7 paragraphs
+   Undertie = U+203F (&#x203F;) used directly inside ^…^ for liaison */
+var PARAS = [
+  "Mon père Arthur es{t} poète. I^l‿^e^st‿^<auteur|o\xb7teur> de <plusieurs|plu\xb7zyeur> livre{s}. I^l‿^a écri{t} douze livre{s} sur le mariage, la douleur, le courage e{t} la beauté. I^l‿^exprime beaucou{p} d'<émotion|é\xb7mo\xb7syon> dan{s} se{s} douze livre{s}.",
+  "Ma mère es{t} <professeur|pro\xb7fe\xb7seur> de <sciences|syans> <naturelles|na\xb7tu\xb7rel>. Elle étudie le cor{ps} <humain|u\xb7man>, en <particulier|par\xb7ti\xb7ku\xb7lyé> le ventre. Se^s‿^étude{s} concern{ent} la présence de <matière|ma\xb7tyèr> dan{s} le cor{ps} <humain|u\xb7man>.",
+  "Je sui{s} trè{s} <fier|fyé> de me{s} parent{s}. Ça fai{t} 40 an{s} qu'il{s} son{t} marié{s} cette année. Me{s} parent{s} sav{ent} parler françai{s}. Il{s} nou{s} parl{ent} en françai{s} pour qu'on pratique.",
+  "Mon père entre dan{s} ma chambre, il me regarde. Voi{s} que je ne sui{s} pa{s} encore habillé. Daniel, <dépêche-toi|dé\xb7pèsh\xb7twa> ! Nou{s} voulon{s} vou^s‿^<emmener|am\xb7né> à l'<aéropor{t}|a\xb7é\xb7ro\xb7por>. Je sui^s‿^obligé d'aller au bureau <aujourd'hui|o\xb7jour\xb7dwi>. Je n'ai pa{s} beaucou{p} de tem{ps}.",
+  "Ne <t'inquiète|tan\xb7kyèt> pa{s}, papa. Je m'habille tou{t} de suite.",
+  "Où es{t} ta <sœur|seur> ? Elle es{t} dan{s} sa chambre.",
+  "Mon père va dan{s} la chambre de ma <sœur|seur> pour parler ave^c‿^elle. Julie le regarde. Bonjour papa, tu veu{x} quelque chose ? Oui, Julie. Ton frère e^st‿^en train de s'habiller. Je veu{x} que vou{s} <preniez|pre\xb7nyé> ça. Mon père lui montre une <liasse|lyass> de billet{s}. Julie es{t} trè{s} surprise. C'es{t} beaucou{p} d'argen{t}, di^t‿^elle. Ta mère e{t} moi, nou^s‿^avon{s} beaucou{p} <économisé|é\xb7ko\xb7no\xb7mi\xb7zé>. Nou{s} voulon{s} payer une partie de votre voyage en France."
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   STEP 1 — TAP-TO-CYCLE ACCENT SLOTS
+═══════════════════════════════════════════════════════════════ */
+function tap(id) {
+  var slot = SLOTS[id];
+  if (!slot) return;
+  var el = document.getElementById(id);
+  if (!el || el.classList.contains('fixed')) return;
+  slot.idx = (slot.idx + 1) % slot.cycle.length;
+  el.textContent = slot.cycle[slot.idx];
+  if (_verified) {
+    var ok = slot.cycle[slot.idx] === slot.correct;
+    el.classList.toggle('ok', ok);
+    el.classList.toggle('wrong', !ok);
+  }
+}
+
+function verifyAccents() {
+  _verified = true;
+  var total=0, correct=0;
+  Object.keys(SLOTS).forEach(function(id) {
+    var slot=SLOTS[id], el=document.getElementById(id);
+    if (!el) return;
+    total++;
+    var cur=slot.cycle[slot.idx];
+    var ok=(cur===slot.correct);
+    el.classList.toggle('ok',ok);
+    el.classList.toggle('wrong',!ok);
+    if(ok) correct++;
+  });
+  var msg=document.getElementById('scoreMsg');
+  msg.textContent = correct+' / '+total+' — '+(correct===total ? 'Parfait ! 🎉' : 'Essaie encore ou regarde la correction.');
+  msg.style.display='block';
+}
+
+function showCorrection() {
+  _verified = true;
+  Object.keys(SLOTS).forEach(function(id) {
+    var slot=SLOTS[id], el=document.getElementById(id);
+    if (!el) return;
+    var ci=slot.cycle.indexOf(slot.correct);
+    slot.idx=ci;
+    el.textContent=slot.correct;
+    el.classList.remove('ok','wrong');
+    el.classList.add('fixed');
+  });
+  var msg=document.getElementById('scoreMsg');
+  msg.textContent='Voici la correction — tous les accents sont en place.';
+  msg.style.display='block';
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STEP 2 — AUDIO PLAYER + PARAGRAPH NAVIGATION
+═══════════════════════════════════════════════════════════════ */
+var PLAYER = null;
+var _curPara = 0;
+
+function initPlayer() {
+  if (PLAYER) return;
+  PLAYER = new Audio('audio/ratatouille_ch1_p4.mp3');
+  PLAYER.addEventListener('timeupdate', updateSeekBar);
+  PLAYER.addEventListener('loadedmetadata', updateSeekBar);
+  PLAYER.addEventListener('ended', function() {
+    document.getElementById('playBtn').textContent = '▶';
+  });
+}
+
+function togglePlay() {
+  initPlayer();
+  if (PLAYER.paused) {
+    PLAYER.play().catch(function(){});
+    document.getElementById('playBtn').textContent = '⏸';
+  } else {
+    PLAYER.pause();
+    document.getElementById('playBtn').textContent = '▶';
+  }
+}
+
+function updateSeekBar() {
+  if (!PLAYER) return;
+  var pct = PLAYER.duration ? (PLAYER.currentTime / PLAYER.duration) * 100 : 0;
+  document.getElementById('seekBar').value = pct;
+  document.getElementById('timeDisplay').textContent = fmtT(PLAYER.currentTime)+' / '+fmtT(PLAYER.duration||0);
+}
+
+function seekTo(val) {
+  initPlayer();
+  if (PLAYER.duration) PLAYER.currentTime = (val/100) * PLAYER.duration;
+}
+
+function fmtT(t) {
+  if (!isFinite(t)) return '0:00';
+  return Math.floor(t/60)+':'+(Math.floor(t%60)+'').padStart(2,'0');
+}
+
+function highlightPara() {
+  var paras = document.querySelectorAll('#text-step2 .para');
+  paras.forEach(function(el, i) {
+    el.classList.toggle('para-active', i===_curPara);
+  });
+  var target = document.getElementById('p2-'+_curPara);
+  if (target) target.scrollIntoView({behavior:'smooth', block:'nearest'});
+  document.getElementById('prevParaBtn').disabled = _curPara===0;
+  document.getElementById('nextParaBtn').disabled = _curPara===PARAS.length-1;
+}
+
+function prevPara() { if(_curPara>0){_curPara--; highlightPara();} }
+function nextPara() { if(_curPara<PARAS.length-1){_curPara++; highlightPara();} }
+
+/* ═══════════════════════════════════════════════════════════════
+   STEP 3 — MEDIARECORDER
+═══════════════════════════════════════════════════════════════ */
+var MR=null, MR_chunks=[], MR_blob=null, MR_stream=null, _listenAud=null;
+
+function toggleRecord() {
+  if (MR && MR.state==='recording') { MR.stop(); return; }
+  var btn=document.getElementById('recBtn');
+  navigator.mediaDevices.getUserMedia({audio:true,video:false}).then(function(stream){
+    MR_stream=stream; MR_chunks=[];
+    MR=new MediaRecorder(stream);
+    MR.ondataavailable=function(e){ if(e.data.size>0) MR_chunks.push(e.data); };
+    MR.onstop=function(){
+      MR_blob=new Blob(MR_chunks,{type:'audio/webm'});
+      MR_stream.getTracks().forEach(function(t){t.stop();});
+      btn.innerHTML='🔴 Enregistrer \xb7 Record';
+      btn.className='btn-record idle';
+      document.getElementById('recControls').style.display='flex';
+    };
+    MR.start();
+    btn.innerHTML='⏹ Arrêter \xb7 Stop';
+    btn.className='btn-record recording';
+    document.getElementById('recControls').style.display='none';
+  }).catch(function(err){
+    alert('Accès au microphone refusé. \xb7 Microphone access denied.\n'+err.message);
+  });
+}
+
+function listenBack() {
+  if (!MR_blob) return;
+  if (_listenAud) { _listenAud.pause(); }
+  _listenAud=new Audio(URL.createObjectURL(MR_blob));
+  _listenAud.play();
+}
+
+function downloadRec() {
+  if (!MR_blob) return;
+  var url=URL.createObjectURL(MR_blob);
+  var a=document.createElement('a');
+  a.href=url; a.download='ratatouille-p4-enregistrement.webm';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(url);},2000);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EXERCISE DATA
+═══════════════════════════════════════════════════════════════ */
+var EXO_A = [
+  {before:'livre',hl:'s',after:'',correct:'muet',explain:'Le « s » final de « livres » est muet.'},
+  {before:'cor',hl:'ps',after:'',correct:'muet',explain:'« corps » se prononce [kor] — le « p » et le « s » sont muets.'},
+  {before:'il es',hl:'t',after:' auteur',correct:'prononcé',explain:'Liaison ! Le « t » de « est » se prononce [t] devant « auteur ».'},
+  {before:'fai',hl:'t',after:'',correct:'muet',explain:'Le « t » de « fait » est muet.'},
+  {before:'tem',hl:'ps',after:'',correct:'muet',explain:'« temps » se prononce [tan] — le « p » et le « s » sont muets.'},
+  {before:'ave',hl:'c',after:' elle',correct:'prononcé',explain:'Liaison ! Le « c » de « avec » se prononce [k] devant « elle ».'}
+];
+
+var EXO_B = [
+  {w1:'nous',w2:'avons',letter:'s',sound:'z'},
+  {w1:'il est',w2:'auteur',letter:'t',sound:'t'},
+  {w1:'est',w2:'en train',letter:'t',sound:'t'},
+  {w1:'vous',w2:'emmener',letter:'s',sound:'z'},
+  {w1:'avec',w2:'elle',letter:'c',sound:'k'},
+  {w1:'dit',w2:'elle',letter:'t',sound:'t'}
+];
+var _bState = {}; // i → bool (liaison placed)
+
+var EXO_C = [
+  {q:'nous avons',type:'obligatoire',explain:'Pronom sujet + verbe → liaison obligatoire.'},
+  {q:'avec elle',type:'obligatoire',explain:'Préposition + mot à initiale vocalique → liaison obligatoire.'},
+  {q:'en français',type:'interdite',explain:'« en » + consonne (f) → liaison interdite.'},
+  {q:'mes parents',type:'interdite',explain:'Possessif + consonne (p) → liaison interdite.'}
+];
+
+var EXO_D = [
+  {word:'père',sound:'[pèr]',opts:['paire','Pierre','peur'],correct:'paire',hom:'p4_hom_paire'},
+  {word:'est / et',sound:'[é]',opts:['ai','a','ou'],correct:'ai',hom:'p4_hom_ai'},
+  {word:'veux',sound:'[vø]',opts:['vu','veut','vœu'],correct:'veut',hom:'p4_hom_veut'},
+  {word:'temps',sound:'[tan]',opts:['tond','tant','ton'],correct:'tant',hom:'p4_hom_tant'},
+  {word:'au bureau',sound:'[o]',opts:['à','eau','ou'],correct:'eau',hom:'p4_hom_eau'}
+];
+
+var EXO_E = [
+  {word:'auteur',pron:'o\xb7teur',file:'p4_md_auteur'},
+  {word:'plusieurs',pron:'plu\xb7zyeur',file:'p4_md_plusieurs'},
+  {word:'émotion',pron:'é\xb7mo\xb7syon',file:'p4_md_emotion'},
+  {word:'professeur',pron:'pro\xb7fe\xb7seur',file:'p4_md_professeur'},
+  {word:'sciences',pron:'syans',file:'p4_md_sciences'},
+  {word:'naturelles',pron:'na\xb7tu\xb7rel',file:'p4_md_naturelles'},
+  {word:'humain',pron:'u\xb7man',file:'p4_md_humain'},
+  {word:'particulier',pron:'par\xb7ti\xb7ku\xb7lyé',file:'p4_md_particulier'},
+  {word:'matière',pron:'ma\xb7tyèr',file:'p4_md_matiere'},
+  {word:'fier',pron:'fyé',file:'p4_md_fier'},
+  {word:'dépêche-toi',pron:'dé\xb7pèsh\xb7twa',file:'p4_md_depechetoi'},
+  {word:'emmener',pron:'am\xb7né',file:'p4_md_emmener'},
+  {word:'aéroport',pron:'a\xb7é\xb7ro\xb7por',file:'p4_md_aeroport'},
+  {word:"t'inquiète",pron:'tan\xb7kyèt',file:'p4_md_tinquiete'},
+  {word:'preniez',pron:'pre\xb7nyé',file:'p4_md_preniez'},
+  {word:'liasse',pron:'lyass',file:'p4_md_liasse'},
+  {word:'économisé',pron:'é\xb7ko\xb7no\xb7mi\xb7zé',file:'p4_md_economise'},
+  {word:"aujourd'hui",pron:'o\xb7jour\xb7dwi',file:'A1-E-007_md_aujourdhui'},
+  {word:'sœur',pron:'seur',file:'A1-E-007_md_soeur'},
+  {word:'français',pron:'fran\xb7sè',file:'A1-E-007_md_francais'}
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   EXERCISE BUILDERS
+═══════════════════════════════════════════════════════════════ */
+function buildA() {
+  return EXO_A.map(function(item,i){
+    return '<div class="qa-item">'
+      +'<div class="qa-q">'+esc(item.before)+'<span class="hl">'+esc(item.hl)+'</span>'+esc(item.after)+'</div>'
+      +'<div class="qa-btns">'
+      +'<button class="qa-btn" onclick="ansA('+i+',\'muet\',this)">Muet</button>'
+      +'<button class="qa-btn" onclick="ansA('+i+',\'prononcé\',this)">Prononcé</button>'
+      +'</div>'
+      +'<div class="qa-explain" id="aExp'+i+'">'+esc(item.explain)+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function ansA(i,ans,btn) {
+  var item=EXO_A[i];
+  var btns=btn.parentElement.querySelectorAll('.qa-btn');
+  btns.forEach(function(b){b.disabled=true;});
+  btn.classList.add(ans===item.correct?'sel-ok':'sel-wrong');
+  if(ans!==item.correct) {
+    btns.forEach(function(b){
+      if(b.textContent.toLowerCase()===item.correct) b.classList.add('show-ok');
+    });
+  }
+  document.getElementById('aExp'+i).classList.add('show');
+}
+
+function buildB() {
+  return EXO_B.map(function(item,i){
+    return '<div class="qb-item">'
+      +'<div class="qb-words">'
+      +esc(item.w1)
+      +'<span class="qb-gap" id="gap'+i+'" onclick="tapGap('+i+')" role="button" tabindex="0">&nbsp;</span>'
+      +esc(item.w2)
+      +'</div>'
+      +'<div class="qb-sounds" id="snd'+i+'" style="display:none">'
+      +'<span class="lbl">Son :</span>'
+      +'<button class="qb-sound" onclick="ansB('+i+',\'z\',this)">[z]</button>'
+      +'<button class="qb-sound" onclick="ansB('+i+',\'t\',this)">[t]</button>'
+      +'<button class="qb-sound" onclick="ansB('+i+',\'k\',this)">[k]</button>'
+      +'<button class="qb-sound" onclick="ansB('+i+',\'n\',this)">[n]</button>'
+      +'</div>'
+      +'<div class="qa-explain" id="bExp'+i+'"></div>'
+      +'</div>';
+  }).join('');
+}
+
+function tapGap(i) {
+  var gap=document.getElementById('gap'+i);
+  if(gap.classList.contains('locked')) return;
+  _bState[i]=!_bState[i];
+  if(_bState[i]) {
+    gap.textContent='‿';
+    gap.classList.add('active');
+    document.getElementById('snd'+i).style.display='flex';
+  } else {
+    gap.innerHTML='&nbsp;';
+    gap.classList.remove('active');
+    document.getElementById('snd'+i).style.display='none';
+  }
+}
+
+function ansB(i,sound,btn) {
+  var item=EXO_B[i];
+  var gap=document.getElementById('gap'+i);
+  var btns=btn.parentElement.querySelectorAll('.qb-sound');
+  btns.forEach(function(b){b.disabled=true;});
+  gap.classList.add('locked');
+  var ok=(sound===item.sound && _bState[i]);
+  btn.classList.add(ok?'sel-ok':'sel-wrong');
+  if(!ok) {
+    btns.forEach(function(b){
+      if(b.textContent==='['+item.sound+']') b.classList.add('show-ok');
+    });
+    if(!_bState[i]) gap.style.color='var(--coral)';
+  } else {
+    gap.style.color='var(--green)';
+  }
+  document.getElementById('bExp'+i).textContent=item.w1+'‿'+item.w2+' — son ['+item.sound+']';
+  document.getElementById('bExp'+i).classList.add('show');
+}
+
+function buildC() {
+  return EXO_C.map(function(item,i){
+    return '<div class="qa-item">'
+      +'<div class="qa-q">« '+esc(item.q)+' »</div>'
+      +'<div class="qa-btns">'
+      +'<button class="qa-btn" onclick="ansC('+i+',\'obligatoire\',this)">Obligatoire</button>'
+      +'<button class="qa-btn" onclick="ansC('+i+',\'interdite\',this)">Interdite</button>'
+      +'<button class="qa-btn" onclick="ansC('+i+',\'facultative\',this)">Facultative</button>'
+      +'</div>'
+      +'<div class="qa-explain" id="cExp'+i+'">'+esc(item.explain)+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function ansC(i,ans,btn) {
+  var item=EXO_C[i];
+  var btns=btn.parentElement.querySelectorAll('.qa-btn');
+  btns.forEach(function(b){b.disabled=true;});
+  btn.classList.add(ans===item.type?'sel-ok':'sel-wrong');
+  if(ans!==item.type) {
+    btns.forEach(function(b){
+      if(b.textContent.toLowerCase()===item.type) b.classList.add('show-ok');
+    });
+  }
+  document.getElementById('cExp'+i).classList.add('show');
+}
+
+function buildD() {
+  return EXO_D.map(function(item,i){
+    return '<div class="qd-item">'
+      +'<div class="qd-q"><span class="qd-word">'+esc(item.word)+'</span><span class="qd-sound"> '+esc(item.sound)+'</span> — Quel mot se prononce pareil ?</div>'
+      +'<div class="qd-opts">'
+      +item.opts.map(function(opt){
+        var isCorrect = (opt === item.correct);
+        var clickFn = 'ansD('+i+',\''+esc(opt)+'\',this)';
+        if (isCorrect && item.hom) { clickFn += ';A(\'audio/'+esc(item.hom)+'.mp3\')'; }
+        return '<button class="qd-opt" onclick="'+clickFn+'">'+esc(opt)+'</button>';
+      }).join('')
+      +'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function ansD(i,ans,btn) {
+  var item=EXO_D[i];
+  var btns=btn.parentElement.querySelectorAll('.qd-opt');
+  btns.forEach(function(b){b.disabled=true;});
+  btn.classList.add(ans===item.correct?'sel-ok':'sel-wrong');
+  if(ans!==item.correct) {
+    btns.forEach(function(b){
+      if(b.textContent===item.correct) b.classList.add('show-ok');
+    });
+  }
+}
+
+function buildE() {
+  return '<div class="md-grid">'
+    +EXO_E.map(function(item){
+      return '<div class="md-card">'
+        +'<div class="md-info">'
+        +'<div class="md-word">'+esc(item.word)+'</div>'
+        +'<div class="md-pron">['+esc(item.pron)+']</div>'
+        +'</div>'
+        +'<button class="md-spk" data-audio="audio/'+esc(item.file)+'.mp3" onclick="A(this.dataset.audio)" aria-label="Écouter '+esc(item.word)+'">🔊</button>'
+        +'</div>';
+    }).join('')
+    +'</div>';
+}
+
+function exerciceTermine() {
+  if (window.LEM && window.LEM.setLesson) {
+    window.LEM.setLesson('A1-E-009', {completed:true});
+  }
+  document.getElementById('doneBtn').disabled=true;
+  document.getElementById('doneMsg').style.display='block';
+  document.getElementById('doneMsg').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Render Step 1 text (accent slots, difficult word audio ON)
+  var s1 = document.getElementById('text-step1');
+  s1.innerHTML = PARAS.map(function(p,i){
+    return '<p>'+parseCoded(p,true,false)+'</p>';
+  }).join('');
+
+  // Render Step 2 text (full coded display, difficult word audio OFF)
+  var s2 = document.getElementById('text-step2');
+  s2.innerHTML = PARAS.map(function(p,i){
+    return '<p class="para" id="p2-'+i+'">'+parseCoded(p,false,true)+'</p>';
+  }).join('');
+
+  // Render Step 3 text (for reading while recording, difficult word audio OFF)
+  var s3 = document.getElementById('text-step3');
+  s3.innerHTML = PARAS.map(function(p,i){
+    return '<p>'+parseCoded(p,false,true)+'</p>';
+  }).join('');
+
+  // Build exercises
+  document.getElementById('exoA').innerHTML = buildA();
+  document.getElementById('exoB').innerHTML = buildB();
+  document.getElementById('exoC').innerHTML = buildC();
+  document.getElementById('exoD').innerHTML = buildD();
+  document.getElementById('exoE').innerHTML = buildE();
+
+  // Init paragraph navigation
+  highlightPara();
+});
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+</body>
+</html>
