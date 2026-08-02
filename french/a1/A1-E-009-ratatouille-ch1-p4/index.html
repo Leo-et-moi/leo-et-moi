@@ -63,10 +63,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 .leg-quick .ac-aigu,.leg-quick .ac-grave,.leg-quick .ac-circ,
 .leg-quick .ac-trema,.leg-quick .ac-cedille,.leg-quick .muet,
 .leg-quick .liaison,.leg-quick .diff{cursor:help}
-.legend-toggle{width:100%;background:var(--card);border:2px solid var(--div);
-  border-radius:10px;padding:9px 14px;font-size:14px;color:var(--slate);
-  cursor:pointer;text-align:left;margin-bottom:8px;font-family:Arial,sans-serif;
-  display:flex;justify-content:space-between;align-items:center}
+.legend-toggle{width:100%;background:#FEF0EE;border:none;border-left:4px solid var(--coral);
+  border-radius:0 8px 8px 0;padding:11px 14px;font-size:14px;font-weight:bold;color:var(--coral);
+  cursor:pointer;text-align:left;margin-bottom:8px;font-family:Arial,sans-serif}
 .legend-box{background:var(--white);border:2px solid var(--div);border-radius:10px;
   padding:14px;margin-bottom:14px;display:none}
 .legend-box.show{display:block}
@@ -327,7 +326,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
     <span class="diff" title="mot difficile">mot</span>
   </div>
   <button class="legend-toggle" onclick="toggleLeg()" id="legToggle" aria-expanded="false">
-    <span>📖 Consigne&nbsp;·&nbsp;Instruction</span><span id="legArrow">▾</span>
+    <span id="legLabel">&#128266; Consigne&nbsp;&middot;&nbsp;Instruction &mdash; &eacute;couter les accents&nbsp;&middot;&nbsp;Afficher / Show &#9662;</span>
   </button>
   <div class="legend-box" id="legBox" role="region" aria-label="Explication des couleurs">
     <div class="leg-row">
@@ -396,11 +395,11 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   <section class="etape show" id="e1" role="tabpanel">
     <div class="etape-hdr">
       <span class="etape-num">Étape&nbsp;1</span>
-      <span class="etape-title">Place les accents&nbsp;·&nbsp;Add the missing accents</span>
+      <span class="etape-title">Place les accents&nbsp;·&nbsp;Add the missing accents to the passage</span>
     </div>
     <div class="instr-box">
-      <div class="instr-fr">Tape sur chaque lettre colorée pour changer l'accent. Arrête-toi sur le bon, puis clique sur «&nbsp;Vérifier&nbsp;». Pas besoin de clavier&nbsp;!</div>
-      <div class="instr-en">Tap each coloured letter to cycle. Stop on the right accent, then click «&nbsp;Check&nbsp;». No keyboard needed!</div>
+      <div class="instr-fr">À toi de placer les <b>accents</b>&nbsp;: tape sur chaque lettre colorée, elle change (e &rarr; é &rarr; è &rarr; ê&hellip;). Arrête-toi sur le bon accent, puis clique sur «&nbsp;Vérifier&nbsp;». Pas besoin de clavier&nbsp;! Les autres couleurs sont déjà là (vert = pour les lettres muettes, rouge = pour les liaisons).</div>
+      <div class="instr-en">Your job: place the <b>accents</b>. Tap each coloured letter, it cycles (e &rarr; é &rarr; è &rarr; ê&hellip;). Stop on the right one, then click «&nbsp;Check&nbsp;». No keyboard needed! The other colours are already there (green = silent letters, red = liaisons).</div>
       <div class="audio-row">
         <button class="abtn fr" onclick="A('audio/A1-E-007_e1.mp3')">🔊&nbsp;FR</button>
         
@@ -423,8 +422,8 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
       <span class="etape-title">Lis en écoutant&nbsp;·&nbsp;Read while listening</span>
     </div>
     <div class="instr-box">
-      <div class="instr-fr">Écoute l'audio et lis à haute voix. Ne prononce pas les <span class="muet">lettres vertes</span>. Prononce la <span class="liaison">liaison rouge</span>. Les mots <span class="diff">orange</span> sont difficiles — clique pour les entendre.</div>
-      <div class="instr-en">Play the audio and read aloud. Do not say the <span class="muet">green letters</span>. Say the <span class="liaison">red liaison</span>. <span class="diff">Orange</span> words are tricky — tap to hear them.</div>
+      <div class="instr-fr">Écoute l'audio (&#9654; / &#10073;&#10073;) et lis à haute voix en même temps. <b style="color:var(--muet)">Ne prononce pas</b> les lettres vertes. <b style="color:var(--liaison)">Prononce la liaison</b> rouge (&#8255;). Les accents colorés t'aident à bien prononcer. <b style="color:var(--diff)">La couleur orange</b> signale les mots difficiles.</div>
+      <div class="instr-en">Play the audio (&#9654; / &#10073;&#10073;) and read aloud at the same time. <b style="color:var(--muet)">Do not pronounce</b> the green letters. <b style="color:var(--liaison)">Do pronounce</b> the red liaison (&#8255;). The coloured accents help you pronounce correctly. <b style="color:var(--diff)">Orange</b> marks the tricky words.</div>
       <div class="audio-row">
         <button class="abtn fr" onclick="A('audio/A1-E-007_e2.mp3')">🔊&nbsp;FR</button>
         
@@ -596,10 +595,10 @@ function goStep(n) {
 ═══════════════════════════════════════════════════════════════ */
 function toggleLeg() {
   var box = document.getElementById('legBox');
-  var arr = document.getElementById('legArrow');
+  var lbl = document.getElementById('legLabel');
   var btn = document.getElementById('legToggle');
   var open = box.classList.toggle('show');
-  arr.textContent = open ? '▴' : '▾';
+  lbl.innerHTML = '&#128266; Consigne&nbsp;&middot;&nbsp;Instruction &mdash; &eacute;couter les accents&nbsp;&middot;&nbsp;' + (open ? 'Masquer / Hide &#9652;' : 'Afficher / Show &#9662;');
   btn.setAttribute('aria-expanded', open);
 }
 
