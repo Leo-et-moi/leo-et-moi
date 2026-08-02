@@ -71,7 +71,7 @@
   }
 
   function _boostBtnUI(btn) {
-    btn.textContent = _boost.on ? '📢 Mode classe : ACTIVÉ' : '🔈 Mode classe : désactivé';
+    btn.textContent = _boost.on ? '📢 Son amplifié · Loud ON' : '🔈 Amplifier le son · Louder';
     btn.style.background = _boost.on ? '#E8503A' : '#FFFFFF';
     btn.style.color = _boost.on ? '#fff' : '#4A6580';
   }
@@ -79,7 +79,7 @@
     if (document.getElementById('lemModeClasse')) return;
     var b = document.createElement('button');
     b.id = 'lemModeClasse';
-    b.title = 'Amplifie le son pour la salle de classe (cet appareil seulement)';
+    b.title = 'Amplifie tous les audios sur cet appareil · Boosts all audio on this device. ⚠️ Baisse le volume si tu portes un casque · Lower the volume if you wear headphones.';
     b.style.cssText = 'position:fixed;left:12px;bottom:80px;z-index:90;border:1.5px solid #D8DFE8;' +
       'border-radius:20px;padding:8px 14px;font-size:13px;font-weight:bold;cursor:pointer;' +
       'font-family:Arial,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.15);min-height:40px;';
@@ -92,11 +92,9 @@
     };
     document.body.appendChild(b);
   }
-  document.addEventListener('lem-auth-ready', function () {
-    try {
-      window.LEM.getUser().then(function (u) { if (u && u.role === 'teacher') _mountBoostBtn(); }).catch(function () {});
-    } catch (e) {}
-  });
+  // Ouvert à tous depuis le 26/07 (décision Eric) : élèves compris, par appareil.
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', _mountBoostBtn);
+  else _mountBoostBtn();
 
   window.playClip = function (file, btn) { _play('audio/' + file, btn, 'clip:' + file); };
   window.playAudio = function (src, btn) { _play(src, btn, 'src:' + src); };
