@@ -38,10 +38,65 @@
     try { if (_clip) _clip.pause(); } catch (e) {}          // arrêt du précédent
     _off();
     _clip = new Audio(url); _btn = btn || null; _key = key;
+    _wireBoost(_clip);
     if (_btn) _btn.classList.add('speaking');
     _clip.onended = _clip.onerror = _off;
     _clip.play().catch(_off);
   }
+
+  /* ── Mode classe 📢 (demande Eric, 26/07/2026) ─────────────────────────
+     Amplifie tous les audios (~2×, compresseur anti-saturation) pour la salle
+     de classe. Bouton visible seulement pour le professeur ; préférence
+     mémorisée PAR APPAREIL (localStorage) : l'ordinateur de la classe reste
+     amplifié, les appareils des élèves ne changent pas. */
+  var _boost = { on: false, ctx: null, comp: null, gain: null };
+  try { _boost.on = localStorage.getItem('lemModeClasse') === '1'; } catch (e) {}
+
+  function _wireBoost(clip) {
+    if (!_boost.on) return;
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!_boost.ctx) {
+        _boost.ctx = new AC();
+        _boost.comp = _boost.ctx.createDynamicsCompressor();
+        _boost.gain = _boost.ctx.createGain();
+        _boost.gain.gain.value = 2.2;
+        _boost.comp.connect(_boost.gain);
+        _boost.gain.connect(_boost.ctx.destination);
+      }
+      _boost.ctx.createMediaElementSource(clip).connect(_boost.comp);
+      if (_boost.ctx.state === 'suspended') _boost.ctx.resume();
+    } catch (e) {}
+  }
+
+  function _boostBtnUI(btn) {
+    btn.textContent = _boost.on ? '📢 Mode classe : ACTIVÉ' : '🔈 Mode classe : désactivé';
+    btn.style.background = _boost.on ? '#E8503A' : '#FFFFFF';
+    btn.style.color = _boost.on ? '#fff' : '#4A6580';
+  }
+  function _mountBoostBtn() {
+    if (document.getElementById('lemModeClasse')) return;
+    var b = document.createElement('button');
+    b.id = 'lemModeClasse';
+    b.title = 'Amplifie le son pour la salle de classe (cet appareil seulement)';
+    b.style.cssText = 'position:fixed;left:12px;bottom:80px;z-index:90;border:1.5px solid #D8DFE8;' +
+      'border-radius:20px;padding:8px 14px;font-size:13px;font-weight:bold;cursor:pointer;' +
+      'font-family:Arial,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.15);min-height:40px;';
+    _boostBtnUI(b);
+    b.onclick = function () {
+      _boost.on = !_boost.on;
+      try { localStorage.setItem('lemModeClasse', _boost.on ? '1' : '0'); } catch (e) {}
+      if (_boost.gain) _boost.gain.gain.value = 2.2;   // le réglage s'applique aux lectures suivantes
+      _boostBtnUI(b);
+    };
+    document.body.appendChild(b);
+  }
+  document.addEventListener('lem-auth-ready', function () {
+    try {
+      window.LEM.getUser().then(function (u) { if (u && u.role === 'teacher') _mountBoostBtn(); }).catch(function () {});
+    } catch (e) {}
+  });
 
   window.playClip = function (file, btn) { _play('audio/' + file, btn, 'clip:' + file); };
   window.playAudio = function (src, btn) { _play(src, btn, 'src:' + src); };

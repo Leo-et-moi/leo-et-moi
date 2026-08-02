@@ -28,6 +28,7 @@ _Fichier unique depuis le 14/07/2026 (fusion du backlog OneDrive et du canal du 
 
 ## 4. Décisions à prendre
 
+- **Volume des MP3 (constat Eric 26/07 : trop faibles en classe)** : « Mode classe 📢 » livré (amplification ×2,2 + compresseur, bouton prof, par appareil) ; nouveaux enregistrements normalisés à la source (WavePad) ; **normalisation en lot des ~1010 fichiers existants à coupler à la migration R2** (éviter +140 Mo d'historique Git).
 - **Stratégie audio à l'échelle** : voix clonée payante vs manuel ; hébergement externe (R2) avant la limite ~1 Go de Pages (`audioBase` prêt).
 - **Notifications** : digest hebdomadaire quand les élèves seront plus nombreux (EmailJS 200/mois).
 - **Correcteur d'orthographe** : LanguageTool conservé ; à reconsidérer si débit/confidentialité.

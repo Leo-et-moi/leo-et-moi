@@ -35,7 +35,7 @@
 - **Exercice** : le **titre reste simple, sans préfixe de niveau** (ex. « Expression orale — Panne de télé ») — le niveau est porté par la **pastille `lvl-tag`** et le lien retour (standard 25/07, cf. série Théâtre) ; un bandeau « 📖 Avant de commencer, revois la leçon → » en tête si une leçon existe ; questions à choix multiples / vrai-faux.
 - **Consigne** : présentée dans un encadré **corail** avec son 🔊.
 - **Rédaction** : sous chaque zone de texte, trois boutons — **✓ Vocabulaire / 🔍 Orthographe / 📤 Soumettre à mon professeur**.
-- **Nommage des audios** : `<ID>_<usage><n>.mp3` (ex. `A2-L-001_c1.mp3`, `A2-E-004_q08.mp3`), et la version anglaise `<nom>_en.mp3`. **Format d'enregistrement : 128 kbps MONO** (décision Eric, 20/07/2026) — à rappeler dans chaque liste d'enregistrement que tu produis.
+- **Nommage des audios** : `<ID>_<usage><n>.mp3` (ex. `A2-L-001_c1.mp3`, `A2-E-004_q08.mp3`), et la version anglaise `<nom>_en.mp3`. **Format d'enregistrement : 128 kbps MONO, volume NORMALISÉ avant export** (WavePad : Effets → Normaliser à ≈ −2 dB) — décisions Eric des 20 et 26/07/2026, à rappeler dans chaque liste d'enregistrement que tu produis.
 
 ### Barre du haut — modèle unique du site (obligatoire depuis le 20/07/2026)
 

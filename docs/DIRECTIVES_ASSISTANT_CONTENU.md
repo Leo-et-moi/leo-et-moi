@@ -50,6 +50,10 @@ Créer un **test** : une entrée dans la section `tests` du catalogue (titre, so
 - **Le parcours (`parcours.json`) appartient à Eric** : tu proposes, il valide, tu appliques.
 - Standards design/pédagogie : GUIDE §3 (Bleu & Corail, Arial ≥18px, cibles 44px, profil de Leo : audio d'abord, un focus par écran, feedback immédiat, pas de compte à rebours imposé).
 
+## 3a-bis. Volume des audios (26/07/2026)
+
+Tout MP3 déposé par Eric doit être **normalisé avant export** (WavePad : Effets → Normaliser ≈ −2 dB) — rappelle-le dans chaque liste d'enregistrement. Les fichiers anciens (faibles) seront normalisés en lot **lors de la migration R2** (décision à venir) ; en attendant, la classe utilise le « Mode classe 📢 » du lecteur partagé (bouton prof, par appareil).
+
 ## 3b. Remplacer un audio existant (anti-cache)
 
 Le remplacement garde le même nom (règle), mais le navigateur peut resservir l'ancienne prise pendant ~10 min (cache GitHub Pages), parfois plus. **Convention** : après avoir remplacé `x.mp3`, incrémente un cache-buster **sur les seules références de ce fichier** dans les pages/banques : `playClip('x.mp3?v=2')`. Un seul fichier re-téléchargé, les autres restent en cache (connexion rurale). `check_site.py` accepte le suffixe `?v=N`.
