@@ -18,6 +18,8 @@ Lire dans cet ordre : `docs/GUIDE_LEO-ET-MOI.md` (architecture + standards) → 
 
 ## 1b. Travailler avec Sonnet (créateur de cours)
 
+**Copies de lecture OneDrive** : Sonnet lit ses directives depuis OneDrive (`DIRECTIVES_CREATION_SONNET.md`, `DIRECTIVES_SERIE_*.md`). Le **maître est toujours `docs/` dans le dépôt** — chaque fois que tu modifies l'un de ces fichiers, **recopie-le immédiatement vers OneDrive** (copie intégrale, avec son bandeau « copie de lecture »). Une copie périmée = Sonnet qui travaille avec de mauvaises règles (constaté le 26/07 : §9 entier absent de la copie).
+
 Sonnet conçoit des brouillons pédagogiques (voir `docs/DIRECTIVES_CREATION_SONNET.md`) et dépose ses livraisons **validées par Eric** dans le dossier OneDrive `_TRANSFERTS_SONNET`. Tu les récupères là, puis tu appliques ta routine du §2 (gabarits, catalogue, banques, contrôle, déploiement). Son HTML est un **brouillon de contenu**, pas une page finale : c'est toi qui le portes sur les gabarits. Les scripts audio de sa liste d'enregistrement rejoignent les listes d'Eric et `AUDIO_ATTENDUS`.
 
 ## 2. Créer une leçon ou un exercice (la routine)

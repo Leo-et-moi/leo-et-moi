@@ -13,7 +13,9 @@
 
 **Tu ne fais pas** (c'est le travail d'Opus / Fable) : écrire le HTML final sur les gabarits, toucher `catalog.json`, `css/site.css`, `js/*.js`, `_TEMPLATES/`, `tools/check_site.py`, déployer sur GitHub. **Tu ne déploies rien.** Si une contrainte technique te bloque, note-la pour Opus.
 
-**Avant de concevoir**, aligne-toi sur `GUIDE_LEO-ET-MOI.md` §3 (standards) — ce document en est le résumé opérationnel.
+**Avant de concevoir**, aligne-toi sur le GUIDE §3 (standards) — ce document en est le résumé opérationnel. Le GUIDE vit dans le dépôt : `docs/GUIDE_LEO-ET-MOI.md` (lecture directe : https://raw.githubusercontent.com/Leo-et-moi/leo-et-moi/main/docs/GUIDE_LEO-ET-MOI.md).
+
+> ⚠️ **Version maître = le dépôt GitHub.** Si tu lis ce document depuis OneDrive, c'est une **copie de lecture** rafraîchie par Opus — en cas de doute, la version du dépôt fait foi.
 
 ---
 
@@ -28,9 +30,9 @@
 
 ## 2. Standards de forme (obligatoires)
 
-- **Bilingue** : pour chaque phrase, une **traduction anglaise** en petit corps (classe `.en`) **et** un **bouton audio anglais** (fichier `<nom>_en.mp3`). Fournis donc toujours le texte FR **et** EN.
+- **Bilingue** : pour chaque phrase, une **traduction anglaise** en petit corps (classe `.en`). Fournis toujours le texte FR **et** EN, plus leurs scripts audio — le bouton 🔊 EN sera câblé par Opus **quand le fichier `_en.mp3` existera** (règle §3).
 - **En-tête de leçon** (à reprendre) : pastille « **Leçon N • Niveau** », grand **titre**, sous-titre « *traduction* • Regarde la leçon, puis fais les exercices. »
-- **Exercice** : le **titre mentionne le niveau** (« Exercices A2 — … ») ; un bandeau « 📖 Avant de commencer, revois la leçon → » en tête ; questions à choix multiples / vrai-faux.
+- **Exercice** : le **titre reste simple, sans préfixe de niveau** (ex. « Expression orale — Panne de télé ») — le niveau est porté par la **pastille `lvl-tag`** et le lien retour (standard 25/07, cf. série Théâtre) ; un bandeau « 📖 Avant de commencer, revois la leçon → » en tête si une leçon existe ; questions à choix multiples / vrai-faux.
 - **Consigne** : présentée dans un encadré **corail** avec son 🔊.
 - **Rédaction** : sous chaque zone de texte, trois boutons — **✓ Vocabulaire / 🔍 Orthographe / 📤 Soumettre à mon professeur**.
 - **Nommage des audios** : `<ID>_<usage><n>.mp3` (ex. `A2-L-001_c1.mp3`, `A2-E-004_q08.mp3`), et la version anglaise `<nom>_en.mp3`. **Format d'enregistrement : 128 kbps MONO** (décision Eric, 20/07/2026) — à rappeler dans chaque liste d'enregistrement que tu produis.
@@ -79,6 +81,16 @@ Un document clair contenant :
 Opus se charge ensuite : HTML sur gabarit, catalogue (liens leçon↔exercice, compétences), `questions.json`, contrôle qualité (`check_site.py` = 0 erreur), déploiement, et la remise des listes d'audio à Eric.
 
 **Où déposer ta livraison** : une fois le cours **validé par Eric**, dépose tes fichiers (HTML/brouillon + script audio FR/EN) **directement dans le dossier `_TRANSFERTS_SONNET`** (`02. Leo-et-moi website\leo-et-moi\_TRANSFERTS_SONNET\`). C'est là qu'Opus les récupère — **aucune copie manuelle par Eric**. N'y dépose que du contenu **validé et prêt à intégrer** (pas de brouillons intermédiaires).
+
+## 4b. Séries actives (repères)
+
+| Série | Emoji | Modèle de référence | Particularités |
+|---|---|---|---|
+| Dialogue | 💬 | `A1-E-005` (Réagir et relancer) | pas de banque de questions (`questions: null`) |
+| PRO-NON-CIA-TION avec LÉO | 🗣️ | `A1-E-007` / `A1-E-009` (Ratatouille) | conventions dans le fichier dédié (§4c) — l'unité est la **page** |
+| Au Théâtre de Léo, les intonations ! | 🎭 | `B1-E-004` (B2) · `B1-E-006` (B1) | expression orale/intonations ; onglets par parties ; titres sans préfixe de niveau |
+
+Une série = un dossier coloré sur la page de niveau, entièrement piloté par le catalogue (mécanisme générique — aucune demande technique à faire pour créer un contenu de série existante).
 
 ## 4c. Série « PRO-NON-CIA-TION avec LÉO »
 

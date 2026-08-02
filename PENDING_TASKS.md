@@ -73,6 +73,14 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 - **25/07 — Séries génériques (recommandation d'Opus validée)** : section `series` du catalogue (titre, emoji, couleur, dossier, unite, ordre) ; `niveau.js` rend les dossiers en boucle ; `js/serie.js` unique remplace dialogue.js/prononciation.js ; 12 pages régénérées sur le modèle générique ; `check_site` valide séries et pages. **Créer une série = catalogue + 6 pages minces, zéro code** (mode d'emploi : DIRECTIVES §2bis).
 - **25/07 — Bouton « ✅ Exercice terminé » standard (demande d'Eric)** : `js/terminer.js` inclus sur les 17 pages de contenu + modèles — s'affiche automatiquement quand la page n'a aucun déclencheur de complétion (détection setLesson/submitWriting), état « déjà terminé », clé = progressId ou ID (leçons incluses), titres lisibles dans la notification (auth-guard) et au tableau prof (leçons résolues). Le bouton local d'A1-E-007 reste (détecté, pas de doublon).
 
+## ✅ Traitées (suite — 26/07 par Fable : audit de cohérence des directives Sonnet, demandé par Eric)
+
+- **Copies OneDrive périmées (constat)** : la copie Sonnet avait 21 lignes de retard et la copie Prononciation **78 lignes** (tout le §9 réplication absent !). Copies rafraîchies avec bandeau « copie de lecture — maître = dépôt » ; règle de synchronisation ajoutée aux directives d'Opus (§1b).
+- **`lvl-tag`/`panel-head`** : la directive « barre unique » promettait ces classes dans `site.css` — elles y sont désormais (généralisées : `--lvl`).
+- **Titre d'exercice** : la règle « le titre mentionne le niveau » contredisait le standard 25/07 (titres simples, niveau porté par la pastille) — corrigée.
+- **Bilingue §2 vs §3** : reformulé pour ne plus promettre un bouton EN systématique (câblé seulement quand le fichier existe).
+- **Tableau des séries actives** ajouté (§4b) : Dialogue, PRO-NON-CIA-TION, Théâtre — modèles de référence et particularités, pour que Sonnet ne reparte plus de zéro.
+
 ## ⏳ En attente
 
 _(aucune)_

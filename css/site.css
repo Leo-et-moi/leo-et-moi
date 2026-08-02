@@ -77,6 +77,11 @@ button, .btn {
    Chaque phrase peut avoir 🔊 FR + 🔊 EN (fichier <nom>_en.mp3). Réf. : A2-L-001 */
 .t-en{background:#fff;border:1.5px solid var(--navyMid);color:var(--navyMid);border-radius:8px;font-size:12px;font-weight:bold;padding:2px 7px;cursor:pointer;margin-right:5px;font-family:Arial,sans-serif;vertical-align:middle;}
 
+/* Pastille de niveau + panneau de titre (modèle de barre unique, 20/07) */
+.lvl-tag{display:inline-block;background:var(--lvl,var(--navyMid));color:#fff;font-size:13px;
+  font-weight:bold;padding:3px 12px;border-radius:20px;margin-bottom:6px;}
+.panel-head{margin:16px 0 20px;}
+
 /* Consigne / instruction — standard visuel demandé par Eric (réf. : A2-L-001) :
    liseré corail, fond corail très clair, bouton 🔊 en tête */
 .consigne{background:#FCEEEA;border-left:4px solid var(--coral);border-radius:0 10px 10px 0;
