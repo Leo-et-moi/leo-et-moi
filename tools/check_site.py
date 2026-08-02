@@ -23,8 +23,9 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  # B1-E-006 — reste 7 consignes/titre EN
+                  "B1-E-006_c1_en.mp3", "B1-E-006_c2_en.mp3", "B1-E-006_c3_en.mp3", "B1-E-006_c4_en.mp3", "B1-E-006_ctexte_en.mp3", "B1-E-006_intro_en.mp3", "B1-E-006_titre_en.mp3",
                   # B1-E-006 — reste 12 (7 EN + 3 conj neuves + 2 conj retouche)
-                  "B1-E-006_c1_en.mp3", "B1-E-006_c2_en.mp3", "B1-E-006_c3_en.mp3", "B1-E-006_c4_en.mp3", "B1-E-006_cnjP3_3.mp3", "B1-E-006_cnjP4_2.mp3", "B1-E-006_cnjP4_3.mp3", "B1-E-006_cnjP5_1.mp3", "B1-E-006_cnjP5_2.mp3", "B1-E-006_ctexte_en.mp3", "B1-E-006_intro_en.mp3", "B1-E-006_titre_en.mp3",
                   # B1-E-006 (Panne de télé B1) — restants (13 retouches + 10 neufs)
                   # B1-E-006 (Panne de télé B1, 5 parties) — en attente
                   # B1-E-006 (Panne de télé B1) — en attente
