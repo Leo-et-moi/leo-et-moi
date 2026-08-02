@@ -62,6 +62,8 @@ Certains clips reviennent **mot pour mot** d'un exercice à l'autre — typiquem
 
 Exemple appliqué (24/07/2026) : `c1_ft_instruction.mp3` = copie de `c1_fg_instruction.mp3`.
 
+> **Série Prononciation — intégration d'un chapitre** : à chaque nouveau chapitre (nouvel ID/dossier), copie sous le nouvel ID les audios **réutilisés** listés dans `DIRECTIVES_SERIE_PRONONCIATION.md` §9.6 — les 5 consignes (`intro, e1..e4`), les 8 légendes (`leg_*`) et tout mot difficile déjà enregistré. Seuls `ratatouille_chN.mp3`, `<ID>_titre.mp3` et les `<ID>_md_<mot>.mp3` **inédits** vont dans la liste d'Eric.
+
 ## 3d. Série « Accents francophones » (exercices d'écoute C1/C2)
 
 Modèle : `french/c1/francine-gosselin/` et `french/c1/francis-tanguay/`. Standards **obligatoires** pour tout nouvel exercice de la série (décidés par Eric, 24/07/2026) :

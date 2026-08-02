@@ -57,6 +57,7 @@ Juste en dessous, à l'intérieur de `.main`, un **lien de retour** vers la page
 ## 3. Règles dures (jamais d'exception)
 
 - **Jamais de voix synthétique.** Tous les audios sont des **MP3 enregistrés par Eric** : tu fournis le **script** (nom de fichier + texte), pas le son.
+- **Texte affiché = texte dit (mot pour mot).** Le script audio que tu fournis pour un élément doit correspondre **exactement** au texte affiché à l'écran pour ce même élément. Toute divergence oblige à refaire l'audio ou le texte. Si tu modifies un texte, **modifie aussi son script** (et signale-le pour re-déploiement).
 - **Design Bleu & Corail** : Arial ≥ 18 px, fond crème, cibles tactiles ≥ 44 px, mobile-first.
 - **Pédagogie / choix de contenu** → c'est **Eric** qui décide (thème, niveau, composition). Tu proposes, il valide.
 - **Extraits d'œuvres** : l'usage pédagogique d'**extraits** est admis (exception d'enseignement / courte citation) — le site n'a aucune finalité commerciale et l'accès est réservé aux élèves connectés. Cite toujours **auteur, titre et année**, et limite-toi à un extrait, jamais une œuvre entière. Décision d'Eric (20/07/2026), qui remplace l'ancienne interdiction générale de reproduire des textes sous droits.
@@ -93,6 +94,8 @@ Exercices de lecture / prononciation A1 (modèle : **A1-E-007** Ratatouille).
 **Tu ne fais PAS** : HTML/JS/CSS, catalogue, **consignes/légende** (standard, réutilisées), **audio du texte** (Eric l'enregistre), déploiement.
 
 **Mini-exemple** — « J'ai les yeux verts. » → `J'ai le^s‿^<yeux|zieu> ver{ts}.`
+
+**Réplication d'un nouveau chapitre** — suis la **procédure pas-à-pas de `DIRECTIVES_SERIE_PRONONCIATION.md` §9** : entrées = **audio du chapitre + transcript** ; balisage 9.2 ; guide des liaisons 9.3 ; mots difficiles 9.4 ; auto-contrôle 9.5. **Tranche les liaisons à l'oreille sur l'audio** — ne code que celles réellement prononcées. Dans ta **liste d'enregistrement, ne mets que le NOUVEAU** (audio du texte `ratatouille_chN.mp3`, `_titre.mp3`, et les **mots difficiles inédits**) : les consignes, la légende et les mots difficiles déjà enregistrés sont **réutilisés** (§9.6), ne les redemande pas.
 
 
 ## 5. En cas de doute

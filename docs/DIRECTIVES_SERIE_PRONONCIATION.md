@@ -43,3 +43,57 @@ La série est **regroupée** dans une **catégorie dédiée** de la page de nive
 ## 8. Audio
 - Audio du texte : **128 kbps mono**.
 - Consignes + libellés de légende : clips **FR** enregistrés par Eric (nommage `A1-E-007_…` : `titre` pour le titre, `intro/e1..e4` pour les consignes, `leg_aigu/…/leg_difficile` pour la légende).
+
+---
+
+## 9. Réplication d'un chapitre — procédure (Sonnet)
+
+> **But** : à partir de **(a)** l'audio du chapitre (`ratatouille_chN.mp3`, enregistré par Eric) et **(b)** le transcript brut (texte + n° de page), produire une livraison complète dans `_TRANSFERTS_SONNET`, **sans toucher au HTML ni aux audios**. Un nouveau chapitre = un **nouvel exercice** (nouvel ID, nouveau dossier) ; Opus l'intègre. Cette procédure rend la réplication fiable et répétable.
+
+### 9.1 Étapes, dans l'ordre
+1. **En-tête** : niveau A1 · titre = « **La Ratatouille Folle — Ch.N : \<sous-titre\> · p. \<n\>** » · auteur/source (sous-titre + page tirés du transcript).
+2. **Coder le texte** mot par mot (9.2), **en écoutant l'audio** pour trancher les liaisons réellement faites.
+3. **Choisir les liaisons** (guide 9.3) et **les mots difficiles** (critères 9.4).
+4. **Construire les 5 blocs d'exercices** (§7 A→E) **avec les bonnes réponses**, en tirant les items **du texte du chapitre**.
+5. **Auto-contrôle** (checklist 9.5).
+6. **Liste d'enregistrement** (9.6) : ne lister que le **nouveau**.
+7. Déposer dans `_TRANSFERTS_SONNET`.
+
+### 9.2 Balisage du texte (avec exemples réels du Ch.1)
+- **Accents** : vrais caractères `é è ê ë ç`. Ne rien baliser — le moteur colore selon le caractère.
+- **Consonne finale muette** : `{x}` — `françai{s}`, `ver{ts}`, `son{t}`, `long{s}`, `étudiant{s}`. **Jamais** le « e » muet final ; ne marquer que ce qui est **réellement muet** (pas le t prononcé de « active »).
+- **Liaison** : `…^C‿^mot` — la consonne de liaison du 1er mot est précédée d'un `^`, puis le pont `‿`, puis `^` collé au mot suivant. Ex. `nou^s‿^avon{s}`, `le^s‿^<yeux|zieu>`, `e^n‿^<échange|é·chanj>`, `Me^s‿^<yeux|zieu>`.
+- **Mot difficile** : `<mot|pro·non·cia·tion>` — prononciation en **phonétique française simplifiée** (pas l'API), syllabes séparées par `·`. Ex. `<yeux|zieu>`, `<échange|é·chanj>`.
+- Un mot peut cumuler liaison + difficulté : `le^s‿^<yeux|zieu>`.
+
+### 9.3 Guide des liaisons (lesquelles coder, quel son)
+- **Obligatoires (à coder)** : déterminant + nom (`le^s‿^amis`, `un‿^ami`, `me^s‿^yeux`) ; pronom sujet + verbe (`nou^s‿^avons`, `il^s‿^ont`, `on‿^a`) ; adjectif antéposé + nom (`de petit^s‿^enfants`) ; préposition/adverbe monosyllabique + mot (`e^n‿^échange`, `san^s‿^elle`, `che^z‿^eux`, `trè^s‿^aimable`).
+- **Interdites (ne pas coder)** : après **et** (jamais) ; après un **nom singulier** ; devant un **h aspiré** (`les / héros`) ; après une ponctuation forte / une pause.
+- **Facultatives** : après le verbe **être** (`il est‿allé`), verbe + complément. **En cas de doute, ne pas coder et laisser une note « liaison ? » pour Eric.**
+- **Règle d'or** : trancher **à l'oreille** sur l'audio — ne coder **que** les liaisons **effectivement prononcées** par Eric.
+- **Son de la liaison** (sert au bloc B) : `s, x, z → « z »` · `d → « t »` · `t → « t »` · `n → « n » (nasale)` · `g → « k »`.
+
+### 9.4 Critères « mot difficile »
+Mots dont la graphie **trompe** un lecteur A1 : `yeux→zieu`, `sœur→seur`, `aujourd'hui→o·jour·dwi`, `femme→fam`, `monsieur→me·sieu`, `second→se·gon`, `oignon→o·gnon`, plus les **liaisons figées** (`les‿yeux [zieu]`). Viser **~1 mot difficile toutes les 2-3 lignes** — ne pas surcharger. Chaque mot difficile aura son 🔊 (`A1-E-<ID>_md_<mot>.mp3`).
+
+### 9.5 Auto-contrôle avant livraison (checklist)
+- [ ] Chaque consonne finale muette est en `{}` ; **aucun** « e » muet final marqué.
+- [ ] Chaque liaison codée est **entendue** dans l'audio ; **aucune** liaison après « et ».
+- [ ] Chaque `<mot|pron>` a une prononciation en syllabes `·`, phonétique française (pas l'API).
+- [ ] Les 5 blocs (A→E) ont leurs **bonnes réponses**, items tirés **du texte**.
+- [ ] En-tête : titre = Œuvre — Ch.N : sous-titre · p. n (+ auteur/source).
+- [ ] **Texte affiché = texte dit** : le script de chaque audio correspond **mot pour mot** à ce qui est affiché.
+- [ ] Liste d'enregistrement = **seulement le nouveau** (9.6).
+
+### 9.6 Nouveau vs Réutilisé par chapitre (ne pas faire réenregistrer)
+**Réutilisé** — Opus copie sous le nouvel ID (dir. Opus §3c), **ne pas** le mettre dans la liste d'Eric :
+- les **5 consignes** `intro, e1, e2, e3, e4` (identiques à chaque chapitre) ;
+- **toute la légende** `leg_aigu, leg_grave, leg_circ, leg_trema, leg_cedille, leg_muet, leg_liaison, leg_difficile` ;
+- tout **mot difficile déjà enregistré** dans un chapitre précédent (même mot = même son : `md_yeux`, etc.).
+
+**Nouveau** — à enregistrer par Eric (128 kbps mono) :
+- `ratatouille_chN.mp3` — l'audio du texte du chapitre ;
+- `A1-E-<ID>_titre.mp3` — le titre parlé (change : il contient le chapitre + la page) ;
+- `A1-E-<ID>_md_<mot>.mp3` — **uniquement** les mots difficiles **inédits** de ce chapitre.
+
+En pratique, la liste d'enregistrement d'un chapitre tient en quelques lignes.
