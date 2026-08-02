@@ -49,6 +49,9 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 .comp-bar{flex:1;height:10px;background:var(--divider);border-radius:6px;overflow:hidden;}
 .comp-fill{height:100%;background:var(--navyMid);}
 .comp-pct{width:44px;text-align:right;color:var(--slate);font-weight:bold;}
+.lvl-select{font-family:Arial,sans-serif;font-size:13px;font-weight:bold;border:1.5px solid var(--divider);
+  border-radius:10px;padding:4px 6px;background:#fff;color:var(--dark);cursor:pointer;min-height:32px;}
+.lvl-saved{font-size:12px;color:var(--green);font-weight:bold;}
 </style>
 </head>
 <body>
@@ -69,7 +72,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <a class="nav-item" href="index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
 </nav>
 <script type="module">
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 var LVLCOLOR={a1:'#C0392B',a2:'#E07B39',b1:'#D4920A',b2:'#7CB82F',c1:'#27AE60',c2:'#1A5C38'};
 var LESSON_NAMES={
@@ -169,8 +172,14 @@ function render(content, students){
     var lvl=(s.level||'a1').toLowerCase();
     var done=s.lessons.filter(function(l){return l.completed;}).length; totalDone+=done;
     html+='<div class="stu">';
+    var opts=['a1','a2','b1','b2','c1','c2'].map(function(n){
+      return '<option value="'+n+'"'+(n===lvl?' selected':'')+'>'+n.toUpperCase()+'</option>';
+    }).join('');
     html+='<div class="stu-head"><span class="stu-name">'+esc(s.name||s.email||'(sans nom)')+'</span>'+
-          '<span class="lvl-pill" style="background:'+(LVLCOLOR[lvl]||'#888')+'">'+lvl.toUpperCase()+'</span></div>';
+          '<span class="lvl-pill" style="background:'+(LVLCOLOR[lvl]||'#888')+'">'+lvl.toUpperCase()+'</span>'+
+          '<label style="font-size:12px;color:var(--slate);margin-left:auto;">Niveau : '+
+          '<select class="lvl-select" data-uid="'+esc(s.uid)+'" data-prev="'+lvl+'">'+opts+'</select></label>'+
+          '<span class="lvl-saved" id="saved-'+esc(s.uid)+'"></span></div>';
     var pos=positionParcours(lvl, s.lessons);
     html+='<div class="stu-meta">'+esc(s.email)+' &nbsp;·&nbsp; &#128293; '+s.streak+' j &nbsp;·&nbsp; &#128218; '+s.vocab+' mots'+(pos?(' &nbsp;·&nbsp; '+pos):'')+'</div>';
     if(!s.lessons.length){
@@ -215,6 +224,24 @@ function render(content, students){
     html+='</div>';
   });
   content.innerHTML='<div class="summary">'+students.length+' élève(s) · '+totalDone+' exercice(s) terminé(s) au total</div>'+html;
+  // Changement de niveau (les règles Firestore autorisent déjà le prof à écrire)
+  content.querySelectorAll('.lvl-select').forEach(function(sel){
+    sel.addEventListener('change', async function(){
+      var uid=sel.getAttribute('data-uid'), nv=sel.value, prev=sel.getAttribute('data-prev');
+      var fb=document.getElementById('saved-'+uid);
+      sel.disabled=true;
+      try{
+        await setDoc(doc(window.LEM.db,'users',uid), { level: nv }, { merge:true });
+        sel.setAttribute('data-prev', nv);
+        if(fb){ fb.textContent='✓ enregistré'; setTimeout(function(){ fb.textContent=''; }, 2500); }
+      }catch(e){
+        sel.value=prev;
+        if(fb){ fb.textContent='✗ échec'; fb.style.color='#C0392B'; }
+        console.error('[leo-et-moi] changement de niveau :', e);
+      }
+      sel.disabled=false;
+    });
+  });
 }
 </script>
 <script type="module" src="js/auth-guard.js"></script>

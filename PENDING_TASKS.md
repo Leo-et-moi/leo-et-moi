@@ -22,7 +22,7 @@ _Fichier unique depuis le 14/07/2026 (fusion du backlog OneDrive et du canal du 
 
 - **Exercices d'enregistrement élève** : Firebase Blaze + Cloud Storage — accord d'Eric requis avant construction.
 - **Réinitialisation de mot de passe** (page de connexion).
-- **Changer le niveau d'un élève depuis le tableau prof**.
+- ~~Changer le niveau d'un élève depuis le tableau prof~~ : **fait le 26/07** (sélecteur A1-C2 par élève, écriture directe, feedback ✓ — plus besoin d'ouvrir la console Firestore). Reste côté Eric : **désactiver l'auto-inscription** (console Firebase → Authentication → Settings → décocher « Enable create (sign-up) ») et supprimer les comptes en double.
 - **Révision du vocabulaire personnel** (quiz sur `vocab[]`).
 - **Jalons & diplômes** (validé, à activer plus tard) : design Bleu & Corail, formulation neutre, pas de couleurs/prétention CECRL.
 
