@@ -163,6 +163,36 @@ ready(async function(){
   }
 });
 
+function annonces(students){
+  var parNiveau={};
+  students.forEach(function(s){ var l=(s.level||'a1').toLowerCase(); (parNiveau[l]=parNiveau[l]||[]).push(s); });
+  var recents={};
+  if(CAT.raw){
+    [].concat(CAT.raw.lecons||[],CAT.raw.exercices||[]).forEach(function(x){
+      if(!x.ajoute||!x.publie) return;
+      if(Date.now()-Date.parse(x.ajoute)>21*86400000) return;
+      (recents[x.niveau]=recents[x.niveau]||[]).push(x.titre);
+    });
+  }
+  var html='<div style="background:#fff;border:1px solid var(--divider);border-radius:14px;padding:12px 14px;margin-bottom:14px;">'+
+           '<b>📣 Annoncer les nouveautés</b> <span style="font-size:12px;color:var(--slate);">(ouvre ton logiciel de courrier, adresses en copie cachée — tu relis avant d\'envoyer)</span><br>';
+  ['a1','a2','b1','b2','c1','c2'].forEach(function(l){
+    var grp=parNiveau[l]; if(!grp||!grp.length) return;
+    var L=l.toUpperCase();
+    var items=recents[L]||[];
+    var corps='Bonjour,\n\nDu nouveau sur leo-et-moi.com pour ton niveau '+L+' :\n'+
+      (items.length?items.map(function(t){return '• '+t;}).join('\n'):'• De nouveaux contenus t\'attendent !')+
+      '\n\nConnecte-toi et clique sur la cloche 🔔 pour les retrouver.\n\nBon travail !\nEric';
+    var href='mailto:?bcc='+encodeURIComponent(grp.map(function(s){return s.email;}).filter(Boolean).join(','))+
+      '&subject='+encodeURIComponent('Nouveau sur leo-et-moi.com ('+L+')')+
+      '&body='+encodeURIComponent(corps);
+    html+='<a href="'+href+'" style="display:inline-block;margin:4px 6px 2px 0;padding:6px 12px;border-radius:10px;'+
+      'background:'+(LVLCOLOR[l]||'#888')+';color:#fff;font-weight:bold;font-size:13px;text-decoration:none;">'+
+      '📣 '+L+' ('+grp.length+')</a>';
+  });
+  return html+'</div>';
+}
+
 function render(content, students){
   if(!students.length){ content.innerHTML='<div class="notice">Aucun &eacute;l&egrave;ve pour l&rsquo;instant.</div>'; return; }
   var totalDone=0;
@@ -223,7 +253,7 @@ function render(content, students){
     }
     html+='</div>';
   });
-  content.innerHTML='<div class="summary">'+students.length+' élève(s) · '+totalDone+' exercice(s) terminé(s) au total</div>'+html;
+  content.innerHTML='<div class="summary">'+students.length+' élève(s) · '+totalDone+' exercice(s) terminé(s) au total</div>'+annonces(students)+html;
   // Changement de niveau (les règles Firestore autorisent déjà le prof à écrire)
   content.querySelectorAll('.lvl-select').forEach(function(sel){
     sel.addEventListener('change', async function(){

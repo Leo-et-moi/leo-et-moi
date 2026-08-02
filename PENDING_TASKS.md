@@ -82,6 +82,11 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 - **Bilingue §2 vs §3** : reformulé pour ne plus promettre un bouton EN systématique (câblé seulement quand le fichier existe).
 - **Tableau des séries actives** ajouté (§4b) : Dialogue, PRO-NON-CIA-TION, Théâtre — modèles de référence et particularités, pour que Sonnet ne reparte plus de zéro.
 
+## ✅ Traitées (suite — 26/07 : notifications de nouveautés, demande Eric)
+
+- **Cloche 🔔 vivante (option A)** : nouveautés du catalogue (< 21 jours, champ `ajoute`) filtrées par le niveau de l'élève (le prof voit tout) ; pastille rouge = non-vus (marqués vus à l'ouverture du panneau, `lastSeenNews`) ; branchée sur accueil, menu des niveaux et les 6 pages de niveau. Badges **🆕** sur les cartes des pages de niveau/séries, **retirés dès que l'élève termine l'item**. 11 dates posées rétroactivement ; règle « date `ajoute` obligatoire » dans les directives d'Opus ; format validé par check_site.
+- **Annonces e-mail (option B)** : bloc « 📣 Annoncer les nouveautés » au tableau prof — un bouton par niveau, ouvre le logiciel de courrier d'Eric avec les adresses du niveau en copie cachée et un brouillon listant les nouveautés récentes. Zéro quota EmailJS.
+
 ## ⏳ En attente
 
 _(aucune)_

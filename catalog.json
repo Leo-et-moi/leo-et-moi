@@ -59,7 +59,8 @@
       "exercices": [
         "A2-E-004"
       ],
-      "publie": true
+      "publie": true,
+      "ajoute": "2026-07-13"
     }
   ],
   "exercices": [
@@ -225,7 +226,8 @@
       ],
       "progressId": "B1-E-003",
       "questions": "french/b1/B1-E-003-lecture-kessel/questions.json",
-      "publie": true
+      "publie": true,
+      "ajoute": "2026-07-20"
     },
     {
       "id": "B2-E-001",
@@ -273,7 +275,8 @@
       ],
       "questions": null,
       "publie": true,
-      "progressId": "c1_francis_tanguay"
+      "progressId": "c1_francis_tanguay",
+      "ajoute": "2026-07-21"
     },
     {
       "id": "A2-E-004",
@@ -290,7 +293,8 @@
       ],
       "progressId": "A2-E-004",
       "questions": "french/a2/A2-E-004-imperatif/questions.json",
-      "publie": true
+      "publie": true,
+      "ajoute": "2026-07-13"
     },
     {
       "id": "A1-E-005",
@@ -308,7 +312,8 @@
       "questions": null,
       "publie": true,
       "serie": "Dialogue",
-      "serieOrdre": 10
+      "serieOrdre": 10,
+      "ajoute": "2026-07-14"
     },
     {
       "id": "A1-E-006",
@@ -324,7 +329,8 @@
       ],
       "progressId": "A1-E-006",
       "questions": null,
-      "publie": true
+      "publie": true,
+      "ajoute": "2026-07-20"
     },
     {
       "id": "A1-E-007",
@@ -342,7 +348,8 @@
       "questions": null,
       "publie": true,
       "serie": "Prononciation",
-      "serieOrdre": 10
+      "serieOrdre": 10,
+      "ajoute": "2026-07-25"
     },
     {
       "id": "A1-E-009",
@@ -360,7 +367,8 @@
       "questions": null,
       "publie": true,
       "serie": "Prononciation",
-      "serieOrdre": 20
+      "serieOrdre": 20,
+      "ajoute": "2026-07-26"
     },
     {
       "id": "B1-E-004",
@@ -378,7 +386,8 @@
       "questions": null,
       "publie": true,
       "serie": "Theatre",
-      "serieOrdre": 10
+      "serieOrdre": 10,
+      "ajoute": "2026-07-24"
     },
     {
       "id": "B1-E-005",
@@ -396,7 +405,8 @@
       "questions": null,
       "publie": true,
       "serie": "Theatre",
-      "serieOrdre": 20
+      "serieOrdre": 20,
+      "ajoute": "2026-07-24"
     },
     {
       "id": "A1-E-008",
@@ -459,7 +469,8 @@
       "questions": null,
       "publie": true,
       "serie": "Theatre",
-      "serieOrdre": 10
+      "serieOrdre": 10,
+      "ajoute": "2026-07-25"
     }
   ],
   "tests": [

@@ -169,3 +169,19 @@ main{max-width:640px;margin:0 auto;padding:18px 14px 8px;}
 /* ── Série « Dialogue » (dossier + pages dédiées) ─────────────────────── */
 .lesson-card.dialogue{background:#F4F2FD;}
 .lesson-card.pronunciation{background:#E3F1F2;}
+
+/* ── Nouveautés (cloche 🔔 + badges 🆕, 26/07) ────────────────────────── */
+.notif-dot{position:absolute;top:6px;right:6px;min-width:18px;height:18px;border-radius:9px;
+  background:var(--coral);color:#fff;font-size:11px;font-weight:bold;display:flex;
+  align-items:center;justify-content:center;padding:0 4px;pointer-events:none;}
+.notif-panel{position:fixed;top:64px;right:10px;z-index:200;width:min(340px,92vw);
+  background:#fff;border:1px solid var(--divider);border-radius:14px;
+  box-shadow:0 6px 24px rgba(0,0,0,0.18);padding:10px;font-family:Arial,sans-serif;}
+.notif-panel h3{font-size:16px;color:var(--dark);margin:4px 6px 8px;}
+.notif-item{display:block;padding:9px 8px;border-top:1px solid var(--divider);
+  text-decoration:none;color:var(--text);font-size:15px;border-radius:8px;}
+.notif-item:hover{background:var(--cream);}
+.notif-item .nv{font-weight:bold;color:#fff;font-size:11px;border-radius:6px;padding:1px 7px;margin-right:6px;}
+.notif-vide{padding:14px 8px;color:var(--slate);font-size:14px;}
+.new-chip{background:var(--coral);color:#fff;font-size:11px;font-weight:bold;
+  border-radius:8px;padding:1px 7px;margin-left:6px;white-space:nowrap;vertical-align:middle;}

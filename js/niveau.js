@@ -19,7 +19,10 @@ function carte(item, n, type, lvlCss) {
   a.className = 'lesson-card';
   a.href = '/' + item.chemin;
   a.style.setProperty('--lvl', lvlCss);
-  const sub = type === 'exercice' ? badges(item.competences) : '';
+  let sub = type === 'exercice' ? badges(item.competences) : '';
+  if (item.ajoute && Date.now() - Date.parse(item.ajoute) < 21 * 86400000) {
+    sub += `<span class="new-chip" data-chipkey="${item.progressId || item.id}">🆕 Nouveau</span>`;
+  }
   const status = (type === 'exercice' && item.progressId)
     ? `<div class="lesson-status" data-progress="${item.progressId}">&hellip;</div>` : '';
   a.innerHTML =
@@ -104,6 +107,13 @@ async function render() {
 
 /* Progression (scores Firestore) quand l'authentification est prête. */
 function fillProgress() {
+  // Le badge 🆕 disparaît dès que l'item est terminé par CET élève
+  document.querySelectorAll('.new-chip[data-chipkey]').forEach(async (chip) => {
+    try {
+      const d = await window.LEM.getLesson(chip.dataset.chipkey);
+      if (d && d.completed) chip.remove();
+    } catch (e) {}
+  });
   document.querySelectorAll('[data-progress]').forEach(async (el) => {
     try {
       const d = await window.LEM.getLesson(el.dataset.progress);

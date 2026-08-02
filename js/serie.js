@@ -29,10 +29,14 @@ async function render() {
     a.className = 'lesson-card serie';
     a.href = '/' + e.chemin;
     a.style.setProperty('--lvl', def.couleur);
-    const status = e.progressId ? `<div class="lesson-status" data-progress="${e.progressId}">&hellip;</div>` : '';
+    let status = e.progressId ? `<div class="lesson-status" data-progress="${e.progressId}">&hellip;</div>` : '';
+    let chip = '';
+    if (e.ajoute && Date.now() - Date.parse(e.ajoute) < 21 * 86400000) {
+      chip = `<span class="new-chip" data-chipkey="${e.progressId || e.id}">🆕 Nouveau</span>`;
+    }
     a.innerHTML =
       `<div class="lesson-num" style="background:${def.couleur};">${i + 1}</div>` +
-      `<div class="lesson-info"><div class="lesson-name">${e.titre}</div>` +
+      `<div class="lesson-info"><div class="lesson-name">${e.titre}${chip}</div>` +
       `<div class="lesson-sub">${badges(e.competences)}</div>${status}</div>` +
       `<span class="lesson-arrow">&#8594;</span>`;
     host.appendChild(a);
@@ -40,6 +44,13 @@ async function render() {
 }
 
 function fillProgress() {
+  // Le badge 🆕 disparaît dès que l'item est terminé par CET élève
+  document.querySelectorAll('.new-chip[data-chipkey]').forEach(async (chip) => {
+    try {
+      const d = await window.LEM.getLesson(chip.dataset.chipkey);
+      if (d && d.completed) chip.remove();
+    } catch (e) {}
+  });
   document.querySelectorAll('[data-progress]').forEach(async (el) => {
     try {
       const d = await window.LEM.getLesson(el.dataset.progress);

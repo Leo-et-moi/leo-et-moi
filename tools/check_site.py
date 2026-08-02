@@ -113,6 +113,16 @@ if catalog:
             elif i not in exercices[eid].get("lecons", []):
                 err(f"Lien asymétrique : {i} référence {eid}, mais {eid} ne référence pas {i}")
 
+# ---------- 1a-ter. Dates d'ajout (nouveautés, 26/07) ----------
+if catalog:
+    import datetime
+    for coll in ("lecons", "exercices", "tests"):
+        for e in catalog.get(coll, []):
+            a = e.get("ajoute")
+            if a:
+                try: datetime.date.fromisoformat(a)
+                except ValueError: err(f"{e.get('id')} : date ajoute invalide → {a} (format AAAA-MM-JJ)")
+
 # ---------- 1a-bis. Séries (génériques, 25/07) ----------
 if catalog:
     sdefs = catalog.get("series", {})

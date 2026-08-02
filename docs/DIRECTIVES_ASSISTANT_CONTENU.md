@@ -27,7 +27,7 @@ Sonnet conçoit des brouillons pédagogiques (voir `docs/DIRECTIVES_CREATION_SON
 1. Copier le modèle : `_TEMPLATES/lecon.html`, `_TEMPLATES/exercice.html` ou `_TEMPLATES/exercice-speaking.html` → `french/<niveau>/<ID>-<slug>/` (ex. `french/a2/A2-L-001-telephone/`).
 2. Prochain ID libre du niveau : `<NIVEAU>-<L|E>-<numéro>` (l'ID est **immuable**, il n'encode ni l'ordre ni la semaine).
 3. Remplir le contenu : bilingue (anglais petit corps, classe `.en`), zéro saisie clavier hors rédaction, audio via `playClip()` (fichiers dans `audio/` du dossier, nommés `<ID>_<usage><n>.mp3`).
-4. Ajouter l'entrée dans `catalog.json` : titre, niveau, `ordre` (par dizaines), chemin, `competences` (listening/reading/writing/speaking), liens `lecons`/`exercices` **dans les deux sens**, `progressId` (nouvelle clé = l'ID lui-même), `publie`.
+4. Ajouter l'entrée dans `catalog.json` (**avec `ajoute: "AAAA-MM-JJ"`, la date du jour** — alimente la cloche 🔔 des nouveautés et les badges 🆕) : titre, niveau, `ordre` (par dizaines), chemin, `competences` (listening/reading/writing/speaking), liens `lecons`/`exercices` **dans les deux sens**, `progressId` (nouvelle clé = l'ID lui-même), `publie`.
 5. Pour un exercice : créer aussi son `questions.json` (mêmes questions en données — elles alimentent échauffement, révision et tests) et le référencer dans le catalogue.
 6. Exécuter le contrôle qualité : `python3 tools/check_site.py` → **0 erreur obligatoire** avant tout push.
 7. Déployer : push sur `main` → attendre 2-3 min → vérifier sur leo-et-moi.com (Ctrl+Maj+R), y compris en compte élève.
