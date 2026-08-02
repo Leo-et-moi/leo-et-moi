@@ -1,9 +1,12 @@
-/* niveau.js — Page de niveau générée depuis le catalogue (Phase 2).
-   La page déclare :  <body data-niveau="A1">
-   Rend : en-tête (badge + compteurs), section « Leçons », section « Exercices »
-   (numérotés, badges de compétences), état de progression via LEM (auth-guard). */
+/* niveau.js — Page de niveau en SOMMAIRE (chapitres repliables, 27/07/2026).
+   Généré du catalogue. Chaque leçon = un chapitre contenant ses exercices ;
+   puis « Autres exercices », « Tests », et les dossiers de séries.
+   - Rangées compactes : numéro · titre (🆕) · compétences (pictos) · statut.
+   - Repli mémorisé par appareil (localStorage lemSom_<niveau>) ; à la connexion,
+     le chapitre contenant le premier exercice NON terminé s'ouvre tout seul.
+   - Le badge 🆕 suit la règle d'Eric : ajouté depuis la création du compte et
+     pas terminé → il reste, sans limite de temps (prof : repère 21 jours). */
 import { lecons, exercices, tests, seriesDefs } from './catalog.js';
-import { badges } from './ui.js';
 
 const NIVEAUX = {
   A1: { nom: 'Débutant',        css: 'var(--a1)' },
@@ -13,140 +16,166 @@ const NIVEAUX = {
   C1: { nom: 'Avancé',          css: 'var(--c1)' },
   C2: { nom: 'Maîtrise',        css: 'var(--c2)' }
 };
+const ICO = { listening: '🎧', reading: '📖', writing: '✍️', speaking: '🗣️' };
+const LBL = { listening: 'Écoute', reading: 'Lecture', writing: 'Écriture', speaking: 'Oral' };
 
-function carte(item, n, type, lvlCss) {
-  const a = document.createElement('a');
-  a.className = 'lesson-card';
-  a.href = '/' + item.chemin;
-  a.style.setProperty('--lvl', lvlCss);
-  let sub = type === 'exercice' ? badges(item.competences) : '';
-  if (item.ajoute) {
-    sub += `<span class="new-chip" data-chipkey="${item.progressId || item.id}" data-ajoute="${item.ajoute}" style="display:none;">🆕 Nouveau</span>`;
-  }
-  const status = (type === 'exercice' && item.progressId)
-    ? `<div class="lesson-status" data-progress="${item.progressId}">&hellip;</div>` : '';
-  a.innerHTML =
-    `<div class="lesson-num">${type === 'lecon' ? 'L' : 'E'}${n}</div>` +
-    `<div class="lesson-info"><div class="lesson-name">${item.titre}</div>` +
-    `<div class="lesson-sub">${sub}</div>${status}</div>` +
-    `<span class="lesson-arrow">&#8594;</span>`;
-  return a;
+let NIV = 'A1';
+const memKey = () => 'lemSom_' + NIV.toLowerCase();
+function etatPlis() { try { return JSON.parse(localStorage.getItem(memKey())) || null; } catch (e) { return null; } }
+function sauvePlis(o) { try { localStorage.setItem(memKey(), JSON.stringify(o)); } catch (e) {} }
+
+function icones(comps) {
+  return (comps || []).map((c) => `<span title="${LBL[c] || c}">${ICO[c] || ''}</span>`).join('');
+}
+function chip(item) {
+  if (!item.ajoute) return '';
+  return ` <span class="new-chip" data-chipkey="${item.progressId || item.id}" data-ajoute="${item.ajoute}" style="display:none;">🆕</span>`;
+}
+function rang(item, num, type, lien) {
+  const key = type === 'test' ? item.id : (item.progressId || item.id);
+  const stat = `<span class="som-status" data-progress="${key}"></span>`;
+  const ico = type === 'lecon' ? '' : `<span class="som-ico">${icones(item.competences)}</span>`;
+  return `<a class="som-row" href="${lien}" data-key="${key}">` +
+    `<span class="som-num">${num}</span>` +
+    `<span class="som-title">${item.titre}${chip(item)}</span>` +
+    ico + stat + `<span style="color:var(--coral);font-weight:bold;">&#8594;</span></a>`;
 }
 
 async function render() {
-  const niveau = document.body.dataset.niveau;
-  const meta = NIVEAUX[niveau];
-  const ls = await lecons(niveau);
-  const esTous = await exercices(niveau);
-  const es = esTous.filter((e) => !e.serie);           // les séries ont leur dossier dédié
+  NIV = document.body.dataset.niveau;
+  const meta = NIVEAUX[NIV];
+  const ls = await lecons(NIV);
+  const esTous = await exercices(NIV);
+  const es = esTous.filter((e) => !e.serie);
+  const ts = await tests(NIV);
+  const defs = await seriesDefs();
 
-  document.getElementById('niveauBadge').textContent = niveau;
-  document.getElementById('niveauNom').textContent = 'Niveau ' + niveau + ' — ' + meta.nom;
-  document.getElementById('compteurs').textContent = ls.length + ' Leçons · ' + es.length + ' Exercices';
-  document.querySelectorAll('.niveau-head,.section-host').forEach(el => el.style.setProperty('--lvl', meta.css));
+  document.getElementById('niveauBadge').textContent = NIV;
+  document.getElementById('niveauNom').textContent = 'Niveau ' + NIV + ' — ' + meta.nom;
+  document.getElementById('compteurs').textContent = ls.length + ' Leçon' + (ls.length > 1 ? 's' : '') + ' · ' + es.length + ' Exercice' + (es.length > 1 ? 's' : '');
+  document.querySelectorAll('.niveau-head,.section-host,.som-nav').forEach((el) => el.style.setProperty('--lvl', meta.css));
 
-  const hl = document.getElementById('titreLecons');
-  const he = document.getElementById('titreExercices');
-  hl.textContent = '📖 ' + ls.length + ' Leçon' + (ls.length > 1 ? 's' : '');
-  he.textContent = '✏️ ' + es.length + ' Exercice' + (es.length > 1 ? 's' : '');
-
-  const wl = document.getElementById('lecons');
-  const we = document.getElementById('exercices');
-  if (!ls.length) wl.innerHTML = '<div class="empty-note">Leçons bientôt disponibles.</div>';
-  else ls.forEach((l, i) => wl.appendChild(carte(l, i + 1, 'lecon', meta.css)));
-  if (!es.length) we.innerHTML = '<div class="empty-note">Exercices bientôt disponibles.</div>';
-  else es.forEach((e, i) => we.appendChild(carte(e, i + 1, 'exercice', meta.css)));
-
-  // Tests / examens du niveau (Phase 7)
-  const ts = await tests(niveau);
-  if (ts.length) {
-    const host = document.getElementById('exercices').parentNode;
-    const titre = document.createElement('div');
-    titre.className = 'section-title';
-    titre.textContent = '📝 ' + ts.length + ' Test' + (ts.length > 1 ? 's' : '');
-    host.appendChild(titre);
-    ts.forEach((x, i) => {
-      const a = document.createElement('a');
-      a.className = 'lesson-card';
-      a.href = '/french/tests/test.html?id=' + x.id;
-      a.style.setProperty('--lvl', meta.css);
-      a.innerHTML =
-        `<div class="lesson-num">T${i + 1}</div>` +
-        `<div class="lesson-info"><div class="lesson-name">${x.titre}</div>` +
-        `<div class="lesson-sub">${x.nbQuestions} questions · ${x.duree ? x.duree + ' min' : 'sans limite de temps'}</div>` +
-        `<div class="lesson-status" data-progress="${x.id}">&hellip;</div></div>` +
-        `<span class="lesson-arrow">&#8594;</span>`;
-      host.appendChild(a);
+  // ── Chapitres : une leçon + ses exercices du même niveau ──
+  const dansChapitre = new Set();
+  let html = '';
+  if (ls.length) {
+    html += '<div class="som-sec" id="sec-lecons">📖 Leçons</div>';
+    ls.forEach((l, i) => {
+      const exos = (l.exercices || [])
+        .map((id) => es.find((e) => e.id === id))
+        .filter(Boolean);
+      exos.forEach((e) => dansChapitre.add(e.id));
+      let rows = rang(l, 'L' + (i + 1), 'lecon', '/' + l.chemin);
+      exos.forEach((e, j) => { rows += rang(e, 'E' + (j + 1), 'exercice', '/' + e.chemin); });
+      html += `<div class="som-chap" data-chap="L${i + 1}" data-exos="${exos.map((e) => e.progressId || e.id).join(',')}">` +
+        `<button class="som-chap-head" type="button">📖 <span>L${i + 1} — ${l.titre}${chip(l)}</span>` +
+        `<span style="font-size:13px;color:var(--slate);font-weight:normal;">&nbsp;(${exos.length} exo${exos.length > 1 ? 's' : ''})</span>` +
+        `<span class="chev">&#9654;</span></button>` +
+        `<div class="som-chap-rows">${rows}</div></div>`;
     });
   }
 
-  // Dossiers de séries (💬 Dialogue, 🗣️ PRO-NON-CIA-TION…) — générique, piloté
-  // par la section `series` du catalogue : une nouvelle série = zéro code.
-  const defs = await seriesDefs();
+  // ── Autres exercices (sans leçon de ce niveau) ──
+  const autres = es.filter((e) => !dansChapitre.has(e.id));
+  if (autres.length) {
+    html += '<div class="som-sec" id="sec-exos">✏️ ' + (dansChapitre.size ? 'Autres exercices' : 'Exercices') + '</div><div class="som-chap open"><div class="som-chap-rows">';
+    autres.forEach((e, i) => { html += rang(e, 'E' + (i + 1), 'exercice', '/' + e.chemin); });
+    html += '</div></div>';
+  }
+
+  // ── Tests ──
+  if (ts.length) {
+    html += '<div class="som-sec" id="sec-tests">📝 Tests</div><div class="som-chap open"><div class="som-chap-rows">';
+    ts.forEach((x, i) => { html += rang(x, 'T' + (i + 1), 'test', '/french/tests/test.html?id=' + x.id); });
+    html += '</div></div>';
+  }
+
+  // ── Séries (dossiers colorés, mécanisme générique) ──
   defs.forEach((def) => {
     const items = esTous.filter((e) => e.serie === def.nom);
     if (!items.length) return;
-    const host = document.getElementById('exercices').parentNode;
-    const titre = document.createElement('div');
-    titre.className = 'section-title';
-    titre.textContent = def.emoji + ' ' + def.titre;
-    host.appendChild(titre);
-    const a = document.createElement('a');
-    a.className = 'lesson-card serie';
-    a.href = '/french/' + def.dossier + '/' + niveau.toLowerCase() + '.html';
-    a.style.setProperty('--lvl', def.couleur);
-    a.style.background = def.couleur + '14';   /* teinte légère (8 % alpha hex) */
-    a.innerHTML =
+    html += `<div class="som-sec" id="sec-${def.dossier}">${def.emoji} ${def.titre}</div>` +
+      `<a class="lesson-card serie" href="/french/${def.dossier}/${NIV.toLowerCase()}.html" style="--lvl:${def.couleur};background:${def.couleur}14;">` +
       `<div class="lesson-num">${def.emoji}</div>` +
-      `<div class="lesson-info"><div class="lesson-name">${def.titre} — ${niveau}</div>` +
+      `<div class="lesson-info"><div class="lesson-name">${def.titre} — ${NIV}</div>` +
       `<div class="lesson-sub">${items.length} ${def.unite || 'exercice'}${items.length > 1 ? 's' : ''} · série évolutive</div></div>` +
-      `<span class="lesson-arrow">&#8594;</span>`;
-    host.appendChild(a);
+      `<span class="lesson-arrow">&#8594;</span></a>`;
+  });
+
+  document.getElementById('sommaire').innerHTML = html;
+
+  // ── Bandeau de navigation collant ──
+  const nav = [];
+  if (ls.length) nav.push(['#sec-lecons', '📖 ' + ls.length]);
+  if (autres.length) nav.push(['#sec-exos', '✏️ ' + autres.length]);
+  if (ts.length) nav.push(['#sec-tests', '📝 ' + ts.length]);
+  defs.forEach((d) => { if (esTous.some((e) => e.serie === d.nom)) nav.push(['#sec-' + d.dossier, d.emoji]); });
+  document.getElementById('somNav').innerHTML = nav.map(([h, l]) => `<a href="${h}">${l}</a>`).join('');
+
+  // ── Plis : état mémorisé, sinon premier chapitre ouvert ──
+  const chaps = [...document.querySelectorAll('.som-chap[data-chap]')];
+  const memo = etatPlis();
+  chaps.forEach((c, i) => {
+    const id = c.dataset.chap;
+    const ouvert = memo ? !!memo[id] : i === 0;
+    c.classList.toggle('open', ouvert);
+    c.querySelector('.som-chap-head').addEventListener('click', () => {
+      c.classList.toggle('open');
+      const etat = {};
+      chaps.forEach((x) => { etat[x.dataset.chap] = x.classList.contains('open'); });
+      sauvePlis(etat);
+    });
   });
 }
 
-/* Progression (scores Firestore) quand l'authentification est prête. */
+/* Progression + 🆕 + ouverture auto du chapitre en cours. */
 function fillProgress() {
-  // Règle d'Eric (27/07) : 🆕 reste tant que l'élève n'a pas terminé l'item,
-  // sans limite de temps — mais seulement pour ce qui a été ajouté DEPUIS la
-  // création de son compte (un nouvel inscrit ne voit pas tout le site en 🆕).
-  // Prof : simple repère d'actualité (21 jours).
   (async () => {
     let u = {};
     try { u = await window.LEM.getUser() || {}; } catch (e) {}
     const created = u.createdAt
       ? (u.createdAt.toMillis ? u.createdAt.toMillis() : (u.createdAt.seconds ? u.createdAt.seconds * 1000 : Date.parse(u.createdAt) || 0))
       : 0;
-    document.querySelectorAll('.new-chip[data-chipkey]').forEach(async (chip) => {
-      const ts = Date.parse(chip.dataset.ajoute || '') || 0;
+
+    // Badges 🆕 (règle d'Eric 27/07 : sans expiration tant que non terminé)
+    document.querySelectorAll('.new-chip[data-chipkey]').forEach(async (c) => {
+      const ts = Date.parse(c.dataset.ajoute || '') || 0;
       if (u.role === 'teacher') {
-        if (Date.now() - ts < 21 * 86400000) chip.style.display = '';
-        else chip.remove();
+        if (Date.now() - ts < 21 * 86400000) c.style.display = ''; else c.remove();
         return;
       }
-      if (ts < created) { chip.remove(); return; }
+      if (ts < created) { c.remove(); return; }
       try {
-        const d = await window.LEM.getLesson(chip.dataset.chipkey);
-        if (d && d.completed) chip.remove();
-        else chip.style.display = '';
-      } catch (e) { chip.style.display = ''; }
+        const d = await window.LEM.getLesson(c.dataset.chipkey);
+        if (d && d.completed) c.remove(); else c.style.display = '';
+      } catch (e) { c.style.display = ''; }
     });
+
+    // Statuts + détection du premier non-terminé (ouverture auto du chapitre)
+    const rows = [...document.querySelectorAll('.som-status[data-progress]')];
+    const done = {};
+    await Promise.all(rows.map(async (el) => {
+      try {
+        const d = await window.LEM.getLesson(el.dataset.progress);
+        if (!d) return;
+        if (d.completed) {
+          done[el.dataset.progress] = true;
+          el.classList.add('done');
+          el.textContent = typeof d.score === 'number' ? '✓ ' + d.score + '/' + d.total : '✓';
+        } else if (typeof d.score === 'number') {
+          el.textContent = '▶ ' + d.score + '/' + d.total;
+        }
+      } catch (e) {}
+    }));
+    if (!etatPlis() && u.role !== 'teacher') {
+      const chaps = [...document.querySelectorAll('.som-chap[data-chap]')];
+      const cible = chaps.find((c) => (c.dataset.exos || '').split(',').filter(Boolean).some((k) => !done[k]));
+      if (cible) chaps.forEach((c) => c.classList.toggle('open', c === cible));
+    }
   })();
-  document.querySelectorAll('[data-progress]').forEach(async (el) => {
-    try {
-      const d = await window.LEM.getLesson(el.dataset.progress);
-      if (!d) { el.textContent = ''; return; }
-      if (d.completed) {
-        el.classList.add('done');
-        el.textContent = '✓ Terminé' + (typeof d.score === 'number' ? ' · ' + d.score + ' / ' + d.total : '');
-      } else if (typeof d.score === 'number') {
-        el.textContent = '▶ Commencé · ' + d.score + ' / ' + d.total;
-      } else el.textContent = '';
-    } catch (e) { el.textContent = ''; }
-  });
 }
 
 render().then(() => {
   if (window.LEM && window.LEM.user) fillProgress();
   else document.addEventListener('lem-auth-ready', fillProgress);
-}).catch((e) => console.error('[leo-et-moi] rendu du niveau :', e));
+}).catch((e) => console.error('[leo-et-moi] sommaire du niveau :', e));

@@ -185,3 +185,28 @@ main{max-width:640px;margin:0 auto;padding:18px 14px 8px;}
 .notif-vide{padding:14px 8px;color:var(--slate);font-size:14px;}
 .new-chip{background:var(--coral);color:#fff;font-size:11px;font-weight:bold;
   border-radius:8px;padding:1px 7px;margin-left:6px;white-space:nowrap;vertical-align:middle;}
+
+/* ── Sommaire des pages de niveau (chapitres repliables, 27/07) ───────── */
+.som-nav{position:sticky;top:60px;z-index:40;display:flex;gap:6px;flex-wrap:wrap;
+  background:var(--cream);padding:8px 0;margin-bottom:6px;}
+.som-nav a{font-size:13px;font-weight:bold;color:var(--navyMid);text-decoration:none;
+  background:var(--white);border:1px solid var(--divider);border-radius:16px;padding:6px 12px;min-height:32px;}
+.som-chap{background:var(--white);border:1px solid var(--divider);border-radius:12px;margin-bottom:8px;overflow:hidden;}
+.som-chap-head{display:flex;align-items:center;gap:10px;width:100%;background:none;border:none;
+  padding:12px 14px;font-size:17px;font-weight:bold;color:var(--dark);cursor:pointer;text-align:left;font-family:Arial,sans-serif;}
+.som-chap-head .chev{margin-left:auto;transition:transform .15s;color:var(--slate);font-size:14px;}
+.som-chap.open .chev{transform:rotate(90deg);}
+.som-chap-rows{display:none;border-top:1px solid var(--divider);}
+.som-chap.open .som-chap-rows{display:block;}
+.som-row{display:flex;align-items:center;gap:8px;padding:10px 12px;min-height:44px;
+  text-decoration:none;color:var(--text);border-top:1px solid #EFEAE2;font-size:15px;}
+.som-row:first-child{border-top:none;}
+.som-row:hover{background:var(--cream);}
+.som-num{flex-shrink:0;min-width:36px;height:28px;border-radius:8px;background:var(--lvl,var(--navyMid));
+  color:#fff;font-weight:bold;font-size:12px;display:flex;align-items:center;justify-content:center;padding:0 4px;}
+.som-title{flex:1;min-width:0;font-weight:bold;color:var(--dark);overflow:hidden;text-overflow:ellipsis;}
+.som-ico{flex-shrink:0;font-size:13px;letter-spacing:1px;}
+.som-status{flex-shrink:0;font-size:12px;font-weight:bold;color:var(--slate);min-width:52px;text-align:right;}
+.som-status.done{color:var(--green);}
+.som-sec{margin:16px 0 8px;font-size:18px;font-weight:bold;color:var(--dark);}
+@media print{.top-bar,.bottom-nav,.som-nav,button,.notif-panel{display:none !important;}}

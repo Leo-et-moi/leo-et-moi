@@ -87,9 +87,20 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 - **Cloche 🔔 vivante (option A)** : nouveautés du catalogue (< 21 jours, champ `ajoute`) filtrées par le niveau de l'élève (le prof voit tout) ; pastille rouge = non-vus (marqués vus à l'ouverture du panneau, `lastSeenNews`) ; branchée sur accueil, menu des niveaux et les 6 pages de niveau. Badges **🆕** sur les cartes des pages de niveau/séries — **règle affinée par Eric (27/07) : sans limite de temps** — le badge reste tant que l'élève n'a pas terminé l'item, pour tout contenu ajouté **depuis la création de son compte** (un nouvel inscrit ne voit pas tout le site en 🆕) ; prof : repère d'actualité 21 j. 11 dates posées rétroactivement ; règle « date `ajoute` obligatoire » dans les directives d'Opus ; format validé par check_site.
 - **Annonces e-mail (option B)** : bloc « 📣 Annoncer les nouveautés » au tableau prof — un bouton par niveau, ouvre le logiciel de courrier d'Eric avec les adresses du niveau en copie cachée et un brouillon listant les nouveautés récentes. Zéro quota EmailJS.
 
+## ✅ Traitées (suite — 27/07 par Fable)
+
+- **Sommaire des pages de niveau (validé Eric)** : chapitres repliables (leçon = chapitre contenant ses exercices), rangées compactes 1 ligne (numéro · titre · 🆕 · pictos compétences · statut ✓/▶ abrégé), bandeau de navigation collant avec compteurs, sections Autres exercices / Tests / Séries, plis mémorisés par appareil et **ouverture automatique du chapitre contenant le premier exercice non terminé**. Échelle : des centaines de contenus sans défilement sans fin.
+- **Bouton 🖨️ (validé Eric : RÉSERVÉ AU PROFESSEUR)** : `js/imprimer.js` sur ~48 pages + modèles — visible uniquement en compte prof, feuille d'impression (nav/boutons/audio masqués, noir sur blanc). Philosophie actée : **l'impression est une décision du prof, le site doit suffire aux élèves.**
+
 ## ⏳ En attente
 
-_(aucune)_
+- **📓 Générateur de « Cahier d'exercices de la semaine » — SPEC VALIDÉE par Eric (27/07), à construire par Fable (2-3 sessions)** :
+  - Outil sur le **tableau prof uniquement** (l'élève n'imprime pas) ; sélection **manuelle** des contenus de la semaine (ou pré-remplie depuis le parcours, ajustable).
+  - **Couverture** : marque leo-et-moi + URL du site · « Exercices — semaine du xx/xx/xxxx » · **individualisé : prénom + nom de l'élève, niveau** · date d'impression · **QR code** vers la page audio compagnon (playlist des pistes numérotées de la semaine).
+  - **Première page de consignes** : notamment la « Méthode de Lecture – Reading Method » (modèle Kessel B1-E-003) et la « Méthode d'écoute – Recall Protocol – Listening Method » (modèle Francine C1-E-001) — reprises telles quelles.
+  - Corps : leçons en version lecture + exercices reconstruits en fiches papier depuis les banques `questions.json` (QCM à cocher, lignes d'écriture) + section révision ; **corrigé détachable** en fin (pour le prof).
+
+_(rien d'autre)_
 
 
 
