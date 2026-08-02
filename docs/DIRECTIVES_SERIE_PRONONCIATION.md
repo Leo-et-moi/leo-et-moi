@@ -48,10 +48,10 @@ La série est **regroupée** dans une **catégorie dédiée** de la page de nive
 
 ## 9. Réplication d'un chapitre — procédure (Sonnet)
 
-> **But** : à partir de **(a)** l'audio du chapitre (`ratatouille_chN.mp3`, enregistré par Eric) et **(b)** le transcript brut (texte + n° de page), produire une livraison complète dans `_TRANSFERTS_SONNET`, **sans toucher au HTML ni aux audios**. Un nouveau chapitre = un **nouvel exercice** (nouvel ID, nouveau dossier) ; Opus l'intègre. Cette procédure rend la réplication fiable et répétable.
+> **But** : à partir de **(a)** l'audio du chapitre (`ratatouille_chN.mp3`, enregistré par Eric) et **(b)** le transcript brut (texte + n° de page), produire une livraison complète dans `_TRANSFERTS_SONNET`, **sans toucher au HTML ni aux audios**. **Unité = la PAGE, pas le chapitre.** Un chapitre s'étale sur plusieurs pages ; **un exercice = une page**. Le n° de chapitre et son sous-titre restent tant qu'on ne change pas de chapitre ; c'est la **page** qui avance (ex. après « Ch.1 : La Préparation · p. 3 » vient « Ch.1 : La Préparation · p. **4** » — **même** chapitre). **Ne jamais confondre n° de chapitre et n° de page.** Chaque page = un **nouvel exercice** (nouvel ID, nouveau dossier) ; Opus l'intègre.
 
 ### 9.1 Étapes, dans l'ordre
-1. **En-tête** : niveau A1 · titre = « **La Ratatouille Folle — Ch.N : \<sous-titre\> · p. \<n\>** » · auteur/source (sous-titre + page tirés du transcript).
+1. **En-tête** : niveau A1 · titre = « **La Ratatouille Folle — Ch.\<C\> : \<sous-titre\> · p. \<P\>** » · auteur/source. `C` = n° de **chapitre**, `P` = n° de **page** — deux nombres **distincts**, tirés du transcript ; ne les intervertis pas.
 2. **Coder le texte** mot par mot (9.2), **en écoutant l'audio** pour trancher les liaisons réellement faites.
 3. **Choisir les liaisons** (guide 9.3) et **les mots difficiles** (critères 9.4).
 4. **Construire les 5 blocs d'exercices** (§7 A→E) **avec les bonnes réponses**, en tirant les items **du texte du chapitre**.
@@ -81,7 +81,7 @@ Mots dont la graphie **trompe** un lecteur A1 : `yeux→zieu`, `sœur→seur`, `
 - [ ] Chaque liaison codée est **entendue** dans l'audio ; **aucune** liaison après « et ».
 - [ ] Chaque `<mot|pron>` a une prononciation en syllabes `·`, phonétique française (pas l'API).
 - [ ] Les 5 blocs (A→E) ont leurs **bonnes réponses**, items tirés **du texte**.
-- [ ] En-tête : titre = Œuvre — Ch.N : sous-titre · p. n (+ auteur/source).
+- [ ] En-tête : titre = Œuvre — Ch.\<C\> : sous-titre · p. \<P\> (+ auteur/source) — **chapitre ≠ page**, non intervertis.
 - [ ] **Texte affiché = texte dit** : le script de chaque audio correspond **mot pour mot** à ce qui est affiché.
 - [ ] Liste d'enregistrement = **seulement le nouveau** (9.6).
 
@@ -92,7 +92,7 @@ Mots dont la graphie **trompe** un lecteur A1 : `yeux→zieu`, `sœur→seur`, `
 - tout **mot difficile déjà enregistré** dans un chapitre précédent (même mot = même son : `md_yeux`, etc.).
 
 **Nouveau** — à enregistrer par Eric (128 kbps mono) :
-- `ratatouille_chN.mp3` — l'audio du texte du chapitre ;
+- `ratatouille_ch<C>_p<P>.mp3` — l'audio du texte **de cette page** (l'existant `ratatouille_ch1.mp3` = Ch.1 p.3, conservé tel quel ; toute nouvelle page **inclut la page** dans le nom pour éviter les collisions) ;
 - `A1-E-<ID>_titre.mp3` — le titre parlé (change : il contient le chapitre + la page) ;
 - `A1-E-<ID>_md_<mot>.mp3` — **uniquement** les mots difficiles **inédits** de ce chapitre.
 

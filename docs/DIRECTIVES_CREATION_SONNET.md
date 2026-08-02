@@ -95,7 +95,7 @@ Exercices de lecture / prononciation A1 (modèle : **A1-E-007** Ratatouille).
 
 **Mini-exemple** — « J'ai les yeux verts. » → `J'ai le^s‿^<yeux|zieu> ver{ts}.`
 
-**Réplication d'un nouveau chapitre** — suis la **procédure pas-à-pas de `DIRECTIVES_SERIE_PRONONCIATION.md` §9** : entrées = **audio du chapitre + transcript** ; balisage 9.2 ; guide des liaisons 9.3 ; mots difficiles 9.4 ; auto-contrôle 9.5. **Tranche les liaisons à l'oreille sur l'audio** — ne code que celles réellement prononcées. Dans ta **liste d'enregistrement, ne mets que le NOUVEAU** (audio du texte `ratatouille_chN.mp3`, `_titre.mp3`, et les **mots difficiles inédits**) : les consignes, la légende et les mots difficiles déjà enregistrés sont **réutilisés** (§9.6), ne les redemande pas.
+**Réplication d'une nouvelle page** (⚠️ l'unité qui avance est la **page**, pas le chapitre — un chapitre couvre plusieurs pages ; `Ch.C` et `p.P` sont **deux nombres distincts**, ne les confonds pas) — suis la **procédure pas-à-pas de `DIRECTIVES_SERIE_PRONONCIATION.md` §9** : entrées = **audio du chapitre + transcript** ; balisage 9.2 ; guide des liaisons 9.3 ; mots difficiles 9.4 ; auto-contrôle 9.5. **Tranche les liaisons à l'oreille sur l'audio** — ne code que celles réellement prononcées. Dans ta **liste d'enregistrement, ne mets que le NOUVEAU** (audio du texte `ratatouille_ch<C>_p<P>.mp3`, `_titre.mp3`, et les **mots difficiles inédits**) : les consignes, la légende et les mots difficiles déjà enregistrés sont **réutilisés** (§9.6), ne les redemande pas.
 
 
 ## 5. En cas de doute
