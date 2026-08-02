@@ -20,8 +20,8 @@ function carte(item, n, type, lvlCss) {
   a.href = '/' + item.chemin;
   a.style.setProperty('--lvl', lvlCss);
   let sub = type === 'exercice' ? badges(item.competences) : '';
-  if (item.ajoute && Date.now() - Date.parse(item.ajoute) < 21 * 86400000) {
-    sub += `<span class="new-chip" data-chipkey="${item.progressId || item.id}">🆕 Nouveau</span>`;
+  if (item.ajoute) {
+    sub += `<span class="new-chip" data-chipkey="${item.progressId || item.id}" data-ajoute="${item.ajoute}" style="display:none;">🆕 Nouveau</span>`;
   }
   const status = (type === 'exercice' && item.progressId)
     ? `<div class="lesson-status" data-progress="${item.progressId}">&hellip;</div>` : '';
@@ -107,13 +107,31 @@ async function render() {
 
 /* Progression (scores Firestore) quand l'authentification est prête. */
 function fillProgress() {
-  // Le badge 🆕 disparaît dès que l'item est terminé par CET élève
-  document.querySelectorAll('.new-chip[data-chipkey]').forEach(async (chip) => {
-    try {
-      const d = await window.LEM.getLesson(chip.dataset.chipkey);
-      if (d && d.completed) chip.remove();
-    } catch (e) {}
-  });
+  // Règle d'Eric (27/07) : 🆕 reste tant que l'élève n'a pas terminé l'item,
+  // sans limite de temps — mais seulement pour ce qui a été ajouté DEPUIS la
+  // création de son compte (un nouvel inscrit ne voit pas tout le site en 🆕).
+  // Prof : simple repère d'actualité (21 jours).
+  (async () => {
+    let u = {};
+    try { u = await window.LEM.getUser() || {}; } catch (e) {}
+    const created = u.createdAt
+      ? (u.createdAt.toMillis ? u.createdAt.toMillis() : (u.createdAt.seconds ? u.createdAt.seconds * 1000 : Date.parse(u.createdAt) || 0))
+      : 0;
+    document.querySelectorAll('.new-chip[data-chipkey]').forEach(async (chip) => {
+      const ts = Date.parse(chip.dataset.ajoute || '') || 0;
+      if (u.role === 'teacher') {
+        if (Date.now() - ts < 21 * 86400000) chip.style.display = '';
+        else chip.remove();
+        return;
+      }
+      if (ts < created) { chip.remove(); return; }
+      try {
+        const d = await window.LEM.getLesson(chip.dataset.chipkey);
+        if (d && d.completed) chip.remove();
+        else chip.style.display = '';
+      } catch (e) { chip.style.display = ''; }
+    });
+  })();
   document.querySelectorAll('[data-progress]').forEach(async (el) => {
     try {
       const d = await window.LEM.getLesson(el.dataset.progress);

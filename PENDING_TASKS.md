@@ -84,7 +84,7 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 
 ## ✅ Traitées (suite — 26/07 : notifications de nouveautés, demande Eric)
 
-- **Cloche 🔔 vivante (option A)** : nouveautés du catalogue (< 21 jours, champ `ajoute`) filtrées par le niveau de l'élève (le prof voit tout) ; pastille rouge = non-vus (marqués vus à l'ouverture du panneau, `lastSeenNews`) ; branchée sur accueil, menu des niveaux et les 6 pages de niveau. Badges **🆕** sur les cartes des pages de niveau/séries, **retirés dès que l'élève termine l'item**. 11 dates posées rétroactivement ; règle « date `ajoute` obligatoire » dans les directives d'Opus ; format validé par check_site.
+- **Cloche 🔔 vivante (option A)** : nouveautés du catalogue (< 21 jours, champ `ajoute`) filtrées par le niveau de l'élève (le prof voit tout) ; pastille rouge = non-vus (marqués vus à l'ouverture du panneau, `lastSeenNews`) ; branchée sur accueil, menu des niveaux et les 6 pages de niveau. Badges **🆕** sur les cartes des pages de niveau/séries — **règle affinée par Eric (27/07) : sans limite de temps** — le badge reste tant que l'élève n'a pas terminé l'item, pour tout contenu ajouté **depuis la création de son compte** (un nouvel inscrit ne voit pas tout le site en 🆕) ; prof : repère d'actualité 21 j. 11 dates posées rétroactivement ; règle « date `ajoute` obligatoire » dans les directives d'Opus ; format validé par check_site.
 - **Annonces e-mail (option B)** : bloc « 📣 Annoncer les nouveautés » au tableau prof — un bouton par niveau, ouvre le logiciel de courrier d'Eric avec les adresses du niveau en copie cachée et un brouillon listant les nouveautés récentes. Zéro quota EmailJS.
 
 ## ⏳ En attente
