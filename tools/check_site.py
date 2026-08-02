@@ -46,7 +46,7 @@ AUDIO_ATTENDUS = {
                   # A1-E-007 légende (prononciation des groupes) — en attente
                   
                   # A1-E-007 (Ratatouille) — consignes en attente
-                  "A1-E-007_intro_en.mp3", "A1-E-007_e1_en.mp3", "A1-E-007_e2_en.mp3", "A1-E-007_e3_en.mp3", "A1-E-007_e4_en.mp3",
+                  
                   # Consignes cartes/quiz C1 (Francine + Francis) — en attente
                   "c1_fg_cards_instr_en.mp3", "c1_fg_quiz_instr_en.mp3", "c1_ft_cards_instr_en.mp3", "c1_ft_quiz_instr_en.mp3",
                   # Méthode d'écoute C1 (Francine + Francis) — en attente
