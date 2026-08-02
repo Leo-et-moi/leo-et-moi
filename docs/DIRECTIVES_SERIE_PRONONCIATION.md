@@ -97,3 +97,27 @@ Mots dont la graphie **trompe** un lecteur A1 : `yeux→zieu`, `sœur→seur`, `
 - `A1-E-<ID>_md_<mot>.mp3` — **uniquement** les mots difficiles **inédits** de ce chapitre.
 
 En pratique, la liste d'enregistrement d'un chapitre tient en quelques lignes.
+
+### 9.7 Exigences techniques de la PAGE (pour zéro reprise)
+
+> Depuis **A1-E-009**, Sonnet livre la **page HTML complète** (forme « menu » 5 étapes, validée par Eric). Les points ci-dessous sont les corrections réellement faites à la 1re intégration — les respecter STRICTEMENT évite toute reprise.
+
+**Scripts partagés & connexion** — inclure avant `</body>` : `<script type="module" src="/js/auth-guard.js"></script>` (garde de connexion + `window.LEM`). Bouton « terminé » = **standard du site** : mettre `data-item-id="[[ID]]"` sur `<body>` + `<script type="module" src="/js/terminer.js"></script>`. **NE PAS** coder de bouton « terminé » maison ni de `progressId` inventé (pas de `setLesson('A1-PRO-…')`). `[[ID]]` = placeholder qu'Opus remplace par l'ID définitif.
+
+**Boutons audio EN** — n'ajouter AUCUN bouton 🔊 EN tant que le MP3 `_en` n'existe pas (sinon bouton muet + échec du contrôle qualité). Fournir le **texte** EN (bilingue), pas le bouton. Opus câblera l'EN quand l'audio existera.
+
+**Mot interdit dans le fichier** — ne jamais écrire « speechSynthesis » ni « speak() », **même en commentaire** : le contrôle qualité rejette la chaîne littérale. Écrire « aucune voix synthétique ».
+
+**Consignes canoniques (verbatim, identiques à chaque chapitre — ne pas réécrire)** :
+- Bandeau légende (pliable, **corail/rouge**, pas gris pâle) : « 🔊 Consigne · Instruction — écouter les accents · **Afficher / Show ▾** » ↔ « **Masquer / Hide ▴** ».
+- Étape 1 : « À toi de placer les accents : tape sur chaque lettre colorée, elle change (e → é → è → ê…). Arrête-toi sur le bon accent, puis clique sur « Vérifier ». Pas besoin de clavier ! Les autres couleurs sont déjà là (vert = pour les lettres muettes, rouge = pour les liaisons). » + EN.
+- Étape 2 : « Écoute l'audio (▶ / ❙❙) et lis à haute voix en même temps. Ne prononce pas les lettres vertes. Prononce la liaison rouge (‿). Les accents colorés t'aident à bien prononcer. La couleur orange signale les mots difficiles. » + EN (emphase couleur muet/liaison/orange).
+- Étape 3 (enregistrement) : enregistre / réécoute / **télécharge et envoie à ton professeur** + bouton « Exercice terminé » (via terminer.js). **Aucun upload audio** (pas de plan Blaze).
+- Les 8 lignes de légende (aigu, grave, circonflexe, tréma, cédille, muette, liaison, mot difficile), chacune avec son 🔊, sont également fixes.
+
+**Palette couleur (variables, teintes FONCÉES harmonisées 2026-08)** — utiliser les variables, jamais du hex en dur dans le texte :
+`--aigu:#B8820A; --grave:#B5367A; --circ:#1A8A7A; --trema:#7B3FB5; --cedille:#E8503A; --muet:#1E7B45; --liaison:#C0392B; --diff:#C4640A`.
+
+**Nommage audio** — nouveaux fichiers en préfixe **page** : `ratatouille_ch<C>_p<P>.mp3` (texte), `p<P>_titre.mp3`, `p<P>_md_<mot>.mp3`, `p<P>_hom_<mot>.mp3`. Réutilisés : garder les noms `A1-E-007_*` (Opus les copie). Réfs du HTML, fichiers déposés et liste d'enregistrement doivent être **strictement cohérents** entre eux.
+
+**Liaisons** — vérifier CHAQUE liaison à l'oreille sur l'audio ; ne coder que celles réellement prononcées ; lister à part, pour Eric, toute liaison douteuse.
