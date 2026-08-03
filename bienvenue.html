@@ -111,12 +111,22 @@ Promise.all([
   if(!items.length) return;
   const host=document.getElementById('demoList');
   host.innerHTML='';
-  items.forEach(x=>{
-    const a=document.createElement('a');
-    a.className='som-row'; a.href='/'+x.chemin;
-    a.innerHTML=`<span class="som-num" style="background:${LVL[x.niveau]||'#888'};">${x.niveau}</span>`+
-      `<span class="som-title">${x.titre}</span><span style="color:var(--coral);font-weight:bold;">&#8594;</span>`;
-    host.appendChild(a);
+  const NOMS={A1:'Débutant',A2:'Élémentaire',B1:'Intermédiaire',B2:'Intermédiaire +',C1:'Avancé',C2:'Maîtrise'};
+  ['A1','A2','B1','B2','C1','C2'].forEach(NV=>{
+    const grp=items.filter(x=>x.niveau===NV).sort((a,b)=>(a.ordre||0)-(b.ordre||0));
+    if(!grp.length) return;
+    const h=document.createElement('div');
+    h.style.cssText=`background:${LVL[NV]};color:#fff;font-weight:bold;font-size:14px;`+
+      'padding:5px 12px;border-radius:10px;margin:10px 0 4px;';
+    h.textContent=`${NV} — ${NOMS[NV]}`;
+    host.appendChild(h);
+    grp.forEach(x=>{
+      const a=document.createElement('a');
+      a.className='som-row'; a.href='/'+x.chemin;
+      a.innerHTML=`<span class="som-num" style="background:${LVL[NV]||'#888'};">${x.chemin.includes('/exercices')||x.id.includes('-E-')?'✏️':'📖'}</span>`+
+        `<span class="som-title">${x.titre}</span><span style="color:var(--coral);font-weight:bold;">&#8594;</span>`;
+      host.appendChild(a);
+    });
   });
 }).catch(()=>{});
 </script>
