@@ -40,7 +40,9 @@ footer{max-width:720px;margin:34px auto 0;padding:14px;text-align:center;color:v
 
 <div class="hero">
   <h1>Leo<span>-et-</span>moi</h1>
-  <p>Apprendre le français à voix haute, pas à pas, avec un professeur.<br>
+  <p><button class="t-play" style="vertical-align:middle;" onclick="playAudio('/french/audio/bv_slogan.mp3',this)" aria-label="Écouter">🔊</button>
+  Apprendre le français à voix haute, pas à pas, avec un professeur.<br>
+  <button class="t-en" style="vertical-align:middle;" onclick="playAudio('/french/audio/bv_slogan_en.mp3',this)" aria-label="English">🔊 EN</button>
   <span style="font-size:15px;">Learn French out loud, step by step, with a teacher.</span></p>
   <div class="niv">
     <span style="background:#C0392B;">A1</span><span style="background:#E07B39;">A2</span>
@@ -52,16 +54,19 @@ footer{max-width:720px;margin:34px auto 0;padding:14px;text-align:center;color:v
 <div class="cartes">
   <div class="carte"><div class="pic">🔊</div>
     <h2>Des voix francophones</h2>
-    <p>Un site entièrement sonorisé : chaque consigne, chaque leçon et chaque exercice
-    sont accessibles avec des boutons audio.</p></div>
+    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte1.mp3',this)" aria-label="Écouter">🔊</button> Un site entièrement sonorisé : chaque consigne, chaque leçon et chaque exercice
+    sont accessibles avec des boutons audio.</p>
+    <p class="en" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte1_en.mp3',this)" aria-label="English">🔊 EN</button> French-speaking voices — a fully voiced site: every instruction, every lesson and every exercise can be played with audio buttons.</p></div>
   <div class="carte"><div class="pic">🪜</div>
     <h2>Un parcours à 6 niveaux</h2>
-    <p>Du débutant vers le bilinguisme : tous les cours sont adaptés à votre niveau —
-    et au niveau supérieur, pour vous faire progresser.</p></div>
+    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte2.mp3',this)" aria-label="Écouter">🔊</button> Du débutant vers le bilinguisme : tous les cours sont adaptés à votre niveau —
+    et au niveau supérieur, pour vous faire progresser.</p>
+    <p class="en" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte2_en.mp3',this)" aria-label="English">🔊 EN</button> A 6-level learning path — from beginner to bilingual: every course matches your level, and the next one up, to keep you progressing.</p></div>
   <div class="carte"><div class="pic">🤝</div>
     <h2>Vous n'êtes pas seul(e)</h2>
-    <p>Ce site ne s'utilise pas seul comme une app : un professeur vous accompagne —
-    le site ne le remplace pas.</p></div>
+    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte3.mp3',this)" aria-label="Écouter">🔊</button> Ce site ne s'utilise pas seul comme une app : un professeur vous accompagne —
+    le site ne le remplace pas.</p>
+    <p class="en" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte3_en.mp3',this)" aria-label="English">🔊 EN</button> You are not alone — this site is not a stand-alone app: a teacher guides you, and the site does not replace them.</p></div>
 </div>
 
 <!-- PRÉSENTATION DU PROFESSEUR — EN ATTENTE (portrait + DLIFLC/MIIS + vidéo) -->
@@ -69,16 +74,19 @@ footer{max-width:720px;margin:34px auto 0;padding:14px;text-align:center;color:v
 
 <div class="bloc">
   <div class="card" style="max-width:none;">
-    <b style="font-size:19px;">🎓 Essayer la démo</b>
-    <p style="font-size:15px;color:var(--slate);margin:6px 0 10px;">Quelques leçons et exercices en accès
-    libre, choisis par le professeur. <span class="en" style="text-align:left;">A few free-access lessons and exercises, picked by the teacher.</span></p>
+    <b style="font-size:19px;">🎓 Essayer la démo <span style="font-weight:normal;font-size:14px;color:var(--slate);">· Try the demo</span></b>
+    <p style="font-size:15px;color:var(--slate);margin:6px 0 10px;">
+    <button class="t-play" style="width:30px;height:30px;font-size:13px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_demo.mp3',this)" aria-label="Écouter">🔊</button>
+    Quelques leçons et exercices en accès libre, choisis par le professeur.<br>
+    <button class="t-en" onclick="playAudio('/french/audio/bv_demo_en.mp3',this)" aria-label="English">🔊 EN</button>
+    <span class="en" style="text-align:left;display:inline;">A few free-access lessons and exercises, picked by the teacher.</span></p>
     <div id="demoList"><div style="color:var(--slate);font-size:14px;">La démo arrive bientôt — repassez nous voir !</div></div>
   </div>
 </div>
 
 <div class="cta">
-  <a class="co" href="/login.html">Se connecter →</a>
-  <a class="de" href="mailto:eric.poli.0503@gmail.com?subject=Leo-et-moi%20—%20cours%20de%20fran%C3%A7ais">Contacter le professeur</a>
+  <a class="co" href="/login.html">Se connecter · Sign in →</a>
+  <a class="de" href="mailto:eric.poli.0503@gmail.com?subject=Leo-et-moi%20—%20cours%20de%20fran%C3%A7ais">Contacter le professeur · Contact the teacher</a>
 </div>
 
 <footer>leo-et-moi.com — un site-support de cours de français, conçu pour ses élèves.</footer>
@@ -109,5 +117,6 @@ Promise.all([
   });
 }).catch(()=>{});
 </script>
+<script src="/js/audio.js"></script>
 </body>
 </html>

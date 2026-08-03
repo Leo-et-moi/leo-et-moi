@@ -212,7 +212,7 @@ async function blocGestion(){
   }).join('');
   return '<details style="background:#fff;border:1px solid var(--divider);border-radius:14px;padding:12px 14px;margin-bottom:14px;">'+
     '<summary style="font-weight:bold;cursor:pointer;">⚙️ Gestion du contenu — 🔧 masquer (en correction) · 🎓 mettre en démo publique</summary>'+
-    '<div style="max-height:340px;overflow:auto;margin-top:8px;">'+rows+'</div>'+
+    '<div style="max-height:340px;overflow-y:scroll;margin-top:8px;padding-right:18px;scrollbar-gutter:stable;">'+rows+'</div>'+
     '<button id="btnGestion" style="margin-top:10px;background:var(--coral);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;">💾 Enregistrer</button>'+
     ' <span id="gestionFb" style="font-size:13px;font-weight:bold;"></span>'+
     '<div style="font-size:12px;color:var(--slate);margin-top:6px;">🔧 : la page affiche « en correction » aux élèves (toi tu y accèdes). 🎓 : visible sans connexion via la page publique <b>bienvenue.html</b> et son QR code — change la sélection quand tu veux, effet immédiat.</div>'+
@@ -243,7 +243,7 @@ async function blocTests(){
     'Questions : <input id="tpNb" type="number" value="10" min="1" max="60" style="width:60px;padding:4px;"> '+
     'Durée (min, vide = sans limite) : <input id="tpDuree" type="number" min="1" max="120" style="width:60px;padding:4px;">'+
     '<div style="margin:8px 0 4px;font-weight:bold;">Sources (exercices avec banque) :</div>'+
-    '<div style="max-height:180px;overflow:auto;border:1px solid var(--divider);border-radius:8px;padding:6px;">'+srcRows+'</div>'+
+    '<div style="max-height:180px;overflow-y:scroll;border:1px solid var(--divider);border-radius:8px;padding:6px 18px 6px 6px;scrollbar-gutter:stable;">'+srcRows+'</div>'+
     '<button id="btnTest" style="margin-top:10px;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;">➕ Créer le test</button>'+
     ' <span id="testFb" style="font-size:13px;font-weight:bold;"></span>'+
     '<div style="margin-top:10px;font-weight:bold;">Tes tests :</div>'+existants+

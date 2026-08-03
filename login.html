@@ -64,7 +64,13 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 <body>
 
 <div class="brand">Leo<span>-et-</span>moi</div>
-<div class="tagline">Connecte-toi pour retrouver tes progrès</div>
+<div class="tagline">Connecte-toi pour retrouver tes progrès<br><span style="font-size:12px;opacity:.85;">Sign in to pick up where you left off</span></div>
+<p style="text-align:center;margin:10px 0 2px;font-size:15px;">
+  <button class="t-play" style="width:30px;height:30px;font-size:13px;background:#2C4A7C;color:#fff;border:none;border-radius:50%;cursor:pointer;vertical-align:middle;" onclick="playAudio('/french/audio/lg_decouvrir.mp3',this)" aria-label="Écouter">🔊</button>
+  <a href="bienvenue.html" style="color:#2C4A7C;font-weight:bold;">🎓 Découvrir le site &amp; essayer la démo →</a><br>
+  <button class="t-en" style="background:#fff;border:1.5px solid #2C4A7C;color:#2C4A7C;border-radius:8px;font-size:11px;font-weight:bold;padding:2px 7px;cursor:pointer;vertical-align:middle;" onclick="playAudio('/french/audio/lg_decouvrir_en.mp3',this)" aria-label="English">🔊 EN</button>
+  <a href="bienvenue.html" style="color:#4A6580;font-size:13px;">Discover the site &amp; try the demo →</a>
+</p>
 
 <div class="card">
 
@@ -201,6 +207,6 @@ function friendly(e){
 }
 </script>
 
-<p style="text-align:center;margin-top:18px;"><a href="bienvenue.html" style="color:#2C4A7C;font-weight:bold;font-size:15px;">🎓 Découvrir le site &amp; essayer la démo →</a></p>
+<script src="/js/audio.js"></script>
 </body>
 </html>
