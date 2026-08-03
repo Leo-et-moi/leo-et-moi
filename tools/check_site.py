@@ -90,6 +90,19 @@ if catalog:
         p = ROOT / it["chemin"]
         if not p.exists():
             err(f"{i} : chemin inexistant → {it['chemin']}")
+    # Étiquette d'identité des pages (data-item-id) : requise par le bouton
+    # Terminé, la maintenance 🔧 et la démo 🎓 (bug A1-E-009 du 29/07)
+    import re as _re
+    for i, it in {**lecons, **exercices}.items():
+        pg = ROOT / it["chemin"]
+        if not pg.exists():
+            continue
+        m = _re.search(r'<body[^>]*data-item-id="([^"]*)"', pg.read_text(encoding="utf-8", errors="ignore"))
+        if not m:
+            err(f"{i} : la page {it['chemin']} n'a pas d'attribut data-item-id sur <body>")
+        elif m.group(1) != i:
+            err(f"{i} : data-item-id incohérent dans {it['chemin']} → {m.group(1)}")
+
     # Cohérence des liens L <-> E
     for i, e in exercices.items():
         for lid in e.get("lecons", []):
