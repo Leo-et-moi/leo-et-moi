@@ -38,6 +38,17 @@ async function init() {
   const id = new URLSearchParams(location.search).get('id');
   const c = await loadCatalog();
   def = (c.tests || []).find((t) => t.id === id && t.publie);
+  if (!def && id && id.startsWith('TP-')) {
+    // Test composé par le professeur (Firestore lessons/_testsProf), sans déploiement
+    await new Promise((res) => {
+      if (window.LEM && window.LEM.user) res();
+      else document.addEventListener('lem-auth-ready', () => res(), { once: true });
+    });
+    try {
+      const cfg = await window.LEM.getConfig('_testsProf');
+      def = ((cfg && cfg.defs) || []).find((t) => t.id === id);
+    } catch (e) {}
+  }
   if (!def) { $('titre').textContent = 'Test introuvable'; return; }
   document.title = def.titre + ' — Leo-et-moi';
   $('titre').textContent = (def.type === 'examen' ? '🎓 ' : '📝 ') + def.titre;

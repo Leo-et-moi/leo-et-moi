@@ -42,6 +42,7 @@ function etatFait(ui) {
 }
 
 async function init() {
+  if (window.LEM && window.LEM.demo) return;   // pas de complétion en démo
   const mode = document.body.dataset.terminer || 'auto';
   if (mode === 'off') return;
   const id = document.body.dataset.itemId;

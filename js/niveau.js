@@ -35,7 +35,7 @@ function rang(item, num, type, lien) {
   const key = type === 'test' ? item.id : (item.progressId || item.id);
   const stat = `<span class="som-status" data-progress="${key}"></span>`;
   const ico = type === 'lecon' ? '' : `<span class="som-ico">${icones(item.competences)}</span>`;
-  return `<a class="som-row" href="${lien}" data-key="${key}">` +
+  return `<a class="som-row" href="${lien}" data-key="${key}" data-cid="${item.id}">` +
     `<span class="som-num">${num}</span>` +
     `<span class="som-title">${item.titre}${chip(item)}</span>` +
     ico + stat + `<span style="color:var(--coral);font-weight:bold;">&#8594;</span></a>`;
@@ -174,6 +174,48 @@ function fillProgress() {
         if (d && d.completed) c.remove(); else c.style.display = '';
       } catch (e) { c.style.display = ''; }
     });
+
+    // 🔧 Maintenance : items masqués par le prof (barrés pour les élèves)
+    try {
+      const cfgM = await window.LEM.getConfig('_masquage');
+      const masques = (cfgM && cfgM.ids) || [];
+      if (masques.length) {
+        document.querySelectorAll('.som-row[data-cid]').forEach((row) => {
+          if (!masques.includes(row.dataset.cid)) return;
+          row.querySelector('.som-title').innerHTML += ' <span style="font-size:12px;">🔧 en correction</span>';
+          if (u.role !== 'teacher') {
+            row.style.opacity = '0.5';
+            row.removeAttribute('href');
+            row.style.pointerEvents = 'none';
+          }
+        });
+      }
+    } catch (e) {}
+
+    // 📝 Tests composés par le prof (Firestore) : injectés dans la section Tests
+    try {
+      const cfgT = await window.LEM.getConfig('_testsProf');
+      const defs = ((cfgT && cfgT.defs) || []).filter((d) => d.niveau === NIV && d.publie !== false);
+      if (defs.length) {
+        let sec = document.getElementById('sec-tests');
+        let host;
+        if (!sec) {
+          const som = document.getElementById('sommaire');
+          som.insertAdjacentHTML('beforeend', '<div class="som-sec" id="sec-tests">📝 Tests</div><div class="som-chap open" id="chap-tests-prof"><div class="som-chap-rows"></div></div>');
+          host = document.querySelector('#chap-tests-prof .som-chap-rows');
+        } else {
+          host = sec.nextElementSibling.querySelector('.som-chap-rows');
+        }
+        defs.forEach((d, i) => {
+          host.insertAdjacentHTML('beforeend',
+            `<a class="som-row" href="/french/tests/test.html?id=${d.id}">` +
+            `<span class="som-num">📝</span><span class="som-title">${d.titre}</span>` +
+            `<span class="som-ico" style="font-size:11px;">${d.nbQuestions} q${d.duree ? ' · ' + d.duree + ' min' : ''}</span>` +
+            `<span class="som-status" data-progress="${d.id}"></span>` +
+            `<span style="color:var(--coral);font-weight:bold;">&#8594;</span></a>`);
+        });
+      }
+    } catch (e) {}
 
     // Statuts + détection du premier non-terminé (ouverture auto du chapitre)
     const rows = [...document.querySelectorAll('.som-status[data-progress]')];

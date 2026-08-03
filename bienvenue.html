@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenue — Leo-et-moi · Apprendre le français avec un professeur</title>
+<meta name="description" content="leo-et-moi.com : un site d'apprentissage du français entièrement sonorisé par des voix francophones, 6 niveaux, accompagné par un professeur.">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+body{padding-bottom:24px;}
+.hero{background:linear-gradient(135deg,#1B2845 0%,#2C4A7C 55%,#E8503A 140%);color:#fff;
+  padding:46px 18px 40px;text-align:center;}
+.hero h1{font-size:34px;margin:0 0 6px;animation:pose .7s ease both;}
+.hero h1 span{color:#FFB4A6;}
+.hero p{font-size:19px;color:#D9E4F2;max-width:640px;margin:0 auto;animation:pose .7s .15s ease both;}
+@keyframes pose{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.cartes{max-width:960px;margin:-24px auto 0;padding:0 14px;display:grid;gap:14px;}
+@media(min-width:720px){.cartes{grid-template-columns:1fr 1fr 1fr;}}
+.carte{background:#fff;border-radius:16px;padding:20px 18px;box-shadow:0 6px 22px rgba(27,40,69,.14);
+  border-top:5px solid var(--coral);animation:pose .6s ease both;}
+.carte:nth-child(2){border-top-color:var(--gold);animation-delay:.15s;}
+.carte:nth-child(3){border-top-color:var(--navyMid);animation-delay:.3s;}
+.carte .pic{font-size:34px;animation:flotte 3.2s ease-in-out infinite;}
+.carte:nth-child(2) .pic{animation-delay:.4s}.carte:nth-child(3) .pic{animation-delay:.8s}
+@keyframes flotte{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.carte h2{font-size:19px;color:var(--dark);margin:8px 0 6px;}
+.carte p{font-size:15.5px;color:var(--text);margin:0;}
+.bloc{max-width:720px;margin:26px auto 0;padding:0 14px;}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
+.cta a{text-decoration:none;font-weight:bold;border-radius:14px;padding:14px 26px;font-size:18px;}
+.cta .co{background:var(--coral);color:#fff;}
+.cta .de{background:#fff;color:var(--navyMid);border:2px solid var(--navyMid);}
+.niv{display:flex;gap:6px;justify-content:center;margin-top:18px;flex-wrap:wrap;}
+.niv span{color:#fff;font-weight:bold;border-radius:10px;padding:6px 12px;font-size:14px;}
+footer{max-width:720px;margin:34px auto 0;padding:14px;text-align:center;color:var(--slate);font-size:13px;
+  border-top:1px solid var(--divider);}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Leo<span>-et-</span>moi</h1>
+  <p>Apprendre le français à voix haute, pas à pas, avec un professeur.<br>
+  <span style="font-size:15px;">Learn French out loud, step by step, with a teacher.</span></p>
+  <div class="niv">
+    <span style="background:#C0392B;">A1</span><span style="background:#E07B39;">A2</span>
+    <span style="background:#D4920A;">B1</span><span style="background:#7CB82F;">B2</span>
+    <span style="background:#27AE60;">C1</span><span style="background:#1A5C38;">C2</span>
+  </div>
+</div>
+
+<div class="cartes">
+  <div class="carte"><div class="pic">🔊</div>
+    <h2>Des voix francophones</h2>
+    <p>Un site entièrement sonorisé : chaque consigne, chaque leçon et chaque exercice
+    sont accessibles avec des boutons audio.</p></div>
+  <div class="carte"><div class="pic">🪜</div>
+    <h2>Un parcours à 6 niveaux</h2>
+    <p>Du débutant vers le bilinguisme : tous les cours sont adaptés à votre niveau —
+    et au niveau supérieur, pour vous faire progresser.</p></div>
+  <div class="carte"><div class="pic">🤝</div>
+    <h2>Vous n'êtes pas seul(e)</h2>
+    <p>Ce site ne s'utilise pas seul comme une app : un professeur vous accompagne —
+    le site ne le remplace pas.</p></div>
+</div>
+
+<!-- PRÉSENTATION DU PROFESSEUR — EN ATTENTE (portrait + DLIFLC/MIIS + vidéo) -->
+<div class="bloc" id="prof" style="display:none;"></div>
+
+<div class="bloc">
+  <div class="card" style="max-width:none;">
+    <b style="font-size:19px;">🎓 Essayer la démo</b>
+    <p style="font-size:15px;color:var(--slate);margin:6px 0 10px;">Quelques leçons et exercices en accès
+    libre, choisis par le professeur. <span class="en" style="text-align:left;">A few free-access lessons and exercises, picked by the teacher.</span></p>
+    <div id="demoList"><div style="color:var(--slate);font-size:14px;">La démo arrive bientôt — repassez nous voir !</div></div>
+  </div>
+</div>
+
+<div class="cta">
+  <a class="co" href="/login.html">Se connecter →</a>
+  <a class="de" href="mailto:eric.poli.0503@gmail.com?subject=Leo-et-moi%20—%20cours%20de%20fran%C3%A7ais">Contacter le professeur</a>
+</div>
+
+<footer>leo-et-moi.com — un site-support de cours de français, conçu pour ses élèves.</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const app = initializeApp({ apiKey:"AIzaSyC9ZF5NapFmCImXttk8S22OjWoGCx2Ztqk", authDomain:"leo-et-moi.firebaseapp.com",
+  projectId:"leo-et-moi", storageBucket:"leo-et-moi.firebasestorage.app",
+  messagingSenderId:"293051167258", appId:"1:293051167258:web:08d192bd132de2b89ad7a3" });
+const db = getFirestore(app);
+const LVL = { A1:'#C0392B',A2:'#E07B39',B1:'#D4920A',B2:'#7CB82F',C1:'#27AE60',C2:'#1A5C38' };
+Promise.all([
+  fetch('/catalog.json').then(r=>r.json()),
+  getDoc(doc(db,'lessons','_demo')).then(s=>(s.exists()&&s.data().ids)||[]).catch(()=>[])
+]).then(([c, ids])=>{
+  if(!ids.length) return;
+  const items=[...c.lecons, ...c.exercices].filter(x=>ids.includes(x.id)&&x.publie);
+  if(!items.length) return;
+  const host=document.getElementById('demoList');
+  host.innerHTML='';
+  items.forEach(x=>{
+    const a=document.createElement('a');
+    a.className='som-row'; a.href='/'+x.chemin;
+    a.innerHTML=`<span class="som-num" style="background:${LVL[x.niveau]||'#888'};">${x.niveau}</span>`+
+      `<span class="som-title">${x.titre}</span><span style="color:var(--coral);font-weight:bold;">&#8594;</span>`;
+    host.appendChild(a);
+  });
+}).catch(()=>{});
+</script>
+</body>
+</html>

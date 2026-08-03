@@ -193,6 +193,105 @@ function annonces(students){
   return html+'</div>';
 }
 
+// ── Gestion du contenu : interrupteurs Masqué 🔧 / Démo 🎓 (Eric, 28/07) ──
+async function blocGestion(){
+  var c=CAT.raw; if(!c) return '';
+  var masques=[], demos=[];
+  try{ var m=await window.LEM.getConfig('_masquage'); masques=(m&&m.ids)||[]; }catch(e){}
+  try{ var d=await window.LEM.getConfig('_demo'); demos=(d&&d.ids)||[]; }catch(e){}
+  var items=[].concat(
+    (c.lecons||[]).map(function(x){return {id:x.id,titre:'📖 '+x.titre,niveau:x.niveau};}),
+    (c.exercices||[]).map(function(x){return {id:x.id,titre:'✏️ '+x.titre,niveau:x.niveau};}));
+  var rows=items.map(function(x){
+    return '<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-top:1px solid var(--divider);font-size:13px;">'+
+      '<span class="lvl-pill" style="background:'+(LVLCOLOR[x.niveau.toLowerCase()]||'#888')+'">'+x.niveau+'</span>'+
+      '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+esc(x.titre)+'</span>'+
+      '<label style="white-space:nowrap;">🔧 <input type="checkbox" class="cb-masque" value="'+x.id+'"'+(masques.indexOf(x.id)>=0?' checked':'')+'></label>'+
+      '<label style="white-space:nowrap;">🎓 <input type="checkbox" class="cb-demo" value="'+x.id+'"'+(demos.indexOf(x.id)>=0?' checked':'')+'></label>'+
+      '</div>';
+  }).join('');
+  return '<details style="background:#fff;border:1px solid var(--divider);border-radius:14px;padding:12px 14px;margin-bottom:14px;">'+
+    '<summary style="font-weight:bold;cursor:pointer;">⚙️ Gestion du contenu — 🔧 masquer (en correction) · 🎓 mettre en démo publique</summary>'+
+    '<div style="max-height:340px;overflow:auto;margin-top:8px;">'+rows+'</div>'+
+    '<button id="btnGestion" style="margin-top:10px;background:var(--coral);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;">💾 Enregistrer</button>'+
+    ' <span id="gestionFb" style="font-size:13px;font-weight:bold;"></span>'+
+    '<div style="font-size:12px;color:var(--slate);margin-top:6px;">🔧 : la page affiche « en correction » aux élèves (toi tu y accèdes). 🎓 : visible sans connexion via la page publique <b>bienvenue.html</b> et son QR code — change la sélection quand tu veux, effet immédiat.</div>'+
+    '</details>';
+}
+
+// ── Compositeur de tests (Eric, 28/07) : tests créés par le prof, sans déploiement ──
+async function blocTests(){
+  var c=CAT.raw; if(!c) return '';
+  var cfg=null; try{ cfg=await window.LEM.getConfig('_testsProf'); }catch(e){}
+  var defs=(cfg&&cfg.defs)||[];
+  var sources=(c.exercices||[]).filter(function(e){return e.questions;});
+  var opts=['A1','A2','B1','B2','C1','C2'].map(function(n){return '<option>'+n+'</option>';}).join('');
+  var srcRows=sources.map(function(e){
+    return '<label style="display:block;font-size:13px;padding:2px 0;"><input type="checkbox" class="cb-src" value="'+e.id+'" data-niveau="'+e.niveau+'"> '+e.niveau+' · '+esc(e.titre)+'</label>';
+  }).join('');
+  var existants=defs.map(function(d,i){
+    return '<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:4px 0;border-top:1px solid var(--divider);">'+
+      '<span style="flex:1;">📝 '+esc(d.titre)+' ('+d.niveau+' · '+d.nbQuestions+' q'+(d.duree?' · '+d.duree+' min':'')+')</span>'+
+      '<a href="french/tests/test.html?id='+d.id+'" style="font-size:12px;">ouvrir</a>'+
+      '<button class="btn-suppr-test" data-i="'+i+'" style="background:none;border:none;color:#C0392B;font-weight:bold;cursor:pointer;">✕</button></div>';
+  }).join('') || '<div style="font-size:13px;color:var(--slate);">Aucun test de prof pour l\'instant.</div>';
+  return '<details style="background:#fff;border:1px solid var(--divider);border-radius:14px;padding:12px 14px;margin-bottom:14px;">'+
+    '<summary style="font-weight:bold;cursor:pointer;">📝 Composer un test (sans déploiement)</summary>'+
+    '<div style="margin-top:8px;font-size:14px;">'+
+    'Titre : <input id="tpTitre" type="text" placeholder="Test de la semaine — Nombres" style="width:60%;font-family:Arial;padding:5px;border:1px solid var(--divider);border-radius:8px;"><br>'+
+    'Niveau : <select id="tpNiveau" style="font-family:Arial;padding:4px;">'+opts+'</select> '+
+    'Questions : <input id="tpNb" type="number" value="10" min="1" max="60" style="width:60px;padding:4px;"> '+
+    'Durée (min, vide = sans limite) : <input id="tpDuree" type="number" min="1" max="120" style="width:60px;padding:4px;">'+
+    '<div style="margin:8px 0 4px;font-weight:bold;">Sources (exercices avec banque) :</div>'+
+    '<div style="max-height:180px;overflow:auto;border:1px solid var(--divider);border-radius:8px;padding:6px;">'+srcRows+'</div>'+
+    '<button id="btnTest" style="margin-top:10px;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;">➕ Créer le test</button>'+
+    ' <span id="testFb" style="font-size:13px;font-weight:bold;"></span>'+
+    '<div style="margin-top:10px;font-weight:bold;">Tes tests :</div>'+existants+
+    '</div></details>';
+}
+
+function cableGestion(){
+  var b=document.getElementById('btnGestion');
+  if(b) b.addEventListener('click', async function(){
+    var masques=[].map.call(document.querySelectorAll('.cb-masque:checked'),function(x){return x.value;});
+    var demos=[].map.call(document.querySelectorAll('.cb-demo:checked'),function(x){return x.value;});
+    var fb=document.getElementById('gestionFb');
+    try{
+      await window.LEM.setConfig('_masquage',{ids:masques});
+      await window.LEM.setConfig('_demo',{ids:demos});
+      fb.textContent='✓ enregistré'; fb.style.color='var(--green)';
+    }catch(e){ fb.textContent='✗ échec'; fb.style.color='#C0392B'; }
+  });
+  var bt=document.getElementById('btnTest');
+  if(bt) bt.addEventListener('click', async function(){
+    var fb=document.getElementById('testFb');
+    var niveau=document.getElementById('tpNiveau').value;
+    var srcs=[].map.call(document.querySelectorAll('.cb-src:checked'),function(x){return x.value;});
+    var titre=document.getElementById('tpTitre').value.trim()||('Test '+niveau+' du '+new Date().toLocaleDateString('fr-FR'));
+    var nb=parseInt(document.getElementById('tpNb').value,10)||10;
+    var duree=parseInt(document.getElementById('tpDuree').value,10)||null;
+    if(!srcs.length){ fb.textContent='choisis au moins une source'; fb.style.color='#C0392B'; return; }
+    try{
+      var cfg=await window.LEM.getConfig('_testsProf')||{defs:[]};
+      cfg.defs=cfg.defs||[];
+      cfg.defs.push({id:'TP-'+Date.now(), type:'test', niveau:niveau, titre:titre,
+        sources:srcs, nbQuestions:nb, duree:duree, publie:true, ajoute:new Date().toISOString().slice(0,10)});
+      await window.LEM.setConfig('_testsProf',cfg);
+      fb.textContent='✓ créé — visible immédiatement sur la page '+niveau; fb.style.color='var(--green)';
+    }catch(e){ fb.textContent='✗ échec'; fb.style.color='#C0392B'; }
+  });
+  document.querySelectorAll('.btn-suppr-test').forEach(function(x){
+    x.addEventListener('click', async function(){
+      try{
+        var cfg=await window.LEM.getConfig('_testsProf')||{defs:[]};
+        cfg.defs.splice(parseInt(x.getAttribute('data-i'),10),1);
+        await window.LEM.setConfig('_testsProf',cfg);
+        x.closest('div').remove();
+      }catch(e){}
+    });
+  });
+}
+
 function render(content, students){
   if(!students.length){ content.innerHTML='<div class="notice">Aucun &eacute;l&egrave;ve pour l&rsquo;instant.</div>'; return; }
   var totalDone=0;
@@ -254,6 +353,10 @@ function render(content, students){
     html+='</div>';
   });
   content.innerHTML='<div class="summary">'+students.length+' élève(s) · '+totalDone+' exercice(s) terminé(s) au total</div>'+annonces(students)+html;
+  Promise.all([blocGestion(), blocTests()]).then(function(blocs){
+    content.insertAdjacentHTML('afterbegin', blocs[0]+blocs[1]);
+    cableGestion();
+  });
   // Changement de niveau (les règles Firestore autorisent déjà le prof à écrire)
   content.querySelectorAll('.lvl-select').forEach(function(sel){
     sel.addEventListener('change', async function(){

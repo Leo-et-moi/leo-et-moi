@@ -347,6 +347,20 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 </nav>
 
 <script>
+// ── SECTIONS MISES DE CÔTÉ (décision Eric, 28/07/2026) ───────────────────
+// Échauffement, Révision, Phrase, Vocabulaire, Anatomie : masquées, PAS
+// supprimées. Pour les réactiver : passer cette constante à false.
+var SECTIONS_HEBDO_MASQUEES = true;
+if (SECTIONS_HEBDO_MASQUEES) {
+  ['warmupTag','warmupHost','revisionHost','semaineHosts'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) { var card = el.closest('.warmup-card') || el; card.style.display = 'none'; }
+  });
+  document.querySelectorAll('.sec-label').forEach(function(l){
+    if (/Échauffement|\u00c9chauffement/.test(l.textContent)) l.style.display = 'none';
+  });
+}
+
 // ── Compteurs de niveaux (catalog.json) ──────────────────────
 fetch('catalog.json',{cache:'no-store'}).then(function(r){
   if(!r.ok) throw new Error('HTTP '+r.status);

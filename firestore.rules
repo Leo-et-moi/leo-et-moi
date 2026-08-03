@@ -50,7 +50,9 @@ service cloud.firestore {
 
     // ── LESSONS (shared metadata) ────────────────────────────
     match /lessons/{lessonId} {
-      allow read: if signedIn();
+      // '_demo' est lisible SANS connexion : la vitrine publique et le mode
+      // démo (QR code) doivent connaître la sélection du professeur.
+      allow read: if signedIn() || lessonId == '_demo';
       allow write: if isTeacher();
     }
   }
