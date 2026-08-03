@@ -200,16 +200,22 @@ async function blocGestion(){
   try{ var m=await window.LEM.getConfig('_masquage'); masques=(m&&m.ids)||[]; }catch(e){}
   try{ var d=await window.LEM.getConfig('_demo'); demos=(d&&d.ids)||[]; }catch(e){}
   var items=[].concat(
-    (c.lecons||[]).map(function(x){return {id:x.id,titre:'📖 '+x.titre,niveau:x.niveau};}),
-    (c.exercices||[]).map(function(x){return {id:x.id,titre:'✏️ '+x.titre,niveau:x.niveau};}));
-  var rows=items.map(function(x){
-    return '<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-top:1px solid var(--divider);font-size:13px;">'+
-      '<span class="lvl-pill" style="background:'+(LVLCOLOR[x.niveau.toLowerCase()]||'#888')+'">'+x.niveau+'</span>'+
-      '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+esc(x.titre)+'</span>'+
-      '<label style="white-space:nowrap;">🔧 <input type="checkbox" class="cb-masque" value="'+x.id+'"'+(masques.indexOf(x.id)>=0?' checked':'')+'></label>'+
-      '<label style="white-space:nowrap;">🎓 <input type="checkbox" class="cb-demo" value="'+x.id+'"'+(demos.indexOf(x.id)>=0?' checked':'')+'></label>'+
-      '</div>';
-  }).join('');
+    (c.lecons||[]).map(function(x){return {id:x.id,titre:'📖 '+x.titre,niveau:x.niveau,ordre:x.ordre||0};}),
+    (c.exercices||[]).map(function(x){return {id:x.id,titre:'✏️ '+x.titre,niveau:x.niveau,ordre:x.ordre||0};}));
+  var rows='';
+  ['A1','A2','B1','B2','C1','C2'].forEach(function(NV){
+    var grp=items.filter(function(x){return x.niveau===NV;}).sort(function(a,b){return a.ordre-b.ordre;});
+    if(!grp.length) return;
+    rows+='<div style="position:sticky;top:0;background:'+(LVLCOLOR[NV.toLowerCase()]||'#888')+';color:#fff;'+
+      'font-weight:bold;font-size:13px;padding:4px 10px;border-radius:8px;margin-top:8px;">'+NV+' — '+grp.length+' contenu'+(grp.length>1?'s':'')+'</div>';
+    rows+=grp.map(function(x){
+      return '<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-top:1px solid var(--divider);font-size:13px;">'+
+        '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+esc(x.titre)+'</span>'+
+        '<label style="white-space:nowrap;">🔧 <input type="checkbox" class="cb-masque" value="'+x.id+'"'+(masques.indexOf(x.id)>=0?' checked':'')+'></label>'+
+        '<label style="white-space:nowrap;">🎓 <input type="checkbox" class="cb-demo" value="'+x.id+'"'+(demos.indexOf(x.id)>=0?' checked':'')+'></label>'+
+        '</div>';
+    }).join('');
+  });
   return '<details style="background:#fff;border:1px solid var(--divider);border-radius:14px;padding:12px 14px;margin-bottom:14px;">'+
     '<summary style="font-weight:bold;cursor:pointer;">⚙️ Gestion du contenu — 🔧 masquer (en correction) · 🎓 mettre en démo publique</summary>'+
     '<div style="max-height:340px;overflow-y:scroll;margin-top:8px;padding-right:18px;scrollbar-gutter:stable;">'+rows+'</div>'+
