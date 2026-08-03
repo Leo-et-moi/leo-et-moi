@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "misAJour": "2026-07-25",
+  "misAJour": "2026-07-27",
   "audioBase": "",
   "lecons": [
     {
@@ -34,7 +34,10 @@
       "exercices": [
         "A1-E-003",
         "A1-E-004",
-        "A2-E-001"
+        "A2-E-001",
+        "A1-E-008",
+        "A2-E-005",
+        "A2-E-006"
       ],
       "publie": true
     },
@@ -146,7 +149,8 @@
       ],
       "questions": "french/a2/les-nombres/questions.json",
       "publie": true,
-      "progressId": "a2_nombres_quiz"
+      "progressId": "a2_nombres_quiz",
+      "groupe": "Nombres"
     },
     {
       "id": "A2-E-002",
@@ -161,7 +165,8 @@
       ],
       "questions": null,
       "publie": true,
-      "progressId": "a2_lire_invitation"
+      "progressId": "a2_lire_invitation",
+      "groupe": "Les invitations"
     },
     {
       "id": "A2-E-003",
@@ -176,7 +181,8 @@
       ],
       "questions": null,
       "publie": true,
-      "progressId": "a2_ecoute_invitations"
+      "progressId": "a2_ecoute_invitations",
+      "groupe": "Les invitations"
     },
     {
       "id": "B1-E-001",
@@ -227,7 +233,9 @@
       "progressId": "B1-E-003",
       "questions": "french/b1/B1-E-003-lecture-kessel/questions.json",
       "publie": true,
-      "ajoute": "2026-07-20"
+      "ajoute": "2026-07-20",
+      "serie": "Farandole",
+      "serieOrdre": 10
     },
     {
       "id": "B2-E-001",
@@ -260,7 +268,9 @@
       ],
       "questions": null,
       "publie": true,
-      "progressId": "c1_francine_gosselin"
+      "progressId": "c1_francine_gosselin",
+      "serie": "Fada",
+      "serieOrdre": 10
     },
     {
       "id": "C1-E-002",
@@ -276,7 +286,9 @@
       "questions": null,
       "publie": true,
       "progressId": "c1_francis_tanguay",
-      "ajoute": "2026-07-21"
+      "ajoute": "2026-07-21",
+      "serie": "Fada",
+      "serieOrdre": 20
     },
     {
       "id": "A2-E-004",
@@ -414,7 +426,9 @@
       "ordre": 45,
       "titre": "Exercices — Les centaines (100–999)",
       "chemin": "french/a1/les-nombres/centaines.html",
-      "lecons": [],
+      "lecons": [
+        "A1-L-003"
+      ],
       "competences": [
         "listening",
         "speaking"
@@ -429,14 +443,17 @@
       "ordre": 12,
       "titre": "Jeu des plaques — Les centaines (100–999)",
       "chemin": "french/a2/les-nombres/plaques.html",
-      "lecons": [],
+      "lecons": [
+        "A1-L-003"
+      ],
       "competences": [
         "listening",
         "speaking"
       ],
       "progressId": "A2-E-006",
       "questions": null,
-      "publie": true
+      "publie": true,
+      "groupe": "Nombres"
     },
     {
       "id": "A2-E-005",
@@ -444,14 +461,17 @@
       "ordre": 15,
       "titre": "Quiz — Les centaines (100–999)",
       "chemin": "french/a2/les-nombres/quiz-centaines.html",
-      "lecons": [],
+      "lecons": [
+        "A1-L-003"
+      ],
       "competences": [
         "listening",
         "speaking"
       ],
       "progressId": "A2-E-005",
       "questions": null,
-      "publie": true
+      "publie": true,
+      "groupe": "Nombres"
     },
     {
       "id": "B1-E-006",
@@ -514,6 +534,33 @@
       "dossier": "theatre",
       "unite": "pièce",
       "ordre": 30
+    },
+    "Farandole": {
+      "titre": "La farandole des livres, poèmes et chansons ! (extraits)",
+      "emoji": "📚",
+      "couleur": "#D6336C",
+      "dossier": "farandole",
+      "unite": "extrait",
+      "ordre": 40
+    },
+    "Fada": {
+      "titre": "Fada ! Les accents et mots francophones !",
+      "emoji": "🌍",
+      "couleur": "#6D4C41",
+      "dossier": "fada",
+      "unite": "écoute",
+      "ordre": 50
+    },
+    "DLPT": {
+      "titre": "Mon coach DLPT",
+      "emoji": "🎖️",
+      "couleur": "#364FC7",
+      "dossier": "dlpt",
+      "unite": "entraînement",
+      "ordre": 60,
+      "annoncer": [
+        "C2"
+      ]
     }
   }
 }

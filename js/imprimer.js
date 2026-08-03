@@ -15,6 +15,10 @@ function stylesImpression() {
     main, .main, .wrap { max-width: 100% !important; padding: 0 !important; }
     a { color: #000 !important; text-decoration: none !important; }
     .card, .som-chap, .lesson-card { box-shadow: none !important; border: 1px solid #999 !important; break-inside: avoid; }
+    /* Déroule les contenus masqués par l'interactivité (diaporamas, onglets, plis) */
+    .slide, .msg-panel, .tab-panel, .som-chap-rows, .panel, .etape, .transcript, .transcription
+      { display: block !important; }
+    .slide { page-break-after: always; }
   `;
   document.head.appendChild(s);
 }

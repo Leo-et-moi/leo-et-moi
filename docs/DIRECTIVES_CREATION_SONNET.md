@@ -89,6 +89,9 @@ Opus se charge ensuite : HTML sur gabarit, catalogue (liens leçon↔exercice, c
 | Dialogue | 💬 | `A1-E-005` (Réagir et relancer) | pas de banque de questions (`questions: null`) |
 | PRO-NON-CIA-TION avec LÉO | 🗣️ | `A1-E-007` / `A1-E-009` (Ratatouille) | conventions dans le fichier dédié (§4c) — l'unité est la **page** |
 | Au Théâtre de Léo, les intonations ! | 🎭 | `B1-E-004` (B2) · `B1-E-006` (B1) | expression orale/intonations ; onglets par parties ; titres sans préfixe de niveau |
+| La farandole des livres, poèmes et chansons ! (extraits) | 📚 | `B1-E-003` (Kessel) | lecture d'extraits d'œuvres (règle des extraits §3) ; Méthode de Lecture |
+| Fada ! Les accents et mots francophones ! | 🌍 | `C1-E-001` (Francine) · `C1-E-002` (Francis) | écoute d'accents francophones ; Méthode d'écoute (Recall Protocol) |
+| Mon coach DLPT | 🎖️ | _(à créer — annoncé sur C2)_ | entraînement C2 au Defense Language Proficiency Test |
 
 Une série = un dossier coloré sur la page de niveau, entièrement piloté par le catalogue (mécanisme générique — aucune demande technique à faire pour créer un contenu de série existante).
 

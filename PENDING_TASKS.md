@@ -92,6 +92,14 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 - **Sommaire des pages de niveau (validé Eric)** : chapitres repliables (leçon = chapitre contenant ses exercices), rangées compactes 1 ligne (numéro · titre · 🆕 · pictos compétences · statut ✓/▶ abrégé), bandeau de navigation collant avec compteurs, sections Autres exercices / Tests / Séries, plis mémorisés par appareil et **ouverture automatique du chapitre contenant le premier exercice non terminé**. Échelle : des centaines de contenus sans défilement sans fin.
 - **Bouton 🖨️ (validé Eric : RÉSERVÉ AU PROFESSEUR)** : `js/imprimer.js` sur ~48 pages + modèles — visible uniquement en compte prof, feuille d'impression (nav/boutons/audio masqués, noir sur blanc). Philosophie actée : **l'impression est une décision du prof, le site doit suffire aux élèves.**
 
+## ✅ Traitées (suite — 27/07 : sommaire v2, 9 retours d'Eric)
+
+- Centaines (A1-E-008, A2-E-005/006) **rattachées à la leçon A1-L-003** (bandeau « revois la leçon » actif dans les deux sens).
+- Nouveaux **groupes dépliables** (champ `groupe` du catalogue) : « Nombres » et « Les invitations » sur A2 — même mécanique de plis que les chapitres.
+- **Dossiers de séries au format 1 ligne** (~48 px) sur les pages de niveau, et **pages de séries en rangées compactes**.
+- Trois **nouvelles catégories** (mécanisme générique, 18 pages minces) : 📚 **La farandole des livres, poèmes et chansons ! (extraits)** (B1-E-003 Kessel) · 🌍 **Fada ! Les accents et mots francophones !** (Francine + Francis) · 🎖️ **Mon coach DLPT** (vide, **annoncée sur C2** via le nouveau champ `annoncer` — affiche « bientôt »).
+- **Impression déroulée** : la feuille d'impression prof déplie désormais diaporamas/onglets/plis (une étape par page) — l'impression « page visible seulement » est corrigée pour les contenus à écrans multiples ; la version totalement **reformatée/repaginée** viendra avec le moteur du Cahier (spec en attente ci-dessous).
+
 ## ⏳ En attente
 
 - **📓 Générateur de « Cahier d'exercices de la semaine » — SPEC VALIDÉE par Eric (27/07), à construire par Fable (2-3 sessions)** :

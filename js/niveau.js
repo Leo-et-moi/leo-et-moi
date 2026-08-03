@@ -75,11 +75,25 @@ async function render() {
     });
   }
 
-  // ── Autres exercices (sans leçon de ce niveau) ──
+  // ── Exercices hors chapitre : groupes dépliables (champ `groupe`) puis le reste ──
   const autres = es.filter((e) => !dansChapitre.has(e.id));
-  if (autres.length) {
-    html += '<div class="som-sec" id="sec-exos">✏️ ' + (dansChapitre.size ? 'Autres exercices' : 'Exercices') + '</div><div class="som-chap open"><div class="som-chap-rows">';
-    autres.forEach((e, i) => { html += rang(e, 'E' + (i + 1), 'exercice', '/' + e.chemin); });
+  const groupes = [];
+  autres.forEach((e) => { if (e.groupe && !groupes.includes(e.groupe)) groupes.push(e.groupe); });
+  if (autres.length) html += '<div class="som-sec" id="sec-exos">✏️ Exercices</div>';
+  groupes.forEach((g) => {
+    const exos = autres.filter((e) => e.groupe === g);
+    let rows = '';
+    exos.forEach((e, j) => { rows += rang(e, 'E' + (j + 1), 'exercice', '/' + e.chemin); });
+    html += `<div class="som-chap" data-chap="G:${g}" data-exos="${exos.map((e) => e.progressId || e.id).join(',')}">` +
+      `<button class="som-chap-head" type="button">✏️ <span>${g}</span>` +
+      `<span style="font-size:13px;color:var(--slate);font-weight:normal;">&nbsp;(${exos.length} exo${exos.length > 1 ? 's' : ''})</span>` +
+      `<span class="chev">&#9654;</span></button>` +
+      `<div class="som-chap-rows">${rows}</div></div>`;
+  });
+  const solo = autres.filter((e) => !e.groupe);
+  if (solo.length) {
+    html += '<div class="som-chap open"><div class="som-chap-rows">';
+    solo.forEach((e, i) => { html += rang(e, 'E' + (i + 1), 'exercice', '/' + e.chemin); });
     html += '</div></div>';
   }
 
@@ -90,16 +104,23 @@ async function render() {
     html += '</div></div>';
   }
 
-  // ── Séries (dossiers colorés, mécanisme générique) ──
+  // ── Séries : dossiers au format compact 1 ligne (retour Eric 27/07) ;
+  //    « annoncer » = visible même vide sur les niveaux listés (ex. Mon coach DLPT en C2) ──
   defs.forEach((def) => {
     const items = esTous.filter((e) => e.serie === def.nom);
-    if (!items.length) return;
+    const annonce = (def.annoncer || []).map((x) => String(x).toUpperCase()).includes(NIV);
+    if (!items.length && !annonce) return;
+    const compte = items.length
+      ? items.length + ' ' + (def.unite || 'exercice') + (items.length > 1 ? 's' : '')
+      : 'bientôt';
     html += `<div class="som-sec" id="sec-${def.dossier}">${def.emoji} ${def.titre}</div>` +
-      `<a class="lesson-card serie" href="/french/${def.dossier}/${NIV.toLowerCase()}.html" style="--lvl:${def.couleur};background:${def.couleur}14;">` +
-      `<div class="lesson-num">${def.emoji}</div>` +
-      `<div class="lesson-info"><div class="lesson-name">${def.titre} — ${NIV}</div>` +
-      `<div class="lesson-sub">${items.length} ${def.unite || 'exercice'}${items.length > 1 ? 's' : ''} · série évolutive</div></div>` +
-      `<span class="lesson-arrow">&#8594;</span></a>`;
+      `<div class="som-chap open"><div class="som-chap-rows">` +
+      `<a class="som-row" href="/french/${def.dossier}/${NIV.toLowerCase()}.html">` +
+      `<span class="som-num" style="background:${def.couleur};">${def.emoji}</span>` +
+      `<span class="som-title">${def.titre} — ${NIV}</span>` +
+      `<span class="som-status">${compte}</span>` +
+      `<span style="color:${def.couleur};font-weight:bold;">&#8594;</span></a>` +
+      `</div></div>`;
   });
 
   document.getElementById('sommaire').innerHTML = html;
@@ -109,7 +130,10 @@ async function render() {
   if (ls.length) nav.push(['#sec-lecons', '📖 ' + ls.length]);
   if (autres.length) nav.push(['#sec-exos', '✏️ ' + autres.length]);
   if (ts.length) nav.push(['#sec-tests', '📝 ' + ts.length]);
-  defs.forEach((d) => { if (esTous.some((e) => e.serie === d.nom)) nav.push(['#sec-' + d.dossier, d.emoji]); });
+  defs.forEach((d) => {
+    const a = (d.annoncer || []).map((x) => String(x).toUpperCase()).includes(NIV);
+    if (esTous.some((e) => e.serie === d.nom) || a) nav.push(['#sec-' + d.dossier, d.emoji]);
+  });
   document.getElementById('somNav').innerHTML = nav.map(([h, l]) => `<a href="${h}">${l}</a>`).join('');
 
   // ── Plis : état mémorisé, sinon premier chapitre ouvert ──

@@ -24,23 +24,22 @@ async function render() {
     host.innerHTML = '<div class="empty-note">Les contenus de ce niveau arrivent bient\u00f4t.</div>';
     return;
   }
+  const ICO = { listening: '🎧', reading: '📖', writing: '✍️', speaking: '🗣️' };
+  const wrap = document.createElement('div');
+  wrap.className = 'som-chap open';
+  let rows = '';
   items.forEach((e, i) => {
-    const a = document.createElement('a');
-    a.className = 'lesson-card serie';
-    a.href = '/' + e.chemin;
-    a.style.setProperty('--lvl', def.couleur);
-    let status = e.progressId ? `<div class="lesson-status" data-progress="${e.progressId}">&hellip;</div>` : '';
-    let chip = '';
-    if (e.ajoute) {
-      chip = `<span class="new-chip" data-chipkey="${e.progressId || e.id}" data-ajoute="${e.ajoute}" style="display:none;">🆕 Nouveau</span>`;
-    }
-    a.innerHTML =
-      `<div class="lesson-num" style="background:${def.couleur};">${i + 1}</div>` +
-      `<div class="lesson-info"><div class="lesson-name">${e.titre}${chip}</div>` +
-      `<div class="lesson-sub">${badges(e.competences)}</div>${status}</div>` +
-      `<span class="lesson-arrow">&#8594;</span>`;
-    host.appendChild(a);
+    const key = e.progressId || e.id;
+    const chip = e.ajoute ? ` <span class="new-chip" data-chipkey="${key}" data-ajoute="${e.ajoute}" style="display:none;">🆕</span>` : '';
+    rows += `<a class="som-row" href="/${e.chemin}">` +
+      `<span class="som-num" style="background:${def.couleur};">${i + 1}</span>` +
+      `<span class="som-title">${e.titre}${chip}</span>` +
+      `<span class="som-ico">${(e.competences || []).map((c) => ICO[c] || '').join('')}</span>` +
+      `<span class="som-status" data-progress="${key}"></span>` +
+      `<span style="color:${def.couleur};font-weight:bold;">&#8594;</span></a>`;
   });
+  wrap.innerHTML = `<div class="som-chap-rows">${rows}</div>`;
+  host.appendChild(wrap);
 }
 
 function fillProgress() {
@@ -72,8 +71,8 @@ function fillProgress() {
   document.querySelectorAll('[data-progress]').forEach(async (el) => {
     try {
       const d = await window.LEM.getLesson(el.dataset.progress);
-      if (d && d.completed) { el.classList.add('done'); el.textContent = '✓ Terminé' + (typeof d.score === 'number' ? ' · ' + d.score + ' / ' + d.total : ''); }
-      else if (d && typeof d.score === 'number') el.textContent = '▶ Commencé · ' + d.score + ' / ' + d.total;
+      if (d && d.completed) { el.classList.add('done'); el.textContent = typeof d.score === 'number' ? '✓ ' + d.score + '/' + d.total : '✓'; }
+      else if (d && typeof d.score === 'number') el.textContent = '▶ ' + d.score + '/' + d.total;
       else el.textContent = '';
     } catch (e) { el.textContent = ''; }
   });
