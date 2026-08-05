@@ -4,6 +4,18 @@
   "audioBase": "",
   "lecons": [
     {
+      "id": "A1-L-000",
+      "niveau": "A1",
+      "ordre": 5,
+      "titre": "L'alphabet et la prononciation",
+      "chemin": "french/a1/00-alphabet/index.html",
+      "exercices": [
+        "A1-E-010",
+        "A1-E-011"
+      ],
+      "publie": true
+    },
+    {
       "id": "A1-L-001",
       "niveau": "A1",
       "ordre": 10,
@@ -491,6 +503,40 @@
       "serie": "Theatre",
       "serieOrdre": 10,
       "ajoute": "2026-07-25"
+    },
+    {
+      "id": "A1-E-010",
+      "niveau": "A1",
+      "ordre": 5,
+      "titre": "Exercices A1 — L'alphabet : les sons des lettres",
+      "chemin": "french/a1/00-alphabet/exercice-1.html",
+      "lecons": [
+        "A1-L-000"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "progressId": "A1-E-010",
+      "questions": null,
+      "publie": true
+    },
+    {
+      "id": "A1-E-011",
+      "niveau": "A1",
+      "ordre": 6,
+      "titre": "Exercices A1 — L'alphabet : muet ou prononcé ?",
+      "chemin": "french/a1/00-alphabet/exercice-2.html",
+      "lecons": [
+        "A1-L-000"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "progressId": "A1-E-011",
+      "questions": null,
+      "publie": true
     }
   ],
   "tests": [

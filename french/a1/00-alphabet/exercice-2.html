@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Exercice 2 — Muet ou Prononcé ? · A1</title>
+<link rel="stylesheet" href="/css/site.css">
+<style>
+
+:root{
+  --cream:#F5F0E8;--dark:#1B2845;--navy:#2C4A7C;--coral:#E8503A;
+  --gold:#D4920A;--ltGold:#FDF3D8;--ltBlue:#E8F0FA;--ltGreen:#E3F5EC;
+  --green:#1E7B45;--text:#1A2733;--slate:#4A6580;--div:#D8DFE8;
+  --card:#EDE8DF;--white:#FFFFFF;--a1:#C0392B;
+}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.6;min-height:100vh;padding-bottom:20px;
+  -webkit-text-size-adjust:100%}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);
+  padding:0 14px;height:56px;display:flex;align-items:center;
+  justify-content:space-between;position:sticky;top:0;z-index:200}
+.site-name{font-size:19px;font-weight:bold;color:#fff;text-decoration:none;letter-spacing:-.3px}
+.site-name span{color:var(--coral)}
+.icon-btn{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.main{max-width:640px;margin:0 auto;padding:14px 13px 20px}
+.back-link{display:inline-block;color:var(--navy);text-decoration:none;font-size:14px;
+  margin-bottom:6px;padding:4px 0}
+.back-link:hover{text-decoration:underline}
+.lvl-tag{display:inline-block;background:var(--a1);color:#fff;font-size:12px;
+  font-weight:bold;padding:2px 10px;border-radius:8px;margin-bottom:14px;vertical-align:middle}
+.panel-head{background:var(--dark);border-radius:14px;padding:16px 16px 14px;
+  margin-bottom:14px;border-left:6px solid var(--coral)}
+.ph-chip{display:inline-block;background:var(--coral);color:#fff;font-size:12px;
+  font-weight:bold;padding:2px 10px;border-radius:8px;margin-bottom:8px}
+.ph-title{font-size:20px;font-weight:bold;color:#fff;margin-bottom:4px}
+.ph-sub{font-size:14px;color:#9DC8E8;font-style:italic}
+.lesson-banner{background:var(--ltBlue);border:2px solid var(--navy);border-radius:10px;
+  padding:10px 14px;margin-bottom:14px;font-size:14px;color:var(--navy)}
+.lesson-banner a{color:var(--navy);font-weight:bold}
+.consigne-box{background:var(--coral);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+.c-fr{font-size:16px;font-weight:bold;color:#fff;margin-bottom:4px}
+.c-en{font-size:13px;color:rgba(255,255,255,.85);font-style:italic;margin-bottom:10px}
+.audio-row{display:flex;gap:8px;flex-wrap:wrap}
+.abtn{border:none;border-radius:16px;padding:5px 14px;font-size:14px;
+  font-family:Arial,sans-serif;cursor:pointer;min-height:36px;font-weight:bold}
+.abtn.fr{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+.abtn.en{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4)}
+.abtn:active{opacity:.8}
+.qcm-item{background:var(--white);border:2px solid var(--div);border-radius:14px;
+  padding:16px;margin-bottom:14px}
+.qcm-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.qnum{background:var(--navy);color:#fff;border-radius:50%;width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;
+  flex-shrink:0}
+.qcm-q{font-size:16px;font-weight:bold;color:var(--text);margin-bottom:4px}
+.qcm-q.en{font-size:13px;color:var(--slate);font-style:italic;font-weight:normal;margin-bottom:12px}
+.qcm-opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.opt{border:2px solid var(--navy);background:var(--white);color:var(--dark);
+  border-radius:12px;padding:10px 16px;font-size:15px;font-weight:bold;
+  font-family:Arial,sans-serif;cursor:pointer;min-height:44px}
+.opt:active:not(:disabled){background:var(--ltBlue)}
+.opt:disabled{cursor:default;opacity:.8}
+.opt.sel-ok{background:var(--green);color:#fff;border-color:var(--green)}
+.opt.sel-wrong{background:var(--coral);color:#fff;border-color:var(--coral)}
+.opt.show-ok{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+.exp{background:var(--ltGold);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+  padding:10px 14px;font-size:14px;color:var(--text);line-height:1.5;
+  display:flex;align-items:flex-start;gap:10px}
+.word-aud-btn{border:none;background:var(--navy);color:#fff;border-radius:16px;
+  padding:5px 12px;font-size:13px;font-family:Arial,sans-serif;cursor:pointer;
+  white-space:nowrap;min-height:32px;flex-shrink:0}
+.word-aud-btn:active{opacity:.8}
+</style>
+</head>
+<body data-item-id="A1-E-011">
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<div class="main">
+  <a class="back-link" href="/french/a1/index.html">&#8592; Niveau A1</a>
+  <div class="lvl-tag">A1</div>
+
+  <div class="panel-head">
+    <div class="ph-chip">Exercice · A1</div>
+    <div class="ph-title">Muet ou Prononcé ?</div>
+    <div class="ph-sub">Final consonants and pronunciation rules</div>
+  </div>
+
+  <div class="lesson-banner">&#128218; Avant de commencer, revois la leçon &#8594; <a href="index.html">L'Alphabet et la Prononciation</a></div>
+
+  <div class="consigne-box">
+    <div class="c-fr">Choisis la bonne réponse pour chaque question sur la prononciation.</div>
+    <div class="c-en">Choose the correct answer for each pronunciation question.</div>
+    <div class="audio-row">
+      <button class="abtn fr" onclick="A('audio/alpha_e2_consigne.mp3')">&#128266; FR</button>
+    </div>
+  </div>
+
+<div class="qcm-item" id="q1">
+<div class="qcm-head"><span class="qnum">Q1</span></div>
+<div class="qcm-q">Le « s » final de « Paris » est...</div>
+<div class="qcm-q en">The final "s" in "Paris" is...</div>
+<div class="qcm-opts">
+<button class="opt" data-val="muet" onclick="ans(0,this)">Muet (silent)</button>
+<button class="opt" data-val="prononce" onclick="ans(0,this)">Prononcé (said)</button>
+</div>
+<div class="exp" id="exp1" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_e2_paris.mp3')">&#128266; Écouter</button>
+ &#128161; Paris = [pa-ree]. Le S final est muet — règle générale des consonnes finales.</div>
+</div>
+<div class="qcm-item" id="q2">
+<div class="qcm-head"><span class="qnum">Q2</span></div>
+<div class="qcm-q">Le « r » final de « fer » (iron) est...</div>
+<div class="qcm-q en">The final "r" in "fer" (iron) is...</div>
+<div class="qcm-opts">
+<button class="opt" data-val="muet" onclick="ans(1,this)">Muet (silent)</button>
+<button class="opt" data-val="prononce" onclick="ans(1,this)">Prononcé (said)</button>
+</div>
+<div class="exp" id="exp2" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p2b_fer.mp3')">&#128266; Écouter</button>
+ &#128161; Fer = [fèr]. Le R final se prononce — souviens-toi de CaReFuL !</div>
+</div>
+<div class="qcm-item" id="q3">
+<div class="qcm-head"><span class="qnum">Q3</span></div>
+<div class="qcm-q">La lettre « ç » dans « garçon » se prononce comme...</div>
+<div class="qcm-q en">The letter "ç" in "garçon" sounds like...</div>
+<div class="qcm-opts">
+<button class="opt" data-val="k" onclick="ans(2,this)">[k]</button>
+<button class="opt" data-val="s" onclick="ans(2,this)">[s]</button>
+<button class="opt" data-val="ch" onclick="ans(2,this)">[ch]</button>
+<button class="opt" data-val="g" onclick="ans(2,this)">[g]</button>
+</div>
+<div class="exp" id="exp3" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p3b_garcon.mp3')">&#128266; Écouter</button>
+ &#128161; La cédille transforme le [k] en [s]. Garçon = [gar-son].</div>
+</div>
+<div class="qcm-item" id="q4">
+<div class="qcm-head"><span class="qnum">Q4</span></div>
+<div class="qcm-q">Le « q » final de « cinq » (five) est...</div>
+<div class="qcm-q en">The final "q" in "cinq" (five) is...</div>
+<div class="qcm-opts">
+<button class="opt" data-val="muet" onclick="ans(3,this)">Muet (silent)</button>
+<button class="opt" data-val="prononce" onclick="ans(3,this)">Prononcé (said)</button>
+</div>
+<div class="exp" id="exp4" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p2c_cinq.mp3')">&#128266; Écouter</button>
+ &#128161; Cinq = [sank]. Exception ! La lettre finale se prononce.</div>
+</div>
+<div class="qcm-item" id="q5">
+<div class="qcm-head"><span class="qnum">Q5</span></div>
+<div class="qcm-q">Comment prononce-t-on « thé » (tea) ?</div>
+<div class="qcm-q en">How do you pronounce "thé" (tea)?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="the-ang" onclick="ans(4,this)">[the] comme en anglais</button>
+<button class="opt" data-val="te" onclick="ans(4,this)">[té]</button>
+<button class="opt" data-val="dhe" onclick="ans(4,this)">[dhé]</button>
+<button class="opt" data-val="fe" onclick="ans(4,this)">[fé]</button>
+</div>
+<div class="exp" id="exp5" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p4b_the.mp3')">&#128266; Écouter</button>
+ &#128161; "Th" = [t] en français. Thé = [té]. Jamais comme le "th" anglais !</div>
+</div>
+<div class="qcm-item" id="q6">
+<div class="qcm-head"><span class="qnum">Q6</span></div>
+<div class="qcm-q">Le « f » final de « chef » (chef) est...</div>
+<div class="qcm-q en">The final "f" in "chef" is...</div>
+<div class="qcm-opts">
+<button class="opt" data-val="muet" onclick="ans(5,this)">Muet (silent)</button>
+<button class="opt" data-val="prononce" onclick="ans(5,this)">Prononcé (said)</button>
+</div>
+<div class="exp" id="exp6" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p2b_chef.mp3')">&#128266; Écouter</button>
+ &#128161; Chef = [shef]. Le F final se prononce — souviens-toi de CaReFuL !</div>
+</div>
+<div class="qcm-item" id="q7">
+<div class="qcm-head"><span class="qnum">Q7</span></div>
+<div class="qcm-q">Comment prononce-t-on « nuit » (night) ?</div>
+<div class="qcm-q en">How do you pronounce "nuit" (night)?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="noo-ee" onclick="ans(6,this)">[noo-ee]</button>
+<button class="opt" data-val="nwee" onclick="ans(6,this)">[nwee]</button>
+<button class="opt" data-val="noot" onclick="ans(6,this)">[noot]</button>
+<button class="opt" data-val="noo" onclick="ans(6,this)">[noo]</button>
+</div>
+<div class="exp" id="exp7" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p4c_nuit.mp3')">&#128266; Écouter</button>
+ &#128161; "Ui" = [wi]. Nuit = [nwee].</div>
+</div>
+<div class="qcm-item" id="q8">
+<div class="qcm-head"><span class="qnum">Q8</span></div>
+<div class="qcm-q">Le « h » dans « hôtel » se prononce...</div>
+<div class="qcm-q en">The "h" in "hôtel" is pronounced...</div>
+<div class="qcm-opts">
+<button class="opt" data-val="h-ang" onclick="ans(7,this)">[h] comme en anglais</button>
+<button class="opt" data-val="muet" onclick="ans(7,this)">Il ne se prononce pas</button>
+<button class="opt" data-val="k" onclick="ans(7,this)">[k]</button>
+<button class="opt" data-val="r" onclick="ans(7,this)">[r]</button>
+</div>
+<div class="exp" id="exp8" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p4a_hotel.mp3')">&#128266; Écouter</button>
+ &#128161; Le H est toujours muet en français. Hôtel = [ohtel].</div>
+</div>
+<div class="qcm-item" id="q9">
+<div class="qcm-head"><span class="qnum">Q9</span></div>
+<div class="qcm-q">Comment prononce-t-on « sur » (on) ?</div>
+<div class="qcm-q en">How do you pronounce "sur" (on)?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="sir" onclick="ans(8,this)">[sir]</button>
+<button class="opt" data-val="sur" onclick="ans(8,this)">[sur]</button>
+<button class="opt" data-val="sür" onclick="ans(8,this)">[sür]</button>
+<button class="opt" data-val="seur" onclick="ans(8,this)">[seur]</button>
+</div>
+<div class="exp" id="exp9" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p4c_sur.mp3')">&#128266; Écouter</button>
+ &#128161; "U" = [ü]. Sur = [sür]. La voyelle u en français n'existe pas en anglais.</div>
+</div>
+<div class="qcm-item" id="q10">
+<div class="qcm-head"><span class="qnum">Q10</span></div>
+<div class="qcm-q">Le « l » final de « sel » (salt) est...</div>
+<div class="qcm-q en">The final "l" in "sel" (salt) is...</div>
+<div class="qcm-opts">
+<button class="opt" data-val="muet" onclick="ans(9,this)">Muet (silent)</button>
+<button class="opt" data-val="prononce" onclick="ans(9,this)">Prononcé (said)</button>
+</div>
+<div class="exp" id="exp10" style="display:none">
+<button class="word-aud-btn" onclick="A('audio/alpha_p2b_sel.mp3')">&#128266; Écouter</button>
+ &#128161; Sel = [sel]. Le L final se prononce — souviens-toi de CaReFuL !</div>
+</div>
+
+</div>
+<script>
+
+let _aud = null, _audSrc = '';
+function A(src) {
+  if (!src) return;
+  if (_aud) {
+    if (_audSrc === src && !_aud.paused) { _aud.pause(); return; }
+    _aud.pause();
+  }
+  _aud = new Audio(src);
+  _audSrc = src;
+  _aud.play().catch(function(){});
+}
+
+var CORRECT = {};
+CORRECT[0] = 'muet';
+CORRECT[1] = 'prononce';
+CORRECT[2] = 's';
+CORRECT[3] = 'prononce';
+CORRECT[4] = 'te';
+CORRECT[5] = 'prononce';
+CORRECT[6] = 'nwee';
+CORRECT[7] = 'muet';
+CORRECT[8] = 'sür';
+CORRECT[9] = 'prononce';
+
+function ans(idx, btn) {
+  var correct = CORRECT[idx];
+  var container = btn.parentElement;
+  var allBtns = container.querySelectorAll('.opt');
+  allBtns.forEach(function(b) { b.disabled = true; });
+  var chosen = btn.dataset.val;
+  if (chosen === correct) {
+    btn.classList.add('sel-ok');
+  } else {
+    btn.classList.add('sel-wrong');
+    allBtns.forEach(function(b) {
+      if (b.dataset.val === correct) b.classList.add('show-ok');
+    });
+  }
+  var expEl = document.getElementById('exp' + (idx + 1));
+  if (expEl) expEl.style.display = 'flex';
+}
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
+</body>
+</html>

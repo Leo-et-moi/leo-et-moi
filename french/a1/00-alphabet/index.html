@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>L'Alphabet et la Prononciation — leo-et-moi · A1</title>
+<link rel="stylesheet" href="/css/site.css">
+<style>
+
+:root{
+  --cream:#F5F0E8;--dark:#1B2845;--navy:#2C4A7C;--coral:#E8503A;
+  --gold:#D4920A;--ltGold:#FDF3D8;--ltBlue:#E8F0FA;--ltGreen:#E3F5EC;
+  --green:#1E7B45;--text:#1A2733;--slate:#4A6580;--div:#D8DFE8;
+  --card:#EDE8DF;--white:#FFFFFF;--nav-h:56px;--a1:#C0392B;
+}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.6;min-height:100vh;padding-bottom:20px;
+  -webkit-text-size-adjust:100%}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);
+  padding:0 14px;height:56px;display:flex;align-items:center;
+  justify-content:space-between;position:sticky;top:0;z-index:200}
+.site-name{font-size:19px;font-weight:bold;color:#fff;text-decoration:none;letter-spacing:-.3px}
+.site-name span{color:var(--coral)}
+.icon-btn{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.main{max-width:640px;margin:0 auto;padding:14px 13px 20px}
+.back-link{display:inline-block;color:var(--navy);text-decoration:none;font-size:14px;
+  margin-bottom:6px;padding:4px 0}
+.back-link:hover{text-decoration:underline}
+.lvl-tag{display:inline-block;background:var(--a1);color:#fff;font-size:12px;
+  font-weight:bold;padding:2px 10px;border-radius:8px;margin-bottom:14px;vertical-align:middle}
+
+/* PANEL HEAD */
+.panel-head{background:var(--dark);border-radius:14px;padding:16px 16px 14px;
+  margin-bottom:16px;border-left:6px solid var(--coral)}
+.ph-chip{display:inline-block;background:var(--coral);color:#fff;font-size:12px;
+  font-weight:bold;padding:2px 10px;border-radius:8px;margin-bottom:8px}
+.ph-title{font-size:22px;font-weight:bold;color:#fff;margin-bottom:4px}
+.ph-sub{font-size:14px;color:#9DC8E8;font-style:italic}
+
+/* INTRO */
+.intro-body{background:var(--white);border-radius:14px;padding:18px;
+  margin-bottom:16px;border:2px solid var(--div)}
+.intro-desc{font-size:15px;color:var(--text);margin-bottom:6px;line-height:1.5}
+.intro-desc.en{color:var(--slate);font-style:italic;font-size:14px;margin-bottom:10px}
+.intro-parts{list-style:none;margin:14px 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.intro-parts li{background:var(--ltBlue);border-left:4px solid var(--navy);
+  border-radius:8px;padding:8px 12px;font-size:15px}
+.intro-parts li span{color:var(--navy);font-weight:bold;margin-right:6px}
+.start-btn{display:block;width:100%;margin-top:16px;padding:14px;
+  background:var(--coral);color:#fff;border:none;border-radius:12px;
+  font-size:17px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif}
+.start-btn:hover{opacity:.9}
+
+/* CONSIGNE BOX */
+.consigne-box{background:var(--coral);border-radius:12px;padding:14px 16px;
+  margin-bottom:14px}
+.c-fr{font-size:16px;font-weight:bold;color:#fff;margin-bottom:4px}
+.c-en{font-size:13px;color:rgba(255,255,255,.85);font-style:italic;margin-bottom:10px}
+.audio-row{display:flex;gap:8px;flex-wrap:wrap}
+.abtn{border:none;border-radius:16px;padding:5px 14px;font-size:14px;
+  font-family:Arial,sans-serif;cursor:pointer;min-height:36px;font-weight:bold}
+.abtn.fr{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+.abtn.en{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4)}
+.abtn:active{opacity:.8}
+
+/* SECTION HEADER */
+.sec-hdr{font-size:16px;font-weight:bold;color:var(--dark);margin:18px 0 8px;
+  padding-bottom:4px;border-bottom:2px solid var(--div)}
+
+/* TAB NAV */
+.tab-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;
+  background:var(--white);border-radius:12px;padding:8px;border:2px solid var(--div)}
+.tab-btn{flex:1;min-width:80px;border:none;border-radius:8px;padding:8px 6px;
+  font-size:13px;font-family:Arial,sans-serif;cursor:pointer;
+  background:transparent;color:var(--slate);font-weight:bold;line-height:1.3}
+.tab-btn.active{background:var(--navy);color:#fff}
+.tab-btn:hover:not(.active){background:var(--ltBlue)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* LETTER GRID */
+.letter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.letter-card{background:var(--white);border:2px solid var(--div);border-radius:12px;
+  padding:10px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;
+  cursor:pointer;transition:border-color .15s}
+.letter-card:active{background:var(--ltBlue);border-color:var(--navy)}
+.lc-letter{font-size:26px;font-weight:bold;color:var(--dark)}
+.lc-sound{font-size:12px;color:var(--slate)}
+.letter-replay{display:block;width:100%;background:var(--navy);color:#fff;
+  border:none;border-radius:12px;padding:12px;font-size:16px;font-weight:bold;
+  cursor:pointer;font-family:Arial,sans-serif;margin-bottom:14px}
+.letter-replay:active{opacity:.9}
+
+/* WORD AUDIO BUTTONS */
+.word-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.wbtn{border:2px solid var(--navy);background:var(--white);color:var(--dark);
+  border-radius:20px;padding:6px 14px;font-size:15px;font-family:Arial,sans-serif;
+  cursor:pointer;display:flex;align-items:center;gap:6px;min-height:40px}
+.wbtn:active{background:var(--ltBlue)}
+.wbtn .spk{color:var(--navy);font-size:16px}
+
+/* CARL TABLE */
+.carl-table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:15px}
+.carl-table th{background:var(--navy);color:#fff;padding:8px 10px;text-align:left}
+.carl-table td{padding:8px 10px;border-bottom:1px solid var(--div);vertical-align:top}
+.carl-table tr:last-child td{border-bottom:none}
+.carl-table tr:nth-child(even) td{background:var(--ltBlue)}
+.carl-badge{display:inline-block;background:var(--coral);color:#fff;
+  border-radius:8px;padding:2px 10px;font-weight:bold;font-size:15px;margin-right:6px}
+
+/* EXCEPTION TABLE */
+.exc-table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:15px}
+.exc-table th{background:var(--slate);color:#fff;padding:8px 10px;text-align:left}
+.exc-table td{padding:8px 10px;border-bottom:1px solid var(--div)}
+.exc-table tr:last-child td{border-bottom:none}
+
+/* ACCENT CARDS */
+.acc-grid{display:flex;flex-direction:column;gap:8px;margin:10px 0 14px}
+.acc-card{background:var(--white);border:2px solid var(--div);border-radius:10px;
+  padding:12px 14px}
+.acc-card-hdr{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.acc-sym{font-size:24px;font-weight:bold;color:var(--navy)}
+.acc-label{font-size:14px;color:var(--slate)}
+.acc-sound{font-size:15px;font-weight:bold;color:var(--coral);margin-left:auto}
+.acc-desc{font-size:14px;color:var(--text);margin-bottom:8px;line-height:1.5}
+.acc-examples{display:flex;flex-wrap:wrap;gap:6px}
+.wbtn-sm{border:2px solid var(--slate);background:var(--white);color:var(--dark);
+  border-radius:16px;padding:4px 12px;font-size:14px;font-family:Arial,sans-serif;
+  cursor:pointer;display:flex;align-items:center;gap:4px;min-height:36px}
+.wbtn-sm:active{background:var(--ltBlue)}
+
+/* NASAL SOUNDS */
+.nasal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0 14px}
+.nasal-card{background:var(--white);border:2px solid var(--div);border-radius:12px;
+  padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:pointer;text-align:center}
+.nasal-card:active{border-color:var(--navy);background:var(--ltBlue)}
+.nasal-sym{font-size:28px;font-weight:bold;color:var(--dark)}
+.nasal-ipa{font-size:13px;color:var(--slate)}
+.nasal-spell{font-size:12px;color:var(--navy)}
+
+/* VIDEO EMBED */
+.video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border-radius:12px;margin:10px 0 14px;background:#000}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+/* INFO BOX */
+.info-box{background:var(--ltGold);border-left:4px solid var(--gold);
+  border-radius:0 10px 10px 0;padding:10px 14px;margin:10px 0;font-size:14px}
+.rule-box{background:var(--ltBlue);border-left:4px solid var(--navy);
+  border-radius:0 10px 10px 0;padding:10px 14px;margin:10px 0;font-size:15px}
+</style>
+</head>
+<body data-item-id="A1-L-000">
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<div class="main">
+  <a class="back-link" href="/french/a1/index.html">&#8592; Niveau A1</a>
+  <div class="lvl-tag">A1</div>
+
+  <!-- ═══ PANEL HEAD ══════════════════════════════════════════ -->
+  <div class="panel-head">
+    <div class="ph-chip">Leçon · A1</div>
+    <div class="ph-title">L'Alphabet et la Prononciation du Français</div>
+    <div class="ph-sub">The French Alphabet and Pronunciation</div>
+  </div>
+
+  <!-- ═══ INTRO SCREEN ════════════════════════════════════════ -->
+  <div id="intro">
+    <div class="intro-body">
+      <div class="consigne-box" style="margin-bottom:14px">
+        <div class="c-fr">Le cours est organisé en 5 parties, accessibles via une barre d'onglets de navigation. Chaque partie couvre un concept distinct.</div>
+        <div class="c-en">The course is organized in 5 parts, accessible via a tab navigation bar. Each part covers a distinct concept.</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_intro.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <ul class="intro-parts">
+        <li><span>1</span> L'Alphabet — <em>The Alphabet</em></li>
+        <li><span>2</span> Les Consonnes Finales — <em>Silent Final Consonants</em></li>
+        <li><span>3</span> Les Accents — <em>Accents</em></li>
+        <li><span>4</span> Règles Spéciales — <em>Special Rules</em></li>
+        <li><span>5</span> Les Sons Nasaux — <em>Nasal Sounds</em></li>
+      </ul>
+      <button class="start-btn" onclick="startCourse()">Commencer &#8594;</button>
+    </div>
+  </div>
+
+  <!-- ═══ TABS VIEW ════════════════════════════════════════════ -->
+  <div id="tabs-view" style="display:none">
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" onclick="showTab(1)" id="tb1">1 · Alphabet</button>
+      <button class="tab-btn" onclick="showTab(2)" id="tb2">2 · Consonnes</button>
+      <button class="tab-btn" onclick="showTab(3)" id="tb3">3 · Accents</button>
+      <button class="tab-btn" onclick="showTab(4)" id="tb4">4 · Règles</button>
+      <button class="tab-btn" onclick="showTab(5)" id="tb5">5 · Nasaux</button>
+    </nav>
+
+    <!-- ══════════ TAB 1 — L'Alphabet ════════════════════════ -->
+    <div id="tab1" class="tab-panel active">
+      <div class="consigne-box">
+        <div class="c-fr">Écoute et répète chaque lettre de l'alphabet.</div>
+        <div class="c-en">Listen and repeat each letter of the alphabet.</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p1_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <!-- NOTE OPUS : Les 26 boutons lettres utilisent les fichiers du dossier
+           C:\Users\ericp\OneDrive\DOCUMENT\001. Dialogues et 39 semaines\
+           Niveau A1 Semaine 0_6\S0-Alphabet_Prononciation_Accent\Ecoute les lettres de l'alphabet
+           Nommage utilisé ici : audio/lettre_A.mp3 … lettre_Z.mp3 — à adapter selon les noms réels. -->
+      <div class="letter-grid">
+        <button class="letter-card" onclick="A('audio/lettre_A.mp3')"><span class="lc-letter">A</span><span class="lc-sound">ahh</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_B.mp3')"><span class="lc-letter">B</span><span class="lc-sound">bay</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_C.mp3')"><span class="lc-letter">C</span><span class="lc-sound">say</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_D.mp3')"><span class="lc-letter">D</span><span class="lc-sound">day</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_E.mp3')"><span class="lc-letter">E</span><span class="lc-sound">euh</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_F.mp3')"><span class="lc-letter">F</span><span class="lc-sound">eff</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_G.mp3')"><span class="lc-letter">G</span><span class="lc-sound">jay</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_H.mp3')"><span class="lc-letter">H</span><span class="lc-sound">ash</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_I.mp3')"><span class="lc-letter">I</span><span class="lc-sound">eeeee</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_J.mp3')"><span class="lc-letter">J</span><span class="lc-sound">jee</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_K.mp3')"><span class="lc-letter">K</span><span class="lc-sound">ka</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_L.mp3')"><span class="lc-letter">L</span><span class="lc-sound">ell</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_M.mp3')"><span class="lc-letter">M</span><span class="lc-sound">em</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_N.mp3')"><span class="lc-letter">N</span><span class="lc-sound">en</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_O.mp3')"><span class="lc-letter">O</span><span class="lc-sound">oh</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_P.mp3')"><span class="lc-letter">P</span><span class="lc-sound">pay</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_Q.mp3')"><span class="lc-letter">Q</span><span class="lc-sound">kuh</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_R.mp3')"><span class="lc-letter">R</span><span class="lc-sound">air</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_S.mp3')"><span class="lc-letter">S</span><span class="lc-sound">ess</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_T.mp3')"><span class="lc-letter">T</span><span class="lc-sound">tay</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_U.mp3')"><span class="lc-letter">U</span><span class="lc-sound">ew</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_V.mp3')"><span class="lc-letter">V</span><span class="lc-sound">vay</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_W.mp3')"><span class="lc-letter">W</span><span class="lc-sound">dooble vay</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_X.mp3')"><span class="lc-letter">X</span><span class="lc-sound">eeks</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_Y.mp3')"><span class="lc-letter">Y</span><span class="lc-sound">ee grec</span></button>
+        <button class="letter-card" onclick="A('audio/lettre_Z.mp3')"><span class="lc-letter">Z</span><span class="lc-sound">zed</span></button>
+      </div>
+      <!-- NOTE OPUS : Fichier source du bouton ci-dessous : dossier
+           S0-Alphabet_Prononciation_Accent\Ecoutez et répétez chaque lettre de l'alphabet
+           Nommage utilisé ici : audio/alpha_complet.mp3 — à adapter. -->
+      <button class="letter-replay" onclick="A('audio/alpha_complet.mp3')">🔊 Écoute l'alphabet complet — Listen to the complete alphabet</button>
+    </div>
+
+    <!-- ══════════ TAB 2 — Les Consonnes Finales ══════════════ -->
+    <div id="tab2" class="tab-panel">
+      <!-- 2A : Règle générale -->
+      <div class="sec-hdr">La règle générale · The general rule</div>
+      <div class="consigne-box">
+        <div class="c-fr">En français, les consonnes à la fin des mots ne se prononcent généralement pas.</div>
+        <div class="c-en">In French, consonants at the end of words are usually silent.</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p2a_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <div class="word-row">
+        <button class="wbtn" onclick="A('audio/alpha_p2a_ex1.mp3')"><span class="spk">🔊</span> Paris [pa-ree] · Londres [lon-drr]</button>
+      </div>
+
+      <!-- 2B : Exceptions CARL -->
+      <div class="sec-hdr">Les exceptions C, R, F, L · Exceptions C, R, F, L</div>
+      <div class="consigne-box">
+        <div class="c-fr">Mais attention ! Les consonnes C, R, F et L se prononcent souvent à la fin d'un mot.</div>
+        <div class="c-en">But watch out! The consonants C, R, F, and L are often pronounced at the end of a word.</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p2b_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <div class="info-box">&#128161; Astuce : pense à <strong>CaReFuL</strong> (careful = prudent en anglais) !</div>
+      <table class="carl-table">
+        <tr><th>Consonne</th><th>Exemples — clique pour écouter</th><th>Son</th></tr>
+        <tr>
+          <td><span class="carl-badge">C</span></td>
+          <td>
+            <div class="word-row">
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_truc.mp3')">🔊 truc</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_mastic.mp3')">🔊 mastic</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_clic.mp3')">🔊 clic</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_bloc.mp3')">🔊 bloc</button>
+            </div>
+          </td>
+          <td>[k] se prononce</td>
+        </tr>
+        <tr>
+          <td><span class="carl-badge">R</span></td>
+          <td>
+            <div class="word-row">
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_fer.mp3')">🔊 fer</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_car.mp3')">🔊 car</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_bar.mp3')">🔊 bar</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_four.mp3')">🔊 four</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_mur.mp3')">🔊 mur</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_ver.mp3')">🔊 ver</button>
+            </div>
+          </td>
+          <td>[r] se prononce</td>
+        </tr>
+        <tr>
+          <td><span class="carl-badge">F</span></td>
+          <td>
+            <div class="word-row">
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_boeuf.mp3')">🔊 bœuf</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_cerf.mp3')">🔊 cerf</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_chef.mp3')">🔊 chef</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_oeuf.mp3')">🔊 œuf</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_tarif.mp3')">🔊 tarif</button>
+            </div>
+          </td>
+          <td>[f] se prononce</td>
+        </tr>
+        <tr>
+          <td><span class="carl-badge">L</span></td>
+          <td>
+            <div class="word-row">
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_sel.mp3')">🔊 sel</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_journal.mp3')">🔊 journal</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_hotel.mp3')">🔊 hôtel</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_animal.mp3')">🔊 animal</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_sol.mp3')">🔊 sol</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p2b_fil.mp3')">🔊 fil</button>
+            </div>
+          </td>
+          <td>[l] se prononce</td>
+        </tr>
+      </table>
+      <button class="wbtn" style="margin-bottom:10px" onclick="A('audio/alpha_p2b_carl.mp3')"><span class="spk">🔊</span> Écoute les 4 consonnes : C comme dans bloc, R comme dans fer, F comme dans chef, L comme dans sel.</button>
+
+      <!-- 2C : Mots exceptions -->
+      <div class="sec-hdr">Mots exceptions · Exception words</div>
+      <div class="consigne-box">
+        <div class="c-fr">Certains mots courants ont leur dernière lettre prononcée — mémorise-les !</div>
+        <div class="c-en">Some common words have their last letter pronounced — memorize them!</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p2c_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <table class="exc-table">
+        <tr><th>Mot</th><th>Sens</th><th>Prononciation</th><th>Note</th><th></th></tr>
+        <tr>
+          <td><strong>Août</strong></td><td>August</td><td>[oot]</td><td>Le « t » se prononce</td>
+          <td><button class="wbtn-sm" onclick="A('audio/alpha_p2c_aout.mp3')">🔊</button></td>
+        </tr>
+        <tr>
+          <td><strong>Cinq</strong></td><td>Five</td><td>[sank]</td><td>Le « q » se prononce</td>
+          <td><button class="wbtn-sm" onclick="A('audio/alpha_p2c_cinq.mp3')">🔊</button></td>
+        </tr>
+        <tr>
+          <td><strong>Sept</strong></td><td>Seven</td><td>[set]</td><td>Le « p » est muet, le « t » se prononce</td>
+          <td><button class="wbtn-sm" onclick="A('audio/alpha_p2c_sept.mp3')">🔊</button></td>
+        </tr>
+        <tr>
+          <td><strong>Huit</strong></td><td>Eight</td><td>[weet]</td><td>Le « t » se prononce</td>
+          <td><button class="wbtn-sm" onclick="A('audio/alpha_p2c_huit.mp3')">🔊</button></td>
+        </tr>
+        <tr>
+          <td><strong>Neuf</strong></td><td>Nine</td><td>[nuf]</td><td>Le « f » se prononce</td>
+          <td><button class="wbtn-sm" onclick="A('audio/alpha_p2c_neuf.mp3')">🔊</button></td>
+        </tr>
+      </table>
+      <button class="wbtn" style="margin-bottom:14px" onclick="A('audio/alpha_p2c_mots.mp3')"><span class="spk">🔊</span> Écoute les 5 mots exceptions</button>
+    </div>
+
+    <!-- ══════════ TAB 3 — Les Accents ════════════════════════ -->
+    <div id="tab3" class="tab-panel">
+      <!-- NOTE OPUS : Réutiliser le texte ET les audios des 5 items de légende de A1-E-007
+           (A1-E-007_leg_aigu.mp3, A1-E-007_leg_grave.mp3, A1-E-007_leg_circ.mp3,
+            A1-E-007_leg_trema.mp3, A1-E-007_leg_cedille.mp3) -->
+
+      <!-- 3A : Accents sur E et tréma -->
+      <div class="sec-hdr">Les accents sur E · Accents on E</div>
+      <div class="consigne-box">
+        <div class="c-fr">En français, les accents changent parfois le son d'une lettre ou le sens d'un mot.</div>
+        <div class="c-en">In French, accents sometimes change the sound of a letter or the meaning of a word.</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p3a_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <div class="acc-grid">
+        <div class="acc-card">
+          <div class="acc-card-hdr">
+            <span class="acc-sym" style="color:#B8820A">É</span>
+            <span class="acc-label">accent aigu</span>
+            <span class="acc-sound">[é]</span>
+            <button class="wbtn-sm" onclick="A('audio/A1-E-007_leg_aigu.mp3')">🔊</button>
+          </div>
+          <div class="acc-desc">e accent aigu se prononce « é ». Exemple : préparé, échange.</div>
+          <div class="acc-examples">
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_ecouter.mp3')">🔊 écouter</button>
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_cafe.mp3')">🔊 café</button>
+          </div>
+        </div>
+        <div class="acc-card">
+          <div class="acc-card-hdr">
+            <span class="acc-sym" style="color:#B5367A">È</span>
+            <span class="acc-label">accent grave</span>
+            <span class="acc-sound">[è]</span>
+            <button class="wbtn-sm" onclick="A('audio/A1-E-007_leg_grave.mp3')">🔊</button>
+          </div>
+          <div class="acc-desc">e accent grave se prononce « è ». Exemples : mère, père. a et u accent grave « à », « ù », ne modifient pas la prononciation.</div>
+          <div class="acc-examples">
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_pere.mp3')">🔊 père</button>
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_mere.mp3')">🔊 mère</button>
+          </div>
+        </div>
+        <div class="acc-card">
+          <div class="acc-card-hdr">
+            <span class="acc-sym" style="color:#1A8A7A">Ê</span>
+            <span class="acc-label">accent circonflexe</span>
+            <span class="acc-sound">[è]</span>
+            <button class="wbtn-sm" onclick="A('audio/A1-E-007_leg_circ.mp3')">🔊</button>
+          </div>
+          <div class="acc-desc">e accent circonflexe se prononce « ê ». Exemple : même. a, o et i accent circonflexe « â », « ô », « î », ne modifient pas la prononciation.</div>
+          <div class="acc-examples">
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_meme.mp3')">🔊 même</button>
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_foret.mp3')">🔊 forêt</button>
+          </div>
+        </div>
+        <div class="acc-card">
+          <div class="acc-card-hdr">
+            <span class="acc-sym" style="color:#7B3FB5">Ë</span>
+            <span class="acc-label">tréma</span>
+            <span class="acc-sound">sépare les voyelles</span>
+            <button class="wbtn-sm" onclick="A('audio/A1-E-007_leg_trema.mp3')">🔊</button>
+          </div>
+          <div class="acc-desc">e, i et u tréma « ë », « ï », « ü », se prononcent en séparant les syllabes et en accentuant la prononciation. Exemples : Noël, maïs.</div>
+          <div class="acc-examples">
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_noel.mp3')">🔊 Noël</button>
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_naif.mp3')">🔊 naïf</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3B : Cédille -->
+      <div class="sec-hdr">La cédille (ç) · The cedilla</div>
+      <div class="consigne-box">
+        <div class="c-fr">La cédille (ç) change le son C [k] en son S [s] devant A, O ou U.</div>
+        <div class="c-en">The cedilla (ç) changes the C sound [k] to an S sound [s] before A, O, or U.</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p3b_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <div class="acc-card" style="margin-bottom:14px">
+        <div class="acc-card-hdr">
+          <span class="acc-sym" style="color:#E8503A">Ç</span>
+          <span class="acc-label">cédille</span>
+          <span class="acc-sound">[s] devant a, o, u</span>
+          <button class="wbtn-sm" onclick="A('audio/A1-E-007_leg_cedille.mp3')">🔊</button>
+        </div>
+        <div class="acc-desc">c cédille « ç » se prononce « s ». Exemples : français, leçon.</div>
+        <div class="acc-examples">
+          <button class="wbtn-sm" onclick="A('audio/alpha_p3b_francais.mp3')">🔊 français</button>
+          <button class="wbtn-sm" onclick="A('audio/alpha_p3b_garcon.mp3')">🔊 garçon</button>
+          <button class="wbtn-sm" onclick="A('audio/alpha_p3b_lecon.mp3')">🔊 leçon</button>
+          <button class="wbtn-sm" onclick="A('audio/alpha_p3b_glace.mp3')">🔊 glace</button>
+          <button class="wbtn-sm" onclick="A('audio/alpha_p3b_citron.mp3')">🔊 citron</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ TAB 4 — Règles Spéciales ══════════════════ -->
+    <div id="tab4" class="tab-panel">
+      <!-- 4A : H muet + QU = [k] -->
+      <div class="sec-hdr">H muet · QU = [k]</div>
+      <div class="consigne-box">
+        <div class="c-fr">Le « h » ne se prononce jamais en français. « Qu » se prononce toujours [k].</div>
+        <div class="c-en">The letter « h » is never pronounced in French. « Qu » is always pronounced [k].</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p4a_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <div class="rule-box"><strong>H muet :</strong> Le H au début d'un mot ne se prononce pas.</div>
+      <div class="word-row">
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4a_hotel.mp3')">🔊 hôtel [ohtel]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4a_homme.mp3')">🔊 homme [om]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4a_hopital.mp3')">🔊 hôpital [opital]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4a_horrible.mp3')">🔊 horrible [oribl]</button>
+      </div>
+      <div class="rule-box" style="margin-top:10px"><strong>QU = [k] :</strong> La combinaison QU se prononce toujours [k], jamais [kw] comme en anglais.</div>
+      <div class="word-row">
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4a_quatre.mp3')">🔊 quatre [katr]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4a_qui.mp3')">🔊 qui [ki]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4a_quinze.mp3')">🔊 quinze [kanz]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4a_quatorze.mp3')">🔊 quatorze [katorz]</button>
+      </div>
+      <button class="wbtn" style="margin-top:10px;margin-bottom:14px" onclick="A('audio/alpha_p4a_ex.mp3')"><span class="spk">🔊</span> Écoute tous les exemples</button>
+
+      <!-- 4B : R guttural + TH = [t] -->
+      <div class="sec-hdr">R guttural · TH = [t]</div>
+      <div class="consigne-box">
+        <div class="c-fr">Le « r » français se prononce au fond de la gorge. « Th » ne se prononce [t], jamais comme en anglais.</div>
+        <div class="c-en">The French « r » is pronounced at the back of the throat. « Th » is pronounced [t], never like in English.</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p4b_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <div class="rule-box"><strong>R guttural :</strong> Prononce le R au fond de la gorge, pas avec la langue comme en anglais.</div>
+      <div class="word-row">
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_travail.mp3')">🔊 travail</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_garage.mp3')">🔊 garage</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_carottes.mp3')">🔊 carottes</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_hiver.mp3')">🔊 hiver</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_printemps.mp3')">🔊 printemps</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_reserver.mp3')">🔊 réserver</button>
+      </div>
+      <div class="rule-box" style="margin-top:10px"><strong>TH = [t] :</strong> En français, TH se prononce comme un simple [t], pas comme le son anglais.</div>
+      <div class="word-row">
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_the.mp3')">🔊 thé [té]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_theatre.mp3')">🔊 théâtre [téatr]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_cathedrale.mp3')">🔊 cathédrale [katedral]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4b_thon.mp3')">🔊 thon [ton]</button>
+      </div>
+      <button class="wbtn" style="margin-top:10px;margin-bottom:14px" onclick="A('audio/alpha_p4b_ex.mp3')"><span class="spk">🔊</span> Écoute tous les exemples</button>
+
+      <!-- 4C : U = [ü] + UI = [wi] -->
+      <div class="sec-hdr">U = [ü] · UI = [wi]</div>
+      <div class="consigne-box">
+        <div class="c-fr">« U » se prononce [u] (comme dans « lune »). « UI » se prononce [wi] (comme « wee » en anglais).</div>
+        <div class="c-en">« U » is pronounced [u] (like in « lune »). « UI » is pronounced [wi] (like "wee" in English).</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p4c_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+      <div class="rule-box"><strong>U = [ü] :</strong> La voyelle « u » en français n'existe pas en anglais. Arrondis les lèvres et dis « ee ».</div>
+      <div class="word-row">
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_jus.mp3')">🔊 jus [jü]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_universite.mp3')">🔊 université</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_jupe.mp3')">🔊 jupe [jüp]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_musique.mp3')">🔊 musique</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_sur.mp3')">🔊 sur [sür]</button>
+      </div>
+      <div class="rule-box" style="margin-top:10px"><strong>UI = [wi] :</strong> La combinaison UI se prononce comme « wee » en anglais.</div>
+      <div class="word-row">
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_nuit.mp3')">🔊 nuit [nwi]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_lui.mp3')">🔊 lui [lwi]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_huile.mp3')">🔊 huile [wil]</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_cuire.mp3')">🔊 cuire</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_suivre.mp3')">🔊 suivre</button>
+        <button class="wbtn-sm" onclick="A('audio/alpha_p4c_puisje.mp3')">🔊 puis-je ?</button>
+      </div>
+      <div class="info-box" style="margin-top:10px">&#128161; Phrase-clé UI : <em>Puis-je cuire les huîtres avec l'huile pour lui cette nuit ?</em></div>
+      <button class="wbtn" style="margin-top:10px;margin-bottom:14px" onclick="A('audio/alpha_p4c_ex.mp3')"><span class="spk">🔊</span> Écoute tous les exemples</button>
+    </div>
+
+    <!-- ══════════ TAB 5 — Les Sons Nasaux ════════════════════ -->
+    <div id="tab5" class="tab-panel">
+      <div class="consigne-box">
+        <div class="c-fr">En français, certaines combinaisons de lettres produisent des sons nasaux. Regarde la vidéo.</div>
+        <div class="c-en">In French, certain letter combinations produce nasal sounds. Watch the video.</div>
+        <div class="audio-row">
+          <button class="abtn fr" onclick="A('audio/alpha_p5_consigne.mp3')">🔊 FR</button>
+        </div>
+      </div>
+
+      <!-- VIDEO EMBED -->
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/shPmiDywMb4?si=rXXoCuO46QP831g_" title="How to Pronounce French Nasal Sounds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- 4 nasal sounds -->
+      <div class="sec-hdr">Les 4 sons nasaux · The 4 nasal sounds</div>
+      <div class="nasal-grid">
+        <button class="nasal-card" onclick="A('audio/alpha_p5_un.mp3')">
+          <span class="nasal-sym">UN</span>
+          <span class="nasal-ipa">[œ̃] / [ɛ̃]</span>
+          <span class="nasal-spell">un · um</span>
+        </button>
+        <button class="nasal-card" onclick="A('audio/alpha_p5_bon.mp3')">
+          <span class="nasal-sym">BON</span>
+          <span class="nasal-ipa">[ɔ̃]</span>
+          <span class="nasal-spell">on · om</span>
+        </button>
+        <button class="nasal-card" onclick="A('audio/alpha_p5_vin.mp3')">
+          <span class="nasal-sym">VIN</span>
+          <span class="nasal-ipa">[ɛ̃]</span>
+          <span class="nasal-spell">in · im · ain · ein</span>
+        </button>
+        <button class="nasal-card" onclick="A('audio/alpha_p5_blanc.mp3')">
+          <span class="nasal-sym">BLANC</span>
+          <span class="nasal-ipa">[ɑ̃]</span>
+          <span class="nasal-spell">an · en · am · em</span>
+        </button>
+      </div>
+
+      <!-- Tableau récapitulatif + exemples -->
+      <div class="sec-hdr">Exemples · Examples</div>
+      <table class="carl-table">
+        <tr><th>Son</th><th>Orthographe</th><th>Exemples — clique pour écouter</th></tr>
+        <tr>
+          <td><strong>[ɑ̃]</strong></td>
+          <td>an · en · am · em</td>
+          <td>
+            <div class="word-row">
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_enfant.mp3')">🔊 enfant</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_temps.mp3')">🔊 temps</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_chambre.mp3')">🔊 chambre</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>[ɛ̃]</strong></td>
+          <td>in · im · ain · ein · un</td>
+          <td>
+            <div class="word-row">
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_pain.mp3')">🔊 pain</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_vin.mp3')">🔊 vin</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_main.mp3')">🔊 main</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_brun.mp3')">🔊 brun</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>[ɔ̃]</strong></td>
+          <td>on · om</td>
+          <td>
+            <div class="word-row">
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_bon.mp3')">🔊 bon</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_maison.mp3')">🔊 maison</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_ombre.mp3')">🔊 ombre</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>[œ̃]</strong></td>
+          <td>un · um</td>
+          <td>
+            <div class="word-row">
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_un.mp3')">🔊 un</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_parfum.mp3')">🔊 parfum</button>
+              <button class="wbtn-sm" onclick="A('audio/alpha_p5_lundi.mp3')">🔊 lundi</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div><!-- /tab5 -->
+
+  </div><!-- /tabs-view -->
+</div><!-- /main -->
+
+<script>
+
+let _aud = null, _audSrc = '';
+function A(src) {
+  /* Jamais de voix synthétique — MP3 enregistrés par Eric uniquement */
+  if (!src) return;
+  if (_aud) {
+    if (_audSrc === src && !_aud.paused) { _aud.pause(); return; }
+    _aud.pause();
+  }
+  _aud = new Audio(src);
+  _audSrc = src;
+  _aud.play().catch(function(){});
+}
+
+function startCourse() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('tabs-view').style.display = 'block';
+}
+
+var _activeTab = 1;
+function showTab(n) {
+  document.getElementById('tab' + _activeTab).classList.remove('active');
+  document.getElementById('tb' + _activeTab).classList.remove('active');
+  _activeTab = n;
+  document.getElementById('tab' + n).classList.add('active');
+  document.getElementById('tb' + n).classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
+</body>
+</html>

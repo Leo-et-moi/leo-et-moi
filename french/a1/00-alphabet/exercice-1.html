@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Exercice 1 — Les Sons des Lettres · A1</title>
+<link rel="stylesheet" href="/css/site.css">
+<style>
+
+:root{
+  --cream:#F5F0E8;--dark:#1B2845;--navy:#2C4A7C;--coral:#E8503A;
+  --gold:#D4920A;--ltGold:#FDF3D8;--ltBlue:#E8F0FA;--ltGreen:#E3F5EC;
+  --green:#1E7B45;--text:#1A2733;--slate:#4A6580;--div:#D8DFE8;
+  --card:#EDE8DF;--white:#FFFFFF;--a1:#C0392B;
+}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+  line-height:1.6;min-height:100vh;padding-bottom:20px;
+  -webkit-text-size-adjust:100%}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--coral);
+  padding:0 14px;height:56px;display:flex;align-items:center;
+  justify-content:space-between;position:sticky;top:0;z-index:200}
+.site-name{font-size:19px;font-weight:bold;color:#fff;text-decoration:none;letter-spacing:-.3px}
+.site-name span{color:var(--coral)}
+.icon-btn{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.main{max-width:640px;margin:0 auto;padding:14px 13px 20px}
+.back-link{display:inline-block;color:var(--navy);text-decoration:none;font-size:14px;
+  margin-bottom:6px;padding:4px 0}
+.back-link:hover{text-decoration:underline}
+.lvl-tag{display:inline-block;background:var(--a1);color:#fff;font-size:12px;
+  font-weight:bold;padding:2px 10px;border-radius:8px;margin-bottom:14px;vertical-align:middle}
+.panel-head{background:var(--dark);border-radius:14px;padding:16px 16px 14px;
+  margin-bottom:14px;border-left:6px solid var(--coral)}
+.ph-chip{display:inline-block;background:var(--coral);color:#fff;font-size:12px;
+  font-weight:bold;padding:2px 10px;border-radius:8px;margin-bottom:8px}
+.ph-title{font-size:20px;font-weight:bold;color:#fff;margin-bottom:4px}
+.ph-sub{font-size:14px;color:#9DC8E8;font-style:italic}
+.lesson-banner{background:var(--ltBlue);border:2px solid var(--navy);border-radius:10px;
+  padding:10px 14px;margin-bottom:14px;font-size:14px;color:var(--navy)}
+.lesson-banner a{color:var(--navy);font-weight:bold}
+.consigne-box{background:var(--coral);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+.c-fr{font-size:16px;font-weight:bold;color:#fff;margin-bottom:4px}
+.c-en{font-size:13px;color:rgba(255,255,255,.85);font-style:italic;margin-bottom:10px}
+.audio-row{display:flex;gap:8px;flex-wrap:wrap}
+.abtn{border:none;border-radius:16px;padding:5px 14px;font-size:14px;
+  font-family:Arial,sans-serif;cursor:pointer;min-height:36px;font-weight:bold}
+.abtn.fr{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+.abtn.en{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4)}
+.abtn:active{opacity:.8}
+.qcm-item{background:var(--white);border:2px solid var(--div);border-radius:14px;
+  padding:16px;margin-bottom:14px}
+.qcm-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.qnum{background:var(--navy);color:#fff;border-radius:50%;width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;
+  flex-shrink:0}
+.qhint-btn{border:none;background:var(--ltBlue);border-radius:50%;width:36px;height:36px;
+  font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.qhint-btn:active{opacity:.8}
+.qcm-q{font-size:16px;font-weight:bold;color:var(--text);margin-bottom:4px}
+.qcm-q.en{font-size:13px;color:var(--slate);font-style:italic;font-weight:normal;margin-bottom:12px}
+.qcm-opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.opt{border:2px solid var(--navy);background:var(--white);color:var(--dark);
+  border-radius:12px;padding:10px 16px;font-size:16px;font-weight:bold;
+  font-family:Arial,sans-serif;cursor:pointer;min-height:44px;min-width:60px}
+.opt:active:not(:disabled){background:var(--ltBlue)}
+.opt:disabled{cursor:default;opacity:.8}
+.opt.sel-ok{background:var(--green);color:#fff;border-color:var(--green)}
+.opt.sel-wrong{background:var(--coral);color:#fff;border-color:var(--coral)}
+.opt.show-ok{background:var(--ltGreen);border-color:var(--green);color:var(--green)}
+.exp{background:var(--ltGold);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+  padding:10px 14px;font-size:14px;color:var(--text);line-height:1.5}
+
+</style>
+</head>
+<body data-item-id="A1-E-010">
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<div class="main">
+  <a class="back-link" href="/french/a1/index.html">&#8592; Niveau A1</a>
+  <div class="lvl-tag">A1</div>
+
+  <div class="panel-head">
+    <div class="ph-chip">Exercice · A1</div>
+    <div class="ph-title">Les Sons des Lettres</div>
+    <div class="ph-sub">French Alphabet — Which sound?</div>
+  </div>
+
+  <div class="lesson-banner">&#128218; Avant de commencer, revois la leçon &#8594; <a href="index.html">L'Alphabet et la Prononciation</a></div>
+
+  <div class="consigne-box">
+    <div class="c-fr">Choisis la bonne réponse. Comment se prononce cette lettre en français ?</div>
+    <div class="c-en">Choose the correct answer. How is this letter pronounced in French?</div>
+    <div class="audio-row">
+      <button class="abtn fr" onclick="A('audio/alpha_e1_consigne.mp3')">&#128266; FR</button>
+    </div>
+  </div>
+
+<div class="qcm-item" id="q1">
+<div class="qcm-head">
+<span class="qnum">Q1</span>
+<button class="qhint-btn" onclick="A('audio/lettre_B.mp3')">&#128266;</button>
+</div>
+<div class="qcm-q">Quelle lettre se prononce « bay » ?</div>
+<div class="qcm-q en">Which letter is pronounced "bay"?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="B" onclick="ans(0,this;A('audio/lettre_B.mp3'))">B</button>
+<button class="opt" data-val="V" onclick="ans(0,this;A('audio/lettre_V.mp3'))">V</button>
+<button class="opt" data-val="P" onclick="ans(0,this;A('audio/lettre_P.mp3'))">P</button>
+<button class="opt" data-val="F" onclick="ans(0,this;A('audio/lettre_F.mp3'))">F</button>
+</div>
+<div class="exp" id="exp1" style="display:none">&#128161; B = [bay], V = [vay], P = [pay], F = [eff].</div>
+</div>
+<div class="qcm-item" id="q2">
+<div class="qcm-head">
+<span class="qnum">Q2</span>
+</div>
+<div class="qcm-q">Quelle lettre se prononce « jay » ?</div>
+<div class="qcm-q en">Which letter is pronounced "jay"?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="J" onclick="ans(1,this;A('audio/lettre_J.mp3'))">J</button>
+<button class="opt" data-val="G" onclick="ans(1,this;A('audio/lettre_G.mp3'))">G</button>
+<button class="opt" data-val="Y" onclick="ans(1,this;A('audio/lettre_Y.mp3'))">Y</button>
+<button class="opt" data-val="Z" onclick="ans(1,this;A('audio/lettre_Z.mp3'))">Z</button>
+</div>
+<div class="exp" id="exp2" style="display:none">&#128161; G = [jay] en français ! J = [jee], Y = [ee grec], Z = [zed].</div>
+</div>
+<div class="qcm-item" id="q3">
+<div class="qcm-head">
+<span class="qnum">Q3</span>
+</div>
+<div class="qcm-q">Quelle lettre se prononce « air » ?</div>
+<div class="qcm-q en">Which letter is pronounced "air"?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="A" onclick="ans(2,this;A('audio/lettre_A.mp3'))">A</button>
+<button class="opt" data-val="R" onclick="ans(2,this;A('audio/lettre_R.mp3'))">R</button>
+<button class="opt" data-val="E" onclick="ans(2,this;A('audio/lettre_E.mp3'))">E</button>
+<button class="opt" data-val="L" onclick="ans(2,this;A('audio/lettre_L.mp3'))">L</button>
+</div>
+<div class="exp" id="exp3" style="display:none">&#128161; R = [air], A = [ahh], E = [euh], L = [ell].</div>
+</div>
+<div class="qcm-item" id="q4">
+<div class="qcm-head">
+<span class="qnum">Q4</span>
+<button class="qhint-btn" onclick="A('audio/lettre_W.mp3')">&#128266;</button>
+</div>
+<div class="qcm-q">Comment s’appelle la lettre W en français ?</div>
+<div class="qcm-q en">What is the letter W called in French?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="vay" onclick="ans(3,this)">vay</button>
+<button class="opt" data-val="dooble vay" onclick="ans(3,this)">dooble vay</button>
+<button class="opt" data-val="dou-ble-yoo" onclick="ans(3,this)">dou-ble-yoo</button>
+<button class="opt" data-val="wee" onclick="ans(3,this)">wee</button>
+</div>
+<div class="exp" id="exp4" style="display:none">&#128161; W = « dooble vay » (double V) en français.</div>
+</div>
+<div class="qcm-item" id="q5">
+<div class="qcm-head">
+<span class="qnum">Q5</span>
+</div>
+<div class="qcm-q">Quelle lettre se prononce « ash » ?</div>
+<div class="qcm-q en">Which letter is pronounced "ash"?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="S" onclick="ans(4,this;A('audio/lettre_S.mp3'))">S</button>
+<button class="opt" data-val="A" onclick="ans(4,this;A('audio/lettre_A.mp3'))">A</button>
+<button class="opt" data-val="H" onclick="ans(4,this;A('audio/lettre_H.mp3'))">H</button>
+<button class="opt" data-val="F" onclick="ans(4,this;A('audio/lettre_F.mp3'))">F</button>
+</div>
+<div class="exp" id="exp5" style="display:none">&#128161; H = [ash] — mais attention : dans les mots, le H ne se prononce jamais !</div>
+</div>
+<div class="qcm-item" id="q6">
+<div class="qcm-head">
+<span class="qnum">Q6</span>
+<button class="qhint-btn" onclick="A('audio/alpha_p4a_quatre.mp3')">&#128266;</button>
+</div>
+<div class="qcm-q">Comment se prononce « qu » dans « quatre » ?</div>
+<div class="qcm-q en">How is "qu" pronounced in "quatre"?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="[kw] comme en anglais" onclick="ans(5,this)">[kw] comme en anglais</button>
+<button class="opt" data-val="[k] seulement" onclick="ans(5,this)">[k] seulement</button>
+<button class="opt" data-val="[kuh]" onclick="ans(5,this)">[kuh]</button>
+<button class="opt" data-val="[qu]" onclick="ans(5,this)">[qu]</button>
+</div>
+<div class="exp" id="exp6" style="display:none">&#128161; «Qu» = [k] en français. Quatre = [katr], qui = [ki], quinze = [kanz].</div>
+</div>
+<div class="qcm-item" id="q7">
+<div class="qcm-head">
+<span class="qnum">Q7</span>
+<button class="qhint-btn" onclick="A('audio/alpha_p4b_the.mp3')">&#128266;</button>
+</div>
+<div class="qcm-q">Comment se prononce « th » dans « thé » ?</div>
+<div class="qcm-q en">How is "th" pronounced in "thé"?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="[th] comme en anglais" onclick="ans(6,this)">[th] comme en anglais</button>
+<button class="opt" data-val="[t]" onclick="ans(6,this)">[t]</button>
+<button class="opt" data-val="[dh]" onclick="ans(6,this)">[dh]</button>
+<button class="opt" data-val="[f]" onclick="ans(6,this)">[f]</button>
+</div>
+<div class="exp" id="exp7" style="display:none">&#128161; «Th» = [t] en français. Thé = [té]. Ce n’est pas le son anglais !</div>
+</div>
+<div class="qcm-item" id="q8">
+<div class="qcm-head">
+<span class="qnum">Q8</span>
+<button class="qhint-btn" onclick="A('audio/alpha_p4c_nuit.mp3')">&#128266;</button>
+</div>
+<div class="qcm-q">Comment se prononce « nuit » en français ?</div>
+<div class="qcm-q en">How do you pronounce "nuit" in French?</div>
+<div class="qcm-opts">
+<button class="opt" data-val="[noo-ee]" onclick="ans(7,this)">[noo-ee]</button>
+<button class="opt" data-val="[nwee]" onclick="ans(7,this)">[nwee]</button>
+<button class="opt" data-val="[noot]" onclick="ans(7,this)">[noot]</button>
+<button class="opt" data-val="[noo]" onclick="ans(7,this)">[noo]</button>
+</div>
+<div class="exp" id="exp8" style="display:none">&#128161; «Ui» = [wi]. Nuit = [nwee], lui = [lwee], huile = [weel].</div>
+</div>
+
+</div>
+<script>
+
+let _aud = null, _audSrc = '';
+function A(src) {
+  if (!src) return;
+  if (_aud) {
+    if (_audSrc === src && !_aud.paused) { _aud.pause(); return; }
+    _aud.pause();
+  }
+  _aud = new Audio(src);
+  _audSrc = src;
+  _aud.play().catch(function(){});
+}
+
+var CORRECT = {};
+CORRECT[0] = 'B';
+CORRECT[1] = 'G';
+CORRECT[2] = 'R';
+CORRECT[3] = 'dooble vay';
+CORRECT[4] = 'H';
+CORRECT[5] = '[k] seulement';
+CORRECT[6] = '[t]';
+CORRECT[7] = '[nwee]';
+
+function ans(idx, btn) {
+  var correct = CORRECT[idx];
+  var container = btn.parentElement;
+  var allBtns = container.querySelectorAll('.opt');
+  allBtns.forEach(function(b) { b.disabled = true; });
+  var chosen = btn.dataset.val;
+  if (chosen === correct) {
+    btn.classList.add('sel-ok');
+  } else {
+    btn.classList.add('sel-wrong');
+    allBtns.forEach(function(b) {
+      if (b.dataset.val === correct) b.classList.add('show-ok');
+    });
+  }
+  var expEl = document.getElementById('exp' + (idx + 1));
+  if (expEl) expEl.style.display = 'block';
+}
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
+</body>
+</html>
