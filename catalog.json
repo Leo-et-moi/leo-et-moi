@@ -15,7 +15,8 @@
         "A1-E-007",
         "A1-E-009"
       ],
-      "publie": true
+      "publie": true,
+      "ajoute": "2026-08-05"
     },
     {
       "id": "A1-L-001",
@@ -525,7 +526,8 @@
       ],
       "progressId": "A1-E-010",
       "questions": null,
-      "publie": true
+      "publie": true,
+      "ajoute": "2026-08-05"
     },
     {
       "id": "A1-E-011",
@@ -542,7 +544,8 @@
       ],
       "progressId": "A1-E-011",
       "questions": null,
-      "publie": true
+      "publie": true,
+      "ajoute": "2026-08-05"
     }
   ],
   "tests": [
