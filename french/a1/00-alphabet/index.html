@@ -153,7 +153,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
   border-radius:0 10px 10px 0;padding:10px 14px;margin:10px 0;font-size:15px}
 </style>
 </head>
-<body data-item-id="A1-L-000">
+<body data-item-id="A1-L-000" data-terminer="off">
 <header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
 <div class="main">
   <a class="back-link" href="/french/a1/index.html">&#8592; Niveau A1</a>
@@ -241,7 +241,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
       <!-- NOTE OPUS : Fichier source du bouton ci-dessous : dossier
            S0-Alphabet_Prononciation_Accent\Ecoutez et répétez chaque lettre de l'alphabet
            Nommage utilisé ici : audio/alpha_complet.mp3 — à adapter. -->
-      <button class="letter-replay" onclick="A('audio/alpha_complet.mp3')">🔊 Écoute l'alphabet complet — Listen to the complete alphabet</button>
+      <div class="listen-label" style="font-weight:bold;margin:6px 0 6px">🔊 Écoute l'alphabet complet · Listen to the complete alphabet</div><audio class="listen-bar" controls preload="none" src="audio/alpha_complet.mp3" style="width:100%;margin-bottom:6px"></audio>
     </div>
 
     <!-- ══════════ TAB 2 — Les Consonnes Finales ══════════════ -->
@@ -424,10 +424,11 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
             <span class="acc-sound">sépare les voyelles</span>
             <button class="wbtn-sm" onclick="A('audio/A1-E-007_leg_trema.mp3')">🔊</button>
           </div>
-          <div class="acc-desc">e, i et u tréma « ë », « ï », « ü », se prononcent en séparant les syllabes et en accentuant la prononciation. Exemples : Noël, maïs.</div>
+          <div class="acc-desc">e, i et u tréma « ë », « ï », « ü », se prononcent en séparant les syllabes et en accentuant la prononciation. Exemples : noël, naïf, ambigüe.</div>
           <div class="acc-examples">
-            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_noel.mp3')">🔊 Noël</button>
+            <button class="wbtn-sm" onclick="A('audio/alpha_p3a_noel.mp3')">🔊 noël</button>
             <button class="wbtn-sm" onclick="A('audio/alpha_p3a_naif.mp3')">🔊 naïf</button>
+            <span class="wbtn-sm" style="opacity:.85;cursor:default">ambigüe</span>
           </div>
         </div>
       </div>
@@ -555,7 +556,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
 
       <!-- VIDEO EMBED -->
       <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/shPmiDywMb4?si=rXXoCuO46QP831g_" title="How to Pronounce French Nasal Sounds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/shPmiDywMb4?cc_load_policy=0&amp;rel=0&amp;modestbranding=1" title="How to Pronounce French Nasal Sounds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
 
       <!-- 4 nasal sounds -->
@@ -633,6 +634,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
           </td>
         </tr>
       </table>
+    <button class="lesson-done" onclick="if(window.LEM&&window.LEM.setLesson){window.LEM.setLesson('A1-L-000',{completed:true});} this.disabled=true; this.textContent='✅ Leçon terminée · Lesson finished';" style="width:100%;padding:16px;margin:22px 0 6px;background:#1E7B45;color:#fff;border:none;border-radius:14px;font-size:17px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:58px">✅ J'ai terminé la leçon · I finished the lesson</button>
     </div><!-- /tab5 -->
 
   </div><!-- /tabs-view -->

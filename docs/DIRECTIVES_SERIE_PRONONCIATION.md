@@ -121,3 +121,6 @@ En pratique, la liste d'enregistrement d'un chapitre tient en quelques lignes.
 **Nommage audio** — nouveaux fichiers en préfixe **page** : `ratatouille_ch<C>_p<P>.mp3` (texte), `p<P>_titre.mp3`, `p<P>_md_<mot>.mp3`, `p<P>_hom_<mot>.mp3`. Réutilisés : garder les noms `A1-E-007_*` (Opus les copie). Réfs du HTML, fichiers déposés et liste d'enregistrement doivent être **strictement cohérents** entre eux.
 
 **Liaisons** — vérifier CHAQUE liaison à l'oreille sur l'audio ; ne coder que celles réellement prononcées ; lister à part, pour Eric, toute liaison douteuse.
+
+### 9.8 Leçon parente (2026-08-05)
+La série a désormais une **leçon parente** : **A1-L-000 « L'alphabet et la prononciation »** (`french/a1/00-alphabet/`). Chaque exercice de la série (présent et à venir) porte en tête le bandeau **« 📖 Avant de commencer, revois la leçon → L'alphabet et la prononciation »** (lien vers `/french/a1/00-alphabet/index.html`) et, au catalogue, `lecons:["A1-L-000"]` — **lien bidirectionnel obligatoire** : ajouter aussi l'exercice à `A1-L-000.exercices` (sinon `check_site` signale un lien asymétrique). Appliqué à A1-E-007 et A1-E-009.

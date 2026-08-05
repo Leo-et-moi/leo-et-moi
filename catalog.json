@@ -11,7 +11,9 @@
       "chemin": "french/a1/00-alphabet/index.html",
       "exercices": [
         "A1-E-010",
-        "A1-E-011"
+        "A1-E-011",
+        "A1-E-007",
+        "A1-E-009"
       ],
       "publie": true
     },
@@ -362,7 +364,9 @@
       "ordre": 70,
       "titre": "La Ratatouille Folle — Ch.1 : La Préparation · p. 3",
       "chemin": "french/a1/A1-E-007-ratatouille/index.html",
-      "lecons": [],
+      "lecons": [
+        "A1-L-000"
+      ],
       "competences": [
         "reading",
         "listening",
@@ -381,7 +385,9 @@
       "ordre": 80,
       "titre": "La Ratatouille Folle — Ch.1 : La Préparation · p. 4",
       "chemin": "french/a1/A1-E-009-ratatouille-ch1-p4/index.html",
-      "lecons": [],
+      "lecons": [
+        "A1-L-000"
+      ],
       "competences": [
         "reading",
         "listening",
