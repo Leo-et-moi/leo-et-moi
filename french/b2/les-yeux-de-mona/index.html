@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exercice B2 · Lecture — Les Yeux de Mona · Thomas Schlesser</title>
+<link rel="stylesheet" href="/css/site.css">
+<style>
+:root{--navy:#1B2845;--dark:#0F1A2D;--coral:#E8503A;--green:#1E7B45;--amber:#B8720A;
+--purple:#6B3FA0;--slate:#5A6A80;--gold:#D4920A;--cream:#F5F0E8;--white:#FFFFFF;
+--div:#D8DDED;--ltB:#EDF2FA;--ltG:#EAF5ED;--ltA:#FEF8ED;--ltP:#F0EAF8;--ltC:#FEF0EE;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--dark);}
+/* TOP BAR */
+.top-bar{background:var(--navy);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;}
+.site-name{font-size:20px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:#7CB9E8;}
+.icon-btn{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;padding:4px 8px;}
+/* MAIN */
+.main{max-width:780px;margin:0 auto;padding:14px 12px 60px;}
+.back-link{display:inline-block;color:var(--slate);font-size:14px;text-decoration:none;margin-bottom:8px;}
+.back-link:hover{color:var(--navy);}
+.lvl-tag{display:inline-block;background:var(--purple);color:#fff;font-size:13px;font-weight:bold;
+  padding:3px 12px;border-radius:12px;margin-bottom:10px;}
+/* PANEL HEAD */
+.ph{background:var(--navy);color:#fff;border-radius:12px;padding:16px 18px;margin-bottom:14px;}
+.ph-series{font-size:12px;color:#9AAFCC;margin-bottom:4px;}
+.ph-title{font-size:20px;font-weight:bold;}
+.ph-sub{font-size:13px;color:#9AAFCC;margin-top:3px;}
+.ph-btns{display:flex;gap:6px;margin-top:10px;}
+/* INTRO BOX */
+.intro-box{background:#fff;border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.intro-hdr{font-size:15px;font-weight:bold;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.intro-fr{font-size:15px;line-height:1.7;color:var(--dark);margin-bottom:6px;}
+.intro-en{font-size:13px;color:var(--slate);line-height:1.6;}
+/* METHOD BOX (collapsible) */
+.meth-box{background:var(--ltB);border:2px solid rgba(44,74,124,.25);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+.meth-hdr{padding:13px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;}
+.meth-hdr:hover{background:rgba(44,74,124,.07);}
+.meth-title{font-size:15px;font-weight:bold;color:var(--navy);}
+.meth-body{display:none;padding:12px 16px 14px;}
+.meth-body.open{display:block;}
+.meth-step{display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:var(--dark);}
+.meth-num{background:var(--navy);color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;flex-shrink:0;}
+/* TABS */
+.tab-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.tab-btn{background:#fff;border:2px solid var(--div);border-radius:10px;padding:8px 14px;font-size:14px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;color:var(--slate);min-height:44px;}
+.tab-btn:hover{border-color:var(--navy);color:var(--navy);}
+.tab-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+/* SECTION CARD */
+.sec{background:#fff;border-radius:12px;margin-bottom:14px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.sec-hdr{background:var(--ltB);padding:11px 16px;display:flex;align-items:center;gap:10px;}
+.sec-icon{font-size:22px;flex-shrink:0;}
+.sec-lbl{flex:1;}
+.sec-lbl-fr{font-size:15px;font-weight:bold;color:var(--dark);}
+.sec-lbl-en{font-size:12px;color:var(--slate);}
+.sec-body{padding:16px;}
+/* INSTRUCTION BOX */
+.instr{background:var(--ltC);border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:14px;}
+.instr-fr{display:flex;align-items:flex-start;gap:8px;font-size:15px;font-weight:600;color:var(--dark);margin-bottom:5px;}
+.instr-en{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--slate);}
+/* BUTTONS */
+.spk{background:var(--dark);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer;min-height:36px;font-family:Arial,sans-serif;}
+.spk:hover{background:var(--coral);}
+.spk-en{background:var(--slate);color:#fff;border:none;border-radius:8px;padding:5px 10px;font-size:13px;cursor:pointer;min-height:32px;font-family:Arial,sans-serif;}
+.spk-en:hover{background:var(--navy);}
+/* AUDIO NAV BAR */
+.anb{background:var(--navy);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.anb-btn{background:var(--coral);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:15px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;min-height:44px;flex-shrink:0;}
+.anb-btn:hover{background:#C03020;}
+.anb-btn.anb-play{background:var(--green);}
+.anb-btn.anb-play:hover{background:#165f34;}
+.anb-info{flex:1;}
+.anb-file{font-size:12px;color:#9AAFCC;margin-bottom:4px;}
+.anb-prog{background:rgba(255,255,255,.2);border-radius:4px;height:6px;overflow:hidden;}
+.anb-fill{background:var(--coral);height:100%;width:0%;transition:width .3s;}
+.anb-time{font-size:13px;color:#9AAFCC;flex-shrink:0;min-width:40px;text-align:right;}
+/* VOCAB MATCH */
+.vm-hint{background:var(--ltA);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--amber);margin-bottom:10px;}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.vm-col-hdr{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:.5px;padding-bottom:6px;border-bottom:2px solid var(--div);margin-bottom:6px;}
+.vm-wcard{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:10px 12px;cursor:pointer;margin-bottom:6px;user-select:none;transition:all .15s;}
+.vm-wcard:hover:not(.vm-done){border-color:var(--navy);}
+.vm-wcard.vm-sel{border-color:var(--navy);background:var(--ltB);box-shadow:0 0 0 3px rgba(27,40,69,.15);}
+.vm-wcard.vm-done{border-color:var(--green);background:var(--ltG);cursor:default;}
+.vm-wcard.vm-err{border-color:var(--coral)!important;background:var(--ltC)!important;}
+.vm-word{font-size:15px;font-weight:bold;color:var(--dark);}
+.vm-ctx{font-size:12px;color:var(--slate);font-style:italic;margin-top:3px;line-height:1.4;}
+.vm-dcard{background:#fff;border:2px solid var(--div);border-radius:10px;padding:10px 12px;cursor:pointer;margin-bottom:6px;font-size:14px;user-select:none;transition:all .15s;}
+.vm-dcard:hover:not(.vm-done){border-color:var(--purple);}
+.vm-dcard.vm-sel{border-color:var(--purple);background:var(--ltP);}
+.vm-dcard.vm-done{border-color:var(--green);background:var(--ltG);cursor:default;}
+.vm-dcard.vm-err{border-color:var(--coral)!important;background:var(--ltC)!important;}
+.vm-den{font-size:12px;color:var(--slate);font-style:italic;margin-top:3px;}
+.vm-score{text-align:center;font-size:14px;font-weight:bold;color:var(--slate);padding:8px;background:var(--ltB);border-radius:8px;margin-top:6px;}
+/* QCM */
+.qcm-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
+.qcm-q{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:3px;}
+.qcm-q-en{font-size:13px;color:var(--slate);margin-bottom:10px;}
+.qcm-opts{display:flex;flex-direction:column;gap:6px;}
+.qopt{background:#fff;border:1.5px solid var(--div);border-radius:8px;padding:10px 14px;font-size:14px;cursor:pointer;text-align:left;font-family:Arial,sans-serif;min-height:44px;line-height:1.4;}
+.qopt:hover:not(:disabled){border-color:var(--navy);background:var(--ltB);}
+.qopt.ok{background:var(--ltG)!important;border-color:var(--green)!important;color:var(--green)!important;font-weight:bold;}
+.qopt.ng{background:var(--ltC)!important;border-color:var(--coral)!important;color:var(--coral)!important;}
+.qopt:disabled{cursor:not-allowed;opacity:.7;}
+.qxp{display:none;background:var(--ltG);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--green);margin-top:8px;font-weight:600;}
+.qxp.show{display:block;}
+/* VRAI/FAUX */
+.vf-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
+.vf-stmt{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:3px;}
+.vf-stmt-en{font-size:13px;color:var(--slate);margin-bottom:10px;}
+.vf-btns{display:flex;gap:8px;}
+.vf-btn{border:none;border-radius:8px;padding:9px 20px;font-size:15px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;min-height:44px;}
+.vf-btn.vtrue{background:var(--ltG);color:var(--green);}
+.vf-btn.vfals{background:var(--ltC);color:var(--coral);}
+.vf-btn:hover:not(:disabled){opacity:.85;}
+.vf-btn.vsel-ok{background:var(--green);color:#fff;}
+.vf-btn.vsel-ng{background:var(--coral);color:#fff;}
+.vf-btn:disabled{cursor:not-allowed;}
+.vf-cite{display:none;background:var(--ltB);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--navy);margin-top:8px;font-style:italic;}
+.vf-cite.show{display:block;}
+/* TEXT DISPLAY */
+.text-box{background:var(--cream);border-radius:10px;padding:18px;line-height:1.9;font-size:15px;margin-bottom:10px;}
+.text-p{margin-bottom:12px;}
+.dl{color:var(--navy);font-weight:700;font-style:italic;display:block;margin:6px 0;}
+.text-sep{text-align:center;font-weight:bold;color:var(--slate);letter-spacing:6px;margin:10px 0;}
+.fn{font-size:12px;color:var(--slate);border-top:1px solid var(--div);padding-top:8px;margin-top:8px;}
+.en-toggle-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--slate);color:#fff;border:none;border-radius:10px;padding:10px 18px;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;cursor:pointer;width:100%;min-height:46px;margin-bottom:10px;}
+.en-toggle-btn:hover{background:var(--navy);}
+.en-box{background:var(--ltB);border:2px solid rgba(44,74,124,.2);border-radius:10px;padding:18px;line-height:1.9;display:none;}
+.en-box.open{display:block;}
+.en-p{margin-bottom:12px;font-size:15px;}
+.en-dl{color:var(--navy);font-weight:600;font-style:italic;display:block;margin:6px 0;}
+.en-sep{text-align:center;font-weight:bold;color:var(--slate);letter-spacing:6px;margin:10px 0;}
+/* ANALYSE STYLISTIQUE */
+.figdef-box{background:var(--ltP);border:2px solid rgba(107,63,160,.25);border-radius:10px;padding:14px;margin-bottom:14px;}
+.figdef-hdr{font-size:14px;font-weight:bold;color:var(--purple);margin-bottom:10px;cursor:pointer;display:flex;align-items:center;gap:6px;}
+.figdef-body{display:none;}
+.figdef-body.open{display:block;}
+.figdef-row{display:flex;gap:8px;margin-bottom:8px;font-size:14px;}
+.figdef-name{font-weight:bold;color:var(--purple);min-width:130px;}
+.figdef-fr{color:var(--dark);}
+.figdef-en{color:var(--slate);font-style:italic;font-size:13px;}
+.scard{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
+.scard-ex{font-size:15px;font-style:italic;color:var(--navy);font-weight:600;margin-bottom:10px;line-height:1.5;}
+.scard-opts{display:flex;flex-wrap:wrap;gap:6px;}
+.sopt{background:#fff;border:1.5px solid var(--div);border-radius:8px;padding:8px 14px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;min-height:40px;}
+.sopt:hover:not(:disabled){border-color:var(--purple);background:var(--ltP);}
+.sopt.ok{background:var(--ltG)!important;border-color:var(--green)!important;color:var(--green)!important;font-weight:bold;}
+.sopt.ng{background:var(--ltC)!important;border-color:var(--coral)!important;color:var(--coral)!important;}
+.sopt:disabled{cursor:not-allowed;opacity:.7;}
+.sxp{display:none;background:var(--ltG);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--green);margin-top:8px;}
+.sxp.show{display:block;}
+/* GRAMMAR */
+.gram-note{background:var(--ltA);border:2px solid rgba(184,114,10,.3);border-radius:10px;padding:12px 16px;margin-bottom:14px;}
+.gram-note-lbl{font-size:13px;font-weight:bold;color:var(--amber);margin-bottom:4px;}
+.gram-note-txt{font-size:14px;color:var(--dark);}
+.gram-popup-btn{background:var(--purple);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;min-height:40px;margin-top:8px;}
+.gram-popup-btn:hover{background:#5A2F90;}
+.gcard{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
+.gcard-ph{font-size:15px;font-style:italic;color:var(--dark);margin-bottom:3px;line-height:1.6;}
+.gcard-ph-en{font-size:13px;color:var(--slate);margin-bottom:10px;}
+.gcard-opts{display:flex;flex-wrap:wrap;gap:6px;}
+.gopt{background:#fff;border:1.5px solid var(--div);border-radius:8px;padding:8px 14px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;min-height:40px;}
+.gopt:hover:not(:disabled){border-color:var(--navy);background:var(--ltB);}
+.gopt.ok{background:var(--ltG)!important;border-color:var(--green)!important;color:var(--green)!important;font-weight:bold;}
+.gopt.ng{background:var(--ltC)!important;border-color:var(--coral)!important;color:var(--coral)!important;}
+.gopt:disabled{cursor:not-allowed;opacity:.7;}
+.gxp{display:none;background:var(--ltG);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--green);margin-top:8px;}
+.gxp.show{display:block;}
+/* PORTRAIT CONTRAIRES */
+.contr-table{width:100%;border-collapse:collapse;margin-bottom:14px;}
+.contr-th{background:var(--dark);color:#fff;padding:10px 14px;font-size:13px;text-align:left;}
+.contr-td{padding:10px 14px;border-bottom:1px solid var(--div);font-size:14px;vertical-align:top;}
+.contr-td:first-child{background:var(--ltC);font-style:italic;color:var(--dark);}
+.contr-td:last-child{background:var(--ltG);}
+.contr-td-en{font-size:12px;color:var(--slate);font-style:italic;margin-top:3px;}
+.contr-input{width:100%;border:1.5px solid var(--div);border-radius:6px;padding:6px 10px;font-size:14px;font-family:Arial,sans-serif;background:var(--cream);}
+/* RÉSUMÉ */
+.resume-box{background:var(--cream);border-radius:10px;padding:14px;}
+.resume-ta{width:100%;min-height:130px;border:1.5px solid var(--div);border-radius:8px;padding:10px 12px;font-family:Arial,sans-serif;font-size:15px;resize:vertical;background:#fff;color:var(--dark);}
+.resume-ta:focus{outline:none;border-color:var(--navy);}
+.resume-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.rbtn{border:none;border-radius:8px;padding:9px 16px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;min-height:40px;}
+.rbtn-v{background:var(--ltG);color:var(--green);font-weight:bold;}
+.rbtn-o{background:var(--ltB);color:var(--navy);font-weight:bold;}
+.rbtn-s{background:var(--coral);color:#fff;font-weight:bold;}
+.rbtn-s:hover{background:#C03020;}
+/* ENREGISTREMENT */
+.rec-zone{background:var(--ltA);border:2px dashed var(--amber);border-radius:10px;padding:16px;text-align:center;}
+.rec-btn-big{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:16px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;min-height:50px;display:inline-flex;align-items:center;gap:8px;}
+.rec-btn-big:hover{background:var(--dark);}
+.rec-note{font-size:13px;color:var(--slate);margin-top:8px;}
+/* DÉBAT */
+.debat-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:16px;margin-bottom:10px;}
+.debat-num{font-weight:bold;color:var(--coral);font-size:15px;margin-bottom:5px;}
+.debat-q{font-size:16px;font-weight:600;color:var(--dark);margin-bottom:4px;line-height:1.5;}
+.debat-q-en{font-size:13px;color:var(--slate);margin-bottom:8px;font-style:italic;}
+.debat-ta{width:100%;min-height:70px;border:1.5px solid var(--div);border-radius:8px;padding:8px 12px;font-family:Arial,sans-serif;font-size:14px;resize:vertical;background:#fff;color:var(--dark);}
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;align-items:center;justify-content:center;}
+.modal-bg.open{display:flex;}
+.modal{background:#fff;border-radius:14px;padding:24px;max-width:560px;width:90%;max-height:85vh;overflow-y:auto;}
+.modal-title{font-size:18px;font-weight:bold;color:var(--navy);margin-bottom:14px;}
+.modal-close{float:right;background:var(--slate);color:#fff;border:none;border-radius:6px;padding:4px 12px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;}
+.modal-rule{margin-bottom:10px;}
+.modal-rule-title{font-weight:bold;color:var(--dark);font-size:15px;margin-bottom:4px;}
+.modal-rule-txt{font-size:14px;color:var(--dark);line-height:1.6;}
+.modal-rule-en{font-size:13px;color:var(--slate);font-style:italic;}
+.modal-example{background:var(--ltB);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:14px;}
+.formation-box{background:var(--ltP);border-radius:8px;padding:12px 14px;margin-bottom:10px;}
+</style>
+</head>
+<body data-item-id="B2-E-002">
+
+<!-- TOP BAR (standard leo-et-moi) -->
+<header class="top-bar">
+  <a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+
+<div class="main">
+
+<a class="back-link" href="/french/b2/index.html">&#8592; Niveau B2</a>
+<div class="lvl-tag">B2</div>
+
+<!-- PANEL HEAD -->
+<div class="ph">
+  <div class="ph-series">&#128218; La farandole des livres, poèmes et chansons&nbsp;! — extraits</div>
+  <div class="ph-title">Lecture — Les Yeux de Mona · Thomas Schlesser (2024)</div>
+  <div class="ph-sub">B2 Reading Exercise · Mona's Eyes — Prologue (pages 9–14)</div>
+  <div class="ph-btns">
+    <button class="spk" onclick="A('mona_titre_fr.mp3')">&#128266; FR</button>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-box">
+  <div class="intro-hdr">
+    <button class="spk" style="flex-shrink:0" onclick="A('mona_intro_fr.mp3')">&#128266;</button>
+    &#128100; Thomas Schlesser &amp; <em>Les Yeux de Mona</em>
+  </div>
+  <div class="intro-fr">Thomas Schlesser (1977–) est historien de l'art et directeur de la Fondation Hartung-Bergman. <em>Les Yeux de Mona</em> est son premier roman (2024), phénomène littéraire en France avec plus de 300 000 exemplaires vendus. Le roman raconte l'histoire de Mona, dix ans, qui perd temporairement la vue. Son grand-père décide de lui faire découvrir l'art : un tableau par semaine au musée. Chaque œuvre devient une fenêtre sur le monde.</div>
+  <div class="intro-en">Thomas Schlesser (1977–) is an art historian and director of the Hartung-Bergman Foundation. <em>Mona's Eyes</em> is his debut novel (2024), a major literary hit in France. The novel follows Mona, ten years old, who temporarily loses her sight. Her grandfather introduces her to art — one painting a week at the museum. Each work becomes a window on the world.</div>
+</div>
+
+<!-- MÉTHODE B2 -->
+<div class="meth-box">
+  <div class="meth-hdr" onclick="togMeth()">
+    <div><span class="meth-title">&#128218; Méthode de lecture B2 — «&nbsp;Lire, Analyser, Réagir&nbsp;»</span>
+    <div style="font-size:13px;color:var(--slate)"><em>"Listen, Analyse, React"</em></div></div>
+    <button class="spk" onclick="event.stopPropagation();A('mona_methode_b2_fr.mp3')">&#128266;</button>
+  </div>
+  <div class="meth-body" id="meth-body">
+    <div class="meth-step"><div class="meth-num">1</div><div><strong>Écoute</strong> le texte sans lire (immersion sonore). <em style="color:var(--slate)">Listen without reading first.</em></div></div>
+    <div class="meth-step"><div class="meth-num">2</div><div><strong>Lis</strong> en suivant l'audio — note les mots inconnus. <em style="color:var(--slate)">Read along with the audio — note unknown words.</em></div></div>
+    <div class="meth-step"><div class="meth-num">3</div><div><strong>Fais</strong> les exercices dans l'ordre (compréhension → analyse → expression). <em style="color:var(--slate)">Complete exercises in order.</em></div></div>
+    <div class="meth-step"><div class="meth-num">4</div><div><strong>Enregistre</strong> ta lecture et ta réponse orale → envoie au professeur. <em style="color:var(--slate)">Record and submit to your teacher.</em></div></div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('p9',this)">Page 9</button>
+  <button class="tab-btn" onclick="showTab('p10',this)">Page 10</button>
+  <button class="tab-btn" onclick="showTab('p11',this)">Page 11</button>
+  <button class="tab-btn" onclick="showTab('p12',this)">Page 12</button>
+  <button class="tab-btn" onclick="showTab('p1314',this)">Pages 13–14</button>
+</div>
+
+
+<!-- ════ ONGLET PAGE 9 ════ -->
+<div class="tab-panel active" id="panel-p9">
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🔤</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Page 9</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p9_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Clique sur un <strong>mot</strong> à gauche, puis sur sa <strong>définition</strong> à droite pour les associer.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Click a word on the left, then its definition on the right to match them.</span></div>
+</div><div id="vm-p9"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📖</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Page 9</div><div class="sec-lbl-en">The extract — Page 9</div></div>
+</div>
+<div class="sec-body"><div class="anb">
+  <button class="anb-btn" id="anb-p9" onclick="anbToggle('anb-p9','at-p9','af-p9','audio/page_9.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page 9.mp3 — Prologue</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p9"></div></div>
+  </div>
+  <span class="anb-time" id="at-p9">0:00</span>
+</div><div class="text-box" id="txt-fr-p9"></div>
+<button class="en-toggle-btn" id="etb-p9" onclick="togEn('en-p9','etb-p9')">&#128317; Voir la traduction anglaise — English version</button>
+<div class="en-box" id="en-p9"><div id="txt-en-p9"></div></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">✅</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension — Multiple choice</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p9_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse pour chaque question.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer for each question.</span></div>
+</div><div id="qcm-p9"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎨</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Analyse stylistique</div><div class="sec-lbl-en">Stylistic analysis — figures de style</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p9_style_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Pour chaque extrait, clique sur la figure de style correcte puis lis l'explication.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>For each extract, click the correct literary device, then read the explanation.</span></div>
+</div><div class="figdef-box">
+  <div class="figdef-hdr" onclick="togFigDef('fd-p9-body')">
+    &#128218; Définitions des figures de style — <em>Literary devices reference</em> <span style="font-size:14px">&#9660;</span>
+  </div>
+  <div class="figdef-body" id="fd-p9-body"><div class="figdef-row"><div class="figdef-name">Comparaison</div><div><div class="figdef-fr">Rapprochement de deux éléments avec un outil : « comme », « à la façon de », « tel que ».</div><div class="figdef-en">Comparison using a linking word: 'like', 'as', 'in the manner of'.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Métaphore</div><div><div class="figdef-fr">Comparaison directe, SANS outil — l'image est affirmée directement.</div><div class="figdef-en">Direct image with NO linking word — the comparison is stated as fact.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Personnification</div><div><div class="figdef-fr">Donner des qualités ou des actions humaines à un objet ou une idée.</div><div class="figdef-en">Giving human qualities or actions to an object or idea.</div></div></div></div>
+</div><div id="st-p9"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📝</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Résumé écrit</div><div class="sec-lbl-en">Written summary — 50 à 80 mots</div></div>
+</div>
+<div class="sec-body"><div class="resume-box">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:8px">Résume ce qui se passe page 9 dans tes propres mots. Utilise le passé composé ou l'imparfait.</p>
+  <p style="font-size:13px;color:var(--slate);margin-bottom:10px;font-style:italic">Summarise what happens on page 9 in your own words. Use the past tense.</p>
+  <textarea class="resume-ta" style="min-height:130px" placeholder="Écris ton résumé ici… / Write your summary here…"></textarea>
+  <div class="resume-btns">
+    <button class="rbtn rbtn-v">&#10003; Vocabulaire</button>
+    <button class="rbtn rbtn-o">&#128269; Orthographe</button>
+    <button class="rbtn rbtn-s">&#128228; Soumettre au professeur — Submit</button>
+  </div>
+</div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎙️</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Expression orale — Lecture du prologue en entier</div><div class="sec-lbl-en">Read-aloud recording — Entire prologue</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p9_oral_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Écoute l'extrait une dernière fois. Puis enregistre ta propre lecture du <strong>prologue entier</strong> (pages 9 à 14). Envoie l'enregistrement au professeur pour correction de prononciation.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen one last time, then record your own reading of the <strong>entire prologue</strong> (pages 9–14). Send to your teacher for pronunciation feedback.</span></div>
+</div>
+<div class="rec-zone">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture du prologue entier (pages 9–14)<br><em style="color:var(--slate);font-size:13px">Record your reading of the whole prologue (pages 9–14)</em></p>
+  <button class="rec-btn-big" onclick="startRec('p9')">&#127908; Enregistrer ma lecture</button>
+  <p class="rec-note">&#128100; Enregistre, réécoute, puis télécharge et envoie à ton professeur.<br>Record, listen back, then download and send it to your teacher.</p>
+</div></div>
+</div>
+
+</div>
+
+<!-- ════ ONGLET PAGE 10 ════ -->
+<div class="tab-panel" id="panel-p10">
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🔤</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Page 10</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p10_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot avec sa définition.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
+</div><div id="vm-p10"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📖</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Page 10</div><div class="sec-lbl-en">The extract — Page 10</div></div>
+</div>
+<div class="sec-body"><div class="anb">
+  <button class="anb-btn" id="anb-p10" onclick="anbToggle('anb-p10','at-p10','af-p10','audio/page_10.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page 10.mp3</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p10"></div></div>
+  </div>
+  <span class="anb-time" id="at-p10">0:00</span>
+</div><div class="text-box" id="txt-fr-p10"></div>
+<button class="en-toggle-btn" id="etb-p10" onclick="togEn('en-p10','etb-p10')">&#128317; Voir la traduction anglaise — English version</button>
+<div class="en-box" id="en-p10"><div id="txt-en-p10"></div></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">✅</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p10_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer.</span></div>
+</div><div id="qcm-p10"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🔲</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Vrai / Faux justifié</div><div class="sec-lbl-en">True / False — justify with a quote</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p10_vf_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Vrai ou Faux ? Clique, puis lis la citation exacte du texte qui justifie la réponse.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>True or False? Click your answer — then read the exact quote that justifies it.</span></div>
+</div><div id="vf-p10"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎨</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Analyse stylistique</div><div class="sec-lbl-en">Stylistic analysis</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p10_style_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Identifie la figure de style dans chaque extrait et lis l'explication.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Identify the literary device in each extract and read the explanation.</span></div>
+</div><div class="figdef-box">
+  <div class="figdef-hdr" onclick="togFigDef('fd-p10-body')">
+    &#128218; Définitions des figures de style — <em>Literary devices reference</em> <span style="font-size:14px">&#9660;</span>
+  </div>
+  <div class="figdef-body" id="fd-p10-body"><div class="figdef-row"><div class="figdef-name">Comparaison</div><div><div class="figdef-fr">Rapprochement de deux éléments avec un outil : « comme », « à la façon de », « tel que ».</div><div class="figdef-en">Comparison using a linking word: 'like', 'as', 'in the manner of'.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Métaphore</div><div><div class="figdef-fr">Comparaison directe, SANS outil — l'image est affirmée directement.</div><div class="figdef-en">Direct image with NO linking word — the comparison is stated as fact.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Personnification</div><div><div class="figdef-fr">Donner des qualités ou des actions humaines à un objet ou une idée.</div><div class="figdef-en">Giving human qualities or actions to an object or idea.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Antithèse</div><div><div class="figdef-fr">Opposer deux idées contradictoires dans la même phrase pour créer un contraste fort.</div><div class="figdef-en">Opposing two contradictory ideas in the same sentence to create strong contrast.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Oxymore</div><div><div class="figdef-fr">Associer deux mots contradictoires dans un seul groupe : ex. « silence tonitruant ».</div><div class="figdef-en">Combining two contradictory words in one phrase: e.g. 'deafening silence'.</div></div></div></div>
+</div><div class="scard">
+  <div class="scard-ex">« l'ombre s'empara de sa vue depuis son propre corps, depuis l'intérieur »</div>
+  <p style="font-size:14px;color:var(--dark);margin-bottom:8px">Quel effet produit la répétition de « depuis… depuis… » ?</p>
+  <div class="scard-opts">
+    <button class="sopt" onclick="this.classList.add('ng');this.disabled=true">Elle accélère le rythme de la phrase</button>
+    <button class="sopt" onclick="markStyleP10(this)">Elle insiste sur la source intérieure, mystérieuse, de la cécité ✓</button>
+    <button class="sopt" onclick="this.classList.add('ng');this.disabled=true">Elle alterne deux causes différentes</button>
+  </div>
+  <div class="sxp" id="sxp10-1"></div>
+</div>
+<div class="scard">
+  <div class="scard-ex">L'ombre vient de l'intérieur de Mona, pas du dehors.</div>
+  <p style="font-size:14px;color:var(--dark);margin-bottom:4px">&#128221; En quoi cette description de la cécité comme venant « de l'intérieur » est-elle inquiétante ?</p>
+  <p style="font-size:13px;color:var(--slate);margin-bottom:8px;font-style:italic">Why is describing blindness as coming "from the inside" unsettling?</p>
+  <textarea class="resume-ta" style="min-height:80px" placeholder="Réponds en 2-3 phrases…"></textarea>
+</div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📝</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Résumé écrit</div><div class="sec-lbl-en">Written summary — 50 à 80 mots</div></div>
+</div>
+<div class="sec-body"><div class="resume-box">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:8px">Résume ce qui se passe page 10 dans tes propres mots.</p>
+  <p style="font-size:13px;color:var(--slate);margin-bottom:10px;font-style:italic">Summarise what happens on page 10 in your own words.</p>
+  <textarea class="resume-ta" style="min-height:130px" placeholder="Écris ton résumé ici… / Write your summary here…"></textarea>
+  <div class="resume-btns">
+    <button class="rbtn rbtn-v">&#10003; Vocabulaire</button>
+    <button class="rbtn rbtn-o">&#128269; Orthographe</button>
+    <button class="rbtn rbtn-s">&#128228; Soumettre au professeur — Submit</button>
+  </div>
+</div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎙️</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p10_oral_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute l'extrait, puis enregistre ta propre lecture de la page 10.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen again, then record your own reading of page 10.</span></div>
+</div><div class="anb">
+  <button class="anb-btn" id="anb-p10b" onclick="anbToggle('anb-p10b','at-p10b','af-p10b','audio/page_10.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page 10.mp3 — réécoute</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p10b"></div></div>
+  </div>
+  <span class="anb-time" id="at-p10b">0:00</span>
+</div>
+<div class="rec-zone">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture de la page 10<br><em style="color:var(--slate);font-size:13px">Record your reading of page 10</em></p>
+  <button class="rec-btn-big" onclick="startRec('p10')">&#127908; Enregistrer ma lecture</button>
+  <p class="rec-note">&#128100; Enregistre, réécoute, puis télécharge et envoie à ton professeur.<br>Record, listen back, then download and send it to your teacher.</p>
+</div></div>
+</div>
+
+</div>
+
+<!-- ════ ONGLET PAGE 11 ════ -->
+<div class="tab-panel" id="panel-p11">
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🔤</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Page 11</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p11_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot avec sa définition.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
+</div><div id="vm-p11"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📖</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Page 11</div><div class="sec-lbl-en">The extract — Page 11</div></div>
+</div>
+<div class="sec-body"><div class="anb">
+  <button class="anb-btn" id="anb-p11" onclick="anbToggle('anb-p11','at-p11','af-p11','audio/page_11.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page 11.mp3</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p11"></div></div>
+  </div>
+  <span class="anb-time" id="at-p11">0:00</span>
+</div><div class="text-box" id="txt-fr-p11"></div>
+<button class="en-toggle-btn" id="etb-p11" onclick="togEn('en-p11','etb-p11')">&#128317; Voir la traduction anglaise — English version</button>
+<div class="en-box" id="en-p11"><div id="txt-en-p11"></div></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">✅</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p11_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer.</span></div>
+</div><div id="qcm-p11"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎨</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Analyse stylistique</div><div class="sec-lbl-en">Stylistic analysis — two figures de style</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p11_style_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Identifie et explique deux figures de style dans ces extraits.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Identify and explain two literary devices in these extracts.</span></div>
+</div><div class="figdef-box">
+  <div class="figdef-hdr" onclick="togFigDef('fd-p11-body')">
+    &#128218; Définitions des figures de style — <em>Literary devices reference</em> <span style="font-size:14px">&#9660;</span>
+  </div>
+  <div class="figdef-body" id="fd-p11-body"><div class="figdef-row"><div class="figdef-name">Comparaison</div><div><div class="figdef-fr">Rapprochement de deux éléments avec un outil : « comme », « à la façon de », « tel que ».</div><div class="figdef-en">Comparison using a linking word: 'like', 'as', 'in the manner of'.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Métaphore</div><div><div class="figdef-fr">Comparaison directe, SANS outil — l'image est affirmée directement.</div><div class="figdef-en">Direct image with NO linking word — the comparison is stated as fact.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Personnification</div><div><div class="figdef-fr">Donner des qualités ou des actions humaines à un objet ou une idée.</div><div class="figdef-en">Giving human qualities or actions to an object or idea.</div></div></div></div>
+</div><div id="st-p11"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📐</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Grammaire — Le plus-que-parfait</div><div class="sec-lbl-en">Grammar — The pluperfect tense</div></div>
+</div>
+<div class="sec-body"><div class="gram-note"><div class="gram-note-lbl">&#128204; Note</div><div class="gram-note-txt">Revois la leçon et les exercices sur le plus-que-parfait avant de faire cet exercice.<br><em style="color:var(--slate)">Review the pluperfect lesson and exercises before starting.</em></div><button class="gram-popup-btn" onclick="openModal('modal-pqp')">&#128218; Rappel des règles — Quick grammar guide</button></div>
+<div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p11_gram_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la forme correcte du verbe pour chaque phrase.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct verb form for each sentence.</span></div>
+</div><div id="gram-pqp"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">💬</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Questions de débat</div><div class="sec-lbl-en">Discussion questions — no right answer</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p11_debat_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Ces questions n'ont pas de bonne réponse. Prépare tes idées pour en discuter avec ton professeur.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>There is no right answer. Prepare your thoughts to discuss with your teacher.</span></div>
+</div><div class="debat-card">
+  <div class="debat-num">Question 1</div>
+  <div class="debat-q">Le père refuse de croire que la cécité est arrivée « comme ça ». Est-il normal de chercher une explication à tout ? Pourquoi ?</div>
+  <div class="debat-q-en">The father refuses to believe the blindness came on 'just like that'. Is it natural to seek an explanation for everything? Why?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div>
+<div class="debat-card">
+  <div class="debat-num">Question 2</div>
+  <div class="debat-q">La mère voudrait « taper sur cette petite tête rondelette comme on cogne sur une machine en panne ». Que nous dit cette image sur les limites de l'amour parental face à la panique ?</div>
+  <div class="debat-q-en">The mother would like to bang on Mona's head like a broken machine. What does this image tell us about the limits of parental love when faced with panic?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div>
+<div class="debat-card">
+  <div class="debat-num">Question 3</div>
+  <div class="debat-q">La vue revient quand Mona voit un pigeon gris. Pourquoi l'auteur choisit-il quelque chose d'aussi banal comme premier cadeau de la vision retrouvée ?</div>
+  <div class="debat-q-en">Sight returns when Mona sees a grey pigeon. Why does the author choose something so ordinary as the first gift of restored vision?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div>
+<div class="debat-card">
+  <div class="debat-num">Question 4</div>
+  <div class="debat-q">As-tu déjà vécu un moment où tu as perdu puis retrouvé quelque chose d'important ? Comment l'as-tu vécu ?</div>
+  <div class="debat-q-en">Have you ever experienced losing and then finding something important again? How did you experience that?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎙️</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p11_oral_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute l'extrait, puis enregistre ta propre lecture de la page 11.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen again, then record your own reading of page 11.</span></div>
+</div><div class="anb">
+  <button class="anb-btn" id="anb-p11b" onclick="anbToggle('anb-p11b','at-p11b','af-p11b','audio/page_11.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page 11.mp3 — réécoute</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p11b"></div></div>
+  </div>
+  <span class="anb-time" id="at-p11b">0:00</span>
+</div>
+<div class="rec-zone">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture de la page 11<br><em style="color:var(--slate);font-size:13px">Record your reading of page 11</em></p>
+  <button class="rec-btn-big" onclick="startRec('p11')">&#127908; Enregistrer ma lecture</button>
+  <p class="rec-note">&#128100; Enregistre, réécoute, puis télécharge et envoie à ton professeur.<br>Record, listen back, then download and send it to your teacher.</p>
+</div></div>
+</div>
+
+</div>
+
+<!-- ════ ONGLET PAGE 12 ════ -->
+<div class="tab-panel" id="panel-p12">
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🔤</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Page 12</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p12_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot avec sa définition.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
+</div><div id="vm-p12"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📖</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Page 12</div><div class="sec-lbl-en">The extract — Page 12</div></div>
+</div>
+<div class="sec-body"><div class="anb">
+  <button class="anb-btn" id="anb-p12" onclick="anbToggle('anb-p12','at-p12','af-p12','audio/page_12.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page 12.mp3</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p12"></div></div>
+  </div>
+  <span class="anb-time" id="at-p12">0:00</span>
+</div><div class="text-box" id="txt-fr-p12"></div>
+<button class="en-toggle-btn" id="etb-p12" onclick="togEn('en-p12','etb-p12')">&#128317; Voir la traduction anglaise — English version</button>
+<div class="en-box" id="en-p12"><div id="txt-en-p12"></div></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">✅</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p12_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer.</span></div>
+</div><div id="qcm-p12"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🖼️</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Portrait littéraire — Les contraires de Camille</div><div class="sec-lbl-en">Literary portrait — Camille's contrasts</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p12_portrait_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>L'auteur présente Camille en associant des contraires. Retrouve et analyse les oppositions dans le texte. Les lignes 7 et 8 sont à compléter.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>The author presents Camille through contrasts. Find and analyse the oppositions. Complete rows 7 &amp; 8 yourself.</span></div>
+</div><table class="contr-table">
+<thead><tr>
+  <th class="contr-th">&#10060; Anarchie / désinvolture<br><em style="font-size:12px;font-weight:normal">Carefree, chaotic side</em></th>
+  <th class="contr-th">&#10003; Autorité / détermination<br><em style="font-size:12px;font-weight:normal">Determined, authoritative side — bilingue</em></th>
+</tr></thead>
+<tbody>
+<tr><td class="contr-td"><em>« légèrement déglingué »</em></td><td class="contr-td">« détermination redoutable »<div class="contr-td-en">redoubtable determination</div></td></tr>
+<tr><td class="contr-td"><em>cheveux courts et ébouriffés</em></td><td class="contr-td">impliquée, zélée<div class="contr-td-en">committed, zealous</div></td></tr>
+<tr><td class="contr-td"><em>gouaille des faubourgs</em></td><td class="contr-td">gravité quand elle identifie la honte de Mona<div class="contr-td-en">gravity when sensing Mona's shame</div></td></tr>
+<tr><td class="contr-td"><em>côté décontracté, à l'aise</em></td><td class="contr-td">travail rigoureux le matin<div class="contr-td-en">rigorous, focused work each morning</div></td></tr>
+<tr><td class="contr-td"><em>s'épuise en bénévolat, « toutes les causes »</em></td><td class="contr-td">chaque cause prise au sérieux<div class="contr-td-en">every cause taken seriously, with full commitment</div></td></tr>
+<tr><td class="contr-td"><em>ton familier, relâché avec son homme</em></td><td class="contr-td">autorité perceptible face à l'émotion<div class="contr-td-en">discernible authority when faced with emotion</div></td></tr>
+<tr><td class="contr-td"><textarea class="contr-input" placeholder="Élément n°7 — anarchie / désinvolture…"></textarea></td><td class="contr-td"><textarea class="contr-input" placeholder="Contraire — autorité / détermination…"></textarea></td></tr><tr><td class="contr-td"><textarea class="contr-input" placeholder="Élément n°8 — anarchie / désinvolture…"></textarea></td><td class="contr-td"><textarea class="contr-input" placeholder="Contraire — autorité / détermination…"></textarea></td></tr>
+</tbody></table>
+<p style="font-size:13px;color:var(--slate);margin-top:6px">&#128221; Les lignes 7 et 8 sont à compléter par l'étudiant d'après sa lecture — <em>Complete rows 7 &amp; 8 from your reading.</em></p><div class="resume-box" style="margin-top:12px"><p style="font-size:14px;color:var(--dark);margin-bottom:6px">&#128221; En 3-4 phrases, décris quelqu’un que tu connais en utilisant des contrastes comme Schlesser.</p><p style="font-size:13px;color:var(--slate);margin-bottom:10px;font-style:italic">In 3-4 sentences, describe someone you know using contrasts like Schlesser does.</p><textarea class="resume-ta" style="min-height:100px" placeholder="Écris ta description ici…"></textarea><div class="resume-btns"><button class="rbtn rbtn-s">&#128228; Soumettre</button></div></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎨</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Analyse stylistique</div><div class="sec-lbl-en">Stylistic analysis — métaphore &amp; antithèse</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p12_style_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Identifie les figures de style dans ces deux extraits du portrait de Camille.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Identify the literary devices in these two extracts from Camille's portrait.</span></div>
+</div><div class="figdef-box">
+  <div class="figdef-hdr" onclick="togFigDef('fd-p12-body')">
+    &#128218; Définitions des figures de style — <em>Literary devices reference</em> <span style="font-size:14px">&#9660;</span>
+  </div>
+  <div class="figdef-body" id="fd-p12-body"><div class="figdef-row"><div class="figdef-name">Métaphore</div><div><div class="figdef-fr">Comparaison directe, SANS outil — l'image est affirmée directement.</div><div class="figdef-en">Direct image with NO linking word — the comparison is stated as fact.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Personnification</div><div><div class="figdef-fr">Donner des qualités ou des actions humaines à un objet ou une idée.</div><div class="figdef-en">Giving human qualities or actions to an object or idea.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Antithèse</div><div><div class="figdef-fr">Opposer deux idées contradictoires dans la même phrase pour créer un contraste fort.</div><div class="figdef-en">Opposing two contradictory ideas in the same sentence to create strong contrast.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Oxymore</div><div><div class="figdef-fr">Associer deux mots contradictoires dans un seul groupe : ex. « silence tonitruant ».</div><div class="figdef-en">Combining two contradictory words in one phrase: e.g. 'deafening silence'.</div></div></div></div>
+</div><div id="st-p12"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📐</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Grammaire — Le conditionnel passé</div><div class="sec-lbl-en">Grammar — The conditional perfect</div></div>
+</div>
+<div class="sec-body"><div class="gram-note"><div class="gram-note-lbl">&#128204; Note</div><div class="gram-note-txt">Revois la leçon et les exercices sur le conditionnel passé avant de faire cet exercice.<br><em style="color:var(--slate)">Review the conditional perfect lesson and exercises before starting.</em></div><button class="gram-popup-btn" onclick="openModal('modal-condp')">&#128218; Rappel des règles — Quick grammar guide</button></div>
+<div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p12_gram_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la forme correcte (conditionnel passé ou autre).</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct verb form.</span></div>
+</div><div id="gram-condp"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎙️</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Expression orale + Enregistrement</div><div class="sec-lbl-en">Oral expression — Recording</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p12_oral_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Question orale : Camille travaille le matin et fait du bénévolat l'après-midi. Quelle image de la femme idéale cette description donne-t-elle ? Es-tu d'accord ?</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Camille works in the morning and volunteers in the afternoon. What image of the ideal woman does this convey? Do you agree?</span></div>
+</div>
+<div class="rec-zone">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Réponds oralement en 1 minute environ<br><em style="color:var(--slate);font-size:13px">Answer orally in about 1 minute</em></p>
+  <button class="rec-btn-big" onclick="startRec('p12')">&#127908; Enregistrer ma lecture</button>
+  <p class="rec-note">&#128100; Enregistre, réécoute, puis télécharge et envoie à ton professeur.<br>Record, listen back, then download and send it to your teacher.</p>
+</div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎙️</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p12_lect_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute l'extrait, puis enregistre ta propre lecture d'un passage de la page 12.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen again, then record your own reading of a passage from page 12.</span></div>
+</div><div class="anb">
+  <button class="anb-btn" id="anb-p12b" onclick="anbToggle('anb-p12b','at-p12b','af-p12b','audio/page_12.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page 12.mp3 — réécoute</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p12b"></div></div>
+  </div>
+  <span class="anb-time" id="at-p12b">0:00</span>
+</div>
+<div class="rec-zone">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture de la page 12<br><em style="color:var(--slate);font-size:13px">Record your reading of page 12</em></p>
+  <button class="rec-btn-big" onclick="startRec('p12b')">&#127908; Enregistrer ma lecture</button>
+  <p class="rec-note">&#128100; Enregistre, réécoute, puis télécharge et envoie à ton professeur.<br>Record, listen back, then download and send it to your teacher.</p>
+</div></div>
+</div>
+
+</div>
+
+<!-- ════ ONGLET PAGES 13-14 ════ -->
+<div class="tab-panel" id="panel-p1314">
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🔤</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Pages 13–14</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot avec sa définition.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
+</div><div id="vm-p1314"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📖</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Pages 13–14</div><div class="sec-lbl-en">The extract — Pages 13–14</div></div>
+</div>
+<div class="sec-body"><div class="anb">
+  <button class="anb-btn" id="anb-p1314" onclick="anbToggle('anb-p1314','at-p1314','af-p1314','audio/page_13_14.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page13_14.mp3</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p1314"></div></div>
+  </div>
+  <span class="anb-time" id="at-p1314">0:00</span>
+</div><div class="text-box" id="txt-fr-p1314"></div>
+<button class="en-toggle-btn" id="etb-p1314" onclick="togEn('en-p1314','etb-p1314')">&#128317; Voir la traduction anglaise — English version</button>
+<div class="en-box" id="en-p1314"><div id="txt-en-p1314"></div></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">✅</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer.</span></div>
+</div><div id="qcm-p1314"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🔲</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Vrai / Faux justifié</div><div class="sec-lbl-en">True / False — justified</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_vf_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Vrai ou Faux ? Clique puis lis la citation du texte.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>True or False? Click then read the text quote.</span></div>
+</div><div id="vf-p1314"></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎨</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Analyse — L'oxymore et la contradiction</div><div class="sec-lbl-en">Analysis — Oxymoron and contradiction in Paul's portrait</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_style_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Paul est un personnage construit sur des contradictions. Identifie les figures de style et explique ce qu'elles révèlent.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Paul is built on contradictions. Identify the literary devices and explain what they reveal.</span></div>
+</div><div class="figdef-box">
+  <div class="figdef-hdr" onclick="togFigDef('fd-p1314-body')">
+    &#128218; Définitions des figures de style — <em>Literary devices reference</em> <span style="font-size:14px">&#9660;</span>
+  </div>
+  <div class="figdef-body" id="fd-p1314-body"><div class="figdef-row"><div class="figdef-name">Personnification</div><div><div class="figdef-fr">Donner des qualités ou des actions humaines à un objet ou une idée.</div><div class="figdef-en">Giving human qualities or actions to an object or idea.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Antithèse</div><div><div class="figdef-fr">Opposer deux idées contradictoires dans la même phrase pour créer un contraste fort.</div><div class="figdef-en">Opposing two contradictory ideas in the same sentence to create strong contrast.</div></div></div>
+<div class="figdef-row"><div class="figdef-name">Oxymore</div><div><div class="figdef-fr">Associer deux mots contradictoires dans un seul groupe : ex. « silence tonitruant ».</div><div class="figdef-en">Combining two contradictory words in one phrase: e.g. 'deafening silence'.</div></div></div></div>
+</div><div id="st-p1314"></div><div class="scard" style="margin-top:10px"><div class="scard-ex">« Il levait son verre seul sans trouver le moyen d’en vouloir à quiconque. Il trinquait dans sa tête, à Mona. »</div><p style="font-size:14px;color:var(--dark);margin-bottom:6px">&#128221; En 2-3 phrases, explique la contradiction dans ce geste — amour et solitude se mélangent. <em style="color:var(--slate);font-size:13px">In 2-3 sentences, explain the contradiction — love and solitude intertwined.</em></p><textarea class="resume-ta" style="min-height:80px" placeholder="Ton analyse…"></textarea></div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">📝</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Résumé de synthèse — Le prologue entier</div><div class="sec-lbl-en">Synthesis summary — The whole prologue</div></div>
+</div>
+<div class="sec-body"><div class="resume-box">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:8px">Résume l'ensemble du prologue (pages 9 à 14) en 100 à 120 mots. Présente Mona, l'événement, et les portraits des parents.</p>
+  <p style="font-size:13px;color:var(--slate);margin-bottom:10px;font-style:italic">Summarise the entire prologue (pages 9–14) in 100–120 words. Introduce Mona, the event, and the parents' portraits.</p>
+  <textarea class="resume-ta" style="min-height:180px" placeholder="Écris ton résumé ici… / Write your summary here…"></textarea>
+  <div class="resume-btns">
+    <button class="rbtn rbtn-v">&#10003; Vocabulaire</button>
+    <button class="rbtn rbtn-o">&#128269; Orthographe</button>
+    <button class="rbtn rbtn-s">&#128228; Soumettre au professeur — Submit</button>
+  </div>
+</div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">💬</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Questions de débat final — Les thèmes du roman</div><div class="sec-lbl-en">Final debate — The novel's themes</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_debat_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Questions pour une discussion avec ton professeur — pas de bonne réponse !</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Questions for discussion with your teacher — no right answer!</span></div>
+</div><div class="debat-card">
+  <div class="debat-num">Question 1</div>
+  <div class="debat-q">Paul boit une bouteille de vin par jour, seul. L'auteur ne le juge pas. Est-ce une forme de respect du lecteur ou une banalisation de l'alcoolisme ?</div>
+  <div class="debat-q-en">Paul drinks a bottle of wine a day, alone. The author doesn't judge him. Is this respect for the reader, or normalising alcoholism?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div>
+<div class="debat-card">
+  <div class="debat-num">Question 2</div>
+  <div class="debat-q">Camille s'épuise en bénévolat. Paul se perd dans sa collection et son vin. Ce sont deux façons d'échapper à quelque chose. Lesquelles ?</div>
+  <div class="debat-q-en">Camille exhausts herself doing volunteer work. Paul loses himself in his collection and wine. These are two ways of escaping something. What might they be escaping from?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div>
+<div class="debat-card">
+  <div class="debat-num">Question 3</div>
+  <div class="debat-q">Mona est décrite comme portant « la honte » très sincèrement. Penses-tu que la honte est une émotion utile ? Pourquoi ?</div>
+  <div class="debat-q-en">Mona is described as feeling shame very sincerely. Do you think shame is a useful emotion? Why?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div>
+<div class="debat-card">
+  <div class="debat-num">Question 4</div>
+  <div class="debat-q">L'art est absent du prologue, mais le livre entier est sur l'art. Pourquoi l'auteur choisit-il de commencer par une crise médicale ?</div>
+  <div class="debat-q-en">Art is absent from the prologue, but the whole book is about art. Why does the author choose to begin with a medical crisis?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div>
+<div class="debat-card">
+  <div class="debat-num">Question 5</div>
+  <div class="debat-q">Imagine la suite : que peut apporter la découverte de l'art à une enfant qui a failli perdre la vue ?</div>
+  <div class="debat-q-en">Imagine what comes next: what could the discovery of art bring to a child who nearly lost her sight?</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div>
+<div class="debat-card">
+  <div class="debat-num">Question 6</div>
+  <div class="debat-q">As-tu déjà eu une expérience qui t'a ouvert les yeux sur quelque chose d'important ? Décris-la en français.</div>
+  <div class="debat-q-en">Have you ever had an experience that opened your eyes to something important? Describe it in French.</div>
+  <textarea class="debat-ta" placeholder="Tes notes / Your notes (facultatif)…"></textarea>
+</div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎙️</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Enregistrement oral final</div><div class="sec-lbl-en">Final oral recording</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_oral_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Après avoir lu tout le prologue, quelle est ta première impression du roman ? Qu'est-ce qui t'a le plus frappé ? Réponds en 1 à 2 minutes en français.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>After reading the whole prologue, what is your first impression? What struck you most? Answer in 1–2 minutes in French.</span></div>
+</div>
+<div class="rec-zone">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta réponse (1–2 minutes)<br><em style="color:var(--slate);font-size:13px">Record your answer (1–2 minutes)</em></p>
+  <button class="rec-btn-big" onclick="startRec('p1314')">&#127908; Enregistrer ma lecture</button>
+  <p class="rec-note">&#128100; Enregistre, réécoute, puis télécharge et envoie à ton professeur.<br>Record, listen back, then download and send it to your teacher.</p>
+</div></div>
+</div>
+
+<div class="sec">
+<div class="sec-hdr" style="background:var(--ltB);">
+  <span class="sec-icon">🎙️</span>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
+</div>
+<div class="sec-body"><div class="instr">
+<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_lect_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute les pages 13–14, puis enregistre ta propre lecture d'un passage.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen to pages 13–14 again, then record your own reading of a passage.</span></div>
+</div><div class="anb">
+  <button class="anb-btn" id="anb-p1314b" onclick="anbToggle('anb-p1314b','at-p1314b','af-p1314b','audio/page_13_14.mp3')">&#9654; Écouter</button>
+  <div class="anb-info">
+    <div class="anb-file">page13_14.mp3 — réécoute</div>
+    <div class="anb-prog"><div class="anb-fill" id="af-p1314b"></div></div>
+  </div>
+  <span class="anb-time" id="at-p1314b">0:00</span>
+</div>
+<div class="rec-zone">
+  <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture des pages 13–14<br><em style="color:var(--slate);font-size:13px">Record your reading of pages 13–14</em></p>
+  <button class="rec-btn-big" onclick="startRec('p1314b')">&#127908; Enregistrer ma lecture</button>
+  <p class="rec-note">&#128100; Enregistre, réécoute, puis télécharge et envoie à ton professeur.<br>Record, listen back, then download and send it to your teacher.</p>
+</div></div>
+</div>
+
+</div>
+
+<div class="modal-bg" id="modal-pqp" onclick="if(event.target===this)closeModal('modal-pqp')">
+<div class="modal">
+  <button class="modal-close" onclick="closeModal('modal-pqp')">✕ Fermer</button>
+  <div class="modal-title">&#128218; Le plus-que-parfait — Pluperfect tense</div>
+  <div class="formation-box">
+    <div class="modal-rule-title">Formation</div>
+    <div class="modal-rule-txt">
+      AVOIR ou ÊTRE à l'<strong>imparfait</strong> + participe passé<br>
+      <em style="color:var(--slate)">AVOIR or ÊTRE in the <strong>imperfect</strong> + past participle</em>
+    </div>
+    <div class="modal-example">
+      j'<strong>avais</strong> mangé · elle <strong>était</strong> partie · il <strong>s'était</strong> passé quelque chose
+    </div>
+  </div>
+  <div class="modal-rule">
+    <div class="modal-rule-title">&#128073; Emploi principal</div>
+    <div class="modal-rule-txt">Action passée <strong>AVANT</strong> une autre action passée.<br>
+    <em style="color:var(--slate)">An action that happened BEFORE another past action.</em></div>
+  </div>
+  <div class="modal-rule">
+    <div class="modal-rule-title">&#128218; Exemple du texte</div>
+    <div class="modal-example">
+      « Il <strong>s'était déjà écoulé</strong> un bon quart d'heure depuis le premier cri d'alarme. »<br>
+      → Le temps <strong>s'était écoulé</strong> (PQP) AVANT que le médecin racccroche.<br>
+      <em style="color:var(--slate)">The time had already passed (PQP) BEFORE the doctor hung up.</em>
+    </div>
+  </div>
+  <div class="modal-rule">
+    <div class="modal-rule-title">&#128204; Signal words</div>
+    <div class="modal-rule-txt">déjà · avant que · après que · quand (+ PQP)</div>
+  </div>
+</div>
+</div>
+<div class="modal-bg" id="modal-condp" onclick="if(event.target===this)closeModal('modal-condp')">
+<div class="modal">
+  <button class="modal-close" onclick="closeModal('modal-condp')">✕ Fermer</button>
+  <div class="modal-title">&#128218; Le conditionnel passé — Conditional perfect</div>
+  <div class="formation-box">
+    <div class="modal-rule-title">Formation</div>
+    <div class="modal-rule-txt">
+      AVOIR ou ÊTRE au <strong>conditionnel présent</strong> + participe passé<br>
+      <em style="color:var(--slate)">AVOIR or ÊTRE in the <strong>conditional</strong> + past participle</em>
+    </div>
+    <div class="modal-example">
+      j'<strong>aurais</strong> mangé · elle <strong>serait</strong> partie · il <strong>aurait</strong> compris
+    </div>
+  </div>
+  <div class="modal-rule">
+    <div class="modal-rule-title">&#128073; Emploi 1 — Fait hypothétique non réalisé</div>
+    <div class="modal-rule-txt">Quelque chose qui NE S'EST PAS passé dans le passé.<br>
+    <em style="color:var(--slate)">Something that did NOT happen in the past.</em></div>
+  </div>
+  <div class="modal-rule">
+    <div class="modal-rule-title">&#128073; Emploi 2 — Regret / reproche</div>
+    <div class="modal-rule-txt">Tu <strong>aurais dû</strong> travailler plus. (reproche)<br>J'<strong>aurais voulu</strong> le faire. (regret)<br>
+    <em style="color:var(--slate)">You should have worked harder. / I would have liked to.</em></div>
+  </div>
+  <div class="modal-rule">
+    <div class="modal-rule-title">&#128218; Exemple du texte</div>
+    <div class="modal-example">
+      « elle <strong>aurait-elle aussi voulu</strong> taper sur cette petite tête rondelette »<br>
+      → La mère N'A PAS tapé — c'est un désir non réalisé.<br>
+      <em style="color:var(--slate)">The mother did NOT hit — this is an unrealised desire.</em>
+    </div>
+  </div>
+</div>
+</div>
+
+</div><!-- /.main -->
+
+<script>
+const V={},Q={},VF={},ST={},G={},TX={};
+V['p9']=[
+  {w:'des scintillements',ctx:'« çà et là, des scintillements, à la façon des taches que produit le soleil »',def:'De petites lumières qui clignotent et brillent par instants',en:'Tiny flickering lights; glimmers'},
+  {w:'un habit de deuil',ctx:'« Ce fut comme un habit de deuil »',def:'Une tenue noire portée pour marquer la mort de quelqu\'un',en:'Mourning clothes; funeral attire'},
+  {w:'les paupières',ctx:'« les yeux le fixent en vain derrière les paupières serrées »',def:'Les parties mobiles de peau qui protègent les yeux',en:'Eyelids'},
+  {w:'des fioritures',ctx:'« la détresse se formule sèchement, sans fioritures ni lyrisme »',def:'Des ornements inutiles, des détails superflus',en:'Embellishments; unnecessary flourishes'},
+  {w:'une voix étranglée',ctx:'« Mona avait lancé ces mots d\'une voix étranglée »',def:'Une voix étouffée, tendue par l\'émotion ou la peur',en:'A strangled, choked voice'},
+  {w:'malgré elle',ctx:'« Elle y avait, malgré elle, glissé un accent de honte »',def:'Sans le vouloir, involontairement',en:'Despite herself; without meaning to'},
+  {w:'se nicher dans',ctx:'« À peine celle-ci se nichait-elle dans un mot, une intonation »',def:'Se glisser discrètement dans quelque chose',en:'To nestle in; to slip quietly into'},
+  {w:'feindre',ctx:'« quelque chose que Mona ne feignait jamais, c\'était la honte »',def:'Faire semblant, simuler un sentiment',en:'To feign; to fake; to pretend'},
+  {w:'le sort en était jeté',ctx:'« le sort en était jeté : une vérité désagréable avait pénétré »',def:'La décision était prise, rien ne pouvait plus changer le résultat',en:'The die was cast; the outcome was sealed'},
+  {w:'une plainte',ctx:'« Une plainte ? Oui, mais, pas seulement »',def:'Une expression de douleur ou de détresse',en:'A moan; a cry of distress'},
+  {w:'une intonation',ctx:'« dans un mot, une attitude, une intonation »',def:'La façon de moduler sa voix — monter ou baisser le ton',en:'Intonation; tone of voice'},
+  {w:'aveugle',ctx:'« Mona était aveugle »',def:'Qui ne peut pas voir, privé totalement de la vue',en:'Blind'}
+];
+V['p10']=[
+  {w:'dépourvu de cause',ctx:'« L\'effet semblait dépourvu de cause »',def:'Sans raison visible, sans explication apparente',en:'Without cause; unexplained'},
+  {w:'sagement',ctx:'« elle travaillait sagement à ses mathématiques »',def:'De façon calme et appliquée, sans faire de bêtises',en:'Quietly; diligently; obediently'},
+  {w:'un pendentif',ctx:'« retirer délicatement de son cou un pendentif qui la gênait »',def:'Un bijou suspendu à un collier',en:'A pendant; a necklace charm'},
+  {w:'se voûter',ctx:'« elle avait pris la mauvaise habitude de se voûter pour écrire »',def:'Courber le dos en avant',en:'To hunch over; to stoop'},
+  {w:'s\'abattre sur',ctx:'« une ombre lourde s\'abattre sur ses deux yeux »',def:'Tomber brutalement et soudainement sur quelque chose',en:'To fall upon; to come crashing down on'},
+  {w:'un sortilège',ctx:'« L\'enfant, par un sortilège, plongeait dans les ténèbres »',def:'Un sort magique, un enchantement mystérieux',en:'A spell; a magic charm'},
+  {w:'s\'insinuer',ctx:'« s\'était insinuée une nappe opaque »',def:'S\'introduire lentement, progressivement et discrètement',en:'To seep in; to insinuate itself'},
+  {w:'une nappe opaque',ctx:'« une nappe opaque qui l\'avait coupée des polygones »',def:'Une couche épaisse qui ne laisse pas passer la lumière',en:'An opaque layer; a dense veil'},
+  {w:'des ténèbres',ctx:'« L\'enfant plongeait dans les ténèbres »',def:'L\'obscurité totale, les grandes profondeurs noires',en:'Darkness; gloom; the abyss'},
+  {w:'fébrile',ctx:'« Fébrile, la mère de Mona téléphona au médecin »',def:'Agité, nerveux, dans un état d\'excitation et d\'anxiété intense',en:'Feverish; anxious; agitated'},
+  {w:'confusément',ctx:'« Elle décrivit confusément les pupilles voilées »',def:'De façon peu claire, sans précision',en:'Confusedly; vaguely'},
+  {w:'un AIT',ctx:'« Cela ressemble à un AIT, lâcha-t-il »',def:'Accident Ischémique Transitoire — alerte neurologique avant un AVC',en:'TIA — Transient Ischaemic Attack; a pre-stroke warning'}
+];
+V['p11']=[
+  {w:'se taper les tempes',ctx:'« la fillette pleurait, se tapait les tempes »',def:'Se frapper sur les côtés de la tête, geste de désespoir',en:'To hit one\'s temples; to clutch one\'s head'},
+  {w:'rondelette',ctx:'« cette petite tête rondelette et fragile »',def:'Légèrement ronde, dodu — forme affectueuse',en:'Chubby; pleasantly round'},
+  {w:'cahotante',ctx:'« sa vieille Volkswagen cahotante »',def:'Qui fait des secousses et des à-coups sur la route',en:'Bumpy; rattling'},
+  {w:'bêtement',ctx:'« en espérant bêtement la faire redémarrer »',def:'De façon stupide, naïve, sans réfléchir',en:'Stupidly; naively; foolishly'},
+  {w:'ressasser',ctx:'« Il ressassait l\'inventaire de toutes les causes possibles »',def:'Revenir sans cesse sur les mêmes pensées, ruminer',en:'To brood over; to go over and over'},
+  {w:'à grands flots',ctx:'« ses larmes de peur coulant à grands flots »',def:'En grande quantité, en abondance, sans retenue',en:'In great streams; in floods; in torrents'},
+  {w:'la suie',ctx:'« la suie qui s\'était collée à ses pupilles »',def:'Dépôt noir laissé par la combustion, la fumée',en:'Soot'},
+  {w:'jouxtant',ctx:'« l\'hôpital jouxtant Notre-Dame sur l\'île de la Cité »',def:'Situé juste à côté de, contigu à',en:'Adjoining; right beside'},
+  {w:'se figer',ctx:'« elle interrompit brusquement ses sanglots et se figea »',def:'S\'immobiliser complètement, s\'arrêter net et brusquement',en:'To freeze; to stop dead'},
+  {w:'scrupuleusement',ctx:'« qui compta scrupuleusement le temps qu\'avait duré la crise »',def:'Avec une grande précision et attention aux détails',en:'Scrupulously; meticulously'},
+  {w:'cicatriser',ctx:'« laissant toutefois à l\'organisme le soin de cicatriser »',def:'Guérir une blessure, la refermer progressivement',en:'To heal; to scar over'},
+  {w:'l\'inventaire',ctx:'« Il ressassait l\'inventaire de toutes les causes possibles »',def:'La liste complète et systématique de tous les éléments',en:'An inventory; a full list'}
+];
+V['p12']=[
+  {w:'métis',ctx:'« Le Dr Van Orst était métis »',def:'Né de parents de deux origines ethniques différentes',en:'Of mixed heritage; mixed-race'},
+  {w:'frappé d\'une calvitie précoce',ctx:'« frappé d\'une calvitie précoce »',def:'Devenu chauve jeune, avant l\'âge habituel',en:'Struck by premature baldness'},
+  {w:'joviales',ctx:'« creusait dans son visage de petites rides joviales »',def:'Joyeuses, exprimant la gaieté et la bonne humeur',en:'Jovial; cheerful; good-humoured'},
+  {w:'dépositaire de secrets',ctx:'« Il n\'en était pas moins dépositaire de nombreux secrets »',def:'Quelqu\'un à qui on a confié des secrets importants',en:'Keeper of secrets; someone entrusted with confidences'},
+  {w:'éraillée',ctx:'« d\'une voix éraillée par le tabac »',def:'Rauque, cassée, abîmée par le tabac ou l\'usage',en:'Husky; hoarse; rough voice'},
+  {w:'arborait',ctx:'« elle arborait des cheveux courts et ébouriffés »',def:'Portait ostensiblement, affichait avec une certaine fierté',en:'Sported; wore with a certain pride'},
+  {w:'ébouriffés',ctx:'« arborait des cheveux courts et ébouriffés »',def:'En désordre total, hirsutes, non peignés',en:'Dishevelled; tousled; ruffled'},
+  {w:'la gouaille des faubourgs',ctx:'« un reste lointain de gouaille des faubourgs »',def:'Un accent populaire, truculent et vif, des quartiers populaires',en:'Working-class cheek; popular Parisian street wit'},
+  {w:'déglingué',ctx:'« son côté légèrement déglingué »',def:'Un peu détraqué, abîmé — mais avec un charme inattendu',en:'Slightly ramshackle; falling apart but charming'},
+  {w:'l\'anarchie se tressait à l\'autorité',ctx:'« en elle, l\'anarchie se tressait sans cesse à l\'autorité »',def:'Les contraires s\'entrelaçaient constamment, comme deux fils d\'une tresse',en:'Chaos and authority were constantly intertwined in her'},
+  {w:'zélée',ctx:'« en bonne employée, impliquée, zélée »',def:'Très appliquée, qui fait preuve d\'un grand engagement',en:'Zealous; dedicated; hard-working'},
+  {w:'s\'épuiser en bénévolat',ctx:'« Elle s\'épuisait en bénévolat »',def:'Se fatiguer complètement à faire du travail volontaire non rémunéré',en:'To wear oneself out doing volunteer work'}
+];
+V['p1314']=[
+  {w:'besognait',ctx:'« il portait une cravate pour faire oublier ses chemises au col élimé et besognait »',def:'Travaillait dur et péniblement, sans grand succès',en:'Toiled; laboured hard without much result'},
+  {w:'un col élimé',ctx:'« ses chemises au col élimé »',def:'Le col d\'une chemise complètement usé, presque transparent',en:'A worn-out, frayed collar'},
+  {w:'brocanteur',ctx:'« besognait comme petit brocanteur »',def:'Quelqu\'un qui vend des objets anciens et de bric-à-brac',en:'A second-hand dealer; antique junk dealer'},
+  {w:'une panoplie',ctx:'« il en possédait une impressionnante panoplie »',def:'Un ensemble complet et impressionnant d\'objets du même type',en:'A full collection; an impressive array'},
+  {w:'proche du néant',ctx:'« Malgré un sens des affaires proche du néant »',def:'Presque nul, quasi-inexistant',en:'Close to nothing; barely existent'},
+  {w:'une disette',ctx:'« Une transaction salutaire après des mois de disette »',def:'Une période de pénurie, de manque — d\'argent ici',en:'A lean period; a time of scarcity'},
+  {w:'écluser',ctx:'« Paul éclusait chaque jour une bouteille de vin rouge »',def:'Boire une bouteille entière, la vider complètement',en:'To drain; to polish off a bottle'},
+  {w:'un égouttoir en hérisson',ctx:'« sur un de ces égouttoirs en forme de hérisson »',def:'Un objet avec des pics pour faire sécher les bouteilles',en:'A hedgehog-shaped bottle drainer'},
+  {w:'la postérité',ctx:'« qui avait fait la postérité de Marcel Duchamp »',def:'La réputation et la mémoire durable dans l\'histoire',en:'Posterity; lasting legacy'},
+  {w:'trinquer',ctx:'« Il trinquait dans sa tête, à Mona »',def:'Choquer les verres en signe de toast, boire à la santé de',en:'To toast; to clink glasses'},
+  {w:'la coquette somme de',ctx:'« en avait tiré la coquette somme de dix mille euros »',def:'Une somme d\'argent non négligeable, assez rondelette',en:'The tidy sum of; the handsome amount of'},
+  {w:'salutaire',ctx:'« Une transaction salutaire après des mois de disette »',def:'Qui fait du bien, qui apporte une aide nécessaire et bienvenue',en:'Salutary; welcome; beneficial'}
+];
+Q['p9']=[
+  {q:'Quel âge a Mona au moment des événements du prologue&nbsp;?',en:'How old is Mona at the time of the prologue?',opts:['8 ans','10 ans ✓','12 ans','14 ans'],ok:1,xp:'« Dans la bouche d\'une enfant de dix ans, fraîche et inquiète… »'},
+  {q:'Comment la détresse de Mona se formule-t-elle&nbsp;?',en:'How does Mona express her distress?',opts:['Avec beaucoup de lyrisme','En pleurant en silence','Sèchement, sans fioritures ni lyrisme ✓','En criant très fort'],ok:2,xp:'« la détresse se formule sèchement, sans fioritures ni lyrisme »'},
+  {q:'Qu\'est-ce que Mona ne feint jamais&nbsp;?',en:'What does Mona never feign?',opts:['La joie','La douleur','La peur','La honte ✓'],ok:3,xp:'« s\'il était bien quelque chose que Mona ne feignait jamais, c\'était la honte »'},
+  {q:'La phrase «&nbsp;Maman, c\'est tout noir&nbsp;!&nbsp;» est répétée deux fois. Quel effet cela crée-t-il&nbsp;?',en:'The sentence is repeated twice. What effect does this create?',opts:['Mona l\'a dit deux fois réellement','La mère n\'entendait pas','Un effet d\'écho et d\'insistance dramatique ✓','Une erreur de l\'auteur'],ok:2,xp:'La répétition amplifie l\'effet dramatique — technique littéraire d\'insistance.'}
+];
+Q['p10']=[
+  {q:'Où Mona se trouvait-elle quand sa vue a disparu&nbsp;?',en:'Where was Mona when her sight disappeared?',opts:['Dans sa chambre','Dans la cuisine, faisant ses maths ✓','À l\'école','Dans la rue'],ok:1,xp:'« elle travaillait sagement à ses mathématiques… à l\'angle de la table »'},
+  {q:'D\'où vient l\'ombre qui prive Mona de la vue&nbsp;?',en:'Where does the darkness come from?',opts:['Du dehors, comme quand la nuit tombe','D\'une lumière qui s\'éteint','D\'une fenêtre fermée','De l\'intérieur de son propre corps ✓'],ok:3,xp:'« l\'ombre s\'empara de sa vue depuis son propre corps, depuis l\'intérieur »'},
+  {q:'Quel diagnostic provisoire le médecin donne-t-il&nbsp;?',en:'What provisional diagnosis does the doctor give?',opts:['Une migraine','Un AVC','Un AIT ✓','Une réaction allergique'],ok:2,xp:'« Cela ressemble à un AIT, lâcha-t-il »'}
+];
+Q['p11']=[
+  {q:'Quelle est la réaction de la mère dans la voiture&nbsp;?',en:'What is the mother\'s reaction in the car?',opts:['Elle reste calme','Elle pleure avec Mona','Elle ne dit rien','Elle voudrait taper sur la tête de Mona comme sur une machine en panne ✓'],ok:3,xp:'« elle aurait-elle aussi voulu taper sur cette petite tête rondelette… comme on cogne sur une machine en panne »'},
+  {q:'Pourquoi le père est-il fâché&nbsp;?',en:'Why is the father angry?',opts:['Parce que Mona pleure','Parce qu\'il croit qu\'un événement s\'est passé et qu\'on le lui cache ✓','Parce que la voiture tombe en panne','Parce qu\'ils sont perdus'],ok:1,xp:'« persuadé qu\'il s\'était passé un événement dans la cuisine et qu\'on le lui cachait »'},
+  {q:'Que voit Mona quand la vue lui revient complètement&nbsp;?',en:'What is the last thing Mona sees as her sight fully returns?',opts:['La cathédrale Notre-Dame','Sa mère','Un pigeon gris qui s\'envole ✓','Son père'],ok:2,xp:'« Enfin, elle aperçut au loin l\'envol d\'un pigeon gris, ce qui la combla de joie. »'},
+  {q:'Combien de temps a duré la crise en tout&nbsp;?',en:'How long did the crisis last in total?',opts:['10 minutes','30 minutes','63 minutes ✓','2 heures'],ok:2,xp:'« soixante-trois minutes »'}
+];
+Q['p12']=[
+  {q:'Pourquoi ne laisse-t-on pas repartir Mona immédiatement&nbsp;?',en:'Why isn\'t Mona allowed to leave the hospital straight away?',opts:['Elle pleure encore','Sa vue n\'est pas revenue','Des examens, un diagnostic et des prescriptions sont nécessaires ✓','Il est trop tard le soir'],ok:2,xp:'« il ne fut pas question de laisser repartir la petite avant d\'avoir réalisé une batterie d\'examens »'},
+  {q:'Quelle est la particularité du caractère de Camille&nbsp;?',en:'What is distinctive about Camille\'s character?',opts:['Elle est calme et organisée','L\'anarchie et l\'autorité se mêlent en elle ✓','Elle est distante et froide','Elle est très anxieuse'],ok:1,xp:'« en elle, l\'anarchie se tressait sans cesse à l\'autorité »'},
+  {q:'Que fait Camille l\'après-midi&nbsp;?',en:'What does Camille do in the afternoon?',opts:['Elle fait du sport','Elle peint','Elle s\'épuise en bénévolat ✓','Elle sort avec des amis'],ok:2,xp:'« L\'après-midi, c\'était autre chose. Elle s\'épuisait en bénévolat. »'}
+];
+Q['p1314']=[
+  {q:'Depuis quand Paul collectionne-t-il des porte-clés en forme de cœur&nbsp;?',en:'Since when has Paul been collecting heart-shaped key rings?',opts:['Depuis l\'enfance','Depuis l\'adolescence ✓','Depuis ses 30 ans','Depuis son mariage'],ok:1,xp:'« tout avait commencé dans son adolescence avec une collection de porte-clés »'},
+  {q:'Comment Paul a-t-il sauvé sa boutique&nbsp;?',en:'How did Paul save his struggling shop?',opts:['En vendant sa collection','En s\'associant avec un autre brocanteur','En créant un site web qu\'il traduit en anglais ✓','En réduisant ses dépenses'],ok:2,xp:'« avait fait valoir son expertise avec un site web qu\'il actualisait sans cesse et traduisait en anglais »'},
+  {q:'Que fait Paul du trophée de ses bouteilles vides&nbsp;?',en:'What does Paul do with his empty bottles?',opts:['Il les recycle','Il les vend','Il les cache','Il les place sur un égouttoir en hérisson ✓'],ok:3,xp:'« la fichait, comme un trophée, sur un de ces égouttoirs en forme de hérisson »'},
+  {q:'À qui Paul trinque-t-il mentalement chaque soir&nbsp;?',en:'To whom does Paul mentally toast, alone, each evening?',opts:['À sa première femme','À lui-même','À Camille','À Mona ✓'],ok:3,xp:'« Il trinquait dans sa tête, à Mona. À sa santé. »'}
+];
+VF['p10']=[
+  {s:'La cécité de Mona a une cause connue.',en:'Mona\'s blindness has a known cause.',val:false,cite:'« L\'effet semblait dépourvu de cause. »'},
+  {s:'Le médecin est venu en personne examiner Mona.',en:'The doctor came in person to examine Mona.',val:false,cite:'Non — « la mère de Mona téléphona au médecin de famille » — il n\'est pas venu.'},
+  {s:'La mère a eu du mal à décrire l\'état de sa fille.',en:'The mother struggled to describe her daughter\'s condition.',val:true,cite:'« Elle décrivit confusément les pupilles voilées de sa fille. »'},
+  {s:'Selon le médecin, la cécité ne devrait pas durer longtemps.',en:'According to the doctor, the blindness should not last long.',val:true,cite:'« la cécité ne devrait pas excéder dix minutes »'}
+];
+VF['p1314']=[
+  {s:'Paul est passionné par la culture française des années 1950.',en:'Paul is passionate about 1950s French culture.',val:false,cite:'« passionné par la culture américaine des années 1950 » — et non française.'},
+  {s:'Paul souhaitait vendre sa collection de porte-clés.',en:'Paul wanted to sell his key ring collection.',val:false,cite:'« qu\'il ne souhaitait pas vendre »'},
+  {s:'Une vente importante a temporairement sauvé Paul de la ruine.',en:'An important sale temporarily saved Paul from ruin.',val:true,cite:'« Une transaction salutaire après des mois de disette »'},
+  {s:'Paul en veut à quelqu\'un pour ses difficultés.',en:'Paul holds someone responsible for his difficulties.',val:false,cite:'« Il levait son verre seul sans trouver le moyen d\'en vouloir à quiconque. »'}
+];
+ST['p9']=[
+  {ex:'« Ce fut comme un habit de deuil »',fig:'Comparaison',xp:'L\'outil de comparaison est « comme ». La cécité soudaine est comparée à l\'habit de deuil — noir, lourd, lié à la mort.'},
+  {ex:'« à la façon des taches que produit le soleil »',fig:'Comparaison',xp:'L\'outil est « à la façon de ». Les scintillements sont comparés aux taches lumineuses que produit le soleil fixé.'},
+  {ex:'« de même qu\'on serre le poing pour résister à la douleur »',fig:'Comparaison',xp:'L\'outil est « de même que ». Fermer les yeux est comparé au geste de serrer le poing face à la douleur.'},
+  {ex:'« le sort en était jeté »',fig:'Métaphore',xp:'Pas d\'outil de comparaison — c\'est une métaphore directe empruntant le vocabulaire du jeu de dés et du destin.'}
+];
+ST['p11']=[
+  {ex:'« À la façon d\'un store qui se hisse, le voile qui obstruait les yeux se levait »',fig:'Comparaison',xp:'L\'outil est « à la façon de ». Le retour progressif de la vision est comparé à un store qui monte lentement.'},
+  {ex:'« La cécité avait saisi Mona, puis l\'avait relâchée »',fig:'Personnification',xp:'La cécité est traitée comme un être vivant qui « saisit » et « relâche » Mona — elle a une volonté propre.'},
+  {ex:'« Elle l\'avait traversée comme une balle troue la peau »',fig:'Comparaison',xp:'L\'outil est « comme ». L\'image est violente et physique — la cécité traverse Mona comme une balle.'}
+];
+ST['p12']=[
+  {ex:'« en elle, l\'anarchie se tressait sans cesse à l\'autorité »',fig:'Métaphore + Antithèse',xp:'Métaphore : le tressage (comme une tresse de cheveux) pour l\'entrelacement des contraires. Antithèse : anarchie vs autorité.'},
+  {ex:'« Sa grande blouse rayonnante, contrastait avec la verdeur maladive des murs »',fig:'Antithèse',xp:'Opposition directe : blouse rayonnante (lumière, santé) vs verdeur maladive (couleur de maladie).'}
+];
+ST['p1314']=[
+  {ex:'« portait une cravate pour faire oublier ses chemises au col élimé »',fig:'Antithèse / Contradiction',xp:'Opposition : la façade soignée (cravate) vs la réalité précaire (chemises usées). L\'apparence contre la vérité.'},
+  {ex:'Collection qu\'il « ne souhaitait pas vendre et qui n\'aurait intéressé personne »',fig:'Oxymore / Contradiction',xp:'Passion vs inutilité commerciale — deux réalités opposées coexistent. Paul aime ce dont personne ne veut.'},
+  {ex:'« trinquait dans sa tête, à Mona. À sa santé » — seul, avec sa bouteille',fig:'Antithèse',xp:'Toast d\'amour paternel vs solitude absolue. Le geste de célébration est accompli dans l\'isolement.'}
+];
+G['pqp']=[
+  {p:'Quand ils ________ à l\'hôpital, Mona était aveugle depuis déjà 63 minutes.',en:'When they ________ at the hospital, Mona had already been blind for 63 minutes.',opts:['arrivaient (imparfait)','sont arrivés (passé composé)','arrivèrent (passé simple)','étaient arrivés (plus-que-parfait) ✓'],ok:3,xp:'Plus-que-parfait pour une action ANTÉRIEURE à une autre action passée.'},
+  {p:'Il raccrocha. Il ________ déjà ________ la situation en deux minutes.',en:'He hung up. He had already ________ the situation in two minutes.',opts:['a évalué','évaluait','avait évalué ✓','évalue'],ok:2,xp:'« Il s\'était déjà écoulé un bon quart d\'heure » — même structure dans le texte.'},
+  {p:'Mona ne voyait plus rien parce qu\'une nappe opaque ________ ses yeux.',en:'Mona could no longer see because an opaque layer ________ her eyes.',opts:['envahissait (imparfait)','a envahi (passé composé)','avait envahi ✓ (plus-que-parfait)','envahit (passé simple)'],ok:2,xp:'Action antérieure à la cécité constatée = plus-que-parfait.'}
+];
+G['condp']=[
+  {p:'La mère a gardé son calme. → Mais au fond d\'elle-même, elle ________ aussi voulu taper sur la tête de Mona.',en:'The mother kept calm. → But deep down, she too ________ have wanted to bang on Mona\'s head.',opts:['voulait','a voulu','aurait voulu ✓','avait voulu'],ok:2,xp:'« elle aurait-elle aussi voulu » — fait hypothétique non réalisé dans le passé.'},
+  {p:'Paul n\'a pas compris ce qui s\'est passé. → Avec plus d\'informations, il ________ mieux.',en:'Paul didn\'t understand what happened. → With more information, he ________ better.',opts:['comprendrait','comprenait','aurait compris ✓','avait compris'],ok:2,xp:'Conditionnel passé = hypothèse sur un fait qui ne s\'est PAS réalisé.'},
+  {p:'Mona n\'a pas décrit la cécité avec des images poétiques. → Un écrivain adulte ________ ainsi.',en:'Mona didn\'t describe the blindness with poetic images. → An adult writer ________ have done so.',opts:['décrirait','décrivait','aurait décrit ✓','avait décrit'],ok:2,xp:'Regret ou hypothèse non réalisée — conditionnel passé.'}
+];
+TX['p9_fr']=`<p class="text-p">Tout devint sombre. Ce fut comme un habit de deuil. Et puis, çà et là, des scintillements, à la façon des taches que produit le soleil quand les yeux le fixent en vain derrière les paupières serrées, de même qu'on serre le poing pour résister à la douleur ou à l'émotion.</p>
+<p class="text-p">Bien sûr, elle n'avait pas du tout décrit la chose ainsi. Dans la bouche d'une enfant de dix ans, fraîche et inquiète, la détresse se formule sèchement, sans fioritures ni lyrisme.</p>
+<p class="dl">— Maman, c'est tout noir&#8239;!</p>
+<p class="text-p">Mona avait lancé ces mots d'une voix étranglée. Une plainte&#8239;? Oui, mais, pas seulement. Elle y avait, malgré elle, glissé un accent de honte que sa mère, chaque fois qu'elle l'identifiait, prenait avec gravité. Car s'il était bien quelque chose que Mona ne feignait jamais, c'était la honte. À peine celle-ci se nichait-elle dans un mot, une attitude, une intonation, que le sort en était jeté&#8239;: une vérité désagréable avait pénétré.</p>
+<p class="dl">— Maman, c'est tout noir&#8239;!</p>
+<p class="text-p"><strong>Mona était aveugle.</strong></p>`;
+TX['p9_en']=`<p class="en-p">Everything turned dark. It was like a mourning garment. And then, here and there, glimmers — like the spots the sun produces when eyes stare at it in vain behind tightly closed eyelids, just as one clenches a fist to resist pain or emotion.</p>
+<p class="en-p">Of course, she had not described it that way at all. In the mouth of a ten-year-old child, fresh and anxious, distress is expressed plainly, without embellishment or lyricism.</p>
+<p class="en-dl">— Mummy, it's all dark!</p>
+<p class="en-p">Mona had launched these words in a strangled voice. A cry of pain? Yes, but not only. Despite herself, she had slipped in a note of shame that her mother, whenever she identified it, took with gravity. For if there was one thing Mona never feigned, it was shame. As soon as it nestled in a word, a gesture, an intonation, the die was cast: an unpleasant truth had entered.</p>
+<p class="en-dl">— Mummy, it's all dark!</p>
+<p class="en-p"><strong>Mona was blind.</strong></p>`;
+TX['p10_fr']=`<p class="text-p">L'effet semblait dépourvu de cause. Rien de particulier ne s'était passé&#8239;; elle travaillait sagement à ses mathématiques, un stylo dans la main droite, un cahier coincé sous la paume gauche, à l'angle de la table où sa mère truffait d'ail un rôti bien gras. Mona était en train de retirer délicatement de son cou un pendentif qui la gênait parce qu'il se balançait au-dessus de sa feuille d'exercices et qu'elle avait pris la mauvaise habitude de se voûter pour écrire. Elle sentit une ombre lourde s'abattre sur ses deux yeux, comme s'ils étaient punis d'être si bleus, si grands, si purs. L'ombre ne vint pas du dehors, ainsi qu'elle vient communément, quand la nuit tombe ou quand les lumières d'un théâtre baissent d'intensité&#8239;; l'ombre s'empara de sa vue depuis son propre corps, depuis l'intérieur. En elle-même, s'était insinuée une nappe opaque qui l'avait coupée des polygones tracés sur son cahier d'écolière, de la table en bois brun, du rôti posé plus loin, de sa mère en tablier blanc, de la cuisine carrelée, de son père, assis dans la pièce d'à côté, de l'appartement de Montreuil, du ciel grisé de l'automne qui surplombait les rues, du monde entier. L'enfant, par un sortilège, plongeait dans les ténèbres.</p>
+<p class="text-p">Fébrile, la mère de Mona téléphona au médecin de famille. Elle décrivit confusément les pupilles voilées de sa fille et précisa, parce que le docteur le lui demandait, qu'elle ne semblait souffrir d'aucun trouble du langage ni de paralysie.</p>
+<p class="dl">— Cela ressemble à un AIT<sup>1</sup>, lâcha-t-il, sans vouloir se prononcer davantage.</p>
+<p class="text-p">Il exigea dans l'immédiat de fortes doses d'aspirine et, surtout, l'acheminement en urgence de Mona à</p>
+<p class="fn"><sup>1</sup> Accident ischémique transitoire — baisse de vision profonde ou perte de vue complète. Un AIT est une « alerte » avant un AVC constitué.</p>`;
+TX['p10_en']=`<p class="en-p">The effect seemed without cause. Nothing in particular had happened; she was quietly doing her mathematics, a pen in her right hand, a notebook wedged under her left palm, at the corner of the table where her mother was stuffing a fatty roast with garlic. Mona was in the process of gently removing from her neck a pendant that was bothering her — it swayed above her exercise sheet, and she had picked up the bad habit of hunching over when she wrote. She felt a heavy shadow fall over both her eyes, as if they were being punished for being so blue, so large, so pure. The shadow did not come from outside, as it usually does when night falls or when a theatre's lights dim; the shadow seized her sight from within her own body, from the inside. An opaque layer had crept inside her, cutting her off from the polygons drawn in her schoolbook, from the brown wooden table, from the roast further along, from her mother in her white apron, from the tiled kitchen, from her father sitting in the next room, from the Montreuil apartment, from the grey autumn sky above the streets, from the entire world. The child, as if under a spell, was plunging into darkness.</p>
+<p class="en-p">Feverishly, Mona's mother telephoned the family doctor. She described, in confused terms, her daughter's clouded pupils, and confirmed — because the doctor asked — that she did not seem to be suffering from any speech or paralysis problems.</p>
+<p class="en-dl">— This looks like a TIA, he said, unwilling to say more.</p>
+<p class="en-p">He immediately demanded large doses of aspirin and, above all, that Mona be taken urgently to</p>`;
+TX['p11_fr']=`<p class="text-p">l'hôpital de l'Hôtel-Dieu, où il appellerait un confrère pour une prise en charge instantanée. Il ne pensait pas à lui par hasard&#8239;: c'était un pédiatre formidable, réputé par ailleurs pour être un très bon ophtalmologiste et accessoirement un hypnothérapeute de talent. Normalement, conclut-il, la cécité ne devrait pas excéder dix minutes, et il raccrocha. Il s'était déjà écoulé un bon quart d'heure depuis le premier cri d'alarme.</p>
+<p class="text-p">Dans la voiture, la fillette pleurait, se tapait les tempes. Sa mère lui tenait les coudes, mais au fond d'elle-même, elle aurait-elle aussi voulu taper sur cette petite tête rondelette et fragile comme on cogne sur une machine en panne, en espérant bêtement la faire redémarrer. Le père, au volant de sa vieille Volkswagen cahotante, souhaitait attraper le mal dont sa petite était victime. Il était fâché, persuadé qu'il s'était passé un événement dans la cuisine et qu'on le lui cachait. Il ressassait l'inventaire de toutes les causes possibles, depuis une bouffée de vapeur jusqu'à une mauvaise chute. Mais non, Mona le déclara cent fois&#8239;:</p>
+<p class="dl">— C'est venu tout seul&#8239;!</p>
+<p class="text-p">Et le père n'en croyait rien.</p>
+<p class="dl">— On ne devient pas aveugle comme ça&#8239;!</p>
+<p class="text-p">Pourtant, si&#8239;: on devient aveugle « comme ça », la preuve. Et <em>on</em>, aujourd'hui, c'était Mona, ses dix ans, et ses larmes de peur coulant à grands flots — ses larmes dont elle attendait peut-être qu'elles lavent la suie qui s'était collée à ses pupilles ce dimanche d'octobre, alors que tombait le soir. À peine arrivée au seuil de l'hôpital jouxtant Notre-Dame sur l'île de la Cité, elle interrompit brusquement ses sanglots et se figea&#8239;:</p>`;
+TX['p11_en']=`<p class="en-p">the Hôtel-Dieu hospital, where he would call a colleague for immediate care. He had not thought of him by chance: he was a formidable paediatrician, also known as an excellent ophthalmologist and, incidentally, a talented hypnotherapist. Normally, he concluded, the blindness should not exceed ten minutes — and he hung up. A good quarter of an hour had already passed since the first cry of alarm.</p>
+<p class="en-p">In the car, the little girl was crying and hitting her temples. Her mother held her by the elbows, but deep down she too would have liked to knock on that small, round, fragile head as one bangs on a broken machine, stupidly hoping to make it start again. The father, at the wheel of his old, rattling Volkswagen, wanted to catch the illness his little girl had fallen prey to. He was angry, convinced that something had happened in the kitchen and that they were keeping it from him. He was going over and over the inventory of every possible cause, from a puff of steam to a bad fall. But no — Mona had said it a hundred times:</p>
+<p class="en-dl">— It came on by itself!</p>
+<p class="en-p">And her father believed not a word of it.</p>
+<p class="en-dl">— You don't just go blind like that!</p>
+<p class="en-p">And yet you do: you go blind "just like that" — the proof was right there. And today, <em>you</em> was Mona, ten years old, her tears of fear flowing in floods — tears she perhaps hoped would wash away the soot that had stuck to her pupils that Sunday in October, as evening was falling. Just as she arrived at the threshold of the hospital next to Notre-Dame on the Île de la Cité, she suddenly stopped sobbing and froze:</p>`;
+TX['p12_fr']=`<p class="dl">— Maman, papa, ça revient&#8239;!</p>
+<p class="text-p">Postée dans la rue, où soufflait un vent froid, elle balançait la nuque d'avant en arrière pour favoriser le reflux de sa perception. À la façon d'un store qui se hisse, le voile qui obstruait les yeux se levait. Les lignes lui réapparurent, puis les arêtes des visages, les reliefs des objets proches, la texture des murs et toutes les nuances des couleurs, des plus vives aux plus sombres. L'enfant retrouva la silhouette menue de sa mère, son grand cou de cygne et ses bras frêles, et celle plus massive de son père. Enfin, elle aperçut au loin l'envol d'un pigeon gris, ce qui la combla de joie. La cécité avait saisi Mona, puis l'avait relâchée. Elle l'avait traversée comme une balle troue la peau et ressort de l'autre côté du corps, faisant mal, certes, mais laissant toutefois à l'organisme le soin de cicatriser. «&#8239;Un miracle&#8239;», pensa son père, qui compta scrupuleusement le temps qu'avait duré la crise&#8239;; soixante-trois minutes.</p>
+<p class="text-p">Au service ophtalmologique de l'Hôtel-Dieu, il ne fut pas question de laisser repartir la petite avant d'avoir réalisé une batterie d'examens, fourni un diagnostic et des prescriptions. L'angoisse se trouvait certes ajournée, mais pas tout à fait dissipée. Un infirmier indiqua une salle au premier étage du bâtiment. C'était le cabinet du pédiatre averti par le médecin de famille. Le Dr Van Orst était métis, et frappé d'une calvitie précoce. Sa grande blouse rayonnante, contrastait avec la verdeur maladive des murs. Son immense sourire qui creusait dans son visage de petites rides joviales, le rendait sympathique. Il n'en était pas moins dépositaire de nombreux secrets. Il s'avança&#8239;:</p>
+<p class="dl">— Quel âge as-tu&#8239;? demanda-t-il d'une voix éraillée par le tabac.</p>
+<p class="text-sep">*</p>
+<p class="text-p">Mona avait dix ans. Elle était la fille unique de deux parents qui s'aimaient. Camille, la mère, approchait de la quarantaine. Elle était d'une taille modeste, arborait des cheveux courts et ébouriffés, avait dans la voix un reste lointain de gouaille des faubourgs. Son charme tenait à son côté «&#8239;légèrement déglingué&#8239;», disait son homme, mais soutenu par une détermination redoutable&#8239;: en elle, l'anarchie se tressait sans cesse à l'autorité. Elle travaillait dans une agence d'intérim, en bonne employée, impliquée, zélée. Le matin, du moins. L'après-midi, c'était autre chose. Elle s'épuisait en bénévolat. Toutes les causes étaient bonnes, des vieillards isolés aux animaux battus.</p>`;
+TX['p12_en']=`<p class="en-dl">— Mummy, daddy, it's coming back!</p>
+<p class="en-p">Standing in the street, where a cold wind was blowing, she swayed her head back and forth to encourage her perception to return. Like a blind being raised, the veil that had been blocking her eyes began to lift. Lines reappeared, then the edges of faces, the relief of nearby objects, the texture of walls and all the shades of colour, from the most vivid to the darkest. The child rediscovered her mother's slight silhouette, her long swan neck and slender arms, and the larger, more solid shape of her father. Finally, she glimpsed in the distance a grey pigeon taking flight, which filled her with joy. The blindness had seized Mona and then let her go. It had passed through her like a bullet that pierces skin and emerges from the other side of the body — painful, certainly, but leaving the organism to do its healing work. "A miracle," her father thought, as he carefully counted how long the crisis had lasted: sixty-three minutes.</p>
+<p class="en-p">At the ophthalmology ward of the Hôtel-Dieu, there was no question of letting the little girl leave before a battery of tests had been performed, a diagnosis given, and prescriptions issued. The anxiety was postponed, but not entirely dispelled. A nurse pointed to a room on the first floor of the building. It was the consulting room of the paediatrician tipped off by the family doctor. Dr Van Orst was of mixed heritage, and had gone bald early. His large, bright white coat contrasted with the sickly green of the walls. His enormous smile, which carved small jovial wrinkles into his face, made him likeable. He was nonetheless the keeper of many secrets. He stepped forward:</p>
+<p class="en-dl">— How old are you? he asked in a voice husky from tobacco.</p>
+<p class="en-sep">*</p>
+<p class="en-p">Mona was ten years old. She was the only child of two parents who loved each other. Camille, the mother, was approaching forty. She was of modest height, with short, tousled hair, and a faint trace of working-class wit in her voice. Her charm lay in her slightly "ramshackle" quality, as her partner put it, underpinned by a formidable determination: in her, anarchy was constantly intertwined with authority. She worked at a temp agency, as a good, committed, zealous employee. In the mornings, at least. The afternoons were a different story. She wore herself out doing volunteer work. Every cause was worthwhile — from elderly isolated people to abused animals.</p>`;
+TX['p1314_fr']=`<p class="text-p">Quant à Paul, il avait passé les cinquante-sept ans. Camille était sa seconde femme. La première avait disparu avec son meilleur ami. Il portait une cravate pour faire oublier ses chemises au col élimé et besognait comme petit brocanteur, surtout passionné par la culture américaine des années 1950&#8239;: juke-box, flippers, affiches… Et puisque tout avait commencé dans son adolescence avec une collection de porte-clés en forme de cœur, il en possédait une impressionnante panoplie, qu'il ne souhaitait pas vendre et qui, de toute façon, n'aurait intéressé personne. Avec le développement d'Internet, sa boutique, perdue dans Montreuil, avait bien failli fermer ses portes. Alors, il s'était mis à son tour, avait fait valoir son expertise avec un site web qu'il actualisait sans cesse et traduisait en anglais. Malgré un sens des affaires proche du néant, il pouvait compter sur une clientèle de collectionneurs attentifs qui le sauvaient régulièrement de la ruine. L'été précédent, il avait réparé une édition du flipper Gottlieb «&#8239;Wishing Well&#8239;» de 1955 et en avait tiré la coquette somme de dix mille euros. Une transaction salutaire après des mois de disette… Et puis, à nouveau le néant, la crise, lui disait-on. Paul éclusait chaque jour à la boutique une bouteille de vin rouge puis la fichait, comme un trophée, sur un de ces égouttoirs en forme de hérisson qui avait fait la postérité de Marcel Duchamp. Il levait son verre seul sans trouver le moyen d'en vouloir à quiconque. Il trinquait dans sa tête, à Mona. À sa santé.</p>`;
+TX['p1314_en']=`<p class="en-p">As for Paul, he had turned fifty-seven. Camille was his second wife. The first had disappeared with his best friend. He wore a tie to conceal the frayed collars of his shirts, and toiled away as a small second-hand dealer, passionate above all about 1950s American culture: juke-boxes, pinball machines, posters… And since it had all started in his adolescence with a collection of heart-shaped key rings, he now owned an impressive array of them — ones he had no desire to sell and which, in any case, would have interested no one. With the rise of the internet, his shop, lost in Montreuil, had nearly been forced to close. So he had got with the times, made the most of his expertise with a website he constantly updated and translated into English. Despite a business sense close to zero, he could count on a loyal clientele of collectors who regularly saved him from ruin. The previous summer, he had repaired a 1955 Gottlieb "Wishing Well" pinball machine and netted the tidy sum of ten thousand euros. A welcome windfall after months of lean times… And then, once again, nothing, the crisis, they told him. Paul would drain a bottle of red wine every day in his shop, then place it, like a trophy, on one of those hedgehog-shaped bottle drainers that had made Marcel Duchamp's name. He raised his glass alone, unable to find it in himself to blame anyone. He would toast, in his head, to Mona. To her health.</p>`;
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────────
+let _a=null,_as='',_ab=null,_at=null,_af=null;
+function A(s){if(!s)return;if(s.indexOf('/')<0)s='audio/'+s;_resetAnb();if(_a){if(_as===s&&!_a.paused){_a.pause();return;}_a.pause();}
+  _a=new Audio(s);_as=s;_a.play().catch(()=>{});}
+function _resetAnb(){if(_ab){_ab.textContent='▶ Écouter';_ab.classList.remove('anb-play');}
+  if(_at){_at.textContent='0:00';}if(_af){_af.style.width='0%';}
+  _ab=null;_at=null;_af=null;}
+function anbToggle(bid,tid,fid,src){
+  var btn=document.getElementById(bid),tme=document.getElementById(tid),fill=document.getElementById(fid);
+  if(_a&&_as===src){
+    if(!_a.paused){_a.pause();btn.innerHTML='&#9654; Reprendre';btn.classList.remove('anb-play');return;}
+    else{_a.play();btn.innerHTML='&#9646;&#9646; Pause';btn.classList.add('anb-play');return;}
+  }
+  if(_a)_a.pause();_resetAnb();
+  _a=new Audio(src);_as=src;_ab=btn;_at=tme;_af=fill;
+  btn.innerHTML='&#9646;&#9646; Pause';btn.classList.add('anb-play');
+  _a.ontimeupdate=()=>{
+    let m=Math.floor(_a.currentTime/60),s=Math.floor(_a.currentTime%60);
+    tme.textContent=m+':'+(s<10?'0':'')+s;
+    if(_a.duration)fill.style.width=(_a.currentTime/_a.duration*100)+'%';
+  };
+  _a.onended=()=>{btn.innerHTML='&#9654; Réécouter';btn.classList.remove('anb-play');fill.style.width='100%';};
+  _a.play().catch(()=>{});
+}
+// ── TABS ──────────────────────────────────────────────────────────────────────
+function showTab(id,el){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  el.classList.add('active');
+  if(_a){_a.pause();_resetAnb();}
+}
+// ── EN TOGGLE ─────────────────────────────────────────────────────────────────
+function togEn(boxId,btnId){
+  var b=document.getElementById(boxId),btn=document.getElementById(btnId);
+  var open=b.classList.toggle('open');
+  btn.textContent=open?'🔼 Cacher la traduction anglaise':'🔽 Voir la traduction anglaise — English version';
+}
+// ── METHOD ────────────────────────────────────────────────────────────────────
+function togMeth(){var b=document.getElementById('meth-body');b.classList.toggle('open');}
+function togFigDef(id){document.getElementById(id).classList.toggle('open');}
+// ── MODAL ─────────────────────────────────────────────────────────────────────
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+// ── VOCAB MATCH ───────────────────────────────────────────────────────────────
+const _vm={};
+function initVm(cid,tab){
+  var items=V[tab];
+  var shuf=[...items].map((x,i)=>({...x,oi:i})).sort(()=>Math.random()-.5);
+  _vm[cid]={items,shuf,sel:null,matched:new Set(),matchedD:new Set()};
+  var el=document.getElementById(cid);
+  el.innerHTML=`<div class="vm-hint">&#128077; Clique sur un <strong>mot</strong> (gauche), puis sur sa <strong>définition</strong> (droite) — Click a word, then its definition.</div>
+<div class="vm-grid">
+  <div><div class="vm-col-hdr">Mots &amp; expressions</div>${items.map((x,i)=>`
+    <div class="vm-wcard" id="vw_${cid}_${i}" onclick="vmW('${cid}',${i})">
+      <div class="vm-word">${x.w}</div><div class="vm-ctx">${x.ctx}</div></div>`).join('')}
+  </div>
+  <div><div class="vm-col-hdr">Définitions — mélangées</div>${shuf.map((x,i)=>`
+    <div class="vm-dcard" id="vd_${cid}_${i}" onclick="vmD('${cid}',${i},${x.oi})">
+      <div>${x.def}</div><div class="vm-den">${x.en}</div></div>`).join('')}
+  </div></div>
+<div class="vm-score" id="vs_${cid}">0 / ${items.length} correspondances trouvées</div>`;
+}
+function vmW(cid,i){
+  var st=_vm[cid];if(st.matched.has(i))return;
+  if(st.sel!==null){document.getElementById('vw_'+cid+'_'+st.sel).classList.remove('vm-sel');}
+  st.sel=i;document.getElementById('vw_'+cid+'_'+i).classList.add('vm-sel');
+}
+function vmD(cid,di,oi){
+  var st=_vm[cid];if(st.matchedD.has(di))return;if(st.sel===null)return;
+  var wi=st.sel;
+  if(wi===oi){
+    document.getElementById('vw_'+cid+'_'+wi).classList.remove('vm-sel');
+    document.getElementById('vw_'+cid+'_'+wi).classList.add('vm-done');
+    document.getElementById('vd_'+cid+'_'+di).classList.add('vm-done');
+    st.matched.add(wi);st.matchedD.add(di);st.sel=null;
+    var sc=st.matched.size,tot=st.items.length;
+    var se=document.getElementById('vs_'+cid);
+    if(sc===tot){se.textContent='✓ Parfait ! '+tot+' / '+tot+' — Excellent travail !';se.style.color='var(--green)';}
+    else se.textContent=sc+' / '+tot+' correspondances trouvées';
+  }else{
+    var we=document.getElementById('vw_'+cid+'_'+wi),de=document.getElementById('vd_'+cid+'_'+di);
+    we.classList.add('vm-err');de.classList.add('vm-err');
+    we.classList.remove('vm-sel');st.sel=null;
+    setTimeout(()=>{we.classList.remove('vm-err');de.classList.remove('vm-err');},700);
+  }
+}
+// ── QCM ───────────────────────────────────────────────────────────────────────
+function initQcm(cid,tab){
+  var items=Q[tab],el=document.getElementById(cid);
+  el.innerHTML=items.map((q,qi)=>`
+<div class="qcm-card">
+  <div class="qcm-q">${qi+1}. ${q.q}</div>
+  <div class="qcm-q-en">${q.en}</div>
+  <div class="qcm-opts">${q.opts.map((o,oi)=>`
+    <button class="qopt" id="qo_${cid}_${qi}_${oi}" onclick="ansQcm('${cid}',${qi},${oi},${q.ok},'${q.xp.replace(/'/g,"\\'")}')">
+      ${o.replace(' ✓','')}</button>`).join('')}
+  </div>
+  <div class="qxp" id="qx_${cid}_${qi}"></div>
+</div>`).join('');
+}
+function ansQcm(cid,qi,oi,ok,xp){
+  var prefix='qo_'+cid+'_'+qi+'_';
+  for(var i=0;i<10;i++){var b=document.getElementById(prefix+i);if(!b)break;b.disabled=true;b.classList.add(i===ok?'ok':'ng');}
+  var xel=document.getElementById('qx_'+cid+'_'+qi);xel.textContent=xp;xel.classList.add('show');
+}
+// ── VRAI/FAUX ─────────────────────────────────────────────────────────────────
+function initVf(cid,key){
+  var items=VF[key],el=document.getElementById(cid);
+  el.innerHTML=items.map((x,i)=>`
+<div class="vf-card">
+  <div class="vf-stmt">${i+1}. ${x.s}</div>
+  <div class="vf-stmt-en">${x.en}</div>
+  <div class="vf-btns">
+    <button class="vf-btn vtrue" id="vbT_${cid}_${i}" onclick="ansVf('${cid}',${i},true,${x.val},'${x.cite.replace(/'/g,"\\'")}')">✓ VRAI — True</button>
+    <button class="vf-btn vfals" id="vbF_${cid}_${i}" onclick="ansVf('${cid}',${i},false,${x.val},'${x.cite.replace(/'/g,"\\'")}')">✗ FAUX — False</button>
+  </div>
+  <div class="vf-cite" id="vc_${cid}_${i}"></div>
+</div>`).join('');
+}
+function ansVf(cid,i,chosen,val,cite){
+  var bt=document.getElementById('vbT_'+cid+'_'+i),bf=document.getElementById('vbF_'+cid+'_'+i);
+  bt.disabled=true;bf.disabled=true;
+  var ok=(chosen===val);
+  if(chosen===true){bt.classList.add(ok?'vsel-ok':'vsel-ng');}else{bf.classList.add(ok?'vsel-ok':'vsel-ng');}
+  var ce=document.getElementById('vc_'+cid+'_'+i);ce.innerHTML=(ok?'✓ ':'✗ Mauvaise réponse. ')+cite;ce.classList.add('show');
+}
+// ── ANALYSE STYLISTIQUE ───────────────────────────────────────────────────────
+const FIGS=['Comparaison','Métaphore','Personnification','Antithèse','Oxymore'];
+function initStyle(cid,key){
+  var items=ST[key],el=document.getElementById(cid);
+  el.innerHTML=items.map((x,si)=>`
+<div class="scard">
+  <div class="scard-ex">${x.ex}</div>
+  <div class="scard-opts">${FIGS.map((f,fi)=>`
+    <button class="sopt" id="so_${cid}_${si}_${fi}" onclick="ansSt('${cid}',${si},${fi},'${f}','${x.fig.replace(/'/g,"\\'")}','${x.xp.replace(/'/g,"\\'")}')">
+      ${f}</button>`).join('')}
+  </div>
+  <div class="sxp" id="sx_${cid}_${si}"></div>
+</div>`).join('');
+}
+function ansSt(cid,si,fi,f,fig,xp){
+  FIGS.forEach((_,i)=>{var b=document.getElementById('so_'+cid+'_'+si+'_'+i);if(b){b.disabled=true;b.classList.add(fig.includes(FIGS[i])?'ok':'ng');}});
+  var xe=document.getElementById('sx_'+cid+'_'+si);xe.textContent=xp;xe.classList.add('show');
+}
+// ── GRAMMAIRE ─────────────────────────────────────────────────────────────────
+function initGram(cid,key){
+  var items=G[key],el=document.getElementById(cid);
+  el.innerHTML=items.map((x,gi)=>`
+<div class="gcard">
+  <div class="gcard-ph">${x.p}</div>
+  <div class="gcard-ph-en">${x.en}</div>
+  <div class="gcard-opts">${x.opts.map((o,oi)=>`
+    <button class="gopt" id="go_${cid}_${gi}_${oi}" onclick="ansGram('${cid}',${gi},${oi},${x.ok},'${x.xp.replace(/'/g,"\\'")}',${x.opts.length})">
+      ${o.replace(' ✓','')}</button>`).join('')}
+  </div>
+  <div class="gxp" id="gx_${cid}_${gi}"></div>
+</div>`).join('');
+}
+function ansGram(cid,gi,oi,ok,xp,n){
+  for(var i=0;i<n;i++){var b=document.getElementById('go_'+cid+'_'+gi+'_'+i);if(b){b.disabled=true;b.classList.add(i===ok?'ok':'ng');}}
+  var xe=document.getElementById('gx_'+cid+'_'+gi);xe.textContent=xp;xe.classList.add('show');
+}
+// ── TEXT INJECT ───────────────────────────────────────────────────────────────
+function injectText(frid,enid,tabKey){
+  document.getElementById(frid).innerHTML=TX[tabKey+'_fr'];
+  document.getElementById(enid).innerHTML=TX[tabKey+'_en'];
+}
+// ── RECORDING STUB (wired by Opus) ────────────────────────────────────────────
+var _REC={};
+function _recBtn(id){var bs=document.getElementsByTagName('button');for(var i=0;i<bs.length;i++){if(bs[i].getAttribute('onclick')==="startRec('"+id+"')")return bs[i];}return null;}
+function startRec(id){var st=_REC[id]||(_REC[id]={});var btn=_recBtn(id);
+ if(st.rec){try{st.mr.stop();}catch(e){}return;}
+ if(!navigator.mediaDevices||!window.MediaRecorder){alert('Enregistrement non supporté par ce navigateur.');return;}
+ navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
+  st.chunks=[];st.mr=new MediaRecorder(stream);st.rec=true;
+  if(btn){st.lbl=btn.innerHTML;btn.innerHTML='&#9209; Arrêter';btn.style.background='#7B1818';}
+  st.mr.ondataavailable=function(e){if(e.data&&e.data.size>0)st.chunks.push(e.data);};
+  st.mr.onstop=function(){st.rec=false;stream.getTracks().forEach(function(t){t.stop();});
+   if(btn){btn.innerHTML=st.lbl||'&#127908; Enregistrer ma lecture';btn.style.background='';}
+   var blob=new Blob(st.chunks,{type:'audio/webm'});var url=URL.createObjectURL(blob);
+   var box=document.getElementById('recout-'+id);
+   if(!box){box=document.createElement('div');box.id='recout-'+id;box.style.marginTop='10px';if(btn&&btn.parentNode)btn.parentNode.insertBefore(box,btn.nextSibling);}
+   box.innerHTML='<audio controls style="width:100%;margin-bottom:8px"></audio>'
+    +'<a class="rec-dl" download="mona-'+id+'-lecture.webm" style="display:inline-block;background:#1E7B45;color:#fff;padding:10px 16px;border-radius:10px;font-weight:bold;text-decoration:none">&#128190; Télécharger et envoyer à mon professeur</a>'
+    +'<div style="font-size:13px;color:#4A6580;margin-top:6px">Réécoute-toi, puis télécharge et envoie ton enregistrement à ton professeur. · Listen back, then download and send it to your teacher.</div>';
+   box.querySelector('audio').src=url;box.querySelector('a.rec-dl').href=url;
+   if(window.LEM&&window.LEM.setLesson){window.LEM.setLesson('B2-E-002',{completed:true});}
+  };
+  st.mr.start();
+ }).catch(function(){alert('Micro non disponible ou accès refusé.');});
+}
+function submitRec(id){var b=document.querySelector('#recout-'+id+' a.rec-dl');if(b){b.click();}else{alert("Enregistre d'abord ta lecture.");}}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',()=>{
+  ['p9','p10','p11','p12','p1314'].forEach(t=>initVm('vm-'+t,t));
+  ['p9','p10','p11','p12','p1314'].forEach(t=>initQcm('qcm-'+t,t));
+  initVf('vf-p10','p10');initVf('vf-p1314','p1314');
+  ['p9','p11','p12','p1314'].forEach(t=>initStyle('st-'+t,t));
+  initGram('gram-pqp','pqp');initGram('gram-condp','condp');
+  ['p9','p10','p11','p12','p1314'].forEach(t=>injectText('txt-fr-'+t,'txt-en-'+t,t));
+});
+
+
+function markStyleP10(btn){
+  btn.classList.add('ok');btn.disabled=true;
+  var others=btn.parentElement.querySelectorAll('.sopt');
+  others.forEach(b=>{if(b!==btn){b.disabled=true;b.classList.add('ng');}});
+  document.getElementById('sxp10-1').textContent='✓ La répétition de « depuis » crée une insistance rythmique sur l\'origine intérieure et mystérieuse de la cécité — aucune cause externe n\'est responsable.';
+  document.getElementById('sxp10-1').classList.add('show');
+}
+
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
+</body>
+</html>

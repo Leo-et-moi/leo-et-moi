@@ -23,6 +23,8 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  # B2-E-002 Les Yeux de Mona — 32 consignes FR en attente d'enregistrement
+                  "mona_intro_fr.mp3", "mona_methode_b2_fr.mp3", "mona_p10_oral_fr.mp3", "mona_p10_qcm_fr.mp3", "mona_p10_style_fr.mp3", "mona_p10_vf_fr.mp3", "mona_p10_vocab_fr.mp3", "mona_p11_debat_fr.mp3", "mona_p11_gram_fr.mp3", "mona_p11_oral_fr.mp3", "mona_p11_qcm_fr.mp3", "mona_p11_style_fr.mp3", "mona_p11_vocab_fr.mp3", "mona_p12_gram_fr.mp3", "mona_p12_lect_fr.mp3", "mona_p12_oral_fr.mp3", "mona_p12_portrait_fr.mp3", "mona_p12_qcm_fr.mp3", "mona_p12_style_fr.mp3", "mona_p12_vocab_fr.mp3", "mona_p1314_debat_fr.mp3", "mona_p1314_lect_fr.mp3", "mona_p1314_oral_fr.mp3", "mona_p1314_qcm_fr.mp3", "mona_p1314_style_fr.mp3", "mona_p1314_vf_fr.mp3", "mona_p1314_vocab_fr.mp3", "mona_p9_oral_fr.mp3", "mona_p9_qcm_fr.mp3", "mona_p9_style_fr.mp3", "mona_p9_vocab_fr.mp3", "mona_titre_fr.mp3",
                   # B1-E-006 — reste 7 consignes/titre EN
                   "B1-E-006_c1_en.mp3", "B1-E-006_c2_en.mp3", "B1-E-006_c3_en.mp3", "B1-E-006_c4_en.mp3", "B1-E-006_ctexte_en.mp3", "B1-E-006_intro_en.mp3", "B1-E-006_titre_en.mp3",
                   # B1-E-006 — reste 12 (7 EN + 3 conj neuves + 2 conj retouche)

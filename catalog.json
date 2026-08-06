@@ -546,6 +546,25 @@
       "questions": null,
       "publie": true,
       "ajoute": "2026-08-05"
+    },
+    {
+      "id": "B2-E-002",
+      "niveau": "B2",
+      "ordre": 20,
+      "titre": "Lecture — Les Yeux de Mona (Thomas Schlesser, 2024)",
+      "chemin": "french/b2/les-yeux-de-mona/index.html",
+      "lecons": [],
+      "competences": [
+        "reading",
+        "listening",
+        "speaking"
+      ],
+      "progressId": "B2-E-002",
+      "questions": null,
+      "publie": true,
+      "serie": "Farandole",
+      "serieOrdre": 20,
+      "ajoute": "2026-08-05"
     }
   ],
   "tests": [
