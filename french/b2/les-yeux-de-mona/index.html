@@ -911,11 +911,10 @@ function initVm(cid,tab){
   var shuf=[...items].map((x,i)=>({...x,oi:i})).sort(()=>Math.random()-.5);
   _vm[cid]={items,shuf,sel:null,matched:new Set(),matchedD:new Set()};
   var el=document.getElementById(cid);
-  el.innerHTML=`<div class="vm-hint">&#128077; Clique sur un <strong>mot</strong> (gauche), puis sur sa <strong>définition</strong> (droite) — Click a word, then its definition.</div>
-<div class="vm-grid">
+  el.innerHTML=`<div class="vm-grid">
   <div><div class="vm-col-hdr">Mots &amp; expressions</div>${items.map((x,i)=>`
     <div class="vm-wcard" id="vw_${cid}_${i}" onclick="vmW('${cid}',${i})">
-      <div class="vm-word">${x.w}</div><div class="vm-ctx">${x.ctx}</div></div>`).join('')}
+      <div class="vm-word"><button class="spk" onclick="event.stopPropagation();A('mona_${tab}_voc${i+1}_fr.mp3')" style="flex-shrink:0">&#128266;</button> ${x.w}</div><div class="vm-ctx">${x.ctx}</div></div>`).join('')}
   </div>
   <div><div class="vm-col-hdr">Définitions — mélangées</div>${shuf.map((x,i)=>`
     <div class="vm-dcard" id="vd_${cid}_${i}" onclick="vmD('${cid}',${i},${x.oi})">
@@ -952,7 +951,7 @@ function initQcm(cid,tab){
   var items=Q[tab],el=document.getElementById(cid);
   el.innerHTML=items.map((q,qi)=>`
 <div class="qcm-card">
-  <div class="qcm-q">${qi+1}. ${q.q}</div>
+  <div class="qcm-q"><button class="spk" onclick="A('mona_${tab}_q${qi+1}_fr.mp3')" style="flex-shrink:0">&#128266;</button> ${qi+1}. ${q.q}</div>
   <div class="qcm-q-en">${q.en}</div>
   <div class="qcm-opts">${q.opts.map((o,oi)=>`
     <button class="qopt" id="qo_${cid}_${qi}_${oi}" onclick="ansQcm('${cid}',${qi},${oi},${q.ok},'${q.xp.replace(/'/g,"\\'")}')">
@@ -964,6 +963,7 @@ function initQcm(cid,tab){
 function ansQcm(cid,qi,oi,ok,xp){
   var prefix='qo_'+cid+'_'+qi+'_';
   for(var i=0;i<10;i++){var b=document.getElementById(prefix+i);if(!b)break;b.disabled=true;b.classList.add(i===ok?'ok':'ng');}
+  var _tab=cid.replace('qcm-','');var _okb=document.getElementById(prefix+ok);if(_okb&&!_okb.querySelector('.spk')){_okb.insertAdjacentHTML('beforeend',' <button class="spk" onclick="event.stopPropagation();A(\'mona_'+_tab+'_a'+(qi+1)+'_fr.mp3\')">&#128266;</button>');}
   var xel=document.getElementById('qx_'+cid+'_'+qi);xel.textContent=xp;xel.classList.add('show');
 }
 // ── VRAI/FAUX ─────────────────────────────────────────────────────────────────
