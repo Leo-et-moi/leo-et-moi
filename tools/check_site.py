@@ -23,29 +23,24 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  # B2-E-002 Mona — consignes/grammaire/pop-up/react (littéraux en attente)
+                  "mona_gram_en.mp3", "mona_gram_fr.mp3", "mona_p10_a1q1_fr.mp3", "mona_p10_a1q2_fr.mp3", "mona_p10_a1q3_fr.mp3", "mona_p10_a1q4_fr.mp3",
+                  "mona_p10_a2r1_fr.mp3", "mona_p10_a2r2_fr.mp3", "mona_p10_a3q1_fr.mp3", "mona_p10_a3q2_fr.mp3", "mona_p10_a3r1_fr.mp3", "mona_p10_a3r2_fr.mp3",
+                  "mona_p10_react_en.mp3", "mona_p10_react_fr.mp3", "mona_p11_a1q1_fr.mp3", "mona_p11_a1q2_fr.mp3", "mona_p11_a1q3_fr.mp3", "mona_p11_a1q4_fr.mp3",
+                  "mona_p11_a2r1_fr.mp3", "mona_p11_a2r2_fr.mp3", "mona_p11_a3r1_fr.mp3", "mona_p11_a3r2_fr.mp3", "mona_p11_react_en.mp3", "mona_p11_react_fr.mp3",
+                  "mona_p12_a1q1_fr.mp3", "mona_p12_a1q2_fr.mp3", "mona_p12_a1q3_fr.mp3", "mona_p12_a1q4_fr.mp3", "mona_p12_a2r1_fr.mp3", "mona_p12_a2r2_fr.mp3",
+                  "mona_p12_a3r1_fr.mp3", "mona_p12_a3r2_fr.mp3", "mona_p12_react_en.mp3", "mona_p12_react_fr.mp3", "mona_p1314_a1q1_fr.mp3", "mona_p1314_a1q2_fr.mp3",
+                  "mona_p1314_a1q3_fr.mp3", "mona_p1314_a1q4_fr.mp3", "mona_p1314_a3r1_fr.mp3", "mona_p1314_a3r2_fr.mp3", "mona_p1314_react_en.mp3", "mona_p1314_react_fr.mp3",
+                  "mona_p9_a1q1_fr.mp3", "mona_p9_a1q2_fr.mp3", "mona_p9_a1q3_fr.mp3", "mona_p9_a1q4_fr.mp3", "mona_p9_a2r1_fr.mp3", "mona_p9_a2r2_fr.mp3",
+                  "mona_p9_a3q1_fr.mp3", "mona_p9_a3q2_fr.mp3", "mona_p9_a3r1_fr.mp3", "mona_p9_a3r2_fr.mp3", "mona_p9_react_en.mp3", "mona_p9_react_fr.mp3",
+                  "mona_reagir_en.mp3", "mona_reagir_fr.mp3", "mona_rule_demons_en.mp3", "mona_rule_demons_fr.mp3", "mona_rule_neg_en.mp3", "mona_rule_neg_fr.mp3",
+                  "mona_rule_passe_en.mp3", "mona_rule_passe_fr.mp3", "mona_rule_poss_en.mp3", "mona_rule_poss_fr.mp3", "mona_rule_pqp_en.mp3", "mona_rule_pqp_fr.mp3",
+                  "mona_rule_rel_en.mp3", "mona_rule_rel_fr.mp3", "mona_rule_yen_en.mp3", "mona_rule_yen_fr.mp3",
                   # Mona page 9 — audios FR grammaire (phrases + réponses)
-                  "mona_p9_a1q1_fr.mp3", "mona_p9_a1q2_fr.mp3", "mona_p9_a1q3_fr.mp3", "mona_p9_a1q4_fr.mp3", "mona_p9_a2r1_fr.mp3", "mona_p9_a2r2_fr.mp3", "mona_p9_a3q1_fr.mp3", "mona_p9_a3q2_fr.mp3", "mona_p9_a3r1_fr.mp3", "mona_p9_a3r2_fr.mp3",
                   # B2-E-002 Mona — Bloc grammaire + réagir + pop-up (page 9 pilote)
-                  "mona_gram_fr.mp3", "mona_gram_en.mp3", "mona_reagir_fr.mp3", "mona_reagir_en.mp3", "mona_p9_react_fr.mp3", "mona_p9_react_en.mp3", "mona_rule_passe_fr.mp3", "mona_rule_passe_en.mp3", "mona_rule_demons_fr.mp3", "mona_rule_demons_en.mp3",
                   # B2-E-002 Mona — consignes mutualisées en attente
                   
                   # B2-E-002 Mona — 🔊 mots vocab + questions/réponses QCM (item 2 & 4)
-                  "mona_p9_voc1_fr.mp3", "mona_p9_voc2_fr.mp3", "mona_p9_voc3_fr.mp3", "mona_p9_voc4_fr.mp3", "mona_p9_voc5_fr.mp3", "mona_p9_voc6_fr.mp3",
-                  "mona_p9_voc7_fr.mp3", "mona_p9_voc8_fr.mp3", "mona_p9_voc9_fr.mp3", "mona_p9_voc10_fr.mp3", "mona_p9_voc11_fr.mp3", "mona_p9_voc12_fr.mp3",
-                  "mona_p9_q1_fr.mp3", "mona_p9_a1_fr.mp3", "mona_p9_q2_fr.mp3", "mona_p9_a2_fr.mp3", "mona_p9_q3_fr.mp3", "mona_p9_a3_fr.mp3",
-                  "mona_p9_q4_fr.mp3", "mona_p9_a4_fr.mp3", "mona_p10_voc1_fr.mp3", "mona_p10_voc2_fr.mp3", "mona_p10_voc3_fr.mp3", "mona_p10_voc4_fr.mp3",
-                  "mona_p10_voc5_fr.mp3", "mona_p10_voc6_fr.mp3", "mona_p10_voc7_fr.mp3", "mona_p10_voc8_fr.mp3", "mona_p10_voc9_fr.mp3", "mona_p10_voc10_fr.mp3",
-                  "mona_p10_voc11_fr.mp3", "mona_p10_voc12_fr.mp3", "mona_p10_q1_fr.mp3", "mona_p10_a1_fr.mp3", "mona_p10_q2_fr.mp3", "mona_p10_a2_fr.mp3",
-                  "mona_p10_q3_fr.mp3", "mona_p10_a3_fr.mp3", "mona_p11_voc1_fr.mp3", "mona_p11_voc2_fr.mp3", "mona_p11_voc3_fr.mp3", "mona_p11_voc4_fr.mp3",
-                  "mona_p11_voc5_fr.mp3", "mona_p11_voc6_fr.mp3", "mona_p11_voc7_fr.mp3", "mona_p11_voc8_fr.mp3", "mona_p11_voc9_fr.mp3", "mona_p11_voc10_fr.mp3",
-                  "mona_p11_voc11_fr.mp3", "mona_p11_voc12_fr.mp3", "mona_p11_q1_fr.mp3", "mona_p11_a1_fr.mp3", "mona_p11_q2_fr.mp3", "mona_p11_a2_fr.mp3",
-                  "mona_p11_q3_fr.mp3", "mona_p11_a3_fr.mp3", "mona_p11_q4_fr.mp3", "mona_p11_a4_fr.mp3", "mona_p12_voc1_fr.mp3", "mona_p12_voc2_fr.mp3",
-                  "mona_p12_voc3_fr.mp3", "mona_p12_voc4_fr.mp3", "mona_p12_voc5_fr.mp3", "mona_p12_voc6_fr.mp3", "mona_p12_voc7_fr.mp3", "mona_p12_voc8_fr.mp3",
-                  "mona_p12_voc9_fr.mp3", "mona_p12_voc10_fr.mp3", "mona_p12_voc11_fr.mp3", "mona_p12_voc12_fr.mp3", "mona_p12_q1_fr.mp3", "mona_p12_a1_fr.mp3",
-                  "mona_p12_q2_fr.mp3", "mona_p12_a2_fr.mp3", "mona_p12_q3_fr.mp3", "mona_p12_a3_fr.mp3", "mona_p1314_voc1_fr.mp3", "mona_p1314_voc2_fr.mp3",
-                  "mona_p1314_voc3_fr.mp3", "mona_p1314_voc4_fr.mp3", "mona_p1314_voc5_fr.mp3", "mona_p1314_voc6_fr.mp3", "mona_p1314_voc7_fr.mp3", "mona_p1314_voc8_fr.mp3",
-                  "mona_p1314_voc9_fr.mp3", "mona_p1314_voc10_fr.mp3", "mona_p1314_voc11_fr.mp3", "mona_p1314_voc12_fr.mp3", "mona_p1314_q1_fr.mp3", "mona_p1314_a1_fr.mp3",
-                  "mona_p1314_q2_fr.mp3", "mona_p1314_a2_fr.mp3", "mona_p1314_q3_fr.mp3", "mona_p1314_a3_fr.mp3", "mona_p1314_q4_fr.mp3", "mona_p1314_a4_fr.mp3",
                   # B2-E-002 Les Yeux de Mona — 32 consignes FR en attente d'enregistrement
                   # B1-E-006 — reste 7 consignes/titre EN
                   "B1-E-006_c1_en.mp3", "B1-E-006_c2_en.mp3", "B1-E-006_c3_en.mp3", "B1-E-006_c4_en.mp3", "B1-E-006_ctexte_en.mp3", "B1-E-006_intro_en.mp3", "B1-E-006_titre_en.mp3",
