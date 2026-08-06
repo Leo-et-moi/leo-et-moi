@@ -24,7 +24,7 @@ SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
                   # B2-E-002 Mona — consignes mutualisées en attente
-                  "mona_vocab_fr.mp3", "mona_lecture_fr.mp3", "mona_resume_fr.mp3",
+                  
                   # B2-E-002 Mona — 🔊 mots vocab + questions/réponses QCM (item 2 & 4)
                   "mona_p9_voc1_fr.mp3", "mona_p9_voc2_fr.mp3", "mona_p9_voc3_fr.mp3", "mona_p9_voc4_fr.mp3", "mona_p9_voc5_fr.mp3", "mona_p9_voc6_fr.mp3",
                   "mona_p9_voc7_fr.mp3", "mona_p9_voc8_fr.mp3", "mona_p9_voc9_fr.mp3", "mona_p9_voc10_fr.mp3", "mona_p9_voc11_fr.mp3", "mona_p9_voc12_fr.mp3",
