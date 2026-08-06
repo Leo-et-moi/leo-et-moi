@@ -280,8 +280,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Page 9</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p9_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Clique sur un <strong>mot</strong> à gauche, puis sur sa <strong>définition</strong> à droite pour les associer.</span></div>
-<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Click a word on the left, then its definition on the right to match them.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot à sa définition.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
 </div><div id="vm-p9"></div></div>
 </div>
 
@@ -290,14 +290,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <span class="sec-icon">📖</span>
   <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Page 9</div><div class="sec-lbl-en">The extract — Page 9</div></div>
 </div>
-<div class="sec-body"><div class="anb">
-  <button class="anb-btn" id="anb-p9" onclick="anbToggle('anb-p9','at-p9','af-p9','audio/page_9.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page 9.mp3 — Prologue</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p9"></div></div>
-  </div>
-  <span class="anb-time" id="at-p9">0:00</span>
-</div><div class="text-box" id="txt-fr-p9"></div>
+<div class="sec-body"><audio class="listen-bar" controls preload="none" src="audio/page_9.mp3" style="width:100%;margin:4px 0 8px"></audio><div class="text-box" id="txt-fr-p9"></div>
 <button class="en-toggle-btn" id="etb-p9" onclick="togEn('en-p9','etb-p9')">&#128317; Voir la traduction anglaise — English version</button>
 <div class="en-box" id="en-p9"><div id="txt-en-p9"></div></div></div>
 </div>
@@ -308,7 +301,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension — Multiple choice</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p9_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse pour chaque question.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse pour chaque question.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer for each question.</span></div>
 </div><div id="qcm-p9"></div></div>
 </div>
@@ -321,8 +314,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Résumé écrit</div><div class="sec-lbl-en">Written summary — 50 à 80 mots</div></div>
 </div>
 <div class="sec-body"><div class="resume-box">
-  <p style="font-size:14px;color:var(--dark);margin-bottom:8px">Résume ce qui se passe page 9 dans tes propres mots. Utilise le passé composé ou l'imparfait.</p>
-  <p style="font-size:13px;color:var(--slate);margin-bottom:10px;font-style:italic">Summarise what happens on page 9 in your own words. Use the past tense.</p>
+  <p style="font-size:14px;color:var(--dark);margin-bottom:8px"><button class="spk" onclick="A('mona_resume_fr.mp3')" style="flex-shrink:0">&#128266;</button> Résume ce qui se passe dans cette page avec tes propres mots. Utilise le passé composé ou l'imparfait.</p>
+  <p style="font-size:13px;color:var(--slate);margin-bottom:10px;font-style:italic">Summarise what happens on this page in your own words. Use the past tense.</p>
   <textarea class="resume-ta" style="min-height:130px" placeholder="Écris ton résumé ici… / Write your summary here…"></textarea>
   <div class="resume-btns">
     <button class="rbtn rbtn-v">&#10003; Vocabulaire</button>
@@ -335,11 +328,11 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 <div class="sec">
 <div class="sec-hdr" style="background:var(--ltB);">
   <span class="sec-icon">🎙️</span>
-  <div class="sec-lbl"><div class="sec-lbl-fr">Expression orale — Lecture du prologue en entier</div><div class="sec-lbl-en">Read-aloud recording — Entire prologue</div></div>
+  <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p9_oral_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Écoute l'extrait une dernière fois. Puis enregistre ta propre lecture du <strong>prologue entier</strong> (pages 9 à 14). Envoie l'enregistrement au professeur pour correction de prononciation.</span></div>
-<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen one last time, then record your own reading of the <strong>entire prologue</strong> (pages 9–14). Send to your teacher for pronunciation feedback.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_lecture_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Écoute l'extrait encore une fois. Puis enregistre ta propre lecture de la page. Envoie l'enregistrement au professeur.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen to the excerpt one last time. Then record your own reading of the page. Send the recording to the teacher.</span></div>
 </div>
 <div class="rec-zone">
   <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture du prologue entier (pages 9–14)<br><em style="color:var(--slate);font-size:13px">Record your reading of the whole prologue (pages 9–14)</em></p>
@@ -359,7 +352,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Page 10</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p10_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot avec sa définition.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot à sa définition.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
 </div><div id="vm-p10"></div></div>
 </div>
@@ -369,14 +362,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <span class="sec-icon">📖</span>
   <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Page 10</div><div class="sec-lbl-en">The extract — Page 10</div></div>
 </div>
-<div class="sec-body"><div class="anb">
-  <button class="anb-btn" id="anb-p10" onclick="anbToggle('anb-p10','at-p10','af-p10','audio/page_10.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page 10.mp3</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p10"></div></div>
-  </div>
-  <span class="anb-time" id="at-p10">0:00</span>
-</div><div class="text-box" id="txt-fr-p10"></div>
+<div class="sec-body"><audio class="listen-bar" controls preload="none" src="audio/page_10.mp3" style="width:100%;margin:4px 0 8px"></audio><div class="text-box" id="txt-fr-p10"></div>
 <button class="en-toggle-btn" id="etb-p10" onclick="togEn('en-p10','etb-p10')">&#128317; Voir la traduction anglaise — English version</button>
 <div class="en-box" id="en-p10"><div id="txt-en-p10"></div></div></div>
 </div>
@@ -387,7 +373,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p10_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer.</span></div>
 </div><div id="qcm-p10"></div></div>
 </div>
@@ -402,8 +388,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Résumé écrit</div><div class="sec-lbl-en">Written summary — 50 à 80 mots</div></div>
 </div>
 <div class="sec-body"><div class="resume-box">
-  <p style="font-size:14px;color:var(--dark);margin-bottom:8px">Résume ce qui se passe page 10 dans tes propres mots.</p>
-  <p style="font-size:13px;color:var(--slate);margin-bottom:10px;font-style:italic">Summarise what happens on page 10 in your own words.</p>
+  <p style="font-size:14px;color:var(--dark);margin-bottom:8px">Résume ce qui se passe dans cette page avec tes propres mots.</p>
+  <p style="font-size:13px;color:var(--slate);margin-bottom:10px;font-style:italic">Summarise what happens on this page in your own words.</p>
   <textarea class="resume-ta" style="min-height:130px" placeholder="Écris ton résumé ici… / Write your summary here…"></textarea>
   <div class="resume-btns">
     <button class="rbtn rbtn-v">&#10003; Vocabulaire</button>
@@ -419,16 +405,9 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p10_oral_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute l'extrait, puis enregistre ta propre lecture de la page 10.</span></div>
-<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen again, then record your own reading of page 10.</span></div>
-</div><div class="anb">
-  <button class="anb-btn" id="anb-p10b" onclick="anbToggle('anb-p10b','at-p10b','af-p10b','audio/page_10.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page 10.mp3 — réécoute</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p10b"></div></div>
-  </div>
-  <span class="anb-time" id="at-p10b">0:00</span>
-</div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_lecture_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Écoute l'extrait encore une fois. Puis enregistre ta propre lecture de la page. Envoie l'enregistrement au professeur.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen to the excerpt one last time. Then record your own reading of the page. Send the recording to the teacher.</span></div>
+</div><audio class="listen-bar" controls preload="none" src="audio/page_10.mp3" style="width:100%;margin:4px 0 8px"></audio>
 <div class="rec-zone">
   <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture de la page 10<br><em style="color:var(--slate);font-size:13px">Record your reading of page 10</em></p>
   <button class="rec-btn-big" onclick="startRec('p10')">&#127908; Enregistrer ma lecture</button>
@@ -447,7 +426,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Page 11</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p11_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot avec sa définition.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot à sa définition.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
 </div><div id="vm-p11"></div></div>
 </div>
@@ -457,14 +436,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <span class="sec-icon">📖</span>
   <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Page 11</div><div class="sec-lbl-en">The extract — Page 11</div></div>
 </div>
-<div class="sec-body"><div class="anb">
-  <button class="anb-btn" id="anb-p11" onclick="anbToggle('anb-p11','at-p11','af-p11','audio/page_11.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page 11.mp3</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p11"></div></div>
-  </div>
-  <span class="anb-time" id="at-p11">0:00</span>
-</div><div class="text-box" id="txt-fr-p11"></div>
+<div class="sec-body"><audio class="listen-bar" controls preload="none" src="audio/page_11.mp3" style="width:100%;margin:4px 0 8px"></audio><div class="text-box" id="txt-fr-p11"></div>
 <button class="en-toggle-btn" id="etb-p11" onclick="togEn('en-p11','etb-p11')">&#128317; Voir la traduction anglaise — English version</button>
 <div class="en-box" id="en-p11"><div id="txt-en-p11"></div></div></div>
 </div>
@@ -475,7 +447,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p11_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer.</span></div>
 </div><div id="qcm-p11"></div></div>
 </div>
@@ -492,16 +464,9 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p11_oral_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute l'extrait, puis enregistre ta propre lecture de la page 11.</span></div>
-<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen again, then record your own reading of page 11.</span></div>
-</div><div class="anb">
-  <button class="anb-btn" id="anb-p11b" onclick="anbToggle('anb-p11b','at-p11b','af-p11b','audio/page_11.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page 11.mp3 — réécoute</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p11b"></div></div>
-  </div>
-  <span class="anb-time" id="at-p11b">0:00</span>
-</div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_lecture_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Écoute l'extrait encore une fois. Puis enregistre ta propre lecture de la page. Envoie l'enregistrement au professeur.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen to the excerpt one last time. Then record your own reading of the page. Send the recording to the teacher.</span></div>
+</div><audio class="listen-bar" controls preload="none" src="audio/page_11.mp3" style="width:100%;margin:4px 0 8px"></audio>
 <div class="rec-zone">
   <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture de la page 11<br><em style="color:var(--slate);font-size:13px">Record your reading of page 11</em></p>
   <button class="rec-btn-big" onclick="startRec('p11')">&#127908; Enregistrer ma lecture</button>
@@ -520,7 +485,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Page 12</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p12_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot avec sa définition.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot à sa définition.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
 </div><div id="vm-p12"></div></div>
 </div>
@@ -530,14 +495,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <span class="sec-icon">📖</span>
   <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Page 12</div><div class="sec-lbl-en">The extract — Page 12</div></div>
 </div>
-<div class="sec-body"><div class="anb">
-  <button class="anb-btn" id="anb-p12" onclick="anbToggle('anb-p12','at-p12','af-p12','audio/page_12.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page 12.mp3</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p12"></div></div>
-  </div>
-  <span class="anb-time" id="at-p12">0:00</span>
-</div><div class="text-box" id="txt-fr-p12"></div>
+<div class="sec-body"><audio class="listen-bar" controls preload="none" src="audio/page_12.mp3" style="width:100%;margin:4px 0 8px"></audio><div class="text-box" id="txt-fr-p12"></div>
 <button class="en-toggle-btn" id="etb-p12" onclick="togEn('en-p12','etb-p12')">&#128317; Voir la traduction anglaise — English version</button>
 <div class="en-box" id="en-p12"><div id="txt-en-p12"></div></div></div>
 </div>
@@ -548,7 +506,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p12_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer.</span></div>
 </div><div id="qcm-p12"></div></div>
 </div>
@@ -567,16 +525,9 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p12_lect_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute l'extrait, puis enregistre ta propre lecture d'un passage de la page 12.</span></div>
-<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen again, then record your own reading of a passage from page 12.</span></div>
-</div><div class="anb">
-  <button class="anb-btn" id="anb-p12b" onclick="anbToggle('anb-p12b','at-p12b','af-p12b','audio/page_12.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page 12.mp3 — réécoute</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p12b"></div></div>
-  </div>
-  <span class="anb-time" id="at-p12b">0:00</span>
-</div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_lecture_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Écoute l'extrait encore une fois. Puis enregistre ta propre lecture de la page. Envoie l'enregistrement au professeur.</span></div>
+<div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen to the excerpt one last time. Then record your own reading of the page. Send the recording to the teacher.</span></div>
+</div><audio class="listen-bar" controls preload="none" src="audio/page_12.mp3" style="width:100%;margin:4px 0 8px"></audio>
 <div class="rec-zone">
   <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture de la page 12<br><em style="color:var(--slate);font-size:13px">Record your reading of page 12</em></p>
   <button class="rec-btn-big" onclick="startRec('p12b')">&#127908; Enregistrer ma lecture</button>
@@ -595,7 +546,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Vocabulaire littéraire</div><div class="sec-lbl-en">Literary vocabulary — Pages 13–14</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot avec sa définition.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_vocab_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Associe chaque mot à sa définition.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Match each word with its definition.</span></div>
 </div><div id="vm-p1314"></div></div>
 </div>
@@ -605,14 +556,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <span class="sec-icon">📖</span>
   <div class="sec-lbl"><div class="sec-lbl-fr">L'extrait — Pages 13–14</div><div class="sec-lbl-en">The extract — Pages 13–14</div></div>
 </div>
-<div class="sec-body"><div class="anb">
-  <button class="anb-btn" id="anb-p1314" onclick="anbToggle('anb-p1314','at-p1314','af-p1314','audio/page_13_14.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page13_14.mp3</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p1314"></div></div>
-  </div>
-  <span class="anb-time" id="at-p1314">0:00</span>
-</div><div class="text-box" id="txt-fr-p1314"></div>
+<div class="sec-body"><audio class="listen-bar" controls preload="none" src="audio/page_13_14.mp3" style="width:100%;margin:4px 0 8px"></audio><div class="text-box" id="txt-fr-p1314"></div>
 <button class="en-toggle-btn" id="etb-p1314" onclick="togEn('en-p1314','etb-p1314')">&#128317; Voir la traduction anglaise — English version</button>
 <div class="en-box" id="en-p1314"><div id="txt-en-p1314"></div></div></div>
 </div>
@@ -623,7 +567,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Compréhension fine — QCM</div><div class="sec-lbl-en">Reading comprehension</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_qcm_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Choisis la bonne réponse.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Choose the correct answer.</span></div>
 </div><div id="qcm-p1314"></div></div>
 </div>
@@ -644,16 +588,9 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
   <div class="sec-lbl"><div class="sec-lbl-fr">Lecture à voix haute</div><div class="sec-lbl-en">Read-aloud recording</div></div>
 </div>
 <div class="sec-body"><div class="instr">
-<div class="instr-fr"><button class="spk" onclick="A('mona_p1314_lect_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute les pages 13–14, puis enregistre ta propre lecture d'un passage.</span></div>
+<div class="instr-fr"><button class="spk" onclick="A('mona_lecture_fr.mp3')" style="flex-shrink:0">&#128266;</button><span>Réécoute les pages 13–14, puis enregistre ta propre lecture d'un passage.</span></div>
 <div class="instr-en"><span style="font-size:12px;color:var(--slate)">&#127468;&#127463;</span><span>Listen to pages 13–14 again, then record your own reading of a passage.</span></div>
-</div><div class="anb">
-  <button class="anb-btn" id="anb-p1314b" onclick="anbToggle('anb-p1314b','at-p1314b','af-p1314b','audio/page_13_14.mp3')">&#9654; Écouter</button>
-  <div class="anb-info">
-    <div class="anb-file">page13_14.mp3 — réécoute</div>
-    <div class="anb-prog"><div class="anb-fill" id="af-p1314b"></div></div>
-  </div>
-  <span class="anb-time" id="at-p1314b">0:00</span>
-</div>
+</div><audio class="listen-bar" controls preload="none" src="audio/page_13_14.mp3" style="width:100%;margin:4px 0 8px"></audio>
 <div class="rec-zone">
   <p style="font-size:14px;color:var(--dark);margin-bottom:10px">Enregistrer ta lecture des pages 13–14<br><em style="color:var(--slate);font-size:13px">Record your reading of pages 13–14</em></p>
   <button class="rec-btn-big" onclick="startRec('p1314b')">&#127908; Enregistrer ma lecture</button>
@@ -1121,9 +1058,6 @@ function submitRec(id){var b=document.querySelector('#recout-'+id+' a.rec-dl');i
 document.addEventListener('DOMContentLoaded',()=>{
   ['p9','p10','p11','p12','p1314'].forEach(t=>initVm('vm-'+t,t));
   ['p9','p10','p11','p12','p1314'].forEach(t=>initQcm('qcm-'+t,t));
-  initVf('vf-p10','p10');initVf('vf-p1314','p1314');
-  ['p9','p11','p12','p1314'].forEach(t=>initStyle('st-'+t,t));
-  initGram('gram-pqp','pqp');initGram('gram-condp','condp');
   ['p9','p10','p11','p12','p1314'].forEach(t=>injectText('txt-fr-'+t,'txt-en-'+t,t));
 });
 
