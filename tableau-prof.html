@@ -200,8 +200,8 @@ async function blocGestion(){
   try{ var m=await window.LEM.getConfig('_masquage'); masques=(m&&m.ids)||[]; }catch(e){}
   try{ var d=await window.LEM.getConfig('_demo'); demos=(d&&d.ids)||[]; }catch(e){}
   var items=[].concat(
-    (c.lecons||[]).map(function(x){return {id:x.id,titre:'📖 '+x.titre,niveau:x.niveau,ordre:x.ordre||0};}),
-    (c.exercices||[]).map(function(x){return {id:x.id,titre:'✏️ '+x.titre,niveau:x.niveau,ordre:x.ordre||0};}));
+    (c.lecons||[]).map(function(x){return {id:x.id,titre:'📖 '+x.titre,niveau:x.niveau,ordre:x.ordre||0,ajoute:x.ajoute};}),
+    (c.exercices||[]).map(function(x){return {id:x.id,titre:'✏️ '+x.titre,niveau:x.niveau,ordre:x.ordre||0,ajoute:x.ajoute};}));
   var rows='';
   ['A1','A2','B1','B2','C1','C2'].forEach(function(NV){
     var grp=items.filter(function(x){return x.niveau===NV;}).sort(function(a,b){return a.ordre-b.ordre;});
@@ -210,7 +210,7 @@ async function blocGestion(){
       'font-weight:bold;font-size:13px;padding:4px 10px;border-radius:8px;margin-top:8px;">'+NV+' — '+grp.length+' contenu'+(grp.length>1?'s':'')+'</div>';
     rows+=grp.map(function(x){
       return '<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-top:1px solid var(--divider);font-size:13px;">'+
-        '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+esc(x.titre)+'</span>'+
+        '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+esc(x.titre)+(x.ajoute&&(Date.now()-Date.parse(x.ajoute)<21*86400000)?' 🆕':'')+'</span>'+
         '<label style="white-space:nowrap;">🔧 <input type="checkbox" class="cb-masque" value="'+x.id+'"'+(masques.indexOf(x.id)>=0?' checked':'')+'></label>'+
         '<label style="white-space:nowrap;">🎓 <input type="checkbox" class="cb-demo" value="'+x.id+'"'+(demos.indexOf(x.id)>=0?' checked':'')+'></label>'+
         '</div>';
