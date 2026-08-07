@@ -65,6 +65,7 @@ Juste en dessous, à l'intérieur de `.main`, un **lien de retour** vers la page
 - **Extraits d'œuvres** : l'usage pédagogique d'**extraits** est admis (exception d'enseignement / courte citation) — le site n'a aucune finalité commerciale et l'accès est réservé aux élèves connectés. Cite toujours **auteur, titre et année**, et limite-toi à un extrait, jamais une œuvre entière. Décision d'Eric (20/07/2026), qui remplace l'ancienne interdiction générale de reproduire des textes sous droits.
 - **Vidéos** : liens YouTube en embed seulement, jamais de fichier vidéo hébergé.
 - **Boutons EN** : tu fournis toujours le script anglais, mais c'est Opus qui câble le bouton 🔊 EN **uniquement quand le fichier `_en.mp3` existe** (jamais de bouton muet). Le rétroactif EN des contenus existants est en pause (décision d'Eric, voir PENDING).
+- **Zéro trace de code mort (obligatoire).** Quand tu remplaces, alignes ou retires une section, supprime **aussi** tout ce qui s'y rattache : fonctions JS jamais appelées, objets de données inutilisés, règles CSS orphelines, modals / `id` orphelins. **Jamais deux définitions du même `id`** (collision). Ton livrable ne doit contenir que le code réellement utilisé par la page finale. *Incident Mona (05/08/2026) : des fonctions, données et règles CSS de sections C1/C2 retirées avaient survécu, plus une collision d'`id` `modal-pqp` — à ne pas reproduire.*
 
 ---
 
@@ -89,7 +90,7 @@ Opus se charge ensuite : HTML sur gabarit, catalogue (liens leçon↔exercice, c
 | Dialogue | 💬 | `A1-E-005` (Réagir et relancer) | pas de banque de questions (`questions: null`) |
 | PRO-NON-CIA-TION avec LÉO | 🗣️ | `A1-E-007` / `A1-E-009` (Ratatouille) | conventions dans le fichier dédié (§4c) — l'unité est la **page** |
 | Au Théâtre de Léo, les intonations ! | 🎭 | `B1-E-004` (B2) · `B1-E-006` (B1) | expression orale/intonations ; onglets par parties ; titres sans préfixe de niveau |
-| La farandole des livres, poèmes et chansons ! (extraits) | 📚 | `B1-E-003` (Kessel) | lecture d'extraits d'œuvres (règle des extraits §3) ; Méthode de Lecture |
+| La farandole des livres, poèmes et chansons ! (extraits) | 📚 | `B1-E-003` (Kessel, lecture B1) · `B2-E-002` (Les Yeux de Mona, lecture enrichie B2) | lecture d'extraits d'œuvres (règle des extraits §3) ; B1 = Méthode de Lecture ; **B2 = format enrichi §4d** |
 | Fada ! Les accents et mots francophones ! | 🌍 | `C1-E-001` (Francine) · `C1-E-002` (Francis) | écoute d'accents francophones ; Méthode d'écoute (Recall Protocol) |
 | Mon coach DLPT | 🎖️ | _(à créer — annoncé sur C2)_ | entraînement C2 au Defense Language Proficiency Test |
 
@@ -112,6 +113,36 @@ Exercices de lecture / prononciation A1 (modèle : **A1-E-007** Ratatouille).
 
 **Réplication d'une nouvelle page** (⚠️ l'unité qui avance est la **page**, pas le chapitre — un chapitre couvre plusieurs pages ; `Ch.C` et `p.P` sont **deux nombres distincts**, ne les confonds pas) — suis la **procédure pas-à-pas de `DIRECTIVES_SERIE_PRONONCIATION.md` §9** : entrées = **audio du chapitre + transcript** ; balisage 9.2 ; guide des liaisons 9.3 ; mots difficiles 9.4 ; auto-contrôle 9.5. **Tranche les liaisons à l'oreille sur l'audio** — ne code que celles réellement prononcées. Dans ta **liste d'enregistrement, ne mets que le NOUVEAU** (audio du texte `ratatouille_ch<C>_p<P>.mp3`, `_titre.mp3`, et les **mots difficiles inédits**) : les consignes, la légende et les mots difficiles déjà enregistrés sont **réutilisés** (§9.6), ne les redemande pas.
 
+
+## 4d. Série « La farandole des livres » — format B2 « lecture enrichie » (modèle : Les Yeux de Mona, B2-E-002)
+
+Pour un **extrait lu en B2**, la simple lecture + QCM retombe au niveau B1. Un exercice **B2** ajoute, **sur CHAQUE onglet**, de la **grammaire en contexte** et une **interaction ouverte**. Modèle de référence : `french/b2/les-yeux-de-mona/index.html`.
+
+**Découpage** : un **onglet par page** (ou petit groupe de pages, ex. « p. 13-14 »). Ne confonds pas page et chapitre.
+
+**Contenu de chaque onglet** (dans cet ordre) :
+1. **Vocabulaire** — jeu d'association (phrases **en contexte**, pas des mots isolés) + traduction EN + audio.
+2. **L'extrait** — texte littéraire (FR + bascule EN), 🔊. Cite auteur / titre / année (règle des extraits §3).
+3. **QCM** — auto-correction + explication brève.
+4. **Résumé écrit** — *seulement sur les onglets d'ouverture* (facultatif), avec bouton « 📤 Soumettre à mon professeur ».
+5. **Lecture à voix haute** — réécoute de l'extrait + enregistrement **local** (enregistrer / réécouter / télécharger ; pas d'upload serveur).
+6. **Grammaire en contexte (Bloc A)** — 3 mini-blocs, tous **tirés du texte**, chaque phrase avec un 🔊 FR :
+   - **A.1** — repérer / justifier un **temps du passé** (passé simple vs imparfait ; sur l'onglet de clôture : imparfait vs plus-que-parfait).
+   - **A.2** — **transformer** (ex. passé simple → passé composé). **Verbe en gras**, un 🔊 sur la phrase entière. *(À omettre si le point n'a pas de sens sur l'onglet.)*
+   - **A.3** — **un point de grammaire différent par onglet**, en QCM `data-ok` : p. 9 démonstratifs · p. 10 Y/EN · p. 11 possessifs · p. 12 relatifs · p. 13-14 négation. 🔊 sur chaque phrase **et** chaque réponse.
+7. **À toi de réagir (Bloc B)** — **une question ouverte ancrée dans le texte** (jamais inventée : appuie-toi sur une citation vérifiable de l'extrait). Réponse **écrite** (bouton « 📤 Soumettre à mon professeur ») **ou** enregistrement local.
+
+**Pop-ups de grammaire** — chaque point de A.3 (et les temps de A.1/A.2) a un **modal** : titre + 🔊 FR / 🔊 EN + texte de la règle (court, avec exemples tirés du texte). **Un seul `id` par modal** (pas de doublon). Texte **affiché = script FR mot pour mot** (règle §3).
+
+**Nommage audio** (préfixe `mona_` dans le modèle ; adapte au slug de l'œuvre) :
+- consignes de bloc : `<slug>_gram`, `<slug>_reagir` ;
+- par onglet : `<slug>_p<PAGE>_voc*`, `_qcm*`, `_react` (la question ouverte) ;
+- pop-ups : `<slug>_rule_<point>` (`passe`, `demons`, `yen`, `poss`, `rel`, `neg`, `pqp`…).
+- Toujours la paire FR + `_en`.
+
+**Interdits (ce qui a fait basculer Mona en C1/C2, à ne PAS produire)** : analyse stylistique / figures de style à repérer, « portrait littéraire » à décoder, questions de **débat** ouvertes sans ancrage, synthèses longues. Reste sur : vocabulaire, compréhension (QCM), **grammaire en contexte** et **une** réaction ouverte par onglet. En cas de doute sur le niveau, demande à Eric.
+
+**Rappel** : applique la règle **« zéro trace de code mort »** (§3) — n'expédie que le code utilisé.
 
 ## 5. En cas de doute
 
