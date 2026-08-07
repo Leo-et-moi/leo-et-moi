@@ -566,7 +566,7 @@ let _aud = null, _audSrc = '';
 function A(src) {
   if (!src) return;
   if (_aud) {
-    if (_audSrc === src && !_aud.paused) { _aud.pause(); return; }
+    if (_audSrc === src) { if (_aud.paused) { _aud.play().catch(function(){}); } else { _aud.pause(); } return; }
     _aud.pause();
   }
   _aud = new Audio(src);
