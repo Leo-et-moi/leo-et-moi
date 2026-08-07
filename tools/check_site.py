@@ -23,19 +23,11 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  # B2-E-002 Mona — littéraux en attente
+                  "mona_gram_en.mp3", "mona_p10_react_en.mp3", "mona_p11_react_en.mp3", "mona_p12_react_en.mp3", "mona_p1314_react_en.mp3", "mona_p9_react_en.mp3",
+                  "mona_reagir_en.mp3", "mona_rule_demons_en.mp3", "mona_rule_neg_en.mp3", "mona_rule_passe_en.mp3", "mona_rule_poss_en.mp3", "mona_rule_pqp_en.mp3",
+                  "mona_rule_rel_en.mp3", "mona_rule_yen_en.mp3",
                   # B2-E-002 Mona — consignes/grammaire/pop-up/react (littéraux en attente)
-                  "mona_gram_en.mp3", "mona_gram_fr.mp3", "mona_p10_a1q1_fr.mp3", "mona_p10_a1q2_fr.mp3", "mona_p10_a1q3_fr.mp3", "mona_p10_a1q4_fr.mp3",
-                  "mona_p10_a2r1_fr.mp3", "mona_p10_a2r2_fr.mp3", "mona_p10_a3q1_fr.mp3", "mona_p10_a3q2_fr.mp3", "mona_p10_a3r1_fr.mp3", "mona_p10_a3r2_fr.mp3",
-                  "mona_p10_react_en.mp3", "mona_p10_react_fr.mp3", "mona_p11_a1q1_fr.mp3", "mona_p11_a1q2_fr.mp3", "mona_p11_a1q3_fr.mp3", "mona_p11_a1q4_fr.mp3",
-                  "mona_p11_a2r1_fr.mp3", "mona_p11_a2r2_fr.mp3", "mona_p11_a3r1_fr.mp3", "mona_p11_a3r2_fr.mp3", "mona_p11_react_en.mp3", "mona_p11_react_fr.mp3",
-                  "mona_p12_a1q1_fr.mp3", "mona_p12_a1q2_fr.mp3", "mona_p12_a1q3_fr.mp3", "mona_p12_a1q4_fr.mp3", "mona_p12_a2r1_fr.mp3", "mona_p12_a2r2_fr.mp3",
-                  "mona_p12_a3r1_fr.mp3", "mona_p12_a3r2_fr.mp3", "mona_p12_react_en.mp3", "mona_p12_react_fr.mp3", "mona_p1314_a1q1_fr.mp3", "mona_p1314_a1q2_fr.mp3",
-                  "mona_p1314_a1q3_fr.mp3", "mona_p1314_a1q4_fr.mp3", "mona_p1314_a3r1_fr.mp3", "mona_p1314_a3r2_fr.mp3", "mona_p1314_react_en.mp3", "mona_p1314_react_fr.mp3",
-                  "mona_p9_a1q1_fr.mp3", "mona_p9_a1q2_fr.mp3", "mona_p9_a1q3_fr.mp3", "mona_p9_a1q4_fr.mp3", "mona_p9_a2r1_fr.mp3", "mona_p9_a2r2_fr.mp3",
-                  "mona_p9_a3q1_fr.mp3", "mona_p9_a3q2_fr.mp3", "mona_p9_a3r1_fr.mp3", "mona_p9_a3r2_fr.mp3", "mona_p9_react_en.mp3", "mona_p9_react_fr.mp3",
-                  "mona_reagir_en.mp3", "mona_reagir_fr.mp3", "mona_rule_demons_en.mp3", "mona_rule_demons_fr.mp3", "mona_rule_neg_en.mp3", "mona_rule_neg_fr.mp3",
-                  "mona_rule_passe_en.mp3", "mona_rule_passe_fr.mp3", "mona_rule_poss_en.mp3", "mona_rule_poss_fr.mp3", "mona_rule_pqp_en.mp3", "mona_rule_pqp_fr.mp3",
-                  "mona_rule_rel_en.mp3", "mona_rule_rel_fr.mp3", "mona_rule_yen_en.mp3", "mona_rule_yen_fr.mp3",
                   # Mona page 9 — audios FR grammaire (phrases + réponses)
                   # B2-E-002 Mona — Bloc grammaire + réagir + pop-up (page 9 pilote)
                   # B2-E-002 Mona — consignes mutualisées en attente
