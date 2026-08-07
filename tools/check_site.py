@@ -25,7 +25,7 @@ SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 AUDIO_ATTENDUS = {
                   # B2-E-002 Mona — littéraux en attente
                   "mona_gram_en.mp3", "mona_p10_react_en.mp3", "mona_p11_react_en.mp3", "mona_p12_react_en.mp3", "mona_p1314_react_en.mp3", "mona_p9_react_en.mp3",
-                  "mona_reagir_en.mp3", "mona_rule_demons_en.mp3", "mona_rule_neg_en.mp3", "mona_rule_passe_en.mp3", "mona_rule_poss_en.mp3", "mona_rule_pqp_en.mp3",
+                  "mona_reagir_en.mp3", "mona_p12q_react_fr.mp3", "mona_p12q_react_en.mp3", "mona_rule_demons_en.mp3", "mona_rule_neg_en.mp3", "mona_rule_passe_en.mp3", "mona_rule_poss_en.mp3", "mona_rule_pqp_en.mp3",
                   "mona_rule_rel_en.mp3", "mona_rule_yen_en.mp3",
                   # B2-E-002 Mona — consignes/grammaire/pop-up/react (littéraux en attente)
                   # Mona page 9 — audios FR grammaire (phrases + réponses)
