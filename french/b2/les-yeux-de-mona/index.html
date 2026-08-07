@@ -722,7 +722,9 @@ TX['p14_en']=`<p class="en-p">So he had got with the times, made the most of his
 
 // ── AUDIO ─────────────────────────────────────────────────────────────────────
 let _a=null,_as='',_ab=null,_at=null,_af=null;
-function A(s){if(!s)return;if(s.indexOf('/')<0)s='audio/'+s;_resetAnb();if(_a){if(_as===s&&!_a.paused){_a.pause();return;}_a.pause();}
+function A(s){if(!s)return;if(s.indexOf('/')<0)s='audio/'+s;
+  if(_a&&_as===s){if(_a.paused){_a.play().catch(()=>{});}else{_a.pause();}return;}
+  if(_a){_a.pause();}_resetAnb();
   _a=new Audio(s);_as=s;_a.play().catch(()=>{});}
 function _resetAnb(){if(_ab){_ab.textContent='▶ Écouter';_ab.classList.remove('anb-play');}
   if(_at){_at.textContent='0:00';}if(_af){_af.style.width='0%';}
