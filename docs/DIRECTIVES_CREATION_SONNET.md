@@ -59,6 +59,7 @@ Juste en dessous, à l'intérieur de `.main`, un **lien de retour** vers la page
 ## 3. Règles dures (jamais d'exception)
 
 - **Jamais de voix synthétique.** Tous les audios sont des **MP3 enregistrés par Eric** : tu fournis le **script** (nom de fichier + texte), pas le son.
+- **Lecteur audio : pause = reprise.** La fonction de lecture doit **reprendre** là où l'élève a mis en pause (garder l'objet `Audio` courant et rappeler `.play()`), et **jamais recréer un `new Audio()`** qui repart au début. Un re-clic sur le même bouton alterne pause / reprise ; cliquer un autre bouton arrête le premier et démarre le nouveau (pas de superposition). *Exception* : lettres isolées ou mot d'**une seule syllabe** (audio très court), où repartir du début est acceptable. *(Bug récurrent des livraisons Sonnet — Mona, Ratatouille, alphabet — corrigé en août 2026.)*
 - **Texte affiché = texte dit (mot pour mot).** Le script audio que tu fournis pour un élément doit correspondre **exactement** au texte affiché à l'écran pour ce même élément. Toute divergence oblige à refaire l'audio ou le texte. Si tu modifies un texte, **modifie aussi son script** (et signale-le pour re-déploiement).
 - **Design Bleu & Corail** : Arial ≥ 18 px, fond crème, cibles tactiles ≥ 44 px, mobile-first.
 - **Pédagogie / choix de contenu** → c'est **Eric** qui décide (thème, niveau, composition). Tu proposes, il valide.
