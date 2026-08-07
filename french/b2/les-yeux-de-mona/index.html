@@ -68,17 +68,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .spk-en:hover{background:var(--navy);}
 /* AUDIO NAV BAR */
 .anb{background:var(--navy);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.anb-btn{background:var(--coral);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:15px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;min-height:44px;flex-shrink:0;}
-.anb-btn:hover{background:#C03020;}
 .anb-btn.anb-play{background:var(--green);}
 .anb-btn.anb-play:hover{background:#165f34;}
-.anb-info{flex:1;}
-.anb-file{font-size:12px;color:#9AAFCC;margin-bottom:4px;}
-.anb-prog{background:rgba(255,255,255,.2);border-radius:4px;height:6px;overflow:hidden;}
-.anb-fill{background:var(--coral);height:100%;width:0%;transition:width .3s;}
-.anb-time{font-size:13px;color:#9AAFCC;flex-shrink:0;min-width:40px;text-align:right;}
-/* VOCAB MATCH */
-.vm-hint{background:var(--ltA);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--amber);margin-bottom:10px;}
 .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .vm-col-hdr{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:.5px;padding-bottom:6px;border-bottom:2px solid var(--div);margin-bottom:6px;}
 .vm-wcard{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:10px 12px;cursor:pointer;margin-bottom:6px;user-select:none;transition:all .15s;}
@@ -107,19 +98,6 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .qopt:disabled{cursor:not-allowed;opacity:.7;}
 .qxp{display:none;background:var(--ltG);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--green);margin-top:8px;font-weight:600;}
 .qxp.show{display:block;}
-/* VRAI/FAUX */
-.vf-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
-.vf-stmt{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:3px;}
-.vf-stmt-en{font-size:13px;color:var(--slate);margin-bottom:10px;}
-.vf-btns{display:flex;gap:8px;}
-.vf-btn{border:none;border-radius:8px;padding:9px 20px;font-size:15px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;min-height:44px;}
-.vf-btn.vtrue{background:var(--ltG);color:var(--green);}
-.vf-btn.vfals{background:var(--ltC);color:var(--coral);}
-.vf-btn:hover:not(:disabled){opacity:.85;}
-.vf-btn.vsel-ok{background:var(--green);color:#fff;}
-.vf-btn.vsel-ng{background:var(--coral);color:#fff;}
-.vf-btn:disabled{cursor:not-allowed;}
-.vf-cite{display:none;background:var(--ltB);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--navy);margin-top:8px;font-style:italic;}
 .vf-cite.show{display:block;}
 /* TEXT DISPLAY */
 .text-box{background:var(--cream);border-radius:10px;padding:18px;line-height:1.9;font-size:15px;margin-bottom:10px;}
@@ -134,50 +112,15 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .en-p{margin-bottom:12px;font-size:15px;}
 .en-dl{color:var(--navy);font-weight:600;font-style:italic;display:block;margin:6px 0;}
 .en-sep{text-align:center;font-weight:bold;color:var(--slate);letter-spacing:6px;margin:10px 0;}
-/* ANALYSE STYLISTIQUE */
-.figdef-box{background:var(--ltP);border:2px solid rgba(107,63,160,.25);border-radius:10px;padding:14px;margin-bottom:14px;}
-.figdef-hdr{font-size:14px;font-weight:bold;color:var(--purple);margin-bottom:10px;cursor:pointer;display:flex;align-items:center;gap:6px;}
-.figdef-body{display:none;}
 .figdef-body.open{display:block;}
-.figdef-row{display:flex;gap:8px;margin-bottom:8px;font-size:14px;}
-.figdef-name{font-weight:bold;color:var(--purple);min-width:130px;}
-.figdef-fr{color:var(--dark);}
-.figdef-en{color:var(--slate);font-style:italic;font-size:13px;}
-.scard{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
-.scard-ex{font-size:15px;font-style:italic;color:var(--navy);font-weight:600;margin-bottom:10px;line-height:1.5;}
-.scard-opts{display:flex;flex-wrap:wrap;gap:6px;}
-.sopt{background:#fff;border:1.5px solid var(--div);border-radius:8px;padding:8px 14px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;min-height:40px;}
-.sopt:hover:not(:disabled){border-color:var(--purple);background:var(--ltP);}
 .sopt.ok{background:var(--ltG)!important;border-color:var(--green)!important;color:var(--green)!important;font-weight:bold;}
 .sopt.ng{background:var(--ltC)!important;border-color:var(--coral)!important;color:var(--coral)!important;}
-.sopt:disabled{cursor:not-allowed;opacity:.7;}
-.sxp{display:none;background:var(--ltG);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--green);margin-top:8px;}
 .sxp.show{display:block;}
-/* GRAMMAR */
-.gram-note{background:var(--ltA);border:2px solid rgba(184,114,10,.3);border-radius:10px;padding:12px 16px;margin-bottom:14px;}
-.gram-note-lbl{font-size:13px;font-weight:bold;color:var(--amber);margin-bottom:4px;}
-.gram-note-txt{font-size:14px;color:var(--dark);}
 .gram-popup-btn{background:var(--purple);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;min-height:40px;margin-top:8px;}
 .gram-popup-btn:hover{background:#5A2F90;}
-.gcard{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:14px;margin-bottom:10px;}
-.gcard-ph{font-size:15px;font-style:italic;color:var(--dark);margin-bottom:3px;line-height:1.6;}
-.gcard-ph-en{font-size:13px;color:var(--slate);margin-bottom:10px;}
-.gcard-opts{display:flex;flex-wrap:wrap;gap:6px;}
-.gopt{background:#fff;border:1.5px solid var(--div);border-radius:8px;padding:8px 14px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;min-height:40px;}
-.gopt:hover:not(:disabled){border-color:var(--navy);background:var(--ltB);}
 .gopt.ok{background:var(--ltG)!important;border-color:var(--green)!important;color:var(--green)!important;font-weight:bold;}
 .gopt.ng{background:var(--ltC)!important;border-color:var(--coral)!important;color:var(--coral)!important;}
-.gopt:disabled{cursor:not-allowed;opacity:.7;}
-.gxp{display:none;background:var(--ltG);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--green);margin-top:8px;}
 .gxp.show{display:block;}
-/* PORTRAIT CONTRAIRES */
-.contr-table{width:100%;border-collapse:collapse;margin-bottom:14px;}
-.contr-th{background:var(--dark);color:#fff;padding:10px 14px;font-size:13px;text-align:left;}
-.contr-td{padding:10px 14px;border-bottom:1px solid var(--div);font-size:14px;vertical-align:top;}
-.contr-td:first-child{background:var(--ltC);font-style:italic;color:var(--dark);}
-.contr-td:last-child{background:var(--ltG);}
-.contr-td-en{font-size:12px;color:var(--slate);font-style:italic;margin-top:3px;}
-.contr-input{width:100%;border:1.5px solid var(--div);border-radius:6px;padding:6px 10px;font-size:14px;font-family:Arial,sans-serif;background:var(--cream);}
 /* RÉSUMÉ */
 .resume-box{background:var(--cream);border-radius:10px;padding:14px;}
 .resume-ta{width:100%;min-height:130px;border:1.5px solid var(--div);border-radius:8px;padding:10px 12px;font-family:Arial,sans-serif;font-size:15px;resize:vertical;background:#fff;color:var(--dark);}
@@ -193,12 +136,6 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .rec-btn-big{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:16px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;min-height:50px;display:inline-flex;align-items:center;gap:8px;}
 .rec-btn-big:hover{background:var(--dark);}
 .rec-note{font-size:13px;color:var(--slate);margin-top:8px;}
-/* DÉBAT */
-.debat-card{background:var(--cream);border:2px solid var(--div);border-radius:10px;padding:16px;margin-bottom:10px;}
-.debat-num{font-weight:bold;color:var(--coral);font-size:15px;margin-bottom:5px;}
-.debat-q{font-size:16px;font-weight:600;color:var(--dark);margin-bottom:4px;line-height:1.5;}
-.debat-q-en{font-size:13px;color:var(--slate);margin-bottom:8px;font-style:italic;}
-.debat-ta{width:100%;min-height:70px;border:1.5px solid var(--div);border-radius:8px;padding:8px 12px;font-family:Arial,sans-serif;font-size:14px;resize:vertical;background:#fff;color:var(--dark);}
 /* MODAL */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;align-items:center;justify-content:center;}
 .modal-bg.open{display:flex;}
@@ -206,11 +143,8 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 .modal-title{font-size:18px;font-weight:bold;color:var(--navy);margin-bottom:14px;}
 .modal-close{float:right;background:var(--slate);color:#fff;border:none;border-radius:6px;padding:4px 12px;font-size:14px;cursor:pointer;font-family:Arial,sans-serif;}
 .modal-rule{margin-bottom:10px;}
-.modal-rule-title{font-weight:bold;color:var(--dark);font-size:15px;margin-bottom:4px;}
 .modal-rule-txt{font-size:14px;color:var(--dark);line-height:1.6;}
 .modal-rule-en{font-size:13px;color:var(--slate);font-style:italic;}
-.modal-example{background:var(--ltB);border-radius:8px;padding:10px 14px;margin-top:8px;font-size:14px;}
-.formation-box{background:var(--ltP);border-radius:8px;padding:12px 14px;margin-bottom:10px;}
 </style>
 </head>
 <body data-item-id="B2-E-002">
@@ -635,7 +569,7 @@ body{font-family:Arial,sans-serif;font-size:18px;background:#EAEEF6;color:var(--
 </div><!-- /.main -->
 
 <script>
-const V={},Q={},VF={},ST={},G={},TX={};
+const V={},Q={},TX={};
 V['p9']=[
   {w:'des scintillements',ctx:'« çà et là, des scintillements, à la façon des taches que produit le soleil »',def:'De petites lumières qui clignotent et brillent par instants',en:'Tiny flickering lights; glimmers'},
   {w:'un habit de deuil',ctx:'« Ce fut comme un habit de deuil »',def:'Une tenue noire portée pour marquer la mort de quelqu\'un',en:'Mourning clothes; funeral attire'},
@@ -734,48 +668,6 @@ Q['p1314']=[
   {q:'Que fait Paul du trophée de ses bouteilles vides&nbsp;?',en:'What does Paul do with his empty bottles?',opts:['Il les recycle','Il les vend','Il les cache','Il les place sur un égouttoir en hérisson ✓'],ok:3,xp:'« la fichait, comme un trophée, sur un de ces égouttoirs en forme de hérisson »'},
   {q:'À qui Paul trinque-t-il mentalement chaque soir&nbsp;?',en:'To whom does Paul mentally toast, alone, each evening?',opts:['À sa première femme','À lui-même','À Camille','À Mona ✓'],ok:3,xp:'« Il trinquait dans sa tête, à Mona. À sa santé. »'}
 ];
-VF['p10']=[
-  {s:'La cécité de Mona a une cause connue.',en:'Mona\'s blindness has a known cause.',val:false,cite:'« L\'effet semblait dépourvu de cause. »'},
-  {s:'Le médecin est venu en personne examiner Mona.',en:'The doctor came in person to examine Mona.',val:false,cite:'Non — « la mère de Mona téléphona au médecin de famille » — il n\'est pas venu.'},
-  {s:'La mère a eu du mal à décrire l\'état de sa fille.',en:'The mother struggled to describe her daughter\'s condition.',val:true,cite:'« Elle décrivit confusément les pupilles voilées de sa fille. »'},
-  {s:'Selon le médecin, la cécité ne devrait pas durer longtemps.',en:'According to the doctor, the blindness should not last long.',val:true,cite:'« la cécité ne devrait pas excéder dix minutes »'}
-];
-VF['p1314']=[
-  {s:'Paul est passionné par la culture française des années 1950.',en:'Paul is passionate about 1950s French culture.',val:false,cite:'« passionné par la culture américaine des années 1950 » — et non française.'},
-  {s:'Paul souhaitait vendre sa collection de porte-clés.',en:'Paul wanted to sell his key ring collection.',val:false,cite:'« qu\'il ne souhaitait pas vendre »'},
-  {s:'Une vente importante a temporairement sauvé Paul de la ruine.',en:'An important sale temporarily saved Paul from ruin.',val:true,cite:'« Une transaction salutaire après des mois de disette »'},
-  {s:'Paul en veut à quelqu\'un pour ses difficultés.',en:'Paul holds someone responsible for his difficulties.',val:false,cite:'« Il levait son verre seul sans trouver le moyen d\'en vouloir à quiconque. »'}
-];
-ST['p9']=[
-  {ex:'« Ce fut comme un habit de deuil »',fig:'Comparaison',xp:'L\'outil de comparaison est « comme ». La cécité soudaine est comparée à l\'habit de deuil — noir, lourd, lié à la mort.'},
-  {ex:'« à la façon des taches que produit le soleil »',fig:'Comparaison',xp:'L\'outil est « à la façon de ». Les scintillements sont comparés aux taches lumineuses que produit le soleil fixé.'},
-  {ex:'« de même qu\'on serre le poing pour résister à la douleur »',fig:'Comparaison',xp:'L\'outil est « de même que ». Fermer les yeux est comparé au geste de serrer le poing face à la douleur.'},
-  {ex:'« le sort en était jeté »',fig:'Métaphore',xp:'Pas d\'outil de comparaison — c\'est une métaphore directe empruntant le vocabulaire du jeu de dés et du destin.'}
-];
-ST['p11']=[
-  {ex:'« À la façon d\'un store qui se hisse, le voile qui obstruait les yeux se levait »',fig:'Comparaison',xp:'L\'outil est « à la façon de ». Le retour progressif de la vision est comparé à un store qui monte lentement.'},
-  {ex:'« La cécité avait saisi Mona, puis l\'avait relâchée »',fig:'Personnification',xp:'La cécité est traitée comme un être vivant qui « saisit » et « relâche » Mona — elle a une volonté propre.'},
-  {ex:'« Elle l\'avait traversée comme une balle troue la peau »',fig:'Comparaison',xp:'L\'outil est « comme ». L\'image est violente et physique — la cécité traverse Mona comme une balle.'}
-];
-ST['p12']=[
-  {ex:'« en elle, l\'anarchie se tressait sans cesse à l\'autorité »',fig:'Métaphore + Antithèse',xp:'Métaphore : le tressage (comme une tresse de cheveux) pour l\'entrelacement des contraires. Antithèse : anarchie vs autorité.'},
-  {ex:'« Sa grande blouse rayonnante, contrastait avec la verdeur maladive des murs »',fig:'Antithèse',xp:'Opposition directe : blouse rayonnante (lumière, santé) vs verdeur maladive (couleur de maladie).'}
-];
-ST['p1314']=[
-  {ex:'« portait une cravate pour faire oublier ses chemises au col élimé »',fig:'Antithèse / Contradiction',xp:'Opposition : la façade soignée (cravate) vs la réalité précaire (chemises usées). L\'apparence contre la vérité.'},
-  {ex:'Collection qu\'il « ne souhaitait pas vendre et qui n\'aurait intéressé personne »',fig:'Oxymore / Contradiction',xp:'Passion vs inutilité commerciale — deux réalités opposées coexistent. Paul aime ce dont personne ne veut.'},
-  {ex:'« trinquait dans sa tête, à Mona. À sa santé » — seul, avec sa bouteille',fig:'Antithèse',xp:'Toast d\'amour paternel vs solitude absolue. Le geste de célébration est accompli dans l\'isolement.'}
-];
-G['pqp']=[
-  {p:'Quand ils ________ à l\'hôpital, Mona était aveugle depuis déjà 63 minutes.',en:'When they ________ at the hospital, Mona had already been blind for 63 minutes.',opts:['arrivaient (imparfait)','sont arrivés (passé composé)','arrivèrent (passé simple)','étaient arrivés (plus-que-parfait) ✓'],ok:3,xp:'Plus-que-parfait pour une action ANTÉRIEURE à une autre action passée.'},
-  {p:'Il raccrocha. Il ________ déjà ________ la situation en deux minutes.',en:'He hung up. He had already ________ the situation in two minutes.',opts:['a évalué','évaluait','avait évalué ✓','évalue'],ok:2,xp:'« Il s\'était déjà écoulé un bon quart d\'heure » — même structure dans le texte.'},
-  {p:'Mona ne voyait plus rien parce qu\'une nappe opaque ________ ses yeux.',en:'Mona could no longer see because an opaque layer ________ her eyes.',opts:['envahissait (imparfait)','a envahi (passé composé)','avait envahi ✓ (plus-que-parfait)','envahit (passé simple)'],ok:2,xp:'Action antérieure à la cécité constatée = plus-que-parfait.'}
-];
-G['condp']=[
-  {p:'La mère a gardé son calme. → Mais au fond d\'elle-même, elle ________ aussi voulu taper sur la tête de Mona.',en:'The mother kept calm. → But deep down, she too ________ have wanted to bang on Mona\'s head.',opts:['voulait','a voulu','aurait voulu ✓','avait voulu'],ok:2,xp:'« elle aurait-elle aussi voulu » — fait hypothétique non réalisé dans le passé.'},
-  {p:'Paul n\'a pas compris ce qui s\'est passé. → Avec plus d\'informations, il ________ mieux.',en:'Paul didn\'t understand what happened. → With more information, he ________ better.',opts:['comprendrait','comprenait','aurait compris ✓','avait compris'],ok:2,xp:'Conditionnel passé = hypothèse sur un fait qui ne s\'est PAS réalisé.'},
-  {p:'Mona n\'a pas décrit la cécité avec des images poétiques. → Un écrivain adulte ________ ainsi.',en:'Mona didn\'t describe the blindness with poetic images. → An adult writer ________ have done so.',opts:['décrirait','décrivait','aurait décrit ✓','avait décrit'],ok:2,xp:'Regret ou hypothèse non réalisée — conditionnel passé.'}
-];
 TX['p9_fr']=`<p class="text-p" style="font-weight:bold;margin-bottom:8px">Prologue<br>N'y plus rien voir</p><p class="text-p">Tout devint sombre. Ce fut comme un habit de deuil. Et puis, çà et là, des scintillements, à la façon des taches que produit le soleil quand les yeux le fixent en vain derrière les paupières serrées, de même qu'on serre le poing pour résister à la douleur ou à l'émotion.</p>
 <p class="text-p">Bien sûr, elle n'avait pas du tout décrit la chose ainsi. Dans la bouche d'une enfant de dix ans, fraîche et inquiète, la détresse se formule sèchement, sans fioritures ni lyrisme.</p>
 <p class="dl">— Maman, c'est tout noir&#8239;!</p>
@@ -831,23 +723,6 @@ function A(s){if(!s)return;if(s.indexOf('/')<0)s='audio/'+s;_resetAnb();if(_a){i
 function _resetAnb(){if(_ab){_ab.textContent='▶ Écouter';_ab.classList.remove('anb-play');}
   if(_at){_at.textContent='0:00';}if(_af){_af.style.width='0%';}
   _ab=null;_at=null;_af=null;}
-function anbToggle(bid,tid,fid,src){
-  var btn=document.getElementById(bid),tme=document.getElementById(tid),fill=document.getElementById(fid);
-  if(_a&&_as===src){
-    if(!_a.paused){_a.pause();btn.innerHTML='&#9654; Reprendre';btn.classList.remove('anb-play');return;}
-    else{_a.play();btn.innerHTML='&#9646;&#9646; Pause';btn.classList.add('anb-play');return;}
-  }
-  if(_a)_a.pause();_resetAnb();
-  _a=new Audio(src);_as=src;_ab=btn;_at=tme;_af=fill;
-  btn.innerHTML='&#9646;&#9646; Pause';btn.classList.add('anb-play');
-  _a.ontimeupdate=()=>{
-    let m=Math.floor(_a.currentTime/60),s=Math.floor(_a.currentTime%60);
-    tme.textContent=m+':'+(s<10?'0':'')+s;
-    if(_a.duration)fill.style.width=(_a.currentTime/_a.duration*100)+'%';
-  };
-  _a.onended=()=>{btn.innerHTML='&#9654; Réécouter';btn.classList.remove('anb-play');fill.style.width='100%';};
-  _a.play().catch(()=>{});
-}
 // ── TABS ──────────────────────────────────────────────────────────────────────
 function showTab(id,el){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
@@ -864,7 +739,6 @@ function togEn(boxId,btnId){
 }
 // ── METHOD ────────────────────────────────────────────────────────────────────
 function togMeth(){var b=document.getElementById('meth-body');b.classList.toggle('open');}
-function togFigDef(id){document.getElementById(id).classList.toggle('open');}
 // ── MODAL ─────────────────────────────────────────────────────────────────────
 function openModal(id){document.getElementById(id).classList.add('open');}
 function closeModal(id){document.getElementById(id).classList.remove('open');}
@@ -930,63 +804,6 @@ function ansQcm(cid,qi,oi,ok,xp){
   var _tab=cid.replace('qcm-','');var _okb=document.getElementById(prefix+ok);if(_okb&&!_okb.querySelector('.spk')){_okb.insertAdjacentHTML('beforeend',' <button class="spk" onclick="event.stopPropagation();A(\'mona_'+_tab+'_a'+(qi+1)+'_fr.mp3\')">&#128266;</button>');}
   var xel=document.getElementById('qx_'+cid+'_'+qi);xel.textContent=xp;xel.classList.add('show');
 }
-// ── VRAI/FAUX ─────────────────────────────────────────────────────────────────
-function initVf(cid,key){
-  var items=VF[key],el=document.getElementById(cid);
-  el.innerHTML=items.map((x,i)=>`
-<div class="vf-card">
-  <div class="vf-stmt">${i+1}. ${x.s}</div>
-  <div class="vf-stmt-en">${x.en}</div>
-  <div class="vf-btns">
-    <button class="vf-btn vtrue" id="vbT_${cid}_${i}" onclick="ansVf('${cid}',${i},true,${x.val},'${x.cite.replace(/'/g,"\\'")}')">✓ VRAI — True</button>
-    <button class="vf-btn vfals" id="vbF_${cid}_${i}" onclick="ansVf('${cid}',${i},false,${x.val},'${x.cite.replace(/'/g,"\\'")}')">✗ FAUX — False</button>
-  </div>
-  <div class="vf-cite" id="vc_${cid}_${i}"></div>
-</div>`).join('');
-}
-function ansVf(cid,i,chosen,val,cite){
-  var bt=document.getElementById('vbT_'+cid+'_'+i),bf=document.getElementById('vbF_'+cid+'_'+i);
-  bt.disabled=true;bf.disabled=true;
-  var ok=(chosen===val);
-  if(chosen===true){bt.classList.add(ok?'vsel-ok':'vsel-ng');}else{bf.classList.add(ok?'vsel-ok':'vsel-ng');}
-  var ce=document.getElementById('vc_'+cid+'_'+i);ce.innerHTML=(ok?'✓ ':'✗ Mauvaise réponse. ')+cite;ce.classList.add('show');
-}
-// ── ANALYSE STYLISTIQUE ───────────────────────────────────────────────────────
-const FIGS=['Comparaison','Métaphore','Personnification','Antithèse','Oxymore'];
-function initStyle(cid,key){
-  var items=ST[key],el=document.getElementById(cid);
-  el.innerHTML=items.map((x,si)=>`
-<div class="scard">
-  <div class="scard-ex">${x.ex}</div>
-  <div class="scard-opts">${FIGS.map((f,fi)=>`
-    <button class="sopt" id="so_${cid}_${si}_${fi}" onclick="ansSt('${cid}',${si},${fi},'${f}','${x.fig.replace(/'/g,"\\'")}','${x.xp.replace(/'/g,"\\'")}')">
-      ${f}</button>`).join('')}
-  </div>
-  <div class="sxp" id="sx_${cid}_${si}"></div>
-</div>`).join('');
-}
-function ansSt(cid,si,fi,f,fig,xp){
-  FIGS.forEach((_,i)=>{var b=document.getElementById('so_'+cid+'_'+si+'_'+i);if(b){b.disabled=true;b.classList.add(fig.includes(FIGS[i])?'ok':'ng');}});
-  var xe=document.getElementById('sx_'+cid+'_'+si);xe.textContent=xp;xe.classList.add('show');
-}
-// ── GRAMMAIRE ─────────────────────────────────────────────────────────────────
-function initGram(cid,key){
-  var items=G[key],el=document.getElementById(cid);
-  el.innerHTML=items.map((x,gi)=>`
-<div class="gcard">
-  <div class="gcard-ph">${x.p}</div>
-  <div class="gcard-ph-en">${x.en}</div>
-  <div class="gcard-opts">${x.opts.map((o,oi)=>`
-    <button class="gopt" id="go_${cid}_${gi}_${oi}" onclick="ansGram('${cid}',${gi},${oi},${x.ok},'${x.xp.replace(/'/g,"\\'")}',${x.opts.length})">
-      ${o.replace(' ✓','')}</button>`).join('')}
-  </div>
-  <div class="gxp" id="gx_${cid}_${gi}"></div>
-</div>`).join('');
-}
-function ansGram(cid,gi,oi,ok,xp,n){
-  for(var i=0;i<n;i++){var b=document.getElementById('go_'+cid+'_'+gi+'_'+i);if(b){b.disabled=true;b.classList.add(i===ok?'ok':'ng');}}
-  var xe=document.getElementById('gx_'+cid+'_'+gi);xe.textContent=xp;xe.classList.add('show');
-}
 // ── TEXT INJECT ───────────────────────────────────────────────────────────────
 function injectText(frid,enid,tabKey){
   document.getElementById(frid).innerHTML=TX[tabKey+'_fr'];
@@ -1016,7 +833,6 @@ function startRec(id){var st=_REC[id]||(_REC[id]={});var btn=_recBtn(id);
   st.mr.start();
  }).catch(function(){alert('Micro non disponible ou accès refusé.');});
 }
-function submitRec(id){var b=document.querySelector('#recout-'+id+' a.rec-dl');if(b){b.click();}else{alert("Enregistre d'abord ta lecture.");}}
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',()=>{
@@ -1026,13 +842,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 
-function markStyleP10(btn){
-  btn.classList.add('ok');btn.disabled=true;
-  var others=btn.parentElement.querySelectorAll('.sopt');
-  others.forEach(b=>{if(b!==btn){b.disabled=true;b.classList.add('ng');}});
-  document.getElementById('sxp10-1').textContent='✓ La répétition de « depuis » crée une insistance rythmique sur l\'origine intérieure et mystérieuse de la cécité — aucune cause externe n\'est responsable.';
-  document.getElementById('sxp10-1').classList.add('show');
-}
 
 </script>
 
