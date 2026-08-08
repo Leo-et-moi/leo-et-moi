@@ -141,11 +141,20 @@ async function ensureUserDoc(user){
   const ref = doc(db, 'users', user.uid);
   const snap = await getDoc(ref);
   if (!snap.exists()){
+    // Niveau pré-attribué par le professeur (tableau de bord → Pré-attribution) :
+    // appliqué dès la première connexion, sinon a1 par défaut.
+    let level = 'a1';
+    try {
+      const pre = await getDoc(doc(db, 'lessons', '_preassign'));
+      const m = (pre.exists() && pre.data().emails) || {};
+      const lv = m[(user.email || '').toLowerCase()];
+      if (['a1','a2','b1','b2','c1','c2'].includes(lv)) level = lv;
+    } catch (e) {}
     await setDoc(ref, {
       displayName: user.displayName || '',
       email: user.email || '',
       role: 'student',
-      level: 'a1',
+      level: level,
       createdAt: serverTimestamp()
     });
   }
