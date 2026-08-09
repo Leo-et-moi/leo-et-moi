@@ -157,6 +157,29 @@ ready(async function(){
       students.push({uid:d.id,name:u.displayName||'',email:u.email||'',level:(u.level||'a1'),
         streak:u.streak||0, vocab:(u.vocab||[]).length, lessons:lessons});
     }
+    // 🎯 Réconciliation des pré-attributions (04/08) : si la fiche d'un élève
+    // pré-attribué existe (créée en a1 par une vieille page en cache, ou avant
+    // la pré-attribution), on applique son niveau ICI et on retire l'entrée.
+    // → le tableau de bord s'auto-répare à chaque ouverture.
+    try{
+      var pre=await window.LEM.getConfig('_preassign');
+      if(pre && pre.emails){
+        var changed=false;
+        for (const s of students){
+          var em=(s.email||'').toLowerCase();
+          var lv=pre.emails[em];
+          if(lv && ['a1','a2','b1','b2','c1','c2'].indexOf(lv)>=0){
+            if((s.level||'a1').toLowerCase()!==lv){
+              await setDoc(doc(db,'users',s.uid),{ level: lv },{ merge:true });
+              s.level=lv;
+            }
+            delete pre.emails[em];
+            changed=true;
+          }
+        }
+        if(changed) await window.LEM.setConfig('_preassign',pre);
+      }
+    }catch(e){}
     render(content, students);
   }catch(e){
     content.innerHTML='<div class="notice">Erreur de chargement. R&eacute;essaie. ('+esc(e.message||e)+')</div>';
