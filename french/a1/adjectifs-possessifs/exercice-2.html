@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exercice 2 — Adjectifs possessifs · A1</title>
+<link rel="stylesheet" href="/css/site.css">
+<style>
+:root{--navy:#1B2845;--coral:#E8503A;--cream:#F5F0E8;--slate:#4A5568;--green:#1E7B45;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:#2D3748;font-size:17px;min-height:100vh;}
+.top-bar{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;position:sticky;top:0;z-index:100;}
+.site-name{color:#fff;font-size:20px;font-weight:700;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.main{max-width:820px;margin:0 auto;padding:16px 16px 60px;}
+.back-link{display:inline-block;color:var(--navy);text-decoration:none;font-size:15px;margin-bottom:8px;}
+.lvl-tag{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:14px;}
+.ex-head{background:var(--navy);border-radius:12px;padding:18px 22px;margin-bottom:16px;}
+.ex-head .ex-lbl{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:4px;}
+.ex-head .ex-title{color:#fff;font-size:21px;font-weight:700;}
+.progress-bar{background:#e2e0db;border-radius:20px;height:6px;margin-bottom:16px;overflow:hidden;}
+.progress-fill{background:var(--coral);height:100%;border-radius:20px;transition:width .4s;}
+.rappel-box{background:#f0ede8;border:2px solid var(--navy);border-radius:12px;padding:16px;margin-bottom:18px;}
+.rappel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.rappel-title{font-size:16px;font-weight:700;color:var(--navy);}
+.rappel-rule{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.rappel-ex{font-size:14px;color:var(--slate);margin-bottom:10px;}
+.mini-t{width:100%;border-collapse:collapse;font-size:13px;}
+.mini-t th{background:var(--navy);color:#fff;padding:5px 4px;text-align:center;}
+.mini-t td{padding:5px 4px;text-align:center;border:1px solid #d5d0c8;}
+.mini-t tr:nth-child(odd) td{background:#f7f4ef;}
+.mini-t tr:nth-child(even) td{background:#fff;}
+.mini-t td.a{font-weight:700;color:var(--navy);font-size:14px;}
+.mini-t td.v{color:var(--coral);}
+.mini-t td.s{background:#EEF2FF !important;}
+.q-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.07);margin-bottom:14px;}
+.q-num{font-size:13px;color:var(--coral);font-weight:700;margin-bottom:8px;}
+.q-tot{color:var(--slate);font-weight:400;}
+.q-text{font-size:22px;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.4;}
+.blank{display:inline-block;min-width:50px;border-bottom:3px solid var(--coral);color:var(--coral);text-align:center;font-weight:700;margin:0 4px;}
+.q-hints{background:#f7f5f0;border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:14px;}
+.hint-fr{font-size:15px;font-weight:600;color:#2D3748;margin-bottom:3px;}
+.hint-en{font-size:14px;color:var(--slate);font-style:italic;}
+.opts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.opt-btn{flex:1;min-width:80px;background:#f0ede8;border:2px solid #d5d0c8;border-radius:10px;padding:14px 10px;font-size:19px;font-weight:700;cursor:pointer;color:var(--navy);transition:all .15s;text-align:center;}
+.opt-btn:hover:not(:disabled){background:#e8e4dd;border-color:var(--navy);}
+.opt-btn.correct{background:#e8f5ed;border-color:var(--green);color:var(--green);}
+.opt-btn.wrong{background:#fce8e5;border-color:var(--coral);color:var(--coral);text-decoration:line-through;}
+.opt-btn:disabled{cursor:default;}
+.spk-inline{background:none;border:none;cursor:pointer;font-size:16px;margin-left:6px;padding:2px;}
+.score-final{background:var(--navy);color:#fff;border-radius:12px;padding:20px;text-align:center;font-size:18px;font-weight:700;margin-top:16px;display:none;}
+.spk{background:var(--coral);color:#fff;border:none;border-radius:8px;padding:7px 13px;font-size:14px;cursor:pointer;}
+.spk:hover{opacity:.85;}
+.nav-links{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;}
+.nav-links a{display:inline-block;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;}
+.nav-links a.sec{background:var(--coral);}
+</style>
+</head>
+<body data-item-id="A1-E-013">
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a></header>
+<div class="main">
+  <a class="back-link" href="/french/a1/index.html">&#8592; Niveau A1</a>
+  <div class="lvl-tag">A1</div>
+  <div class="ex-head">
+    <div class="ex-lbl">Exercice 2 — A1</div>
+    <div class="ex-title">Adjectifs possessifs — Complète les phrases</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+  <div class="rappel-box">
+  <div class="rappel-head">
+    <span class="rappel-title">📌 Rappel</span>
+    <button class="spk" onclick="A('audio/poss_rappel.mp3')">🔊 Rappel</button>
+  </div>
+  <p class="rappel-rule">L'accord se fait avec le <strong>nom</strong>, pas avec le sujet.</p>
+  <p class="rappel-ex">Ex. : La grand-mère <em>(féminin)</em> aime <strong>ses</strong> petits-enfants <em>(masculin-pluriel)</em> → <strong>ses</strong></p>
+  <table class="mini-t">
+<tr><th>Sujet</th><th>Ang.</th><th>Masc.</th><th>Fém.</th><th>Voyelle</th><th>Plur.</th></tr>
+<tr><td>je</td><td>My</td><td class="a">mon</td><td class="a">ma</td><td class="a v">mon</td><td class="a">mes</td></tr>
+<tr><td>tu</td><td>Your</td><td class="a">ton</td><td class="a">ta</td><td class="a v">ton</td><td class="a">tes</td></tr>
+<tr><td>il/elle</td><td>His/Her</td><td class="a">son</td><td class="a">sa</td><td class="a v">son</td><td class="a">ses</td></tr>
+<tr><td>nous</td><td>Our</td><td class="a s" colspan="2">notre</td><td class="a v">notre</td><td class="a">nos</td></tr>
+<tr><td>vous</td><td>Your (pl.)</td><td class="a s" colspan="2">votre</td><td class="a v">votre</td><td class="a">vos</td></tr>
+<tr><td>ils/elles</td><td>Their</td><td class="a s" colspan="2">leur</td><td class="a v">leur</td><td class="a">leurs</td></tr>
+</table>
+</div>
+  <div class="q-card" id="q1">
+  <div class="q-num">1<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Marie appelle <span class="blank">___</span> mère.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 mère est féminin-singulier, commence par une consonne</div>
+    <div class="hint-en">"mère" is a feminine singular noun that begins with a consonant</div>
+  </div>
+  <div class="opts" id="opts1"><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q01.mp3" onclick="pick(1,0)">sa</button><button class="opt-btn" onclick="pick(1,1)">son</button><button class="opt-btn" onclick="pick(1,2)">ses</button></div>
+</div>
+<div class="q-card" id="q2">
+  <div class="q-num">2<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Nous aimons <span class="blank">___</span> professeur.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 professeur est masculin-singulier</div>
+    <div class="hint-en">"professeur" is a masculine singular noun</div>
+  </div>
+  <div class="opts" id="opts2"><button class="opt-btn" onclick="pick(2,0)">nos</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q02.mp3" onclick="pick(2,1)">notre</button><button class="opt-btn" onclick="pick(2,2)">votre</button></div>
+</div>
+<div class="q-card" id="q3">
+  <div class="q-num">3<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Tu as oublié <span class="blank">___</span> cahier ?</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 cahier est masculin-singulier</div>
+    <div class="hint-en">"cahier" is a masculine singular noun</div>
+  </div>
+  <div class="opts" id="opts3"><button class="opt-btn" onclick="pick(3,0)">ta</button><button class="opt-btn" onclick="pick(3,1)">tes</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q03.mp3" onclick="pick(3,2)">ton</button></div>
+</div>
+<div class="q-card" id="q4">
+  <div class="q-num">4<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Léa et Paul promènent <span class="blank">___</span> chien.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 chien est masculin-singulier</div>
+    <div class="hint-en">"chien" is a masculine singular noun</div>
+  </div>
+  <div class="opts" id="opts4"><button class="opt-btn" onclick="pick(4,0)">leurs</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q04.mp3" onclick="pick(4,1)">leur</button><button class="opt-btn" onclick="pick(4,2)">son</button></div>
+</div>
+<div class="q-card" id="q5">
+  <div class="q-num">5<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Je cherche <span class="blank">___</span> amie.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 amie est féminin-singulier, et commence par une voyelle</div>
+    <div class="hint-en">"amie" is a feminine singular noun that begins with a vowel</div>
+  </div>
+  <div class="opts" id="opts5"><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q05.mp3" onclick="pick(5,0)">mon</button><button class="opt-btn" onclick="pick(5,1)">ma</button><button class="opt-btn" onclick="pick(5,2)">mes</button></div>
+</div>
+<div class="q-card" id="q6">
+  <div class="q-num">6<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Vous aimez <span class="blank">___</span> travail ?</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 travail est masculin-singulier</div>
+    <div class="hint-en">"travail" is a masculine singular noun</div>
+  </div>
+  <div class="opts" id="opts6"><button class="opt-btn" onclick="pick(6,0)">vos</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q06.mp3" onclick="pick(6,1)">votre</button><button class="opt-btn" onclick="pick(6,2)">ton</button></div>
+</div>
+<div class="q-card" id="q7">
+  <div class="q-num">7<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Il range <span class="blank">___</span> affaires.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 affaires est féminin-pluriel</div>
+    <div class="hint-en">"affaires" is a feminine plural noun</div>
+  </div>
+  <div class="opts" id="opts7"><button class="opt-btn" onclick="pick(7,0)">son</button><button class="opt-btn" onclick="pick(7,1)">sa</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q07.mp3" onclick="pick(7,2)">ses</button></div>
+</div>
+<div class="q-card" id="q8">
+  <div class="q-num">8<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Elles appellent <span class="blank">___</span> parents.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 parents est masculin-pluriel</div>
+    <div class="hint-en">"parents" is a masculine plural noun</div>
+  </div>
+  <div class="opts" id="opts8"><button class="opt-btn" onclick="pick(8,0)">leur</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q08.mp3" onclick="pick(8,1)">leurs</button><button class="opt-btn" onclick="pick(8,2)">ses</button></div>
+</div>
+<div class="q-card" id="q9">
+  <div class="q-num">9<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Tu aimes <span class="blank">___</span> école ?</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 école est féminin-singulier, et commence par une voyelle</div>
+    <div class="hint-en">"école" is a feminine singular noun that begins with a vowel</div>
+  </div>
+  <div class="opts" id="opts9"><button class="opt-btn" onclick="pick(9,0)">ta</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q09.mp3" onclick="pick(9,1)">ton</button><button class="opt-btn" onclick="pick(9,2)">tes</button></div>
+</div>
+<div class="q-card" id="q10">
+  <div class="q-num">10<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Nous saluons <span class="blank">___</span> voisins.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 voisins est masculin-pluriel</div>
+    <div class="hint-en">"voisins" is a masculine plural noun</div>
+  </div>
+  <div class="opts" id="opts10"><button class="opt-btn" onclick="pick(10,0)">notre</button><button class="opt-btn" onclick="pick(10,1)">vos</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q10.mp3" onclick="pick(10,2)">nos</button></div>
+</div>
+<div class="q-card" id="q11">
+  <div class="q-num">11<span class="q-tot"> / 12</span></div>
+  <div class="q-text">Nous avons vendu <span class="blank">___</span> voiture.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 voiture est féminin-singulier</div>
+    <div class="hint-en">"voiture" is a feminine singular noun</div>
+  </div>
+  <div class="opts" id="opts11"><button class="opt-btn" onclick="pick(11,0)">nos</button><button class="opt-btn" onclick="pick(11,1)">votre</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q11.mp3" onclick="pick(11,2)">notre</button></div>
+</div>
+<div class="q-card" id="q12">
+  <div class="q-num">12<span class="q-tot"> / 12</span></div>
+  <div class="q-text">J&#x27;ai perdu <span class="blank">___</span> clés et <span class="blank">___</span> portefeuille.</div>
+  <div class="q-hints">
+    <div class="hint-fr">💡 clés est féminin-pluriel ; portefeuille est masculin-singulier</div>
+    <div class="hint-en">"clés" is a feminine plural noun; "portefeuille" is a masculine singular noun</div>
+  </div>
+  <div class="opts" id="opts12"><button class="opt-btn" onclick="pick(12,0)">mes / ma</button><button class="opt-btn" data-ok="true" data-audio="audio/poss_e2_q12.mp3" onclick="pick(12,1)">mes / mon</button><button class="opt-btn" onclick="pick(12,2)">mon / mes</button></div>
+</div>
+  <div class="score-final" id="score-final"></div>
+  <div class="nav-links">
+    <a href="exercice-1.html">← Exercice 1</a>
+    <a href="index.html" class="sec">← Leçon</a>
+  </div>
+</div>
+<script>
+let _a=null,_as='';
+function A(src){
+  if(_as===src&&_a&&!_a.paused){_a.pause();return;}
+  if(_a&&!_a.paused)_a.pause();
+  if(_as===src&&_a){_a.play();return;}
+  _a=new Audio(src);_as=src;_a.play();
+}
+const answered=new Set();
+let score=0;
+const TOTAL=12;
+function pick(qn,oi){
+  if(answered.has(qn))return;
+  answered.add(qn);
+  const card=document.getElementById('q'+qn);
+  const opts=document.querySelectorAll('#opts'+qn+' .opt-btn');
+  const correct=document.querySelector('#opts'+qn+' .opt-btn[data-ok="true"]');
+  const ok=opts[oi].dataset.ok==='true';
+  if(ok)score++;
+  opts.forEach(b=>b.disabled=true);
+  if(!ok)opts[oi].classList.add('wrong');
+  if(correct){
+    correct.classList.add('correct');
+    const src=correct.dataset.audio;
+    const btn=document.createElement('button');
+    btn.className='spk-inline';btn.textContent='🔊';
+    btn.onclick=e=>{e.stopPropagation();A(src);};
+    correct.appendChild(btn);
+    if(ok&&src)A(src);
+  }
+
+  const done=answered.size;
+  document.getElementById('prog').style.width=Math.round(done/TOTAL*100)+'%';
+  if(done===TOTAL){
+    const sf=document.getElementById('score-final');
+    sf.textContent='🎉 Score : '+score+' / '+TOTAL;
+    sf.style.display='block';
+  }
+}
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
+<script type="module">import { bandeauRevoir } from '/js/ui.js'; bandeauRevoir();</script>
+</body>
+</html>

@@ -23,6 +23,7 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  "poss_difficulte_fr.mp3", "poss_e1_q01.mp3", "poss_e1_q02.mp3", "poss_e1_q03.mp3", "poss_e1_q04.mp3", "poss_e1_q05.mp3", "poss_e1_q06.mp3", "poss_e1_q07.mp3", "poss_e1_q08.mp3", "poss_e1_q09.mp3", "poss_e1_q10.mp3", "poss_e2_q01.mp3", "poss_e2_q02.mp3", "poss_e2_q03.mp3", "poss_e2_q04.mp3", "poss_e2_q05.mp3", "poss_e2_q06.mp3", "poss_e2_q07.mp3", "poss_e2_q08.mp3", "poss_e2_q09.mp3", "poss_e2_q10.mp3", "poss_e2_q11.mp3", "poss_e2_q12.mp3", "poss_ex1_fr.mp3", "poss_ex2_fr.mp3", "poss_ex_voyelle1_fr.mp3", "poss_ex_voyelle2_fr.mp3", "poss_intro_fr.mp3", "poss_memo_r1_fr.mp3", "poss_memo_r2_fr.mp3", "poss_memo_r3_fr.mp3", "poss_pluriel_fr.mp3", "poss_rappel.mp3", "poss_singulier_fr.mp3", "poss_tableau_fr.mp3", "poss_voyelle_fr.mp3",
                   # B2-E-002 Mona — littéraux en attente
                   "mona_gram_en.mp3", "mona_p10_react_en.mp3", "mona_p11_react_en.mp3", "mona_p12_react_en.mp3", "mona_p1314_react_en.mp3", "mona_p9_react_en.mp3",
                   "mona_reagir_en.mp3", "mona_p12q_react_en.mp3", "mona_rule_demons_en.mp3", "mona_rule_neg_en.mp3", "mona_rule_passe_en.mp3", "mona_rule_poss_en.mp3", "mona_rule_pqp_en.mp3",
