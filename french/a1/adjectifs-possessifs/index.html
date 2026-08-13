@@ -1,311 +1,189 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Leçon A1 — Les adjectifs possessifs</title>
+<title>Lesson A1 — Possessive Adjectives</title>
 <link rel="stylesheet" href="/css/site.css">
 <style>
-:root{--navy:#1B2845;--coral:#E8503A;--cream:#F5F0E8;--slate:#4A5568;--green:#1E7B45;--purple:#6B3FA0;--dark:#2D3748;}
+:root{--navy:#1B2845;--coral:#E8503A;--cream:#F5F0E8;--slate:#4A5568;--green:#1E7B45;--red:#C0392B;--dark:#2D3748;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Arial,sans-serif;background:var(--cream);color:var(--dark);font-size:18px;min-height:100vh;}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--dark);font-size:18px;min-height:100vh;}
 .top-bar{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;position:sticky;top:0;z-index:100;}
-.site-name{color:#fff;font-size:20px;font-weight:700;text-decoration:none;letter-spacing:.5px;}
-.site-name span{color:var(--coral);}
+.site-name{color:#fff;font-size:20px;font-weight:700;text-decoration:none;}.site-name span{color:var(--coral);}
 .icon-btn{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;padding:8px;}
-.main{max-width:860px;margin:0 auto;padding:16px 16px 60px;}
+.main{max-width:860px;margin:0 auto;padding:16px 16px 70px;}
 .back-link{display:inline-block;color:var(--navy);text-decoration:none;font-size:15px;margin-bottom:8px;}
 .lvl-tag{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:16px;}
-.slide{display:none;animation:fadeIn .3s;}
-.slide.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.slide-head{background:var(--navy);border-radius:12px 12px 0 0;padding:18px 22px 14px;}
-.slide-num{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:4px;}
-.slide-title{color:#fff;font-size:22px;font-weight:700;}
-.slide-body{background:#fff;border-radius:0 0 12px 12px;padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:16px;}
-/* Bilingual row */
-.bi-row{display:flex;gap:12px;margin:0 0 12px;}
-.bi-box{flex:1;border-radius:10px;padding:14px;}
-.bi-fr{background:linear-gradient(135deg,#fff8f5,#fff);border-left:4px solid var(--coral);}
-.bi-en{background:linear-gradient(135deg,#f0f4ff,#fff);border-left:4px solid var(--navy);}
-.bi-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.bi-lbl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);}
-.bi-body{font-size:15px;line-height:1.65;}
-.bi-fr .bi-body{font-weight:600;color:var(--dark);}
-.bi-en-text{color:var(--slate);font-style:italic;}
-@media(max-width:600px){.bi-row{flex-direction:column;}}
-/* Boutons audio */
-.spk{background:var(--coral);color:#fff;border:none;border-radius:8px;padding:7px 13px;font-size:14px;cursor:pointer;transition:opacity .2s;white-space:nowrap;}
-.spk:hover{opacity:.85;}
-.spk-en{background:var(--navy);}
-.spk-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0;}
-/* Tables */
-.ptable{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px;}
-.ptable th{background:var(--navy);color:#fff;padding:9px 6px;text-align:center;font-size:14px;}
-.ptable td{padding:8px 6px;text-align:center;border:1px solid #ddd;}
-.ptable tr:nth-child(odd) td{background:#f7f4ef;}
-.ptable tr:nth-child(even) td{background:#fff;}
-.ptable .pron{color:var(--slate);font-size:13px;font-style:italic;}
-.ptable .adj{font-weight:700;color:var(--navy);font-size:16px;}
-.ptable .adj.vow{color:var(--coral);}
-.cell-same{background:#EEF2FF !important;border:1px solid #C5CAE9 !important;}
-.cell-plural{background:#FFF3E0 !important;border:1px solid #FFCC80 !important;}
-.rv{color:var(--coral);font-weight:700;}
-.stable{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px;}
-.stable th{background:var(--navy);color:#fff;padding:9px 8px;text-align:center;}
-.stable td{padding:9px 8px;text-align:center;border:1px solid #ddd;}
-.stable tr:nth-child(odd) td{background:#f7f4ef;}
-.stable tr:nth-child(even) td{background:#fff;}
-.stable td:first-child{color:var(--slate);font-size:14px;text-align:left;}
-.stable .adj{font-weight:700;color:var(--navy);font-size:17px;}
-.stable .adj.vow{color:var(--coral);}
-.red-vowel{color:var(--coral);font-weight:700;}
-/* Exemples */
-.ex-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
-.ex-pill{display:inline-flex;align-items:center;gap:6px;background:#f0ede8;border-radius:8px;padding:7px 12px;font-size:15px;}
-.ex-pill.ok{background:#e8f5ed;}
-.ex-pill.bad{background:#fce8e5;text-decoration:line-through;opacity:.7;}
-.highlight{background:linear-gradient(135deg,#1B2845,#2a3f6b);color:#fff;border-radius:10px;padding:14px 18px;margin:12px 0;font-size:16px;}
-.highlight .en{color:rgba(255,255,255,.7);font-style:italic;font-size:14px;margin-top:6px;}
-/* Memo */
-.memo{background:linear-gradient(135deg,#f0ede8,#fff);border:2px solid var(--coral);border-radius:12px;padding:14px 16px;margin:10px 0;}
-.memo-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px;}
-.memo-rule{font-size:15px;font-weight:700;color:var(--navy);flex:1;}
-.memo-btns{display:flex;gap:6px;flex-shrink:0;}
-.memo-sub{font-size:14px;color:var(--slate);line-height:1.7;}
-.memo-sub .adj{font-weight:700;color:var(--navy);}
-/* Nav */
-.tbl-note{font-size:14px;color:var(--slate);margin-top:8px;font-style:italic;line-height:1.5;}
-.slide-nav{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
-.nav-btn{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:16px;cursor:pointer;font-weight:600;}
-.nav-btn:hover{background:var(--coral);}
-.nav-btn:disabled{background:#ccc;cursor:default;}
-.nav-counter{color:var(--slate);font-size:15px;}
-.progress-bar{background:#e2e0db;border-radius:20px;height:6px;margin-bottom:16px;overflow:hidden;}
-.progress-fill{background:var(--coral);height:100%;border-radius:20px;transition:width .4s;}
+.progress-bar{height:7px;background:#e5ded2;border-radius:6px;overflow:hidden;margin-bottom:16px;}
+.progress-fill{height:100%;background:var(--coral);transition:width .3s;}
+.slide{display:none;animation:fade .3s;}.slide.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slide-head{background:var(--navy);border-radius:12px 12px 0 0;padding:16px 22px 13px;}
+.slide-num{font-size:12px;color:rgba(255,255,255,.6);}
+.slide-title{color:#fff;font-size:22px;font-weight:700;margin-top:2px;}
+.slide-body{background:#fff;border-radius:0 0 12px 12px;padding:20px 22px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.spk{background:var(--coral);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:14px;font-weight:bold;cursor:pointer;}
+.spk-row{display:flex;justify-content:flex-end;margin-bottom:12px;}
+.lead{font-size:16px;line-height:1.65;}
+.fr{color:var(--navy);font-weight:bold;}
+.hero{background:var(--navy);border-radius:14px;padding:26px 22px;text-align:center;margin-bottom:16px;}
+.hero h1{color:#fff;font-size:30px;}.hero .sub{color:rgba(255,255,255,.8);font-style:italic;font-size:16px;margin-top:4px;}
+.chipset{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:16px;}
+.chip{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 13px;font-size:15px;font-weight:bold;}
+.two{display:flex;gap:12px;margin:4px 0 12px;flex-wrap:wrap;}
+.col{flex:1;min-width:150px;border-radius:10px;padding:14px;}
+.col-en{background:#EAF1FB;border-left:4px solid var(--navy);}
+.col-fr{background:#FFF3EF;border-left:4px solid var(--coral);}
+.col h3{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:8px;}
+.col p{font-size:15px;line-height:1.6;margin:5px 0;}
+.take{background:#EAF3EE;border-left:4px solid var(--green);border-radius:8px;padding:12px 14px;font-size:15px;font-weight:bold;color:var(--dark);margin-top:6px;}
+.step{display:flex;gap:12px;align-items:flex-start;margin:12px 0;}
+.step .n{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--coral);color:#fff;font-weight:bold;display:flex;align-items:center;justify-content:center;}
+.step h3{font-size:16px;margin-bottom:3px;}.step p{font-size:15px;line-height:1.55;color:var(--dark);}
+.ltab{width:100%;border-collapse:collapse;margin:6px 0;font-size:15px;}
+.ltab th{background:var(--navy);color:#fff;font-size:13px;font-weight:bold;padding:8px 6px;text-align:center;}
+.ltab th:first-child{text-align:left;border-radius:8px 0 0 0;}.ltab th:last-child{border-radius:0 8px 0 0;}
+.ltab td{padding:8px 6px;text-align:center;border-bottom:1px solid #eee;}
+.ltab td:first-child{text-align:left;color:var(--slate);font-size:13.5px;}
+.ltab .adj{color:var(--coral);font-weight:bold;}
+.ltab tr:nth-child(even) td{background:#faf8f4;}
+.rule{background:#FFF8F5;border-left:4px solid var(--coral);border-radius:8px;padding:13px 15px;font-size:15px;line-height:1.55;}
+.pair{display:flex;gap:10px;margin:14px 0;}
+.pair .p{flex:1;border-radius:10px;padding:12px;text-align:center;}
+.p-cons{background:#FCEDEB;}.p-vow{background:#E9F5EF;}
+.p .lab{font-size:11px;font-weight:bold;letter-spacing:.5px;}
+.p-cons .lab{color:var(--red);}.p-vow .lab{color:var(--green);}
+.p .big{font-size:18px;font-weight:bold;margin:6px 0;}
+.mini{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px;}
+.mini td{padding:5px;text-align:center;}.mini td:first-child{text-align:left;color:var(--slate);}
+.c-cons{background:#FCEDEB;color:var(--red);font-weight:bold;border-radius:6px;}
+.c-vow{background:#E9F5EF;color:var(--green);font-weight:bold;border-radius:6px;}
+.note{font-size:13.5px;color:var(--slate);font-style:italic;margin-top:8px;}
+.memo{background:#F7FAF8;border:1px solid #dCe8e0;border-radius:10px;padding:14px;margin-top:6px;}
+.memo .m{display:flex;gap:10px;align-items:flex-start;margin:8px 0;font-size:15px;}
+.memo .m b{color:var(--green);}
+.done{width:100%;padding:16px;margin-top:18px;background:var(--green);color:#fff;border:none;border-radius:14px;font-size:17px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:58px;}
+.slide-nav{display:flex;justify-content:space-between;margin-top:18px;}
+.nav-btn{background:#fff;border:1px solid #cfd6e0;color:var(--slate);border-radius:10px;padding:11px 20px;font-size:15px;font-weight:bold;cursor:pointer;}
+.nav-btn:last-child{background:var(--coral);color:#fff;border-color:var(--coral);}
+.nav-btn:disabled{opacity:.4;cursor:default;}
+.nav-counter{text-align:center;font-size:13px;color:var(--slate);margin-top:8px;}
 </style>
 </head>
 <body data-item-id="A1-L-004" data-terminer="off">
-<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn">&#128276;</button></div></header>
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a><div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
 <div class="main">
-  <a class="back-link" href="/french/a1/index.html">&#8592; Niveau A1</a>
+  <a class="back-link" href="/french/a1/index.html">&#8592; Level A1</a>
   <div class="lvl-tag">A1</div>
-  <div style="background:var(--navy);border-radius:14px;padding:20px 22px;margin-bottom:16px;">
-    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:4px;">Leçon A1</div>
-    <div style="color:#fff;font-size:26px;font-weight:700;">Les adjectifs possessifs</div>
-    <div style="color:rgba(255,255,255,.75);font-style:italic;font-size:15px;margin-top:4px;">Possessive Adjectives</div>
-  </div>
   <div class="progress-bar"><div class="progress-fill" id="prog" style="width:14%"></div></div>
+
   <div class="slide active" id="slide-1">
-<div class="slide-head"><div class="slide-num">Écran 1 / 7</div><div class="slide-title">Introduction</div></div>
-<div class="slide-body">
-<div class="bi-row">
-  <div class="bi-box bi-fr">
-    <div class="bi-head">
-      <span class="bi-lbl">Français</span>
-      <button class="spk" onclick="A('audio/poss_intro_fr.mp3')">&#128266; FR</button>
+    <div class="hero">
+      <h1>Possessive Adjectives</h1>
+      <div class="sub">Les adjectifs possessifs &middot; A1</div>
+      <div class="chipset"><span class="chip">mon &middot; ma &middot; mes</span><span class="chip">ton &middot; ta &middot; tes</span><span class="chip">son &middot; sa &middot; ses</span><span class="chip">notre &middot; nos</span><span class="chip">votre &middot; vos</span><span class="chip">leur &middot; leurs</span></div>
     </div>
-    <div class="bi-body">En français, l'adjectif possessif s'accorde en genre et en nombre avec l'objet possédé&nbsp;: <strong>le nom</strong>. Paul regarde <strong>sa</strong> voiture. On dit «&nbsp;sa&nbsp;» parce que «&nbsp;voiture&nbsp;» est un nom féminin singulier.<br>En anglais, il s'accorde uniquement avec le possesseur, le sujet&nbsp;: «&nbsp;his / her car&nbsp;».</div>
-  </div>
-  <div class="bi-box bi-en">
-    <div class="bi-head">
-      <span class="bi-lbl">English</span>
-      </div>
-    <div class="bi-body bi-en-text">In French, the possessive adjective agrees in gender and number with the possessed object: <strong>the noun</strong>. Paul regarde <strong>sa</strong> voiture. We say "sa" because "voiture" is a feminine singular noun.<br>In English, it agrees only with the possessor, the subject: "his / her car".</div>
-  </div>
-</div>
-</div>
-</div><div class="slide" id="slide-2">
-<div class="slide-head"><div class="slide-num">Écran 2 / 7</div><div class="slide-title">Le tableau complet</div></div>
-<div class="slide-body">
-<div class="bi-row">
-  <div class="bi-box bi-fr">
-    <div class="bi-head">
-      <span class="bi-lbl">Français</span>
-      <button class="spk" onclick="A('audio/poss_tableau_fr.mp3')">&#128266; FR</button>
+    <div class="slide-body">
+      <div class="spk-row"><button class="spk" onclick="A('audio/pa_intro_en.mp3')">&#128266; Listen</button></div>
+      <p class="lead">A possessive adjective shows <b>who owns something</b> &mdash; my, your, his, her&hellip; In English, it matches the <b>owner</b>. In French, it matches the <b>noun</b> (the thing that is owned). This lesson shows you how to choose the right French form.</p>
     </div>
-    <div class="bi-body">Le tableau complet. Regarde bien le masculin singulier et le féminin singulier pour <strong>Notre, Votre</strong> et <strong>Leur</strong>&nbsp;: ils sont identiques au masculin et au féminin singulier.<br>Observe aussi la colonne <strong>Pluriel</strong>&nbsp;: le pluriel est le même pour les noms masculins et les noms féminins.<br>Enfin, regarde la colonne <strong>«&nbsp;Devant voyelle&nbsp;»</strong>&nbsp;: elle est toujours identique à la colonne masculine, parce que l'on utilise toujours le masculin devant un nom qui commence par une voyelle, même si le nom est féminin — pour faciliter la prononciation.</div>
   </div>
-  <div class="bi-box bi-en">
-    <div class="bi-head">
-      <span class="bi-lbl">English</span>
-      </div>
-    <div class="bi-body bi-en-text">The full table. Notice that for <em>Notre, Votre</em> and <em>Leur</em>, the masculine and feminine singular forms are identical.<br>Also notice the Plural column: the plural is the same for masculine and feminine nouns.<br>Finally, look at the "Before a vowel" column: it is always identical to the masculine column, because we always use the masculine form before a noun that starts with a vowel, even if the noun is feminine — to make pronunciation easier.</div>
-  </div>
-</div>
-<table class="ptable">
-  <tr><th>Sujet</th><th>Anglais</th><th>Masc. sing.</th><th>Fém. sing.</th><th>Devant voyelle</th><th>Pluriel</th></tr>
-  <tr><td class="pron">je</td><td>My</td><td><span class="adj">Mon</span> père</td><td><span class="adj">Ma</span> fille</td><td><span class="adj">Mon</span> <span class="rv">a</span>mie</td><td class="cell-plural"><span class="adj">Mes</span> sœurs</td></tr>
-  <tr><td class="pron">tu</td><td>Your</td><td><span class="adj">Ton</span> livre</td><td><span class="adj">Ta</span> voiture</td><td><span class="adj">Ton</span> <span class="rv">a</span>mie</td><td class="cell-plural"><span class="adj">Tes</span> voisins</td></tr>
-  <tr><td class="pron">il / elle</td><td>His / Her / Its</td><td><span class="adj">Son</span> chat</td><td><span class="adj">Sa</span> mère</td><td><span class="adj">Son</span> <span class="rv">a</span>mie</td><td class="cell-plural"><span class="adj">Ses</span> affaires</td></tr>
-  <tr><td class="pron">nous</td><td>Our</td><td class="cell-same"><span class="adj">Notre</span> père</td><td class="cell-same"><span class="adj">Notre</span> maison</td><td><span class="adj">Notre</span> <span class="rv">é</span>cole</td><td class="cell-plural"><span class="adj">Nos</span> enfants</td></tr>
-  <tr><td class="pron">vous</td><td>Your (formal or pl.)</td><td class="cell-same"><span class="adj">Votre</span> travail</td><td class="cell-same"><span class="adj">Votre</span> voiture</td><td><span class="adj">Votre</span> <span class="rv">é</span>cole</td><td class="cell-plural"><span class="adj">Vos</span> parents</td></tr>
-  <tr><td class="pron">ils / elles</td><td>Their</td><td class="cell-same"><span class="adj">Leur</span> chien</td><td class="cell-same"><span class="adj">Leur</span> fille</td><td><span class="adj">Leur</span> <span class="rv">a</span>mie</td><td class="cell-plural"><span class="adj">Leurs</span> parents</td></tr>
-</table>
-</div>
-</div><div class="slide" id="slide-3">
-<div class="slide-head"><div class="slide-num">Écran 3 / 7</div><div class="slide-title">Zoom sur je, tu, il / elle</div></div>
-<div class="slide-body">
-<div class="bi-row">
-  <div class="bi-box bi-fr">
-    <div class="bi-head">
-      <span class="bi-lbl">Français</span>
-      <button class="spk" onclick="A('audio/poss_singulier_fr.mp3')">&#128266; FR</button>
-    </div>
-    <div class="bi-body">Zoom sur je, tu, il et elle. Regarde toujours le <strong>nom</strong>, pas le sujet.<br>Exemple&nbsp;: <em>«&nbsp;Elle aime <strong>son</strong> chat.&nbsp;»</em> On dit «&nbsp;son&nbsp;» parce que le nom «&nbsp;chat&nbsp;» est masculin&nbsp;: «&nbsp;un chat&nbsp;», peu importe que le sujet «&nbsp;elle&nbsp;» soit féminin.<br>Autre exemple&nbsp;: <em>«&nbsp;Il cherche <strong>sa</strong> fille.&nbsp;»</em> «&nbsp;sa&nbsp;» parce que «&nbsp;fille&nbsp;» est féminin&nbsp;: «&nbsp;une fille&nbsp;», peu importe que le sujet «&nbsp;il&nbsp;» soit masculin.<br>Autre exemple&nbsp;: <em>«&nbsp;Elle a perdu <strong>son</strong> amie.&nbsp;»</em> «&nbsp;son&nbsp;» parce que «&nbsp;amie&nbsp;» commence par une voyelle, même si «&nbsp;amie&nbsp;» est féminin&nbsp;: «&nbsp;une amie&nbsp;»&nbsp;; son remplace sa uniquement pour faciliter la prononciation.</div>
-  </div>
-  <div class="bi-box bi-en">
-    <div class="bi-head">
-      <span class="bi-lbl">English</span>
-      </div>
-    <div class="bi-body bi-en-text">Zoom on je, tu, il and elle. Always look at the <em>noun</em>, not the subject.<br>Example: <em>"Elle aime <strong>son</strong> chat."</em> We say "son" because the noun "chat" is masculine ("un chat"), no matter that the subject "elle" is feminine.<br>Example: <em>"Il cherche <strong>sa</strong> fille."</em> "sa" because "fille" is feminine ("une fille"), no matter that the subject "il" is masculine.<br>Example: <em>"Elle a perdu <strong>son</strong> amie."</em> "son" because "amie" starts with a vowel, even though "amie" is feminine ("une amie"); son replaces sa only to make pronunciation easier.</div>
-  </div>
-</div>
-<table class="stable">
-  <tr><th></th><th>Mon / Ma / Mes</th><th>Ton / Ta / Tes</th><th>Son / Sa / Ses</th></tr>
-  <tr><td>Masc. : père</td><td><span class="adj">Mon</span> père</td><td><span class="adj">Ton</span> père</td><td><span class="adj">Son</span> père</td></tr>
-  <tr><td>Fém. : fille</td><td><span class="adj">Ma</span> fille</td><td><span class="adj">Ta</span> fille</td><td><span class="adj">Sa</span> fille</td></tr>
-  <tr><td>Voyelle : <span class="red-vowel">a</span>mie</td><td><span class="adj vow">Mon</span> amie</td><td><span class="adj vow">Ton</span> amie</td><td><span class="adj vow">Son</span> amie</td></tr>
-  <tr><td>Pluriel : frères</td><td><span class="adj">Mes</span> frères</td><td><span class="adj">Tes</span> frères</td><td><span class="adj">Ses</span> frères</td></tr>
-</table>
-<p class="tbl-note">&#128308; La ligne voyelle (mon / ton / son) est identique à la ligne masculine, puisque le nom <em>amie</em> qui est pourtant féminin commence par la voyelle <span class="red-vowel">a</span></p>
-</div>
-</div><div class="slide" id="slide-4">
-<div class="slide-head"><div class="slide-num">Écran 4 / 7</div><div class="slide-title">La règle de la voyelle</div></div>
-<div class="slide-body">
-<div class="bi-row">
-  <div class="bi-box bi-fr">
-    <div class="bi-head">
-      <span class="bi-lbl">Français</span>
-      <button class="spk" onclick="A('audio/poss_voyelle_fr.mp3')">&#128266; FR</button>
-    </div>
-    <div class="bi-body">La règle de la voyelle. Devant un nom féminin qui commence par une voyelle ou un <em>h</em> muet, on utilise <strong>mon, ton, son</strong>, la forme du masculin singulier. On n'utilise pas la forme du féminin singulier — ma, ta, sa — même si le nom est féminin, pour faciliter la prononciation.</div>
-  </div>
-  <div class="bi-box bi-en">
-    <div class="bi-head">
-      <span class="bi-lbl">English</span>
-      </div>
-    <div class="bi-body bi-en-text">The vowel rule. Before a feminine noun that starts with a vowel or a silent <em>h</em>, use <strong>mon, ton, son</strong> — the masculine singular form. Do not use the feminine singular form (ma, ta, sa), even if the noun is feminine — to make pronunciation easier.</div>
-  </div>
-</div>
-<p style="font-weight:700;margin:14px 0 8px;font-size:16px;">Exemples :</p>
-<div class="ex-row">
-  <div class="ex-pill ok"><button class="spk" onclick="A('audio/poss_ex_voyelle1_fr.mp3')">&#128266;</button><strong>mon amie</strong> &#9989;</div>
-  <div class="ex-pill bad">ma amie &#10060;</div>
-</div>
-<div class="ex-row">
-  <div class="ex-pill ok"><button class="spk" onclick="A('audio/poss_ex_voyelle2_fr.mp3')">&#128266;</button><strong>son école</strong> &#9989;</div>
-  <div class="ex-pill bad">sa école &#10060;</div>
-</div>
-<div class="highlight">
-  <div>&#128161; <strong>son</strong> amie peut signifier <em>his friend, her friend</em> ou <em>its friend</em> — c'est le nom <strong>amie</strong> qui décide la forme, pas le sujet.</div>
-  <div class="en"><em>son amie = his friend / her friend — the noun amie decides the form.</em></div>
-</div>
-</div>
-</div><div class="slide" id="slide-5">
-<div class="slide-head"><div class="slide-num">Écran 5 / 7</div><div class="slide-title">Rappel de la difficulté principale</div></div>
-<div class="slide-body">
-<div class="bi-row">
-  <div class="bi-box bi-fr">
-    <div class="bi-head">
-      <span class="bi-lbl">Français</span>
-      <button class="spk" onclick="A('audio/poss_difficulte_fr.mp3')">&#128266; FR</button>
-    </div>
-    <div class="bi-body">En français, c'est le genre du <strong>NOM</strong> — pas du sujet — qui détermine l'adjectif. <strong>Son, sa, ses</strong> peuvent signifier <em>his, her</em> ou <em>its</em> selon le contexte.</div>
-  </div>
-  <div class="bi-box bi-en">
-    <div class="bi-head">
-      <span class="bi-lbl">English</span>
-      </div>
-    <div class="bi-body bi-en-text">In French, it's the gender of the <strong>NOUN</strong> — not the subject — that determines the adjective. <em>Son, sa, ses</em> can each mean his, her, or its.</div>
-  </div>
-</div>
-<div class="spk-row" style="margin-top:14px;"><button class="spk" onclick="A('audio/poss_ex1_fr.mp3')">&#128266;</button><span><strong>son lit</strong> = his bed / her bed / its bed &nbsp;→&nbsp; <em>lit</em> est masculin → <strong>son</strong></span></div>
-<div class="spk-row"><button class="spk" onclick="A('audio/poss_ex2_fr.mp3')">&#128266;</button><span><strong>son père et sa mère</strong> → deux noms, deux adjectifs possessifs</span></div>
-<div class="highlight" style="margin-top:14px;">
-  <div>En anglais : <em>"She loves <strong>her</strong> cat."</em> → En français : <em>« Elle adore <strong>son</strong> chat. »</em></div>
-  <div class="en"><em>chat est masculin → son (même si le sujet est féminin !)</em></div>
-</div>
-</div>
-</div><div class="slide" id="slide-6">
-<div class="slide-head"><div class="slide-num">Écran 6 / 7</div><div class="slide-title">Notre, votre, leur — une règle simple</div></div>
-<div class="slide-body">
-<div class="bi-row">
-  <div class="bi-box bi-fr">
-    <div class="bi-head">
-      <span class="bi-lbl">Français</span>
-      <button class="spk" onclick="A('audio/poss_pluriel_fr.mp3')">&#128266; FR</button>
-    </div>
-    <div class="bi-body">En anglais, on dit <em>our, your</em> ou <em>their</em>. En français, chacun a une forme au singulier et une forme au pluriel. Le choix dépend du nom qui vient après.<br>Avec <strong>nous, vous</strong> et <strong>ils/elles</strong>, le masculin et le féminin utilisent la même forme devant un nom masculin ou féminin&nbsp;: notre père / notre mère&nbsp;; votre travail / votre voiture&nbsp;; leur fils / leur fille.<br>Pose-toi une seule question&nbsp;: le nom qui suit est-il singulier ou pluriel&nbsp;? <strong>Singulier</strong>&nbsp;: notre, votre, leur. <strong>Pluriel</strong>&nbsp;: nos, vos, leurs.<br>&#9888;&#65039; Attention&nbsp;: le <strong>s</strong> de <em>leurs</em> indique que le nom qui suit est pluriel, pas que les propriétaires sont plusieurs. <em>Their car</em> = leur voiture&nbsp;; <em>their cars</em> = leurs voitures.</div>
-  </div>
-  <div class="bi-box bi-en">
-    <div class="bi-head">
-      <span class="bi-lbl">English</span>
-      </div>
-    <div class="bi-body bi-en-text">In English you say <em>our, your</em> or <em>their</em>. In French, each one has a singular form and a plural form. The choice depends on the noun that comes after.<br>With <strong>nous, vous</strong> and <strong>ils/elles</strong>, masculine and feminine use the same form before a masculine or feminine noun: notre père / notre mère; votre travail / votre voiture; leur fils / leur fille.<br>Ask yourself one question: is the following noun singular or plural? <strong>Singular</strong>: notre, votre, leur. <strong>Plural</strong>: nos, vos, leurs.<br>&#9888;&#65039; Note: the <strong>s</strong> in <em>leurs</em> shows that the following noun is plural, not that there are several owners. Their car = leur voiture; their cars = leurs voitures.</div>
-  </div>
-</div>
-<table class="stable" style="margin-top:14px;"><tr><th>Possesseur(s)</th><th>Un nom possédé &#8594; singulier <span style="font-weight:normal">(masc. / fém.)</span></th><th>Plusieurs noms possédés &#8594; pluriel</th></tr><tr><td>Nous</td><td><span class="adj">notre</span> maison / <span class="adj">notre</span> père</td><td><span class="adj">nos</span> maisons / <span class="adj">nos</span> parents</td></tr><tr><td>Vous</td><td><span class="adj">votre</span> voiture / <span class="adj">votre</span> travail</td><td><span class="adj">vos</span> voitures / <span class="adj">vos</span> travaux</td></tr><tr><td>Il / Elle et Ils / Elles</td><td><span class="adj">leur</span> chat / <span class="adj">leur</span> fille</td><td><span class="adj">leurs</span> chiennes / <span class="adj">leurs</span> filles</td></tr></table>
-</div>
-</div><div class="slide" id="slide-7">
-<div class="slide-head"><div class="slide-num">Écran 7 / 7</div><div class="slide-title">&#128218; Mémo — carte-aide</div></div>
-<div class="slide-body">
 
-<div class="memo">
-  <div class="memo-head">
-    <div class="memo-rule">&#128204; Règle 1 — Regarde le NOM, pas le sujet !</div>
-    <div class="memo-btns">
-      <button class="spk" onclick="A('audio/poss_memo_r1_fr.mp3')">&#128266; FR</button>
+  <div class="slide" id="slide-2">
+    <div class="slide-head"><div class="slide-num">Screen 2 / 7</div><div class="slide-title">The big difference</div></div>
+    <div class="slide-body">
+      <div class="spk-row"><button class="spk" onclick="A('audio/pa_diff_en.mp3')">&#128266; Listen</button></div>
+      <div class="two">
+        <div class="col col-en"><h3>English &rarr; the owner</h3><p>Eric looks at <b>his</b> car.</p><p>Liz looks at <b>her</b> car.</p><p style="font-size:13px;color:var(--slate);">his / her because the owner is different.</p></div>
+        <div class="col col-fr"><h3>French &rarr; the noun</h3><p>Eric regarde <span class="fr">sa</span> voiture.</p><p>Liz regarde <span class="fr">sa</span> voiture.</p><p style="font-size:13px;color:var(--slate);">both <b>sa</b> &mdash; <i>voiture</i> is feminine. The owner doesn't matter.</p></div>
       </div>
+      <div class="take">In French, look at the NOUN, not the owner.</div>
+    </div>
   </div>
-  <div class="memo-sub">
-    <div>Mot <strong>masc-sing.</strong> → <span class="adj">mon / ton / son</span> &nbsp;ou&nbsp; mot <strong>fém-sing.</strong> → <span class="adj">ma / ta / sa</span></div>
-    <div>Mot <strong>masc-sing.</strong> et mot <strong>fém-sing.</strong> → <span class="adj">notre / votre / leur</span></div>
-    <div>Mots <strong>pl.</strong> → <span class="adj">mes / tes / ses / nos / vos / leurs</span></div>
-  </div>
-</div>
 
-<div class="memo">
-  <div class="memo-head">
-    <div class="memo-rule">&#128308; Règle 2 — Devant une voyelle : toujours mon / ton / son</div>
-    <div class="memo-btns">
-      <button class="spk" onclick="A('audio/poss_memo_r2_fr.mp3')">&#128266; FR</button>
+  <div class="slide" id="slide-3">
+    <div class="slide-head"><div class="slide-num">Screen 3 / 7</div><div class="slide-title">How to choose &mdash; 2 steps</div></div>
+    <div class="slide-body">
+      <div class="spk-row"><button class="spk" onclick="A('audio/pa_steps_en.mp3')">&#128266; Listen</button></div>
+      <div class="step"><div class="n">1</div><div><h3>Who owns it?</h3><p>Choose the owner's set: <span class="fr">je &rarr; mon / ma / mes</span> &middot; <span class="fr">tu &rarr; ton / ta / tes</span> &middot; <span class="fr">il / elle / on &rarr; son / sa / ses</span>.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h3>What is owned?</h3><p>Look at the <b>noun</b>: its <b>gender</b> (masculine or feminine), its <b>number</b> (singular or plural), and its <b>vowel sound</b>.</p></div></div>
+    </div>
+  </div>
+
+  <div class="slide" id="slide-4">
+    <div class="slide-head"><div class="slide-num">Screen 4 / 7</div><div class="slide-title">Singular owners: je &middot; tu &middot; il / elle / on</div></div>
+    <div class="slide-body">
+      <div class="spk-row"><button class="spk" onclick="A('audio/pa_singular_en.mp3')">&#128266; Listen</button></div>
+      <table class="ltab">
+        <tr><th>Look at the noun &darr;</th><th>I / je</th><th>you / tu</th><th>he,she,it / il,elle,on</th></tr>
+        <tr><td>Masculine singular &middot; <i>p&egrave;re</i></td><td><span class="adj">mon</span> p&egrave;re</td><td><span class="adj">ton</span> p&egrave;re</td><td><span class="adj">son</span> p&egrave;re</td></tr>
+        <tr><td>Feminine singular &middot; <i>fille</i></td><td><span class="adj">ma</span> fille</td><td><span class="adj">ta</span> fille</td><td><span class="adj">sa</span> fille</td></tr>
+        <tr><td>Feminine + vowel sound &middot; <i>amie</i></td><td><span class="adj">mon</span> amie</td><td><span class="adj">ton</span> amie</td><td><span class="adj">son</span> amie</td></tr>
+        <tr><td>Plural (masc. or fem.) &middot; <i>fr&egrave;res</i></td><td><span class="adj">mes</span> fr&egrave;res</td><td><span class="adj">tes</span> fr&egrave;res</td><td><span class="adj">ses</span> fr&egrave;res</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="slide" id="slide-5">
+    <div class="slide-head"><div class="slide-num">Screen 5 / 7</div><div class="slide-title">The vowel-sound rule</div></div>
+    <div class="slide-body">
+      <div class="spk-row"><button class="spk" onclick="A('audio/pa_vowel_en.mp3')">&#128266; Listen</button></div>
+      <div class="rule">Before a <b>vowel sound</b> or a <b>silent h</b>, use <b>mon, ton, son</b> &mdash; even with a feminine noun. The noun stays feminine.</div>
+      <div class="pair">
+        <div class="p p-cons"><div class="lab">FEM. + CONSONANT</div><div class="big">sa voiture</div><div style="font-size:12px;color:var(--slate);">voiture &rarr; <b style="color:var(--red);">sa</b></div></div>
+        <div class="p p-vow"><div class="lab">FEM. + VOWEL</div><div class="big">son amie</div><div style="font-size:12px;color:var(--slate);">amie &rarr; <b style="color:var(--green);">son</b></div></div>
       </div>
+      <table class="mini">
+        <tr style="font-size:11.5px;color:var(--slate);"><td></td><td>before consonant</td><td>before vowel</td></tr>
+        <tr><td>je</td><td class="c-cons">ma</td><td class="c-vow">mon</td></tr>
+        <tr><td>tu</td><td class="c-cons">ta</td><td class="c-vow">ton</td></tr>
+        <tr><td>il / elle / on</td><td class="c-cons">sa</td><td class="c-vow">son</td></tr>
+      </table>
+      <div style="margin-top:12px;font-size:14px;"><span style="color:var(--slate);">More examples:</span> <b>mon</b> amie &middot; <b>ton</b> amande &middot; <b>son</b> histoire</div>
+    </div>
   </div>
-  <div class="memo-sub">mon <span class="rv">a</span>mie &#9989; &nbsp;|&nbsp; son <span class="rv">é</span>cole &#9989; &nbsp;|&nbsp; même si le nom est féminin !</div>
-</div>
 
-<div class="memo">
-  <div class="memo-head">
-    <div class="memo-rule">&#128161; Règle 3 — son / sa / ses = his OR her OR its</div>
-    <div class="memo-btns">
-      <button class="spk" onclick="A('audio/poss_memo_r3_fr.mp3')">&#128266; FR</button>
+  <div class="slide" id="slide-6">
+    <div class="slide-head"><div class="slide-num">Screen 6 / 7</div><div class="slide-title">The full table &mdash; all owners</div></div>
+    <div class="slide-body">
+      <div class="spk-row"><button class="spk" onclick="A('audio/pa_table_en.mp3')">&#128266; Listen</button></div>
+      <table class="ltab" style="font-size:13.5px;">
+        <tr><th>Owner &rarr; English</th><th>Masc. sing.</th><th>Fem. sing.<br>+ consonant</th><th>Fem. sing.<br>+ vowel / silent h</th><th>Plural</th></tr>
+        <tr><td>je &rarr; my</td><td class="adj">mon</td><td class="adj">ma</td><td class="adj">mon</td><td class="adj">mes</td></tr>
+        <tr><td>tu &rarr; your <span style="font-size:11px;">(informal sing.)</span></td><td class="adj">ton</td><td class="adj">ta</td><td class="adj">ton</td><td class="adj">tes</td></tr>
+        <tr><td>il / elle / on &rarr; his / her / its</td><td class="adj">son</td><td class="adj">sa</td><td class="adj">son</td><td class="adj">ses</td></tr>
+        <tr><td>nous &rarr; our</td><td class="adj">notre</td><td class="adj">notre</td><td class="adj">notre</td><td class="adj">nos</td></tr>
+        <tr><td>vous &rarr; your <span style="font-size:11px;">(formal or pl.)</span></td><td class="adj">votre</td><td class="adj">votre</td><td class="adj">votre</td><td class="adj">vos</td></tr>
+        <tr><td>ils / elles &rarr; their</td><td class="adj">leur</td><td class="adj">leur</td><td class="adj">leur</td><td class="adj">leurs</td></tr>
+      </table>
+      <div class="note">For <b>notre, votre, leur</b>, the masculine and feminine singular are identical. The plural is the same for masculine and feminine nouns.</div>
+    </div>
+  </div>
+
+  <div class="slide" id="slide-7">
+    <div class="slide-head"><div class="slide-num">Screen 7 / 7</div><div class="slide-title">The noun decides: singular or plural</div></div>
+    <div class="slide-body">
+      <div class="spk-row"><button class="spk" onclick="A('audio/pa_plural_en.mp3')">&#128266; Listen</button></div>
+      <div class="pair">
+        <div class="p" style="background:#EAF1FB;"><div class="lab" style="color:var(--navy);">ONE CAR</div><div class="big">leur voiture</div><div style="font-size:12px;color:var(--slate);">their car</div></div>
+        <div class="p" style="background:#EAF1FB;"><div class="lab" style="color:var(--navy);">SEVERAL CARS</div><div class="big">leur<span style="color:var(--coral);">s</span> voitures</div><div style="font-size:12px;color:var(--slate);">their cars</div></div>
       </div>
+      <div class="rule">The <b>-s</b> of <b>leurs</b> shows that the <b>noun</b> is plural &mdash; not that there are several owners.</div>
+      <div class="memo">
+        <div class="m"><b>1.</b><span>Match the <b>noun</b>, not the owner.</span></div>
+        <div class="m"><b>2.</b><span>Before a <b>vowel sound</b> &rarr; mon / ton / son.</span></div>
+        <div class="m"><b>3.</b><span>The noun's <b>number</b> decides singular vs plural.</span></div>
+      </div>
+      <button class="done" onclick="if(window.LEM&&window.LEM.setLesson){window.LEM.setLesson('A1-L-004',{completed:true});}this.disabled=true;this.textContent='✅ Lesson finished';">✅ I finished the lesson</button>
+    </div>
   </div>
-  <div class="memo-sub">son chat = his cat / her cat / its cat → chat est masculin → son</div>
-</div>
 
-<table class="ptable" style="margin-top:16px;font-size:14px;">
-<tr><th>Sujet</th><th>Anglais</th><th>Masc.</th><th>Fém.</th><th>Voyelle</th><th>Pluriel</th></tr>
-<tr><td class="pron">je</td><td>My</td><td class="adj">mon</td><td class="adj">ma</td><td class="adj vow">mon</td><td class="cell-plural adj">mes</td></tr>
-<tr><td class="pron">tu</td><td>Your</td><td class="adj">ton</td><td class="adj">ta</td><td class="adj vow">ton</td><td class="cell-plural adj">tes</td></tr>
-<tr><td class="pron">il/elle</td><td>His/Her/Its</td><td class="adj">son</td><td class="adj">sa</td><td class="adj vow">son</td><td class="cell-plural adj">ses</td></tr>
-<tr><td class="pron">nous</td><td>Our</td><td class="cell-same adj" colspan="2">notre</td><td class="adj vow">notre</td><td class="cell-plural adj">nos</td></tr>
-<tr><td class="pron">vous</td><td>Your pl.</td><td class="cell-same adj" colspan="2">votre</td><td class="adj vow">votre</td><td class="cell-plural adj">vos</td></tr>
-<tr><td class="pron">ils/elles</td><td>Their</td><td class="cell-same adj" colspan="2">leur</td><td class="adj vow">leur</td><td class="cell-plural adj">leurs</td></tr>
-</table>
-
-<div style="text-align:center;margin-top:22px;">
-  <a href="exercice-1.html" style="display:inline-block;background:var(--coral);color:#fff;padding:14px 26px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;margin:6px;">&#9654; Exercice 1 — Correspondances EN&#8594;FR</a>
-  <a href="exercice-2.html" style="display:inline-block;background:var(--navy);color:#fff;padding:14px 26px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;margin:6px;">&#9654; Exercice 2 — Compléter les phrases</a><div style="margin-top:18px"><button onclick="if(window.LEM&&window.LEM.setLesson){window.LEM.setLesson('A1-L-004',{completed:true});}this.disabled=true;this.textContent='✅ Leçon terminée · Lesson finished';" style="width:100%;padding:16px;background:#1E7B45;color:#fff;border:none;border-radius:14px;font-size:17px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:58px">✅ J'ai terminé la leçon · I finished the lesson</button></div>
-</div>
-</div>
-</div>
   <div class="slide-nav">
-    <button class="nav-btn" id="prev-btn" onclick="prev()" disabled>&#8592; Précédent</button>
-    <span class="nav-counter" id="nav-counter">Écran 1 / 7</span>
-    <button class="nav-btn" id="next-btn" onclick="next()">Suivant &#8594;</button>
+    <button class="nav-btn" id="prev-btn" onclick="prev()">&#8249; Prev</button>
+    <button class="nav-btn" id="next-btn" onclick="next()">Next &#8250;</button>
   </div>
+  <div class="nav-counter" id="nav-counter">Screen 1 / 7</div>
 </div>
 <script>
 let _a=null,_as='';
@@ -315,15 +193,14 @@ function A(src){
   if(_as===src&&_a){_a.play();return;}
   _a=new Audio(src);_as=src;_a.play();
 }
-const TOTAL_SLIDES=7;
-let cur=1;
+const TOTAL_SLIDES=7;let cur=1;
 function showSlide(n){
   document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
   document.getElementById('slide-'+n).classList.add('active');
   cur=n;
   document.getElementById('prev-btn').disabled=n===1;
   document.getElementById('next-btn').disabled=n===TOTAL_SLIDES;
-  document.getElementById('nav-counter').textContent='Écran '+n+' / '+TOTAL_SLIDES;
+  document.getElementById('nav-counter').textContent='Screen '+n+' / '+TOTAL_SLIDES;
   document.getElementById('prog').style.width=Math.round((n/TOTAL_SLIDES)*100)+'%';
   if(_a&&!_a.paused){_a.pause();_a=null;_as='';}
 }

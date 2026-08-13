@@ -23,6 +23,7 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  "pa_intro_en.mp3", "pa_diff_en.mp3", "pa_steps_en.mp3", "pa_singular_en.mp3", "pa_vowel_en.mp3", "pa_table_en.mp3", "pa_plural_en.mp3",
                   
                   # B2-E-002 Mona — littéraux en attente
                   "mona_gram_en.mp3", "mona_p10_react_en.mp3", "mona_p11_react_en.mp3", "mona_p12_react_en.mp3", "mona_p1314_react_en.mp3", "mona_p9_react_en.mp3",
