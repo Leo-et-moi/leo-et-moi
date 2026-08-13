@@ -76,6 +76,7 @@ th.th-plural{background:#2f68a8;}
 .nav-btn:last-child{background:var(--coral);color:#fff;border-color:var(--coral);}
 .nav-btn:disabled{opacity:.4;cursor:default;}
 .nav-counter{text-align:center;font-size:13px;color:var(--slate);margin-top:8px;}
+.ftab{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0;}.ftab th{background:var(--navy);color:#fff;font-size:12px;font-weight:bold;padding:8px 5px;text-align:center;}.ftab th:first-child{text-align:left;border-radius:8px 0 0 0;}.ftab th.h-pl{background:#2E7D5B;border-radius:0 8px 0 0;}.ftab td{padding:10px 5px;text-align:center;border-bottom:1px solid #eee;font-weight:bold;color:var(--dark);}.ftab td:first-child{text-align:left;color:var(--slate);font-size:12.5px;font-weight:normal;}.ftab td.v{background:#FBEDE7;color:var(--coral);}.ftab td.same{background:#EAF1FB;color:var(--navy);}.ftab td.pl{background:#E7F4EC;color:#1E6B45;}
 </style>
 </head>
 <body data-item-id="A1-L-004" data-terminer="off">
@@ -145,16 +146,7 @@ th.th-plural{background:#2f68a8;}
     <div class="slide-head"><div class="slide-num">Screen 4 / 5</div><div class="slide-title">The full table &mdash; all owners</div></div>
     <div class="slide-body">
       <div class="spk-row"><button class="spk" onclick="A('audio/pa_table_en.mp3')">&#128266; Listen</button></div>
-      <table class="ltab" style="font-size:13.5px;">
-        <tr><th>Owner &rarr; English</th><th>Masc. sing.</th><th>Fem. sing.<br>+ consonant</th><th>Fem. sing.<br>+ vowel / silent h</th><th class="th-plural">Plural</th></tr>
-        <tr><td>je &rarr; my</td><td class="adj">mon</td><td class="adj">ma</td><td class="adj">mon</td><td class="adj hl-plural">mes</td></tr>
-        <tr><td>tu &rarr; your <span style="font-size:11px;">(informal sing.)</span></td><td class="adj">ton</td><td class="adj">ta</td><td class="adj">ton</td><td class="adj hl-plural">tes</td></tr>
-        <tr><td>il / elle / on &rarr; his / her / its</td><td class="adj">son</td><td class="adj">sa</td><td class="adj">son</td><td class="adj hl-plural">ses</td></tr>
-        <tr><td>nous &rarr; our</td><td class="adj hl-same">notre</td><td class="adj hl-same">notre</td><td class="adj hl-same">notre</td><td class="adj hl-plural">nos</td></tr>
-        <tr><td>vous &rarr; your <span style="font-size:11px;">(formal or pl.)</span></td><td class="adj hl-same">votre</td><td class="adj hl-same">votre</td><td class="adj hl-same">votre</td><td class="adj hl-plural">vos</td></tr>
-        <tr><td>ils / elles &rarr; their</td><td class="adj hl-same">leur</td><td class="adj hl-same">leur</td><td class="adj hl-same">leur</td><td class="adj hl-plural">leurs</td></tr>
-      </table>
-      <div class="legend"><span><span class="sw" style="background:#FBEFCF;"></span>notre / votre / leur: same in the singular</span><span><span class="sw" style="background:#DCEAFB;"></span>Plural: same for masc. &amp; fem.</span></div>
+      <table class="ftab"><tr><th>Owner &rarr; English</th><th>Masc. sing.</th><th>Fem. sing.<br>+ consonant</th><th>Fem. sing.<br>+ vowel / silent h</th><th class="h-pl">Plural</th></tr><tr><td>je &rarr; my</td><td>mon</td><td>ma</td><td class="v">mon</td><td class="pl">mes</td></tr><tr><td>tu &rarr; your <span style="font-size:11px;">(informal sing.)</span></td><td>ton</td><td>ta</td><td class="v">ton</td><td class="pl">tes</td></tr><tr><td>il / elle / on &rarr; his / her / its</td><td>son</td><td>sa</td><td class="v">son</td><td class="pl">ses</td></tr><tr><td>nous &rarr; our</td><td class="same" colspan="2">notre</td><td class="v">notre</td><td class="pl">nos</td></tr><tr><td>vous &rarr; your <span style="font-size:11px;">(formal or pl.)</span></td><td class="same" colspan="2">votre</td><td class="v">votre</td><td class="pl">vos</td></tr><tr><td>ils / elles &rarr; their</td><td class="same" colspan="2">leur</td><td class="v">leur</td><td class="pl">leurs</td></tr></table><div class="legend"><span><span class="sw" style="background:#EAF1FB;"></span>notre / votre / leur: same in the singular</span><span><span class="sw" style="background:#FBEDE7;"></span>before a vowel sound &rarr; mon / ton / son</span><span><span class="sw" style="background:#E7F4EC;"></span>Plural</span></div>
     </div>
   </div>
 
