@@ -583,7 +583,7 @@
    "id": "A1-E-012",
    "niveau": "A1",
    "ordre": 40,
-   "titre": "Exercices A1 — Adjectifs possessifs : correspondances EN→FR",
+   "titre": "Exercices A1 — Adjectifs possessifs : compléter les phrases",
    "chemin": "french/a1/adjectifs-possessifs/exercice-1.html",
    "lecons": [
     "A1-L-004"
@@ -601,14 +601,15 @@
    "id": "A1-E-013",
    "niveau": "A1",
    "ordre": 41,
-   "titre": "Exercices A1 — Adjectifs possessifs : compléter les phrases",
+   "titre": "Exercices A1 — Adjectifs possessifs : à l'oral (enregistrement)",
    "chemin": "french/a1/adjectifs-possessifs/exercice-2.html",
    "lecons": [
     "A1-L-004"
    ],
    "competences": [
-    "reading",
-    "listening"
+    "speaking",
+    "listening",
+    "reading"
    ],
    "progressId": "A1-E-013",
    "questions": null,
