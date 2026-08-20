@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leçon A2 — Les pronoms possessifs</title>
+<link rel="stylesheet" href="/css/site.css">
+<style>
+:root{--navy:#1B2845;--coral:#E8503A;--cream:#F5F0E8;--slate:#4A5568;--green:#1E7B45;--red:#C0392B;--dark:#2D3748;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--dark);font-size:18px;min-height:100vh;}
+.top-bar{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;position:sticky;top:0;z-index:100;}
+.site-name{color:#fff;font-size:20px;font-weight:700;text-decoration:none;}.site-name span{color:var(--coral);}
+.main{max-width:860px;margin:0 auto;padding:16px 16px 70px;}
+.back-link{display:inline-block;color:var(--navy);text-decoration:none;font-size:15px;margin-bottom:8px;}
+.lvl-tag{display:inline-block;background:#3151A6;color:#fff;font-size:13px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:16px;}
+.progress-bar{height:7px;background:#e5ded2;border-radius:6px;overflow:hidden;margin-bottom:16px;}
+.progress-fill{height:100%;background:var(--coral);transition:width .3s;}
+.slide{display:none;animation:fade .3s;}.slide.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slide-head{background:var(--navy);border-radius:12px 12px 0 0;padding:16px 22px 13px;}
+.slide-num{font-size:12px;color:rgba(255,255,255,.6);}
+.slide-title{color:#fff;font-size:22px;font-weight:700;margin-top:2px;}
+.slide-body{background:#fff;border-radius:0 0 12px 12px;padding:20px 22px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.spk{background:var(--coral);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:14px;font-weight:bold;cursor:pointer;white-space:nowrap;margin-left:6px;}
+.spk.en{background:var(--navy);}
+.spk-row{display:flex;justify-content:flex-end;gap:0;margin-bottom:12px;}
+.lead{font-size:16px;line-height:1.65;}
+.fr{color:var(--navy);font-weight:bold;}
+.divx{border:none;border-top:1px solid #eee;margin:18px 0;}
+.hero{background:var(--navy);border-radius:14px;padding:24px 22px;text-align:center;margin-bottom:16px;}
+.hero h1{color:#fff;font-size:27px;}.hero .sub{color:rgba(255,255,255,.8);font-style:italic;font-size:16px;margin-top:4px;}
+.chipset{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:16px;}
+.chip{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 13px;font-size:15px;font-weight:bold;}
+.two{display:flex;gap:12px;margin:4px 0 12px;flex-wrap:wrap;}
+.col{flex:1;min-width:150px;border-radius:10px;padding:14px;}
+.col-en{background:#EAF1FB;border-left:4px solid var(--navy);}
+.col-fr{background:#FFF3EF;border-left:4px solid var(--coral);}
+.col h3{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin-bottom:8px;}
+.col p{font-size:15px;line-height:1.6;margin:5px 0;}
+.take{background:#EAF3EE;border-left:4px solid var(--green);border-radius:8px;padding:12px 14px;font-size:15px;font-weight:bold;color:var(--dark);margin-top:12px;}
+.rule{background:#FFF8F5;border-left:4px solid var(--coral);border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.6;margin:6px 0;}
+.dlg{background:#faf8f4;border:1px solid #eee;border-radius:10px;padding:12px 14px;margin:10px 0;}
+.dlg .q{font-size:16px;line-height:1.6;}
+.dlg .en2{color:var(--slate);font-size:14px;font-style:italic;margin-top:3px;}
+.dlg .why{color:var(--green);font-size:14px;font-weight:bold;margin-top:5px;}
+.tag{display:inline-block;font-size:12px;font-weight:bold;padding:1px 7px;border-radius:10px;vertical-align:1px;}
+.t-ms{background:#E4EEFB;color:#12457F;}.t-fs{background:#F0E7FB;color:#6B3FA0;}
+.t-fv{background:#FBEBD6;color:#B5640A;}.t-pl{background:#E4F3EA;color:#1E7B45;}
+b.n-ms{color:#12457F;}b.n-fs{color:#6B3FA0;}b.n-fv{color:#B5640A;}b.n-pl{color:#1E7B45;}
+b.pro{color:var(--coral);}
+.qbox{display:flex;gap:12px;align-items:flex-start;margin:12px 0;}
+.qbox .n{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--coral);color:#fff;font-weight:bold;display:flex;align-items:center;justify-content:center;}
+.qbox h3{font-size:16px;margin-bottom:3px;}.qbox p{font-size:15px;line-height:1.55;}
+.ftab{width:100%;border-collapse:separate;border-spacing:0;margin:8px 0;font-size:14px;}
+.ftab th,.ftab td{padding:8px 6px;text-align:center;border-bottom:1px solid #eee;}
+.ftab th{background:var(--navy);color:#fff;font-size:12.5px;}
+.ftab th:first-child,.ftab td:first-child{text-align:left;color:var(--slate);font-size:13px;}
+.ftab .th-ms{background:#12457F;}.ftab .th-fs{background:#6B3FA0;}.ftab .th-pl{background:#1E7B45;}
+.ftab .c-ms{color:#12457F;font-weight:bold;}.ftab .c-fs{color:#6B3FA0;font-weight:bold;}.ftab .c-pl{color:#1E7B45;font-weight:bold;}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:var(--slate);}
+.legend .sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px;}
+.err{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0;}
+.err td{padding:9px 8px;border-bottom:1px solid #eee;}
+.err .bad{color:var(--red);text-decoration:line-through;}
+.err .good{color:var(--green);font-weight:bold;}
+.done{width:100%;padding:16px;margin-top:18px;background:var(--green);color:#fff;border:none;border-radius:14px;font-size:17px;font-weight:bold;font-family:Arial,sans-serif;cursor:pointer;min-height:58px;}
+.slide-nav{display:flex;justify-content:space-between;margin-top:18px;}
+.nav-btn{background:#fff;border:1px solid #cfd6e0;color:var(--slate);border-radius:10px;padding:11px 20px;font-size:15px;font-weight:bold;cursor:pointer;}
+.nav-btn:last-child{background:var(--coral);color:#fff;border-color:var(--coral);}
+.nav-btn:disabled{opacity:.4;cursor:default;}
+.nav-counter{text-align:center;font-size:13px;color:var(--slate);margin-top:8px;}
+.tree-fab{position:fixed;right:14px;bottom:16px;z-index:200;background:var(--green);color:#fff;border:none;border-radius:26px;padding:12px 18px;font-size:15px;font-weight:bold;box-shadow:0 3px 10px rgba(0,0,0,.25);cursor:pointer;}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;padding:16px;overflow:auto;}
+.modal.open{display:block;}
+.modal-card{background:#fff;max-width:900px;margin:20px auto;border-radius:14px;padding:16px;}
+.modal-card h2{color:var(--navy);font-size:19px;margin-bottom:4px;}
+.modal-close{float:right;background:var(--navy);color:#fff;border:none;border-radius:8px;padding:7px 13px;font-weight:bold;cursor:pointer;}
+.gen{margin:10px 0;}
+.gen-h{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--slate);margin:12px 0 6px;}
+.branch{display:flex;gap:10px;flex-wrap:wrap;}
+.pboxes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.pb{border-radius:8px;padding:7px 11px;color:#fff;font-size:13px;font-weight:bold;text-align:center;line-height:1.25;}
+.pb small{display:block;font-weight:normal;opacity:.9;font-size:11px;}
+.b-gp{background:#E8615A;}.b-un{background:#5B9C8B;}.b-pa{background:#3151A6;}
+.b-co{background:#E8883A;}.b-fi{background:#C85C93;}.b-gc{background:#B0432E;}
+.couple{display:flex;align-items:center;gap:5px;}
+</style>
+</head>
+<body data-item-id="A2-L-002" data-terminer="off">
+<div class="top-bar"><a class="site-name" href="/" >leo-et-<span>moi</span></a></div>
+<div class="main">
+<a class="back-link" href="/french/a2/index.html">&#8592; Niveau A2</a>
+<div class="lvl-tag">A2 &middot; Leçon</div>
+<div class="progress-bar"><div class="progress-fill" id="prog" style="width:12%"></div></div>
+<div class="slide" id="slide-1"><div class="slide-head"><div class="slide-num">Screen 1 / 8 &middot; Écran 1 / 8</div><div class="slide-title">La famille d’Henri et Marie</div></div><div class="slide-body"><div class="hero"><h1>Les pronoms possessifs</h1><div class="sub">Possessive pronouns: mine, yours, his, hers, ours, theirs</div><div class="chipset"><span class="chip">le mien</span><span class="chip">le tien</span><span class="chip">le sien</span><span class="chip">le nôtre</span><span class="chip">le vôtre</span><span class="chip">le leur</span></div></div><div class="spk-row"><button class="spk" onclick="A('audio/pp_s1_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_s1_en.mp3')">&#128266; EN</button></div><p class="lead">Voici la famille d’<b class="fr">Henri et Marie</b>. Henri dit : « Marc et Paul sont mes fils. »<br><span style="color:var(--slate);font-style:italic;font-size:14px">This is Henri and Marie’s family. Henri says: “Marc and Paul are my sons.”</span></p>
+<div class="gen"><div class="gen-h">Fondateurs</div>
+<div class="couple"><span class="pb b-gp">Henri<small>grand-père</small></span> &#10084; <span class="pb b-gp">Marie<small>grand-mère</small></span></div></div>
+<div class="gen"><div class="gen-h">Leurs deux fils et leurs épouses</div>
+<div class="branch">
+<div class="couple"><span class="pb b-un">Marc<small>oncle</small></span> &#10084; <span class="pb b-un">Amina<small>tante</small></span></div>
+<div class="couple"><span class="pb b-pa">Paul<small>père</small></span> &#10084; <span class="pb b-pa">Sophie<small>mère</small></span></div>
+</div></div>
+<div class="take">&#127795; Garde l’arbre à portée de main : le bouton « Voir l’arbre » (en bas à droite) l’ouvre à tout moment.</div></div></div>
+<div class="slide" id="slide-2"><div class="slide-head"><div class="slide-num">Screen 2 / 8 &middot; Écran 2 / 8</div><div class="slide-title">Adjectif ou pronom&nbsp;?</div></div><div class="slide-body"><div class="spk-row"><button class="spk" onclick="A('audio/pp_s2_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_s2_en.mp3')">&#128266; EN</button></div><div class="two"><div class="col col-fr"><h3>Adjectif possessif</h3><p>Il <b>accompagne</b> le nom.</p><p>C’est <b>mon</b> père.</p></div><div class="col col-en"><h3>Pronom possessif</h3><p>Il <b>remplace</b> tout le groupe.</p><p>C’est <b class="pro">le mien</b>.</p></div></div><table class="err"><tr><td>C’est <b class="n-ms">mon père</b>. <span class="tag t-ms">masc. sing.</span></td><td>&rarr;</td><td>C’est <b class="pro">le mien</b>.</td></tr><tr><td>C’est <b class="n-fs">ma mère</b>. <span class="tag t-fs">fém. sing.</span></td><td>&rarr;</td><td>C’est <b class="pro">la mienne</b>.</td></tr><tr><td>Ce sont <b class="n-pl">mes cousins</b>. <span class="tag t-pl">pluriel</span></td><td>&rarr;</td><td>Ce sont <b class="pro">les miens</b>.</td></tr><tr><td>Ce sont <b class="n-pl">mes cousines</b>. <span class="tag t-pl">pluriel</span></td><td>&rarr;</td><td>Ce sont <b class="pro">les miennes</b>.</td></tr></table><div class="take">L’adjectif va <b>avec</b> le nom ; le pronom <b>remplace</b> le nom. / A possessive pronoun replaces the whole noun phrase: <i>mine</i>.</div></div></div>
+<div class="slide" id="slide-3"><div class="slide-head"><div class="slide-num">Screen 3 / 8 &middot; Écran 3 / 8</div><div class="slide-title">La règle : le réflexe en 2 questions</div></div><div class="slide-body"><div class="spk-row"><button class="spk" onclick="A('audio/pp_s3_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_s3_en.mp3')">&#128266; EN</button></div><div class="rule"><b>La seule règle :</b> le pronom possessif s’accorde avec le <b>nom qu’il remplace</b>, et non avec la personne qui possède.<br><span style="color:var(--slate);font-style:italic;font-size:14px">The French possessive pronoun agrees with the noun it replaces, not with the owner’s gender.</span></div><div class="qbox"><div class="n">1</div><div><h3>Je remplace quel nom&nbsp;?</h3><p>Sa couleur me donne <b>l’article + la fin</b> :<br><span class="tag t-ms">masc. sing.</span> &rarr; <b>le</b> …-<b>en</b> &middot; <span class="tag t-fs">fém. sing.</span> &rarr; <b>la</b> …-<b>enne</b> &middot; masc. <span class="tag t-pl">pluriel</span> &rarr; <b>les</b> …-<b>ens</b> &middot; fém. <span class="tag t-pl">pluriel</span> &rarr; <b>les</b> …-<b>ennes</b></p></div></div><div class="qbox"><div class="n">2</div><div><h3>C’est à qui&nbsp;?</h3><p>Ça me donne le <b>début</b> du mot :<br>à moi &rarr; <b>mi-</b> &middot; à toi &rarr; <b>ti-</b> &middot; à lui/elle &rarr; <b>si-</b> &middot; à nous &rarr; <b>nôtre</b> &middot; à vous &rarr; <b>vôtre</b> &middot; à eux/elles &rarr; <b>leur</b></p></div></div><div class="take">L’article (le / la / les) suit le <b>NOM</b>. Le mot dit à <b>QUI</b>.</div><div class="dlg"><div class="q"><b>Exemple.</b> Lucas parle à Youssef : « Ton père s’appelle Marc ; <b class="pro">le mien</b> s’appelle Paul. »</div><div class="why">&#9312; je remplace <b class="n-ms">père</b> <span class="tag t-ms">masc. sing.</span> = le …-en &nbsp;&#9313; c’est à moi = mi- &nbsp;&rarr; <b class="pro">le mien</b>.</div></div></div></div>
+<div class="slide" id="slide-4"><div class="slide-head"><div class="slide-num">Screen 4 / 8 &middot; Écran 4 / 8</div><div class="slide-title">À moi : le mien / la mienne / les miens / les miennes</div></div><div class="slide-body"><div class="spk-row"><button class="spk" onclick="A('audio/pp_s4_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_s4_en.mp3')">&#128266; EN</button></div><div class="dlg"><div class="q">Youssef parle à Lucas : « Ton <b class="n-ms">père</b> s’appelle Paul ; <b class="pro">le mien</b> s’appelle Marc. »</div><div class="en2">Your father’s name is Paul; mine is Marc.</div><div class="why"><span class="tag t-ms">masc. sing.</span> &rarr; <b class="pro">le mien</b></div></div><div class="dlg"><div class="q">Fatou parle à Emma : « Ta <b class="n-fs">mère</b> s’appelle Sophie ; <b class="pro">la mienne</b> s’appelle Amina. »</div><div class="en2">Your mother’s name is Sophie; mine is Amina.</div><div class="why"><span class="tag t-fs">fém. sing.</span> &rarr; <b class="pro">la mienne</b></div></div><div class="dlg"><div class="q">Lucas parle à Youssef : « Ton <b class="n-fv">épouse</b> s’appelle Milena ; <b class="pro">la mienne</b> s’appelle Camila. »</div><div class="en2">Your wife’s name is Milena; mine is Camila.</div><div class="why">On dit <b>mon</b> épouse (voyelle), mais épouse reste <span class="tag t-fv">fém. + voyelle</span> &rarr; <b class="pro">la mienne</b>, pas le mien&nbsp;!</div></div><div class="dlg"><div class="q">Marc parle à Paul : « Tes <b class="n-pl">enfants</b> sont Lucas et Emma ; <b class="pro">les miens</b> sont Youssef et Fatou. »</div><div class="en2">Your children are Lucas and Emma; mine are Youssef and Fatou.</div><div class="why">« enfants » est <span class="tag t-pl">pluriel</span> (masc.) &rarr; <b class="pro">les miens</b></div></div></div></div>
+<div class="slide" id="slide-5"><div class="slide-head"><div class="slide-num">Screen 5 / 8 &middot; Écran 5 / 8</div><div class="slide-title">Le grand contraste : le sien = his ET hers</div></div><div class="slide-body"><div class="spk-row"><button class="spk" onclick="A('audio/pp_s5_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_s5_en.mp3')">&#128266; EN</button></div><p class="lead">C’est le point le plus important du cours. En anglais, on choisit <i>his</i> ou <i>hers</i> selon la personne. En français, on choisit selon le <b>nom remplacé</b>.</p><div class="dlg"><div class="q">Marc parle de <b>Sophie</b> : « Mon fils s’appelle Youssef ; <b class="pro">le sien</b> s’appelle Lucas. »</div><div class="en2">My son’s name is Youssef; hers is Lucas.</div><div class="why">Anglais : <b>hers</b> (Sophie est une femme). Français : <b class="pro">le sien</b>, car <b class="n-ms">fils</b> est <span class="tag t-ms">masc. sing.</span>.</div></div><div class="dlg"><div class="q">Amina parle de <b>Paul</b> : « Ma fille s’appelle Fatou ; <b class="pro">la sienne</b> s’appelle Emma. »</div><div class="en2">My daughter’s name is Fatou; his is Emma.</div><div class="why">Anglais : <b>his</b> (Paul est un homme). Français : <b class="pro">la sienne</b>, car <b class="n-fs">fille</b> est <span class="tag t-fs">fém. sing.</span>.</div></div><table class="ftab"><tr><th>Personne dont on parle</th><th>Nom remplacé</th><th>Français</th><th>Anglais</th></tr><tr><td>Sophie (une femme)</td><td>son fils</td><td class="c-ms">le sien</td><td>hers</td></tr><tr><td>Paul (un homme)</td><td>sa fille</td><td class="c-fs">la sienne</td><td>his</td></tr></table><div class="take">La forme française dépend du <b>NOM remplacé</b>, pas du genre du propriétaire.</div></div></div>
+<div class="slide" id="slide-6"><div class="slide-head"><div class="slide-num">Screen 6 / 8 &middot; Écran 6 / 8</div><div class="slide-title">À nous / à vous / à eux : le nôtre, le vôtre, le leur</div></div><div class="slide-body"><div class="spk-row"><button class="spk" onclick="A('audio/pp_s6_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_s6_en.mp3')">&#128266; EN</button></div><div class="dlg"><div class="q">Marc et Amina parlent à Paul et Sophie : « Nos <b class="n-pl">enfants</b> sont Youssef et Fatou ; <b class="pro">les vôtres</b> sont Lucas et Emma. »</div><div class="en2">Our children are Youssef and Fatou; yours are Lucas and Emma.</div><div class="why"><span class="tag t-pl">pluriel</span> &rarr; <b class="pro">les vôtres</b></div></div><div class="dlg"><div class="q">Paul et Sophie répondent : « Nos <b class="n-pl">petits-enfants</b> sont Mehdi et Chloé ; <b class="pro">les vôtres</b> sont Anatole et Eugénie. »</div><div class="en2">Our grandchildren are Mehdi and Chloé; yours are Anatole and Eugénie.</div><div class="why">On répond : « Anatole et Eugénie sont <b class="pro">les nôtres</b>. »</div></div><div class="dlg"><div class="q">Paul et Sophie parlent de Marc et Amina : « Notre fils s’appelle Lucas ; <b class="pro">le leur</b> s’appelle Youssef. »</div><div class="en2">Our son’s name is Lucas; theirs is Youssef.</div><div class="why">à eux &rarr; <b class="pro">le leur</b> ; au pluriel, <b class="pro">les leurs</b>.</div></div><div class="rule" style="border-color:var(--green);background:#F1F8F4"><b>&#128266; Écoute la différence</b> <button class="spk" onclick="A('audio/pp_s6b_fr.mp3')" style="background:var(--green)">&#128266; écouter</button><br><b>notre</b> fils (adjectif, <i>o</i> ouvert) &rarr; <b class="pro">le nôtre</b> (pronom, <i>ô</i> fermé, accent circonflexe).<br><b>votre</b> fille &rarr; <b class="pro">la vôtre</b>. Le mot bouge à peine : <b>c’est l’article qui travaille</b>.</div></div></div>
+<div class="slide" id="slide-7"><div class="slide-head"><div class="slide-num">Screen 7 / 8 &middot; Écran 7 / 8</div><div class="slide-title">Le tableau complet</div></div><div class="slide-body"><div class="spk-row"><button class="spk" onclick="A('audio/pp_s7_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_s7_en.mp3')">&#128266; EN</button></div><table class="ftab"><tr><th>Possesseur / Owner</th><th class="th-ms">Masc. sing.</th><th class="th-fs">Fém. sing.</th><th class="th-pl">Masc. plur.</th><th class="th-pl">Fém. plur.</th></tr><tr><td>à moi &middot; mine</td><td class="c-ms">le mien</td><td class="c-fs">la mienne</td><td class="c-pl">les miens</td><td class="c-pl">les miennes</td></tr><tr><td>à toi &middot; yours</td><td class="c-ms">le tien</td><td class="c-fs">la tienne</td><td class="c-pl">les tiens</td><td class="c-pl">les tiennes</td></tr><tr><td>à lui/elle &middot; his/hers</td><td class="c-ms">le sien</td><td class="c-fs">la sienne</td><td class="c-pl">les siens</td><td class="c-pl">les siennes</td></tr><tr><td>à nous &middot; ours</td><td class="c-ms">le nôtre</td><td class="c-fs">la nôtre</td><td class="c-pl">les nôtres</td><td class="c-pl">les nôtres</td></tr><tr><td>à vous &middot; yours</td><td class="c-ms">le vôtre</td><td class="c-fs">la vôtre</td><td class="c-pl">les vôtres</td><td class="c-pl">les vôtres</td></tr><tr><td>à eux/elles &middot; theirs</td><td class="c-ms">le leur</td><td class="c-fs">la leur</td><td class="c-pl">les leurs</td><td class="c-pl">les leurs</td></tr></table><div class="legend"><span><span class="sw" style="background:#E4EEFB"></span>masc. sing.</span><span><span class="sw" style="background:#F0E7FB"></span>fém. sing.</span><span><span class="sw" style="background:#E4F3EA"></span>pluriel</span></div><div class="take">À retenir : l’article <b>le / la / les</b> est obligatoire &middot; <b>nôtre</b> et <b>vôtre</b> prennent un accent circonflexe &middot; au pluriel, <b>leur</b> devient <b>leurs</b> : les leurs.</div></div></div>
+<div class="slide" id="slide-8"><div class="slide-head"><div class="slide-num">Screen 8 / 8 &middot; Écran 8 / 8</div><div class="slide-title">Les erreurs à éviter</div></div><div class="slide-body"><div class="spk-row"><button class="spk" onclick="A('audio/pp_s8_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_s8_en.mp3')">&#128266; EN</button></div><table class="err"><tr><td class="bad">mien père</td><td>&rarr;</td><td class="good">mon père</td><td style="color:var(--slate);font-size:13px">L’adjectif accompagne le nom.</td></tr><tr><td class="bad">la mien</td><td>&rarr;</td><td class="good">la mienne</td><td style="color:var(--slate);font-size:13px">Le féminin exige <b>-enne</b>.</td></tr><tr><td class="bad">les mien</td><td>&rarr;</td><td class="good">les miens</td><td style="color:var(--slate);font-size:13px">Le pluriel s’accorde.</td></tr><tr><td class="bad">mon épouse &rarr; le mien</td><td>&rarr;</td><td class="good">la mienne</td><td style="color:var(--slate);font-size:13px">Épouse reste féminin malgré « mon ».</td></tr><tr><td class="bad">le leur &rarr; le leurs</td><td>&rarr;</td><td class="good">les leurs</td><td style="color:var(--slate);font-size:13px">Au pluriel : les leurs.</td></tr></table><button class="done" onclick="if(window.LEM&&window.LEM.setLesson){window.LEM.setLesson('A2-L-002',{completed:true});}this.disabled=true;this.textContent='✅ Leçon terminée';">✅ J’ai fini la leçon / I finished the lesson</button><div style="margin-top:18px;border-top:1px solid #eee;padding-top:14px"><div style="font-weight:bold;color:var(--navy);margin-bottom:9px">À toi de pratiquer / Now practice&nbsp;:</div><span style="display:flex;align-items:center;gap:8px;background:var(--coral);color:#fff;padding:13px 16px;border-radius:12px;text-decoration:none;font-weight:bold;margin-bottom:9px;opacity:.5;cursor:default">&#9654; Exercice 1 &mdash; Reconnaître et choisir &middot; bient&ocirc;t</span><span style="display:flex;align-items:center;gap:8px;background:#3151A6;color:#fff;padding:13px 16px;border-radius:12px;text-decoration:none;font-weight:bold;margin-bottom:9px;opacity:.5;cursor:default">&#9654; Exercice 2 &mdash; Le grand contraste his / hers &middot; bient&ocirc;t</span><span style="display:flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:13px 16px;border-radius:12px;text-decoration:none;font-weight:bold;opacity:.5;cursor:default">&#9654; Exercice 3 &mdash; À l’oral (enregistre-toi) &middot; bient&ocirc;t</span></div></div></div>
+<div class="slide-nav"><button class="nav-btn" id="prev-btn" onclick="prev()">&#8249; Préc.</button><button class="nav-btn" id="next-btn" onclick="next()">Suivant &#8250;</button></div><div class="nav-counter" id="nav-counter">Screen 1 / 8</div>
+</div>
+
+<button class="tree-fab" onclick="document.getElementById('treeModal').classList.add('open')">&#127795; Voir l’arbre</button>
+<div class="modal" id="treeModal" onclick="if(event.target===this)this.classList.remove('open')">
+ <div class="modal-card">
+  <button class="modal-close" onclick="document.getElementById('treeModal').classList.remove('open')">&#10005; Fermer</button>
+  <h2>La Famille d’Henri et Marie</h2>
+  <div class="gen"><div class="gen-h">Fondateurs</div>
+   <div class="couple"><span class="pb b-gp">Henri<small>grand-père</small></span> &#10084; <span class="pb b-gp">Marie<small>grand-mère</small></span></div></div>
+  <div class="gen"><div class="gen-h">Génération 2 — leurs deux fils</div>
+   <div class="branch">
+    <div class="couple"><span class="pb b-un">Marc<small>oncle</small></span> &#10084; <span class="pb b-un">Amina<small>tante</small></span></div>
+    <div class="couple"><span class="pb b-pa">Paul<small>père</small></span> &#10084; <span class="pb b-pa">Sophie<small>mère</small></span></div>
+   </div></div>
+  <div class="gen"><div class="gen-h">Génération 3 — petits-enfants d’Henri &amp; Marie</div>
+   <div class="branch">
+    <div><div style="font-size:12px;color:#5B9C8B;font-weight:bold">enfants de Marc &amp; Amina</div>
+     <div class="couple"><span class="pb b-co">Youssef<small>cousin</small></span> &#10084; <span class="pb b-co">Milena</span></div>
+     <div class="couple" style="margin-top:5px"><span class="pb b-co">Fatou<small>cousine</small></span> &#10084; <span class="pb b-co">Mateo</span></div></div>
+    <div><div style="font-size:12px;color:#3151A6;font-weight:bold">enfants de Paul &amp; Sophie</div>
+     <div class="couple"><span class="pb b-fi">Lucas<small>fils</small></span> &#10084; <span class="pb b-fi">Camila</span></div>
+     <div class="couple" style="margin-top:5px"><span class="pb b-fi">Emma<small>fille</small></span> &#10084; <span class="pb b-fi">Tomasz</span></div></div>
+   </div></div>
+  <div class="gen"><div class="gen-h">Génération 4 — arrière-petits-enfants</div>
+   <div class="pboxes">
+    <span class="pb b-gc">Anatole<small>fils de Youssef</small></span>
+    <span class="pb b-gc">Eugénie<small>fille de Fatou</small></span>
+    <span class="pb b-gc">Mehdi<small>fils de Lucas</small></span>
+    <span class="pb b-gc">Chloé<small>fille d’Emma</small></span>
+   </div></div>
+ </div>
+</div>
+
+<script>
+let _a=null,_as='';
+function A(src){if(_as===src&&_a&&!_a.paused){_a.pause();return;}if(_a&&!_a.paused)_a.pause();if(_as===src&&_a){_a.play();return;}_a=new Audio(src);_as=src;_a.play().catch(function(){});}
+const TOTAL_SLIDES=8;let cur=1;
+function showSlide(n){document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));document.getElementById('slide-'+n).classList.add('active');cur=n;document.getElementById('prev-btn').disabled=n===1;document.getElementById('next-btn').disabled=n===TOTAL_SLIDES;document.getElementById('nav-counter').textContent='Screen '+n+' / '+TOTAL_SLIDES;document.getElementById('prog').style.width=Math.round((n/TOTAL_SLIDES)*100)+'%';if(_a&&!_a.paused){_a.pause();_a=null;_as='';}}
+function prev(){if(cur>1)showSlide(cur-1);}
+function next(){if(cur<TOTAL_SLIDES)showSlide(cur+1);}
+document.addEventListener('DOMContentLoaded',()=>showSlide(1));
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
+<script type="module" src="/js/imprimer.js"></script>
+
+</body>
+</html>

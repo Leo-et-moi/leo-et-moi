@@ -81,6 +81,16 @@
    "ajoute": "2026-07-13"
   },
   {
+   "id": "A2-L-002",
+   "niveau": "A2",
+   "ordre": 20,
+   "titre": "Les pronoms possessifs",
+   "chemin": "french/a2/pronoms-possessifs/index.html",
+   "exercices": [],
+   "publie": false,
+   "ajoute": "2026-08-19"
+  },
+  {
    "id": "A1-L-004",
    "niveau": "A1",
    "ordre": 40,
