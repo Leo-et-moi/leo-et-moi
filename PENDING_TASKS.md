@@ -110,5 +110,7 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 
 _(rien d'autre)_
 
-
-
+## 🔧 Pour Fable — cache HTML edge (Cloudflare/GitHub Pages)  [signalé par Opus 2026-08-22]
+Symptôme : les mises à jour de contenu (ex. A2-L-002 pronoms possessifs) n'apparaissent PAS pour l'utilisateur sur l'URL simple, même après Ctrl+Maj+R ; elles apparaissent uniquement en ajoutant un query string (`?v=N`). Donc l'HTML est mis en cache au niveau edge.
+Impact : TOUT déploiement de contenu Opus reste invisible jusqu'à purge → allers-retours inutiles avec Eric.
+Piste : Cloudflare → désactiver le cache HTML (ou Cache Rule bypass pour *.html), OU purge auto après déploiement, OU en-têtes Cache-Control adaptés côté pages. À traiter par Fable (infra hors périmètre Opus).
