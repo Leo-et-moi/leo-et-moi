@@ -23,8 +23,8 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
-                  # A2-L-002 pronoms possessifs — 17 audios en attente
-                  "pp_s1_fr.mp3", "pp_s1_en.mp3", "pp_s2_fr.mp3", "pp_s2_en.mp3", "pp_s3_fr.mp3", "pp_s3_en.mp3", "pp_s4_fr.mp3", "pp_s4_en.mp3", "pp_s5_fr.mp3", "pp_s5_en.mp3", "pp_s6_fr.mp3", "pp_s6_en.mp3", "pp_s7_fr.mp3", "pp_s7_en.mp3", "pp_s8_fr.mp3", "pp_s8_en.mp3", "pp_s6b_fr.mp3",
+                  # A2-L-002 pronoms possessifs v3 — 56 audios en attente
+                  "pp_d1_fr.mp3", "pp_d2_fr.mp3", "pp_d3_fr.mp3", "pp_d4_fr.mp3", "pp_d5_fr.mp3", "pp_row_moi_fr.mp3", "pp_row_toi_fr.mp3", "pp_row_lui_fr.mp3", "pp_row_nous_fr.mp3", "pp_row_vous_fr.mp3", "pp_row_eux_fr.mp3", "pp_arbre_fr.mp3", "pp_arbre_en.mp3", "pp_e2_adj_fr.mp3", "pp_e2_adj_en.mp3", "pp_e2_pro_fr.mp3", "pp_e2_pro_en.mp3", "pp_e3_title_fr.mp3", "pp_e3_title_en.mp3", "pp_e3_r1_fr.mp3", "pp_e3_r1_en.mp3", "pp_e3_r2_fr.mp3", "pp_e3_r2_en.mp3", "pp_e3_r3_fr.mp3", "pp_e3_r3_en.mp3", "pp_e3_d1_fr.mp3", "pp_e3_d1_en.mp3", "pp_e3_d2_fr.mp3", "pp_e3_d2_en.mp3", "pp_e3_d3_fr.mp3", "pp_e3_d3_en.mp3", "pp_e3_note_fr.mp3", "pp_dam_1_fr.mp3", "pp_dam_2_fr.mp3", "pp_dam_3_fr.mp3", "pp_dam_4_fr.mp3", "pp_dam_5_fr.mp3", "pp_dam_6_fr.mp3", "pp_dam_7_fr.mp3", "pp_dam_8_fr.mp3", "pp_dam_9_fr.mp3", "pp_dam_10_fr.mp3", "pp_hh_intro_fr.mp3", "pp_hh_intro_en.mp3", "pp_hh_1_fr.mp3", "pp_hh_1_en.mp3", "pp_hh_1b_fr.mp3", "pp_hh_1b_en.mp3", "pp_hh_2_fr.mp3", "pp_hh_2_en.mp3", "pp_hh_2b_fr.mp3", "pp_hh_2b_en.mp3", "pp_hh_end_fr.mp3", "pp_hh_end_en.mp3", "pp_tab_fr.mp3", "pp_tab_en.mp3",
                   "pa_e2_c_leur_en.mp3", "pa_e2_c_notre_en.mp3", "pa_e2_c_son_en.mp3", "pa_e2_c_ton_en.mp3", "pa_e2_c_votre_en.mp3", "pa_e2_model_en.mp3", 
                   
                   "pa_e1_check_en.mp3", "pa_e1_instr_en.mp3", 
