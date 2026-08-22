@@ -86,7 +86,9 @@
    "ordre": 20,
    "titre": "Les pronoms possessifs",
    "chemin": "french/a2/pronoms-possessifs/index.html",
-   "exercices": [],
+   "exercices": [
+    "A2-E-007"
+   ],
    "publie": false,
    "ajoute": "2026-08-19"
   },
@@ -496,6 +498,22 @@
    "questions": null,
    "publie": true,
    "groupe": "Nombres"
+  },
+  {
+   "id": "A2-E-007",
+   "niveau": "A2",
+   "ordre": 21,
+   "titre": "Exercices A2 — Pronoms possessifs : reconnaître et choisir",
+   "chemin": "french/a2/pronoms-possessifs/exercice-1.html",
+   "lecons": [
+    "A2-L-002"
+   ],
+   "competences": [
+    "reading",
+    "listening"
+   ],
+   "publie": false,
+   "ajoute": "2026-08-22"
   },
   {
    "id": "A2-E-005",
