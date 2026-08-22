@@ -23,6 +23,8 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
+                  "pp_x2_c_en.mp3",
+                  "pp_x2_c_fr.mp3",
                   "pp_x1_c1_fr.mp3", "pp_x1_c1_en.mp3", "pp_x1_c2_fr.mp3", "pp_x1_c2_en.mp3", "pp_x1_c3_fr.mp3", "pp_x1_c3_en.mp3", "pp_x1_c4_fr.mp3", "pp_x1_c4_en.mp3",
                   "pp_e1_consigne_fr.mp3", "pp_e1_consigne_en.mp3", "pp_e3_note_en.mp3",
                   "pp_e5_consigne_fr.mp3", "pp_e5_consigne_en.mp3",

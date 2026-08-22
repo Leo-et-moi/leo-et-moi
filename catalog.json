@@ -87,7 +87,8 @@
    "titre": "Les pronoms possessifs",
    "chemin": "french/a2/pronoms-possessifs/index.html",
    "exercices": [
-    "A2-E-007"
+    "A2-E-007",
+    "A2-E-008"
    ],
    "publie": false,
    "ajoute": "2026-08-19"
@@ -511,6 +512,21 @@
    "competences": [
     "reading",
     "listening"
+   ],
+   "publie": false,
+   "ajoute": "2026-08-22"
+  },
+  {
+   "id": "A2-E-008",
+   "niveau": "A2",
+   "ordre": 22,
+   "titre": "Exercices A2 — Pronoms possessifs : le contraste his / hers",
+   "chemin": "french/a2/pronoms-possessifs/exercice-2.html",
+   "lecons": [
+    "A2-L-002"
+   ],
+   "competences": [
+    "reading"
    ],
    "publie": false,
    "ajoute": "2026-08-22"
