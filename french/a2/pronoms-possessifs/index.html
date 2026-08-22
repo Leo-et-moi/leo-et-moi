@@ -95,12 +95,12 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--
 .tip-en{color:var(--slate);font-style:italic;font-size:13px;margin-top:4px;}
 .tip-spk{margin-top:8px;}
 .done{width:100%;padding:16px;margin-top:18px;background:var(--green);color:#fff;border:none;border-radius:14px;font-size:17px;font-weight:bold;font-family:Arial;cursor:pointer;min-height:58px;}
-.slide-nav{display:flex;justify-content:space-between;margin-top:18px;}
+.slide-nav{display:flex;justify-content:space-between;gap:12px;margin-top:22px;}
 .nav-btn{background:#fff;border:1px solid #cfd6e0;color:var(--slate);border-radius:10px;padding:11px 20px;font-size:15px;font-weight:bold;cursor:pointer;}
-.nav-btn:last-child{background:var(--coral);color:#fff;border-color:var(--coral);}
+.nav-btn:last-child{background:var(--coral);color:#fff;border-color:var(--coral);} .nav-btn{flex:1;max-width:48%;}
 .nav-btn:disabled{opacity:.4;cursor:default;}
 .nav-counter{text-align:center;font-size:13px;color:var(--slate);margin-top:8px;}
-.tree-fab{position:fixed;right:14px;bottom:16px;z-index:200;background:var(--green);color:#fff;border:none;border-radius:26px;padding:12px 18px;font-size:15px;font-weight:bold;box-shadow:0 3px 10px rgba(0,0,0,.25);cursor:pointer;}
+.tree-btn{background:var(--green);color:#fff;border:none;border-radius:20px;padding:7px 14px;font-size:14px;font-weight:bold;cursor:pointer;} .tree-fab{position:fixed;right:14px;bottom:16px;z-index:200;background:var(--green);color:#fff;border:none;border-radius:26px;padding:12px 18px;font-size:15px;font-weight:bold;box-shadow:0 3px 10px rgba(0,0,0,.25);cursor:pointer;}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;padding:16px;overflow:auto;}
 .modal.open{display:block;}
 .modal-card{background:#fff;max-width:900px;margin:20px auto;border-radius:14px;padding:16px;}
@@ -116,7 +116,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--
 </style>
 </head>
 <body data-item-id="A2-L-002" data-terminer="off">
-<div class="top-bar"><a class="site-name" href="/">leo-et-<span>moi</span></a></div>
+<div class="top-bar"><a class="site-name" href="/">leo-et-<span>moi</span></a><button class="tree-btn" onclick="document.getElementById('treeModal').classList.add('open')">&#127795; Voir l’arbre</button></div>
 <div class="main">
 <a class="back-link" href="/french/a2/index.html">&#8592; Niveau A2</a>
 <div class="lvl-tag">A2 &middot; Leçon</div>
@@ -129,7 +129,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--
 <div class="slide" id="slide-6"><div class="slide-head"><div class="slide-num">Écran 6 / 6</div><div class="slide-title">Le tableau complet</div></div><div class="slide-body"><div class="spk-row"><button class="spk" onclick="A('audio/pp_tab_fr.mp3')">&#128266; FR</button><button class="spk en" onclick="A('audio/pp_tab_en.mp3')">&#128266; EN</button></div><table class="ftab"><tr><th>Possesseur / Owner</th><th class="th-ms">Masc. sing.</th><th class="th-fs">Fém. sing.</th><th class="th-pl">Masc. plur.</th><th class="th-pl">Fém. plur.</th></tr><tr><td class="own">à moi &middot; mine</td><td class="c-ms">le mien</td><td class="c-fs">la mienne</td><td class="c-pl">les miens</td><td class="c-pl">les miennes</td></tr><tr><td class="own">à toi &middot; yours</td><td class="c-ms">le tien</td><td class="c-fs">la tienne</td><td class="c-pl">les tiens</td><td class="c-pl">les tiennes</td></tr><tr><td class="own">à lui/elle &middot; his/hers</td><td class="c-ms">le sien</td><td class="c-fs">la sienne</td><td class="c-pl">les siens</td><td class="c-pl">les siennes</td></tr><tr><td class="own">à nous &middot; ours</td><td class="c-ms">le nôtre</td><td class="c-fs">la nôtre</td><td class="c-pl">les nôtres</td><td class="c-pl">les nôtres</td></tr><tr><td class="own">à vous &middot; yours</td><td class="c-ms">le vôtre</td><td class="c-fs">la vôtre</td><td class="c-pl">les vôtres</td><td class="c-pl">les vôtres</td></tr><tr><td class="own">à eux/elles &middot; theirs</td><td class="c-ms">le leur</td><td class="c-fs">la leur</td><td class="c-pl">les leurs</td><td class="c-pl">les leurs</td></tr></table><div class="take">À retenir : l’article <b>le / la / les</b> est obligatoire &middot; <b>nôtre</b> et <b>vôtre</b> prennent un accent circonflexe &middot; au pluriel, <b>leur</b> devient <b>leurs</b> : les leurs.</div><button class="done" onclick="if(window.LEM&&window.LEM.setLesson){window.LEM.setLesson('A2-L-002',{completed:true});}this.disabled=true;this.textContent='✅ Leçon terminée';">✅ J’ai fini la leçon / I finished the lesson</button><div style="margin-top:18px;border-top:1px solid #eee;padding-top:14px"><div style="font-weight:bold;color:var(--navy);margin-bottom:9px">À toi de pratiquer / Now practice&nbsp;:</div><span style="display:flex;gap:8px;background:var(--coral);color:#fff;padding:13px 16px;border-radius:12px;font-weight:bold;margin-bottom:9px;opacity:.5">&#9654; Exercice 1 &mdash; Reconnaître et choisir &middot; bient&ocirc;t</span><span style="display:flex;gap:8px;background:#3151A6;color:#fff;padding:13px 16px;border-radius:12px;font-weight:bold;margin-bottom:9px;opacity:.5">&#9654; Exercice 2 &mdash; Le contraste his / hers &middot; bient&ocirc;t</span><span style="display:flex;gap:8px;background:var(--navy);color:#fff;padding:13px 16px;border-radius:12px;font-weight:bold;opacity:.5">&#9654; Exercice 3 &mdash; À l’oral &middot; bient&ocirc;t</span></div></div></div>
 <div class="slide-nav"><button class="nav-btn" id="prev-btn" onclick="prev()">&#8249; Préc.</button><button class="nav-btn" id="next-btn" onclick="next()">Suivant &#8250;</button></div><div class="nav-counter" id="nav-counter">Écran 1 / 6</div>
 </div>
-<button class="tree-fab" onclick="document.getElementById('treeModal').classList.add('open')">&#127795; Voir l’arbre</button>
+
 <div class="modal" id="treeModal" onclick="if(event.target===this)this.classList.remove('open')">
  <div class="modal-card">
   <button class="modal-close" onclick="document.getElementById('treeModal').classList.remove('open')">&#10005; Fermer</button>
