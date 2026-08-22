@@ -88,7 +88,8 @@
    "chemin": "french/a2/pronoms-possessifs/index.html",
    "exercices": [
     "A2-E-007",
-    "A2-E-008"
+    "A2-E-008",
+    "A2-E-009"
    ],
    "publie": false,
    "ajoute": "2026-08-19"
@@ -527,6 +528,23 @@
    ],
    "competences": [
     "reading"
+   ],
+   "publie": false,
+   "ajoute": "2026-08-22"
+  },
+  {
+   "id": "A2-E-009",
+   "niveau": "A2",
+   "ordre": 23,
+   "titre": "Exercices A2 — Pronoms possessifs à l’oral (enregistrement)",
+   "chemin": "french/a2/pronoms-possessifs/exercice-3.html",
+   "lecons": [
+    "A2-L-002"
+   ],
+   "competences": [
+    "speaking",
+    "reading",
+    "listening"
    ],
    "publie": false,
    "ajoute": "2026-08-22"
