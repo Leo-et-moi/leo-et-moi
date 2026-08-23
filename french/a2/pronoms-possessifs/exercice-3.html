@@ -94,7 +94,7 @@ function rec(id,btn){var st=REC[id];if(st&&st.mr&&st.mr.state==='recording'){st.
 navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){var mr=new MediaRecorder(stream);var ch=[];REC[id]={mr:mr};
 mr.ondataavailable=function(e){ch.push(e.data);};
 mr.onstop=function(){var b=new Blob(ch,{type:'audio/webm'});var u=URL.createObjectURL(b);
-document.getElementById('out'+id).innerHTML='<audio controls src="'+u+'"></audio><a class="dl" download="pronoms_'+id+'.webm" href="'+u+'">&#11015; Télécharger / Download</a>+'<div style="margin-top:8px"><button class="revbtn" onclick="reveal('+id+')">&#128065; Voir les réponses / Show answers</button></div>';
+document.getElementById('out'+id).innerHTML='<audio controls src="'+u+'"></audio><a class="dl" download="pronoms_'+id+'.webm" href="'+u+'">&#11015; Télécharger / Download</a>'+'<div style="margin-top:8px"><button class="revbtn" onclick="reveal('+id+')">&#128065; Voir les réponses / Show answers</button></div>';
 btn.textContent='⏺ Recommencer / Record again';btn.classList.remove('recording');stream.getTracks().forEach(t=>t.stop());
 if(window.LEM&&window.LEM.setLesson)window.LEM.setLesson('A2-E-009',{completed:true});};
 mr.start();btn.textContent='⏹ Arrêter / Stop';btn.classList.add('recording');
