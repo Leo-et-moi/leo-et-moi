@@ -23,7 +23,7 @@ COMPETENCES = {"listening", "reading", "writing", "speaking"}
 SYNTH_TOLERES = set()  # plus aucune : nettoyé le 10/07/2026
 # Audios pas encore enregistrés (cf. _SOURCES/.../NOUVEAUX_AUDIOS_A_ENREGISTRER.md)
 AUDIO_ATTENDUS = {
-                  "pp_x3_m1_fr.mp3", "pp_x3_model_fr.mp3", 
+                  
                   
                   # A2-L-002 pronoms possessifs v3 — 56 audios en attente
                   "pa_e2_c_leur_en.mp3", "pa_e2_c_notre_en.mp3", "pa_e2_c_son_en.mp3", "pa_e2_c_ton_en.mp3", "pa_e2_c_votre_en.mp3", "pa_e2_model_en.mp3", 
