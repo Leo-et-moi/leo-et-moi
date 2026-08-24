@@ -114,3 +114,14 @@ _(rien d'autre)_
 Symptôme : les mises à jour de contenu (ex. A2-L-002 pronoms possessifs) n'apparaissent PAS pour l'utilisateur sur l'URL simple, même après Ctrl+Maj+R ; elles apparaissent uniquement en ajoutant un query string (`?v=N`). Donc l'HTML est mis en cache au niveau edge.
 Impact : TOUT déploiement de contenu Opus reste invisible jusqu'à purge → allers-retours inutiles avec Eric.
 Piste : Cloudflare → désactiver le cache HTML (ou Cache Rule bypass pour *.html), OU purge auto après déploiement, OU en-têtes Cache-Control adaptés côté pages. À traiter par Fable (infra hors périmètre Opus).
+
+## 🔧 Pour Fable — harmonisation des boutons (site entier)  [signalé par Opus 2026-08-23]
+Demande d'Eric : définir/appliquer un **style de bouton global** cohérent sur l'ensemble du site.
+État : les pages récentes (série A2 pronoms possessifs A2-L-002 + A2-E-007/008/009) utilisent déjà le standard `.t-play` (rond FR), `.t-en` (pilule EN), `.opt`, `.tree-btn`, `.tab`, plus le `button{min-height:44px;min-width:44px;font-size:18px}` global — donc rien de bloquant. Ce qu'il reste à faire (périmètre Fable/gabarits) : arbitrer un standard visuel unique (tailles, couleurs, états focus/hover/actif, accessibilité) et le propager aux anciennes pages/gabarits. Contrainte à préserver : `.opt.ok`/`.opt.ng` en `!important` (corrige le bug rouge/vert quand `audio.js` pose `.speaking` corail via `window.event`).
+
+## 🔧 Pour Fable — gabaritiser les motifs interactifs de la série A2 possessifs  [signalé par Opus 2026-08-23]
+Trois motifs sont aujourd'hui en HTML « sur mesure » dans `french/a2/pronoms-possessifs/` et pourraient devenir des gabarits réutilisables si on multiplie ce type d'exercice :
+1. **Damier QCM** (leçon écran 5) : cartes `.dcard` + `dpick(b)` (remplit le blanc + joue `data-audio` de la bonne réponse). 
+2. **QCM « audio par bonne réponse »** (Ex1/Ex2) : `.qc` + `pick(b)` (vert/rouge, score, joue `data-audio` sur bonne réponse ; mutualisation des audios identiques via un fichier canonique).
+3. **Enregistreur oral** (Ex3) : `.readbox` à trous (`.hole`/`data-ans`) + `rec()` MediaRecorder local + `reveal()` (réponses révélées en rouge après enregistrement) — 100 % local, rien n'est envoyé.
+Non bloquant (ça marche en l'état) ; à évaluer par Fable côté `_TEMPLATES/` si réutilisation fréquente. Ne pas casser : ces pages référencent 182 audios `pp_*` 1-pour-1 (ne pas renommer un MP3 en ligne, remplacer même nom + `?v=N`).
