@@ -1,752 +1,752 @@
 {
- "version": 2,
- "misAJour": "2026-07-27",
- "audioBase": "",
- "lecons": [
-  {
-   "id": "A1-L-000",
-   "niveau": "A1",
-   "ordre": 5,
-   "titre": "L'alphabet et la prononciation",
-   "chemin": "french/a1/00-alphabet/index.html",
-   "exercices": [
-    "A1-E-010",
-    "A1-E-011",
-    "A1-E-007",
-    "A1-E-009"
-   ],
-   "publie": true,
-   "ajoute": "2026-08-05"
-  },
-  {
-   "id": "A1-L-001",
-   "niveau": "A1",
-   "ordre": 10,
-   "titre": "Le verbe être",
-   "chemin": "french/a1/01-etre/index.html",
-   "exercices": [
-    "A1-E-001"
-   ],
-   "publie": true
-  },
-  {
-   "id": "A1-L-002",
-   "niveau": "A1",
-   "ordre": 20,
-   "titre": "Le verbe avoir",
-   "chemin": "french/a1/02-avoir/index.html",
-   "exercices": [
-    "A1-E-002"
-   ],
-   "publie": true
-  },
-  {
-   "id": "A1-L-003",
-   "niveau": "A1",
-   "ordre": 30,
-   "titre": "Les nombres",
-   "chemin": "french/a1/les-nombres/index.html",
-   "exercices": [
-    "A1-E-003",
-    "A1-E-004",
-    "A2-E-001",
-    "A1-E-008",
-    "A2-E-005",
-    "A2-E-006"
-   ],
-   "publie": true
-  },
-  {
-   "id": "B1-L-001",
-   "niveau": "B1",
-   "ordre": 10,
-   "titre": "Les adjectifs et pronoms interrogatifs",
-   "chemin": "french/b1/interrogatifs/index.html",
-   "exercices": [
-    "B1-E-001",
-    "B2-E-001"
-   ],
-   "publie": true
-  },
-  {
-   "id": "A2-L-001",
-   "niveau": "A2",
-   "ordre": 10,
-   "titre": "L'impératif — donner des instructions",
-   "chemin": "french/a2/A2-L-001-imperatif/index.html",
-   "exercices": [
-    "A2-E-004"
-   ],
-   "publie": true,
-   "ajoute": "2026-07-13"
-  },
-  {
-   "id": "A2-L-002",
-   "niveau": "A2",
-   "ordre": 20,
-   "titre": "Les pronoms possessifs",
-   "chemin": "french/a2/pronoms-possessifs/index.html",
-   "exercices": [
-    "A2-E-007",
-    "A2-E-008",
-    "A2-E-009"
-   ],
-   "publie": false,
-   "ajoute": "2026-08-19"
-  },
-  {
-   "id": "A1-L-004",
-   "niveau": "A1",
-   "ordre": 40,
-   "titre": "Les adjectifs possessifs",
-   "chemin": "french/a1/adjectifs-possessifs/index.html",
-   "exercices": [
-    "A1-E-012",
-    "A1-E-013"
-   ],
-   "publie": true,
-   "ajoute": "2026-08-07"
+  "version": 2,
+  "misAJour": "2026-07-27",
+  "audioBase": "",
+  "lecons": [
+    {
+      "id": "A1-L-000",
+      "niveau": "A1",
+      "ordre": 5,
+      "titre": "L'alphabet et la prononciation",
+      "chemin": "french/a1/00-alphabet/index.html",
+      "exercices": [
+        "A1-E-010",
+        "A1-E-011",
+        "A1-E-007",
+        "A1-E-009"
+      ],
+      "publie": true,
+      "ajoute": "2026-08-05"
+    },
+    {
+      "id": "A1-L-001",
+      "niveau": "A1",
+      "ordre": 10,
+      "titre": "Le verbe être",
+      "chemin": "french/a1/01-etre/index.html",
+      "exercices": [
+        "A1-E-001"
+      ],
+      "publie": true
+    },
+    {
+      "id": "A1-L-002",
+      "niveau": "A1",
+      "ordre": 20,
+      "titre": "Le verbe avoir",
+      "chemin": "french/a1/02-avoir/index.html",
+      "exercices": [
+        "A1-E-002"
+      ],
+      "publie": true
+    },
+    {
+      "id": "A1-L-003",
+      "niveau": "A1",
+      "ordre": 30,
+      "titre": "Les nombres",
+      "chemin": "french/a1/les-nombres/index.html",
+      "exercices": [
+        "A1-E-003",
+        "A1-E-004",
+        "A2-E-001",
+        "A1-E-008",
+        "A2-E-005",
+        "A2-E-006"
+      ],
+      "publie": true
+    },
+    {
+      "id": "B1-L-001",
+      "niveau": "B1",
+      "ordre": 10,
+      "titre": "Les adjectifs et pronoms interrogatifs",
+      "chemin": "french/b1/interrogatifs/index.html",
+      "exercices": [
+        "B1-E-001",
+        "B2-E-001"
+      ],
+      "publie": true
+    },
+    {
+      "id": "A2-L-001",
+      "niveau": "A2",
+      "ordre": 10,
+      "titre": "L'impératif — donner des instructions",
+      "chemin": "french/a2/A2-L-001-imperatif/index.html",
+      "exercices": [
+        "A2-E-004"
+      ],
+      "publie": true,
+      "ajoute": "2026-07-13"
+    },
+    {
+      "id": "A2-L-002",
+      "niveau": "A2",
+      "ordre": 20,
+      "titre": "Les pronoms possessifs",
+      "chemin": "french/a2/pronoms-possessifs/index.html",
+      "exercices": [
+        "A2-E-007",
+        "A2-E-008",
+        "A2-E-009"
+      ],
+      "publie": true,
+      "ajoute": "2026-08-19"
+    },
+    {
+      "id": "A1-L-004",
+      "niveau": "A1",
+      "ordre": 40,
+      "titre": "Les adjectifs possessifs",
+      "chemin": "french/a1/adjectifs-possessifs/index.html",
+      "exercices": [
+        "A1-E-012",
+        "A1-E-013"
+      ],
+      "publie": true,
+      "ajoute": "2026-08-07"
+    }
+  ],
+  "exercices": [
+    {
+      "id": "A1-E-001",
+      "niveau": "A1",
+      "ordre": 10,
+      "titre": "Exercices — Le verbe être",
+      "chemin": "french/a1/01-etre/exercices.html",
+      "lecons": [
+        "A1-L-001"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": "french/a1/01-etre/questions.json",
+      "publie": true,
+      "progressId": "etre"
+    },
+    {
+      "id": "A1-E-002",
+      "niveau": "A1",
+      "ordre": 20,
+      "titre": "Exercices — Le verbe avoir",
+      "chemin": "french/a1/02-avoir/exercices.html",
+      "lecons": [
+        "A1-L-002"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": "french/a1/02-avoir/questions.json",
+      "publie": true,
+      "progressId": "avoir"
+    },
+    {
+      "id": "A1-E-003",
+      "niveau": "A1",
+      "ordre": 30,
+      "titre": "Exercices — Les nombres",
+      "chemin": "french/a1/les-nombres/exercices.html",
+      "lecons": [
+        "A1-L-003"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": "french/a1/les-nombres/questions.json",
+      "publie": true,
+      "progressId": "a1_les_nombres"
+    },
+    {
+      "id": "A1-E-004",
+      "niveau": "A1",
+      "ordre": 40,
+      "titre": "Le jeu des plaques",
+      "chemin": "french/a1/les-nombres/plaques.html",
+      "lecons": [
+        "A1-L-003"
+      ],
+      "competences": [
+        "listening"
+      ],
+      "questions": null,
+      "publie": true,
+      "progressId": null
+    },
+    {
+      "id": "A2-E-001",
+      "niveau": "A2",
+      "ordre": 10,
+      "titre": "Quiz — Les nombres",
+      "chemin": "french/a2/les-nombres/exercices.html",
+      "lecons": [
+        "A1-L-003"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": "french/a2/les-nombres/questions.json",
+      "publie": true,
+      "progressId": "a2_nombres_quiz",
+      "groupe": "Nombres"
+    },
+    {
+      "id": "A2-E-002",
+      "niveau": "A2",
+      "ordre": 20,
+      "titre": "Lire une invitation",
+      "chemin": "french/a2/lire-invitation/index.html",
+      "lecons": [],
+      "competences": [
+        "reading",
+        "listening"
+      ],
+      "questions": null,
+      "publie": true,
+      "progressId": "a2_lire_invitation",
+      "groupe": "Les invitations"
+    },
+    {
+      "id": "A2-E-003",
+      "niveau": "A2",
+      "ordre": 30,
+      "titre": "Exercices d'écoute — Les invitations",
+      "chemin": "french/a2/ecoute-invitations/index.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "writing"
+      ],
+      "questions": null,
+      "publie": true,
+      "progressId": "a2_ecoute_invitations",
+      "groupe": "Les invitations"
+    },
+    {
+      "id": "B1-E-001",
+      "niveau": "B1",
+      "ordre": 10,
+      "titre": "Exercices — Les interrogatifs",
+      "chemin": "french/b1/interrogatifs/exercices-b1.html",
+      "lecons": [
+        "B1-L-001"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": "french/b1/interrogatifs/questions.json",
+      "publie": true,
+      "progressId": "b1_interrogatifs"
+    },
+    {
+      "id": "B1-E-002",
+      "niveau": "B1",
+      "ordre": 20,
+      "titre": "Lire un faire-part",
+      "chemin": "french/b1/lire-faire-part/index.html",
+      "lecons": [],
+      "competences": [
+        "reading",
+        "writing",
+        "listening"
+      ],
+      "questions": null,
+      "publie": true,
+      "progressId": "b1_lire_faire_part"
+    },
+    {
+      "id": "B1-E-003",
+      "niveau": "B1",
+      "ordre": 30,
+      "titre": "Lecture — Les Alcooliques Anonymes (Joseph Kessel)",
+      "chemin": "french/b1/B1-E-003-lecture-kessel/exercices.html",
+      "lecons": [],
+      "competences": [
+        "reading",
+        "listening",
+        "writing",
+        "speaking"
+      ],
+      "progressId": "B1-E-003",
+      "questions": "french/b1/B1-E-003-lecture-kessel/questions.json",
+      "publie": true,
+      "ajoute": "2026-07-20",
+      "serie": "Farandole",
+      "serieOrdre": 10
+    },
+    {
+      "id": "B2-E-001",
+      "niveau": "B2",
+      "ordre": 10,
+      "titre": "Exercices — Les interrogatifs (B2)",
+      "chemin": "french/b2/interrogatifs/index.html",
+      "lecons": [
+        "B1-L-001"
+      ],
+      "competences": [
+        "reading",
+        "writing",
+        "listening"
+      ],
+      "questions": "french/b2/interrogatifs/questions.json",
+      "publie": true,
+      "progressId": "b2_interrogatifs"
+    },
+    {
+      "id": "C1-E-001",
+      "niveau": "C1",
+      "ordre": 10,
+      "titre": "Francine Gosselin — Écoute",
+      "chemin": "french/c1/francine-gosselin/index.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": null,
+      "publie": true,
+      "progressId": "c1_francine_gosselin",
+      "serie": "Fada",
+      "serieOrdre": 10
+    },
+    {
+      "id": "C1-E-002",
+      "niveau": "C1",
+      "ordre": 20,
+      "titre": "Francis Tanguay — Écoute",
+      "chemin": "french/c1/francis-tanguay/index.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": null,
+      "publie": true,
+      "progressId": "c1_francis_tanguay",
+      "ajoute": "2026-07-21",
+      "serie": "Fada",
+      "serieOrdre": 20
+    },
+    {
+      "id": "A2-E-004",
+      "niveau": "A2",
+      "ordre": 40,
+      "titre": "Exercices — L'impératif",
+      "chemin": "french/a2/A2-E-004-imperatif/exercices.html",
+      "lecons": [
+        "A2-L-001"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "progressId": "A2-E-004",
+      "questions": "french/a2/A2-E-004-imperatif/questions.json",
+      "publie": true,
+      "ajoute": "2026-07-13"
+    },
+    {
+      "id": "A1-E-005",
+      "niveau": "A1",
+      "ordre": 50,
+      "titre": "Dialogue — Réagir et relancer",
+      "chemin": "french/a1/A1-E-005-dialogue-reagir/exercices.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "reading",
+        "writing"
+      ],
+      "progressId": "A1-E-005",
+      "questions": null,
+      "publie": true,
+      "serie": "Dialogue",
+      "serieOrdre": 10,
+      "ajoute": "2026-07-14"
+    },
+    {
+      "id": "A1-E-006",
+      "niveau": "A1",
+      "ordre": 60,
+      "titre": "Discussion au passé composé",
+      "chemin": "french/a1/A1-E-006-discussion-passe-compose/exercices.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "reading",
+        "writing"
+      ],
+      "progressId": "A1-E-006",
+      "questions": null,
+      "publie": true,
+      "ajoute": "2026-07-20"
+    },
+    {
+      "id": "A1-E-007",
+      "niveau": "A1",
+      "ordre": 70,
+      "titre": "La Ratatouille Folle — Ch.1 : La Préparation · p. 3",
+      "chemin": "french/a1/A1-E-007-ratatouille/index.html",
+      "lecons": [
+        "A1-L-000"
+      ],
+      "competences": [
+        "reading",
+        "listening",
+        "speaking"
+      ],
+      "progressId": "A1-E-007",
+      "questions": null,
+      "publie": true,
+      "serie": "Prononciation",
+      "serieOrdre": 10,
+      "ajoute": "2026-07-25"
+    },
+    {
+      "id": "A1-E-009",
+      "niveau": "A1",
+      "ordre": 80,
+      "titre": "La Ratatouille Folle — Ch.1 : La Préparation · p. 4",
+      "chemin": "french/a1/A1-E-009-ratatouille-ch1-p4/index.html",
+      "lecons": [
+        "A1-L-000"
+      ],
+      "competences": [
+        "reading",
+        "listening",
+        "speaking"
+      ],
+      "progressId": "A1-E-009",
+      "questions": null,
+      "publie": true,
+      "serie": "Prononciation",
+      "serieOrdre": 20,
+      "ajoute": "2026-07-26"
+    },
+    {
+      "id": "B1-E-004",
+      "niveau": "B2",
+      "ordre": 20,
+      "titre": "Expression orale — Elle et Lui : 3. Panne de télé par Jean-Pierre Martinez (2023)",
+      "chemin": "french/b1/B1-E-004-panne-de-tele/index.html",
+      "lecons": [],
+      "competences": [
+        "speaking",
+        "reading",
+        "listening"
+      ],
+      "progressId": "B1-E-004",
+      "questions": null,
+      "publie": true,
+      "serie": "Theatre",
+      "serieOrdre": 10,
+      "ajoute": "2026-07-24"
+    },
+    {
+      "id": "B1-E-005",
+      "niveau": "B2",
+      "ordre": 30,
+      "titre": "Expression orale — Elle et Lui : 4. Quarantaine par Jean-Pierre Martinez (2023)",
+      "chemin": "french/b1/B1-E-005-quarantaine/index.html",
+      "lecons": [],
+      "competences": [
+        "speaking",
+        "reading",
+        "listening"
+      ],
+      "progressId": "B1-E-005",
+      "questions": null,
+      "publie": true,
+      "serie": "Theatre",
+      "serieOrdre": 20,
+      "ajoute": "2026-07-24"
+    },
+    {
+      "id": "A1-E-008",
+      "niveau": "A1",
+      "ordre": 45,
+      "titre": "Exercices — Les centaines (100–999)",
+      "chemin": "french/a1/les-nombres/centaines.html",
+      "lecons": [
+        "A1-L-003"
+      ],
+      "competences": [
+        "listening",
+        "speaking"
+      ],
+      "progressId": "A1-E-008",
+      "questions": null,
+      "publie": true
+    },
+    {
+      "id": "A2-E-006",
+      "niveau": "A2",
+      "ordre": 12,
+      "titre": "Jeu des plaques — Les centaines (100–999)",
+      "chemin": "french/a2/les-nombres/plaques.html",
+      "lecons": [
+        "A1-L-003"
+      ],
+      "competences": [
+        "listening",
+        "speaking"
+      ],
+      "progressId": "A2-E-006",
+      "questions": null,
+      "publie": true,
+      "groupe": "Nombres"
+    },
+    {
+      "id": "A2-E-007",
+      "niveau": "A2",
+      "ordre": 21,
+      "titre": "Exercices A2 — Pronoms possessifs : reconnaître et choisir",
+      "chemin": "french/a2/pronoms-possessifs/exercice-1.html",
+      "lecons": [
+        "A2-L-002"
+      ],
+      "competences": [
+        "reading",
+        "listening"
+      ],
+      "publie": true,
+      "ajoute": "2026-08-22"
+    },
+    {
+      "id": "A2-E-008",
+      "niveau": "A2",
+      "ordre": 22,
+      "titre": "Exercices A2 — Pronoms possessifs : le contraste his / hers",
+      "chemin": "french/a2/pronoms-possessifs/exercice-2.html",
+      "lecons": [
+        "A2-L-002"
+      ],
+      "competences": [
+        "reading"
+      ],
+      "publie": true,
+      "ajoute": "2026-08-22"
+    },
+    {
+      "id": "A2-E-009",
+      "niveau": "A2",
+      "ordre": 23,
+      "titre": "Exercices A2 — Pronoms possessifs à l’oral (enregistrement)",
+      "chemin": "french/a2/pronoms-possessifs/exercice-3.html",
+      "lecons": [
+        "A2-L-002"
+      ],
+      "competences": [
+        "speaking",
+        "reading",
+        "listening"
+      ],
+      "publie": true,
+      "ajoute": "2026-08-22"
+    },
+    {
+      "id": "A2-E-005",
+      "niveau": "A2",
+      "ordre": 15,
+      "titre": "Quiz — Les centaines (100–999)",
+      "chemin": "french/a2/les-nombres/quiz-centaines.html",
+      "lecons": [
+        "A1-L-003"
+      ],
+      "competences": [
+        "listening",
+        "speaking"
+      ],
+      "progressId": "A2-E-005",
+      "questions": null,
+      "publie": true,
+      "groupe": "Nombres"
+    },
+    {
+      "id": "B1-E-006",
+      "niveau": "B1",
+      "ordre": 40,
+      "titre": "Expression orale — Elle et Lui : 3. Panne de télé par Jean-Pierre Martinez (2023)",
+      "chemin": "french/b1/B1-E-006-panne-de-tele-b1/index.html",
+      "lecons": [],
+      "competences": [
+        "speaking",
+        "reading",
+        "listening"
+      ],
+      "progressId": "B1-E-006",
+      "questions": null,
+      "publie": true,
+      "serie": "Theatre",
+      "serieOrdre": 10,
+      "ajoute": "2026-07-25"
+    },
+    {
+      "id": "A1-E-010",
+      "niveau": "A1",
+      "ordre": 5,
+      "titre": "Exercices A1 — L'alphabet : les sons des lettres",
+      "chemin": "french/a1/00-alphabet/exercice-1.html",
+      "lecons": [
+        "A1-L-000"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "progressId": "A1-E-010",
+      "questions": null,
+      "publie": true,
+      "ajoute": "2026-08-05"
+    },
+    {
+      "id": "A1-E-011",
+      "niveau": "A1",
+      "ordre": 6,
+      "titre": "Exercices A1 — L'alphabet : muet ou prononcé ?",
+      "chemin": "french/a1/00-alphabet/exercice-2.html",
+      "lecons": [
+        "A1-L-000"
+      ],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "progressId": "A1-E-011",
+      "questions": null,
+      "publie": true,
+      "ajoute": "2026-08-05"
+    },
+    {
+      "id": "B2-E-002",
+      "niveau": "B2",
+      "ordre": 20,
+      "titre": "Lecture — Les Yeux de Mona (Thomas Schlesser, 2024)",
+      "chemin": "french/b2/les-yeux-de-mona/index.html",
+      "lecons": [],
+      "competences": [
+        "reading",
+        "listening",
+        "speaking"
+      ],
+      "progressId": "B2-E-002",
+      "questions": null,
+      "publie": true,
+      "serie": "Farandole",
+      "serieOrdre": 20,
+      "ajoute": "2026-08-05"
+    },
+    {
+      "id": "A1-E-012",
+      "niveau": "A1",
+      "ordre": 40,
+      "titre": "Exercices A1 — Adjectifs possessifs : compléter les phrases",
+      "chemin": "french/a1/adjectifs-possessifs/exercice-1.html",
+      "lecons": [
+        "A1-L-004"
+      ],
+      "competences": [
+        "reading",
+        "listening"
+      ],
+      "progressId": "A1-E-012",
+      "questions": null,
+      "publie": true,
+      "ajoute": "2026-08-07"
+    },
+    {
+      "id": "A1-E-013",
+      "niveau": "A1",
+      "ordre": 41,
+      "titre": "Exercices A1 — Adjectifs possessifs : à l'oral (enregistrement)",
+      "chemin": "french/a1/adjectifs-possessifs/exercice-2.html",
+      "lecons": [
+        "A1-L-004"
+      ],
+      "competences": [
+        "speaking",
+        "listening",
+        "reading"
+      ],
+      "progressId": "A1-E-013",
+      "questions": null,
+      "publie": true,
+      "ajoute": "2026-08-07"
+    }
+  ],
+  "tests": [
+    {
+      "id": "A1-T-001",
+      "niveau": "A1",
+      "ordre": 10,
+      "type": "examen",
+      "titre": "Examen du niveau A1",
+      "sources": [
+        "A1-E-001",
+        "A1-E-002",
+        "A1-E-003"
+      ],
+      "nbQuestions": 20,
+      "duree": null,
+      "publie": true
+    }
+  ],
+  "series": {
+    "Dialogue": {
+      "titre": "Dialogue",
+      "emoji": "💬",
+      "couleur": "#6C5CE7",
+      "dossier": "dialogue",
+      "unite": "dialogue",
+      "ordre": 10
+    },
+    "Prononciation": {
+      "titre": "PRO-NON-CIA-TION avec LÉO",
+      "emoji": "🗣️",
+      "couleur": "#0E7C86",
+      "dossier": "prononciation",
+      "unite": "texte",
+      "ordre": 20
+    },
+    "Theatre": {
+      "titre": "Au Théâtre de Léo, les intonations !",
+      "emoji": "🎭",
+      "couleur": "#A0303C",
+      "dossier": "theatre",
+      "unite": "pièce",
+      "ordre": 30
+    },
+    "Farandole": {
+      "titre": "La farandole des livres, poèmes et chansons ! (extraits)",
+      "emoji": "📚",
+      "couleur": "#D6336C",
+      "dossier": "farandole",
+      "unite": "extrait",
+      "ordre": 40
+    },
+    "Fada": {
+      "titre": "Fada ! Les accents et mots francophones !",
+      "emoji": "🌍",
+      "couleur": "#6D4C41",
+      "dossier": "fada",
+      "unite": "écoute",
+      "ordre": 50
+    },
+    "DLPT": {
+      "titre": "Mon coach DLPT",
+      "emoji": "🎖️",
+      "couleur": "#364FC7",
+      "dossier": "dlpt",
+      "unite": "entraînement",
+      "ordre": 60,
+      "annoncer": [
+        "C2"
+      ]
+    }
   }
- ],
- "exercices": [
-  {
-   "id": "A1-E-001",
-   "niveau": "A1",
-   "ordre": 10,
-   "titre": "Exercices — Le verbe être",
-   "chemin": "french/a1/01-etre/exercices.html",
-   "lecons": [
-    "A1-L-001"
-   ],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "questions": "french/a1/01-etre/questions.json",
-   "publie": true,
-   "progressId": "etre"
-  },
-  {
-   "id": "A1-E-002",
-   "niveau": "A1",
-   "ordre": 20,
-   "titre": "Exercices — Le verbe avoir",
-   "chemin": "french/a1/02-avoir/exercices.html",
-   "lecons": [
-    "A1-L-002"
-   ],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "questions": "french/a1/02-avoir/questions.json",
-   "publie": true,
-   "progressId": "avoir"
-  },
-  {
-   "id": "A1-E-003",
-   "niveau": "A1",
-   "ordre": 30,
-   "titre": "Exercices — Les nombres",
-   "chemin": "french/a1/les-nombres/exercices.html",
-   "lecons": [
-    "A1-L-003"
-   ],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "questions": "french/a1/les-nombres/questions.json",
-   "publie": true,
-   "progressId": "a1_les_nombres"
-  },
-  {
-   "id": "A1-E-004",
-   "niveau": "A1",
-   "ordre": 40,
-   "titre": "Le jeu des plaques",
-   "chemin": "french/a1/les-nombres/plaques.html",
-   "lecons": [
-    "A1-L-003"
-   ],
-   "competences": [
-    "listening"
-   ],
-   "questions": null,
-   "publie": true,
-   "progressId": null
-  },
-  {
-   "id": "A2-E-001",
-   "niveau": "A2",
-   "ordre": 10,
-   "titre": "Quiz — Les nombres",
-   "chemin": "french/a2/les-nombres/exercices.html",
-   "lecons": [
-    "A1-L-003"
-   ],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "questions": "french/a2/les-nombres/questions.json",
-   "publie": true,
-   "progressId": "a2_nombres_quiz",
-   "groupe": "Nombres"
-  },
-  {
-   "id": "A2-E-002",
-   "niveau": "A2",
-   "ordre": 20,
-   "titre": "Lire une invitation",
-   "chemin": "french/a2/lire-invitation/index.html",
-   "lecons": [],
-   "competences": [
-    "reading",
-    "listening"
-   ],
-   "questions": null,
-   "publie": true,
-   "progressId": "a2_lire_invitation",
-   "groupe": "Les invitations"
-  },
-  {
-   "id": "A2-E-003",
-   "niveau": "A2",
-   "ordre": 30,
-   "titre": "Exercices d'écoute — Les invitations",
-   "chemin": "french/a2/ecoute-invitations/index.html",
-   "lecons": [],
-   "competences": [
-    "listening",
-    "writing"
-   ],
-   "questions": null,
-   "publie": true,
-   "progressId": "a2_ecoute_invitations",
-   "groupe": "Les invitations"
-  },
-  {
-   "id": "B1-E-001",
-   "niveau": "B1",
-   "ordre": 10,
-   "titre": "Exercices — Les interrogatifs",
-   "chemin": "french/b1/interrogatifs/exercices-b1.html",
-   "lecons": [
-    "B1-L-001"
-   ],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "questions": "french/b1/interrogatifs/questions.json",
-   "publie": true,
-   "progressId": "b1_interrogatifs"
-  },
-  {
-   "id": "B1-E-002",
-   "niveau": "B1",
-   "ordre": 20,
-   "titre": "Lire un faire-part",
-   "chemin": "french/b1/lire-faire-part/index.html",
-   "lecons": [],
-   "competences": [
-    "reading",
-    "writing",
-    "listening"
-   ],
-   "questions": null,
-   "publie": true,
-   "progressId": "b1_lire_faire_part"
-  },
-  {
-   "id": "B1-E-003",
-   "niveau": "B1",
-   "ordre": 30,
-   "titre": "Lecture — Les Alcooliques Anonymes (Joseph Kessel)",
-   "chemin": "french/b1/B1-E-003-lecture-kessel/exercices.html",
-   "lecons": [],
-   "competences": [
-    "reading",
-    "listening",
-    "writing",
-    "speaking"
-   ],
-   "progressId": "B1-E-003",
-   "questions": "french/b1/B1-E-003-lecture-kessel/questions.json",
-   "publie": true,
-   "ajoute": "2026-07-20",
-   "serie": "Farandole",
-   "serieOrdre": 10
-  },
-  {
-   "id": "B2-E-001",
-   "niveau": "B2",
-   "ordre": 10,
-   "titre": "Exercices — Les interrogatifs (B2)",
-   "chemin": "french/b2/interrogatifs/index.html",
-   "lecons": [
-    "B1-L-001"
-   ],
-   "competences": [
-    "reading",
-    "writing",
-    "listening"
-   ],
-   "questions": "french/b2/interrogatifs/questions.json",
-   "publie": true,
-   "progressId": "b2_interrogatifs"
-  },
-  {
-   "id": "C1-E-001",
-   "niveau": "C1",
-   "ordre": 10,
-   "titre": "Francine Gosselin — Écoute",
-   "chemin": "french/c1/francine-gosselin/index.html",
-   "lecons": [],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "questions": null,
-   "publie": true,
-   "progressId": "c1_francine_gosselin",
-   "serie": "Fada",
-   "serieOrdre": 10
-  },
-  {
-   "id": "C1-E-002",
-   "niveau": "C1",
-   "ordre": 20,
-   "titre": "Francis Tanguay — Écoute",
-   "chemin": "french/c1/francis-tanguay/index.html",
-   "lecons": [],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "questions": null,
-   "publie": true,
-   "progressId": "c1_francis_tanguay",
-   "ajoute": "2026-07-21",
-   "serie": "Fada",
-   "serieOrdre": 20
-  },
-  {
-   "id": "A2-E-004",
-   "niveau": "A2",
-   "ordre": 40,
-   "titre": "Exercices — L'impératif",
-   "chemin": "french/a2/A2-E-004-imperatif/exercices.html",
-   "lecons": [
-    "A2-L-001"
-   ],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "progressId": "A2-E-004",
-   "questions": "french/a2/A2-E-004-imperatif/questions.json",
-   "publie": true,
-   "ajoute": "2026-07-13"
-  },
-  {
-   "id": "A1-E-005",
-   "niveau": "A1",
-   "ordre": 50,
-   "titre": "Dialogue — Réagir et relancer",
-   "chemin": "french/a1/A1-E-005-dialogue-reagir/exercices.html",
-   "lecons": [],
-   "competences": [
-    "listening",
-    "reading",
-    "writing"
-   ],
-   "progressId": "A1-E-005",
-   "questions": null,
-   "publie": true,
-   "serie": "Dialogue",
-   "serieOrdre": 10,
-   "ajoute": "2026-07-14"
-  },
-  {
-   "id": "A1-E-006",
-   "niveau": "A1",
-   "ordre": 60,
-   "titre": "Discussion au passé composé",
-   "chemin": "french/a1/A1-E-006-discussion-passe-compose/exercices.html",
-   "lecons": [],
-   "competences": [
-    "listening",
-    "reading",
-    "writing"
-   ],
-   "progressId": "A1-E-006",
-   "questions": null,
-   "publie": true,
-   "ajoute": "2026-07-20"
-  },
-  {
-   "id": "A1-E-007",
-   "niveau": "A1",
-   "ordre": 70,
-   "titre": "La Ratatouille Folle — Ch.1 : La Préparation · p. 3",
-   "chemin": "french/a1/A1-E-007-ratatouille/index.html",
-   "lecons": [
-    "A1-L-000"
-   ],
-   "competences": [
-    "reading",
-    "listening",
-    "speaking"
-   ],
-   "progressId": "A1-E-007",
-   "questions": null,
-   "publie": true,
-   "serie": "Prononciation",
-   "serieOrdre": 10,
-   "ajoute": "2026-07-25"
-  },
-  {
-   "id": "A1-E-009",
-   "niveau": "A1",
-   "ordre": 80,
-   "titre": "La Ratatouille Folle — Ch.1 : La Préparation · p. 4",
-   "chemin": "french/a1/A1-E-009-ratatouille-ch1-p4/index.html",
-   "lecons": [
-    "A1-L-000"
-   ],
-   "competences": [
-    "reading",
-    "listening",
-    "speaking"
-   ],
-   "progressId": "A1-E-009",
-   "questions": null,
-   "publie": true,
-   "serie": "Prononciation",
-   "serieOrdre": 20,
-   "ajoute": "2026-07-26"
-  },
-  {
-   "id": "B1-E-004",
-   "niveau": "B2",
-   "ordre": 20,
-   "titre": "Expression orale — Elle et Lui : 3. Panne de télé par Jean-Pierre Martinez (2023)",
-   "chemin": "french/b1/B1-E-004-panne-de-tele/index.html",
-   "lecons": [],
-   "competences": [
-    "speaking",
-    "reading",
-    "listening"
-   ],
-   "progressId": "B1-E-004",
-   "questions": null,
-   "publie": true,
-   "serie": "Theatre",
-   "serieOrdre": 10,
-   "ajoute": "2026-07-24"
-  },
-  {
-   "id": "B1-E-005",
-   "niveau": "B2",
-   "ordre": 30,
-   "titre": "Expression orale — Elle et Lui : 4. Quarantaine par Jean-Pierre Martinez (2023)",
-   "chemin": "french/b1/B1-E-005-quarantaine/index.html",
-   "lecons": [],
-   "competences": [
-    "speaking",
-    "reading",
-    "listening"
-   ],
-   "progressId": "B1-E-005",
-   "questions": null,
-   "publie": true,
-   "serie": "Theatre",
-   "serieOrdre": 20,
-   "ajoute": "2026-07-24"
-  },
-  {
-   "id": "A1-E-008",
-   "niveau": "A1",
-   "ordre": 45,
-   "titre": "Exercices — Les centaines (100–999)",
-   "chemin": "french/a1/les-nombres/centaines.html",
-   "lecons": [
-    "A1-L-003"
-   ],
-   "competences": [
-    "listening",
-    "speaking"
-   ],
-   "progressId": "A1-E-008",
-   "questions": null,
-   "publie": true
-  },
-  {
-   "id": "A2-E-006",
-   "niveau": "A2",
-   "ordre": 12,
-   "titre": "Jeu des plaques — Les centaines (100–999)",
-   "chemin": "french/a2/les-nombres/plaques.html",
-   "lecons": [
-    "A1-L-003"
-   ],
-   "competences": [
-    "listening",
-    "speaking"
-   ],
-   "progressId": "A2-E-006",
-   "questions": null,
-   "publie": true,
-   "groupe": "Nombres"
-  },
-  {
-   "id": "A2-E-007",
-   "niveau": "A2",
-   "ordre": 21,
-   "titre": "Exercices A2 — Pronoms possessifs : reconnaître et choisir",
-   "chemin": "french/a2/pronoms-possessifs/exercice-1.html",
-   "lecons": [
-    "A2-L-002"
-   ],
-   "competences": [
-    "reading",
-    "listening"
-   ],
-   "publie": false,
-   "ajoute": "2026-08-22"
-  },
-  {
-   "id": "A2-E-008",
-   "niveau": "A2",
-   "ordre": 22,
-   "titre": "Exercices A2 — Pronoms possessifs : le contraste his / hers",
-   "chemin": "french/a2/pronoms-possessifs/exercice-2.html",
-   "lecons": [
-    "A2-L-002"
-   ],
-   "competences": [
-    "reading"
-   ],
-   "publie": false,
-   "ajoute": "2026-08-22"
-  },
-  {
-   "id": "A2-E-009",
-   "niveau": "A2",
-   "ordre": 23,
-   "titre": "Exercices A2 — Pronoms possessifs à l’oral (enregistrement)",
-   "chemin": "french/a2/pronoms-possessifs/exercice-3.html",
-   "lecons": [
-    "A2-L-002"
-   ],
-   "competences": [
-    "speaking",
-    "reading",
-    "listening"
-   ],
-   "publie": false,
-   "ajoute": "2026-08-22"
-  },
-  {
-   "id": "A2-E-005",
-   "niveau": "A2",
-   "ordre": 15,
-   "titre": "Quiz — Les centaines (100–999)",
-   "chemin": "french/a2/les-nombres/quiz-centaines.html",
-   "lecons": [
-    "A1-L-003"
-   ],
-   "competences": [
-    "listening",
-    "speaking"
-   ],
-   "progressId": "A2-E-005",
-   "questions": null,
-   "publie": true,
-   "groupe": "Nombres"
-  },
-  {
-   "id": "B1-E-006",
-   "niveau": "B1",
-   "ordre": 40,
-   "titre": "Expression orale — Elle et Lui : 3. Panne de télé par Jean-Pierre Martinez (2023)",
-   "chemin": "french/b1/B1-E-006-panne-de-tele-b1/index.html",
-   "lecons": [],
-   "competences": [
-    "speaking",
-    "reading",
-    "listening"
-   ],
-   "progressId": "B1-E-006",
-   "questions": null,
-   "publie": true,
-   "serie": "Theatre",
-   "serieOrdre": 10,
-   "ajoute": "2026-07-25"
-  },
-  {
-   "id": "A1-E-010",
-   "niveau": "A1",
-   "ordre": 5,
-   "titre": "Exercices A1 — L'alphabet : les sons des lettres",
-   "chemin": "french/a1/00-alphabet/exercice-1.html",
-   "lecons": [
-    "A1-L-000"
-   ],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "progressId": "A1-E-010",
-   "questions": null,
-   "publie": true,
-   "ajoute": "2026-08-05"
-  },
-  {
-   "id": "A1-E-011",
-   "niveau": "A1",
-   "ordre": 6,
-   "titre": "Exercices A1 — L'alphabet : muet ou prononcé ?",
-   "chemin": "french/a1/00-alphabet/exercice-2.html",
-   "lecons": [
-    "A1-L-000"
-   ],
-   "competences": [
-    "listening",
-    "reading"
-   ],
-   "progressId": "A1-E-011",
-   "questions": null,
-   "publie": true,
-   "ajoute": "2026-08-05"
-  },
-  {
-   "id": "B2-E-002",
-   "niveau": "B2",
-   "ordre": 20,
-   "titre": "Lecture — Les Yeux de Mona (Thomas Schlesser, 2024)",
-   "chemin": "french/b2/les-yeux-de-mona/index.html",
-   "lecons": [],
-   "competences": [
-    "reading",
-    "listening",
-    "speaking"
-   ],
-   "progressId": "B2-E-002",
-   "questions": null,
-   "publie": true,
-   "serie": "Farandole",
-   "serieOrdre": 20,
-   "ajoute": "2026-08-05"
-  },
-  {
-   "id": "A1-E-012",
-   "niveau": "A1",
-   "ordre": 40,
-   "titre": "Exercices A1 — Adjectifs possessifs : compléter les phrases",
-   "chemin": "french/a1/adjectifs-possessifs/exercice-1.html",
-   "lecons": [
-    "A1-L-004"
-   ],
-   "competences": [
-    "reading",
-    "listening"
-   ],
-   "progressId": "A1-E-012",
-   "questions": null,
-   "publie": true,
-   "ajoute": "2026-08-07"
-  },
-  {
-   "id": "A1-E-013",
-   "niveau": "A1",
-   "ordre": 41,
-   "titre": "Exercices A1 — Adjectifs possessifs : à l'oral (enregistrement)",
-   "chemin": "french/a1/adjectifs-possessifs/exercice-2.html",
-   "lecons": [
-    "A1-L-004"
-   ],
-   "competences": [
-    "speaking",
-    "listening",
-    "reading"
-   ],
-   "progressId": "A1-E-013",
-   "questions": null,
-   "publie": true,
-   "ajoute": "2026-08-07"
-  }
- ],
- "tests": [
-  {
-   "id": "A1-T-001",
-   "niveau": "A1",
-   "ordre": 10,
-   "type": "examen",
-   "titre": "Examen du niveau A1",
-   "sources": [
-    "A1-E-001",
-    "A1-E-002",
-    "A1-E-003"
-   ],
-   "nbQuestions": 20,
-   "duree": null,
-   "publie": true
-  }
- ],
- "series": {
-  "Dialogue": {
-   "titre": "Dialogue",
-   "emoji": "💬",
-   "couleur": "#6C5CE7",
-   "dossier": "dialogue",
-   "unite": "dialogue",
-   "ordre": 10
-  },
-  "Prononciation": {
-   "titre": "PRO-NON-CIA-TION avec LÉO",
-   "emoji": "🗣️",
-   "couleur": "#0E7C86",
-   "dossier": "prononciation",
-   "unite": "texte",
-   "ordre": 20
-  },
-  "Theatre": {
-   "titre": "Au Théâtre de Léo, les intonations !",
-   "emoji": "🎭",
-   "couleur": "#A0303C",
-   "dossier": "theatre",
-   "unite": "pièce",
-   "ordre": 30
-  },
-  "Farandole": {
-   "titre": "La farandole des livres, poèmes et chansons ! (extraits)",
-   "emoji": "📚",
-   "couleur": "#D6336C",
-   "dossier": "farandole",
-   "unite": "extrait",
-   "ordre": 40
-  },
-  "Fada": {
-   "titre": "Fada ! Les accents et mots francophones !",
-   "emoji": "🌍",
-   "couleur": "#6D4C41",
-   "dossier": "fada",
-   "unite": "écoute",
-   "ordre": 50
-  },
-  "DLPT": {
-   "titre": "Mon coach DLPT",
-   "emoji": "🎖️",
-   "couleur": "#364FC7",
-   "dossier": "dlpt",
-   "unite": "entraînement",
-   "ordre": 60,
-   "annoncer": [
-    "C2"
-   ]
-  }
- }
 }
