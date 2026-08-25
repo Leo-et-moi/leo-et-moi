@@ -135,8 +135,8 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
   <div class="sec-label">&#128273; Vocabulaire <span style="text-transform:none;letter-spacing:0;font-weight:normal;color:var(--slate);">&middot; associe chaque expression &agrave; sa traduction</span></div>
   <div class="consigne-box">
     <div class="cg-title">Consigne &middot; Instruction</div>
-    <div class="cg-fr"><span>&Eacute;coute chaque expression fran&ccedil;aise (&#128266;), puis relie-la &agrave; sa traduction anglaise. Clique une &eacute;tiquette dans chaque colonne&nbsp;: vert = correct, rouge = &agrave; refaire.</span></div>
-    <div class="cg-en"><span>Listen to each French expression (&#128266;), then match it with its English translation. Click one label in each column: green = correct, red = try again.</span></div>
+    <div class="cg-fr"><button class="speak-btn" onclick="playClip('c1_mp_voc_instr.mp3',this)">&#128266;</button><span>&Eacute;coute chaque expression fran&ccedil;aise (&#128266;), puis relie-la &agrave; sa traduction anglaise. Clique une &eacute;tiquette dans chaque colonne&nbsp;: vert = correct, rouge = &agrave; refaire.</span></div>
+    <div class="cg-en"><button class="speak-btn" onclick="playClip('c1_mp_voc_instr_en.mp3',this)">&#128266;</button><span>Listen to each French expression (&#128266;), then match it with its English translation. Click one label in each column: green = correct, red = try again.</span></div>
   </div>
   <div class="voc-wrap">
     <div class="voc-col"><div class="voc-col-h">Fran&ccedil;ais</div><div id="vocFr"></div></div>
@@ -224,7 +224,7 @@ body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line
 <script src="/js/audio.js"></script>
 <script>
 function pad(n){ return (n<10?'0':'')+n; }
-var CB={};
+var CB={'c1_mp_card_03_r.mp3':2,'c1_mp_card_15_r.mp3':2,'c1_mp_card_16_r.mp3':2,'c1_mp_card_18_q.mp3':2,'c1_mp_card_26_q.mp3':2};
 function cb(f){ return CB[f] ? f+'?v='+CB[f] : f; }
 function toggleMethode(){ var t=document.getElementById('methode'),b=document.getElementById('methodeBtn');var show=t.style.display==='none';t.style.display=show?'block':'none';b.innerHTML=(show?'\u{1F3A7} Masquer la m\u00e9thode d\u2019\u00e9coute':'\u{1F3A7} Afficher la m\u00e9thode d\u2019\u00e9coute'); }
 function toggleHl(){ var t=document.getElementById('highlights'),b=document.getElementById('hlBtn');var show=t.style.display==='none';t.style.display=show?'block':'none';b.innerHTML=(show?'\u2728 Masquer les Highlights':'\u2728 Afficher les Highlights'); }
