@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>C1 — Mademoizelle Philippe — Leo-et-moi</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#F5F0E8;--dark:#1B2845;--navyMid:#2C4A7C;--coral:#E8503A;--gold:#D4920A;
+  --ltBlue:#E8F0FA;--ltGreen:#E3F5EC;--green:#1E7B45;--red:#C0392B;--text:#1A2733;
+  --slate:#4A6580;--divider:#D8DFE8;--white:#FFFFFF;--nav-h:64px;--c1:#27AE60;}
+html{font-size:18px;}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;
+  min-height:100vh;padding-bottom:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%;}
+.top-bar{background:var(--dark);border-bottom:4px solid var(--c1);padding:0 16px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.site-name{font-size:22px;font-weight:bold;color:#fff;text-decoration:none;}
+.site-name span{color:var(--coral);}
+.top-icons{display:flex;gap:4px;}
+.icon-btn{background:none;border:none;color:#9DC8E8;font-size:22px;cursor:pointer;padding:8px;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.main{max-width:680px;margin:0 auto;padding:18px 14px 8px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:bold;color:var(--navyMid);text-decoration:none;min-height:44px;}
+.lvl-tag{display:inline-block;background:var(--c1);color:#fff;font-size:13px;font-weight:bold;padding:3px 12px;border-radius:20px;margin-bottom:8px;}
+.page-title{font-size:24px;font-weight:bold;color:var(--dark);margin-bottom:2px;}
+.page-sub{font-size:14px;color:var(--slate);margin-bottom:18px;line-height:1.5;}
+.sec-label{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:1px;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--divider);}
+.speak-btn{background:none;border:2px solid var(--divider);border-radius:20px;padding:4px 10px;font-size:13px;color:var(--slate);cursor:pointer;min-height:34px;font-family:Arial,sans-serif;flex-shrink:0;}
+.speak-btn.speaking{background:var(--navyMid);color:#fff;border-color:var(--navyMid);}
+.interview-card{background:var(--white);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:5px solid var(--c1);padding:16px 18px;}
+.tr-box{margin-top:14px;padding-top:14px;border-top:1px solid var(--divider);}
+.tr-q{font-size:15px;font-weight:bold;color:var(--coral);margin:12px 0 4px;}
+.tr-a{font-size:15px;color:var(--text);line-height:1.6;}
+.flash{background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-top:5px solid var(--c1);padding:24px 22px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none;}
+.flash-side{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--c1);margin-bottom:12px;}
+.flash-side.reponse{color:var(--coral);}
+.flash-text{font-size:21px;font-weight:bold;color:var(--dark);line-height:1.4;}
+.flash-hint{font-size:13px;color:var(--slate);margin-top:14px;}
+.deck-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;}
+.nav-btn{flex:1;background:var(--navyMid);color:#fff;border:none;border-radius:10px;padding:14px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:52px;}
+.nav-btn:disabled{background:var(--divider);color:var(--slate);cursor:default;}
+.counter{font-size:15px;font-weight:bold;color:var(--dark);min-width:70px;text-align:center;}
+.flip-btn{display:block;width:100%;background:var(--c1);color:#fff;border:none;border-radius:10px;padding:13px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;cursor:pointer;min-height:50px;}
+.q-card{background:var(--white);border-radius:12px;border:1.5px solid var(--divider);border-left:5px solid var(--navyMid);padding:18px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+.q-card.ok{border-left-color:var(--green);background:var(--ltGreen);}
+.q-card.ko{border-left-color:var(--red);background:#fdf0ee;}
+.q-num{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.q-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:14px;}
+.q-text{font-size:18px;font-weight:bold;color:var(--dark);line-height:1.4;}
+.choice-row{display:flex;align-items:stretch;gap:8px;margin-bottom:9px;}
+.choice{flex:1;text-align:left;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;color:var(--dark);background:var(--ltBlue);border:2px solid var(--divider);border-radius:10px;padding:13px 14px;cursor:pointer;min-height:50px;line-height:1.35;}
+.choice:active:not(:disabled){background:#D5E8FA;}
+.choice.correct{background:var(--ltGreen);border-color:var(--green);color:var(--green);}
+.choice.wrong{background:#fceaea;border-color:var(--red);color:var(--red);}
+.choice:disabled{cursor:default;}
+.mini-audio{flex-shrink:0;width:50px;border:2px solid var(--divider);border-radius:10px;background:var(--white);font-size:18px;cursor:pointer;}
+.mini-audio.speaking{background:var(--navyMid);color:#fff;}
+.q-fb{font-size:15px;font-weight:bold;margin-top:10px;display:none;line-height:1.5;}
+.q-fb.show{display:block;}
+.q-fb.ok{color:var(--green);}
+.q-fb.ko{color:var(--red);}
+.final{display:none;text-align:center;padding:30px 22px;background:var(--dark);border-radius:14px;margin-top:20px;color:#fff;}
+.final.show{display:block;}
+.final-num{font-size:56px;font-weight:bold;color:var(--c1);line-height:1;}
+.final-msg{font-size:17px;color:#fff;margin-top:14px;}
+.retry-btn{margin-top:20px;background:var(--coral);color:#fff;border:none;border-radius:10px;padding:14px 32px;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;cursor:pointer;}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--dark);border-top:3px solid var(--c1);display:flex;align-items:center;z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#6A8FAF;min-height:var(--nav-h);-webkit-tap-highlight-color:transparent;}
+.nav-icon{font-size:22px;line-height:1;}.nav-label{font-size:11px;font-weight:bold;}
+.hint-toggle{background:none;border:none;color:var(--navyMid);font-weight:bold;font-size:14px;cursor:pointer;padding:8px 0;font-family:Arial,sans-serif;}
+.hint-box{font-size:14px;color:var(--slate);background:var(--ltBlue);border-radius:8px;padding:10px 12px;margin:4px 0 8px;line-height:1.5;display:flex;align-items:flex-start;gap:8px;}
+@media(min-width:600px){.main{padding:24px 20px 8px;}}
+.consigne-box{background:#FEF0EE;border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:12px 14px;margin:-2px 0 14px;}
+.consigne-box .cg-title{font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--coral);margin-bottom:7px;}
+.consigne-box .cg-fr{font-size:14.5px;color:var(--text);line-height:1.5;display:flex;align-items:flex-start;gap:8px;}
+.consigne-box .cg-en{font-size:12.5px;color:#8899AA;line-height:1.5;margin-top:6px;display:flex;align-items:flex-start;gap:8px;}
+
+.voc-wrap{display:flex;gap:10px;}
+.voc-col{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0;}
+.voc-col-h{font-size:12px;font-weight:bold;color:var(--slate);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;text-align:center;}
+.voc-item{display:flex;align-items:center;gap:6px;background:var(--ltBlue);border:2px solid var(--divider);border-radius:10px;padding:10px 11px;font-size:14px;font-weight:bold;color:var(--dark);cursor:pointer;min-height:52px;line-height:1.3;}
+.voc-item.en{background:var(--white);justify-content:center;text-align:center;}
+.voc-item.selected{border-color:var(--navyMid);background:#D5E8FA;}
+.voc-item.matched{background:var(--ltGreen);border-color:var(--green);color:var(--green);cursor:default;opacity:.72;}
+.voc-item.wrong{background:#fceaea;border-color:var(--red);color:var(--red);}
+.voc-audio{flex-shrink:0;background:var(--white);border:2px solid var(--divider);border-radius:8px;font-size:15px;cursor:pointer;min-width:38px;min-height:38px;padding:0;}
+.voc-audio.speaking{background:var(--navyMid);color:#fff;}
+.voc-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 2px;}
+.voc-restart{background:var(--coral);color:#fff;border:none;border-radius:10px;padding:11px 16px;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;cursor:pointer;min-height:46px;}
+.voc-status{font-size:15px;font-weight:bold;color:var(--dark);}
+.voc-done{display:none;text-align:center;background:var(--ltGreen);border:2px solid var(--green);color:var(--green);border-radius:12px;padding:14px;font-weight:bold;font-size:16px;margin-top:12px;}
+</style>
+</head>
+<body data-item-id="C1-E-003">
+<header class="top-bar">
+  <a class="site-name" href="../../../index.html">Leo<span>-et-</span>moi</a>
+  <div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div>
+</header>
+<main class="main">
+  <a class="back-link" href="../../../index.html">&#8592; Accueil</a>
+  <div class="lvl-tag">C1</div>
+  <div style="font-size:15px;font-weight:bold;color:var(--dark);margin-bottom:2px;">Accents francophones &mdash; accent qu&eacute;b&eacute;cois</div>
+  <div class="page-title">L&rsquo;entretien de Mademoizelle Philippe</div>
+  <div class="page-sub" style="display:flex;align-items:flex-start;gap:8px;"><span>&Eacute;coute l&rsquo;entretien, lis la transcription, r&eacute;vise avec les cartes, puis teste-toi avec le quiz.</span><button class="speak-btn" onclick="playClip('c1_fg_instruction.mp3',this)">&#128266;</button></div>
+
+  <div class="interview-card">
+    <button class="flip-btn" id="methodeBtn" onclick="toggleMethode()" style="background:var(--navyMid);">&#127911; Afficher la m&eacute;thode d&rsquo;&eacute;coute</button>
+    <div id="methode" class="tr-box" style="display:none;">
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <button class="speak-btn" onclick="playClip('c1_fg_methode.mp3',this)">&#128266; FR</button>
+      <button class="speak-btn" onclick="playClip('c1_fg_methode_en.mp3',this)">&#128266; EN</button>
+    </div>
+    <div style="font-size:16px;font-weight:bold;color:var(--dark);">M&eacute;thode d&rsquo;&eacute;coute &mdash; Recall Protocol &middot; Listening Method</div>
+    <div style="font-size:13px;color:var(--slate);margin:2px 0 12px;">&Eacute;couter activement et se rem&eacute;morer imm&eacute;diatement <span style="color:#8899AA;">&middot; Listen actively and retrieve from memory immediately</span></div>
+    <div style="font-size:14.5px;line-height:1.6;color:var(--text);">
+      <p style="margin:0 0 6px;"><strong>1. Premi&egrave;re &eacute;coute</strong>&nbsp;: &eacute;coutez et ne prenez pas de notes.</p>
+      <p style="margin:0 0 6px;"><strong>2. Deuxi&egrave;me &eacute;coute</strong>&nbsp;: apr&egrave;s l&rsquo;&eacute;coute, &eacute;crivez en anglais tout ce que vous vous rappelez. <strong style="color:var(--coral);">Ne traduisez pas&nbsp;!</strong></p>
+      <p style="margin:0 0 6px;"><strong>3. R&eacute;vision et r&eacute;&eacute;coute</strong>&nbsp;: r&eacute;&eacute;coutez l&rsquo;enregistrement, cette fois-ci en suivant la transcription.</p>
+      <p style="margin:0 0 6px;"><strong>4. Identification des lacunes</strong>&nbsp;: comparez ce dont vous vous souvenez avec la transcription&nbsp;; notez les mots de vocabulaire, les expressions idiomatiques ou les structures grammaticales qui vous ont &eacute;chapp&eacute;.</p>
+      <p style="margin:0;"><strong>5. R&eacute;p&eacute;tition</strong>&nbsp;: r&eacute;p&eacute;tez le cycle pour le reste du fichier audio.</p>
+    </div>
+    <div style="border-top:1px solid var(--divider);margin:12px 0;"></div>
+    <div style="font-size:13px;line-height:1.55;color:var(--slate);">
+      <p style="margin:0 0 6px;"><strong>1. First listening:</strong> listen without taking notes.</p>
+      <p style="margin:0 0 6px;"><strong>2. Second listening:</strong> after listening, write down in English everything you can remember. <strong>Do not translate!</strong></p>
+      <p style="margin:0 0 6px;"><strong>3. Review &amp; Replay:</strong> listen again, this time following along with the transcript.</p>
+      <p style="margin:0 0 6px;"><strong>4. Identify the gaps:</strong> compare what you recalled with the actual transcript; note any vocabulary, idioms, or grammar structures you missed.</p>
+      <p style="margin:0;"><strong>5. Repetition:</strong> repeat the cycle for the remainder of the audio file.</p>
+    </div>
+    </div>
+  </div>
+
+  <div class="sec-label">&#128273; Vocabulaire <span style="text-transform:none;letter-spacing:0;font-weight:normal;color:var(--slate);">&middot; associe chaque expression &agrave; sa traduction</span></div>
+  <div class="consigne-box">
+    <div class="cg-title">Consigne &middot; Instruction</div>
+    <div class="cg-fr"><span>&Eacute;coute chaque expression fran&ccedil;aise (&#128266;), puis relie-la &agrave; sa traduction anglaise. Clique une &eacute;tiquette dans chaque colonne&nbsp;: vert = correct, rouge = &agrave; refaire.</span></div>
+    <div class="cg-en"><span>Listen to each French expression (&#128266;), then match it with its English translation. Click one label in each column: green = correct, red = try again.</span></div>
+  </div>
+  <div class="voc-wrap">
+    <div class="voc-col"><div class="voc-col-h">Fran&ccedil;ais</div><div id="vocFr"></div></div>
+    <div class="voc-col"><div class="voc-col-h">English</div><div id="vocEn"></div></div>
+  </div>
+  <div class="voc-bar">
+    <span class="voc-status" id="vocStatus">0 / 13</span>
+    <button class="voc-restart" onclick="buildVoc()">&#128260; Recommencer</button>
+  </div>
+  <div class="voc-done" id="vocDone">&#127881; Bravo&nbsp;! Toutes les paires sont trouv&eacute;es. / All pairs matched!</div>
+
+  <div class="interview-card">
+    <button class="flip-btn" id="hlBtn" onclick="toggleHl()" style="background:var(--navyMid);">&#10024; Afficher les Highlights</button>
+    <div id="highlights" class="tr-box" style="display:none;">
+    <button class="speak-btn" onclick="playClip('c1_fg_highlights_v2.mp3',this)" style="margin-bottom:12px;">&#128266; &Eacute;couter</button>
+    <p style="margin:0 0 12px;font-size:15px;line-height:1.6;">This is a biographical interview with a Quebecois musician known as Mademoizelle Philippe. She is a songwriter and performer who has formally studied classical, pop, and jazz music.</p><p style="margin:0 0 12px;font-size:15px;line-height:1.6;">While she was born in Saguenay, she considers Montreal her true home and enjoys hobbies such as wine tasting and watching television series.</p><p style="margin:0;font-size:15px;line-height:1.6;">Her travel history is depicted as primarily regional, with notable visits to France and childhood trips to the United States.</p>
+    </div>
+  </div>
+
+  <div class="sec-label">&#127911; &Eacute;coute l&rsquo;entretien <span style="text-transform:none;letter-spacing:0;font-weight:normal;color:var(--slate);">&middot; 2 min 16 s</span></div>
+  <div class="interview-card">
+    <audio id="itw" controls preload="none" src="audio/interview.mp3" style="width:100%;"></audio>
+    <button class="flip-btn" id="trBtn" onclick="toggleTr()" style="margin-top:12px;background:var(--navyMid);">&#128196; Afficher la transcription</button>
+    <div id="transcript" class="tr-box" style="display:none;">
+<div class="tr-q">QUESTION&nbsp;: Qui êtes-vous ?</div>
+<div class="tr-a">Jm’appelle Mademoizelle Philippe.</div>
+<div class="tr-q">QUESTION&nbsp;: D’où est-ce que vous venez ?</div>
+<div class="tr-a">J’viens du Québec, au Canada. Je suis née au Saguenay, qu’est dans une région à cinq heures de de route de Montréal. Mais Montréal c’est le meilleure réponse, j’suis là depuis longtemps.</div>
+<div class="tr-q">QUESTION&nbsp;: Parlez-moi de votre famille s’il vous plaît ?</div>
+<div class="tr-a">M’, ben, c’est une famille assez typique avec des gens de métiers très variés, pas spécialement artistique, mais qui aiment beaucoup la musique. Qui se dispersent dans plusieurs régions, et puis ouais, c’est pas mal ça.</div>
+<div class="tr-q">QUESTION&nbsp;: Qu’est-ce que vous faites dans la vie ?</div>
+<div class="tr-a">J’fais de la musique, autrice, compositrice, interprète.</div>
+<div class="tr-q">QUESTION&nbsp;: Quand vous avez du temps de libre, qu’est-ce que vous aimez faire ?</div>
+<div class="tr-a">J’aime beaucoup boire du vin, découvrir le vin, découvrir les arômes, et… donc c’est ça, développer cette passion-là. Sinon, évidemment, ben! il y a la musique aussi, même si c’est mon travail. Quand j’ai du temps libre, très souvent ça va être en rapport à la musique, ou au cinéma, télé séries, divertissement, ouais.</div>
+<div class="tr-q">QUESTION&nbsp;: Est-ce que vous avez déjà voyagé ?</div>
+<div class="tr-a">Ouais. J’suis allé en France, justement voilà pas très longtemps, plutôt dans le sud de la France, sinon, beaucoup au Québec. J’suis pas sorti vraiment du pays à part la France, mais au Québec j’ai vu pas mal d’endroits entre autres en faisant des spectacles, ouais.</div>
+<div class="tr-q">QUESTION&nbsp;: Est-ce que vous avez déjà visité les États-Unis ?</div>
+<div class="tr-a">Heu ! pas vraiment. Les États-Unis très peu, genre Old Orchard avec la famille sur la plage quand j’étais plus jeune. Mais c’est à peu près tout, par contre j’aimerais beaucoup… il y a plusieurs endroits où j’aimerais aller aux États-Unis, ouais.</div>
+<div class="tr-q">QUESTION&nbsp;: Et, qu’est-ce que vous avez fait comme études ?</div>
+<div class="tr-a">J’ai étudié la musique depuis toujours, alors, depuis l’école primaire jusqu’à mon diplôme au CEGEP. Alors, j’ai fait musique classique, mais j’ai fait aussi musique pop jazz, et composition et arrangements.</div>
+<div class="tr-q">QUESTION&nbsp;: Le CEGEP ça veut dire quoi ?</div>
+<div class="tr-a">CEGEP, c’est après l’école secondaire. C’est l’étape, une étape où tu peux aller étudier avant d’aller à l’université. Alors, voilà ! That’s it ?</div>
+    </div>
+  </div>
+
+  <div class="sec-label">&#128218; Cartes &mdash; r&eacute;vision</div>
+  <div class="consigne-box">
+    <div class="cg-title">Consigne &middot; Instruction</div>
+    <div class="cg-fr"><button class="speak-btn" onclick="playClip('c1_fg_cards_instr.mp3',this)">&#128266;</button><span>&Eacute;coutez toutes les cartes et r&eacute;p&eacute;tez &agrave; haute voix avant de passer &agrave; la carte suivante.</span></div>
+    <div class="cg-en"><button class="speak-btn" onclick="playClip('c1_fg_cards_instr_en.mp3',this)">&#128266;</button><span>Listen to all the cards and repeat them aloud before moving on to the next card.</span></div>
+  </div>
+  <div class="flash" id="flash" onclick="flip()">
+    <div class="flash-side" id="flashSide">Question</div>
+    <div class="flash-text" id="flashText">&hellip;</div>
+    <button class="speak-btn" id="flashAudio" style="margin-top:14px;" onclick="event.stopPropagation(); playCard(this);">&#128266; &Eacute;couter</button>
+    <div class="flash-hint" id="flashHint">Touche la carte pour voir la r&eacute;ponse</div>
+  </div>
+  <button class="flip-btn" onclick="flip()">&#128260; Retourner la carte</button>
+  <div class="deck-controls">
+    <button id="fPrev" class="nav-btn">&#8592; Pr&eacute;c&eacute;dent</button>
+    <span id="fCount" class="counter">1 / 36</span>
+    <button id="fNext" class="nav-btn">Suivant &#8594;</button>
+  </div>
+
+  <div class="sec-label">&#9989; Quiz &mdash; 10 questions</div>
+  <div class="consigne-box">
+    <div class="cg-title">Consigne &middot; Instruction</div>
+    <div class="cg-fr"><button class="speak-btn" onclick="playClip('c1_fg_quiz_instr.mp3',this)">&#128266;</button><span>&Eacute;coutez chaque question et chaque r&eacute;ponse, puis r&eacute;p&eacute;tez-les &agrave; voix haute avant de r&eacute;pondre et de passer &agrave; la question suivante.</span></div>
+    <div class="cg-en"><button class="speak-btn" onclick="playClip('c1_fg_quiz_instr_en.mp3',this)">&#128266;</button><span>Listen to each question and answer, then repeat them aloud before answering and moving on to the next question.</span></div>
+  </div>
+  <div id="quiz"></div>
+  <div class="final" id="final">
+    <div class="final-num" id="finalNum">0 / 10</div>
+    <div class="final-msg" id="finalMsg"></div>
+    <button class="retry-btn" onclick="location.reload()">Recommencer</button>
+  </div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="../../../index.html"><span class="nav-icon">&#127968;</span><span class="nav-label">Accueil</span></a>
+  <a class="nav-item" href="../../a1/index.html"><span class="nav-icon">&#127467;&#127479;</span><span class="nav-label">Fran&ccedil;ais</span></a>
+  <a class="nav-item" href="../../../reference/index.html"><span class="nav-icon">&#128216;</span><span class="nav-label">R&eacute;f&eacute;rence</span></a>
+  <a class="nav-item" href="../../../index.html#progress"><span class="nav-icon">&#11088;</span><span class="nav-label">Progr&egrave;s</span></a>
+</nav>
+
+<script src="/js/audio.js"></script>
+<script>
+function pad(n){ return (n<10?'0':'')+n; }
+var CB={};
+function cb(f){ return CB[f] ? f+'?v='+CB[f] : f; }
+function toggleMethode(){ var t=document.getElementById('methode'),b=document.getElementById('methodeBtn');var show=t.style.display==='none';t.style.display=show?'block':'none';b.innerHTML=(show?'\u{1F3A7} Masquer la m\u00e9thode d\u2019\u00e9coute':'\u{1F3A7} Afficher la m\u00e9thode d\u2019\u00e9coute'); }
+function toggleHl(){ var t=document.getElementById('highlights'),b=document.getElementById('hlBtn');var show=t.style.display==='none';t.style.display=show?'block':'none';b.innerHTML=(show?'\u2728 Masquer les Highlights':'\u2728 Afficher les Highlights'); }
+function toggleTr(){ var t=document.getElementById('transcript'),b=document.getElementById('trBtn');var show=t.style.display==='none';t.style.display=show?'block':'none';b.innerHTML=(show?'\u{1F4C4} Masquer la transcription':'\u{1F4C4} Afficher la transcription'); }
+
+// ---- Section 0 : vocabulaire interactif ----
+var VOC=[{"fr": "autrice, compositrice, interprète", "en": "songwriter, composer, performer"}, {"fr": "gens de métiers très variés", "en": "people with various professions"}, {"fr": "se disperser dans plusieurs régions", "en": "to be scattered / spread out"}, {"fr": "développer cette passion là", "en": "to nurture / develop a passion"}, {"fr": "en faisant des spectacles", "en": "to perform shows / go on tour"}, {"fr": "en rapport à", "en": "related to / in connection with"}, {"fr": "divertissement", "en": "entertainment"}, {"fr": "voilà pas très longtemps", "en": "not very long ago"}, {"fr": "à peu près tout", "en": "more or less everything / that’s about it"}, {"fr": "ben !", "en": "well! / so! (interjection québécoise)"}, {"fr": "ouais", "en": "yeah / yep"}, {"fr": "genre", "en": "kind of / like"}, {"fr": "c’est pas mal ça", "en": "that’s pretty much it"}];
+var vocSelFr=null,vocSelEn=null,vocFound=0;
+function vshuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function buildVoc(){
+  vocFound=0;vocSelFr=null;vocSelEn=null;
+  var L=document.getElementById('vocFr'),R=document.getElementById('vocEn');
+  L.innerHTML='';R.innerHTML='';
+  document.getElementById('vocDone').style.display='none';
+  VOC.forEach(function(p,i){
+    var d=document.createElement('div');d.className='voc-item';d.dataset.idx=i;
+    var au=document.createElement('button');au.className='voc-audio';au.innerHTML='&#128266;';
+    au.addEventListener('click',function(e){e.stopPropagation();playClip('c1_mp_voc_'+pad(i+1)+'_fr.mp3',au);});
+    var sp=document.createElement('span');sp.textContent=p.fr;
+    d.appendChild(au);d.appendChild(sp);
+    d.addEventListener('click',function(){selVoc(d,'fr');});
+    L.appendChild(d);
+  });
+  vshuffle(VOC.map(function(p,i){return i;})).forEach(function(i){
+    var d=document.createElement('div');d.className='voc-item en';d.dataset.idx=i;
+    d.textContent=VOC[i].en;
+    d.addEventListener('click',function(){selVoc(d,'en');});
+    R.appendChild(d);
+  });
+  document.getElementById('vocStatus').textContent='0 / '+VOC.length;
+}
+function selVoc(d,col){
+  if(d.classList.contains('matched'))return;
+  if(col==='fr'){ if(vocSelFr)vocSelFr.classList.remove('selected'); vocSelFr=d; }
+  else { if(vocSelEn)vocSelEn.classList.remove('selected'); vocSelEn=d; }
+  d.classList.add('selected');
+  if(vocSelFr&&vocSelEn) vtry();
+}
+function vtry(){
+  var fr=vocSelFr,en=vocSelEn;
+  if(fr.dataset.idx===en.dataset.idx){
+    fr.classList.remove('selected');en.classList.remove('selected');
+    fr.classList.add('matched');en.classList.add('matched');
+    vocFound++;document.getElementById('vocStatus').textContent=vocFound+' / '+VOC.length;
+    if(vocFound===VOC.length)document.getElementById('vocDone').style.display='block';
+  } else {
+    fr.classList.add('wrong');en.classList.add('wrong');
+    (function(a,b){setTimeout(function(){a.classList.remove('wrong','selected');b.classList.remove('wrong','selected');},650);})(fr,en);
+  }
+  vocSelFr=null;vocSelEn=null;
+}
+buildVoc();
+
+// ---- Flashcards ----
+var FLASH=[{"q": "Comment s’appelle l’artiste interviewée ?", "a": "Mademoizelle Philippe."}, {"q": "Quel accent la personne interrogée a-t-elle ?", "a": "L’accent québécois."}, {"q": "Comment prononce-t-elle « je m’appelle » ?", "a": "« Jm’appelle » — élision du « e » typique de l’oral québécois."}, {"q": "Dans quelle province canadienne est-elle née ?", "a": "Au Québec, au Canada — dans la région du Saguenay."}, {"q": "À quelle distance de Montréal se trouve le Saguenay ?", "a": "À environ cinq heures de route."}, {"q": "Dans quelle ville vit-elle depuis longtemps ?", "a": "À Montréal."}, {"q": "Comment décrit-elle sa famille ?", "a": "Une famille assez typique, avec des gens de métiers très variés."}, {"q": "La famille de Mademoizelle Philippe est-elle artistique ?", "a": "Non, pas spécialement artistique — mais elle aime beaucoup la musique."}, {"q": "Où vivent les membres de sa famille ?", "a": "Ils se dispersent dans plusieurs régions."}, {"q": "Que signifie « se disperser dans plusieurs régions » ?", "a": "Être éparpillé, ne pas vivre au même endroit. EN : to be scattered across several regions."}, {"q": "Quel est le métier de Mademoizelle Philippe ?", "a": "Autrice, compositrice, interprète."}, {"q": "Que signifie « autrice » dans le milieu musical ?", "a": "Femme qui écrit les paroles des chansons. EN : songwriter / lyricist."}, {"q": "Que signifie « compositrice » ?", "a": "Femme qui compose la musique. EN : composer."}, {"q": "Que signifie « interprète » ?", "a": "Artiste qui chante et se produit sur scène. EN : performer."}, {"q": "Comment dit-elle « je fais de la musique » ?", "a": "« J’fais de la musique » — élision du « e » de « je », typique du québécois oral."}, {"q": "En quoi la musique est-elle particulière pour elle ?", "a": "C’est à la fois son travail et sa passion — même son temps libre est souvent en rapport à la musique."}, {"q": "Quelle est la première passion qu’elle cite hors musique ?", "a": "Boire du vin et découvrir les arômes."}, {"q": "Que signifie « développer cette passion là » ?", "a": "Cultiver, approfondir une passion. EN : to nurture / develop a passion."}, {"q": "Que signifie « divertissement » ?", "a": "Tout ce qui distrait et amuse. EN : entertainment."}, {"q": "Quels autres loisirs cite-t-elle ?", "a": "La musique, le cinéma, les séries télé, le divertissement en général."}, {"q": "Que signifie « en rapport à » ?", "a": "En lien avec, qui concerne. EN : related to / connected to."}, {"q": "Que signifie « ouais » en québécois ?", "a": "Forme informelle de « oui ». EN : yeah / yep."}, {"q": "Quel est le seul pays étranger qu’elle ait visité ?", "a": "La France — surtout le sud de la France."}, {"q": "Que signifie « voilà pas très longtemps » ?", "a": "Il n’y a pas très longtemps. EN : not very long ago."}, {"q": "Comment a-t-elle voyagé à travers le Québec ?", "a": "En faisant des spectacles — elle a vu beaucoup d’endroits lors de ses tournées."}, {"q": "Que signifie « en faisant des spectacles » ?", "a": "Se produire sur scène dans différents endroits. EN : to perform shows / go on tour."}, {"q": "Où est-elle allée aux États-Unis étant enfant ?", "a": "À Old Orchard Beach, dans le Maine."}, {"q": "Comment utilise-t-elle le mot « genre » dans l’entretien ?", "a": "Mot de remplissage informel, comme « kind of » ou « like » en anglais."}, {"q": "Depuis quand pratique-t-elle la musique ?", "a": "Depuis toujours — depuis l’école primaire."}, {"q": "Quel diplôme a-t-elle obtenu ?", "a": "Un diplôme au CEGEP."}, {"q": "Qu’est-ce que le CEGEP ?", "a": "Un établissement d’enseignement après l’école secondaire et avant l’université, au Québec."}, {"q": "Quels styles musicaux a-t-elle étudiés ?", "a": "La musique classique, la musique pop jazz, la composition et les arrangements."}, {"q": "Que signifie « arrangements » en musique ?", "a": "L’adaptation d’une composition pour différents instruments ou voix. EN : musical arrangements."}, {"q": "Que signifie « ben ! » dans l’entretien ?", "a": "Interjection de transition = « eh bien » / « bon ». EN : well! / so!"}, {"q": "Que signifie « c’est pas mal ça » ?", "a": "C’est à peu près ça / correct comme ça. EN : that’s pretty much it."}, {"q": "Que signifie « That’s it ? » à la fin de l’entretien ?", "a": "Emprunt à l’anglais courant au Québec — elle demande si l’entretien est terminé. EN : Is that it?"}];
+var idx=0,showingBack=false;
+function renderCard(){
+  var c=FLASH[idx],side=document.getElementById('flashSide');
+  side.textContent=showingBack?'R\u00e9ponse':'Question';
+  side.className='flash-side'+(showingBack?' reponse':'');
+  document.getElementById('flashText').textContent=showingBack?c.a:c.q;
+  document.getElementById('flashHint').style.display=showingBack?'none':'block';
+  document.getElementById('fCount').textContent=(idx+1)+' / '+FLASH.length;
+  document.getElementById('fPrev').disabled=(idx===0);
+  document.getElementById('fNext').disabled=(idx===FLASH.length-1);
+}
+function playCard(btn){ playClip(cb('c1_mp_card_'+pad(idx+1)+'_'+(showingBack?'r':'q')+'.mp3'),btn); }
+function flip(){ showingBack=!showingBack; renderCard(); }
+document.getElementById('fPrev').addEventListener('click',function(e){e.stopPropagation();if(idx>0){idx--;showingBack=false;renderCard();}});
+document.getElementById('fNext').addEventListener('click',function(e){e.stopPropagation();if(idx<FLASH.length-1){idx++;showingBack=false;renderCard();}});
+renderCard();
+
+// ---- Quiz ----
+var QUIZ=[{"q": "Quel est le rôle artistique de Mademoizelle Philippe ?", "o": ["Danseuse et chorégraphe.", "Actrice et scénariste.", "Autrice, compositrice, interprète.", "Chanteuse lyrique de concert."], "c": 2, "e": "Elle énumère ses trois casquettes artistiques dans l’entretien."}, {"q": "De quelle ville québécoise est-elle originaire ?", "o": ["Montréal.", "Québec City.", "Laval.", "Saguenay."], "c": 3, "e": "Elle précise qu’elle est née au Saguenay."}, {"q": "Comment décrit-elle sa famille ?", "o": ["Une famille d’artistes passionnés de scène.", "Une famille typique, aux métiers variés, qui aime la musique.", "Une famille concentrée dans une seule région.", "Une famille de musiciens professionnels."], "c": 1, "e": "Écoutez la nuance : pas spécialement artistique, mais qui aiment beaucoup la musique."}, {"q": "Quel loisir cite-t-elle en tout premier lieu ?", "o": ["Regarder des séries télé.", "Faire de la musique.", "Découvrir le vin et ses arômes.", "Aller au cinéma."], "c": 2, "e": "Faites attention à l’ordre dans lequel elle énumère ses passions."}, {"q": "Quel est l’unique pays étranger qu’elle ait visité jusqu’ici ?", "o": ["La Belgique.", "La Suisse.", "La France.", "Le Mexique."], "c": 2, "e": "Elle le mentionne en répondant à la question sur ses voyages à l’étranger."}, {"q": "Où s’est-elle rendue aux États-Unis étant enfant ?", "o": ["À New York.", "En Floride.", "À Las Vegas.", "À Old Orchard Beach, dans le Maine."], "c": 3, "e": "Elle nomme un lieu de villégiature populaire pour les familles québécoises."}, {"q": "Comment a-t-elle principalement découvert les régions du Québec ?", "o": ["En visitant sa famille dispersée dans la province.", "En faisant des spectacles lors de tournées.", "En participant à des festivals étudiants.", "En voyage scolaire avec le CEGEP."], "c": 1, "e": "Au Québec j’ai vu pas mal d’endroits entre autres en faisant des spectacles."}, {"q": "Qu’est-ce que le CEGEP selon son explication ?", "o": ["Un lycée équivalent au baccalauréat français.", "Une école supérieure spécialisée en art.", "Une étape entre l’école secondaire et l’université.", "Un programme universitaire de troisième cycle."], "c": 2, "e": "Elle explique clairement sa place dans le système scolaire québécois."}, {"q": "Que signifie l’expression québécoise « ben ! » ?", "o": ["Une abréviation de « bientôt ».", "Une interjection équivalente à « eh bien » / « well ».", "Une formule de politesse pour remercier.", "Le mot québécois pour « bien sûr »."], "c": 1, "e": "Observez comment elle l’utilise pour introduire une nouvelle idée ou marquer une transition."}, {"q": "Dans quel domaine Mademoizelle Philippe a-t-elle étudié tout au long de sa scolarité ?", "o": ["Les arts plastiques et le design graphique.", "Le théâtre et l’art dramatique.", "La danse classique et contemporaine.", "La musique, sous plusieurs formes."], "c": 3, "e": "J’ai étudié la musique depuis toujours, depuis l’école primaire jusqu’à mon diplôme au CEGEP."}];
+var LETTERS=['A','B','C','D'],AKEY=['a','b','c','d'];
+var answered=0,score=0;
+(function(){
+  var wrap=document.getElementById('quiz');
+  QUIZ.forEach(function(item,qi){
+    var card=document.createElement('div');card.className='q-card';card.id='q'+qi;
+    var num=document.createElement('div');num.className='q-num';num.textContent='Question '+(qi+1)+' / '+QUIZ.length;
+    var head=document.createElement('div');head.className='q-head';
+    var qt=document.createElement('div');qt.className='q-text';qt.textContent=item.q;
+    var qa=document.createElement('button');qa.className='speak-btn';qa.innerHTML='&#128266;';
+    qa.addEventListener('click',function(){ playClip(cb('c1_mp_quiz_'+pad(qi+1)+'_q.mp3'),qa); });
+    head.appendChild(qt);head.appendChild(qa);card.appendChild(num);card.appendChild(head);
+    item.o.forEach(function(opt,oi){
+      var row=document.createElement('div');row.className='choice-row';
+      var b=document.createElement('button');b.className='choice';b.textContent=LETTERS[oi]+'.  '+opt;
+      b.addEventListener('click',function(){ choose(card,qi,oi); });
+      var au=document.createElement('button');au.className='mini-audio';au.innerHTML='&#128266;';
+      au.addEventListener('click',function(){ playClip(cb('c1_mp_quiz_'+pad(qi+1)+'_'+AKEY[oi]+'.mp3'),au); });
+      row.appendChild(b);row.appendChild(au);card.appendChild(row);
+    });
+    var ht=document.createElement('button');ht.className='hint-toggle';ht.innerHTML='\uD83D\uDCA1 Indice';
+    var hbox=document.createElement('div');hbox.className='hint-box';hbox.style.display='none';
+    var hsp=document.createElement('span');hsp.textContent=item.e+' ';
+    var hau=document.createElement('button');hau.className='speak-btn';hau.innerHTML='&#128266;';
+    hau.addEventListener('click',function(){ playClip(cb('c1_mp_quiz_'+pad(qi+1)+'_hint.mp3'),hau); });
+    hbox.appendChild(hsp);hbox.appendChild(hau);
+    ht.addEventListener('click',function(){ var sh=(hbox.style.display==='none');hbox.style.display=sh?'block':'none';ht.innerHTML=sh?'\uD83D\uDCA1 Masquer l\u2019indice':'\uD83D\uDCA1 Indice'; });
+    card.appendChild(ht);card.appendChild(hbox);
+    var fb=document.createElement('div');fb.className='q-fb';fb.id='fb'+qi;card.appendChild(fb);
+    wrap.appendChild(card);
+  });
+})();
+function choose(card,qi,oi){
+  if(card.dataset.done)return;card.dataset.done='1';
+  var item=QUIZ[qi];
+  card.querySelectorAll('.choice').forEach(function(b,i){ b.disabled=true; if(i===item.c)b.classList.add('correct'); });
+  var right=(oi===item.c);
+  if(!right)card.querySelectorAll('.choice')[oi].classList.add('wrong');
+  if(right)score++;
+  card.classList.add(right?'ok':'ko');
+  var fb=document.getElementById('fb'+qi);
+  fb.className='q-fb show '+(right?'ok':'ko');
+  fb.textContent=(right?'\u2713 Correct !':'\u2717 Pas tout \u00e0 fait.');
+  answered++;
+  if(answered===QUIZ.length)showFinal();
+}
+function showFinal(){
+  var f=document.getElementById('final');f.classList.add('show');
+  document.getElementById('finalNum').textContent=score+' / '+QUIZ.length;
+  var pct=Math.round(score/QUIZ.length*100);
+  var msg=pct>=90?'Excellent ! Compr\u00e9hension de niveau C1 ma\u00eetris\u00e9e.':pct>=70?'Tr\u00e8s bien ! Revois les questions manqu\u00e9es.':pct>=50?'Pas mal ! R\u00e9\u00e9coute l\u2019entretien et r\u00e9essaie.':'Continue ! R\u00e9\u00e9coute l\u2019entretien et reprends le quiz.';
+  document.getElementById('finalMsg').textContent=msg;
+  if(window.LEM){ window.LEM.setLesson('c1_mademoizelle_philippe',{score:score,total:QUIZ.length,completed:true,lastPracticed:Date.now()}); }
+  f.scrollIntoView({behavior:'smooth'});
+}
+</script>
+<script type="module" src="../../../js/auth-guard.js"></script>
+<script src="/js/timer.js"></script>
+</body>
+</html>

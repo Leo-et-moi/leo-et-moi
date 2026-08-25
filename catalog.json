@@ -333,6 +333,24 @@
       "serieOrdre": 20
     },
     {
+      "id": "C1-E-003",
+      "niveau": "C1",
+      "ordre": 30,
+      "titre": "Mademoizelle Philippe — Écoute",
+      "chemin": "french/c1/mademoizelle-philippe/index.html",
+      "lecons": [],
+      "competences": [
+        "listening",
+        "reading"
+      ],
+      "questions": null,
+      "publie": true,
+      "progressId": "c1_mademoizelle_philippe",
+      "ajoute": "2026-08-24",
+      "serie": "Fada",
+      "serieOrdre": 30
+    },
+    {
       "id": "A2-E-004",
       "niveau": "A2",
       "ordre": 40,
