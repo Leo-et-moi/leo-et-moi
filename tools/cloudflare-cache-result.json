@@ -1,1 +1,1 @@
-{"ok":false,"etape":"zone","erreurs":[]}
+{"ok":false,"etape":"zone","jeton":"active","jetonErreurs":[],"listeZonesSucces":"true","zonesVisibles":0,"erreurs":[],"diagnostic":"si jeton=active et zonesVisibles=0 : il manque la permission Zone→Zone→Read sur le jeton"}
