@@ -116,6 +116,7 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 
 - **Généralisation du standard des boutons (B)** — standard validé le 28/08 ; déploiement par lots avec vérification à chaque lot : **Fable le repropose à la prochaine session.**
 - **Migration audio R2** — **Fable la repropose à la prochaine session.**
+- **Semaine 1 du parcours** — Eric y réfléchit (l'intégration des nouvelles leçons Alphabet/Adjectifs possessifs est en question) : **Fable la repropose à la prochaine session** ; le rappel automatique des 3 jours est mis en pause en attendant.
 - **6 audios EN de la vitrine** : Eric enregistre et dépose dans OneDrive `french\audio\` → **Opus déploie en autonomie** (routine §4 : copie vers `french/audio/`, retrait d'`AUDIO_ATTENDUS`, maj de la Recording List — les boutons 🔊 EN de bienvenue.html sont déjà câblés).
 
 _(rien d'autre)_
