@@ -37,6 +37,7 @@ _Fichier unique depuis le 14/07/2026 (fusion du backlog OneDrive et du canal du 
 
 - **Rotation du jeton GitHub (PAT)** : à faire.
 - **Export périodique Firestore** (`users` + `progress`).
+- **Poids du dépôt** [relevé 27/08/2026] : le site publié pèse **281 Mo**, dont **271 Mo de MP3** (2 318 fichiers) — soit 28 % du plafond indicatif de 1 Go de GitHub Pages. L'historique `.git` ajoute ~250 Mo de plus, un MP3 remplacé étant conservé pour toujours. Non urgent, mais la marge se réduit à chaque séance d'enregistrement. À surveiller ; envisager un stockage audio hors dépôt le jour où l'on approche du plafond.
 - **Plus tard (validé)** : PWA hors-ligne ; statistiques par question.
 
 ## 6. Assurance qualité
@@ -118,6 +119,28 @@ Piste : Cloudflare → désactiver le cache HTML (ou Cache Rule bypass pour *.ht
 ## 🔧 Pour Fable — harmonisation des boutons (site entier)  [signalé par Opus 2026-08-23]
 Demande d'Eric : définir/appliquer un **style de bouton global** cohérent sur l'ensemble du site.
 État : les pages récentes (série A2 pronoms possessifs A2-L-002 + A2-E-007/008/009) utilisent déjà le standard `.t-play` (rond FR), `.t-en` (pilule EN), `.opt`, `.tree-btn`, `.tab`, plus le `button{min-height:44px;min-width:44px;font-size:18px}` global — donc rien de bloquant. Ce qu'il reste à faire (périmètre Fable/gabarits) : arbitrer un standard visuel unique (tailles, couleurs, états focus/hover/actif, accessibilité) et le propager aux anciennes pages/gabarits. Contrainte à préserver : `.opt.ok`/`.opt.ng` en `!important` (corrige le bug rouge/vert quand `audio.js` pose `.speaking` corail via `window.event`).
+
+### ✅ Étape 1 faite — standard écrit dans `css/site.css` (Opus 5, 27/08/2026)
+
+**Relevé de l'audit** (mesuré sur le dépôt, pas de mémoire) : le mot `focus` apparaissait **0 fois** dans `css/site.css` — aucun repère clavier nulle part sur le site. `.t-en` était en 12 px, `.tree-btn` en 14 px, `.tab` en 13 px / 40 px de haut, chacun redéfini localement, donc prioritaire sur la règle globale `button{min-height:44px;font-size:18px}` : le plancher existait mais était contourné. Deux nomenclatures coexistaient pour bon/faux (`.good`/`.bad` dans `site.css`, `.ok`/`.ng` dans 18 pages). Et **46 pages sur 92** portent leur propre bloc `<style>`, avec **80 `!important`** dedans — c'est pourquoi ajouter des variables globales ne suffit pas.
+
+**Arbitrages d'Eric (27/08/2026)** — à considérer comme tranchés, ne pas rouvrir sans lui :
+
+- **A · Nomenclature** : `.opt.ok` / `.opt.ng` font foi. `.good` / `.bad` restent en **alias déprécié**, volontairement **sans** `!important` : 12 pages les redéfinissent chez elles et la règle globale les écraserait. À retirer une fois le balayage terminé.
+- **B · Anneau de focus** : navy `#1B2845`, 3 px, décalé de 3 px, halo crème. Jamais une couleur porteuse de sens — le corail dit « ça parle », le vert et le rouge disent « juste » et « faux ». Les liens reçoivent l'anneau seul, sans halo, pour que `.lesson-card` ne perde pas son ombre au focus.
+- **C · Typographie** : 18 px partout ; **14 px gras** pour les micro-libellés (`EN`, onglets). Cible tactile ≥ 44 px de large dans tous les cas.
+
+**Écart assumé par rapport à la maquette** : la zone cliquable de `.t-en` fait **44 × 40 px**, pas 44 × 44. À 44 px de haut elle déborde d'environ 8 px sur les lignes voisines et leur vole leurs clics quand deux pastilles tombent sur des lignes consécutives. 40 px reste très au-dessus du minimum de 24 px.
+
+**Livré** : `css/site.css`, +76/−3 lignes. États survol / enfoncé / focus / désactivé (aucun n'existait), `.tab` et `.tree-btn` entrés au catalogue global, `prefers-reduced-motion` respecté. `check_site.py` : 0 erreur, 589 avertissements — identique au relevé pris avant modification.
+
+**Effet visible aujourd'hui : aucun, sauf les anneaux de focus.** Les blocs `<style>` de page se chargent après `site.css` et gagnent donc toujours.
+
+### ⏳ Étape 2 à faire — balayage des 46 blocs `<style>` de page
+
+Par script, jamais à la main, avec `check_site.py` entre chaque lot et un commit par niveau plutôt qu'un seul gros diff. Deux interdits pour le script : ne pas toucher aux attributs `data-audio` (182 fichiers `pp_*` référencés 1 pour 1) et ne pas retirer les `!important` de `.opt.ok`/`.opt.ng`.
+
+_À noter pour plus tard_ : la cause racine de ces `!important` est que `js/audio.js` pose `.speaking` en corail `!important` sur n'importe quel bouton, y compris une option de QCM. Restreindre `.speaking` à `.t-play, .vaud` supprimerait le conflit à la source — mais c'est un changement de comportement, à décider avec Eric, pas en passant.
 
 ## 🔧 Pour Fable — gabaritiser les motifs interactifs de la série A2 possessifs  [signalé par Opus 2026-08-23]
 Trois motifs sont aujourd'hui en HTML « sur mesure » dans `french/a2/pronoms-possessifs/` et pourraient devenir des gabarits réutilisables si on multiplie ce type d'exercice :
