@@ -1,1 +1,1 @@
-{"ok":false,"etape":"zone","jeton":"active","jetonErreurs":[],"listeZonesSucces":"true","zonesVisibles":0,"erreurs":[],"diagnostic":"si jeton=active et zonesVisibles=0 : il manque la permission Zone→Zone→Read sur le jeton"}
+{"ok":true,"zone":"29161933…","regles":["leo-et-moi: audio en cache long","leo-et-moi: HTML et donnees toujours frais"],"erreurs":[],"purge":true,"quand":"2026-08-27T20:45:18Z"}
