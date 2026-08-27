@@ -22,11 +22,6 @@
   --dialogue: #6C5CE7;  /* série Dialogue — distinct des couleurs CEFR et du corail/or */
   --pronunciation: #0E7C86;  /* série PRO-NON-CIA-TION — teal distinct */
   --nav-h: 64px;
-  /* Focus clavier (arbitrage B, Eric 27/08/2026) : navy, jamais une couleur
-     porteuse de sens — le corail dit « ça parle », vert et rouge disent
-     « juste » et « faux ». */
-  --focus: #1B2845;
-  --focus-halo: #F5F0E8;
 }
 
 /* Base — profil de Leo : Arial ≥ 18 px, pas d'italique, gras seulement */
@@ -54,54 +49,19 @@ a { color: var(--navyMid); }
 }
 .card--gold { background: #FBF3E2; border-color: var(--gold); }
 
-/* ==========================================================================
-   BOUTONS — standard unique (27/08/2026, arbitrages A/B/C validés par Eric)
-   A · .opt.ok / .opt.ng font foi. .good / .bad restent en alias déprécié :
-       12 pages les redéfinissent localement, on ne les écrase pas.
-   B · Anneau de focus navy, 3 px, décalé de 3 px, halo crème.
-   C · 18 px partout ; 14 px gras pour les micro-libellés (EN, onglets) ;
-       cible tactile ≥ 44 px de large dans tous les cas.
-   À NE PAS RETIRER : les !important de .opt.ok / .opt.ng protègent la
-   correction verte/rouge du corail que js/audio.js pose via .speaking.
-   Les pages qui définissent déjà ces classes dans leur propre <style>
-   continuent de gagner (feuille de page chargée après celle-ci) : ce bloc
-   ne change donc rien tant que le balayage page par page n'a pas eu lieu.
-   ========================================================================== */
-
-/* Base — cibles tactiles ≥ 44 px */
+/* Boutons — cibles tactiles ≥ 44 px */
 button, .btn {
   font-family: inherit; font-size: 18px; min-height: 44px; min-width: 44px;
   border-radius: 12px; border: 1px solid var(--divider); cursor: pointer;
-  transition: background-color .12s ease, border-color .12s ease,
-              color .12s ease, transform .06s ease;
 }
-
-/* Focus clavier — absent du site jusqu'ici. :focus-visible n'apparaît qu'au
-   clavier, donc rien ne change pour un élève qui clique ou touche l'écran. */
-button:focus-visible, .btn:focus-visible {
-  outline: 3px solid var(--focus); outline-offset: 3px;
-  box-shadow: 0 0 0 3px var(--focus-halo);
-}
-a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
-  outline: 3px solid var(--focus); outline-offset: 2px;
-}
-
-button:disabled, .btn[aria-disabled="true"] { opacity: .45; cursor: default; }
-
 .btn-primary { background: var(--coral); color: #fff; border: none; padding: 12px 20px; font-weight: bold; }
-.btn-primary:hover:not(:disabled) { background: #D2432E; }
-.btn-primary:active:not(:disabled) { background: #BC3A26; transform: translateY(1px); }
-
 .btn-secondary { background: var(--navyMid); color: #fff; border: none; padding: 12px 20px; }
-.btn-secondary:hover:not(:disabled) { background: #243E68; }
-.btn-secondary:active:not(:disabled) { background: #1D3355; transform: translateY(1px); }
 
 /* Bouton audio 🔊 — état 'speaking' géré par js/audio.js */
 .t-play, .vaud {
   background: var(--navyMid); color: #fff; border: none; border-radius: 50%;
   width: 44px; height: 44px; font-size: 20px;
 }
-.t-play:hover:not(:disabled), .vaud:hover:not(:disabled) { background: #243E68; }
 .speaking { background: var(--coral) !important; }
 
 /* Options de QCM (js/quiz.js) */
@@ -109,40 +69,13 @@ button:disabled, .btn[aria-disabled="true"] { opacity: .45; cursor: default; }
   display: block; width: 100%; text-align: left; padding: 12px 16px; margin: 8px 0;
   background: var(--white); border: 2px solid var(--divider); border-radius: 12px;
 }
-.opt:hover:not(:disabled) { border-color: var(--navyMid); background: #FAFCFF; }
-.opt.ok { background: var(--ltgreen) !important; border-color: var(--green) !important;
-          color: #14562F; font-weight: bold; }
-.opt.ng { background: var(--ltred) !important; border-color: var(--red) !important;
-          color: #8E2A1E; font-weight: bold; }
-/* Alias déprécié — laissé sans !important pour ne pas écraser les 12 pages
-   qui redéfinissent .good / .bad chez elles. À retirer après le balayage. */
 .opt.good { background: var(--ltgreen); border-color: var(--green); }
 .opt.bad { background: var(--ltred); border-color: var(--red); }
 .opt:disabled { cursor: default; }
 
 /* Bouton audio anglais — standard « audio bilingue » (Eric, 13/07/2026).
-   Chaque phrase peut avoir 🔊 FR + 🔊 EN (fichier <nom>_en.mp3). Réf. : A2-L-001
-   La pastille reste petite pour ne pas casser l'interligne ; sa zone cliquable
-   est étendue à 44 × 40 px par un ::after invisible. 40 px et non 44 en hauteur :
-   au-delà, la zone déborde sur les lignes voisines et vole leurs clics. */
-.t-en{position:relative;background:#fff;border:1.5px solid var(--navyMid);color:var(--navyMid);border-radius:8px;font-size:14px;font-weight:bold;padding:4px 10px;cursor:pointer;margin-right:5px;font-family:Arial,sans-serif;vertical-align:middle;min-height:auto;min-width:auto;}
-.t-en::after{content:"";position:absolute;left:50%;top:50%;width:44px;height:40px;transform:translate(-50%,-50%);}
-.t-en:hover{background:#EDF2F9;}
-
-/* Onglets et pastilles — jusqu'ici recopiés dans chaque page qui en avait
-   besoin ; désormais au catalogue. Les définitions locales restent
-   prioritaires tant qu'elles n'ont pas été retirées. */
-.tab{flex:0 0 auto;font-family:inherit;font-size:16px;font-weight:bold;padding:10px 18px;
-  border-radius:22px;border:2px solid var(--divider);background:#fff;color:var(--slate);
-  min-height:44px;cursor:pointer;}
-.tab:hover{border-color:var(--navyMid);color:var(--dark);}
-.tab[aria-selected="true"]{background:var(--dark);border-color:var(--dark);color:#fff;}
-.tabs{display:flex;overflow-x:auto;gap:8px;padding:10px 0 6px;-webkit-overflow-scrolling:touch;}
-
-.tree-btn{background:var(--green);color:#fff;border:none;border-radius:22px;
-  padding:11px 18px;font-size:16px;font-weight:bold;min-height:44px;cursor:pointer;
-  font-family:inherit;}
-.tree-btn:hover{background:#166237;}
+   Chaque phrase peut avoir 🔊 FR + 🔊 EN (fichier <nom>_en.mp3). Réf. : A2-L-001 */
+.t-en{background:#fff;border:1.5px solid var(--navyMid);color:var(--navyMid);border-radius:8px;font-size:12px;font-weight:bold;padding:2px 7px;cursor:pointer;margin-right:5px;font-family:Arial,sans-serif;vertical-align:middle;}
 
 /* Pastille de niveau + panneau de titre (modèle de barre unique, 20/07) */
 .lvl-tag{display:inline-block;background:var(--lvl,var(--navyMid));color:#fff;font-size:13px;
@@ -277,9 +210,3 @@ main{max-width:640px;margin:0 auto;padding:18px 14px 8px;}
 .som-status.done{color:var(--green);}
 .som-sec{margin:16px 0 8px;font-size:18px;font-weight:bold;color:var(--dark);}
 @media print{.top-bar,.bottom-nav,.som-nav,button,.notif-panel{display:none !important;}}
-
-/* Mouvement réduit — respecte le réglage système de l'élève (27/08/2026). */
-@media (prefers-reduced-motion: reduce){
-  button, .btn { transition: none; }
-  button:active, .btn:active, .btn-primary:active, .btn-secondary:active { transform: none; }
-}
