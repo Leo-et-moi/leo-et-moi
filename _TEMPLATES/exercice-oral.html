@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- À REMPLIR : Titre (oral) --> — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<!-- À REMPLIR : data-item-id = ID du catalogue · compétence speaking -->
+<body data-item-id="XX-E-000" data-terminer="off">
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a>
+<div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<main class="main">
+<div class="revoir-host"></div>
+<h1>🎙️ <!-- À REMPLIR : titre --></h1>
+<div class="consigne"><button class="t-play" onclick="playClip('XX_c1.mp3',this)" aria-label="Écouter">🔊</button>
+<div>Lis à voix haute en trouvant les mots manquants, enregistre-toi, réécoute — puis seulement affiche les réponses.
+<span class="en">Read aloud filling the gaps, record yourself, listen back — only then show the answers.</span></div></div>
+<div id="oral"></div>
+</main>
+<script src="/js/audio.js"></script>
+<script src="/js/oral.js"></script>
+<script type="module">import { bandeauRevoir } from '/js/ui.js'; bandeauRevoir();</script>
+<script>
+// À REMPLIR : blocs — chaque {réponse} devient un trou. progressId ⇒ notification prof à l'enregistrement.
+LeoOral.render(document.getElementById('oral'), [
+  { titre: "Bloc 1", consigne: "Trouve et dis le bon pronom :",
+    lignes: [ "Mon neveu s'appelle Youssef ; {le tien} s'appelle Karim.",
+              "Ma nièce chante bien ; {la tienne} danse." ] }
+], { progressId: "XX-E-000", nomFichier: "XX-E-000" });
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/imprimer.js"></script>
+</body>
+</html>

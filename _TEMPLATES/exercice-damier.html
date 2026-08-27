@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- À REMPLIR : Titre --> — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<!-- À REMPLIR : data-item-id = ID du catalogue -->
+<body data-item-id="XX-E-000">
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a>
+<div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<main class="main">
+<div class="revoir-host"></div>
+<h1><!-- À REMPLIR : titre --></h1>
+<div class="consigne"><button class="t-play" onclick="playClip('XX_c1.mp3',this)" aria-label="Écouter">🔊</button>
+<div>Complète chaque phrase : clique la bonne réponse — elle se met en place et tu l'entends.
+<span class="en">Complete each sentence: click the right answer — it fills the blank and you hear it.</span></div></div>
+<div id="damier"></div>
+</main>
+<script src="/js/audio.js"></script>
+<script src="/js/damier.js"></script>
+<script type="module">import { bandeauRevoir } from '/js/ui.js'; bandeauRevoir();</script>
+<script>
+// À REMPLIR : cartes (audio = fichier de la bonne réponse, dans ./audio/)
+LeoDamier.render(document.getElementById('damier'), [
+  { qui: "Youssef → Lucas", tag: "masc. sing.",
+    phrase: "Ton <b>oncle</b> s'appelle Paul ; ____ s'appelle Marc.",
+    options: [ { txt: "le tien", ok: true, audio: "XX_d1.mp3" },
+               { txt: "la tienne" }, { txt: "les tiens" } ] }
+], { onDone: function (n) { /* setLesson ici si progressId */ } });
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
+<script type="module" src="/js/imprimer.js"></script>
+</body>
+</html>

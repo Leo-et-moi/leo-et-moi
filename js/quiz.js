@@ -21,11 +21,10 @@
   function shuffleOptions(q) {
     var idx = q.options.map(function (_, i) { return i; });
     shuffle(idx);
-    return {
-      q: q.q, audio: q.audio, audioEn: q.audioEn, en: q.en,
+    return Object.assign({}, q, {   /* conserve audio, audioEn, audioBonne, en… */
       options: idx.map(function (i) { return q.options[i]; }),
       bonneReponse: idx.indexOf(q.bonneReponse)
-    };
+    });
   }
 
   function render(host, questions, opts) {
@@ -60,10 +59,16 @@
       q.options.forEach(function (label, i) {
         var b = document.createElement('button'); b.className = 'opt'; b.innerHTML = label;
         b.onclick = function () {
-          if (answered) return; answered = true; done++;
+          if (answered) return;
           var ok = (i === q.bonneReponse);
-          if (ok) { score++; b.classList.add('good'); }
-          else {
+          if (opts.reessai && !ok) {           // motif A2 : réessayer jusqu'à trouver
+            b.classList.add('ng'); b.disabled = true; return;
+          }
+          answered = true; done++;
+          if (ok) {
+            score++; b.classList.add(opts.reessai ? 'ok' : 'good');
+            if (q.audioBonne && window.playClip) window.playClip(q.audioBonne, b);
+          } else {
             b.classList.add('bad');
             card.querySelectorAll('.opt')[q.bonneReponse].classList.add('good');
           }

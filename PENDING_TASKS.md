@@ -104,9 +104,19 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 - Trois **nouvelles catégories** (mécanisme générique, 18 pages minces) : 📚 **La farandole des livres, poèmes et chansons ! (extraits)** (B1-E-003 Kessel) · 🌍 **Fada ! Les accents et mots francophones !** (Francine + Francis) · 🎖️ **Mon coach DLPT** (vide, **annoncée sur C2** via le nouveau champ `annoncer` — affiche « bientôt »).
 - **Impression déroulée** : la feuille d'impression prof déplie désormais diaporamas/onglets/plis (une étape par page) — l'impression « page visible seulement » est corrigée pour les contenus à écrans multiples ; la version totalement **reformatée/repaginée** viendra avec le moteur du Cahier (spec en attente ci-dessous).
 
+## ✅ Traitées (28/08 par Fable — décisions d'Eric)
+
+- **Standard des boutons (B) : VALIDÉ par Eric sur le témoin B1-E-001** (familles .t-play/.t-en/.opt/.btn-primary/.btn-secondary + états focus/hover/actif/désactivé + correction verte/rouge canonique). **Généralisation par lots : EN ATTENTE — Fable la repropose à la prochaine session.**
+- **Motifs interactifs A2 gabaritisés (C, GO Eric)** : `js/damier.js`, `js/oral.js`, `js/quiz.js` (+`audioBonne`, `reessai`), 2 modèles `_TEMPLATES/`, styles site.css, directives Opus §2bis-A. Pages A2 existantes non migrées (autorisé).
+- **Vitrine : bouton 📞 téléphone** (`tel:+1 831 277-8404`) ajouté à côté de Se connecter / e-mail (demande Eric : contact immédiat depuis smartphone après la démo).
+
 ## ⏳ En attente
 
 - ~~📓 Générateur de « Cahier d'exercices de la semaine »~~ — **ANNULÉ définitivement par Eric (28/08/2026)** : proposé aux étudiants, jugé redondant avec le site par tous. Un cahier d'exercices **sous un modèle différent** pourra être réfléchi plus tard ; la spec du 27/07 est caduque.
+
+- **Généralisation du standard des boutons (B)** — standard validé le 28/08 ; déploiement par lots avec vérification à chaque lot : **Fable le repropose à la prochaine session.**
+- **Migration audio R2** — **Fable la repropose à la prochaine session.**
+- **6 audios EN de la vitrine** : Eric enregistre et dépose dans OneDrive `french\audio\` → **Opus déploie en autonomie** (routine §4 : copie vers `french/audio/`, retrait d'`AUDIO_ATTENDUS`, maj de la Recording List — les boutons 🔊 EN de bienvenue.html sont déjà câblés).
 
 _(rien d'autre)_
 
@@ -114,9 +124,3 @@ _(rien d'autre)_
 Demande d'Eric : définir/appliquer un **style de bouton global** cohérent sur l'ensemble du site.
 État : les pages récentes (série A2 pronoms possessifs A2-L-002 + A2-E-007/008/009) utilisent déjà le standard `.t-play` (rond FR), `.t-en` (pilule EN), `.opt`, `.tree-btn`, `.tab`, plus le `button{min-height:44px;min-width:44px;font-size:18px}` global — donc rien de bloquant. Ce qu'il reste à faire (périmètre Fable/gabarits) : arbitrer un standard visuel unique (tailles, couleurs, états focus/hover/actif, accessibilité) et le propager aux anciennes pages/gabarits. Contrainte à préserver : `.opt.ok`/`.opt.ng` en `!important` (corrige le bug rouge/vert quand `audio.js` pose `.speaking` corail via `window.event`).
 
-## 🔧 Pour Fable — gabaritiser les motifs interactifs de la série A2 possessifs  [signalé par Opus 2026-08-23]
-Trois motifs sont aujourd'hui en HTML « sur mesure » dans `french/a2/pronoms-possessifs/` et pourraient devenir des gabarits réutilisables si on multiplie ce type d'exercice :
-1. **Damier QCM** (leçon écran 5) : cartes `.dcard` + `dpick(b)` (remplit le blanc + joue `data-audio` de la bonne réponse). 
-2. **QCM « audio par bonne réponse »** (Ex1/Ex2) : `.qc` + `pick(b)` (vert/rouge, score, joue `data-audio` sur bonne réponse ; mutualisation des audios identiques via un fichier canonique).
-3. **Enregistreur oral** (Ex3) : `.readbox` à trous (`.hole`/`data-ans`) + `rec()` MediaRecorder local + `reveal()` (réponses révélées en rouge après enregistrement) — 100 % local, rien n'est envoyé.
-Non bloquant (ça marche en l'état) ; à évaluer par Fable côté `_TEMPLATES/` si réutilisation fréquente. Ne pas casser : ces pages référencent 182 audios `pp_*` 1-pour-1 (ne pas renommer un MP3 en ligne, remplacer même nom + `?v=N`).

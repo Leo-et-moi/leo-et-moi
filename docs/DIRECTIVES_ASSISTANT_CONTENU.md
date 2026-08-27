@@ -35,6 +35,11 @@ Sonnet conçoit des brouillons pédagogiques (voir `docs/DIRECTIVES_CREATION_SON
 
 Créer un **test** : une entrée dans la section `tests` du catalogue (titre, sources, nbQuestions, duree ou null). **Eric décide** de la composition ; propose des valeurs par défaut raisonnables (pas de limite de temps par défaut).
 
+## 2bis-A. Motifs interactifs gabaritisés (GO Eric 28/08)
+
+Les trois motifs de la série A2 possessifs sont désormais des **gabarits partagés** — ne les recode plus à la main :
+`js/damier.js` (damier à trous, bonne réponse placée + jouée) · `js/quiz.js` avec `audioBonne` + `reessai:true` (QCM qui joue l'audio de la bonne réponse, réessais) · `js/oral.js` (lecture à trous + enregistreur local + réponses révélées). Modèles : `_TEMPLATES/exercice-damier.html`, `_TEMPLATES/exercice-oral.html`. Les 3 pages A2 existantes restent telles quelles (migration non requise).
+
 ## 2bis. Séries et bouton « terminé »
 
 - **Nouvelle série** (validée par Eric) : ajouter une entrée à la section `series` de `catalog.json` (titre, emoji, couleur, dossier, unite, ordre), taguer les exercices (`serie`, `serieOrdre`), créer les 6 pages minces `french/<dossier>/<a1…c2>.html` en copiant un dossier de série existant (seul `data-serie` change). Aucun code à écrire — `niveau.js` et `serie.js` font le reste.

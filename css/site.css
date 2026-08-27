@@ -223,3 +223,22 @@ button:disabled{opacity:.55;cursor:default;}
 /* Correction verte/rouge CANONIQUE (!important : survit au corail .speaking) */
 .opt.good,.opt.ok{background:var(--ltgreen) !important;border-color:var(--green) !important;color:var(--green) !important;}
 .opt.bad,.opt.ng{background:var(--ltred) !important;border-color:var(--red) !important;color:var(--red) !important;}
+
+/* ── Gabarits « motifs A2 » (GO Eric 28/08) : damier + enregistreur oral ── */
+.dcard{background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:14px 16px;margin:12px 0;}
+.dc-who{font-size:13px;font-weight:bold;color:var(--slate);margin-bottom:4px;}
+.dc-q{font-size:18px;line-height:1.6;}
+.dc-tag{font-size:12px;font-weight:bold;background:var(--card);border-radius:8px;padding:2px 8px;white-space:nowrap;}
+.blank{display:inline-block;min-width:74px;border-bottom:2px solid var(--navyMid);text-align:center;color:var(--navyMid);font-weight:bold;}
+.blank.filled{color:var(--green);border-bottom-color:var(--green);}
+.dc-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.dc-opts .opt{display:inline-block;width:auto;flex:1 1 40%;min-width:110px;margin:0;}
+.readbox{background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:14px 16px;margin:14px 0;}
+.rbh{font-weight:bold;color:var(--dark);margin-bottom:8px;}
+.rl{font-size:18px;line-height:1.8;margin:6px 0;}
+.hole{display:inline-block;min-width:70px;border-bottom:2px dashed var(--slate);text-align:center;color:transparent;}
+.hole.shown{color:var(--red);font-weight:bold;border-bottom-style:solid;border-bottom-color:var(--red);}
+.recbtn{background:var(--coral);color:#fff;border:none;border-radius:12px;padding:12px 20px;font-size:17px;font-weight:bold;cursor:pointer;margin-top:10px;font-family:Arial,sans-serif;}
+.recbtn.recording{background:var(--red);animation:recpulse 1.2s infinite;}
+@keyframes recpulse{50%{opacity:.65;}}
+.dl{display:inline-block;margin-left:10px;font-size:14px;color:var(--navyMid);font-weight:bold;}
