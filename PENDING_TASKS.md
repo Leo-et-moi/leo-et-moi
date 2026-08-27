@@ -102,11 +102,7 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 
 ## ⏳ En attente
 
-- **📓 Générateur de « Cahier d'exercices de la semaine » — SPEC VALIDÉE par Eric (27/07), à construire par Fable (2-3 sessions)** :
-  - Outil sur le **tableau prof uniquement** (l'élève n'imprime pas) ; sélection **manuelle** des contenus de la semaine (ou pré-remplie depuis le parcours, ajustable).
-  - **Couverture** : marque leo-et-moi + URL du site · « Exercices — semaine du xx/xx/xxxx » · **individualisé : prénom + nom de l'élève, niveau** · date d'impression · **QR code** vers la page audio compagnon (playlist des pistes numérotées de la semaine).
-  - **Première page de consignes** : notamment la « Méthode de Lecture – Reading Method » (modèle Kessel B1-E-003) et la « Méthode d'écoute – Recall Protocol – Listening Method » (modèle Francine C1-E-001) — reprises telles quelles.
-  - Corps : leçons en version lecture + exercices reconstruits en fiches papier depuis les banques `questions.json` (QCM à cocher, lignes d'écriture) + section révision ; **corrigé détachable** en fin (pour le prof).
+- ~~📓 Générateur de « Cahier d'exercices de la semaine »~~ — **ANNULÉ définitivement par Eric (28/08/2026)** : proposé aux étudiants, jugé redondant avec le site par tous. Un cahier d'exercices **sous un modèle différent** pourra être réfléchi plus tard ; la spec du 27/07 est caduque.
 
 _(rien d'autre)_
 
