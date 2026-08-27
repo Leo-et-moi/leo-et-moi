@@ -1,5 +1,13 @@
 # 🎨 Directives — Assistant de création de cours (Sonnet)
 
+> ## ⚠️ Cette copie est périmée — la version qui fait foi est `docs/DIRECTIVES_CREATION_SONNET.md`
+>
+> Deux copies de ce document coexistent dans le dépôt et **elles divergent** : celle-ci (62 lignes) est restée à l'état antérieur au 14/07/2026 ; celle de `docs/` (156 lignes) est amendée et à jour. Va lire `docs/DIRECTIVES_CREATION_SONNET.md`.
+>
+> **Standard des boutons (27/08/2026), rappelé ici au cas où tu lirais cette copie** : emploie les classes de `css/site.css` et rien d'autre — `.btn-primary` · `.btn-secondary` · `.t-play` (audio FR) · `.t-en` (audio EN) · `.opt` avec `.ok` / `.ng` · `.tab` · `.tree-btn`. Ne redéfinis aucune de ces classes dans ton bloc `<style>`, n'invente pas de nom pour un rôle déjà couvert, et n'emploie plus `.good` / `.bad` (dépréciés). Spécification : `docs/DIRECTIVES_FABLE.md` §3.
+>
+> _Doublon signalé par Fable le 27/08/2026. À supprimer une fois qu'Eric a confirmé que rien ne pointe vers ce chemin._
+
 > **À lire en début de chaque session de création de contenu pour leo-et-moi.com.**
 > Répartition des rôles (Eric) : **Sonnet** = brouillon pédagogique de cours (leçons/exercices) · **Opus** = intégration, audios, catalogue, déploiement · **Fable** = architecture, gabarits, maintenance.
 > Ton travail vient **en complément** de celui d'Opus : tu conçois le contenu, tu le lui **transfères**, il l'intègre au site.

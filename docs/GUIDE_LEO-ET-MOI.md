@@ -71,6 +71,13 @@ Points de vigilance : ne jamais changer le nom ; vérifier le bon dossier ; form
 - Couleurs CEFR : a1 `#C0392B` · a2 `#E07B39` · b1 `#D4920A` · b2 `#7CB82F` · c1 `#27AE60` · c2 `#1A5C38`.
 - **Zéro saisie clavier** (tout au clic), **sauf** exercices de rédaction.
 
+**Boutons — vocabulaire unique** (standard du 27/08/2026, obligatoire pour toute page **nouvelle**)
+- Familles, et rien d'autre : `.btn-primary` (action principale, une seule par écran) · `.btn-secondary` · `.t-play` (audio FR, rond 44 px) · `.t-en` (audio EN, pastille 14 px) · `.opt` avec `.ok` / `.ng` (QCM) · `.tab` · `.tree-btn` · `.selfeval button`. Tout est dans `css/site.css` : **ne jamais redéfinir ces classes dans un bloc `<style>` de page**, et ne pas inventer un nom pour un rôle déjà couvert.
+- `.opt.ok` / `.opt.ng` font foi ; `.good` / `.bad` sont des **alias dépréciés** gardés pour l'existant.
+- **Focus clavier** : anneau navy `#1B2845` (`--focus`), 3 px, décalé de 3 px. Jamais une couleur porteuse de sens — le corail dit « ça parle », le vert et le rouge disent « juste » et « faux ».
+- **18 px** partout, **14 px gras** pour les micro-libellés (EN, onglets) ; cible tactile **≥ 44 px de large** en toutes circonstances.
+- **Gel de l'existant (décision d'Eric, 27/08/2026)** : les pages déjà en ligne **ne sont pas retouchées** pour se conformer. L'audit du 27/08 a relevé **105 noms de classes de boutons** différents sur 92 pages, dont une vingtaine pour le seul « lire l'audio en français » ; la migration a été jugée trop coûteuse et trop risquée (le JS de chaque page appelle ses boutons par leur nom de classe). Le standard vaut donc **pour les créations futures uniquement**. Spécification complète : `docs/DIRECTIVES_FABLE.md` §3.
+
 **Audio**
 - **Uniquement des MP3 enregistrés** (voix d'Eric / TTS payant). **Jamais** de `speechSynthesis` — le script de contrôle le vérifie. (4 anciennes pages Référence/A2 encore tolérées, en attente de décision.)
 - Chaque bouton 🔊 : re-clic = pause ; re-clic = reprise ; un autre bouton arrête le précédent ; jamais deux sons à la fois (`js/audio.js`).
