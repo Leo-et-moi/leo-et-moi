@@ -1,0 +1,26 @@
+name: Cloudflare cache (leo-et-moi)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cloudflare-cache.yml'
+      - 'tools/cf-run.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Regles de cache + purge
+        env:
+          CF: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: bash tools/cloudflare-cache.sh
+      - name: Compte-rendu
+        run: |
+          git config user.name "Robot cache leo-et-moi"
+          git config user.email "actions@users.noreply.github.com"
+          git add tools/cloudflare-cache-result.json
+          git commit -m "Compte-rendu Cloudflare cache [skip ci]" || echo "rien"
+          git push
