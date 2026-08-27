@@ -62,13 +62,10 @@
         b.onclick = function () {
           if (answered) return; answered = true; done++;
           var ok = (i === q.bonneReponse);
-          // Nomenclature canonique 'ok' / 'ng' (standard 27/08/2026) + alias
-          // déprécié 'good' / 'bad' conservé pour ne rien changer aux pages
-          // existantes. Retirer les alias quand plus aucune page ne les style.
-          if (ok) { score++; b.classList.add('ok', 'good'); }
+          if (ok) { score++; b.classList.add('good'); }
           else {
-            b.classList.add('ng', 'bad');
-            card.querySelectorAll('.opt')[q.bonneReponse].classList.add('ok', 'good');
+            b.classList.add('bad');
+            card.querySelectorAll('.opt')[q.bonneReponse].classList.add('good');
           }
           card.querySelectorAll('.opt').forEach(function (x) { x.disabled = true; });
           if (opts.onScore) opts.onScore(score, total, done);

@@ -136,32 +136,11 @@ Demande d'Eric : définir/appliquer un **style de bouton global** cohérent sur 
 
 **Effet visible aujourd'hui : aucun, sauf les anneaux de focus.** Les blocs `<style>` de page se chargent après `site.css` et gagnent donc toujours.
 
-### 🛑 Étape 2 — ABANDONNÉE. Gel de l'existant (décision d'Eric, 27/08/2026)
+### ⏳ Étape 2 à faire — balayage des 46 blocs `<style>` de page
 
-**Le balayage des pages existantes n'aura pas lieu. Le standard ne vaut que pour les créations futures.** Ne pas rouvrir ce chantier ; ne pas « corriger » une page au motif qu'elle n'est pas conforme.
+Par script, jamais à la main, avec `check_site.py` entre chaque lot et un commit par niveau plutôt qu'un seul gros diff. Deux interdits pour le script : ne pas toucher aux attributs `data-audio` (182 fichiers `pp_*` référencés 1 pour 1) et ne pas retirer les `!important` de `.opt.ok`/`.opt.ng`.
 
-Ce qui a motivé la décision, relevé le 27/08/2026 sur les 92 pages du dépôt :
-
-| Constat | Chiffre |
-|---|---|
-| Pages portant des boutons | 90 |
-| Pages **conformes** au standard | **1** |
-| Pages qui ne lient même pas `css/site.css` | 32 |
-| Pages qui lient `site.css` mais n'emploient aucune famille du standard | 48 |
-| Pages mêlant standard et classes maison | 9 |
-| **Noms de classes de boutons distincts sur le site** | **105** |
-
-Le problème n'était pas des styles qui s'écrasent, mais un **vocabulaire éclaté** : une vingtaine de noms pour le seul « lire l'audio en français » (`.spk`, `.ro-spk`, `.play-btn`, `.speak-btn`, `.aud`, `.abtn`, `.md-spk`, `.eq-play`…). Un balayage aurait donc exigé de **renommer les classes dans le HTML** et de suivre le JavaScript de chaque page, qui appelle souvent ses boutons par leur nom de classe. Coût et risque jugés disproportionnés.
-
-**Ce qui a tout de même couvert les 92 pages** : l'anneau de focus, parce qu'il vise l'élément `button` et non une classe. À retenir comme méthode — une règle qui vise l'élément s'applique partout sans rien toucher.
-
-**Où le standard est désormais inscrit** (27/08/2026) : `docs/DIRECTIVES_FABLE.md` §3 (spécification complète, fichier créé à cette occasion — Fable n'avait pas de directives propres) · `docs/GUIDE_LEO-ET-MOI.md` §3 · `docs/DIRECTIVES_ASSISTANT_CONTENU.md` §3 (Opus) · `docs/DIRECTIVES_CREATION_SONNET.md` §3 (Sonnet) · `_TEMPLATES/LISEZ-MOI.md`. Et surtout dans le code qui fabrique les pages : `js/quiz.js` émet désormais `ok`/`ng` en plus des alias `good`/`bad`.
-
-_À noter pour plus tard_ : la cause racine des `!important` de `.opt.ok`/`.opt.ng` est que `js/audio.js` pose `.speaking` en corail `!important` sur n'importe quel bouton, y compris une option de QCM. Restreindre `.speaking` à `.t-play, .vaud` supprimerait le conflit à la source — mais c'est un changement de comportement, à décider avec Eric, pas en passant.
-
-### 🔎 Doublon signalé — `DIRECTIVES_CREATION_SONNET.md`
-
-Le dépôt contient **deux copies divergentes** des directives Sonnet : celle de `docs/` (156 lignes, à jour, fait foi) et celle de la **racine** (62 lignes, restée à l'état antérieur au 14/07/2026). Si Sonnet ouvre la mauvaise, il travaille sur des règles périmées. Un bandeau d'avertissement a été posé en tête de la copie racine le 27/08/2026 ; **elle reste à supprimer** une fois qu'Eric a confirmé que rien ne pointe vers ce chemin.
+_À noter pour plus tard_ : la cause racine de ces `!important` est que `js/audio.js` pose `.speaking` en corail `!important` sur n'importe quel bouton, y compris une option de QCM. Restreindre `.speaking` à `.t-play, .vaud` supprimerait le conflit à la source — mais c'est un changement de comportement, à décider avec Eric, pas en passant.
 
 ## 🔧 Pour Fable — gabaritiser les motifs interactifs de la série A2 possessifs  [signalé par Opus 2026-08-23]
 Trois motifs sont aujourd'hui en HTML « sur mesure » dans `french/a2/pronoms-possessifs/` et pourraient devenir des gabarits réutilisables si on multiplie ce type d'exercice :

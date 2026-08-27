@@ -49,8 +49,6 @@ Créer un **test** : une entrée dans la section `tests` du catalogue (titre, so
 - **Le jeton GitHub (PAT)** : demandé à Eric dans le chat, jamais écrit dans un fichier.
 - **Le parcours (`parcours.json`) appartient à Eric** : tu proposes, il valide, tu appliques.
 - Standards design/pédagogie : GUIDE §3 (Bleu & Corail, Arial ≥18px, cibles 44px, profil de Leo : audio d'abord, un focus par écran, feedback immédiat, pas de compte à rebours imposé).
-- **Vocabulaire des boutons (standard du 27/08/2026)** — s'applique à **toute page que tu crées**, jamais rétroactivement (voir le gel ci-dessous). Tu emploies les familles de `css/site.css` et **rien d'autre** : `.btn-primary` (une seule action principale par écran) · `.btn-secondary` · `.t-play` (audio FR) · `.t-en` (audio EN) · `.opt` avec **`.ok` / `.ng`** · `.tab` · `.tree-btn` · `.selfeval button`. **Tu ne redéfinis aucune de ces classes dans le `<style>` de la page** et tu n'inventes pas un nom pour un rôle déjà couvert — c'est précisément ce qui a produit les 105 noms de classes relevés le 27/08. `.good` / `.bad` sont **dépréciés** : gardés pour l'existant, interdits dans du neuf. Si un rôle réellement nouveau apparaît, tu ne l'improvises pas : tu le signales à Fable via « 🔧 Pour Fable », il l'ajoute à `site.css`. Spécification : `docs/DIRECTIVES_FABLE.md` §3.
-- **Gel de l'existant (décision d'Eric, 27/08/2026)** : **ne retouche jamais une page en ligne** au seul motif qu'elle ne respecte pas un standard. Pas de renommage de classes, pas de nettoyage de `<style>`. Si une page te paraît non conforme, c'est normal et voulu — ne la « corrige » pas.
 
 ## 3a-bis. Volume des audios (26/07/2026)
 
