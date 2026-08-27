@@ -54,7 +54,11 @@ Créer un **test** : une entrée dans la section `tests` du catalogue (titre, so
 
 Tout MP3 déposé par Eric doit être **normalisé avant export** (WavePad : Effets → Normaliser ≈ −2 dB) — rappelle-le dans chaque liste d'enregistrement. Les fichiers anciens (faibles) seront normalisés en lot **lors de la migration R2** (décision à venir) ; en attendant, la classe utilise le « Mode classe 📢 » du lecteur partagé (bouton prof, par appareil).
 
-## 3b. Remplacer un audio existant (anti-cache)
+## 3b. Remplacer un audio existant (anti-cache) — CRITIQUE depuis le 28/08
+
+**Contexte 28/08/2026** : les MP3 sont désormais en cache Cloudflare **30 jours** (rapidité élèves) et le HTML n'est **plus jamais** caché à l'edge (tes déploiements de pages redeviennent visibles en ≤ 10 min, sans `?v=` sur les URL de pages). Conséquence : le `?v=N` sur les références d'un **MP3 remplacé** n'est plus un confort, c'est **obligatoire** — sans lui, l'ancienne prise sera servie jusqu'à 30 jours.
+
+## (rappel du mécanisme)
 
 Le remplacement garde le même nom (règle), mais le navigateur peut resservir l'ancienne prise pendant ~10 min (cache GitHub Pages), parfois plus. **Convention** : après avoir remplacé `x.mp3`, incrémente un cache-buster **sur les seules références de ce fichier** dans les pages/banques : `playClip('x.mp3?v=2')`. Un seul fichier re-téléchargé, les autres restent en cache (connexion rurale). `check_site.py` accepte le suffixe `?v=N`.
 

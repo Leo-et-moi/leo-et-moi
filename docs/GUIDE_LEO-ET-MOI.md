@@ -43,7 +43,7 @@ Tout le reste en découle automatiquement : compteurs des niveaux, listes de le�
 |---|---|---|
 | **GitHub** (`Leo-et-moi/leo-et-moi`) | Code du site ; source de vérité | Déploiement = push sur `main` ; republication ~1-2 min |
 | **GitHub Pages** | Publie le site | Cache ~10 min ; limite ~1 Go (à surveiller : audio) |
-| **Cloudflare** | Domaine + DNS | `leo-et-moi.com`, enregistrements **DNS only**, HTTPS actif |
+| **Cloudflare** | Domaine + DNS + **proxy avec règles de cache** (28/08/2026) | HTML/JSON jamais en cache edge (déploiements visibles ≤ 10 min) ; MP3 en cache 30 j (⚠️ `?v=N` obligatoire sur un MP3 remplacé) ; règles posées/relançables par l'automate `.github/workflows/cloudflare-cache.yml` (jeton dans le coffre GitHub) |
 | **Firebase** (projet `leo-et-moi`) | Comptes + progrès | Auth (Google + e-mail) ; Firestore : `users/{uid}` et `progress/{uid}/lessons/{id}` (score, total, completed, **dureeSec**, writings) ; règles publiées (verrouillage par niveau) |
 | **EmailJS** | E-mails au prof | 1re complétion d'un exercice/test + rédactions soumises ; 200/mois |
 | **LanguageTool** | Correcteur orthographe | Bouton « Orthographe » des exercices d'écriture |

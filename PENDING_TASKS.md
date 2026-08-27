@@ -51,6 +51,10 @@ _Fichier unique depuis le 14/07/2026 (fusion du backlog OneDrive et du canal du 
 
 _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <sujet> » ; Fable traite puis archive ici._
 
+## ✅ Traitées (28/08 par Fable — avec Eric)
+
+- **Cache HTML edge (Cloudflare) — RÉSOLU.** Cause : proxy Cloudflare actif sans règles → HTML caché à l'edge, déploiements invisibles. Correctif (option 1 d'Eric) : deux **Cache Rules** posées par l'automate GitHub Actions `.github/workflows/cloudflare-cache.yml` (jeton `CLOUDFLARE_API_TOKEN` dans le coffre GitHub, script `tools/cloudflare-cache.sh`, compte-rendu `tools/cloudflare-cache-result.json`) : ① HTML/JSON/chemins sans extension = **jamais en cache edge** → un déploiement redevient visible en ≤ 10 min (cache GitHub seul), sans `?v=` ; ② **MP3 = cache edge 30 jours** → audio plus rapide pour les élèves. Cache purgé le 27/08 20:45 UTC. **⚠️ Conséquence pour Opus : le `?v=N` sur un MP3 REMPLACÉ est désormais indispensable** (cache edge long) — la règle §3b des directives devient critique. Relance de l'automate : commit sur `tools/cf-run.txt` ou onglet Actions → Run workflow.
+
 ## ✅ Traitées
 
 - **13/07 — Largeur de lecture** : colonne 640 px par défaut (`main`/`.main`/`.wrap`) + `_TEMPLATES` corrigés.
@@ -105,11 +109,6 @@ _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <
 - ~~📓 Générateur de « Cahier d'exercices de la semaine »~~ — **ANNULÉ définitivement par Eric (28/08/2026)** : proposé aux étudiants, jugé redondant avec le site par tous. Un cahier d'exercices **sous un modèle différent** pourra être réfléchi plus tard ; la spec du 27/07 est caduque.
 
 _(rien d'autre)_
-
-## 🔧 Pour Fable — cache HTML edge (Cloudflare/GitHub Pages)  [signalé par Opus 2026-08-22]
-Symptôme : les mises à jour de contenu (ex. A2-L-002 pronoms possessifs) n'apparaissent PAS pour l'utilisateur sur l'URL simple, même après Ctrl+Maj+R ; elles apparaissent uniquement en ajoutant un query string (`?v=N`). Donc l'HTML est mis en cache au niveau edge.
-Impact : TOUT déploiement de contenu Opus reste invisible jusqu'à purge → allers-retours inutiles avec Eric.
-Piste : Cloudflare → désactiver le cache HTML (ou Cache Rule bypass pour *.html), OU purge auto après déploiement, OU en-têtes Cache-Control adaptés côté pages. À traiter par Fable (infra hors périmètre Opus).
 
 ## 🔧 Pour Fable — harmonisation des boutons (site entier)  [signalé par Opus 2026-08-23]
 Demande d'Eric : définir/appliquer un **style de bouton global** cohérent sur l'ensemble du site.
