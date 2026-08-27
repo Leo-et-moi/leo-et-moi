@@ -69,8 +69,6 @@ button, .btn {
   display: block; width: 100%; text-align: left; padding: 12px 16px; margin: 8px 0;
   background: var(--white); border: 2px solid var(--divider); border-radius: 12px;
 }
-.opt.good { background: var(--ltgreen); border-color: var(--green); }
-.opt.bad { background: var(--ltred); border-color: var(--red); }
 .opt:disabled { cursor: default; }
 
 /* Bouton audio anglais — standard « audio bilingue » (Eric, 13/07/2026).
@@ -210,3 +208,18 @@ main{max-width:640px;margin:0 auto;padding:18px 14px 8px;}
 .som-status.done{color:var(--green);}
 .som-sec{margin:16px 0 8px;font-size:18px;font-weight:bold;color:var(--dark);}
 @media print{.top-bar,.bottom-nav,.som-nav,button,.notif-panel{display:none !important;}}
+
+/* ── Standard des boutons (proposition B, témoin B1-E-001, 28/08) ─────── */
+button:focus-visible{outline:3px solid var(--navyMid);outline-offset:3px;}
+a:focus-visible{outline:3px solid var(--navyMid);outline-offset:2px;}
+.t-play:hover{filter:brightness(1.12);}
+.t-play:active{transform:scale(.94);}
+.t-en:hover{background:#EEF3FA;}
+.t-en:active{transform:scale(.95);}
+.btn-primary:hover,.btn-secondary:hover{filter:brightness(1.08);}
+.btn-primary:active,.btn-secondary:active{transform:translateY(1px);}
+.opt:hover:not(:disabled){border-color:var(--navyMid);background:#F8FAFD;}
+button:disabled{opacity:.55;cursor:default;}
+/* Correction verte/rouge CANONIQUE (!important : survit au corail .speaking) */
+.opt.good,.opt.ok{background:var(--ltgreen) !important;border-color:var(--green) !important;color:var(--green) !important;}
+.opt.bad,.opt.ng{background:var(--ltred) !important;border-color:var(--red) !important;color:var(--red) !important;}
