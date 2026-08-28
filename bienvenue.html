@@ -12,7 +12,7 @@ body{padding-bottom:24px;}
   padding:46px 18px 40px;text-align:center;}
 .hero h1{font-size:34px;margin:0 0 6px;animation:pose .7s ease both;}
 .hero h1 span{color:#FFB4A6;}
-.hero p{font-size:19px;color:#D9E4F2;max-width:640px;margin:0 auto;animation:pose .7s .15s ease both;}
+.hero p{font-size:18px;color:#D9E4F2;max-width:640px;margin:0 auto;animation:pose .7s .15s ease both;}
 @keyframes pose{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
 .cartes{max-width:960px;margin:-24px auto 0;padding:0 14px;display:grid;gap:14px;}
 @media(min-width:720px){.cartes{grid-template-columns:1fr 1fr 1fr;}}
@@ -24,7 +24,7 @@ body{padding-bottom:24px;}
 .carte:nth-child(2) .pic{animation-delay:.4s}.carte:nth-child(3) .pic{animation-delay:.8s}
 @keyframes flotte{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .carte h2{font-size:19px;color:var(--dark);margin:8px 0 6px;}
-.carte p{font-size:15.5px;color:var(--text);margin:0;}
+.carte p{font-size:15px;color:var(--text);margin:0;}
 .bloc{max-width:720px;margin:26px auto 0;padding:0 14px;}
 .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
 .cta a{text-decoration:none;font-weight:bold;border-radius:14px;padding:14px 26px;font-size:18px;}
@@ -44,9 +44,9 @@ footer{max-width:720px;margin:34px auto 0;padding:14px;text-align:center;color:v
 <div class="hero">
   <h1>Leo<span>-et-</span>moi</h1>
   <p><button class="t-play" style="vertical-align:middle;" onclick="playAudio('/french/audio/bv_slogan.mp3',this)" aria-label="Écouter">🔊</button>
-  Apprendre le français à voix haute, pas à pas, avec un professeur.<br>
+  Apprenez le français en échangeant avec un professeur de français de langue maternelle française. Le programme est conçu pour répondre à vos objectifs personnels.<br>
   <span class="en-doux"><button class="t-en" style="vertical-align:middle;" onclick="playAudio('/french/audio/bv_slogan_en.mp3',this)" aria-label="English">🔊 EN</button>
-  <span style="font-size:15px;">Learn French out loud, step by step, with a teacher.</span></span></p>
+  <span style="font-size:15px;">Learn French by interacting with a native French teacher. Curriculum is designed to meet your unique goals.</span></span></p>
   <div class="niv">
     <span style="background:#C0392B;">A1</span><span style="background:#E07B39;">A2</span>
     <span style="background:#D4920A;">B1</span><span style="background:#7CB82F;">B2</span>
@@ -57,19 +57,16 @@ footer{max-width:720px;margin:34px auto 0;padding:14px;text-align:center;color:v
 <div class="cartes">
   <div class="carte"><div class="pic">🔊</div>
     <h2>Des voix francophones</h2>
-    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte1.mp3',this)" aria-label="Écouter">🔊</button> Un site entièrement sonorisé : chaque consigne, chaque leçon et chaque exercice
-    sont accessibles avec des boutons audio.</p>
-    <p class="en en-doux" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte1_en.mp3',this)" aria-label="English">🔊 EN</button> French-speaking voices — a fully voiced site: every instruction, every lesson and every exercise can be played with audio buttons.</p></div>
+    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte1.mp3',this)" aria-label="Écouter">🔊</button> Un site bilingue avec voix off : des voix francophones, avec une aide en anglais. Chaque consigne, chaque leçon et chaque exercice peuvent être écoutés à l'aide des boutons audio.</p>
+    <p class="en en-doux" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte1_en.mp3',this)" aria-label="English">🔊 EN</button> A bilingual voiced site: French-speaking voices, with English support. Every instruction, every lesson and every exercise can be played with audio buttons.</p></div>
   <div class="carte"><div class="pic">🪜</div>
     <h2>Un parcours à 6 niveaux</h2>
-    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte2.mp3',this)" aria-label="Écouter">🔊</button> Du débutant vers le bilinguisme : tous les cours sont adaptés à votre niveau —
-    et au niveau supérieur, pour vous faire progresser.</p>
-    <p class="en en-doux" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte2_en.mp3',this)" aria-label="English">🔊 EN</button> A 6-level learning path — from beginner to bilingual: every course matches your level, and the next one up, to keep you progressing.</p></div>
+    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte2.mp3',this)" aria-label="Écouter">🔊</button> Un parcours d'apprentissage à 6 niveaux, du niveau débutant au niveau avancé. Chaque cours est adapté à votre niveau et au niveau supérieur, pour vous permettre de progresser en continu.</p>
+    <p class="en en-doux" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte2_en.mp3',this)" aria-label="English">🔊 EN</button> A 6-level learning path from beginner to fluent. Every course matches your level and the next level up to keep you progressing.</p></div>
   <div class="carte"><div class="pic">🤝</div>
     <h2>Vous n'êtes pas seul(e)</h2>
-    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte3.mp3',this)" aria-label="Écouter">🔊</button> Ce site ne s'utilise pas seul comme une application : un professeur vous accompagne,
-    le site ne le remplace pas.</p>
-    <p class="en en-doux" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte3_en.mp3',this)" aria-label="English">🔊 EN</button> This site is not used on its own like an app: a teacher guides you — the site does not replace them.</p></div>
+    <p><button class="t-play" style="width:34px;height:34px;font-size:15px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_carte3.mp3',this)" aria-label="Écouter">🔊</button> Ce site n'est pas destiné à être utilisé seul, comme une application : c'est un enseignant qui vous guide ; le site ne remplace pas l'enseignant.</p>
+    <p class="en en-doux" style="text-align:left;"><button class="t-en" onclick="playAudio('/french/audio/bv_carte3_en.mp3',this)" aria-label="English">🔊 EN</button> This site is not intended to be used on its own like an app: a teacher guides you; the site does not replace the teacher.</p></div>
 </div>
 
 <!-- PRÉSENTATION DU PROFESSEUR — EN ATTENTE (portrait + DLIFLC/MIIS + vidéo) -->
@@ -80,9 +77,9 @@ footer{max-width:720px;margin:34px auto 0;padding:14px;text-align:center;color:v
     <b style="font-size:19px;">🎓 Essayer la démo <span style="font-weight:normal;font-size:14px;color:var(--slate);">· Try the demo</span></b>
     <p style="font-size:15px;color:var(--slate);margin:6px 0 10px;">
     <button class="t-play" style="width:30px;height:30px;font-size:13px;vertical-align:middle;" onclick="playAudio('/french/audio/bv_demo.mp3',this)" aria-label="Écouter">🔊</button>
-    Quelques leçons et exercices en accès libre, de différents niveaux, pour vous donner un aperçu des cours.<br>
+    Essayez gratuitement des cours d'essai et des exercices, adaptés à différents niveaux, pour vous faire une idée des cours proposés.<br>
     <span class="en-doux" style="display:inline-block;"><button class="t-en" onclick="playAudio('/french/audio/bv_demo_en.mp3',this)" aria-label="English">🔊 EN</button>
-    <span class="en" style="text-align:left;display:inline;">A few free-access lessons and exercises, from different levels, to give you a glimpse of the courses.</span></span></p>
+    <span class="en" style="text-align:left;display:inline;">Try free sample lessons and exercises, from different levels, to give you a glimpse of the courses.</span></span></p>
     <div id="demoList"><div style="color:var(--slate);font-size:14px;">La démo arrive bientôt — repassez nous voir !</div></div>
   </div>
 </div>
