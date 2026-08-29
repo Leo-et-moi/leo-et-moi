@@ -106,6 +106,27 @@
       ],
       "publie": true,
       "ajoute": "2026-08-07"
+    },
+    {
+      "id": "A1-L-005",
+      "niveau": "A1",
+      "ordre": 50,
+      "titre": "Les pronoms toniques : me/te ou moi/toi ?",
+      "chemin": "french/a1/pronoms-toniques/index.html",
+      "lecons": [],
+      "exercices": [
+        "A1-E-014",
+        "A1-E-015",
+        "A1-E-016"
+      ],
+      "competences": [
+        "reading",
+        "listening"
+      ],
+      "questions": null,
+      "publie": false,
+      "progressId": "A1-L-005",
+      "ajoute": "2026-08-29"
     }
   ],
   "exercices": [
@@ -695,6 +716,60 @@
       "questions": null,
       "publie": true,
       "ajoute": "2026-08-07"
+    },
+    {
+      "id": "A1-E-014",
+      "niveau": "A1",
+      "ordre": 51,
+      "titre": "Pronoms toniques — Choisis (damier)",
+      "chemin": "french/a1/pronoms-toniques/exercice-1.html",
+      "lecons": [
+        "A1-L-005"
+      ],
+      "competences": [
+        "reading",
+        "listening"
+      ],
+      "questions": null,
+      "publie": false,
+      "progressId": "A1-E-014",
+      "ajoute": "2026-08-29"
+    },
+    {
+      "id": "A1-E-015",
+      "niveau": "A1",
+      "ordre": 52,
+      "titre": "Pronoms toniques — Quiz me/te ou moi/toi ?",
+      "chemin": "french/a1/pronoms-toniques/exercice-2.html",
+      "lecons": [
+        "A1-L-005"
+      ],
+      "competences": [
+        "reading",
+        "listening"
+      ],
+      "questions": null,
+      "publie": false,
+      "progressId": "A1-E-015",
+      "ajoute": "2026-08-29"
+    },
+    {
+      "id": "A1-E-016",
+      "niveau": "A1",
+      "ordre": 53,
+      "titre": "Pronoms toniques — À l’oral (enregistre-toi)",
+      "chemin": "french/a1/pronoms-toniques/exercice-3.html",
+      "lecons": [
+        "A1-L-005"
+      ],
+      "competences": [
+        "speaking",
+        "reading"
+      ],
+      "questions": null,
+      "publie": false,
+      "progressId": "A1-E-016",
+      "ajoute": "2026-08-29"
     }
   ],
   "tests": [
