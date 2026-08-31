@@ -124,7 +124,7 @@
         "listening"
       ],
       "questions": null,
-      "publie": false,
+      "publie": true,
       "progressId": "A1-L-005",
       "ajoute": "2026-08-29"
     }
@@ -731,7 +731,7 @@
         "listening"
       ],
       "questions": null,
-      "publie": false,
+      "publie": true,
       "progressId": "A1-E-014",
       "ajoute": "2026-08-29"
     },
@@ -749,7 +749,7 @@
         "listening"
       ],
       "questions": null,
-      "publie": false,
+      "publie": true,
       "progressId": "A1-E-015",
       "ajoute": "2026-08-29"
     },
@@ -767,7 +767,7 @@
         "reading"
       ],
       "questions": null,
-      "publie": false,
+      "publie": true,
       "progressId": "A1-E-016",
       "ajoute": "2026-08-29"
     }
