@@ -950,6 +950,7 @@ body{padding-bottom:84px;}
   <div class="final-score-message" id="finalMsg"></div>
   <button class="retry-btn" onclick="location.reload()">Try again</button>
 </div>
+<nav style="max-width:680px;margin:26px auto 8px;padding:14px 16px 0;border-top:2px solid #e2e2e2"><div style="font-weight:bold;color:#1B2845;margin-bottom:8px;font-size:14px">Le parcours « Être » / The pathway:</div><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="index.html" style="flex:1;min-width:150px;text-align:center;text-decoration:none;font-weight:bold;font-size:14px;padding:12px 10px;border-radius:12px;background:#EEF2F8;color:#1B2845;border:2px solid #d6deea">📖 Revoir la leçon / Review the lesson</a></div></nav>
 
 <!-- ══════════════════════════════════════════════════════════
      TEACHER RECORDING SCRIPT
@@ -1079,8 +1080,8 @@ function showFinal() {
   let msg = '';
   if (pct >= 90) msg = 'Excellent ! You have mastered ÊTRE. Keep going!';
   else if (pct >= 75) msg = 'Très bien ! Great work. Review the ones you missed and try again.';
-  else if (pct >= 50) msg = 'Pas mal ! Good effort. Review the lesson slides and try again.';
-  else msg = 'Keep practicing! Review the ÊTRE lesson slides and try again.';
+  else if (pct >= 50) msg = 'Pas mal ! Good effort. Review the lesson and try again.';
+  else msg = 'Keep practicing! Review the ÊTRE lesson and try again.';
   document.getElementById('finalMsg').textContent = msg;
   document.getElementById('finalScore').classList.add('visible');
   if(window.LEM){ window.LEM.setLesson('etre',{score:ALL.filter(function(id){return scores[id];}).length,total:ALL.length,completed:true,lastPracticed:Date.now()}); }
