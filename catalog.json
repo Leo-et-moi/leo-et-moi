@@ -26,6 +26,7 @@
       "chemin": "french/a1/01-etre/index.html",
       "exercices": [
         "A1-E-017",
+        "A1-E-018",
         "A1-E-001"
       ],
       "publie": true
@@ -148,6 +149,25 @@
       "questions": null,
       "publie": false,
       "progressId": "A1-E-017",
+      "ajoute": "2026-09-06"
+    },
+    {
+      "id": "A1-E-018",
+      "niveau": "A1",
+      "ordre": 9,
+      "titre": "Exercices — Être : entraîne-toi encore",
+      "chemin": "french/a1/01-etre/exercice-formes-2.html",
+      "lecons": [
+        "A1-L-001"
+      ],
+      "competences": [
+        "listening",
+        "reading",
+        "speaking"
+      ],
+      "questions": null,
+      "publie": false,
+      "progressId": "A1-E-018",
       "ajoute": "2026-09-06"
     },
     {
