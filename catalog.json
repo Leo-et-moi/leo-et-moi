@@ -147,7 +147,7 @@
         "speaking"
       ],
       "questions": null,
-      "publie": false,
+      "publie": true,
       "progressId": "A1-E-017",
       "ajoute": "2026-09-06"
     },
@@ -166,7 +166,7 @@
         "speaking"
       ],
       "questions": null,
-      "publie": false,
+      "publie": true,
       "progressId": "A1-E-018",
       "ajoute": "2026-09-06"
     },
