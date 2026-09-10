@@ -128,3 +128,19 @@ Demande d'Eric : définir/appliquer un **style de bouton global** cohérent sur 
 
 ## 🔧 Pour Fable — bouton Print (imprimer.js) : à documenter dans la routine  [signalé par Opus 2026-09-05]
 Constat (Eric) : la leçon reconstruite A1-L-001 Être et la leçon A1-L-005 pronoms toniques n'avaient pas le bouton 🖨️ — `imprimer.js` n'était pas inclus, car il n'est **mentionné nulle part dans `docs/DIRECTIVES_ASSISTANT_CONTENU.md`**. Corrigé sur les deux pages (Opus a ajouté `<script type="module" src="/js/imprimer.js"></script>`). Demande : **ajouter à la routine §2 de la directive Opus** « inclure `imprimer.js` sur toute page leçon/exercice » (et idéalement l'intégrer aux modèles `_TEMPLATES/`), pour éviter l'oubli sur les futures pages.
+
+
+## 🔧 Pour Fable — centraliser la charte typographique de prononciation  [signalé par Opus 2026-09-10]
+Décision d'Eric (2026-09-09) : la **charte typographique de prononciation** (code couleur cohérent sur toutes les leçons) doit vivre au socle, pas dans le `<style>` de chaque page.
+Charte (classes actuelles, appliquées dans A1-L-001 Être et A1-L-002 Avoir) :
+- `.mu` — lettre muette (finales D, P, S, T, X, Z) = **vert gras `#1E7B45` + surlignage jaune `#FFF3A0`** (le jaune sur TOUTES les muettes).
+- `.ac` — accent (é, â) = **bleu gras `#1E4FA0`**, sans jaune.
+- `.cf` — CaReFuL (consonnes finales prononcées C, R, F, L) = **rouge gras `#C0392B`**.
+- `.li` — liaison = rouge gras `#C0392B` (inchangé) · `.el` — élision = violet gras `#7A3FA0` (inchangé, propre à Avoir).
+Demande à Fable (domaine gabarits) : (1) porter ces classes dans **`css/site.css`** ; (2) créer un **modèle partagé de charte dans `_TEMPLATES/`** (sur le modèle LeoPick) ; (3) documenter le mode d'emploi dans **`docs/DIRECTIVES_ASSISTANT_CONTENU.md`**. En attendant, Opus applique les classes dans le `<style>` propre de chaque leçon (déjà le cas sur Être et Avoir).
+Note pédagogique (à arbitrer côté charte) : `.li` (liaison) et `.cf` (CaReFuL) partagent le même rouge `#C0392B` ; possible ambiguïté visuelle. Décision d'Eric au 2026-09-10 : `.cf` limité aux **mots lexicaux** (pas le « l » des pronoms « il/ils »). Éventuel ajout d'une entrée « CaReFuL » aux légendes de couleurs : à décider.
+
+
+## ✅ Publié le 2026-09-10 (via sas `_A_PUBLIER`)
+- **Charte typographique Être/Avoir + corrections Avoir** — lot `2026-09-10-charte-typo` publié le 2026-09-10 (SHA-256 conformes au manifeste, `check_site` 0 erreur).
+- **Directives Opus : test de plume + protocole `_A_PUBLIER`** — lot `2026-09-10-protocole-publication` (amendement §0 test de plume + §5 panne d'atelier) publié le 2026-09-10.
