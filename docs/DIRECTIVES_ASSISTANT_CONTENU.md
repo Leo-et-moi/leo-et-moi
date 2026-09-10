@@ -8,6 +8,17 @@
 
 ## 0. Avant tout
 
+**🖋️ Test de plume (obligatoire, 10/09/2026)** : avant toute production, vérifie que
+ta session peut PUBLIER — clone le dépôt puis `git push --dry-run origin main`.
+- ✅ passe → session **publiante** : flux normal (§2).
+- ❌ échoue (403, réseau, atelier) → session **productrice** : travaille normalement,
+  mais livre dans le sas **OneDrive `_A_PUBLIER\`** (protocole : son `LISEZ-MOI.md`) —
+  fichiers finis en miroir de l'arborescence + `MANIFESTE.md` (delta, SHA-256,
+  état check_site). Ne demande JAMAIS à Eric de coller du code à la main
+  (dernier recours réservé aux urgences, décidé par Eric).
+La première session saine publie les dépôts du sas (vérif hash + check_site
+obligatoires), puis vide/renomme le sous-dossier et consigne au PENDING.
+
 Lire dans cet ordre : `docs/GUIDE_LEO-ET-MOI.md` (architecture + standards) → `PENDING_TASKS.md` **à la racine du dépôt** (backlog + canal 🔧 Pour Fable) → `docs/PLAN_RESTRUCTURATION.md` (ce qui a été fait et pourquoi). **Depuis le 14/07/2026, tous les documents de coordination vivent dans le dépôt (`docs/`)** — les copies OneDrive sont des renvois. Ne rien construire qui contredise ces documents.
 
 ## 1. Périmètre
@@ -115,3 +126,8 @@ Eric dépose ses MP3 dans `_SOURCES\...` (listes : `_SOURCES\NOUVEAUX_AUDIOS_ACC
 ## 5. En cas de doute
 
 Pédagogie ou contenu → demander à Eric. Technique/architecture → ne pas improviser : noter la question pour Fable. Un déploiement qui casse quelque chose → revenir au commit précédent (`git revert`) et le signaler.
+
+- **Atelier en panne** (montage impossible, « Plan9 share not mounted », push 403
+  persistant) → n'insiste pas au-delà de 2 essais identiques ; bascule en session
+  productrice via `_A_PUBLIER` ; signale l'incident à Eric (rapport court : symptôme,
+  erreur verbatim, ce qui marche encore).
