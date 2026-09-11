@@ -40,7 +40,8 @@
       "exercices": [
         "A1-E-002"
       ],
-      "publie": false
+      "publie": true,
+      "ajoute": "2026-09-11"
     },
     {
       "id": "A1-L-003",
