@@ -47,6 +47,10 @@ _Fichier unique depuis le 14/07/2026 (fusion du backlog OneDrive et du canal du 
 
 ---
 
+## ✅ Contenu publié (Opus)
+
+- **11/09/2026 — Leçon A1-L-002 « Le verbe Avoir » PUBLIÉE** (`french/a1/02-avoir/`, `publie:true`, `ajoute:2026-09-11`) : `index.html` reconstruit (chienne Brandy, `lz2` poisson rouge, écran ELLE A « elle a faim », notes enrichies) + **114 audios `avoir_l_*`** déployés dans `audio/`. `check_site.py` = **0 erreur**. Lot du sas `_A_PUBLIER/2026-09-11-avoir-lecon-audios` (session PRODUCTRICE Opus 4.8 II ; publié par une session navigateur via Chrome, car push cloud bloqué « dépôt hors sources » + `device_bash` HS depuis la MAJ Windows du 08/09). SHA-256 index/catalog conformes au manifeste. **Reste à enregistrer : 5 audios EN** (`avoir_l_ln1_en`, `avoir_l_ln2_en`, `avoir_l_lz1_en`, `avoir_l_lz2_en`, `avoir_l_s_ils_peur_en`) — boutons muets en attendant, non bloquants. **NE PAS toucher aux exercices Avoir ex1/ex2** (non validés).
+
 # Canal Opus → Fable
 
 _Demandes de gabarits/architecture. Ajouter une section « 🔧 Pour Fable — <sujet> » ; Fable traite puis archive ici._
