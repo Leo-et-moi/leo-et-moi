@@ -150,3 +150,13 @@ Note pédagogique (à arbitrer côté charte) : `.li` (liaison) et `.cf` (CaReFu
 ## ✅ Publié le 2026-09-10 (via sas `_A_PUBLIER`)
 - **Charte typographique Être/Avoir + corrections Avoir** — lot `2026-09-10-charte-typo` publié le 2026-09-10 (SHA-256 conformes au manifeste, `check_site` 0 erreur).
 - **Directives Opus : test de plume + protocole `_A_PUBLIER`** — lot `2026-09-10-protocole-publication` (amendement §0 test de plume + §5 panne d'atelier) publié le 2026-09-10.
+
+
+## 🔧 Pour Fable — oral.js : bouton « Voir les réponses » inutile sans trous  [signalé par Opus 2026-09-12]
+Constat (Eric) : dans les exercices oraux **sans trous** `{...}` (ex. Avoir A1-E-019 / A1-E-020, où `LeoOral.render` reçoit des phrases complètes), le gabarit `js/oral.js` affiche quand même, après enregistrement, le bouton « 👁 Voir les réponses / Show answers » (ligne ~42). Il ne révèle rien → inutile et déroutant.
+Contournement page-level appliqué par Opus (sans toucher au gabarit, conformément à §1) : CSS `.readbox .btn-secondary{display:none}` dans `exercice-formes.html` et `exercice-possession.html`.
+Demande (domaine gabarits) : dans `js/oral.js`, **n'afficher ce bouton que si le bloc contient au moins un trou** `{...}` (sinon le masquer). Ainsi les exercices à trous (A2-E-009…) le gardent, les autres non — et le contournement CSS pourra être retiré.
+
+## 🔧 Pour Fable — charte prononciation : `.ac` réservé au é (PAS le â)  [signalé par Opus 2026-09-12]
+Précision d'Eric (2026-09-12) : le code couleur bleu accent `.ac` s'applique **au é uniquement**, JAMAIS au **â** (la prononciation ne change pas en français, a = â). La note « charte typographique » ci-dessus liste encore « accent (é, â) » → **à corriger** quand la charte sera portée dans `css/site.css` : `.ac` = é seulement. Opus a retiré `.ac` de tous les â de la leçon Avoir et de l'exercice 1 le 2026-09-12.
+Cas particulier titre écran (fond foncé) : le é bleu y est invisible → exception locale « é en blanc » dans le titre du mini-dialogue Avoir (écran 10). À garder à l'esprit pour la charte (variante « sur fond foncé »).
