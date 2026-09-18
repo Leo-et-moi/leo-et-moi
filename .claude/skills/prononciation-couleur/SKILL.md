@@ -128,6 +128,19 @@ Jamais l'API dans la sortie élève — seulement la phonétique simplifiée.
   vérifier l'IPA dans un dictionnaire de référence AVANT de coder.
 - Si le doute persiste → laisser NON marqué et lister sous « ⚠️ À vérifier ».
 
+**Dictionnaires IPA de référence** (pour trancher une finale douteuse ou un mot
+difficile avant de coder) :
+- **CNRTL / TLFi** — https://www.cnrtl.fr (savant, gratuit ; IPA + étymologie,
+  utile pour trancher un h aspiré).
+- **Le Robert** — https://dictionnaire.lerobert.com (gratuit ; IPA + audio).
+- **Wiktionnaire** — https://fr.wiktionary.org (large couverture ; IPA, souvent
+  audio, marque le h aspiré).
+
+**Audio natif / norme québécoise — PAS pour la vérification IPA** :
+- **Forvo** — https://forvo.com (prononciations audio par des locuteurs ; pas d'IPA).
+- **Usito** — https://usito.usherbrooke.ca et **Vitrine linguistique de l'OQLF** —
+  https://vitrinelinguistique.oqlf.gouv.qc.ca (norme québécoise).
+
 ## Correspondance couleurs (appliquée par le moteur) + sons
 aigu = jaune (é = son fermé « é ») · grave = rose (è, à) · circonflexe = turquoise
 (ê, â) · tréma = violet (ë, ï) · cédille = orange (ç = « s ») · lettre muette =
