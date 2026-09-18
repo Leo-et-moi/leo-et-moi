@@ -21,6 +21,7 @@ description: Applique le codage couleur de prononciation « Léo-et-moi » (syst
 1. Accents : vrais caractères « é è ê ë à â ù û ç » — ne rien baliser, le moteur
    colore selon le caractère.
 2. Consonne finale muette → {x} (voir règle CaReFuL). JAMAIS le « e » muet final.
+2bis. Consonne finale PRONONCÉE C/R/F/L → [x] (rouge, classe `.cf`). Voir CaReFuL.
 3. Liaison → ^C‿^mot (consonne + ‿ + ^ collé au mot suivant).
 4. Mot difficile → <mot|pro·non·cia·tion> (phonétique française simplifiée, PAS
    l'API ; syllabes séparées par « · »).
@@ -38,9 +39,18 @@ description: Applique le codage couleur de prononciation « Léo-et-moi » (syst
 ## Lettres muettes — règle CaReFuL
 - Finales le plus souvent MUETTES → marquer en vert {} : **D, P, S, T, X, Z**.
   Ex. « étudian{t} », « françai{s} », « deu{x} », « ne{z} », « profon{d} ».
-- Finales le plus souvent PRONONCÉES → NE PAS marquer : **C, R, F, L**
-  (mnémo : Ca-Re-Fu-L). Ex. « avec », « hiver », « soif », « avril », « for{t} »
-  (t muet, r prononcé), « ver{s} » (s muet, r prononcé).
+- Finales prononcées **C, R, F, L** (mnémo : Ca-Re-Fu-L) → **MARQUER EN ROUGE**,
+  classe `.cf`, notation `[x]` (décision d'Eric : montrer que ces finales SE
+  PRONONCENT, comme dans les leçons). Ex. « ave[c] », « i[l] », « me[r] »,
+  « cie[l] », « mouri[r] », « d'avoi[r] ».
+  - **Seulement la DERNIÈRE lettre du mot.** Si le mot finit par une muette
+    D/P/S/T/X/Z précédée d'un C/R/F/L prononcé, on marque la muette en vert et on
+    ne colore PAS le C/R/F/L interne : « for{t} » (t muet, r prononcé non final),
+    « ver{s} » (s muet). Un C/R/F/L devant « e » muet final n'est pas final non
+    plus → non marqué (« encore », « terre », « obstacle »).
+  - **-er infinitif** : r MUET → vert {r} (« parle{r} », « roche{r} »), JAMAIS
+    rouge. Seuls les r réellement prononcés passent en rouge : -ir/-oir
+    (« mouri[r] », « avoi[r] ») et mots type « me[r] », « pou[r] », « ai[r] ».
 - « G » final = muet (« lon{g} », « san{g} ») ; ailleurs le g se prononce
   (gare, girafe, montagne) → ne pas marquer.
 - Marquer TOUTES les finales muettes, y compris sur les petits mots
@@ -118,18 +128,20 @@ Jamais l'API dans la sortie élève — seulement la phonétique simplifiée.
 ## Correspondance couleurs (appliquée par le moteur) + sons
 aigu = jaune (é = son fermé « é ») · grave = rose (è, à) · circonflexe = turquoise
 (ê, â) · tréma = violet (ë, ï) · cédille = orange (ç = « s ») · lettre muette =
-vert gras · liaison = rouge gras · mot difficile = orange.
+vert gras · liaison = rouge gras · CaReFuL (C/R/F/L prononcé, .cf) = rouge gras ·
+mot difficile = orange.
 Variables : --aigu:#B8820A; --grave:#B5367A; --circ:#1A8A7A; --trema:#7B3FB5;
---cedille:#E8503A; --muet:#1E7B45; --liaison:#C0392B; --diff:#C4640A.
+--cedille:#E8503A; --muet:#1E7B45; --liaison:#C0392B; --cf:#C0392B; --diff:#C4640A.
 
 ## Élision (déjà dans l'orthographe — non colorée)
 je/ne/le/la/de/que + voyelle → j'/n'/l'/d'/qu' (j'ai, j'aime). Coder le texte
 élidé tel qu'il s'écrit.
 
 ## Auto-contrôle avant de rendre
-- [ ] Finales marquées selon CaReFuL ; C/R/F/L non marqués sauf muets vérifiés
-      (r muet des -er) ; « G » final muet ; « -ent »/« -aient » marqués en entier ;
-      aucun « e » muet final.
+- [ ] Finales muettes D/P/S/T/X/Z en vert {} ; finales prononcées C/R/F/L
+      (dernière lettre) en rouge .cf [] ; r muet des -er en vert {r} (pas rouge) ;
+      « G » final muet ; « -ent »/« -aient » marqués en entier ; aucun « e » muet
+      final.
 - [ ] Liaisons codées devant voyelle/h muet ; aucune après « et » ; enchaînement
       non codé — SAUF « cet » + voyelle/h muet, dont le « t » est marqué comme
       liaison t (rouge ‿).
