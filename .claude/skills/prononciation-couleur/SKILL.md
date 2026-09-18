@@ -58,8 +58,15 @@ description: Applique le codage couleur de prononciation « Léo-et-moi » (syst
 - « G » final = muet (« lon{g} », « san{g} ») ; ailleurs le g se prononce
   (gare, girafe, montagne) → ne pas marquer.
 - Marquer TOUTES les finales muettes, y compris sur les petits mots
-  grammaticaux : « le{s} », « de{s} », « se{s} », « Nou{s} », « Vou{s} »,
-  « Il{s} », « e{t} » (CaReFuL strict — décision d'Eric).
+  grammaticaux : « Nou{s} », « Vou{s} », « Il{s} », « e{t} » (CaReFuL strict —
+  décision d'Eric).
+- **EXCEPTION — déterminants/possessifs en -es** (les, des, mes, tes, ses, ces) :
+  finale « -s » **NON codée** → en NOIR. Ces mots se lisent comme un **bloc-son
+  fixe** sur le son é/è ([le], [de], [se]…, comme le nom de la lettre « c » [se]) ;
+  le « s » final n'est donc PAS une « lettre muette à repérer » (même logique que
+  les terminaisons d'infinitif). Décision d'Eric. NB : ce « s » reparaît en
+  **liaison [z]** devant voyelle/h muet (« le^s‿^amis », « se^s‿^enfants »,
+  « ce^s‿^eaux ») — là on code la liaison (rouge), pas la muette.
 - **Terminaisons verbales muettes de la 3e personne du pluriel** : marquer TOUTE
   la terminaison « -ent » (et « -aient »), pas seulement le « t ».
   Ex. « étai{ent} », « passai{ent} », « s'appell{ent} ».
