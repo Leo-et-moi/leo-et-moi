@@ -48,9 +48,13 @@ description: Applique le codage couleur de prononciation « Léo-et-moi » (syst
     ne colore PAS le C/R/F/L interne : « for{t} » (t muet, r prononcé non final),
     « ver{s} » (s muet). Un C/R/F/L devant « e » muet final n'est pas final non
     plus → non marqué (« encore », « terre », « obstacle »).
-  - **-er infinitif** : r MUET → vert {r} (« parle{r} », « roche{r} »), JAMAIS
-    rouge. Seuls les r réellement prononcés passent en rouge : -ir/-oir
-    (« mouri[r] », « avoi[r] ») et mots type « me[r] », « pou[r] », « ai[r] ».
+  - **Terminaisons d'INFINITIF (-er, -ir, -oir) : NON CODÉES** — ni vert muet, ni
+    rouge CaReFuL → rester en NOIR (décision d'Eric). Leur prononciation est fixe
+    et connue : -er = [é] (« avancer, succomber »), -ir = [iʁ] (« finir,
+    mourir »), -oir = [waʁ] (« avoir »). Idem pour les noms en -er à r muet
+    (« rocher, boulanger »). Le rouge CaReFuL ne vaut donc que pour un C/R/F/L
+    final prononcé HORS terminaison d'infinitif : « me[r] », « pou[r] »,
+    « ai[r] », « cie[l] », « i[l] ».
 - « G » final = muet (« lon{g} », « san{g} ») ; ailleurs le g se prononce
   (gare, girafe, montagne) → ne pas marquer.
 - Marquer TOUTES les finales muettes, y compris sur les petits mots
@@ -59,9 +63,8 @@ description: Applique le codage couleur de prononciation « Léo-et-moi » (syst
 - **Terminaisons verbales muettes de la 3e personne du pluriel** : marquer TOUTE
   la terminaison « -ent » (et « -aient »), pas seulement le « t ».
   Ex. « étai{ent} », « passai{ent} », « s'appell{ent} ».
-- **Infinitifs en -er** : le « r » final est MUET → marquer {r}
-  (« parle{r} », « avance{r} »). **Infinitifs en -ir / -oir** : le « r » est
-  PRONONCÉ → ne pas marquer (« envahir », « voir », « finir »).
+- **Infinitifs (-er, -ir, -oir)** : terminaison NON codée → en noir (ni {r} vert,
+  ni [r] rouge). Voir la sous-règle CaReFuL ci-dessus.
 - Jamais le « e » muet final.
 - « h » ne se prononce jamais.
 
@@ -139,7 +142,8 @@ je/ne/le/la/de/que + voyelle → j'/n'/l'/d'/qu' (j'ai, j'aime). Coder le texte
 
 ## Auto-contrôle avant de rendre
 - [ ] Finales muettes D/P/S/T/X/Z en vert {} ; finales prononcées C/R/F/L
-      (dernière lettre) en rouge .cf [] ; r muet des -er en vert {r} (pas rouge) ;
+      (dernière lettre) en rouge .cf [] ; terminaisons d'infinitif -er/-ir/-oir
+      NON codées (noir) ;
       « G » final muet ; « -ent »/« -aient » marqués en entier ; aucun « e » muet
       final.
 - [ ] Liaisons codées devant voyelle/h muet ; aucune après « et » ; enchaînement
