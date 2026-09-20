@@ -129,9 +129,14 @@ s'applique systématiquement aux textes futurs.
   **voyelle qui la reçoit** (1re lettre du mot suivant) sont TOUTES DEUX en
   **rouge/gras**. Ex. cet‿**e**space, les‿**a**bîmes, un‿**o**bstacle. Si cette
   voyelle porte un accent, le rouge de liaison PRIME (les‿**é**toiles → é rouge).
-  EXCEPTION : si le mot suivant est un **mot difficile** (oiseau, eaux, horizon…),
-  il reste ORANGE d'un bloc et SEULE la consonne de liaison est rouge (pour ne pas
-  fragmenter le mot difficile) : d'un‿oiseau, ce^s‿^eaux, ce^t‿^horizon.
+  - **Mot difficile qui suit** : la règle de la liaison rouge s'applique quand
+    même — la **voyelle reçue passe en ROUGE** ; le RESTE du mot difficile garde
+    l'orange `.diff` (+ respelling). Ex. d'un‿**o**iseau (o rouge, « iseau »
+    orange), ce^s‿^**e**aux.
+  - **Devant un h muet** : la liaison se fait avec la voyelle QUI SUIT le « h » ;
+    le **« h » muet est marqué en VERT** (lettre muette) et cette voyelle en
+    ROUGE. Ex. cet‿horizon → « t‿ » rouge, « h » vert, « o » rouge, « rizon »
+    orange.
 - Règle d'or : ne coder que les liaisons réellement prononcées, seulement devant
   voyelle ou h muet ; trancher à l'oreille sur l'audio d'Eric.
 
@@ -198,8 +203,9 @@ je/ne/le/la/de/que + voyelle → j'/n'/l'/d'/qu' (j'ai, j'aime). Coder le texte
 - [ ] Liaisons codées devant voyelle/h muet ; aucune après « et » ; enchaînement
       non codé — SAUF « cet » + voyelle/h muet, dont le « t » est marqué comme
       liaison t (rouge ‿).
-- [ ] Liaison : consonne ET voyelle reçue en rouge (accent surclassé ; mais un mot
-      difficile qui suit reste orange d'un bloc).
+- [ ] Liaison : consonne ET voyelle reçue en rouge (accent surclassé ; mot
+      difficile qui suit → voyelle reçue rouge + reste orange ; devant h muet →
+      « h » vert, voyelle suivante rouge).
 - [ ] Exceptions du glossaire appliquées (rouge SOULIGNÉ, ex. but) ; mots du
       répertoire rendus visibles s'ils apparaissent dans le texte.
 - [ ] Aucun nom propre balisé (prénoms, noms, marques, villes, rues, etc.).
