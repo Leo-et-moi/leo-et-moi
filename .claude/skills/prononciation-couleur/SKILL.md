@@ -22,7 +22,10 @@ description: Applique le codage couleur de prononciation « Léo-et-moi » (syst
    colore selon le caractère.
 2. Consonne finale muette → {x} (voir règle CaReFuL). JAMAIS le « e » muet final.
 2bis. Consonne finale PRONONCÉE C/R/F/L → [x] (rouge, classe `.cf`). Voir CaReFuL.
-3. Liaison → ^C‿^mot (consonne + ‿ + ^ collé au mot suivant).
+2ter. Finale-EXCEPTION (ex. « but ») → classe `.exc` (rouge/gras + SOULIGNÉ).
+   Voir « Glossaire des exceptions ».
+3. Liaison → ^C‿^mot : la consonne de liaison ET la voyelle qui la reçoit passent
+   en rouge/gras (voir « Couleur de la liaison » dans la section Liaisons).
 4. Mot difficile → <mot|pro·non·cia·tion> (phonétique française simplifiée, PAS
    l'API ; syllabes séparées par « · »).
 5. Cumul possible : « le^s‿^<yeux|zieu> ».
@@ -75,6 +78,16 @@ description: Applique le codage couleur de prononciation « Léo-et-moi » (syst
 - Jamais le « e » muet final.
 - « h » ne se prononce jamais.
 
+## Glossaire des exceptions (à alimenter au fil de l'eau)
+Mots qui DÉROGENT à la règle des finales (CaReFuL / muettes). On marque la lettre
+exceptionnelle en **rouge/gras + SOULIGNÉE** (classe `.exc`) : le soulignement
+signale l'exception et la distingue de la finale CaReFuL normale (rouge SANS
+soulignement).
+**Consigne** : dès qu'une exception est rencontrée, l'AJOUTER ici pour qu'elle
+s'applique systématiquement aux textes futurs.
+- **but** — le « t » final SE PRONONCE [byt] (alors qu'un T final est normalement
+  muet) → « bu[t] » avec le t rouge/gras SOULIGNÉ (`.exc`).
+
 ## H muet vs h aspiré — listes de référence
 - h MUET (liaison + élision NORMALES, « l' », liaison [z]) : homme, heure, hôtel,
   hôpital, habiter, heureux, histoire, hiver, honneur, hier, herbe, + huile,
@@ -108,10 +121,17 @@ description: Applique le codage couleur de prononciation « Léo-et-moi » (syst
   consonantique** (le « t » fait partie de la graphie du démonstratif masculin
   devant voyelle, par opposition à « ce » devant consonne, ex. « ce livre »), et
   non une liaison au sens strict ; on réutilise seulement le marquage rouge de la
-  liaison t.
+  liaison t. La voyelle reçue passe elle aussi en rouge (cet‿**e**space).
 - Devant h muet : liaison faite (elle^s‿^son^t‿^heureuses, sur le t).
 - Son de la liaison : S, X, Z → « z » (nou^s‿^avons [z]) · T, D → « t »
   (o^n‿^attend [t]) · N → « n » nasal (o^n‿^est [n]) · G → « k ».
+- **Couleur de la liaison (décision d'Eric)** : la consonne de liaison ET la
+  **voyelle qui la reçoit** (1re lettre du mot suivant) sont TOUTES DEUX en
+  **rouge/gras**. Ex. cet‿**e**space, les‿**a**bîmes, un‿**o**bstacle. Si cette
+  voyelle porte un accent, le rouge de liaison PRIME (les‿**é**toiles → é rouge).
+  EXCEPTION : si le mot suivant est un **mot difficile** (oiseau, eaux, horizon…),
+  il reste ORANGE d'un bloc et SEULE la consonne de liaison est rouge (pour ne pas
+  fragmenter le mot difficile) : d'un‿oiseau, ce^s‿^eaux, ce^t‿^horizon.
 - Règle d'or : ne coder que les liaisons réellement prononcées, seulement devant
   voyelle ou h muet ; trancher à l'oreille sur l'audio d'Eric.
 
@@ -122,6 +142,15 @@ oignon→o·gnon, paysage→pé·i·zaj. Viser ~1 mot difficile / 2–3 lignes ;
 surcharger (laisser plain les mots seulement un peu irréguliers).
 Nombres : mot difficile quand la prononciation dépend du contexte —
 <six|sis> (isolé) vs liaison si^x‿^ · <vingt|vin> · <cinq|sink>.
+
+## Répertoire des mots difficiles (à appliquer systématiquement)
+Tout mot difficile repéré est INSCRIT ici ; dès qu'il réapparaît dans un texte
+codé, on le rend visible (mot en orange `.diff` + respelling), sans se reposer la
+question. **Consigne** : compléter ce répertoire au fil de l'eau.
+- oiseau → wa·zo (oi = [wa], s intervocalique = [z])
+- prodigieux → pro·di·jieu (gi = [j], -eux = [eu], x muet)
+- horizon → o·ri·zon (h muet)
+- eaux → o (e-a-u-x → [o])
 
 ## Respelling des mots difficiles — de l'IPA vers la phonétique simplifiée
 Lire l'IPA d'un dictionnaire de référence (CNRTL/TLFi, Le Robert, Wiktionnaire),
@@ -169,6 +198,10 @@ je/ne/le/la/de/que + voyelle → j'/n'/l'/d'/qu' (j'ai, j'aime). Coder le texte
 - [ ] Liaisons codées devant voyelle/h muet ; aucune après « et » ; enchaînement
       non codé — SAUF « cet » + voyelle/h muet, dont le « t » est marqué comme
       liaison t (rouge ‿).
+- [ ] Liaison : consonne ET voyelle reçue en rouge (accent surclassé ; mais un mot
+      difficile qui suit reste orange d'un bloc).
+- [ ] Exceptions du glossaire appliquées (rouge SOULIGNÉ, ex. but) ; mots du
+      répertoire rendus visibles s'ils apparaissent dans le texte.
 - [ ] Aucun nom propre balisé (prénoms, noms, marques, villes, rues, etc.).
 - [ ] Chaque <mot|pron> vient de l'IPA, en syllabes « · », cas trompeurs seulement.
 - [ ] Cas douteux listés sous « ⚠️ À vérifier ».
