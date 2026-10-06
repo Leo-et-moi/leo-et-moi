@@ -80,6 +80,8 @@ Un document clair contenant :
 4. Le **vocabulaire** éventuel (pour un jeu d'association) : **phrases françaises en contexte** (pas des mots isolés) + traduction EN + audio.
 5. La **liste d'enregistrement** récapitulative : `fichier | français (à dire) | English (to record)`.
 
+> **Format « cartes à choix » multi-réponses (gabarit `LeoPick`, ajouté 2026-10-05)** — pour un exercice où une case peut avoir **une OU deux bonnes réponses** (pronoms toniques me/te ↔ moi/toi, formes d'un verbe, accords…), fournis pour chaque carte : l'énoncé (avec `____` si trou à remplir), un éventuel libellé de contexte, et **toutes** les options en marquant **chaque** bonne réponse (`ok`) + son fichier audio. Marque bien les **deux** bonnes réponses quand il y en a deux : la bannière « ✓ Les N réponses sont correctes… · All N answers… » s'affiche automatiquement. Opus intègre via `_TEMPLATES/exercice-leopick.html` (moteur `js/leopick.js`). Référence en ligne : `A1-E-014`. Pour un mini-exercice de **leçon** (non noté), signale-le → Opus met `firstTry:false`.
+
 Opus se charge ensuite : HTML sur gabarit, catalogue (liens leçon↔exercice, compétences), `questions.json`, contrôle qualité (`check_site.py` = 0 erreur), déploiement, et la remise des listes d'audio à Eric.
 
 **Où déposer ta livraison** : une fois le cours **validé par Eric**, dépose tes fichiers (HTML/brouillon + script audio FR/EN) **directement dans le dossier `_TRANSFERTS_SONNET`** (`02. Leo-et-moi website\leo-et-moi\_TRANSFERTS_SONNET\`). C'est là qu'Opus les récupère — **aucune copie manuelle par Eric**. N'y dépose que du contenu **validé et prêt à intégrer** (pas de brouillons intermédiaires).
