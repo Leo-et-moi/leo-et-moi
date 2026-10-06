@@ -229,6 +229,7 @@ button:disabled{opacity:.55;cursor:default;}
 .dc-who{font-size:13px;font-weight:bold;color:var(--slate);margin-bottom:4px;}
 .dc-q{font-size:18px;line-height:1.6;}
 .dc-tag{font-size:12px;font-weight:bold;background:var(--card);border-radius:8px;padding:2px 8px;white-space:nowrap;}
+.pick-both{margin-top:8px;font-size:13px;font-weight:bold;color:#1E7B45;background:#EAF3EE;border-radius:8px;padding:5px 9px;}
 .blank{display:inline-block;min-width:74px;border-bottom:2px solid var(--navyMid);text-align:center;color:var(--navyMid);font-weight:bold;}
 .blank.filled{color:var(--green);border-bottom-color:var(--green);}
 .dc-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
