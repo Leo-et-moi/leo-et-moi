@@ -160,3 +160,14 @@ Demande (domaine gabarits) : dans `js/oral.js`, **n'afficher ce bouton que si le
 ## 🔧 Pour Fable — charte prononciation : `.ac` réservé au é (PAS le â)  [signalé par Opus 2026-09-12]
 Précision d'Eric (2026-09-12) : le code couleur bleu accent `.ac` s'applique **au é uniquement**, JAMAIS au **â** (la prononciation ne change pas en français, a = â). La note « charte typographique » ci-dessus liste encore « accent (é, â) » → **à corriger** quand la charte sera portée dans `css/site.css` : `.ac` = é seulement. Opus a retiré `.ac` de tous les â de la leçon Avoir et de l'exercice 1 le 2026-09-12.
 Cas particulier titre écran (fond foncé) : le é bleu y est invisible → exception locale « é en blanc » dans le titre du mini-dialogue Avoir (écran 10). À garder à l'esprit pour la charte (variante « sur fond foncé »).
+
+## 🔧 Pour Fable — faire de LeoPick un gabarit partagé  [signalé par Opus 2026-10-05]
+Demande d'Eric : centraliser `LeoPick` comme les autres moteurs. Aujourd'hui il est défini **inline** (bloc `<script>` + CSS) dans 7 pages ; c'est le composant « cartes à choix » qui gère **plusieurs bonnes réponses** (ce que `js/damier.js` ne fait pas). Objectif : moteur partagé, **comportement et API inchangés**.
+Référence : `french/a1/pronoms-toniques/exercice-1.html` (original) ; exemple riche (LeoPick ×3 + LeoOral) : `french/a1/01-etre/exercice-formes.html`. Autres copies inline : `pronoms-toniques/index.html` & `exercice-2.html`, `01-etre/exercice-formes-2.html`, `02-avoir/exercice-formes.html` & `exercice-possession.html`.
+Contrat d'API à conserver :
+- Appel : `LeoPick(host, items, opts)`.
+- `item` = `{ phrase, tag?, options:[ {txt, ok, audio?} ] }` ; si `phrase` contient `____`, il devient `<span class="blank">` et la bonne réponse choisie remplit le trou (`.blank.filled`) ; `tag` → `<span class="dc-tag">`.
+- `opts` = `{ onScore(score,total), onDone(score,total) }`.
+- Comportements : **multi-correct** (`nok` options `ok` ; au bon choix, toutes les `.opt.ok` se surlignent, bannière `.pick-both` si `nok>1`) ; **score 1ʳᵉ tentative** (`if(!card._w)score++`) ; **audio** via `window.playClip(audio, bouton)` ; mélange aléatoire des options ; carte verrouillée une fois résolue.
+- Classes CSS : `.dcard`, `.dc-q`, `.dc-tag`, `.blank`/`.blank.filled`, `.dc-opts`, `.opt`, `.opt.ok`, `.opt.ng`, `.pick-both`.
+Livrables : (1) `js/leopick.js` (API inchangée, à côté de damier/quiz/oral) ; (2) classes dans `css/site.css` ; (3) `_TEMPLATES/exercice-leopick.html` + ligne au `_TEMPLATES/LISEZ-MOI.md` ; (4) doc routine §2 de `DIRECTIVES_ASSISTANT_CONTENU.md` ; (5) à ton appréciation, exposer via `opts` les deux profils (**Damier maîtrise** : recommencer jusqu'à 100 %, score en fin, complétion à 100 % ; **Quiz « corrige la faute »** : single-correct, score final, pas de bandeau haut) ; (6) migration des 7 pages inline **après validation d'Eric** (HTML non caché → pas de `?v` ; `check_site.py` = 0 erreur avant push).
