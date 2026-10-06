@@ -51,6 +51,8 @@ Créer un **test** : une entrée dans la section `tests` du catalogue (titre, so
 Les trois motifs de la série A2 possessifs sont désormais des **gabarits partagés** — ne les recode plus à la main :
 `js/damier.js` (damier à trous, bonne réponse placée + jouée) · `js/quiz.js` avec `audioBonne` + `reessai:true` (QCM qui joue l'audio de la bonne réponse, réessais) · `js/oral.js` (lecture à trous + enregistreur local + réponses révélées). Modèles : `_TEMPLATES/exercice-damier.html`, `_TEMPLATES/exercice-oral.html`. Les 3 pages A2 existantes restent telles quelles (migration non requise).
 
+**`js/leopick.js`** (ajouté 2026-10-05) — cartes à choix **multi-réponses** (une OU deux bonnes réponses) : au bon choix, toutes les bonnes réponses se surlignent et, s'il y en a plusieurs, bannière « ✓ Les N réponses sont correctes… · All N answers… » ; score **1re tentative** par défaut, `firstTry:false` pour une leçon non notée. API : `LeoPick(host, items, opts)` avec `item = {phrase, tag?, options:[{txt, ok, audio?}]}` (phrase à `____` = trou rempli), `opts = {onScore, onDone, firstTry}`. Modèle : `_TEMPLATES/exercice-leopick.html`. Pages A1 migrées (pronoms toniques, Être, Avoir). [Centralisation réalisée par Opus avec l'accord explicite d'Eric — normalement domaine de Fable.]
+
 ## 2bis. Séries et bouton « terminé »
 
 - **Nouvelle série** (validée par Eric) : ajouter une entrée à la section `series` de `catalog.json` (titre, emoji, couleur, dossier, unite, ordre), taguer les exercices (`serie`, `serieOrdre`), créer les 6 pages minces `french/<dossier>/<a1…c2>.html` en copiant un dossier de série existant (seul `data-serie` change). Aucun code à écrire — `niveau.js` et `serie.js` font le reste.

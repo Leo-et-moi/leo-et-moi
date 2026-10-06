@@ -161,7 +161,11 @@ Demande (domaine gabarits) : dans `js/oral.js`, **n'afficher ce bouton que si le
 Précision d'Eric (2026-09-12) : le code couleur bleu accent `.ac` s'applique **au é uniquement**, JAMAIS au **â** (la prononciation ne change pas en français, a = â). La note « charte typographique » ci-dessus liste encore « accent (é, â) » → **à corriger** quand la charte sera portée dans `css/site.css` : `.ac` = é seulement. Opus a retiré `.ac` de tous les â de la leçon Avoir et de l'exercice 1 le 2026-09-12.
 Cas particulier titre écran (fond foncé) : le é bleu y est invisible → exception locale « é en blanc » dans le titre du mini-dialogue Avoir (écran 10). À garder à l'esprit pour la charte (variante « sur fond foncé »).
 
-## 🔧 Pour Fable — faire de LeoPick un gabarit partagé  [signalé par Opus 2026-10-05]
+## ✅ LeoPick gabarit — FAIT par Opus (accord explicite d'Eric) 2026-10-05
+Réalisé à la place de Fable, à la demande d'Eric : moteur partagé `js/leopick.js` (bannière dynamique + option `firstTry`), `.pick-both` au socle `css/site.css`, modèle `_TEMPLATES/exercice-leopick.html` + ligne LISEZ-MOI, doc directive §2bis-A. **7 pages migrées** (pronoms toniques index + ex1/ex2, Être ex-formes/-2, Avoir ex-formes/possession) : définition inline retirée → `<script src="/js/leopick.js">`, appels conservés ; leçon en `firstTry:false`. Vérifs : 14 tests jsdom, syntaxe Node des 7 scripts d'appel, check_site 0 erreur, rendus capturés. Unification bannière « deux/Both » → « N/All N » (validée Eric) ; bannière Être/Avoir désormais stylée (était sans style). Validé en ligne par Eric (page 1 A1-E-014) ; reste sa relecture des 6 autres.
+
+(ancienne consigne détaillée ci-dessous, conservée pour mémoire)
+### Détail de la consigne initiale
 Demande d'Eric : centraliser `LeoPick` comme les autres moteurs. Aujourd'hui il est défini **inline** (bloc `<script>` + CSS) dans 7 pages ; c'est le composant « cartes à choix » qui gère **plusieurs bonnes réponses** (ce que `js/damier.js` ne fait pas). Objectif : moteur partagé, **comportement et API inchangés**.
 Référence : `french/a1/pronoms-toniques/exercice-1.html` (original) ; exemple riche (LeoPick ×3 + LeoOral) : `french/a1/01-etre/exercice-formes.html`. Autres copies inline : `pronoms-toniques/index.html` & `exercice-2.html`, `01-etre/exercice-formes-2.html`, `02-avoir/exercice-formes.html` & `exercice-possession.html`.
 Contrat d'API à conserver :

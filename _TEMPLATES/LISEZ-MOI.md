@@ -8,6 +8,7 @@ ajouter l'entrée au `catalog.json`, puis exécuter `python3 tools/check_site.py
 - `exercice.html` — exercices QCM/vrai-faux (moteur `js/quiz.js`).
 - `exercice-speaking.html` — exercice d'oral auto-évalué (`js/speaking.js`).
 - `exercice-damier.html` — phrases à trous « damier », la bonne réponse se place et se joue (`js/damier.js`).
+- `exercice-leopick.html` — exercices « cartes à choix » **multi-réponses** (une OU deux bonnes réponses), moteur `js/leopick.js` ; option `firstTry:false` pour une leçon non notée.
 - `exercice-oral.html` — lecture à trous + enregistreur local, réponses révélées après enregistrement (`js/oral.js`).
 - Dans `exercice.html` : `audioBonne` (audio joué au bon choix) et l'option `reessai:true` (motif A2) sont disponibles dans `js/quiz.js`.
 

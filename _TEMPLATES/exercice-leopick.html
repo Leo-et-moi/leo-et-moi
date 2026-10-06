@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- À REMPLIR : Titre --> — Leo-et-moi</title>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<!-- À REMPLIR : data-item-id = ID du catalogue -->
+<body data-item-id="XX-E-000">
+<header class="top-bar"><a class="site-name" href="/index.html">Leo<span>-et-</span>moi</a>
+<div class="top-icons"><button class="icon-btn" title="Notifications">&#128276;</button></div></header>
+<main class="main">
+<div class="revoir-host"></div>
+<h1><!-- À REMPLIR : titre --></h1>
+<div class="consigne"><button class="t-play" onclick="playClip('XX_c1.mp3',this)" aria-label="Écouter">🔊</button>
+<div>Choisis la bonne réponse — parfois deux réponses sont correctes. Elle se met en place et tu l'entends.
+<span class="en">Choose the right answer — sometimes two are correct. It fills the blank and you hear it.</span></div></div>
+<div id="damier"></div>
+</main>
+<script src="/js/audio.js"></script>
+<script src="/js/leopick.js"></script>
+<script type="module">import { bandeauRevoir } from '/js/ui.js'; bandeauRevoir();</script>
+<script>
+// LeoPick(host, items, opts) — cartes à choix MULTI-RÉPONSES.
+//   item  = { phrase, tag?, options:[ {txt, ok, audio?} ] }
+//           phrase avec ____  -> trou rempli par la bonne réponse ; tag -> pastille.
+//   opts  = { onScore(score,total), onDone(score,total), firstTry }
+//           firstTry (défaut true) = score 1re tentative ; firstTry:false = score simple (leçon).
+//   Multi-correct : si plusieurs ok:true, bannière « ✓ Les N réponses… · All N answers… ».
+//   audio de la BONNE réponse = fichier dans ./audio/ (joué via playClip).
+LeoPick(document.getElementById('damier'), [
+  { phrase: "Il ____ regarde.", tag: "① avant le verbe",
+    options: [ { txt: "me", ok: true, audio: "XX_s1.mp3" },
+               { txt: "te", ok: true, audio: "XX_s2.mp3" },
+               { txt: "moi" }, { txt: "toi" } ] },
+  { phrase: "C'est pour ____.", tag: "② préposition",
+    options: [ { txt: "moi", ok: true, audio: "XX_s3.mp3" },
+               { txt: "me" }, { txt: "te" } ] }
+], { onDone: function (score, total) { /* setLesson ici si progressId / affichage du score final */ } });
+</script>
+<script type="module" src="/js/auth-guard.js"></script>
+<script type="module" src="/js/terminer.js"></script>
+<script type="module" src="/js/imprimer.js"></script>
+</body>
+</html>
