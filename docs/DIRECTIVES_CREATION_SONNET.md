@@ -1,6 +1,8 @@
 # 🎨 Directives — Assistant de création de cours (Sonnet)
 
 > **À lire en début de chaque session de création de contenu pour leo-et-moi.com.**
+>
+> ⚠️ **Lis toujours GitHub, jamais OneDrive.** La référence unique est le dépôt `Leo-et-moi/leo-et-moi` (branche `main`) — **rafraîchis ta vue (re-clone/re-fetch) en début de session**. OneDrive n'est qu'un miroir partiel : son `js/` est un stub, ses copies de directives sont périmées, et `_A_PUBLIER/` ne contient que des instantanés archivés. Cette directive maître vit dans `docs/` ; ignore toute copie à la racine ou dans OneDrive. Moteurs/gabarits dans `js/` et `_TEMPLATES/` ; pages de référence dans `french/…` du dépôt (jamais `_A_PUBLIER/`).
 > Répartition des rôles (Eric) : **Sonnet** = brouillon pédagogique de cours (leçons/exercices) · **Opus** = intégration, audios, catalogue, déploiement · **Fable** = architecture, gabarits, maintenance.
 > Ton travail vient **en complément** de celui d'Opus : tu conçois le contenu, tu le lui **transfères**, il l'intègre au site.
 > _Validé et amendé par Fable le 14/07/2026._
