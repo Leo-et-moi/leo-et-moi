@@ -4,6 +4,16 @@
  "audioBase": "",
  "lecons": [
   {
+   "id": "A2-L-003",
+   "niveau": "A2",
+   "ordre": 81,
+   "titre": "Le comparatif et le superlatif",
+   "chemin": "french/a2/comparatif-superlatif/index.html",
+   "exercices": [],
+   "publie": false,
+   "ajoute": "2026-10-06"
+  },
+  {
    "id": "A1-L-000",
    "niveau": "A1",
    "ordre": 5,
