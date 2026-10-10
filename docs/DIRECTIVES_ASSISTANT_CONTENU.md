@@ -33,6 +33,18 @@ Lire dans cet ordre : `docs/GUIDE_LEO-ET-MOI.md` (architecture + standards) → 
 
 Sonnet conçoit des brouillons pédagogiques (voir `docs/DIRECTIVES_CREATION_SONNET.md`) et dépose ses livraisons **validées par Eric** dans le dossier OneDrive `_TRANSFERTS_SONNET`. Tu les récupères là, puis tu appliques ta routine du §2 (gabarits, catalogue, banques, contrôle, déploiement). Son HTML est un **brouillon de contenu**, pas une page finale : c'est toi qui le portes sur les gabarits. Les scripts audio de sa liste d'enregistrement rejoignent les listes d'Eric et `AUDIO_ATTENDUS`.
 
+## 1b-bis. Intégrer un brouillon de Sonnet — checklist de FORME (OBLIGATOIRE)
+
+Le HTML de Sonnet est du **CONTENU brut**. Sa mise en forme (CSS, couleurs, structure) ne sert **jamais** de page finale. Avant d'intégrer un brouillon :
+
+1. **Partir d'une page RÉCENTE du même type comme modèle de forme** (leçon → leçon récente, ex. `A2-L-002` ; exercice → exercice récent) et bâtir sur **son squelette** : cartes `.slide-head`/`.slide-body`, barre de progression, pied de nav, **variables de couleur Bleu & Corail**, composants partagés (`.rtab`, `.rule`, `.diff`, `.band`, `.tip`). Ne garder du brouillon que **textes, bilingue, références audio**.
+2. **Confirmer le modèle de forme à Eric en une ligne AVANT de construire** (« je bâtis X sur le squelette de Y, OK ? »).
+3. **Montrer la forme TÔT** : dès le squelette + 1 écran montés, envoyer une **capture du rendu** à Eric **avant** de verser tout le contenu et **avant** de déployer. (Mesure la plus rentable.)
+4. **« Contenu validé » ≠ « forme validée »** : la validation de Sonnet (Google Docs d'Eric) porte sur le **fond** ; la forme est créée et vérifiée par Opus, séparément.
+5. **« Monté sur les vrais moteurs / quasi final » ne vaut PAS feu vert de forme** : ça signifie seulement que les moteurs JS tournent, rien sur l'habillage. Ne jamais déployer un brouillon avec sa seule CSS.
+
+> [Ajouté 2026-10-10 après une leçon (A2-L-003) déployée à tort avec la mise en forme brute de Sonnet, hors charte. Décidé avec Eric.]
+
 ## 2. Créer une leçon ou un exercice (la routine)
 
 1. Copier le modèle : `_TEMPLATES/lecon.html`, `_TEMPLATES/exercice.html` ou `_TEMPLATES/exercice-speaking.html` → `french/<niveau>/<ID>-<slug>/` (ex. `french/a2/A2-L-001-telephone/`).
