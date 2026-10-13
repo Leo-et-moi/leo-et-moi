@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "misAJour": "2026-10-11",
+  "misAJour": "2026-10-13",
   "audioBase": "",
   "lecons": [
     {
@@ -9,7 +9,12 @@
       "ordre": 81,
       "titre": "Le comparatif et le superlatif",
       "chemin": "french/a2/comparatif-superlatif/index.html",
-      "exercices": [],
+      "exercices": [
+        "A2-E-010",
+        "A2-E-011",
+        "A2-E-012",
+        "A2-E-013"
+      ],
       "publie": false,
       "ajoute": "2026-10-06"
     },
@@ -861,6 +866,72 @@
       "publie": true,
       "progressId": "A1-E-016",
       "ajoute": "2026-08-29"
+    },
+    {
+      "id": "A2-E-010",
+      "niveau": "A2",
+      "ordre": 82,
+      "titre": "Exercices A2 — Comparatif & superlatif : Niveau 1, Découverte",
+      "chemin": "french/a2/comparatif-superlatif/exercice-1.html",
+      "lecons": [
+        "A2-L-003"
+      ],
+      "competences": [
+        "reading",
+        "listening"
+      ],
+      "publie": false,
+      "ajoute": "2026-10-13"
+    },
+    {
+      "id": "A2-E-011",
+      "niveau": "A2",
+      "ordre": 83,
+      "titre": "Exercices A2 — Comparatif & superlatif : Niveau 2, Entraînement",
+      "chemin": "french/a2/comparatif-superlatif/exercice-2.html",
+      "lecons": [
+        "A2-L-003"
+      ],
+      "competences": [
+        "reading",
+        "listening"
+      ],
+      "publie": false,
+      "ajoute": "2026-10-13"
+    },
+    {
+      "id": "A2-E-012",
+      "niveau": "A2",
+      "ordre": 84,
+      "titre": "Exercices A2 — Comparatif & superlatif : Niveau 3, Maîtrise (écrire + oral)",
+      "chemin": "french/a2/comparatif-superlatif/exercice-3.html",
+      "lecons": [
+        "A2-L-003"
+      ],
+      "competences": [
+        "writing",
+        "speaking",
+        "listening"
+      ],
+      "publie": false,
+      "ajoute": "2026-10-13"
+    },
+    {
+      "id": "A2-E-013",
+      "niveau": "A2",
+      "ordre": 85,
+      "titre": "Exercices A2 — Comparatif & superlatif : Niveau 4, Traduction",
+      "chemin": "french/a2/comparatif-superlatif/exercice-4.html",
+      "lecons": [
+        "A2-L-003"
+      ],
+      "competences": [
+        "reading",
+        "writing",
+        "listening"
+      ],
+      "publie": false,
+      "ajoute": "2026-10-13"
     }
   ],
   "tests": [
