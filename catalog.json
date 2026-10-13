@@ -15,7 +15,7 @@
         "A2-E-012",
         "A2-E-013"
       ],
-      "publie": false,
+      "publie": true,
       "ajoute": "2026-10-06"
     },
     {
@@ -880,7 +880,7 @@
         "reading",
         "listening"
       ],
-      "publie": false,
+      "publie": true,
       "ajoute": "2026-10-13"
     },
     {
@@ -896,7 +896,7 @@
         "reading",
         "listening"
       ],
-      "publie": false,
+      "publie": true,
       "ajoute": "2026-10-13"
     },
     {
@@ -913,7 +913,7 @@
         "speaking",
         "listening"
       ],
-      "publie": false,
+      "publie": true,
       "ajoute": "2026-10-13"
     },
     {
@@ -930,7 +930,7 @@
         "writing",
         "listening"
       ],
-      "publie": false,
+      "publie": true,
       "ajoute": "2026-10-13"
     }
   ],
