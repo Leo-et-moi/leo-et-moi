@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><link rel="stylesheet" href="/css/site.css"><style>
+:root{--navy:#1B2845;--coral:#E8503A;--teal:#0E7C86;--gold:#D4920A;--navyMid:#2C4A7C;--slate:#4A5568;--green:#1E7B45;--red:#C0392B;--rappel:#5A6B7B;}
+.progress-bar{height:7px;background:#e5ded2;border-radius:6px;overflow:hidden;margin:4px 0 16px;}
+.progress-fill{height:100%;background:var(--coral);transition:width .3s;}
+.slide{display:none;}.slide.active{display:block;}
+.slide-head{background:var(--navy);border-radius:12px 12px 0 0;padding:14px 20px 13px;}
+.phrow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;}
+.pbadge{font-size:11px;font-weight:bold;letter-spacing:.5px;text-transform:uppercase;color:#fff;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+.pbadge.rappel{background:var(--rappel);}.pbadge.p1{background:var(--coral);}.pbadge.p2{background:var(--teal);}.pbadge.p3{background:var(--gold);}
+.slide-num{font-size:12px;color:rgba(255,255,255,.6);white-space:nowrap;}
+.slide-title{color:#fff;font-size:21px;font-weight:700;line-height:1.35;}
+.slide-title .st-en{font-weight:normal;font-size:15px;color:rgba(255,255,255,.75);}
+.title-audio{display:inline-block;white-space:nowrap;margin-left:4px;vertical-align:middle;}
+.slide-body{background:#fff;border-radius:0 0 12px 12px;padding:18px 20px;box-shadow:0 2px 8px rgba(0,0,0,.08);border-left:5px solid var(--navy);}
+.body-rappel{border-left-color:var(--rappel);}.body-p1{border-left-color:var(--coral);}.body-p2{border-left-color:var(--teal);}.body-p3{border-left-color:var(--gold);}
+.sec-h{font-size:18px;font-weight:bold;color:var(--navy);margin:6px 0 8px;}
+.block{display:flex;gap:12px;align-items:flex-start;margin:10px 0;}
+.audcol{display:flex;flex-direction:column;gap:6px;align-items:flex-start;flex-shrink:0;}
+.t-fr{position:relative;background:var(--navyMid);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:bold;padding:5px 0;width:64px;text-align:center;cursor:pointer;font-family:Arial;min-height:auto;min-width:auto;}
+.audcol .t-en{width:64px;text-align:center;padding:4px 0;}
+.t-fr::after,.t-en::after{content:"";position:absolute;inset:-9px;}
+.bd{flex:1;min-width:0;}
+.bd .fr{font-size:17px;line-height:1.7;}
+.bd .enx{font-size:15px;color:var(--slate);line-height:1.5;margin-top:5px;}
+.formula{background:#EAF1FB;border-radius:10px;padding:11px 14px;margin:10px 0;font-size:16px;font-weight:bold;color:var(--navy);line-height:1.8;}
+.deg{display:inline-block;background:#EFEFEF;color:var(--navy);font-size:13px;font-weight:bold;border-radius:8px;padding:2px 10px;margin:12px 0 2px;}
+.mini{font-size:15px;font-weight:bold;color:var(--navy);margin:14px 0 4px;}
+.ex-h{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--slate);font-weight:bold;margin:14px 0 4px;}
+.exlabel{font-weight:bold;color:var(--navy);font-size:16px;margin:16px 0 2px;}
+.exbox{background:#FFF6EF;border:1px solid #F0D9CC;border-radius:10px;padding:11px 14px;margin:12px 0;font-size:13.5px;line-height:1.7;}
+.exbox .enx{color:var(--slate);font-size:12.5px;margin-top:4px;}
+.gr{color:var(--slate);font-size:11px;}
+.mentbox{background:#EAF1FB;border-radius:10px;padding:10px 14px;margin:12px 0;}
+.mentbox .block{margin:6px 0;}
+.mentlist{line-height:2;font-size:16px;}
+.lab{color:var(--slate);font-weight:normal;font-size:14px;}
+.tip{background:#F1F8F4;border-left:4px solid var(--green);border-radius:8px;padding:11px 14px;margin:12px 0;font-size:15px;line-height:1.5;}
+.cmp{color:var(--red);font-weight:bold;background:#FFF3A0;border-radius:3px;padding:0 2px;}
+.mu{color:var(--green);font-weight:bold;}
+.li{color:var(--red);font-weight:bold;}
+.xbad{color:var(--red);font-weight:bold;text-decoration:line-through;}
+.ou{color:var(--red);font-weight:bold;}
+.bk{color:var(--teal);font-weight:bold;}
+.rtab{width:100%;border-collapse:collapse;font-size:15px;margin:8px 0;}
+.rtab th{background:var(--navy);color:#fff;font-size:12.5px;font-weight:bold;padding:8px 6px;text-align:center;}
+.rtab td{padding:7px 6px;border-bottom:1px solid #eee;text-align:center;vertical-align:top;}
+.rtab .rl{text-align:left;font-weight:bold;color:var(--navy);}
+.rtab .bl{font-weight:bold;color:var(--teal);font-size:18px;}
+.rtab tr:nth-child(even) td{background:#faf8f4;}
+.rtab.left td,.rtab.left th{text-align:left;}
+.rtab.bangs td:nth-child(2),.rtab.bangs td:nth-child(3),.rtab.bangs th:nth-child(2),.rtab.bangs th:nth-child(3){text-align:left;}
+.rtab.rules td:nth-child(n+2),.rtab.rules th:nth-child(n+2){text-align:left;}
+.rtab td.sub{background:#EDEFF3 !important;font-weight:bold;color:var(--navy);text-align:left;font-size:12px;letter-spacing:.5px;text-transform:uppercase;}
+.ct{color:var(--slate);font-weight:normal;font-size:12px;}
+.en{display:block;text-align:left;font-size:15px;color:var(--slate);margin-top:4px;}
+.slide-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px;}
+.nav-btn{flex:1;max-width:48%;background:#fff;border:1px solid #cfd6e0;color:var(--slate);border-radius:10px;padding:11px 20px;font-size:15px;font-weight:bold;cursor:pointer;font-family:Arial;}
+.nav-btn.nav-next{background:var(--coral);color:#fff;border-color:var(--coral);}
+.nav-counter{text-align:center;font-size:13px;color:var(--slate);margin-top:8px;}
+/* ===== Écran 1 fusionné (scopé) ===== */
+.e1wrap .b-fr{background:var(--navyMid);color:#fff;border:none;border-radius:7px;font-size:13px;font-weight:bold;padding:3px 8px;cursor:pointer;font-family:Arial;vertical-align:middle;}
+.e1wrap .b-en{background:#fff;border:1.4px solid var(--navyMid);color:var(--navyMid);border-radius:7px;font-size:12px;font-weight:bold;padding:2px 7px;cursor:pointer;font-family:Arial;vertical-align:middle;}
+.e1wrap .ititle{background:#EAF1FB;border-left:5px solid var(--navyMid);border-radius:10px;padding:11px 14px;margin:2px 0 16px;}
+.e1wrap .ititle .fr{font-size:16px;font-weight:bold;color:var(--navy);line-height:1.5;}
+.e1wrap .ititle .enx{font-size:14px;color:var(--slate);margin-top:5px;}
+.e1wrap .sech{background:#FFF1EC;border-left:5px solid var(--coral);border-radius:10px;padding:10px 13px;margin:18px 0 10px;}
+.e1wrap .sech .fr{font-size:14px;color:var(--navy);line-height:1.6;}
+.e1wrap .sech .fr b{font-size:16px;}
+.e1wrap .sech .enx{font-size:14px;color:var(--slate);line-height:1.5;margin-top:5px;}
+.e1wrap .rappel{background:#EDEFF3;border-radius:8px;padding:7px 12px;margin:14px 0 8px;font-weight:bold;color:var(--navy);font-size:13px;letter-spacing:1px;text-transform:uppercase;}
+.e1wrap .rappel .rsub{text-transform:none;letter-spacing:0;font-weight:bold;font-size:14px;margin-left:8px;}
+.e1wrap .grp{border-radius:10px;padding:10px 12px;margin:10px 0;}
+.e1wrap .grp-a{background:#EAF1FB;border-left:4px solid var(--navyMid);}
+.e1wrap .grp-b{background:#FFF6EF;border-left:4px solid var(--coral);}
+.e1wrap .grp .gr-fr{font-size:14px;line-height:1.55;}
+.e1wrap .grp .gr-en{font-size:14px;color:var(--slate);line-height:1.45;margin-top:4px;margin-bottom:8px;}
+.e1wrap .grp .note{font-size:14px;margin-top:8px;line-height:1.5;color:#3a3a3a;}
+.e1wrap .exbox{background:#FBF4EA;border:1px solid #E7DCC7;border-radius:10px;padding:10px 13px;margin:12px 0;font-size:14px;line-height:1.7;}
+.e1wrap .exbox .enx{color:var(--slate);font-size:14px;margin-top:4px;}
+.e1wrap .gr{color:var(--slate);font-size:11px;}
+.e1wrap .exlab{font-weight:bold;color:var(--navy);font-size:15px;margin:16px 0 4px;}
+.e1wrap .exsm{margin:8px 0;}
+.e1wrap .exsm .fr{font-size:14px;line-height:1.7;}
+.e1wrap .exsm .enx{font-size:14px;color:var(--slate);margin-top:3px;}
+.e1wrap .atab{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 2px;background:#fff;border-radius:6px;overflow:hidden;}
+.e1wrap .atab th{background:var(--navy);color:#fff;font-size:11.5px;font-weight:bold;padding:6px 6px;text-align:left;}
+.e1wrap .atab td{padding:6px 6px;border-bottom:1px solid #eee;text-align:left;background:#fff;}
+.e1wrap .atab tr:nth-child(even) td{background:#eef1f6;}
+.e1wrap .atab th.ta,.e1wrap .atab td.ta{text-align:right;white-space:nowrap;width:44px;}
+.e1wrap .kw{color:var(--red);font-weight:bold;}
+.e1wrap .pc{color:var(--red);font-weight:normal;}
+</style><style>
+.t-en{position:relative;background:#fff;border:1.5px solid var(--navyMid);color:var(--navyMid);border-radius:8px;font-size:14px;font-weight:bold;padding:4px 10px;cursor:pointer;vertical-align:middle;font-family:Arial;min-height:auto;min-width:auto;}
+.title-audio .t-en{padding:4px 8px;}
+.done{width:100%;padding:16px;margin-top:18px;background:var(--green);color:#fff;border:none;border-radius:14px;font-size:17px;font-weight:bold;font-family:Arial;cursor:pointer;min-height:58px;}
+</style></head><body><div class="main"><p style="color:#8a7f66">⚠️ Archive — anciens écrans 1a et 1b (remplacés par le nouvel Écran 1 fusionné le 2026-10-15). Conservés de côté en attendant décision Eric.</p><div class="slide" id="slide-1a"><div class="slide-head"><div class="phrow"><span class="pbadge rappel">Avant de commencer · Before starting</span><span class="slide-num">Écran 1a / 10</span></div><div class="slide-title">Reconnaître l'adjectif <span class="st-en">· Recognising the adjective</span><span class="title-audio"><button class="t-en" onclick="playClip('cs_l_1a_titre.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1a_titre_en.mp3',this)">🔊 EN</button></span></div></div><div class="slide-body body-rappel"><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1a_def.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1a_def_en.mp3',this)">🔊 EN</button></div><div class="bd"><div class="fr">L'adjectif donne une information sur un nom, il apporte une précision. Il s'accorde généralement avec lui en genre (masculin ou féminin) et en nombre (singulier ou pluriel).</div><div class="enx">An adjective gives information about a noun; it adds a detail. It usually agrees with the noun in gender (masculine or feminine) and number (singular or plural).</div></div></div><div class="exbox">Un gâteau <span class="gr">(nom)</span> délicieux <span class="gr">(adjectif)</span>. → Des crêpes <span class="gr">(nom)</span> délicieuses <span class="gr">(adjectif)</span>.<div class="enx">A delicious cake. → Some delicious crepes.</div></div><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1a_consigne.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1a_consigne_en.mp3',this)">🔊 EN</button></div><div class="bd"><div class="fr">Ces adjectifs permettent de comparer des qualités :</div><div class="enx">These adjectives let you compare qualities:</div></div></div><table class="rtab left"><tr><th>Masc. sing.</th><th>Fém. sing.</th><th>Masc. plur.</th><th>Fém. plur.</th></tr><tr><td>grand</td><td>grande</td><td>grands</td><td>grandes</td></tr><tr><td>délicieux</td><td>délicieuse</td><td>délicieux</td><td>délicieuses</td></tr><tr><td>rapide</td><td>rapide</td><td>rapides</td><td>rapides</td></tr><tr><td>simple</td><td>simple</td><td>simples</td><td>simples</td></tr><tr><td>heureux</td><td>heureuse</td><td>heureux</td><td>heureuses</td></tr></table><div class="tip">⚠️ <b>rapide</b> et <b>simple</b> ont la même forme au masculin et au féminin, mais prennent un <b>-s</b> au pluriel ; <b>délicieux</b> a la même forme au masculin singulier et au masculin pluriel.<span class="en">rapide and simple have the same masculine and feminine form, but take an -s in the plural; délicieux has the same form in the masculine singular and masculine plural.</span></div><div class="exlabel">Adjectif :</div><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1a_ex1.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1a_ex1_en.mp3',this)">🔊 EN</button></div><div class="bd"><div class="fr">Cette recette est <span class="cmp">plus</span> simple <span class="cmp">que</span> l'autre. <span class="lab">(comparatif)</span></div><div class="enx">This recipe is simpler than the other one. (comparative)</div></div></div><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1a_ex2.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1a_ex2_en.mp3',this)">🔊 EN</button></div><div class="bd"><div class="fr">Ce sont les recettes <span class="cmp">les plus</span> simples du livre. <span class="lab">(superlatif)</span></div><div class="enx">They are the simplest recipes in the book. (superlative)</div></div></div></div></div><div class="slide" id="slide-1b"><div class="slide-head"><div class="phrow"><span class="pbadge rappel">Avant de commencer · Before starting</span><span class="slide-num">Écran 1b / 10</span></div><div class="slide-title">Reconnaître l'adverbe <span class="st-en">· Recognising the adverb</span><span class="title-audio"><button class="t-en" onclick="playClip('cs_l_1b_titre.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1b_titre_en.mp3',this)">🔊 EN</button></span></div></div><div class="slide-body body-rappel"><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1b_def.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1b_def_en.mp3',this)">🔊 EN</button></div><div class="bd"><div class="fr">L'adverbe précise le sens d'un verbe, d'un adjectif ou d'un autre adverbe. Il est généralement invariable. Dans cette leçon, nous utiliserons surtout des adverbes qui comparent la manière de faire une action.</div><div class="enx">An adverb refines the meaning of a verb, an adjective or another adverb. It is usually invariable. In this lesson we will mostly use adverbs that compare how an action is done.</div></div></div><div class="exbox">Paul parle <span class="gr">(verbe)</span> lentement <span class="gr">(adverbe)</span>. → Paul et Léa parlent <span class="gr">(verbe)</span> lentement <span class="gr">(adverbe)</span>.<div class="enx">Paul speaks slowly. → Paul and Léa speak slowly.</div></div><table class="rtab"><tr><th>Adverbe</th><th>Exemple au comparatif</th></tr><tr><td class="rl">vite</td><td style="text-align:left">Léa court <span class="cmp">plus</span> vite <span class="cmp">que</span> Paul.</td></tr><tr><td class="rl">lentement</td><td style="text-align:left">Paul parle <span class="cmp">plus</span> lentement <span class="cmp">que</span> Léa.</td></tr><tr><td class="rl">souvent</td><td style="text-align:left">Léa cuisine <span class="cmp">plus</span> souvent <span class="cmp">que</span> Paul.</td></tr><tr><td class="rl">facilement</td><td style="text-align:left">Paul apprend <span class="cmp">plus</span> facilement <span class="cmp">que</span> Léa.</td></tr><tr><td class="rl">simplement</td><td style="text-align:left">Léa explique <span class="cmp">plus</span> simplement <span class="cmp">que</span> Paul.</td></tr></table><div class="mentbox"><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1b_ment.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1b_ment_en.mp3',this)">🔊 EN</button></div><div class="bd"><div class="fr"><b>Comment former les adverbes en -ment ?</b> À partir du féminin de l'adjectif + -ment :</div><div class="enx">How are -ment adverbs formed? From the feminine of the adjective + -ment.</div></div></div><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1b_ment_ex.mp3',this)" aria-label="Ecouter">🔊</button></div><div class="bd"><div class="fr"><div class="mentlist">grand → grande → <b>grandement</b><br>heureux → heureuse → <b>heureusement</b><br>simple → simple → <b>simplement</b></div></div></div></div></div><div class="sec-h" style="margin-top:18px">À retenir pour comparer</div><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1b_ret_adj.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1b_ret_adj_en.mp3',this)">🔊 EN</button></div><div class="bd"><div class="fr"><b>Adjectif</b> : Cette voiture est <span class="cmp">plus</span> rapide <span class="cmp">que</span> l'autre <span class="lab">(comparatif)</span><br>→ C'est <span class="cmp">la plus</span> rapide <span class="lab">(superlatif)</span>.</div><div class="enx">Adjective: This car is faster than the other (comparative)<br>→ It is the fastest (superlative).</div></div></div><div class="block"><div class="audcol"><button class="t-fr" onclick="playClip('cs_l_1b_ret_adv.mp3',this)" aria-label="Ecouter">🔊</button><button class="t-en" onclick="playClip('cs_l_1b_ret_adv_en.mp3',this)">🔊 EN</button></div><div class="bd"><div class="fr"><b>Adverbe</b> : Léa court <span class="cmp">plus</span> vite <span class="cmp">que</span> Paul <span class="lab">(comparatif)</span><br>→ Dans ce groupe, c'est Léa qui court <span class="cmp">le plus</span> vite <span class="lab">(superlatif)</span>.</div><div class="enx">Adverb: Léa runs faster than Paul (comparative)<br>→ In this group, Léa runs the fastest (superlative).</div></div></div></div></div></div></body></html>

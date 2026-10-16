@@ -1,23 +1,8 @@
 {
   "version": 2,
-  "misAJour": "2026-10-13",
+  "misAJour": "2026-10-15",
   "audioBase": "",
   "lecons": [
-    {
-      "id": "A2-L-003",
-      "niveau": "A2",
-      "ordre": 81,
-      "titre": "Le comparatif et le superlatif",
-      "chemin": "french/a2/comparatif-superlatif/index.html",
-      "exercices": [
-        "A2-E-010",
-        "A2-E-011",
-        "A2-E-012",
-        "A2-E-013"
-      ],
-      "publie": true,
-      "ajoute": "2026-10-06"
-    },
     {
       "id": "A1-L-000",
       "niveau": "A1",
@@ -147,6 +132,21 @@
       "publie": true,
       "progressId": "A1-L-005",
       "ajoute": "2026-08-29"
+    },
+    {
+      "id": "B1-L-002",
+      "niveau": "B1",
+      "ordre": 20,
+      "titre": "Le comparatif et le superlatif",
+      "chemin": "french/b1/comparatif-superlatif/index.html",
+      "exercices": [
+        "B1-E-007",
+        "B1-E-008",
+        "B1-E-009",
+        "B1-E-010"
+      ],
+      "publie": true,
+      "ajoute": "2026-10-15"
     }
   ],
   "exercices": [
@@ -868,45 +868,45 @@
       "ajoute": "2026-08-29"
     },
     {
-      "id": "A2-E-010",
-      "niveau": "A2",
-      "ordre": 82,
-      "titre": "Exercices A2 — Comparatif & superlatif : Niveau 1, Découverte",
-      "chemin": "french/a2/comparatif-superlatif/exercice-1.html",
+      "id": "B1-E-007",
+      "niveau": "B1",
+      "ordre": 21,
+      "titre": "Exercices B1 — Comparatif & superlatif : Niveau 1, Découverte",
+      "chemin": "french/b1/comparatif-superlatif/exercice-1.html",
       "lecons": [
-        "A2-L-003"
+        "B1-L-002"
       ],
       "competences": [
         "reading",
         "listening"
       ],
       "publie": true,
-      "ajoute": "2026-10-13"
+      "ajoute": "2026-10-15"
     },
     {
-      "id": "A2-E-011",
-      "niveau": "A2",
-      "ordre": 83,
-      "titre": "Exercices A2 — Comparatif & superlatif : Niveau 2, Entraînement",
-      "chemin": "french/a2/comparatif-superlatif/exercice-2.html",
+      "id": "B1-E-008",
+      "niveau": "B1",
+      "ordre": 22,
+      "titre": "Exercices B1 — Comparatif & superlatif : Niveau 2, Entraînement",
+      "chemin": "french/b1/comparatif-superlatif/exercice-2.html",
       "lecons": [
-        "A2-L-003"
+        "B1-L-002"
       ],
       "competences": [
         "reading",
         "listening"
       ],
       "publie": true,
-      "ajoute": "2026-10-13"
+      "ajoute": "2026-10-15"
     },
     {
-      "id": "A2-E-012",
-      "niveau": "A2",
-      "ordre": 84,
-      "titre": "Exercices A2 — Comparatif & superlatif : Niveau 3, Maîtrise (écrire + oral)",
-      "chemin": "french/a2/comparatif-superlatif/exercice-3.html",
+      "id": "B1-E-009",
+      "niveau": "B1",
+      "ordre": 23,
+      "titre": "Exercices B1 — Comparatif & superlatif : Niveau 3, Maîtrise (écrire + oral)",
+      "chemin": "french/b1/comparatif-superlatif/exercice-3.html",
       "lecons": [
-        "A2-L-003"
+        "B1-L-002"
       ],
       "competences": [
         "writing",
@@ -914,16 +914,16 @@
         "listening"
       ],
       "publie": true,
-      "ajoute": "2026-10-13"
+      "ajoute": "2026-10-15"
     },
     {
-      "id": "A2-E-013",
-      "niveau": "A2",
-      "ordre": 85,
-      "titre": "Exercices A2 — Comparatif & superlatif : Niveau 4, Traduction",
-      "chemin": "french/a2/comparatif-superlatif/exercice-4.html",
+      "id": "B1-E-010",
+      "niveau": "B1",
+      "ordre": 24,
+      "titre": "Exercices B1 — Comparatif & superlatif : Niveau 4, Traduction",
+      "chemin": "french/b1/comparatif-superlatif/exercice-4.html",
       "lecons": [
-        "A2-L-003"
+        "B1-L-002"
       ],
       "competences": [
         "reading",
@@ -931,7 +931,7 @@
         "listening"
       ],
       "publie": true,
-      "ajoute": "2026-10-13"
+      "ajoute": "2026-10-15"
     }
   ],
   "tests": [
